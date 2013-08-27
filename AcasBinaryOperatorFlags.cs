@@ -1,5 +1,5 @@
 //
-//  ZincData.cs
+//  AcasBinaryOperatorFlags.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,10 +20,12 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc {
-	public class ZincData {
-		public ZincData () {
-		}
-	}
-}
+namespace ZincOxide {
 
+	[Flags]
+	public enum AcasBinaryOperatorFlags : ulong {
+		Commutative		= 0x00000000000001,
+		Associative		= 0x00000000000002
+	}
+
+}

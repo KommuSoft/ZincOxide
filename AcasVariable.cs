@@ -23,7 +23,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide {
 
-	public class AcasVariable : AcasIExpression {
+	public class AcasVariable : AcasExpressionBase {
 
 		private string name;
 
@@ -43,20 +43,12 @@ namespace ZincOxide {
 			return this.name;
 		}
 
-		#region AcasIExpression implementation
-		public bool Validate () {
-			return true;
-		}
-
-		public IEnumerable<AcasVariable> Variables () {
-			return this.Variables (new HashSet<AcasIExpression> ());
-		}
-
-		public IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited) {
+		#region implemented abstract members of ZincOxide.AcasExpressionBase
+		public override IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited) {
 			yield return this;
-			visited.Add (this);
 		}
 		#endregion
+
 
 	}
 

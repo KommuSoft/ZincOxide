@@ -1,5 +1,5 @@
 //
-//  ZincData.cs
+//  AcasType.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,10 +20,24 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc {
-	public class ZincData {
-		public ZincData () {
+namespace ZincOxide {
+
+	public class AcasType {
+
+		private long type;
+
+		public long Type {
+			get {
+				return type;
+			}
+			set {
+				type = value;
+			}
 		}
+
+
+
+
 	}
 }
 

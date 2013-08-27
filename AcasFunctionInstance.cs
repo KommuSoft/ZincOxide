@@ -19,10 +19,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
 namespace ZincOxide {
 
-	public class AcasFunctionInstance : AcasIExpression {
+	public class AcasFunctionInstance : AcasExpressionBase {
 
 		private AcasIExpression[] arguments;
 		private AcasFunction function;
@@ -41,19 +42,19 @@ namespace ZincOxide {
 		public AcasFunctionInstance () {
 		}
 
-		#region AcasIExpression implementation
-		public bool Validate () {
-			throw new System.NotImplementedException ();
-		}
-
-		public System.Collections.Generic.IEnumerable<AcasVariable> Variables () {
-			throw new System.NotImplementedException ();
-		}
-
-		public System.Collections.Generic.IEnumerable<AcasVariable> Variables (System.Collections.Generic.ISet<AcasIExpression> visited) {
-			throw new System.NotImplementedException ();
+		#region implemented abstract members of ZincOxide.AcasExpressionBase
+		public override IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited) {
+			foreach (AcasIExpression exp in this.arguments) {
+				if (visited.Contains (exp)) {
+					foreach (AcasVariable v in exp.Variables(visited)) {
+						yield return v;
+					}
+					visited.Add (exp);
+				}
+			}
 		}
 		#endregion
+
 
 	}
 }

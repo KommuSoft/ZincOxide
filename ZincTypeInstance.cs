@@ -1,5 +1,5 @@
 //
-//  ZincData.cs
+//  ZincTypeInstance.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -21,9 +21,36 @@
 using System;
 
 namespace ZincOxide.MiniZinc {
-	public class ZincData {
-		public ZincData () {
-		}
-	}
-}
 
+	public struct ZincTypeInstance {
+
+		private ulong data;
+
+		public ulong Data {
+			get {
+				return this.data;
+			}
+		}
+
+		public ZincType ZincType {
+			get {
+				return new ZincType (this.Data & 0x7fffffffffffffff);
+			}
+		}
+
+		public ZincInstance ZincInstance {
+			get {
+				return (ZincInstance)(this.data >> 0x3f);
+			}
+		}
+
+		public ZincTypeInstance (ZincInstance instance, ZincType type) {
+			this.data = (((ulong)instance) << 0x3f) | type.Data;
+		}
+
+		public ZincTypeInstance (ZincType type, ZincInstance instance) : this(instance,type) {
+		}
+
+	}
+
+}

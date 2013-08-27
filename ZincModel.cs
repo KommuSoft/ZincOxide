@@ -21,7 +21,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ZincOxide {
+namespace ZincOxide.MiniZinc {
 
 	public class ZincModel : List<ZincItem> {
 

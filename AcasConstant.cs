@@ -24,8 +24,23 @@ namespace ZincOxide {
 
 	public class AcasConstant : AcasFunction {
 
+		#region implemented abstract members of ZincOxide.AcasFunction
+		public override bool IsOperator {
+			get {
+				return false;
+			}
+		}
+
+		public override int Arity {
+			get {
+				return 0x00;
+			}
+		}
+		#endregion
+
 		public AcasConstant (string name) : base(name) {
 		}
+
 
 	}
 }

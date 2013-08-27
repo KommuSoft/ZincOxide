@@ -1,0 +1,22 @@
+2013-08-27  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* jobshop.mzn:
+	* ZincItem.cs:
+	* ZincData.cs:
+	* ZincType.cs:
+	* AcasType.cs:
+	* ZincModel.cs:
+	* ZincScalar.cs:
+	* ZincCompound.cs:
+	* ZincInstance.cs:
+	* ZincEnumItem.cs:
+	* jobshop2x2.data:
+	* AcasConstant.cs:
+	* AcasVariable.cs:
+	* AcasOperator.cs:
+	* ZincIdentifier.cs:
+	* ZincTypeInstance.cs:
+	* AcasGenericFunction.cs:
+	* AcasFunctionInstance.cs:
+	* AcasBinaryOperatorFlags.cs: 
+

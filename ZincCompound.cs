@@ -20,10 +20,10 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.MiniZinc {
 	public enum ZincCompound : byte {
-		Set		= 0x00,
-		Array	= 0x01
+		Set		= 0x01,
+		Array	= 0x02
 	}
 }
 

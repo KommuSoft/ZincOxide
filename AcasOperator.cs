@@ -21,9 +21,30 @@
 using System;
 
 namespace ZincOxide {
-	public class AcasOperator {
-		public AcasOperator () {
-		}
-	}
-}
+	public class AcasOperator : AcasFunction {
 
+		#region implemented abstract members of ZincOxide.AcasFunction
+		public override bool IsOperator {
+			get {
+				return true;
+			}
+		}
+
+		public override int Arity {
+			get {
+				return 0x02;
+			}
+		}
+		public override string RepresentationName {
+			get {
+				return string.Format ("`{0}`", this.Name);
+			}
+		}
+		#endregion
+
+		public AcasOperator (string name) : base(name) {
+		}
+
+	}
+
+}
