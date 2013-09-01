@@ -24,9 +24,13 @@ namespace ZincOxide.MiniZinc {
 
 	public interface ZincINamespace {
 
-		void registerName (ZincIName namedObject);
+		void RegisterName (ZincIName namedObject);
 
-		T retrieve<T> (string name) where T : ZincIName;
+		T Retrieve<T> (string name) where T : ZincIName;
+
+		bool TryRetrieve<T> (string name, out T val) where T : ZincIName;
+
+		bool Contains (string name);
 
 	}
 

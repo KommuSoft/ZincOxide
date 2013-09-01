@@ -1,5 +1,5 @@
 //
-//  ZincNamespace.cs
+//  ZincScopeBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,53 +19,67 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincNamespace : ZincINamespace {
+	public class ZincScopeBase : ZincIScope {
 
-		private readonly Dictionary<string,ZincIName> names;
+		private readonly ZincINamespace space = new ZincNamespace ();
+		private ZincIScope parent;
 
-		public ZincNamespace () {
+		#region ZincIScope implementation
+		public ZincINamespace Namespace {
+			get {
+				return this.space;
+			}
+		}
+
+		public ZincIScope Parent {
+			get {
+				return this.parent;
+			}
+			internal set {
+				this.parent = value;
+			}
+		}
+		#endregion
+
+		public ZincScopeBase () {
 		}
 
 		#region ZincINamespace implementation
 		public void RegisterName (ZincIName namedObject) {
-			if (namedObject != null && namedObject.Name != null && namedObject.Name != string.Empty) {
-				this.names.Add (namedObject.Name, namedObject);
-			}
+			this.Namespace.RegisterName (namedObject);
 		}
 
 		public T Retrieve<T> (string name) where T : ZincIName {
-			ZincIName zn;
-			if (this.names.TryGetValue (name, out zn)) {
-				if (zn is T) {
-					return (T)zn;
-				} else {
-					throw new ZincParseException ("Expected \"{0}\" to be of type \"{1}\", but was \"{2}\"", name, typeof(T), zn.GetType ());
-				}
+			T val;
+			if (this.space.TryRetrieve (name, out val)) {
+				return val;
+			} else if (this.parent != null) {
+				return this.parent.Retrieve<T> (name);
 			} else {
-				throw new ZincParseException ("Element \"{0}\" not in the scope.", name);
+				return default(T);
 			}
-		}
-
-		public bool TryRetrieve<T> (string name, out T val) where T : ZincIName {
-			ZincIName zn;
-			if (this.names.TryGetValue (name, out zn)) {
-				if (zn is T) {
-					val = (T)zn;
-					return true;
-				}
-			}
-			val = default(T);
-			return false;
 		}
 
 		public bool Contains (string name) {
-			return this.names.ContainsKey (name);
+			return this.space.Contains (name);
+		}
+
+		public bool TryRetrieve<T> (string name, out T val) where T : ZincIName {
+			if (this.space.TryRetrieve (name, out val)) {
+				return true;
+			} else if (this.parent != null) {
+				return this.parent.TryRetrieve<T> (name, out val);
+			} else {
+				return false;
+			}
 		}
 		#endregion
+
+
+
 
 	}
 

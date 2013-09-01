@@ -1,5 +1,13 @@
 2013-09-01  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ZincScope.cs:
+	* ZincIScope.cs:
+	* ZincNamespace.cs:
+	* ZincScopeBase.cs:
+	* ZincINamespace.cs: 
+
+2013-09-01  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincItem.cs:
 	* ZincIName.cs:
 	* ZincScope.cs:
