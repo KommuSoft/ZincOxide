@@ -10,11 +10,11 @@
  *  Process with > gppg /nolines RealTree.y
  */
 
-%namespace MiniZinc
+%namespace ZincOxide.MiniZinc
 %output=MiniZincParser.cs 
 %partial 
 %sharetokens
-%start ti-expr
+%start model
 
 /*
  * The accessibility of the Parser object must not exceed that
@@ -30,7 +30,7 @@
 
 %YYSTYPE RealTree.Node
 
-/*%token LITERAL  
+%token LITERAL  
 %token LETTER
 %token PRINT
 %token EVAL
@@ -39,7 +39,7 @@
 %token HELP
 %token EOL
 
-%left '+' '-'
+/*%left '+' '-'
 %left '*' '/' '%'
 %left UMINUS*/
 
@@ -76,57 +76,20 @@ expr
 			}
 	;*/
 
-ti-expr
-	: '(' ti-expr ':' ident 'where' expr ')'
-	| base-ti-expr
+model
+	:
+	| item modelTail
 	;
 
-base-ti-expr
-	: var-par base-ti-expr-tail
+modelTail
+	:
+	| ";"
+	| ";" item modelTail
 	;
 
-var-par
-	: 'var'
-	| 'par'
-	|
+item
+	: "a"
 	;
-
-base-ti-expr-tail
-	: ident
-	| 'bool'
-	| 'int'
-	| 'float'
-	| 'string'
-	| set-ti-expr-tail
-	| array-ti-expr-tail
-	| tuple-ti-expr-tail
-	| record-ti-expr-tail
-	| ti-variable-expr-tail
-	| 'ann'
-	| op-ti-expr-tail
-	| '{' expr '}' //TODO: list of expressions
-	| num-expr '..' num-expr
-	;
-
-set-ti-expr-tail
-	: "set of " ti-expr
-	;
-
-array-ti-expr-tail
-	: "array [" ti-expr "] of " ti-expr
-	| "list of " ti-expr
-	;
-
-tuple-ti-expr-tail
-	: "tuple (" ti-expr ")"
-	;
-
-record-ti-expr-tail
-	: "record (" ti-expr-and-id ")"
-	;
-
-ti-variable-expr-tail
-	: ( "any" )?
 
 %%
 /*

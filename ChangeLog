@@ -1,5 +1,9 @@
 2013-09-01  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* MiniZinc.bison: 
+
+2013-09-01  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* Manpage.txt:
 	* MiniZinc.cs:
 	* AcasType.cs:
