@@ -1,5 +1,5 @@
 //
-//  ZincItem.cs
+//  ZincIName.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,11 +22,12 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public abstract class ZincItem {
+	public interface ZincIName {
 
-		public ZincItem () {
+		string Name {
+			get;
 		}
 
 	}
-
 }
+

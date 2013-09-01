@@ -1,5 +1,5 @@
 //
-//  ZincItem.cs
+//  ZincFunction.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,11 +22,11 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public abstract class ZincItem {
+	public class ZincFunction : ZincNameBase {
 
-		public ZincItem () {
+		public ZincFunction (string name) : base(name) {
 		}
 
 	}
-
 }
+

@@ -1,5 +1,23 @@
 2013-09-01  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ZincItem.cs:
+	* ZincIName.cs:
+	* ZincScope.cs:
+	* ZincModel.cs:
+	* MiniZinc.bison:
+	* ZincNameBase.cs:
+	* ZincFunction.cs:
+	* ZincPredicate.cs:
+	* ZincException.cs:
+	* ZincNamespace.cs:
+	* MiniZincParser.cs:
+	* ZincINamespace.cs:
+	* ZincVarDeclItem.cs:
+	* ZincParseException.cs:
+	* ZincGlobalVariable.cs: 
+
+2013-09-01  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* MiniZinc.bison: 
 
 2013-09-01  Willem Van Onsem  <vanonsem.willem@gmail.com>

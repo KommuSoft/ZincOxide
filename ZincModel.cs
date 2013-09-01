@@ -23,10 +23,14 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincModel : List<ZincItem> {
+	public class ZincModel {
 
 		public ZincModel () {
 
+		}
+
+
+		public void AddZincItem (ZincItem item) {
 		}
 
 	}

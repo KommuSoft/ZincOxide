@@ -1,5 +1,5 @@
 //
-//  ZincItem.cs
+//  ZincGlobalVariable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,11 +22,10 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public abstract class ZincItem {
+	public class ZincGlobalVariable : ZincNameBase {
 
-		public ZincItem () {
+		public ZincGlobalVariable (string name) :base(name) {
 		}
-
 	}
-
 }
+

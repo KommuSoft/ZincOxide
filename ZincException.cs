@@ -1,5 +1,5 @@
 //
-//  ZincItem.cs
+//  ZincException.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,11 +22,16 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public abstract class ZincItem {
+	public class ZincException : Exception {
 
-		public ZincItem () {
+		public ZincException () : base() {
+		}
+
+		public ZincException (string message) : base(message) {
+		}
+
+		public ZincException (string format, params object[] args) : base(string.Format(format,args)) {
 		}
 
 	}
-
 }

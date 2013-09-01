@@ -1,5 +1,5 @@
 //
-//  ZincItem.cs
+//  ZincNamespace.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,12 +19,34 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public abstract class ZincItem {
+	public class ZincNamespace : ZincINamespace {
 
-		public ZincItem () {
+		private readonly Dictionary<string,ZincIName> names;
+
+		public ZincNamespace () {
+		}
+
+		public void registerName (ZincIName namedObject) {
+			if (namedObject != null && namedObject.Name != null && namedObject.Name != string.Empty) {
+				this.names.Add (namedObject.Name, namedObject);
+			}
+		}
+
+		public T retrieve<T> (string name) where T : ZincIName {
+			ZincIName zn;
+			if (this.names.TryGetValue (name, out zn)) {
+				if (zn is T) {
+					return (T)zn;
+				} else {
+					throw new ZincParseException ("Expected \"{0}\" to be of type \"{1}\", but was \"{2}\"", name, typeof(T), zn.GetType ());
+				}
+			} else {
+				throw new ZincParseException ("Element \"{0}\" not in the scope.", name);
+			}
 		}
 
 	}
