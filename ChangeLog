@@ -1,3 +1,15 @@
+2013-09-02  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* ZincType.cs:
+	* MiniZinc.lex:
+	* SetLiteral.cs:
+	* FloatRange.cs:
+	* MiniZinc.bison:
+	* IntegerRange.cs:
+	* ZincCompound.cs:
+	* ZincTotalOrder.cs:
+	* ZincTypeInstance.cs: 
+
 2013-09-01  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
 	* ZincScope.cs:

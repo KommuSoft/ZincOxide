@@ -1,5 +1,5 @@
 //
-//  ZincCompound.cs
+//  SetLiteral.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,14 +19,20 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public enum ZincCompound : byte {
-		None	= 0x00,
-		Set		= 0x01,
-		Array	= 0x02
-	}
+	public class SetLiteral {
 
+		private HashSet<int> values = new HashSet<int> ();
+
+		public SetLiteral (IEnumerable<int> values) {
+			this.values.UnionWith (values);
+		}
+		public SetLiteral (params int[] values) : base(values) {
+		}
+
+	}
 }
 

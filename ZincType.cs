@@ -39,15 +39,48 @@ namespace ZincOxide.MiniZinc {
 			}
 		}
 
+		public bool IsScalar {
+			get {
+				return (this.data / 0x03) == 0x00;
+			}
+		}
+
+		public bool IsCompound {
+			get {
+				return !this.IsScalar;
+			}
+		}
+
+		public bool IsFinite {
+			get {
+				return (this.IsScalar && this.Scalar == ZincScalar.Boolean) || (this.IsCompound && this.InnerType.IsFinite);
+			}
+		}
+
 		public ulong Data {
 			get {
 				return this.data;
 			}
 		}
 
-		public ZincScalar InnerType {
+		public ZincScalar Scalar {
 			get {
 				return (ZincScalar)(this.data % 0x03);
+			}
+		}
+
+		public ZincType InnerType {
+			get {
+				ulong val = this.data % 0x03;
+				ulong sub = (this.data - val) / 0x03;
+				sub -= sub % 0x03;
+				return new ZincType (val + sub);
+			}
+		}
+
+		public ZincCompound OuterCompound {
+			get {
+				return (ZincCompound)((this.data / 0x03) % 0x03);
 			}
 		}
 

@@ -1,35 +1,21 @@
 %namespace ZincOxide.MiniZinc
 %option verbose, summary, noparser
 
-kwAny any
-kwType type
-kwEnum enum
-kwInclude include
-kwConstraint constraint
-kwSolve solve
-kwSatisfy satisfy
-kwMinimize minimize
-kwMaximize maximize
-kwOutput output
-kwAnnotation annotation
-kwPredicate predicate
-kwTest test
-kwFunction function
-kwWhere where
-kwVar var
-kwPar par
-ident [A-Za-z][A-Za-z0-9_]*
+BOOLLIT	true|false
+INTLIT	[0-9]+|0x[0-9a-fA-F]+|0o[0-7]+
+FLOATLIT [0-9]+\.[0-9]+|[0-9]+\.[0-9]+[Ee][-+]?[0-9]+|[0-9]+[Ee][-+]?[0-9]+
+IDENT [A-Za-z][A-Za-z0-9_]*
 
 %%
 
-{ident}   Console.WriteLine(yytext);
+{IDENT}   Console.WriteLine(yytext);
 
 %%
 public static void Main(string[] argp) {
 	Console.WriteLine("This is ZincOxide version 0.1 (2013)");
 	if (argp.Length == 0) {
 		Console.WriteLine("Usage: [options] file");
-		Console.WriteLine("Type \"zincoxide /help\" for more information.");
+		Console.WriteLine("Type \"zincoxide --help\" for more information.");
 	}
 	DirectoryInfo dirInfo = new DirectoryInfo(".");
 	for (int i = 0; i < argp.Length; i++) {

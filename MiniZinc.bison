@@ -30,26 +30,192 @@
 
 %YYSTYPE RealTree.Node
 
-%token IDENTIFIER
-%token EOF
-%token ITEMSEP
+%token IDENT ITEMSEP OPENBR CLOSBR VARKW PARKW WHEREKW BOOLKW INTKW FLOATKW COLON COMMA ACCENT UNDERSCORE BOOLLIT INTLIT FLOATLIT EQUIV IMPL RIMPL VEE XORKW WEDGE LT GT LE GE EQ ASSIGNMENT NEQ INKW SUBSETKW SUPERSETKW UNIONKW DIFFKW SYMDIFFKW INTERVAL INTERSECTKW INCREMENT NOTKW ADDOP SUBOP MULOP DIVOP DIVKW MODKW EOF
 
 %%
 
 model
-	:	EOF 					{} /*empty */
-	|	item modelTail EOF		{}
+	:	EOF					 							{} /*empty */
+	|	item modelTail EOF								{}
 	;
 
 item
-	: IDENTIFIER				{}
+	: IDENT												{}
 	;
 
 modelTail
-	:							{}
-	| ITEMSEP					{}
-	|  item ITEMSEP modelTail	{}
+	:													{}
+	| ITEMSEP											{}
+	|  item ITEMSEP modelTail							{}
 	;
+
+tiExpr
+	: OPENBR tiExpr COLON IDENT WHEREKW expr CLOSKW		{}
+	| baseTiExpr										{}
+	;
+
+baseTiExpr
+	: varPar baseTiExprTail								{}
+	;
+
+varPar
+	: 													{}
+	| VARKW												{}
+	| PARKW												{}
+	;
+
+baseTiExprTail
+	: IDENT												{}
+	| BOOLKW											{}
+	| INTKW												{}
+	| FLOATKW											{}
+	| setTiExprTail										{}
+	| arrayTiExprTail									{}
+	| tiVariableExprTail								{}
+	| OPENAC expr COMMA exprTail CLOSAC					{}
+	| numExpr INTERVAL numExpr							{}
+	;
+
+exprTail
+	: 													{}
+	| COMMA												{}
+	| expr COMMA expTail								{}
+	;
+
+expr
+	: exprAtom exprBinopTail							{}
+	;
+
+exprAtom
+	: exprAtomHead exprAtomTail Annotations				{}
+	;
+
+exprBinopTail
+	: 													{}
+	| binOp expr										{}
+	;
+
+exprAtomHead
+	: builtinUnOp exprAtom								{}
+	| OPENBR expr CLOSBR								{}
+	| IDENT												{}
+	| UNDERSCORE										{}
+	| BOOLLIT											{}
+	| INTLIT											{}
+	| FLOATLIT											{}
+	| setLiteral										{}
+	| setComp											{}
+	| simpleArrayLiteral								{}
+	| simpleArrayLiteralTwoD							{}
+	| indexedArrayLiteral								{}
+	| simpleArrayComp									{}
+	| indexedArrayComp									{}
+	| ifThenElseExpr									{}
+	| caseExpr											{}
+	| letExpr											{}
+	| callExpr											{}
+	| genCallExpr										{}
+	;
+
+exprAtomTail
+	: arrayAccessTail exprAtomTail						{}
+	;
+
+numExpr
+	: numExprAtom numExprBinopTail						{}
+	;
+
+numExprAtom
+	: numExprAtomHead exprAtomTail annotation			{}
+	;
+
+numExprBinopTail
+	: 													{}
+	| numBinOp numExpr									{}
+	;
+
+numExprAtomHead
+	: builtinNumUnOp numExprAtom						{}
+	| OPENBR numExpr CLOSBR								{}
+	| identOrQuotedOp									{}
+	| INTLIT											{}
+	| FLOATLIT											{}
+	| ifThenElseExpr									{}
+	| caseExpr											{}
+	| letExpr											{}
+	| callExpr											{}
+	| genCallExpr										{}
+	;
+
+builtinOp
+	: builtinBinOp										{}
+	| builtinUnOp										{}
+	;
+
+binOp
+	: builtinBinOp										{}
+	| ACCENT IDENT ACCENT								{}
+	;
+
+builtinBinOp
+	: EQUIV												{}
+	| IMPL												{}
+	| RIMPL												{}
+	| VEE												{}
+	| XORKW												{}
+	| WEDGE												{}
+	| LT												{}
+	| GT												{}
+	| LE												{}
+	| GE												{}
+	| EQ												{}
+	| ASSIGNMENT										{}
+	| NEQ												{}
+	| INKW												{}
+	| SUBSETKW											{}
+	| SUPERSETKW										{}
+	| UNIONKW											{}
+	| DIFFKW											{}
+	| SYMDIFFKW											{}
+	| INTERVAL											{}
+	| INTERSECTKW										{}
+	| INCREMENT											{}
+	| builtinNumBinOp									{}
+	;
+
+builtinUnOp
+	: NOTKW												{}
+	| builtinNumUnOp									{}
+	;
+
+numBinOp
+	: builtinNumBinOp									{}
+	| ACCENT IDENT ACCENT								{}
+	;
+
+builtinNumBinOp
+	: ADDOP												{}
+	| SUBOP												{}
+	| MULOP												{}
+	| DIVOP												{}
+	| DIVKW												{}
+	| MODKW												{}
+	;
+
+builtinNumUnOp
+	: ADDOP												{}
+	| SUBOP												{}
+	;
+
+identOrQuotedOp
+	: IDENT												{}
+	| ACCENT builtinOp ACCENT							{}
+	;
+
+setLiteral
+	: OPENAC expr KOMMA exprTail CLOSAC					{}
+	;
+
 
 %%
 /*

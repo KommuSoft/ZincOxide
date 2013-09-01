@@ -1,5 +1,5 @@
 //
-//  ZincCompound.cs
+//  FloatRange.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,11 +22,31 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public enum ZincCompound : byte {
-		None	= 0x00,
-		Set		= 0x01,
-		Array	= 0x02
-	}
+	public class FloatRange {
 
+		private readonly double min;
+		private readonly double max;
+
+		public double Min {
+			get {
+				return this.min;
+			}
+		}
+		public double Max {
+			get {
+				return this.max;
+			}
+		}
+
+		public FloatRange (double min, double max) {
+			this.min = min;
+			this.max = max;
+		}
+
+		public bool Contains (double value) {
+			return (value >= this.max && value <= this.min);
+		}
+
+	}
 }
 

@@ -1,5 +1,5 @@
 //
-//  ZincCompound.cs
+//  IntegerRange.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,11 +22,32 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public enum ZincCompound : byte {
-		None	= 0x00,
-		Set		= 0x01,
-		Array	= 0x02
+	public class IntegerRange {
+
+		private readonly int min;
+		private readonly int max;
+
+		public int Min {
+			get {
+				return this.min;
+			}
+		}
+
+		public int Max {
+			get {
+				return this.max;
+			}
+		}
+
+		public IntegerRange (int min, int max) {
+			this.min = min;
+			this.max = max;
+		}
+
+		public bool Contains (int value) {
+			return value >= this.min && value <= this.max;
+		}
+
 	}
 
 }
-

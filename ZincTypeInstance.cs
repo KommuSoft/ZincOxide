@@ -48,7 +48,19 @@ namespace ZincOxide.MiniZinc {
 			this.data = (((ulong)instance) << 0x3f) | type.Data;
 		}
 
-		public ZincTypeInstance (ZincType type, ZincInstance instance) : this(instance,type) {
+		public ZincTypeInstance (ZincType type, ZincInstance instance = ZincInstance.Parameter) : this(instance,type) {
+		}
+
+		public static ZincTypeInstance Varifiable (ZincTypeInstance input) {
+			return new ZincTypeInstance (ZincInstance.Variable, input.ZincType);
+		}
+
+		/*public static ZincTypeInstance Coercions (ZincTypeInstance input) {
+			return null;
+		}*/
+
+		public static ZincTypeInstance operator ! (ZincTypeInstance input) {
+			return Varifiable (input);
 		}
 
 	}

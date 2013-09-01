@@ -1,5 +1,5 @@
 //
-//  ZincCompound.cs
+//  ZincTotalOrder.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -21,12 +21,9 @@
 using System;
 
 namespace ZincOxide.MiniZinc {
-
-	public enum ZincCompound : byte {
-		None	= 0x00,
-		Set		= 0x01,
-		Array	= 0x02
+	public class ZincTotalOrder {
+		public ZincTotalOrder () {
+		}
 	}
-
 }
 
