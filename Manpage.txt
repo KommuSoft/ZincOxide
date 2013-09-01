@@ -1,0 +1,20 @@
+.\" Manpage for zincoxide
+.\" Contact Willem.VanOnsem@cs.kuleuven.be to correct errors and typos.
+.TH man 8 "01 Sep 2013" "0.1" "zincoxidy man page"
+.SH NAME
+zincoxide \- Compiles a problemdescription written in MiniZinc to a set of heuristics.
+.SH SYNOPSIS
+zincoxide --help
+zincoxide [options] zincfile
+.SH DESCRIPTION
+
+.SH EXAMPLES
+
+.SH SEE ALSO
+
+.SH BUGS
+	currently no bugs known. You can report bugs on https://github.com/KommuSoft/ZincOxide/issues
+.SH AUTHOR
+	Willem Van Onsem (Willem.VanOnsem@cs.kuleuven.be)
+.SH COPYRIGHT
+	Copyright 2013 Katholieke Universiteit Leuven; Use of this software is governed by the GNU GPLv3.0 license

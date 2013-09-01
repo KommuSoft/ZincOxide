@@ -1,5 +1,5 @@
 //
-//  AcasType.cs
+//  CompilerVerbosity.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,19 +22,12 @@ using System;
 
 namespace ZincOxide {
 
-	public class AcasType {
-
-		private long type;
-
-		public long Type {
-			get {
-				return type;
-			}
-			set {
-				type = value;
-			}
-		}
-
+	[Flags]
+	public enum CompilerVerbosity {
+		Remark		= 0x01,
+		Assumption	= 0x02,
+		Warning		= 0x04,
+		Error		= 0x08
 	}
 }
 

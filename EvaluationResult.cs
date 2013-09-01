@@ -1,5 +1,5 @@
 //
-//  AcasType.cs
+//  EvaluationResult.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,19 +22,11 @@ using System;
 
 namespace ZincOxide {
 
-	public class AcasType {
-
-		private long type;
-
-		public long Type {
-			get {
-				return type;
-			}
-			set {
-				type = value;
-			}
-		}
-
+	public enum EvaluationResult : byte {
+		Compiled		= 0x00,
+		Succes			= 0x00,
+		RuntimeError	= 0x01,
+		StaticError		= 0x02
 	}
-}
 
+}

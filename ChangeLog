@@ -1,3 +1,14 @@
+2013-09-01  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* Manpage.txt:
+	* MiniZinc.cs:
+	* AcasType.cs:
+	* MiniZinc.lex:
+	* MiniZinc.bison:
+	* Interaction.cs:
+	* EvaluationResult.cs:
+	* CompilerVerbosity.cs: 
+
 2013-08-27  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
 	* jobshop.mzn:
