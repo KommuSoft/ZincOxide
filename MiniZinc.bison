@@ -30,7 +30,7 @@
 
 %YYSTYPE RealTree.Node
 
-%token IDENT ITEMSEP OPENBR CLOSBR VARKW PARKW WHEREKW BOOLKW INTKW FLOATKW COLON COMMA ACCENT UNDERSCORE BOOLLIT INTLIT FLOATLIT EQUIV IMPL RIMPL VEE XORKW WEDGE LT GT LE GE EQ ASSIGNMENT NEQ INKW SUBSETKW SUPERSETKW UNIONKW DIFFKW SYMDIFFKW INTERVAL INTERSECTKW INCREMENT NOTKW ADDOP SUBOP MULOP DIVOP DIVKW MODKW EOF
+%token IDENT ITEMSEP OPENBR CLOSBR VARKW PARKW WHEREKW BOOLKW INTKW FLOATKW COLON COMMA ACCENT UNDERSCORE BOOLLIT INTLIT FLOATLIT EQUIV IMPL RIMPL VEE XORKW WEDGE LT GT LE GE EQ ASSIGNMENT NEQ INKW SUBSETKW SUPERSETKW UNIONKW DIFFKW SYMDIFFKW INTERVAL INTERSECTKW INCREMENT NOTKW ADDOP SUBOP MULOP DIVOP DIVKW MODKW OPENAC CLOSEAC CLOSKW OPENFB CLOSEFB BAR IFKW THENKW ELSEKW ENDIFKW ELSEIFKW CASEKW ARROW EXPR LETKW EOF
 
 %%
 
@@ -72,7 +72,7 @@ baseTiExprTail
 	| setTiExprTail										{}
 	| arrayTiExprTail									{}
 	| tiVariableExprTail								{}
-	| OPENAC expr COMMA exprTail CLOSAC					{}
+	| OPENAC expr COMMA exprTail CLOSEAC				{}
 	| numExpr INTERVAL numExpr							{}
 	;
 
@@ -104,12 +104,8 @@ exprAtomHead
 	| INTLIT											{}
 	| FLOATLIT											{}
 	| setLiteral										{}
-	| setComp											{}
 	| simpleArrayLiteral								{}
 	| simpleArrayLiteralTwoD							{}
-	| indexedArrayLiteral								{}
-	| simpleArrayComp									{}
-	| indexedArrayComp									{}
 	| ifThenElseExpr									{}
 	| caseExpr											{}
 	| letExpr											{}
@@ -213,8 +209,77 @@ identOrQuotedOp
 	;
 
 setLiteral
-	: OPENAC expr KOMMA exprTail CLOSAC					{}
+	: OPENAC expr COMMA exprTail CLOSEAC					{}
 	;
+
+exprTail
+	: 													{}
+	| COMMA												{}
+	| expr COMMA exprTail								{}
+	;
+
+simpleArrayLiteral
+	: OPENFB CLOSEFB									{}
+	| OPENFB expr COMMA exprTail CLOSEFB				{}
+	;
+
+simpleArrayLiteralTwoD
+	: OPENFB BAR simpleArrayLiteralTwoDTail BAR CLOSEFB	{}
+	| OPENFB BAR BAR CLOSEFB							{}
+	;
+
+simpleArrayLiteralTwoDTail
+	:													{}
+	| BAR												{}
+	| exprTail BAR simpleArrayLiteralTwoDTail			{}
+	;
+
+array-acces-tail
+	: OPENFB exprTail CLOSEFB							{}
+	;
+
+annLiteral
+	: IDENT												{}
+	| IDENT OPENBR exprTail CLOSEBR						{}
+	;
+
+ifThenElseExpr
+	: IFKW expr THENKW expr ifThenElseTail ELSEKW expr ENDIFKW	{}
+	;
+
+ifThenElseTail
+	: 													{}
+	| ELSEIFKW expr THENKW expr ifThenElseTail			{}
+	;
+
+caseExpr
+	: CASEKW expr OPENAC caseExprCase caseExprCaseTail CLOSEAC {}
+	;
+
+caseExprCaseTail
+	: 													{}
+	| COMMA												{}
+	| COMMA caseExprCase caseExprCaseTail				{}
+
+caseExprCase
+	: IDENT ARROW EXPR									{}
+	;
+
+letExpr
+	: LETKW OPENAC valDelcItem varDelcItemTail CLOSEAC INKW expr	{}
+	;
+
+varDecItemTail
+	:													{}
+	| COMMA												{}
+	| COMMA varDecItem varDecItemTail					{}
+	;
+
+callExpr
+	: identOrQuotedOp									{}
+	| identOrQuotedOp OPENBR exprTail CLOSEBR			{}
+	;
+
 
 
 %%

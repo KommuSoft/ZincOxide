@@ -29,5 +29,6 @@ namespace ZincOxide {
 		Warning		= 0x04,
 		Error		= 0x08
 	}
+
 }
 

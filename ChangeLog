@@ -1,3 +1,10 @@
+2013-09-16  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* .gitignore:
+	* MiniZinc.lex:
+	* MiniZinc.bison:
+	* CompilerVerbosity.cs: 
+
 2013-09-02  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
 	* ZincType.cs:
