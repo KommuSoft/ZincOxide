@@ -9,7 +9,7 @@ KWCONS constraint
 KWSOLV solve
 KWSATI satisfy
 KWMINI minimize
-MWMAXI maximize
+KWMAXI maximize
 KWOUTP output
 KWANNO annotation
 KWPRED predicate
@@ -38,6 +38,7 @@ KWUNIO union
 KWDIFF diff
 KWSYMD symdiff
 KWINTE intersect
+KWXOR xor
 KWNOT not
 KWDIV div
 KWMOD mod
