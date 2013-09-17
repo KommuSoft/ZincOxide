@@ -30,7 +30,7 @@ namespace ZincOxide.MiniZinc {
 		public SetLiteral (IEnumerable<int> values) {
 			this.values.UnionWith (values);
 		}
-		public SetLiteral (params int[] values) : base(values) {
+		public SetLiteral (params int[] values) : base() {
 		}
 
 	}

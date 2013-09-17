@@ -1,72 +1,94 @@
 %namespace ZincOxide.MiniZinc
-%option verbose, summary, noparser
+%using System;
+%option noparser
 
-BOOLLIT	true|false
-INTLIT	[0-9]+|0x[0-9a-fA-F]+|0o[0-7]+
-FLOATLIT [0-9]+\.[0-9]+|[0-9]+\.[0-9]+[Ee][-+]?[0-9]+|[0-9]+[Ee][-+]?[0-9]+
-IDENT [A-Za-z][A-Za-z0-9_]*
-ITEMSEP ;
-OPENBR (
-CLOSBR )
-VARKW var
-PARKW par
-WHEREKW where
-BOOLKW bool
-INTKW int
-FLOATKW float
-COLON :
+KWTYPE type
+KWENUM enum
+KWINCL include
+KWCONS constraint
+KWSOLV solve
+KWSATI satisfy
+KWMINI minimize
+MWMAXI maximize
+KWOUTP output
+KWANNO annotation
+KWPRED predicate
+KWTEST test
+KWFUNC function
+KWWHER where
+KWVAR var
+KWPAR par
+KWBOOL bool
+KWINT int
+KWFLOA float
+KWSTRI string
+KWANN ann
+KWSET set
+KWOF of
+KWARRA array
+KWLIST list
+KWTUPL tuple
+KWRECO record
+KWANY any
+KWOP op
+KWIN in
+KWSUBS subset
+KWSUPE superset
+KWUNIO union
+KWDIFF diff
+KWSYMD symdiff
+KWINTE intersect
+KWNOT not
+KWDIV div
+KWMOD mod
+KWFALS false
+KWTRUE true
+KWIF if
+KWTHEN then
+KWELSI elseif
+KWELSE else
+KWENDI endif
+KWCASE case
+KWLET let
+COMMAD ;
 COMMA ,
+COLON :
 ACCENT '
-UNDERSCORE _
-EQUIV
-IMPL
-RIMPL
-VEE
-XORKW
-WEDGE
-LT
-GT
-LE
-GE
-EQ
-ASSIGNMENT
-NEQ
-INKW
-SUBSETKW
-SUPERSETKW
-UNIONKW
-DIFFKW
-SYMDIFFKW
-INTERVAL
-INTERSECTKW
-INCREMENT
-NOTKW
-ADDOP
-SUBOP
-MULOP
-DIVOP
-DIVKW
-MODKW
-OPENAC
-CLOSEAC
-CLOSKW
-OPENFB
-CLOSEFB
-BAR
-IFKW
-THENKW
-ELSEKW
-ENDIFKW
-ELSEIFKW
-CASEKW
-ARROW
-EXPR
-LETKW let
-EOF
+BAR \|
+OACC \{
+CACC \}
+OBRK \(
+CBRK \)
+OFBR \[
+CFBR \]
+OPASSIG =
+OPUNDSC _
+OPEQUIV <->
+OPIMPLI ->
+OPRIMPL <-
+OPVEE \\/
+OPWEDGE /\\
+OPLESTA <
+OPGRETA >
+OPLESEQ <=
+OPGEAEQ >=
+OPEQUAL ==
+OPNEQUA !=
+OPRANGE ..
+OPINCRE \+\+
+OPANNOT ::
+OPADD \+
+OPSUB -
+OPMUL \*
+OPDIV /
+OPCASE -->
+INTLI [0-9]+|0x[0-9A-Fa-f]+|0o[0-7]+
+FLOLI [0-9]+\.[0-9]+([Ee][+\-]?[0-9]+)?|[0-9]+[Ee][+\-]?[0-9]+
+STRLI \"[^\"]*\"
+IDENT [A-Za-z][A-Za-z0-9_]*
+EOL   (\r\n?|\n)
 
 %%
-
-{IDENT}   Console.WriteLine(yytext);
 
 %%
 public static void Main(string[] argp) {
@@ -84,9 +106,10 @@ public static void Main(string[] argp) {
 				int tok;
 				FileStream file = new FileStream(info.Name, FileMode.Open); 
 				Scanner scnr = new Scanner(file);
-				Console.WriteLine("File: " + info.Name);
+				Console.WriteLine("Processing file: " + info.Name);
 				do {
 					tok = scnr.yylex();
+					Console.WriteLine(tok);
 				} while (tok > (int)Tokens.EOF);
 			} catch (IOException) {
 				Console.WriteLine("File " + name + " not found");
