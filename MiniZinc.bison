@@ -30,13 +30,17 @@
 
 %YYSTYPE RealTree.Node
 
-%token KWTYPE KWENUM KWINCL KWCONS KWSOLV KWSATI KWMINI MWMAXI KWOUTP KWANNO KWPRED KWTEST KWFUNC KWWHER KWVAR KWPAR KWBOOL KWINT KWFLOA KWSTRI KWANN KWSET KWOF KWARRA KWLIST KWTUPL KWRECO KWANY KWOP KWIN KWSUBS KWSUPE KWUNIO KWDIFF KWSYMD KWINTE KWNOT KWDIV KWMOD KWFALS KWTRUE KWIF KWTHEN KWELSI KWELSE KWENDI KWCASE KWLET COMMAD COMMA COLON ACCENT BAR OACC CACC OBRK CBRK OFBR CFBR OFBA CFBA OPASSIG OPUNDSC OPEQUIV OPIMPLI OPRIMPL OPVEE OPWEDGE OPLESTA OPGRETA OPLESEQ OPGEAEQ OPEQUAL OPNEQUA OPRANGE OPINCRE OPANNOT OPADD OPSUB OPMUL OPDIV OPCASE BOOLI INTLI FLOLI STRLI IDENT NOISE EOL COMMENT EOF
+%token KWTYPE KWENUM KWINCL KWCONS KWSOLV KWSATI KWMINI MWMAXI KWOUTP KWANNO KWPRED KWTEST KWFUNC KWWHER KWVAR KWPAR KWBOOL KWINT KWFLOA KWSTRI KWANN KWSET KWOF KWARRA KWLIST KWTUPL KWRECO KWANY KWOP KWIN KWSUBS KWSUPE KWUNIO KWDIFF KWSYMD KWINTE KWNOT KWDIV KWMOD KWFALS KWTRUE KWIF KWTHEN KWELSI KWELSE KWENDI KWCASE KWLET COMMAD COMMA COLON ACCENT BAR OACC CACC OBRK CBRK OFBR CFBR OFBA CFBA OPASSIG OPUNDSC OPEQUIV OPIMPLI OPRIMPL OPVEE OPWEDGE OPLESTA OPGRETA OPLESEQ OPGEAEQ OPEQUAL OPNEQUA OPRANGE OPINCRE OPANNOT OPADD OPSUB OPMUL OPDOT OPDIV OPCASE BOOLI INTLI FLOLI STRLI IDENT NOISE EOL COMMENT EOF
 
 %%
 
 model
 	:	EOF					 							{} /*empty */
-	|	item itemList EOF								{}
+	|	itemListO EOF									{}
+	;
+
+itemListO
+	: item itemList										{}
 	;
 
 itemList
@@ -82,7 +86,11 @@ enumCasesTail
 
 enumCase
 	: IDENT												{}
-	| IDENT OBRK tiExprAndId tiExprAndIdList CBRK		{}
+	| IDENT OBRK tiExprAndIdListO CBRK					{}
+	;
+
+tiExprAndIdListO
+	: tiExprAndId tiExprAndIdList						{}
 	;
 
 tiExprAndIdList
@@ -184,8 +192,12 @@ baseTiExprTail
 	| KWANN												{}
 	| opTiExprTail										{}
 	| OACC CACC											{}
-	| OACC expr exprList CACC							{}
+	| OACC exprListO CACC								{}
 	| numExpr OPRANGE numExpr							{}
+	;
+
+exprListO
+	: expr exprList										{}
 	;
 
 exprList
@@ -358,7 +370,7 @@ builtinNumUnOp
 
 setLiteral
 	: OACC CACC											{}
-	| OACC expr exprList CACC							{}
+	| OACC exprListO CACC								{}
 	;
 
 setComp
@@ -366,52 +378,128 @@ setComp
 	;
 
 compTail
-	: generator generatorTail							{}
-	| generator generatorTail KWWHER expr				{}
+	: generatorListO									{}
+	| generatorListO KWWHER expr						{}
 	;
 
-generatorTail
+generatorListO
+	: generator generatorList							{}
+	;
+
+generatorList
 	:													{}
 	| COMMA												{}
-	| COMMA generator generatorTail						{}
+	| COMMA generatorListO								{}
 	;
 
 generator
-	: ident identTail KWIN expr							{}
+	: identListO KWIN expr								{}
+	;
 
-identTail
+identListO
+	: ident identList									{}
+	;
+
+identList
 	:													{}
 	| COMMA												{}
-	| COMMA ident identTail								{}
+	| COMMA ident identList								{}
 	;
 
 simpleArrayLiteral
 	: OPENFB CLOSEFB									{}
-	| OPENFB expr exprList CLOSEFB						{}
+	| OPENFB exprListO CLOSEFB							{}
 	;
 
 simpleArrayLiteralTwoD
-	: OPENFB BAR simpleArrayLiteralTwoDTail BAR CLOSEFB	{}
-	| OPENFB BAR BAR CLOSEFB							{}
+	: OFBA exprListListO CFBA							{}
+	| OFBA CFBA											{}
 	;
 
-simpleArrayLiteralTwoDTail
+exprListListO
+	: exprList exprListList								{}
+	;
+
+exprListList
 	:													{}
 	| BAR												{}
-	| exprTail BAR simpleArrayLiteralTwoDTail			{}
+	| BAR exprListO exprListList						{}
 	;
 
-array-acces-tail
-	: OPENFB exprTail CLOSEFB							{}
+simpleArrayComp
+	: OFBR expr BAR compTail CFBR						{}
+	;
+
+indexedArrayLiteral
+	: OFBR CFBR											{}
+	| OFBR indexExprListO CFBR							{}
+	;
+
+indexExprListO
+	: indexExpr indexExprList							{}
+	;
+
+indexExprList
+	: 													{}
+	| COMMA												{}
+	| COMMA indexExpr indexExprList						{}
+	;
+
+indexExpr
+	: expr COLON expr									{}
+	;
+
+indexedArrayComp
+	: OFBR indexExpr BAR compTail CFBR					{}
+	;
+
+arrayAccessTail
+	: OFBR exprListO CFBR								{}
+	;
+
+tupleLiteral
+	: OBRA exprListO CBRA								{}
+	;
+
+tupleAccessTail
+	: OPDOT INTLIT										{}
+	;
+
+recordLiteral
+	: OBRA namedExprListO CBRA							{}
+	;
+
+namedExprListO
+	: namedExpr namedExprList							{}
+	;
+
+namedExprList
+	:													{}
+	| COMMA												{}
+	| COMMA namedExpr namedExprList						{}
+	;
+
+namedExpr
+	: IDENT COLON expr									{}
+	;
+
+recordAccessTail
+	: OPDOT IDENT										{}
+	;
+
+enumLiteral
+	: IDENT OBRA namedExprListO CBRA					{}
+	| IDENT OBRA exprListO CBRA							{}
+	| IDENT 											{}
 	;
 
 annLiteral
 	: IDENT												{}
-	| IDENT OPENBR exprTail CLOSEBR						{}
+	| IDENT OPENBR exprListO CLOSEBR					{}
 	;
 
 ifThenElseExpr
-	: IFKW expr THENKW expr ifThenElseTail ELSEKW expr ENDIFKW	{}
+	: KWIF expr KWTHEN expr ifThenElseTail KWELSE expr KWENDI	{}
 	;
 
 ifThenElseTail
@@ -420,31 +508,44 @@ ifThenElseTail
 	;
 
 caseExpr
-	: CASEKW expr OPENAC caseExprCase caseExprCaseTail CLOSEAC {}
+	: KWCASE expr OACC caseExprCaseListO CACC			{}
 	;
 
-caseExprCaseTail
-	: 													{}
-	| COMMA												{}
-	| COMMA caseExprCase caseExprCaseTail				{}
-
-caseExprCase
-	: IDENT ARROW EXPR									{}
+caseExprCaseListO
+	: caseExprCase caseExprCaseList						{}
 	;
 
-letExpr
-	: LETKW OPENAC valDelcItem varDelcItemTail CLOSEAC INKW expr	{}
-	;
-
-varDecItemTail
+caseExprCaseList
 	:													{}
 	| COMMA												{}
-	| COMMA varDecItem varDecItemTail					{}
+	| COMMA caseExprCase caseExprCaseList				{}
+	;
+
+caseExprCase
+	: IDENT OPCASE expr									{}
 	;
 
 callExpr
 	: identOrQuotedOp									{}
-	| identOrQuotedOp OPENBR exprTail CLOSEBR			{}
+	| identOrQuotedOp OBRA expListO CBRA				{}
+	;
+
+letExpr
+	: KWLET OACC valDelcItemListO CACC KWIN expr		{}
+	;
+
+valDelcItemListO
+	: valDelcItem valDelcItemList						{}
+	;
+
+valDelcItemListO
+	:													{}
+	| COMMA												{}
+	| COMMA varDecItem valDelcItemListO					{}
+	;
+
+genCallExpr
+	: identOrQuotedOp OBRA compTail CBRA OBRA expr CBRA	{}
 	;
 
 identOrQuotedOp

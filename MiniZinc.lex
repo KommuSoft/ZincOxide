@@ -82,6 +82,7 @@ OPADD \+
 OPSUB -
 OPMUL \*
 OPDIV /
+OPDOT \.
 OPCASE -->
 BOOLI true|false
 INTLI [0-9]+|0x[0-9A-Fa-f]+|0o[0-7]+
