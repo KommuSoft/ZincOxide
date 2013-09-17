@@ -60,7 +60,8 @@ CACC \}
 OBRK \(
 CBRK \)
 OFBR \[
-CFBR \]
+OFBA \[\|
+CFBA \|\]
 OPASSIG =
 OPUNDSC _
 OPEQUIV <->
@@ -82,10 +83,12 @@ OPSUB -
 OPMUL \*
 OPDIV /
 OPCASE -->
+BOOLI true|false
 INTLI [0-9]+|0x[0-9A-Fa-f]+|0o[0-7]+
 FLOLI [0-9]+\.[0-9]+([Ee][+\-]?[0-9]+)?|[0-9]+[Ee][+\-]?[0-9]+
 STRLI \"[^\"]*\"
 IDENT [A-Za-z][A-Za-z0-9_]*
+DIDENT \$[A-Za-z][A-Za-z0-9_]*
 NOISE [ \t]+
 EOL   (\r\n?|\n)
 COMMENT \%[^%\r\n]*
