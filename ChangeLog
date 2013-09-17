@@ -2,6 +2,12 @@
 
 	* MiniZinc.cs:
 	* MiniZinc.lex:
+	* MiniZinc.bison: 
+
+2013-09-17  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* MiniZinc.cs:
+	* MiniZinc.lex:
 	* SetLiteral.cs: 
 
 2013-09-16  Willem Van Onsem  <vanonsem.willem@gmail.com>
