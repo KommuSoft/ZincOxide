@@ -1,5 +1,5 @@
 //
-//  ZincIdentContainer.cs
+//  ZincException.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,17 +19,27 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
+using System.Runtime.Serialization;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide {
 
-	public interface IZincIdentContainer {
+	public class ZincException : Exception {
 
-		IEnumerable<ZincIdent> InvolvedIdents ();
+		public ZincException () : base() {
+		}
 
-		void Replace (IDictionary<ZincIdent,ZincIdent> identMap);
+		public ZincException (string message) : base(message) {
+		}
+
+		public ZincException (string format, params object[] args) : base(string.Format(format,args)) {
+		}
+
+		public ZincException (SerializationInfo info, StreamingContext context) : base(info,context) {
+		}
+
+		public ZincException (string message, Exception innerException) : base(message,innerException) {
+		}
 
 	}
 
 }
-

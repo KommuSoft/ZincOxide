@@ -1,5 +1,9 @@
 2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ZincException.cs: 
+
+2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* IName.cs:
 	* NameBase.cs:
 	* HeadTail.cs:
