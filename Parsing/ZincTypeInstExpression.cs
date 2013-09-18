@@ -26,7 +26,7 @@ namespace ZincOxide.MiniZinc {
 	public class ZincTypeInstExpression : ZincIdentBoxBase {
 
 		private ZincTypeInstExpression header;
-		private ZincExpression expression;
+		private IZincExpression expression;
 
 		public ZincTypeInstExpression Header {
 			get {
@@ -37,7 +37,7 @@ namespace ZincOxide.MiniZinc {
 			}
 		}
 
-		public ZincExpression Expression {
+		public IZincExpression Expression {
 			get {
 				return this.expression;
 			}
@@ -46,17 +46,21 @@ namespace ZincOxide.MiniZinc {
 			}
 		}
 
-		public ZincTypeInstExpression (ZincTypeInstExpression header, ZincIdent ident, ZincExpression expression) : base(ident) {
+		public ZincTypeInstExpression (ZincTypeInstExpression header, ZincIdent ident, IZincExpression expression) : base(ident) {
+		}
+
+		public override string ToString () {
+			return string.Format ("( {0} : {1} where {2} )", this.Header, this.Ident, this.Expression);
 		}
 
 		public override IEnumerable<ZincIdent> InvolvedIdents () {
 			return EnumerableUtils.Append (this.Header.InvolvedIdents (), base.InvolvedIdents (), this.Expression.InvolvedIdents ());
 		}
 
-		public override void Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-			this.header = (ZincTypeInstExpression)ZincIdent.Replace (this.header, identMap);
-			base.Replace (identMap);
-			this.expression = (ZincExpression)ZincIdent.Replace (this.expression, identMap);
+		public override ZincIdentBoxBase Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			this.header = (ZincTypeInstExpression)this.header.Replace (identMap);
+			this.expression = (IZincExpression)this.expression.Replace (identMap);
+			return base.Replace (identMap);
 		}
 
 	}

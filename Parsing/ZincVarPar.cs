@@ -1,5 +1,5 @@
 //
-//  ZincAnnotationItem.cs
+//  ZincVarPar.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,23 +22,10 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincAnnotationItem : ZincIdentBoxBase, IZincItem {
+    public enum ZincVarPar {
+        Par = 0x00,
+        Var = 0x01
+    }
 
-        #region IZincItem implementation
-		public ZincItemType Type {
-			get {
-				return ZincItemType.Annotation;
-			}
-		}
-        #endregion
-
-		public ZincAnnotationItem (ZincIdent ident) : base(ident) {
-		}
-
-		public override string ToString () {
-			return string.Format ("annotation {0} {1}", this.Ident, null);
-		}
-
-	}
 }
 

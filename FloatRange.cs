@@ -22,31 +22,31 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public class FloatRange {
+    public class FloatRange {
 
-		private readonly double min;
-		private readonly double max;
+        private readonly double min;
+        private readonly double max;
 
-		public double Min {
-			get {
-				return this.min;
-			}
-		}
-		public double Max {
-			get {
-				return this.max;
-			}
-		}
+        public double Min {
+            get {
+                return this.min;
+            }
+        }
+        public double Max {
+            get {
+                return this.max;
+            }
+        }
 
-		public FloatRange (double min, double max) {
-			this.min = min;
-			this.max = max;
-		}
+        public FloatRange (double min, double max) {
+            this.min = min;
+            this.max = max;
+        }
 
-		public bool Contains (double value) {
-			return (value >= this.max && value <= this.min);
-		}
+        public bool Contains (double value) {
+            return (value >= this.max && value <= this.min);
+        }
 
-	}
+    }
 }
 

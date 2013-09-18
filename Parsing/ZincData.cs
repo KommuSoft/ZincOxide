@@ -21,9 +21,9 @@
 using System;
 
 namespace ZincOxide.MiniZinc {
-	public class ZincData {
-		public ZincData () {
-		}
-	}
+    public class ZincData {
+        public ZincData () {
+        }
+    }
 }
 

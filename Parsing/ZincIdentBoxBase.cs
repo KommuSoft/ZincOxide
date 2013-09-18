@@ -23,11 +23,11 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public abstract class ZincIdentBoxBase : IZincIdentBox {
+	public abstract class ZincIdentBoxBase : IZincIdentBox<ZincIdentBoxBase> {
 
 		private ZincIdent ident;
 
-		#region IZincIdentBox implementation
+        #region IZincIdentBox implementation
 		public ZincIdent Ident {
 			get {
 				return this.ident;
@@ -36,7 +36,7 @@ namespace ZincOxide.MiniZinc {
 				this.ident = value;
 			}
 		}
-		#endregion
+        #endregion
 
 
 		protected ZincIdentBoxBase () {
@@ -46,14 +46,17 @@ namespace ZincOxide.MiniZinc {
 			this.Ident = ident;
 		}
 
-		#region ZincIdentContainer implementation
+        #region ZincIdentContainer implementation
 		public virtual IEnumerable<ZincIdent> InvolvedIdents () {
 			yield return this.ident;
 		}
-		public virtual void Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-			this.ident = ZincIdent.Replace (this.ident, identMap);
-		}
 		#endregion
+		#region ZincIdentReplaceContainer implementation
+		public virtual ZincIdentBoxBase Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
+			this.ident = this.ident.Replace (identMap);
+			return this;
+		}
+        #endregion
 
 
 

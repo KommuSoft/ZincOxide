@@ -22,19 +22,19 @@ using System;
 
 namespace ZincOxide {
 
-	public class AcasType {
+    public class AcasType {
 
-		private long type;
+        private long type;
 
-		public long Type {
-			get {
-				return type;
-			}
-			set {
-				type = value;
-			}
-		}
+        public long Type {
+            get {
+                return type;
+            }
+            set {
+                type = value;
+            }
+        }
 
-	}
+    }
 }
 

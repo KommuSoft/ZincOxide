@@ -21,27 +21,27 @@
 using System;
 
 namespace ZincOxide {
-	public class AcasGenericFunction : AcasFunction {
+    public class AcasGenericFunction : AcasFunction {
 
-		private int arity;
+        private int arity;
 
-		#region implemented abstract members of ZincOxide.AcasFunction
-		public override bool IsOperator {
-			get {
-				return false;
-			}
-		}
+        #region implemented abstract members of ZincOxide.AcasFunction
+        public override bool IsOperator {
+            get {
+                return false;
+            }
+        }
 
-		public override int Arity {
-			get {
-				return this.arity;
-			}
-		}
-		#endregion
+        public override int Arity {
+            get {
+                return this.arity;
+            }
+        }
+        #endregion
 
-		public AcasGenericFunction (string name, int arity) : base(name) {
-			this.arity = arity;
-		}
-	}
+        public AcasGenericFunction (string name, int arity) : base(name) {
+            this.arity = arity;
+        }
+    }
 }
 

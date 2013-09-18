@@ -22,35 +22,35 @@ using System;
 
 namespace ZincOxide {
 
-	public abstract class AcasFunction {
+    public abstract class AcasFunction {
 
-		private string name;
+        private string name;
 
-		public abstract bool IsOperator {
-			get;
-		}
-		public abstract int Arity {
-			get;
-		}
-		public string Name {
-			get {
-				return name;
-			}
-		}
-		public virtual string RepresentationName {
-			get {
-				return this.name;
-			}
-		}
+        public abstract bool IsOperator {
+            get;
+        }
+        public abstract int Arity {
+            get;
+        }
+        public string Name {
+            get {
+                return name;
+            }
+        }
+        public virtual string RepresentationName {
+            get {
+                return this.name;
+            }
+        }
 
-		protected AcasFunction (string name) {
-			this.name = name;
-		}
+        protected AcasFunction (string name) {
+            this.name = name;
+        }
 
-		public override string ToString () {
-			return string.Format ("{0}/{1}", this.RepresentationName, this.Arity);
-		}
+        public override string ToString () {
+            return string.Format ("{0}/{1}", this.RepresentationName, this.Arity);
+        }
 
-	}
+    }
 }
 

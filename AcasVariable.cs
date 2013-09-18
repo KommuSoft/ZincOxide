@@ -23,33 +23,33 @@ using System.Collections.Generic;
 
 namespace ZincOxide {
 
-	public class AcasVariable : AcasExpressionBase {
+    public class AcasVariable : AcasExpressionBase {
 
-		private string name;
+        private string name;
 
-		public string Name {
-			get {
-				return name;
-			}
-			set {
-				name = value;
-			}
-		}
+        public string Name {
+            get {
+                return name;
+            }
+            set {
+                name = value;
+            }
+        }
 
-		public AcasVariable () {
-		}
+        public AcasVariable () {
+        }
 
-		public override string ToString () {
-			return this.name;
-		}
+        public override string ToString () {
+            return this.name;
+        }
 
-		#region implemented abstract members of ZincOxide.AcasExpressionBase
-		public override IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited) {
-			yield return this;
-		}
-		#endregion
+        #region implemented abstract members of ZincOxide.AcasExpressionBase
+        public override IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited) {
+            yield return this;
+        }
+        #endregion
 
 
-	}
+    }
 
 }

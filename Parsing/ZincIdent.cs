@@ -23,15 +23,20 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincIdent : NameBase, IZincIdentContainer {
+	public class ZincIdent : NameBase, IZincIdentReplaceContainer<ZincIdent> {
 
 		public ZincIdent (string name) : base(name) {
 		}
 
-		#region IZincIdentContainer implementation
+
+
+        #region IZincIdentContainer implementation
 		public IEnumerable<ZincIdent> InvolvedIdents () {
 			yield return this;
 		}
+        #endregion
+
+		#region IZincIdentReplaceContainer implementation
 		public ZincIdent Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
 			ZincIdent outp;
 			if (identMap.TryGetValue (this, out outp)) {
@@ -41,18 +46,6 @@ namespace ZincOxide.MiniZinc {
 			}
 		}
 		#endregion
-
-		public static IZincIdentContainer Replace<T> (T value, IDictionary<ZincIdent,ZincIdent> identMap) where T : IZincIdentContainer {
-			if (value != null) {
-				if (value is ZincIdent) {
-					ZincIdent zi = value as ZincIdent;
-					return Replace (zi, identMap);
-				} else {
-					value.Replace (identMap);
-				}
-			}
-			return value;
-		}
 
 	}
 

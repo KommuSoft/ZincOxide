@@ -48,9 +48,9 @@ namespace ZincOxide.MiniZinc {
 			return EnumerableUtils.Append (this.expression.InvolvedIdents (), base.InvolvedIdents ());
 		}
 
-		public override void Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+		public override ZincIdentBoxBase Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
 			this.expression.Replace (identMap);
-			base.Replace (identMap);
+			return base.Replace (identMap);
 		}
 
 	}

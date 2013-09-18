@@ -32,13 +32,13 @@ namespace ZincOxide.MiniZinc {
 			}
 		}
 
-		#region IZincItem implementation
+        #region IZincItem implementation
 		public ZincItemType Type {
 			get {
 				return ZincItemType.Include;
 			}
 		}
-		#endregion
+        #endregion
 
 		public ZincIncludeItem (string name) {
 			this.name = name;

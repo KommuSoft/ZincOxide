@@ -27,8 +27,6 @@ namespace ZincOxide.MiniZinc {
 
 		IEnumerable<ZincIdent> InvolvedIdents ();
 
-		IZincIdentContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap);
-
 	}
 
 }

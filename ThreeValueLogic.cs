@@ -22,10 +22,10 @@ using System;
 
 namespace ZincOxide {
 
-	public enum ThreeValueLogic : byte {
-		False	= 0x01,
-		Unknown	= 0x11,
-		True	= 0x10
-	}
+    public enum ThreeValueLogic : byte {
+        False    = 0x01,
+        Unknown    = 0x11,
+        True    = 0x10
+    }
 
 }

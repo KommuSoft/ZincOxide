@@ -22,12 +22,12 @@ using System;
 
 namespace ZincOxide {
 
-	public enum FourStateLogic : byte {
-		None	= 0x00,
-		False	= 0x01,
-		True	= 0x02,
-		Both	= 0x03
-	}
+    public enum FourStateLogic : byte {
+        None    = 0x00,
+        False    = 0x01,
+        True    = 0x02,
+        Both    = 0x03
+    }
 
 }
 

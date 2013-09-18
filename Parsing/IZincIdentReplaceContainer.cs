@@ -1,5 +1,5 @@
 //
-//  ZincAnnotationItem.cs
+//  IZincIdentReplaceContainer.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,27 +18,15 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincAnnotationItem : ZincIdentBoxBase, IZincItem {
+    public interface IZincIdentReplaceContainer<TResult> : IZincIdentContainer where TResult : IZincIdentReplaceContainer<TResult> {
 
-        #region IZincItem implementation
-		public ZincItemType Type {
-			get {
-				return ZincItemType.Annotation;
-			}
-		}
-        #endregion
+        TResult Replace (IDictionary<ZincIdent,ZincIdent> identMap);
 
-		public ZincAnnotationItem (ZincIdent ident) : base(ident) {
-		}
+    }
 
-		public override string ToString () {
-			return string.Format ("annotation {0} {1}", this.Ident, null);
-		}
-
-	}
 }
 

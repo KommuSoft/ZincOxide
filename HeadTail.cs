@@ -24,124 +24,124 @@ using System.Collections.Generic;
 
 namespace ZincOxide {
 
-	public sealed class HeadTail<T> : IEnumerable<T> {
+    public sealed class HeadTail<T> : IEnumerable<T> {
 
-		private readonly T head;
-		private readonly HeadTail<T> tail;
+        private readonly T head;
+        private readonly HeadTail<T> tail;
 
-		public T Head {
-			get {
-				return this.head;
-			}
-		}
+        public T Head {
+            get {
+                return this.head;
+            }
+        }
 
-		public HeadTail<T> Tail {
-			get {
-				return tail;
-			}
-		}
+        public HeadTail<T> Tail {
+            get {
+                return tail;
+            }
+        }
 
-		private HeadTail (IEnumerator<T> values) {
-			this.head = values.Current;
-			if (values.MoveNext ()) {
-				this.tail = new HeadTail<T> (values);
-			}
-		}
+        private HeadTail (IEnumerator<T> values) {
+            this.head = values.Current;
+            if (values.MoveNext ()) {
+                this.tail = new HeadTail<T> (values);
+            }
+        }
 
-		public HeadTail (T head) : this(head,null) {
-		}
+        public HeadTail (T head) : this(head,null) {
+        }
 
-		public HeadTail (T head, HeadTail<T> tail) {
-			this.head = head;
-			this.tail = tail;
-		}
+        public HeadTail (T head, HeadTail<T> tail) {
+            this.head = head;
+            this.tail = tail;
+        }
 
-		public HeadTail (IEnumerable<T> values) {
-			if (values == null) {
-				throw new ArgumentException ("The values must be effective.", "values");
-			}
-			IEnumerator<T> enumerator = values.GetEnumerator ();
-			if (enumerator == null) {
-				throw new ArgumentException ("Values produced a noneffective enumerator.", "values");
-			}
-			if (!enumerator.MoveNext ()) {
-				throw new ArgumentException ("Values must contain at least one element.", "values");
-			}
-			this.head = enumerator.Current;
-			if (enumerator.MoveNext ()) {
-				this.tail = new HeadTail<T> (enumerator);
-			}
-		}
+        public HeadTail (IEnumerable<T> values) {
+            if (values == null) {
+                throw new ArgumentException ("The values must be effective.", "values");
+            }
+            IEnumerator<T> enumerator = values.GetEnumerator ();
+            if (enumerator == null) {
+                throw new ArgumentException ("Values produced a noneffective enumerator.", "values");
+            }
+            if (!enumerator.MoveNext ()) {
+                throw new ArgumentException ("Values must contain at least one element.", "values");
+            }
+            this.head = enumerator.Current;
+            if (enumerator.MoveNext ()) {
+                this.tail = new HeadTail<T> (enumerator);
+            }
+        }
 
-		#region IEnumerable implementation
-		IEnumerator IEnumerable.GetEnumerator () {
-			return this.GetEnumerator ();
-		}
-		#endregion
+        #region IEnumerable implementation
+        IEnumerator IEnumerable.GetEnumerator () {
+            return this.GetEnumerator ();
+        }
+        #endregion
 
-		#region IEnumerable implementation
-		public IEnumerator<T> GetEnumerator () {
-			HeadTail<T> current = this;
-			do {
-				yield return current.Head;
-				current = current.Tail;
-			} while(current != null);
-		}
-		#endregion
+        #region IEnumerable implementation
+        public IEnumerator<T> GetEnumerator () {
+            HeadTail<T> current = this;
+            do {
+                yield return current.Head;
+                current = current.Tail;
+            } while(current != null);
+        }
+        #endregion
 
-		public override string ToString () {
-			return string.Format ("[ {0} ]", string.Join (", ", (IEnumerable<T>)this));
-		}
+        public override string ToString () {
+            return string.Format ("[ {0} ]", string.Join (", ", (IEnumerable<T>)this));
+        }
 
-		public override bool Equals (object obj) {
-			if (base.Equals (obj)) {
-				return true;
-			}
-			if (obj != null && obj is HeadTail<T>) {
-				HeadTail<T> htobj = (HeadTail<T>)obj;
-				if (!Object.Equals (this.head, htobj.head)) {
-					return false;
-				}
-				if (this.tail != null) {
-					return this.tail.Equals (htobj.tail);
-				} else {
-					return (htobj.tail == null);
-				}
-			}
-			return false;
-		}
+        public override bool Equals (object obj) {
+            if (base.Equals (obj)) {
+                return true;
+            }
+            if (obj != null && obj is HeadTail<T>) {
+                HeadTail<T> htobj = (HeadTail<T>)obj;
+                if (!Object.Equals (this.head, htobj.head)) {
+                    return false;
+                }
+                if (this.tail != null) {
+                    return this.tail.Equals (htobj.tail);
+                } else {
+                    return (htobj.tail == null);
+                }
+            }
+            return false;
+        }
 
-		public override int GetHashCode () {
-			int hash = 0x03;
-			if (this.head != null) {
-				hash += 0x07 * this.head.GetHashCode ();
-			}
-			if (this.tail != null) {
-				hash += 0x0b * this.tail.GetHashCode ();
-			}
-			return hash;
-		}
+        public override int GetHashCode () {
+            int hash = 0x03;
+            if (this.head != null) {
+                hash += 0x07 * this.head.GetHashCode ();
+            }
+            if (this.tail != null) {
+                hash += 0x0b * this.tail.GetHashCode ();
+            }
+            return hash;
+        }
 
-		public static HeadTail<T> FromIEnumerable (params T[] values) {
-			return FromIEnumerable (values);
-		}
+        public static HeadTail<T> FromIEnumerable (params T[] values) {
+            return FromIEnumerable (values);
+        }
 
-		public static HeadTail<T> FromIEnumerable (IEnumerable<T> values) {
-			if (values == null) {
-				return null;
-			}
-			IEnumerator<T> enumerator = values.GetEnumerator ();
-			if (enumerator == null || !enumerator.MoveNext ()) {
-				return null;
-			}
-			return new HeadTail<T> (enumerator);
-		}
+        public static HeadTail<T> FromIEnumerable (IEnumerable<T> values) {
+            if (values == null) {
+                return null;
+            }
+            IEnumerator<T> enumerator = values.GetEnumerator ();
+            if (enumerator == null || !enumerator.MoveNext ()) {
+                return null;
+            }
+            return new HeadTail<T> (enumerator);
+        }
 
-		public static HeadTail<T> operator & (T head, HeadTail<T> tail) {
-			return new HeadTail<T> (head, tail);
-		}
+        public static HeadTail<T> operator & (T head, HeadTail<T> tail) {
+            return new HeadTail<T> (head, tail);
+        }
 
 
-	}
+    }
 
 }

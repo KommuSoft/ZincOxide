@@ -23,39 +23,39 @@ using System.Collections.Generic;
 
 namespace ZincOxide {
 
-	public class AcasFunctionInstance : AcasExpressionBase {
+    public class AcasFunctionInstance : AcasExpressionBase {
 
-		private AcasIExpression[] arguments;
-		private AcasFunction function;
+        private AcasIExpression[] arguments;
+        private AcasFunction function;
 
-		public AcasFunction Function {
-			get {
-				return function;
-			}
-		}
-		public AcasIExpression this [int index] {
-			get {
-				return this.arguments [index];
-			}
-		}
+        public AcasFunction Function {
+            get {
+                return function;
+            }
+        }
+        public AcasIExpression this [int index] {
+            get {
+                return this.arguments [index];
+            }
+        }
 
-		public AcasFunctionInstance () {
-		}
+        public AcasFunctionInstance () {
+        }
 
-		#region implemented abstract members of ZincOxide.AcasExpressionBase
-		public override IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited) {
-			foreach (AcasIExpression exp in this.arguments) {
-				if (visited.Contains (exp)) {
-					foreach (AcasVariable v in exp.Variables(visited)) {
-						yield return v;
-					}
-					visited.Add (exp);
-				}
-			}
-		}
-		#endregion
+        #region implemented abstract members of ZincOxide.AcasExpressionBase
+        public override IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited) {
+            foreach (AcasIExpression exp in this.arguments) {
+                if (visited.Contains (exp)) {
+                    foreach (AcasVariable v in exp.Variables(visited)) {
+                        yield return v;
+                    }
+                    visited.Add (exp);
+                }
+            }
+        }
+        #endregion
 
 
-	}
+    }
 }
 

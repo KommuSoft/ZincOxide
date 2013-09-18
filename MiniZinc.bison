@@ -47,549 +47,549 @@
 %%
 
 model
-	:	EOF					 							{} /*empty */
-	|	itemListO EOF									{}
-	;
+    :    EOF                                                 {} /*empty */
+    |    itemListO EOF                                    {}
+    ;
 
 itemListO
-	: item itemList										{}
-	;
+    : item itemList                                        {}
+    ;
 
 itemList
-	:													{}
-	| COMMAD											{}
-	| item COMMAD itemList								{}
-	;
+    :                                                    {}
+    | COMMAD                                            {}
+    | item COMMAD itemList                                {}
+    ;
 
 item
-//	: typeInstSynItem									{} MiniZinc
-//	| enumItem											{} MiniZinc
-	: includeItem										{}
-//	| varDeclItem										{}
-//	| assignItem										{}
-//	| constraintItem									{}
-//	| solveItem											{}
-//	| outputItem										{}
-//	| predicateItem										{}
-//	| testItem											{}
-//	| functionItem										{} MiniZinc
-	| annotationItem									{}
-	;
+//    : typeInstSynItem                                    {} MiniZinc
+//    | enumItem                                            {} MiniZinc
+    : includeItem                                        {}
+//    | varDeclItem                                        {}
+//    | assignItem                                        {}
+//    | constraintItem                                    {}
+//    | solveItem                                            {}
+//    | outputItem                                        {}
+//    | predicateItem                                        {}
+//    | testItem                                            {}
+//    | functionItem                                        {} MiniZinc
+    | annotationItem                                    {}
+    ;
 
-//typeInstSynItem										   MiniZinc
-//	: KWTYPE IDENT annotations OPASSIG tiExpr			{}
-//	;
+//typeInstSynItem                                           MiniZinc
+//    : KWTYPE IDENT annotations OPASSIG tiExpr            {}
+//    ;
 
-//enumItem												   MiniZinc
-//	: KWENUM IDENT annotations							{}
-//	| KWENUM IDENT annotations OPASSIG enumCases		{}
-//	;
+//enumItem                                                   MiniZinc
+//    : KWENUM IDENT annotations                            {}
+//    | KWENUM IDENT annotations OPASSIG enumCases        {}
+//    ;
 
-//enumCases												   MiniZinc
-//	: OACC CACC											{}
-//	| OACC enumCaseListO CACC							{}
-//	;
+//enumCases                                                   MiniZinc
+//    : OACC CACC                                            {}
+//    | OACC enumCaseListO CACC                            {}
+//    ;
 
-//enumCaseListO											   MiniZinc
-//	: enumCase enumCaseList								{}
-//	;
+//enumCaseListO                                               MiniZinc
+//    : enumCase enumCaseList                                {}
+//    ;
 
-//enumCaseList											   MiniZinc
-//	:													{}
-//	| COMMA												{}
-//	| COMMA enumCase enumCaseList						{}
-//	;
+//enumCaseList                                               MiniZinc
+//    :                                                    {}
+//    | COMMA                                                {}
+//    | COMMA enumCase enumCaseList                        {}
+//    ;
 
-//enumCase												   MiniZinc
-//	: IDENT												{}
-//	| IDENT OBRK tiExprAndIdListO CBRK					{}
-//	;
+//enumCase                                                   MiniZinc
+//    : IDENT                                                {}
+//    | IDENT OBRK tiExprAndIdListO CBRK                    {}
+//    ;
 
 //tiExprAndIdListO
-//	: tiExprAndId tiExprAndIdList						{}
-//	;
+//    : tiExprAndId tiExprAndIdList                        {}
+//    ;
 //
 //tiExprAndIdList
-//	: 													{}
-//	| COMMA												{}
-//	| COMMA tiExprAndId COMMA tiExprAndIdList			{}
-//	;
+//    :                                                     {}
+//    | COMMA                                                {}
+//    | COMMA tiExprAndId COMMA tiExprAndIdList            {}
+//    ;
 
 tiExprAndId
-	: tiExpr COLON IDENT								{}
-	;
+    : tiExpr COLON IDENT                                {}
+    ;
 
 includeItem
-	: KWINCL STRLI										{}
-	;
+    : KWINCL STRLI                                        {}
+    ;
 
 varDeclItem
-	: tiExprAndId annotations							{}
-	| tiExprAndId annotations OPASSIG expr				{}
-	;
+    : tiExprAndId annotations                            {}
+    | tiExprAndId annotations OPASSIG expr                {}
+    ;
 
 assignItem
-	: IDENT OPASSIG expr								{}
-	;
+    : IDENT OPASSIG expr                                {}
+    ;
 
 constraintItem
-	: KWCONS expr										{}
-	;
+    : KWCONS expr                                        {}
+    ;
 
 solveItem
-	: KWSOLV annotations KWSATI							{}
-	| KWSOLV annotations KWMINI							{}
-	| KWSOLV annotations KWMAXI							{}
-	;
+    : KWSOLV annotations KWSATI                            {}
+    | KWSOLV annotations KWMINI                            {}
+    | KWSOLV annotations KWMAXI                            {}
+    ;
 
 outputItem
-	: KWOUTP expr										{}
-	;
+    : KWOUTP expr                                        {}
+    ;
 
-//annotationItem										   TMP
-//	: KWANNO IDENT paramsNonTerm						{}
-//	;
+//annotationItem                                           TMP
+//    : KWANNO IDENT paramsNonTerm                        {}
+//    ;
 
-//predicateItem											   TMP
-//	: KWPRED operationItemTail							{}
-//	;
+//predicateItem                                               TMP
+//    : KWPRED operationItemTail                            {}
+//    ;
 
-//testItem												   TMP
-//	: KWTEST operationItemTail							{}
-//	;
+//testItem                                                   TMP
+//    : KWTEST operationItemTail                            {}
+//    ;
 
-//functionItem											   MiniZinc
-//	: KWFUNC tiExpr COLON operationItemTail				{}
-//	;
+//functionItem                                               MiniZinc
+//    : KWFUNC tiExpr COLON operationItemTail                {}
+//    ;
 
-//operationItemTail										   TMP
-//	: IDENT paramsNonTerm annotations					{}
-//	| IDENT paramsNonTerm annotations OPASSIG expr		{}
-//	;
+//operationItemTail                                           TMP
+//    : IDENT paramsNonTerm annotations                    {}
+//    | IDENT paramsNonTerm annotations OPASSIG expr        {}
+//    ;
 
-//paramsNonTerm											   TMP
-//	:													{}
-//	| OBRK CBRK											{}
-//	| OBRK tiExprAndId COMMA paramsTail CBRK			{}
-//	;
+//paramsNonTerm                                               TMP
+//    :                                                    {}
+//    | OBRK CBRK                                            {}
+//    | OBRK tiExprAndId COMMA paramsTail CBRK            {}
+//    ;
 
-//paramsTail											   TMP
-//	:													{}
-//	| COMMA												{}
-//	| paramsTail paramsTail								{}
-//	;
+//paramsTail                                               TMP
+//    :                                                    {}
+//    | COMMA                                                {}
+//    | paramsTail paramsTail                                {}
+//    ;
 
 tiExpr
-	: OBRK tiExpr COLON IDENT KWWHER expr CBRK			{}
-	| baseTiExpr										{}
-	;
+    : OBRK tiExpr COLON IDENT KWWHER expr CBRK            {}
+    | baseTiExpr                                        {}
+    ;
 
 baseTiExpr
-	: varPar baseTiExprTail								{}
-	;
+    : varPar baseTiExprTail                                {}
+    ;
 
 varPar
-	: 													{}
-	| KWVAR												{}
-	| KWPAR												{}
-	;
+    :                                                     {}
+    | KWVAR                                                {}
+    | KWPAR                                                {}
+    ;
 
 baseTiExprTail
-	: IDENT												{}
-	| KWBOOL											{}
-	| KWINT												{}
-	| KWFLOA											{}
-	| KWSTRI											{}
-	| setTiExprTail										{}
-	| arrayTiExprTail									{}
-	| tupleTiExprTail									{}
-//	| recordTiExprTail									{} MiniZinc
-	| tiVariableExprTail								{}
-	| KWANN												{}
-	| opTiExprTail										{}
-	| OACC CACC											{}
-	| OACC exprListO CACC								{}
-	| numExpr OPRANGE numExpr							{}
-	;
+    : IDENT                                                {}
+    | KWBOOL                                            {}
+    | KWINT                                                {}
+    | KWFLOA                                            {}
+    | KWSTRI                                            {}
+    | setTiExprTail                                        {}
+    | arrayTiExprTail                                    {}
+    | tupleTiExprTail                                    {}
+//    | recordTiExprTail                                    {} MiniZinc
+    | tiVariableExprTail                                {}
+    | KWANN                                                {}
+    | opTiExprTail                                        {}
+    | OACC CACC                                            {}
+    | OACC exprListO CACC                                {}
+    | numExpr OPRANGE numExpr                            {}
+    ;
 
 exprListO
-	: expr exprList										{}
-	;
+    : expr exprList                                        {}
+    ;
 
 exprList
-	: 													{}
-	| COMMA												{}
-	| COMMA expr exprList								{}
-	;
+    :                                                     {}
+    | COMMA                                                {}
+    | COMMA expr exprList                                {}
+    ;
 
 setTiExprTail
-	: KWSET KWOF tiExpr
-	;
+    : KWSET KWOF tiExpr
+    ;
 
 arrayTiExprTail
-	: KWARRA OFBR CFBR KWOF tiExpr						{}
-	| KWARRA OFBR tiExpr tiExprTail CFBR KWOF tiExpr	{}
-	| KWLIST KWOF tiExpr								{}
-	;
+    : KWARRA OFBR CFBR KWOF tiExpr                        {}
+    | KWARRA OFBR tiExpr tiExprTail CFBR KWOF tiExpr    {}
+    | KWLIST KWOF tiExpr                                {}
+    ;
 
 tiExprTail
-	:													{}
-	| COMMA												{}
-	| COMMA tiExpr tiExprTail							{}
-	;
+    :                                                    {}
+    | COMMA                                                {}
+    | COMMA tiExpr tiExprTail                            {}
+    ;
 
 tupleTiExprTail
-	: KWTUPL OBRK tiExprListO CBRK						{}
-	;
+    : KWTUPL OBRK tiExprListO CBRK                        {}
+    ;
 
 tiExprListO
-	: tiExpr tiExprList									{}
-	;
+    : tiExpr tiExprList                                    {}
+    ;
 
 tiExprList
-	:													{}
-	| COMMA												{}
-	| COMMA tiExpr tiExprList							{}
-	;
+    :                                                    {}
+    | COMMA                                                {}
+    | COMMA tiExpr tiExprList                            {}
+    ;
 
-//recordTiExprTail										   //MiniZinc
-//	: KWRECO OBRK tiExprAndIdListO CBRK					{}
-//	;
+//recordTiExprTail                                           //MiniZinc
+//    : KWRECO OBRK tiExprAndIdListO CBRK                    {}
+//    ;
 
 tiVariableExprTail
-	: DIDENT											{}
-	| KWANY DIDENT										{}
-	;
+    : DIDENT                                            {}
+    | KWANY DIDENT                                        {}
+    ;
 
 opTiExprTail
-	: KWOP OBRK tiExpr COLON OBRK CBRK					{}
-	| KWOP OBRK tiExpr COLON OBRK tiExpr tiExprTail CBRK{}
-	;
+    : KWOP OBRK tiExpr COLON OBRK CBRK                    {}
+    | KWOP OBRK tiExpr COLON OBRK tiExpr tiExprTail CBRK{}
+    ;
 
 expr
-	: exprAtom exprBinopTail							{}
-	;
+    : exprAtom exprBinopTail                            {}
+    ;
 
 exprAtom
-	: exprAtomHead exprAtomTail annotations				{}
-	;
+    : exprAtomHead exprAtomTail annotations                {}
+    ;
 
 exprBinopTail
-	: 													{}
-	| binOp expr										{}
-	;
+    :                                                     {}
+    | binOp expr                                        {}
+    ;
 
 exprAtomHead
-	: builtinUnOp exprAtom								{}
-	| OBRK expr CBRK									{}
-	| identOrQuotedOp									{}
-	| OPUNDSC											{}
-	| BOOLI												{}
-	| INTLI												{}
-	| FLOLI												{}
-	| STRLI												{}
-	| setLiteral										{}
-	| setComp											{}
-	| simpleArrayLiteral								{}
-	| simpleArrayLiteralTwoD							{}
-//	| indexedArrayLiteral								{} MiniZinc
-//	| simpleArrayComp									{} MiniZinc
-//	| indexedArrayComp									{} MiniZinc
-	| tupleLiteral										{}
-//	| recordLiteral										{} MiniZinc
-//	| enumLiteral										{} MiniZinc
-//	| annLiteral										{}
-	| ifThenElseExpr									{}
-//	| caseExpr											{} MiniZinc
-	| letExpr											{}
-	| callExpr											{}
-	| genCallExpr										{}
-	;
+    : builtinUnOp exprAtom                                {}
+    | OBRK expr CBRK                                    {}
+    | identOrQuotedOp                                    {}
+    | OPUNDSC                                            {}
+    | BOOLI                                                {}
+    | INTLI                                                {}
+    | FLOLI                                                {}
+    | STRLI                                                {}
+    | setLiteral                                        {}
+    | setComp                                            {}
+    | simpleArrayLiteral                                {}
+    | simpleArrayLiteralTwoD                            {}
+//    | indexedArrayLiteral                                {} MiniZinc
+//    | simpleArrayComp                                    {} MiniZinc
+//    | indexedArrayComp                                    {} MiniZinc
+    | tupleLiteral                                        {}
+//    | recordLiteral                                        {} MiniZinc
+//    | enumLiteral                                        {} MiniZinc
+//    | annLiteral                                        {}
+    | ifThenElseExpr                                    {}
+//    | caseExpr                                            {} MiniZinc
+    | letExpr                                            {}
+    | callExpr                                            {}
+    | genCallExpr                                        {}
+    ;
 
 exprAtomTail
-	: arrayAccessTail exprAtomTail						{}
-	| tupleAccessTail exprAtomTail						{}
-//	| recordAccessTail exprAtomTail						{} MiniZinc
-	;
+    : arrayAccessTail exprAtomTail                        {}
+    | tupleAccessTail exprAtomTail                        {}
+//    | recordAccessTail exprAtomTail                        {} MiniZinc
+    ;
 
 numExpr
-	: numExprAtom numExprBinopTail						{}
-	;
+    : numExprAtom numExprBinopTail                        {}
+    ;
 
 numExprAtom
-	: numExprAtomHead exprAtomTail annotations			{}
-	;
+    : numExprAtomHead exprAtomTail annotations            {}
+    ;
 
 numExprBinopTail
-	: 													{}
-	| numBinOp numExpr									{}
-	;
+    :                                                     {}
+    | numBinOp numExpr                                    {}
+    ;
 
 numExprAtomHead
-	: builtinNumUnOp numExprAtom						{}
-	| OBRK numExpr CBRK									{}
-	| identOrQuotedOp									{}
-	| INTLI												{}
-	| FLOLI												{}
-	| ifThenElseExpr									{}
-//	| caseExpr											{} MiniZinc
-	| letExpr											{}
-	| callExpr											{}
-	| genCallExpr										{}
-	;
+    : builtinNumUnOp numExprAtom                        {}
+    | OBRK numExpr CBRK                                    {}
+    | identOrQuotedOp                                    {}
+    | INTLI                                                {}
+    | FLOLI                                                {}
+    | ifThenElseExpr                                    {}
+//    | caseExpr                                            {} MiniZinc
+    | letExpr                                            {}
+    | callExpr                                            {}
+    | genCallExpr                                        {}
+    ;
 
 builtinOp
-	: builtinBinOp										{}
-	| builtinUnOp										{}
-	;
+    : builtinBinOp                                        {}
+    | builtinUnOp                                        {}
+    ;
 
 binOp
-	: builtinBinOp										{}
-	| ACCENT IDENT ACCENT								{}
-	;
+    : builtinBinOp                                        {}
+    | ACCENT IDENT ACCENT                                {}
+    ;
 
 builtinBinOp
-	: OPEQUIV											{}
-	| OPIMPLI											{}
-	| OPRIMPL											{}
-	| OPVEE												{}
-	| KWXOR												{}
-	| OPWEDGE											{}
-	| OPLESTA											{}
-	| OPGRETA											{}
-	| OPLESEQ											{}
-	| OPGEAEQ											{}
-	| OPEQUAL											{}
-	| OPNEQUA											{}
-	| KWIN												{}
-	| KWSUBS											{}
-	| KWSUPE											{}
-	| KWUNIO											{}
-	| KWDIFF											{}
-	| KWSYMD											{}
-	| OPRANGE											{}
-	| KWINTE											{}
-	| OPINCRE											{}
-	| builtinNumBinOp									{}
-	;
+    : OPEQUIV                                            {}
+    | OPIMPLI                                            {}
+    | OPRIMPL                                            {}
+    | OPVEE                                                {}
+    | KWXOR                                                {}
+    | OPWEDGE                                            {}
+    | OPLESTA                                            {}
+    | OPGRETA                                            {}
+    | OPLESEQ                                            {}
+    | OPGEAEQ                                            {}
+    | OPEQUAL                                            {}
+    | OPNEQUA                                            {}
+    | KWIN                                                {}
+    | KWSUBS                                            {}
+    | KWSUPE                                            {}
+    | KWUNIO                                            {}
+    | KWDIFF                                            {}
+    | KWSYMD                                            {}
+    | OPRANGE                                            {}
+    | KWINTE                                            {}
+    | OPINCRE                                            {}
+    | builtinNumBinOp                                    {}
+    ;
 
 builtinUnOp
-	: KWNOT												{}
-	| builtinNumUnOp									{}
-	;
+    : KWNOT                                                {}
+    | builtinNumUnOp                                    {}
+    ;
 
 numBinOp
-	: builtinNumBinOp									{}
-	| ACCENT IDENT ACCENT								{}
-	;
+    : builtinNumBinOp                                    {}
+    | ACCENT IDENT ACCENT                                {}
+    ;
 
 builtinNumBinOp
-	: OPADD												{}
-	| OPSUB												{}
-	| OPMUL												{}
-	| OPDIV												{}
-	| KWDIV												{}
-	| KWMOD												{}
-	;
+    : OPADD                                                {}
+    | OPSUB                                                {}
+    | OPMUL                                                {}
+    | OPDIV                                                {}
+    | KWDIV                                                {}
+    | KWMOD                                                {}
+    ;
 
 builtinNumUnOp
-	: OPSUB												{}
-	| OPADD												{}
-	;
+    : OPSUB                                                {}
+    | OPADD                                                {}
+    ;
 
 setLiteral
-	: OACC CACC											{}
-	| OACC exprListO CACC								{}
-	;
+    : OACC CACC                                            {}
+    | OACC exprListO CACC                                {}
+    ;
 
 setComp
-	: OACC expr BAR compTail CACC						{}
-	;
+    : OACC expr BAR compTail CACC                        {}
+    ;
 
 compTail
-	: generatorListO									{}
-	| generatorListO KWWHER expr						{}
-	;
+    : generatorListO                                    {}
+    | generatorListO KWWHER expr                        {}
+    ;
 
 generatorListO
-	: generator generatorList							{}
-	;
+    : generator generatorList                            {}
+    ;
 
 generatorList
-	:													{}
-	| COMMA												{}
-	| COMMA generatorListO								{}
-	;
+    :                                                    {}
+    | COMMA                                                {}
+    | COMMA generatorListO                                {}
+    ;
 
 generator
-	: identListO KWIN expr								{}
-	;
+    : identListO KWIN expr                                {}
+    ;
 
 identListO
-	: IDENT identList									{}
-	;
+    : IDENT identList                                    {}
+    ;
 
 identList
-	:													{}
-	| COMMA												{}
-	| COMMA IDENT identList								{}
-	;
+    :                                                    {}
+    | COMMA                                                {}
+    | COMMA IDENT identList                                {}
+    ;
 
 simpleArrayLiteral
-	: OFBR CFBR											{}
-	| OFBR exprListO CFBR								{}
-	;
+    : OFBR CFBR                                            {}
+    | OFBR exprListO CFBR                                {}
+    ;
 
 simpleArrayLiteralTwoD
-	: OFBA exprListListO CFBA							{}
-	| OFBA CFBA											{}
-	;
+    : OFBA exprListListO CFBA                            {}
+    | OFBA CFBA                                            {}
+    ;
 
 exprListListO
-	: exprList exprListList								{}
-	;
+    : exprList exprListList                                {}
+    ;
 
 exprListList
-	:													{}
-	| BAR												{}
-	| BAR exprListO exprListList						{}
-	;
+    :                                                    {}
+    | BAR                                                {}
+    | BAR exprListO exprListList                        {}
+    ;
 
-//simpleArrayComp										   MiniZinc
-//	: OFBR expr BAR compTail CFBR						{}
-//	;
+//simpleArrayComp                                           MiniZinc
+//    : OFBR expr BAR compTail CFBR                        {}
+//    ;
 
-//indexedArrayLiteral									   MiniZinc
-//	: OFBR CFBR											{}
-//	| OFBR indexExprListO CFBR							{}
-//	;
+//indexedArrayLiteral                                       MiniZinc
+//    : OFBR CFBR                                            {}
+//    | OFBR indexExprListO CFBR                            {}
+//    ;
 
-//indexExprListO										   MiniZinc
-//	: indexExpr indexExprList							{}
-//	;
+//indexExprListO                                           MiniZinc
+//    : indexExpr indexExprList                            {}
+//    ;
 
-//indexExprList											   MiniZinc
-//	: 													{}
-//	| COMMA												{}
-//	| COMMA indexExpr indexExprList						{}
-//	;
+//indexExprList                                               MiniZinc
+//    :                                                     {}
+//    | COMMA                                                {}
+//    | COMMA indexExpr indexExprList                        {}
+//    ;
 
-//indexExpr												   MiniZinc
-//	: expr COLON expr									{}
-//	;
+//indexExpr                                                   MiniZinc
+//    : expr COLON expr                                    {}
+//    ;
 
-//indexedArrayComp										   MiniZinc
-//	: OFBR indexExpr BAR compTail CFBR					{}
-//	;
+//indexedArrayComp                                           MiniZinc
+//    : OFBR indexExpr BAR compTail CFBR                    {}
+//    ;
 
 arrayAccessTail
-	: OFBR exprListO CFBR								{}
-	;
+    : OFBR exprListO CFBR                                {}
+    ;
 
 tupleLiteral
-	: OPASSIG exprListO CBRK							{}
-	;
+    : OPASSIG exprListO CBRK                            {}
+    ;
 
 tupleAccessTail
-	: OPDOT INTLI										{}
-	;
+    : OPDOT INTLI                                        {}
+    ;
 
-//recordLiteral											   MiniZinc
-//	: OBRK namedExprListO CBRK							{}
-//	;
+//recordLiteral                                               MiniZinc
+//    : OBRK namedExprListO CBRK                            {}
+//    ;
 
-//namedExprListO										   TMP
-//	: namedExpr namedExprList							{}
-//	;
+//namedExprListO                                           TMP
+//    : namedExpr namedExprList                            {}
+//    ;
 
-//namedExprList											   TMP
-//	:													{}
-//	| COMMA												{}
-//	| COMMA namedExpr namedExprList						{}
-//	;
+//namedExprList                                               TMP
+//    :                                                    {}
+//    | COMMA                                                {}
+//    | COMMA namedExpr namedExprList                        {}
+//    ;
 
-//namedExpr												   TMP
-//	: IDENT COLON expr									{}
-//	;
+//namedExpr                                                   TMP
+//    : IDENT COLON expr                                    {}
+//    ;
 
-//recordAccessTail										   MiniZinc
-//	: OPDOT IDENT										{}
-//	;
+//recordAccessTail                                           MiniZinc
+//    : OPDOT IDENT                                        {}
+//    ;
 
-//enumLiteral											   MiniZinc
-//	: IDENT OBRK namedExprListO CBRK					{}
-//	| IDENT OBRK exprListO CBRK							{}
-//	| IDENT 											{}
-//	;
+//enumLiteral                                               MiniZinc
+//    : IDENT OBRK namedExprListO CBRK                    {}
+//    | IDENT OBRK exprListO CBRK                            {}
+//    | IDENT                                             {}
+//    ;
 
 annLiteral
-	: IDENT												{}
-	| IDENT OBRK exprListO CBRK							{}
-	;
+    : IDENT                                                {}
+    | IDENT OBRK exprListO CBRK                            {}
+    ;
 
 ifThenElseExpr
-	: KWIF expr KWTHEN expr ifThenElseTail KWELSE expr KWENDI	{}
-	;
+    : KWIF expr KWTHEN expr ifThenElseTail KWELSE expr KWENDI    {}
+    ;
 
 ifThenElseTail
-	: 													{}
-	| KWELSI expr KWTHEN expr ifThenElseTail			{}
-	;
+    :                                                     {}
+    | KWELSI expr KWTHEN expr ifThenElseTail            {}
+    ;
 
-//caseExpr												   MiniZinc
-//	: KWCASE expr OACC caseExprCaseListO CACC			{}
-//	;
+//caseExpr                                                   MiniZinc
+//    : KWCASE expr OACC caseExprCaseListO CACC            {}
+//    ;
 
-//caseExprCaseListO										   MiniZinc
-//	: caseExprCase caseExprCaseList						{}
-//	;
+//caseExprCaseListO                                           MiniZinc
+//    : caseExprCase caseExprCaseList                        {}
+//    ;
 
-//caseExprCaseList										   MiniZinc
-//	:													{}
-//	| COMMA												{}
-//	| COMMA caseExprCase caseExprCaseList				{}
-//	;
+//caseExprCaseList                                           MiniZinc
+//    :                                                    {}
+//    | COMMA                                                {}
+//    | COMMA caseExprCase caseExprCaseList                {}
+//    ;
 
-//caseExprCase											   MiniZinc
-//	: IDENT OPCASE expr									{}
-//	;
+//caseExprCase                                               MiniZinc
+//    : IDENT OPCASE expr                                    {}
+//    ;
 
 callExpr
-	: identOrQuotedOp									{}
-	| identOrQuotedOp OBRK exprListO CBRK				{}
-	;
+    : identOrQuotedOp                                    {}
+    | identOrQuotedOp OBRK exprListO CBRK                {}
+    ;
 
 letExpr
-	: KWLET OACC varDeclItemListO CACC KWIN expr		{}
-	;
+    : KWLET OACC varDeclItemListO CACC KWIN expr        {}
+    ;
 
 varDeclItemListO
-	: varDeclItem varDeclItemList						{}
-	;
+    : varDeclItem varDeclItemList                        {}
+    ;
 
 varDeclItemList
-	:													{}
-	| COMMA												{}
-	| COMMA varDeclItem varDeclItemList					{}
-	;
+    :                                                    {}
+    | COMMA                                                {}
+    | COMMA varDeclItem varDeclItemList                    {}
+    ;
 
 genCallExpr
-	: identOrQuotedOp OBRK compTail CBRK OBRK expr CBRK	{}
-	;
+    : identOrQuotedOp OBRK compTail CBRK OBRK expr CBRK    {}
+    ;
 
 identOrQuotedOp
-	: IDENT												{}
-	| ACCENT builtinOp ACCENT							{}
-	;
+    : IDENT                                                {}
+    | ACCENT builtinOp ACCENT                            {}
+    ;
 
 annotations
-	:													{}
-	| OPANNOT annotation annotations					{}
-	;
+    :                                                    {}
+    | OPANNOT annotation annotations                    {}
+    ;
 
 annotation
-	: exprAtomHead exprAtomTail							{}
-	;
+    : exprAtomHead exprAtomTail                            {}
+    ;
 
 %%
 /*

@@ -22,34 +22,34 @@ using System;
 
 namespace ZincOxide {
 
-	public class Interaction {
+    public class Interaction {
 
-		private CompilerVerbosity verbosityLevel;
+        private CompilerVerbosity verbosityLevel;
 
-		public void GenericMessage (CompilerVerbosity verbosity, string format, params object[] args) {
-			if ((verbosity & verbosityLevel) != 0x00) {
-				Console.Write (verbosity.ToString ());
-				Console.Write (": ");
-				Console.WriteLine (format, args);
-			}
-		}
+        public void GenericMessage (CompilerVerbosity verbosity, string format, params object[] args) {
+            if ((verbosity & verbosityLevel) != 0x00) {
+                Console.Write (verbosity.ToString ());
+                Console.Write (": ");
+                Console.WriteLine (format, args);
+            }
+        }
 
-		public void Warning (string format, params object[] args) {
-			this.GenericMessage (CompilerVerbosity.Remark, format, args);
-		}
+        public void Warning (string format, params object[] args) {
+            this.GenericMessage (CompilerVerbosity.Remark, format, args);
+        }
 
-		public void Error (string format, params object[] args) {
-			this.GenericMessage (CompilerVerbosity.Error, format, args);
-		}
+        public void Error (string format, params object[] args) {
+            this.GenericMessage (CompilerVerbosity.Error, format, args);
+        }
 
-		public void Remark (string format, params object[] args) {
-			this.GenericMessage (CompilerVerbosity.Remark, format, args);
-		}
+        public void Remark (string format, params object[] args) {
+            this.GenericMessage (CompilerVerbosity.Remark, format, args);
+        }
 
-		public void Assumption (string format, params object[] args) {
-			this.GenericMessage (CompilerVerbosity.Assumption, format, args);
-		}
+        public void Assumption (string format, params object[] args) {
+            this.GenericMessage (CompilerVerbosity.Assumption, format, args);
+        }
 
-	}
+    }
 }
 

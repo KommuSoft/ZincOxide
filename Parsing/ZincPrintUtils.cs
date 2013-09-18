@@ -28,6 +28,10 @@ namespace ZincOxide.MiniZinc {
 			return string.Format ("\"{0}\"", value);
 		}
 
+		public static string VarParLiteral (ZincVarPar varpar) {
+			return varpar.ToString ().ToLower ();
+		}
+
 	}
 
 }

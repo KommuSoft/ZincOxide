@@ -22,20 +22,7 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincExpression : IZincIdentContainer {
-
-        public ZincExpression () {
-        }
-
-        #region IZincIdentContainer implementation
-        public System.Collections.Generic.IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;
-        }
-
-        public void Replace (System.Collections.Generic.IDictionary<ZincIdent, ZincIdent> identMap) {
-
-        }
-        #endregion
+    public interface IZincExpression : IZincIdentReplaceContainer<IZincExpression> {
 
     }
 }

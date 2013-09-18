@@ -22,32 +22,32 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public class IntegerRange {
+    public class IntegerRange {
 
-		private readonly int min;
-		private readonly int max;
+        private readonly int min;
+        private readonly int max;
 
-		public int Min {
-			get {
-				return this.min;
-			}
-		}
+        public int Min {
+            get {
+                return this.min;
+            }
+        }
 
-		public int Max {
-			get {
-				return this.max;
-			}
-		}
+        public int Max {
+            get {
+                return this.max;
+            }
+        }
 
-		public IntegerRange (int min, int max) {
-			this.min = min;
-			this.max = max;
-		}
+        public IntegerRange (int min, int max) {
+            this.min = min;
+            this.max = max;
+        }
 
-		public bool Contains (int value) {
-			return value >= this.min && value <= this.max;
-		}
+        public bool Contains (int value) {
+            return value >= this.min && value <= this.max;
+        }
 
-	}
+    }
 
 }

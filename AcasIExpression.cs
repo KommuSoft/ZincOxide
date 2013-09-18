@@ -23,12 +23,12 @@ using System.Collections.Generic;
 
 namespace ZincOxide {
 
-	public interface AcasIExpression {
+    public interface AcasIExpression {
 
-		bool Validate ();
-		IEnumerable<AcasVariable> Variables ();
-		IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited);
+        bool Validate ();
+        IEnumerable<AcasVariable> Variables ();
+        IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited);
 
-	}
+    }
 
 }

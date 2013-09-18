@@ -23,16 +23,16 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public class SetLiteral {
+    public class SetLiteral {
 
-		private HashSet<int> values = new HashSet<int> ();
+        private HashSet<int> values = new HashSet<int> ();
 
-		public SetLiteral (IEnumerable<int> values) {
-			this.values.UnionWith (values);
-		}
-		public SetLiteral (params int[] values) : base() {
-		}
+        public SetLiteral (IEnumerable<int> values) {
+            this.values.UnionWith (values);
+        }
+        public SetLiteral (params int[] values) : base() {
+        }
 
-	}
+    }
 }
 

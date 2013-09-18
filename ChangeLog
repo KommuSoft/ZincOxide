@@ -1,5 +1,31 @@
 2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* AcasType.cs:
+	* MiniZinc.cs:
+	* HeadTail.cs:
+	* Manpage.txt:
+	* MiniZinc.lex:
+	* SetLiteral.cs:
+	* FloatRange.cs:
+	* Interaction.cs:
+	* MiniZinc.bison:
+	* AcasFunction.cs:
+	* IntegerRange.cs:
+	* AcasConstant.cs:
+	* AcasVariable.cs:
+	* AcasOperator.cs:
+	* FourStateLogic.cs:
+	* AcasIExpression.cs:
+	* ThreeValueLogic.cs:
+	* EvaluationResult.cs:
+	* CompilerVerbosity.cs:
+	* AcasExpressionBase.cs:
+	* AcasGenericFunction.cs:
+	* AcasFunctionInstance.cs:
+	* AcasBinaryOperatorFlags.cs: 
+
+2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* EnumerableUtils.cs: 
 
 2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>

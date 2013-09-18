@@ -22,7 +22,7 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public interface IZincIdentBox : IZincIdentContainer {
+	public interface IZincIdentBox<TResult> : IZincIdentReplaceContainer<TResult> where TResult : IZincIdentBox<TResult> {
 
 		ZincIdent Ident {
 			get;

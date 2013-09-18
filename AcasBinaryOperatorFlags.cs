@@ -22,10 +22,10 @@ using System;
 
 namespace ZincOxide {
 
-	[Flags]
-	public enum AcasBinaryOperatorFlags : ulong {
-		Commutative		= 0x00000000000001,
-		Associative		= 0x00000000000002
-	}
+    [Flags]
+    public enum AcasBinaryOperatorFlags : ulong {
+        Commutative        = 0x00000000000001,
+        Associative        = 0x00000000000002
+    }
 
 }

@@ -23,20 +23,20 @@ using System.Collections.Generic;
 
 namespace ZincOxide {
 
-	public abstract class AcasExpressionBase : AcasIExpression {
+    public abstract class AcasExpressionBase : AcasIExpression {
 
-		#region AcasIExpression implementation
-		public virtual bool Validate () {
-			return true;
-		}
+        #region AcasIExpression implementation
+        public virtual bool Validate () {
+            return true;
+        }
 
-		public IEnumerable<AcasVariable> Variables () {
-			return this.Variables (new HashSet<AcasIExpression> ());
-		}
+        public IEnumerable<AcasVariable> Variables () {
+            return this.Variables (new HashSet<AcasIExpression> ());
+        }
 
-		public abstract IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited);
-		#endregion
+        public abstract IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited);
+        #endregion
 
-	}
+    }
 }
 
