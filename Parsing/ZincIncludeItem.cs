@@ -22,7 +22,7 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincIncludeItem : IZincItem {
+	public class ZincIncludeItem : NameBase, IZincItem {
 
 		private readonly string name;
 
@@ -32,12 +32,20 @@ namespace ZincOxide.MiniZinc {
 			}
 		}
 
+		#region IZincItem implementation
+		public ZincItemType Type {
+			get {
+				return ZincItemType.Include;
+			}
+		}
+		#endregion
+
 		public ZincIncludeItem (string name) {
 			this.name = name;
 		}
 
 		public override string ToString () {
-			return string.Format ("include ");
+			return string.Format ("include {0}", ZincPrintUtils.StringLiteral (this.name));
 		}
 
 	}

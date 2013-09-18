@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  NameBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,14 +20,32 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide {
 
-	public interface IZincItem {
+	public abstract class NameBase : IName {
 
-		ZincItemType Type {
-			get;
+		private string name;
+
+		public string Name {
+			get {
+				return this.name;
+			}
+			protected set {
+				this.name = value;
+			}
+		}
+
+		protected NameBase () {
+		}
+
+		protected NameBase (string name) {
+			this.Name = name;
+		}
+
+		public override string ToString () {
+			return this.name;
 		}
 
 	}
-
 }
+

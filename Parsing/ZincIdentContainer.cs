@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  ZincIdentContainer.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,15 +19,15 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public interface IZincItem {
+	public interface ZincIdentContainer {
 
-		ZincItemType Type {
-			get;
-		}
+		IEnumerator<ZincIdent> InvolvedIdents ();
 
 	}
 
 }
+

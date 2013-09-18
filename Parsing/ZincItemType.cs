@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  ZincItemType.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,12 +22,16 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public interface IZincItem {
-
-		ZincItemType Type {
-			get;
-		}
-
+	public enum ZincItemType {
+		Include,
+		VarDecl,
+		Assign,
+		Constraint,
+		Solve,
+		Output,
+		Predicate,
+		Test,
+		Annotation
 	}
 
 }

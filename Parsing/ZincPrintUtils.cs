@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  ZincPrintUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,10 +22,10 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public interface IZincItem {
+	public static class ZincPrintUtils {
 
-		ZincItemType Type {
-			get;
+		public static string StringLiteral (string value) {
+			return string.Format ("\"{0}\"", value);
 		}
 
 	}

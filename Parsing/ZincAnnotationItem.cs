@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  ZincAnnotationItem.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,12 +22,26 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public interface IZincItem {
+	public class ZincAnnotationItem : IZincItem {
 
-		ZincItemType Type {
-			get;
+		private readonly ZincIdent ident;
+
+		#region IZincItem implementation
+		public ZincItemType Type {
+			get {
+				return ZincItemType.Annotation;
+			}
+		}
+		#endregion
+
+		public ZincAnnotationItem (ZincIdent ident) {
+			this.ident = ident;
+		}
+
+		public override string ToString () {
+			return string.Format ("annotation {0}");
 		}
 
 	}
-
 }
+

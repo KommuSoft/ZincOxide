@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  IName.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,11 +20,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide {
 
-	public interface IZincItem {
+	public interface IName {
 
-		ZincItemType Type {
+		string Name {
 			get;
 		}
 

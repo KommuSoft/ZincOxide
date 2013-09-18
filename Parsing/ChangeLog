@@ -1,5 +1,18 @@
 2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* HeadTail.cs:
+	* IZincItem.cs:
+	* ZincIdent.cs:
+	* ZincItemType.cs:
+	* IZincIdentBox.cs:
+	* ZincPrintUtils.cs:
+	* ZincIncludeItem.cs:
+	* ZincIdentBoxBase.cs:
+	* ZincAnnotationItem.cs:
+	* ZincIdentContainer.cs: 
+
+2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincData.cs:
 	* ZincItem.cs:
 	* ZincType.cs:

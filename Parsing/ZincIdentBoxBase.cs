@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  ZincIdentBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,15 +19,39 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public interface IZincItem {
+	public abstract class ZincIdentBoxBase : IZincIdentBox {
 
-		ZincItemType Type {
-			get;
+		private ZincIdent ident;
+
+		#region IZincIdentBox implementation
+		public ZincIdent Ident {
+			get {
+				return this.ident;
+			}
+			protected set {
+				this.ident = value;
+			}
+		}
+		#endregion
+
+
+		protected ZincIdentBoxBase () {
 		}
 
-	}
+		protected ZincIdentBoxBase (ZincIdent ident) {
+			this.Ident = ident;
+		}
 
+		#region ZincIdentContainer implementation
+		public IEnumerator<ZincIdent> InvolvedIdents () {
+			yield return this.ident;
+		}
+		#endregion
+
+	}
 }
+

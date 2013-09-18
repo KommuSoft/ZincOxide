@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  ZincIdent.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,10 +22,9 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public interface IZincItem {
+	public class ZincIdent : NameBase {
 
-		ZincItemType Type {
-			get;
+		public ZincIdent (string name) : base(name) {
 		}
 
 	}
