@@ -62,58 +62,58 @@ itemList
 	;
 
 item
-	: typeInstSynItem									{}
-	| enumItem											{}
-	| includeItem										{}
-	| varDeclItem										{}
-	| assignItem										{}
-	| constraintItem									{}
-	| solveItem											{}
-	| outputItem										{}
+//	: typeInstSynItem									{} MiniZinc
+//	| enumItem											{} MiniZinc
+	: includeItem										{}
+//	| varDeclItem										{}
+//	| assignItem										{}
+//	| constraintItem									{}
+//	| solveItem											{}
+//	| outputItem										{}
 //	| predicateItem										{}
 //	| testItem											{}
-//	| functionItem										{}
-//	| annotationItem									{}
+//	| functionItem										{} MiniZinc
+	| annotationItem									{}
 	;
 
-typeInstSynItem
-	: KWTYPE IDENT annotations OPASSIG tiExpr			{}
-	;
+//typeInstSynItem										   MiniZinc
+//	: KWTYPE IDENT annotations OPASSIG tiExpr			{}
+//	;
 
-enumItem
-	: KWENUM IDENT annotations							{}
-	| KWENUM IDENT annotations OPASSIG enumCases		{}
-	;
+//enumItem												   MiniZinc
+//	: KWENUM IDENT annotations							{}
+//	| KWENUM IDENT annotations OPASSIG enumCases		{}
+//	;
 
-enumCases
-	: OACC CACC											{}
-	| OACC enumCaseListO CACC							{}
-	;
+//enumCases												   MiniZinc
+//	: OACC CACC											{}
+//	| OACC enumCaseListO CACC							{}
+//	;
 
-enumCaseListO
-	: enumCase enumCaseList								{}
-	;
+//enumCaseListO											   MiniZinc
+//	: enumCase enumCaseList								{}
+//	;
 
-enumCaseList
-	:													{}
-	| COMMA												{}
-	| COMMA enumCase enumCaseList						{}
-	;
+//enumCaseList											   MiniZinc
+//	:													{}
+//	| COMMA												{}
+//	| COMMA enumCase enumCaseList						{}
+//	;
 
-enumCase
-	: IDENT												{}
-	| IDENT OBRK tiExprAndIdListO CBRK					{}
-	;
+//enumCase												   MiniZinc
+//	: IDENT												{}
+//	| IDENT OBRK tiExprAndIdListO CBRK					{}
+//	;
 
-tiExprAndIdListO
-	: tiExprAndId tiExprAndIdList						{}
-	;
-
-tiExprAndIdList
-	: 													{}
-	| COMMA												{}
-	| COMMA tiExprAndId COMMA tiExprAndIdList			{}
-	;
+//tiExprAndIdListO
+//	: tiExprAndId tiExprAndIdList						{}
+//	;
+//
+//tiExprAndIdList
+//	: 													{}
+//	| COMMA												{}
+//	| COMMA tiExprAndId COMMA tiExprAndIdList			{}
+//	;
 
 tiExprAndId
 	: tiExpr COLON IDENT								{}
@@ -146,38 +146,38 @@ outputItem
 	: KWOUTP expr										{}
 	;
 
-annotationItem
-	: KWANNO IDENT params								{}
-	;
+//annotationItem										   TMP
+//	: KWANNO IDENT paramsNonTerm						{}
+//	;
 
-predicateItem
-	: KWPRED operationItemTail							{}
-	;
+//predicateItem											   TMP
+//	: KWPRED operationItemTail							{}
+//	;
 
-testItem
-	: KWTEST operationItemTail							{}
-	;
+//testItem												   TMP
+//	: KWTEST operationItemTail							{}
+//	;
 
-functionItem
-	: KWFUNC tiExpr COLON operationItemTail				{}
-	;
+//functionItem											   MiniZinc
+//	: KWFUNC tiExpr COLON operationItemTail				{}
+//	;
 
-operationItemTail
-	: IDENT params annotations							{}
-	| IDENT params annotations OPASSIG expr				{}
-	;
+//operationItemTail										   TMP
+//	: IDENT paramsNonTerm annotations					{}
+//	| IDENT paramsNonTerm annotations OPASSIG expr		{}
+//	;
 
-params
-	:													{}
-	| OBRK CBRK											{}
-	| OBRK tiExprAndId COMMA paramsTail CBRK			{}
-	;
+//paramsNonTerm											   TMP
+//	:													{}
+//	| OBRK CBRK											{}
+//	| OBRK tiExprAndId COMMA paramsTail CBRK			{}
+//	;
 
-paramsTail
-	:													{}
-	| COMMA												{}
-	| paramsTail paramsTail								{}
-	;
+//paramsTail											   TMP
+//	:													{}
+//	| COMMA												{}
+//	| paramsTail paramsTail								{}
+//	;
 
 tiExpr
 	: OBRK tiExpr COLON IDENT KWWHER expr CBRK			{}
@@ -203,7 +203,7 @@ baseTiExprTail
 	| setTiExprTail										{}
 	| arrayTiExprTail									{}
 	| tupleTiExprTail									{}
-	| recordTiExprTail									{}
+//	| recordTiExprTail									{} MiniZinc
 	| tiVariableExprTail								{}
 	| KWANN												{}
 	| opTiExprTail										{}
@@ -252,9 +252,9 @@ tiExprList
 	| COMMA tiExpr tiExprList							{}
 	;
 
-recordTiExprTail
-	: KWRECO OBRK tiExprAndIdListO CBRK					{}
-	;
+//recordTiExprTail										   //MiniZinc
+//	: KWRECO OBRK tiExprAndIdListO CBRK					{}
+//	;
 
 tiVariableExprTail
 	: DIDENT											{}
@@ -263,7 +263,7 @@ tiVariableExprTail
 
 opTiExprTail
 	: KWOP OBRK tiExpr COLON OBRK CBRK					{}
-	| KWOP OBRK tiExpr COLON OBRK tiExpr tiExprTail CBRK	{}
+	| KWOP OBRK tiExpr COLON OBRK tiExpr tiExprTail CBRK{}
 	;
 
 expr
@@ -292,15 +292,15 @@ exprAtomHead
 	| setComp											{}
 	| simpleArrayLiteral								{}
 	| simpleArrayLiteralTwoD							{}
-	| indexedArrayLiteral								{}
-	| simpleArrayComp									{}
-	| indexedArrayComp									{}
+//	| indexedArrayLiteral								{} MiniZinc
+//	| simpleArrayComp									{} MiniZinc
+//	| indexedArrayComp									{} MiniZinc
 	| tupleLiteral										{}
-	| recordLiteral										{}
-	| enumLiteral										{}
-	| annLiteral										{}
+//	| recordLiteral										{} MiniZinc
+//	| enumLiteral										{} MiniZinc
+//	| annLiteral										{}
 	| ifThenElseExpr									{}
-	| caseExpr											{}
+//	| caseExpr											{} MiniZinc
 	| letExpr											{}
 	| callExpr											{}
 	| genCallExpr										{}
@@ -309,7 +309,7 @@ exprAtomHead
 exprAtomTail
 	: arrayAccessTail exprAtomTail						{}
 	| tupleAccessTail exprAtomTail						{}
-	| recordAccessTail exprAtomTail						{}
+//	| recordAccessTail exprAtomTail						{} MiniZinc
 	;
 
 numExpr
@@ -332,7 +332,7 @@ numExprAtomHead
 	| INTLI												{}
 	| FLOLI												{}
 	| ifThenElseExpr									{}
-	| caseExpr											{}
+//	| caseExpr											{} MiniZinc
 	| letExpr											{}
 	| callExpr											{}
 	| genCallExpr										{}
@@ -455,32 +455,32 @@ exprListList
 	| BAR exprListO exprListList						{}
 	;
 
-simpleArrayComp
-	: OFBR expr BAR compTail CFBR						{}
-	;
+//simpleArrayComp										   MiniZinc
+//	: OFBR expr BAR compTail CFBR						{}
+//	;
 
-indexedArrayLiteral
-	: OFBR CFBR											{}
-	| OFBR indexExprListO CFBR							{}
-	;
+//indexedArrayLiteral									   MiniZinc
+//	: OFBR CFBR											{}
+//	| OFBR indexExprListO CFBR							{}
+//	;
 
-indexExprListO
-	: indexExpr indexExprList							{}
-	;
+//indexExprListO										   MiniZinc
+//	: indexExpr indexExprList							{}
+//	;
 
-indexExprList
-	: 													{}
-	| COMMA												{}
-	| COMMA indexExpr indexExprList						{}
-	;
+//indexExprList											   MiniZinc
+//	: 													{}
+//	| COMMA												{}
+//	| COMMA indexExpr indexExprList						{}
+//	;
 
-indexExpr
-	: expr COLON expr									{}
-	;
+//indexExpr												   MiniZinc
+//	: expr COLON expr									{}
+//	;
 
-indexedArrayComp
-	: OFBR indexExpr BAR compTail CFBR					{}
-	;
+//indexedArrayComp										   MiniZinc
+//	: OFBR indexExpr BAR compTail CFBR					{}
+//	;
 
 arrayAccessTail
 	: OFBR exprListO CFBR								{}
@@ -494,33 +494,33 @@ tupleAccessTail
 	: OPDOT INTLI										{}
 	;
 
-recordLiteral
-	: OBRK namedExprListO CBRK							{}
-	;
+//recordLiteral											   MiniZinc
+//	: OBRK namedExprListO CBRK							{}
+//	;
 
-namedExprListO
-	: namedExpr namedExprList							{}
-	;
+//namedExprListO										   TMP
+//	: namedExpr namedExprList							{}
+//	;
 
-namedExprList
-	:													{}
-	| COMMA												{}
-	| COMMA namedExpr namedExprList						{}
-	;
+//namedExprList											   TMP
+//	:													{}
+//	| COMMA												{}
+//	| COMMA namedExpr namedExprList						{}
+//	;
 
-namedExpr
-	: IDENT COLON expr									{}
-	;
+//namedExpr												   TMP
+//	: IDENT COLON expr									{}
+//	;
 
-recordAccessTail
-	: OPDOT IDENT										{}
-	;
+//recordAccessTail										   MiniZinc
+//	: OPDOT IDENT										{}
+//	;
 
-enumLiteral
-	: IDENT OBRK namedExprListO CBRK					{}
-	| IDENT OBRK exprListO CBRK							{}
-	| IDENT 											{}
-	;
+//enumLiteral											   MiniZinc
+//	: IDENT OBRK namedExprListO CBRK					{}
+//	| IDENT OBRK exprListO CBRK							{}
+//	| IDENT 											{}
+//	;
 
 annLiteral
 	: IDENT												{}
@@ -536,23 +536,23 @@ ifThenElseTail
 	| KWELSI expr KWTHEN expr ifThenElseTail			{}
 	;
 
-caseExpr
-	: KWCASE expr OACC caseExprCaseListO CACC			{}
-	;
+//caseExpr												   MiniZinc
+//	: KWCASE expr OACC caseExprCaseListO CACC			{}
+//	;
 
-caseExprCaseListO
-	: caseExprCase caseExprCaseList						{}
-	;
+//caseExprCaseListO										   MiniZinc
+//	: caseExprCase caseExprCaseList						{}
+//	;
 
-caseExprCaseList
-	:													{}
-	| COMMA												{}
-	| COMMA caseExprCase caseExprCaseList				{}
-	;
+//caseExprCaseList										   MiniZinc
+//	:													{}
+//	| COMMA												{}
+//	| COMMA caseExprCase caseExprCaseList				{}
+//	;
 
-caseExprCase
-	: IDENT OPCASE expr									{}
-	;
+//caseExprCase											   MiniZinc
+//	: IDENT OPCASE expr									{}
+//	;
 
 callExpr
 	: identOrQuotedOp									{}

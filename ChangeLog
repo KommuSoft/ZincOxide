@@ -1,3 +1,33 @@
+2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* HeadTail.cs:
+	* ZincData.cs:
+	* ZincItem.cs:
+	* ZincType.cs:
+	* IZincItem.cs:
+	* ZincModel.cs:
+	* ZincIName.cs:
+	* ZincIScope.cs:
+	* ZincScalar.cs:
+	* MiniZinc.bison:
+	* ZincInstance.cs:
+	* ZincEnumItem.cs:
+	* ZincCompound.cs:
+	* ZincNameBase.cs:
+	* ZincFunction.cs:
+	* ZincNamespace.cs:
+	* ZincException.cs:
+	* ZincPredicate.cs:
+	* ZincScopeBase.cs:
+	* ZincTotalOrder.cs:
+	* ZincINamespace.cs:
+	* MiniZincParser.cs:
+	* ZincIdentifier.cs:
+	* ZincVarDeclItem.cs:
+	* ZincTypeInstance.cs:
+	* ZincParseException.cs:
+	* ZincGlobalVariable.cs: 
+
 2013-09-17  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
 	* MiniZinc.lex:
