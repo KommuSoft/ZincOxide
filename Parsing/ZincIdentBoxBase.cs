@@ -50,7 +50,12 @@ namespace ZincOxide.MiniZinc {
 		public IEnumerable<ZincIdent> InvolvedIdents () {
 			yield return this.ident;
 		}
-		public abstract void Replace (IDictionary<ZincIdent, ZincIdent> identMap);
+		public void Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			ZincIdent identOut;
+			if (identMap.TryGetValue (this.ident, out identOut)) {
+				this.ident = identOut;
+			}
+		}
 		#endregion
 
 
