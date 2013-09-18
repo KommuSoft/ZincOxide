@@ -25,14 +25,6 @@ namespace ZincOxide.MiniZinc {
 
     public class ZincIncludeItem : NameBase, IZincItem {
 
-        private readonly string name;
-
-        public string Name {
-            get {
-                return this.name;
-            }
-        }
-
         #region IZincItem implementation
         public ZincItemType Type {
             get {
@@ -41,12 +33,11 @@ namespace ZincOxide.MiniZinc {
         }
         #endregion
 
-        public ZincIncludeItem (string name) {
-            this.name = name;
+        public ZincIncludeItem (string name) : base(name) {
         }
 
         public override string ToString () {
-            return string.Format ("include {0}", ZincPrintUtils.StringLiteral (this.name));
+            return string.Format ("include {0}", ZincPrintUtils.StringLiteral (this.Name));
         }
 
         #region IWriteable implementation

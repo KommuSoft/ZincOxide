@@ -31,7 +31,7 @@ namespace ZincOxide.MiniZinc {
 
         public IEnumerable<IZincItem> Items {
             get {
-                return EnumerableUtils.Append (this.includeItems);
+                return EnumerableUtils.Append (this.includeItems, this.varDeclItems);
             }
         }
 
@@ -41,6 +41,10 @@ namespace ZincOxide.MiniZinc {
 
         public void AddIncludeItem (ZincIncludeItem item) {
             this.includeItems.Add (item);
+        }
+
+        public void AddVarDeclItem (ZincVarDeclItem item) {
+            this.varDeclItems.Add (item);
         }
 
 
@@ -55,8 +59,11 @@ namespace ZincOxide.MiniZinc {
             case ZincItemType.Include:
                 AddIncludeItem ((ZincIncludeItem)item);
                 break;
+            case ZincItemType.VarDecl:
+                AddVarDeclItem ((ZincVarDeclItem)item);
+                break;
             default :
-                Interaction.Warning ("A ZincItem was found with an unknown type. Potentially you are running an outdated version of ZincOxide.");
+                Interaction.Warning ("A ZincItem was found with an unknown type. Probably you are running an outdated version of ZincOxide.");
                 break;
             }
         }

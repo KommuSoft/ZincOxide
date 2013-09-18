@@ -19,11 +19,33 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.IO;
 
 namespace ZincOxide.MiniZinc {
-    public class ZincVarDeclItem {
+
+    public class ZincVarDeclItem : IZincItem {
+
+        #region IZincItem implementation
+        public ZincItemType Type {
+            get {
+                return ZincItemType.VarDecl;
+            }
+        }
+        #endregion
+
         public ZincVarDeclItem () {
         }
+
+        public override string ToString () {
+            return string.Format ("[ZincVarDeclItem: Type={0}]", Type);
+        }
+
+        #region IWriteable implementation
+        public void Write (StreamWriter writer) {
+            writer.Write (this.ToString ());
+        }
+        #endregion
+
     }
 }
 
