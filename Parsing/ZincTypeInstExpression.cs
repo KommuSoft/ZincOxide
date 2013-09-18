@@ -21,7 +21,7 @@
 using System;
 
 namespace ZincOxide.MiniZinc {
-	public class ZincTypeInstExpression {
+	public class ZincTypeInstExpression : IZincIdentContainer {
 		public ZincTypeInstExpression () {
 		}
 	}

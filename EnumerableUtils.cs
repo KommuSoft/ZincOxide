@@ -1,5 +1,5 @@
 //
-//  TypeInstExpressionIdent.cs
+//  EnumerableUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,12 +19,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public class TypeInstExpressionIdent : ZincIdentBoxBase {
+	public static class EnumerableUtils {
 
-		public TypeInstExpressionIdent (ZincTypeInstExpression expression, ZincIdent ident) : base(expression) {
+		public static IEnumerable<T> Append<T> (params IEnumerable<T>[] lists) {
+			return Append (lists);
+		}
+
+		public static IEnumerable<T> Append<T> (IEnumerable<IEnumerable<T>> lists) {
+			foreach (IEnumerable<T> list in lists) {
+				foreach (T t in list) {
+					yield return t;
+				}
+			}
 		}
 
 	}
