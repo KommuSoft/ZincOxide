@@ -47,7 +47,7 @@ namespace ZincOxide.MiniZinc {
 		}
 
 		#region ZincIdentContainer implementation
-		public IEnumerator<ZincIdent> InvolvedIdents () {
+		public IEnumerable<ZincIdent> InvolvedIdents () {
 			yield return this.ident;
 		}
 		#endregion

@@ -23,9 +23,9 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public interface ZincIdentContainer {
+	public interface IZincIdentContainer {
 
-		IEnumerator<ZincIdent> InvolvedIdents ();
+		IEnumerable<ZincIdent> InvolvedIdents ();
 
 	}
 
