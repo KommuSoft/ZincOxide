@@ -32,12 +32,27 @@ namespace ZincOxide.MiniZinc {
 		public IEnumerable<ZincIdent> InvolvedIdents () {
 			yield return this;
 		}
-		public void Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-			if (identMap.ContainsKey (this)) {
-				throw new ZincException ("Cannot replace the ident, it's the this ident.");
+		public ZincIdent Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			ZincIdent outp;
+			if (identMap.TryGetValue (this, out outp)) {
+				return outp;
+			} else {
+				return this;
 			}
 		}
 		#endregion
+
+		public static IZincIdentContainer Replace<T> (T value, IDictionary<ZincIdent,ZincIdent> identMap) where T : IZincIdentContainer {
+			if (value != null) {
+				if (value is ZincIdent) {
+					ZincIdent zi = value as ZincIdent;
+					return Replace (zi, identMap);
+				} else {
+					value.Replace (identMap);
+				}
+			}
+			return value;
+		}
 
 	}
 

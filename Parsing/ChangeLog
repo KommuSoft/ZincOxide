@@ -1,5 +1,13 @@
 2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ZincIdent.cs:
+	* ZincExpression.cs:
+	* ZincIdentBoxBase.cs:
+	* IZincIdentContainer.cs:
+	* ZincTypeInstExpression.cs: 
+
+2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincIdentBoxBase.cs:
 	* ZincTypeInstExpression.cs:
 	* TypeInstExpressionIdent.cs:

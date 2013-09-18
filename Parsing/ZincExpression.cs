@@ -1,5 +1,5 @@
 //
-//  ZincIdentContainer.cs
+//  ZincExpression.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,17 +19,24 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public interface IZincIdentContainer {
+    public class ZincExpression : IZincIdentContainer {
 
-		IEnumerable<ZincIdent> InvolvedIdents ();
+        public ZincExpression () {
+        }
 
-		IZincIdentContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap);
+        #region IZincIdentContainer implementation
+        public System.Collections.Generic.IEnumerable<ZincIdent> InvolvedIdents () {
+            yield break;
+        }
 
-	}
+        public void Replace (System.Collections.Generic.IDictionary<ZincIdent, ZincIdent> identMap) {
 
+        }
+        #endregion
+
+    }
 }
 

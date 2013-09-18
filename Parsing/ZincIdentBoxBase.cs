@@ -51,10 +51,7 @@ namespace ZincOxide.MiniZinc {
 			yield return this.ident;
 		}
 		public virtual void Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-			ZincIdent identOut;
-			if (identMap.TryGetValue (this.ident, out identOut)) {
-				this.ident = identOut;
-			}
+			this.ident = ZincIdent.Replace (this.ident, identMap);
 		}
 		#endregion
 
