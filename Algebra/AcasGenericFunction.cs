@@ -1,5 +1,5 @@
 //
-//  AcasFunction.cs
+//  AcasGenericFunction.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,37 +20,28 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Acas {
+    public class AcasGenericFunction : AcasFunction {
 
-    public abstract class AcasFunction {
+        private int arity;
 
-        private string name;
-
-        public abstract bool IsOperator {
-            get;
-        }
-        public abstract int Arity {
-            get;
-        }
-        public string Name {
+        #region implemented abstract members of ZincOxide.AcasFunction
+        public override bool IsOperator {
             get {
-                return name;
-            }
-        }
-        public virtual string RepresentationName {
-            get {
-                return this.name;
+                return false;
             }
         }
 
-        protected AcasFunction (string name) {
-            this.name = name;
+        public override int Arity {
+            get {
+                return this.arity;
+            }
         }
+        #endregion
 
-        public override string ToString () {
-            return string.Format ("{0}/{1}", this.RepresentationName, this.Arity);
+        public AcasGenericFunction (string name, int arity) : base(name) {
+            this.arity = arity;
         }
-
     }
 }
 

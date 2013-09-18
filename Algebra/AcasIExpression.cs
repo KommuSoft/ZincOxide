@@ -1,5 +1,5 @@
 //
-//  AcasVariable.cs
+//  AcasIExpression.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -21,34 +21,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace ZincOxide {
+namespace ZincOxide.Acas {
 
-    public class AcasVariable : AcasExpressionBase {
+    public interface AcasIExpression {
 
-        private string name;
-
-        public string Name {
-            get {
-                return name;
-            }
-            set {
-                name = value;
-            }
-        }
-
-        public AcasVariable () {
-        }
-
-        public override string ToString () {
-            return this.name;
-        }
-
-        #region implemented abstract members of ZincOxide.AcasExpressionBase
-        public override IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited) {
-            yield return this;
-        }
-        #endregion
-
+        bool Validate ();
+        IEnumerable<AcasVariable> Variables ();
+        IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited);
 
     }
 

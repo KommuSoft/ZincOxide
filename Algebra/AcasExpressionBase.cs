@@ -1,5 +1,5 @@
 //
-//  AcasBinaryOperatorFlags.cs
+//  AcasExpressionBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,13 +19,24 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
-namespace ZincOxide {
+namespace ZincOxide.Acas {
 
-    [Flags]
-    public enum AcasBinaryOperatorFlags : ulong {
-        Commutative        = 0x00000000000001,
-        Associative        = 0x00000000000002
+    public abstract class AcasExpressionBase : AcasIExpression {
+
+        #region AcasIExpression implementation
+        public virtual bool Validate () {
+            return true;
+        }
+
+        public IEnumerable<AcasVariable> Variables () {
+            return this.Variables (new HashSet<AcasIExpression> ());
+        }
+
+        public abstract IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited);
+        #endregion
+
     }
-
 }
+

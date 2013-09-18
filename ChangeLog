@@ -1,5 +1,18 @@
 2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* AcasType.cs:
+	* AcasFunction.cs:
+	* AcasOperator.cs:
+	* AcasVariable.cs:
+	* AcasConstant.cs:
+	* AcasIExpression.cs:
+	* AcasExpressionBase.cs:
+	* AcasGenericFunction.cs:
+	* AcasFunctionInstance.cs:
+	* AcasBinaryOperatorFlags.cs: 
+
+2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* IReadable.cs: 
 
 2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>

@@ -1,5 +1,5 @@
 //
-//  AcasIExpression.cs
+//  AcasConstant.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,16 +19,29 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
 
-namespace ZincOxide {
+namespace ZincOxide.Acas {
 
-    public interface AcasIExpression {
+    public class AcasConstant : AcasFunction {
 
-        bool Validate ();
-        IEnumerable<AcasVariable> Variables ();
-        IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited);
+        #region implemented abstract members of ZincOxide.AcasFunction
+        public override bool IsOperator {
+            get {
+                return false;
+            }
+        }
+
+        public override int Arity {
+            get {
+                return 0x00;
+            }
+        }
+        #endregion
+
+        public AcasConstant (string name) : base(name) {
+        }
+
 
     }
-
 }
+

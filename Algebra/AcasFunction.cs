@@ -1,5 +1,5 @@
 //
-//  AcasOperator.cs
+//  AcasFunction.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,31 +20,37 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
-    public class AcasOperator : AcasFunction {
+namespace ZincOxide.Acas {
 
-        #region implemented abstract members of ZincOxide.AcasFunction
-        public override bool IsOperator {
+    public abstract class AcasFunction {
+
+        private string name;
+
+        public abstract bool IsOperator {
+            get;
+        }
+        public abstract int Arity {
+            get;
+        }
+        public string Name {
             get {
-                return true;
+                return name;
+            }
+        }
+        public virtual string RepresentationName {
+            get {
+                return this.name;
             }
         }
 
-        public override int Arity {
-            get {
-                return 0x02;
-            }
+        protected AcasFunction (string name) {
+            this.name = name;
         }
-        public override string RepresentationName {
-            get {
-                return string.Format ("`{0}`", this.Name);
-            }
-        }
-        #endregion
 
-        public AcasOperator (string name) : base(name) {
+        public override string ToString () {
+            return string.Format ("{0}/{1}", this.RepresentationName, this.Arity);
         }
 
     }
-
 }
+

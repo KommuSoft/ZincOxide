@@ -1,5 +1,5 @@
 //
-//  AcasExpressionBase.cs
+//  AcasOperator.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,24 +19,32 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
 
-namespace ZincOxide {
+namespace ZincOxide.Acas {
+    public class AcasOperator : AcasFunction {
 
-    public abstract class AcasExpressionBase : AcasIExpression {
-
-        #region AcasIExpression implementation
-        public virtual bool Validate () {
-            return true;
+        #region implemented abstract members of ZincOxide.AcasFunction
+        public override bool IsOperator {
+            get {
+                return true;
+            }
         }
 
-        public IEnumerable<AcasVariable> Variables () {
-            return this.Variables (new HashSet<AcasIExpression> ());
+        public override int Arity {
+            get {
+                return 0x02;
+            }
         }
-
-        public abstract IEnumerable<AcasVariable> Variables (ISet<AcasIExpression> visited);
+        public override string RepresentationName {
+            get {
+                return string.Format ("`{0}`", this.Name);
+            }
+        }
         #endregion
 
-    }
-}
+        public AcasOperator (string name) : base(name) {
+        }
 
+    }
+
+}
