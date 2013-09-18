@@ -1,5 +1,13 @@
 2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ZincModel.cs:
+	* IZincItem.cs:
+	* ZincIncludeItem.cs:
+	* ZincVarDeclItem.cs:
+	* ZincAnnotationItem.cs: 
+
+2013-09-18  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincData.cs:
 	* ZincIdent.cs:
 	* ZincVarPar.cs:

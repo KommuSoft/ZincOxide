@@ -19,26 +19,36 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.IO;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincAnnotationItem : ZincIdentBoxBase, IZincItem {
+    public class ZincAnnotationItem : ZincIdentBoxBase, IZincItem {
 
         #region IZincItem implementation
-		public ZincItemType Type {
-			get {
-				return ZincItemType.Annotation;
-			}
-		}
+        public ZincItemType Type {
+            get {
+                return ZincItemType.Annotation;
+            }
+        }
         #endregion
 
-		public ZincAnnotationItem (ZincIdent ident) : base(ident) {
-		}
+        public ZincAnnotationItem (ZincIdent ident) : base(ident) {
+        }
 
-		public override string ToString () {
-			return string.Format ("annotation {0} {1}", this.Ident, null);
-		}
+        public override string ToString () {
+            return string.Format ("annotation {0} {1}", this.Ident, null);
+        }
 
-	}
+        #region IWriteable implementation
+        public void Write (StreamWriter writer) {
+            writer.Write (this.ToString ());
+        }
+        #endregion
+
+
+
+
+    }
 }
 

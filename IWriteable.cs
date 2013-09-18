@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  IWritable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,15 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.IO;
 
 namespace ZincOxide.MiniZinc {
 
-    public interface IZincItem : IWriteable {
+    public interface IWriteable {
 
-        ZincItemType Type {
-            get;
-        }
+        void Write (StreamWriter writer);
 
     }
 

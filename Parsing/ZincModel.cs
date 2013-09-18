@@ -19,20 +19,58 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.IO;
 using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincModel {
+    public class ZincModel : IWriteable {
 
-		public ZincModel () {
+        private List<ZincIncludeItem> includeItems;
+        private List<ZincVarDeclItem> varDeclItems;
 
-		}
+        public IEnumerable<IZincItem> Items {
+            get {
+                return EnumerableUtils.Append (this.includeItems);
+            }
+        }
+
+        public ZincModel () {
+
+        }
+
+        public void AddIncludeItem (ZincIncludeItem item) {
+            this.includeItems.Add (item);
+        }
 
 
-		public void AddZincItems (IEnumerable<IZincItem> item) {
-		}
+        public void AddItems (IEnumerable<IZincItem> items) {
+            foreach (IZincItem item in items) {
+                this.AddItem (item);
+            }
+        }
 
-	}
+        public void AddItem (IZincItem item) {
+            switch (item.Type) {
+            case ZincItemType.Include:
+                AddIncludeItem ((ZincIncludeItem)item);
+                break;
+            default :
+                Interaction.Warning ("A ZincItem was found with an unknown type. Potentially you are running an outdated version of ZincOxide.");
+                break;
+            }
+        }
+
+        #region IWritable implementation
+        public void Write (StreamWriter writer) {
+            foreach (IZincItem item in this.Items) {
+                item.Write (writer);
+                writer.WriteLine (";");
+            }
+        }
+        #endregion
+
+
+    }
 
 }

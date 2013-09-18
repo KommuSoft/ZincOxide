@@ -21,12 +21,9 @@
 using System;
 
 namespace ZincOxide.MiniZinc {
-
-	public class ZincVarDeclItem : ZincItem {
-
-		public ZincVarDeclItem () {
-		}
-
-	}
+    public class ZincVarDeclItem {
+        public ZincVarDeclItem () {
+        }
+    }
 }
 

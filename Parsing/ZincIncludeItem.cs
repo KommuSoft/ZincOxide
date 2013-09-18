@@ -19,35 +19,45 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.IO;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincIncludeItem : NameBase, IZincItem {
+    public class ZincIncludeItem : NameBase, IZincItem {
 
-		private readonly string name;
+        private readonly string name;
 
-		public string Name {
-			get {
-				return this.name;
-			}
-		}
+        public string Name {
+            get {
+                return this.name;
+            }
+        }
 
         #region IZincItem implementation
-		public ZincItemType Type {
-			get {
-				return ZincItemType.Include;
-			}
-		}
+        public ZincItemType Type {
+            get {
+                return ZincItemType.Include;
+            }
+        }
         #endregion
 
-		public ZincIncludeItem (string name) {
-			this.name = name;
-		}
+        public ZincIncludeItem (string name) {
+            this.name = name;
+        }
 
-		public override string ToString () {
-			return string.Format ("include {0}", ZincPrintUtils.StringLiteral (this.name));
-		}
+        public override string ToString () {
+            return string.Format ("include {0}", ZincPrintUtils.StringLiteral (this.name));
+        }
 
-	}
+        #region IWriteable implementation
+        public void Write (StreamWriter writer) {
+            writer.Write (this.ToString ());
+        }
+        #endregion
+
+
+
+
+    }
 }
 
