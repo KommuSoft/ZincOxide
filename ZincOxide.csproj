@@ -109,6 +109,11 @@
     <Compile Include="Codegen\ICodeInterface.cs" />
     <Compile Include="Codegen\CodeInterfaceBase.cs" />
     <Compile Include="Codegen\ICodeBuilder.cs" />
+    <Compile Include="Codegen\ICodePackage.cs" />
+    <Compile Include="Codegen\CodePackageBase.cs" />
+    <Compile Include="Codegen\ICodeFile.cs" />
+    <Compile Include="Codegen\CodeBuilderBase.cs" />
+    <Compile Include="Codegen\CodeBuilderJava.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

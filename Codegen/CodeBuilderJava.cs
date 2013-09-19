@@ -1,5 +1,5 @@
 //
-//  CodeBuilder.cs
+//  CodeBuilderJava.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,11 +22,10 @@ using System;
 
 namespace ZincOxide.Codegen {
 
-    public interface ICodeBuilder {
+    public class CodeBuilderJava : CodeBuilderBase {
 
-        ICodePackage NewPackage (string name);
-
-        ICodeInterface NewInterface (ICodePackage package, string name, params ICodeInterface[] iface);
+        public CodeBuilderJava () {
+        }
 
     }
 

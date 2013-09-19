@@ -1,5 +1,5 @@
 //
-//  CodeBuilder.cs
+//  ICodeFile.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,12 +22,8 @@ using System;
 
 namespace ZincOxide.Codegen {
 
-    public interface ICodeBuilder {
-
-        ICodePackage NewPackage (string name);
-
-        ICodeInterface NewInterface (ICodePackage package, string name, params ICodeInterface[] iface);
+    public interface ICodeFile : IName, IWriteable {
 
     }
-
 }
+
