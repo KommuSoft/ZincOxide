@@ -1,5 +1,5 @@
 //
-//  ICodePackage.cs
+//  CodeFileBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,17 +18,20 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.IO;
 
 namespace ZincOxide.Codegen {
 
-    public interface ICodePackage : IName {
+    public abstract class CodeFileBase : NameBase, ICodeFile {
 
-        string Path {
-            get;
+        protected CodeFileBase (string name) : base(name) {
         }
 
-    }
+        #region ICodeFile implementation
+        public abstract void Write (Stream stream);
+        #endregion
 
+
+    }
 }
 

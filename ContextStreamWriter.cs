@@ -26,7 +26,7 @@ namespace ZincOxide {
     public class ContextStreamWriter : StreamWriter {
 
         private int indentLevel;
-        private string indent = "    ";
+        private string indent;
 
         public int IndentLevel {
             get {
@@ -43,25 +43,32 @@ namespace ZincOxide {
             }
         }
 
-        public ContextStreamWriter (Stream stream) : base(stream) {
+        public ContextStreamWriter (Stream stream, string indent = "    ") : base(stream) {
+            this.Indent = indent;
         }
 
-        public ContextStreamWriter (Stream stream, Encoding encoding) : base(stream,encoding) {
+        public ContextStreamWriter (Stream stream, Encoding encoding, string indent = "    ") : base(stream,encoding) {
+            this.Indent = indent;
         }
 
-        public ContextStreamWriter (Stream stream, Encoding encoding, int bufferSize) : base(stream,encoding,bufferSize) {
+        public ContextStreamWriter (Stream stream, Encoding encoding, int bufferSize, string indent = "    ") : base(stream,encoding,bufferSize) {
+            this.Indent = indent;
         }
 
-        public ContextStreamWriter (string path) : base(path) {
+        public ContextStreamWriter (string path, string indent = "    ") : base(path) {
+            this.Indent = indent;
         }
 
-        public ContextStreamWriter (string path, bool append) : base(path,append) {
+        public ContextStreamWriter (string path, bool append, string indent = "    ") : base(path,append) {
+            this.Indent = indent;
         }
 
-        public ContextStreamWriter (string path, bool append, Encoding encoding) : base(path,append,encoding) {
+        public ContextStreamWriter (string path, bool append, Encoding encoding, string indent = "    ") : base(path,append,encoding) {
+            this.Indent = indent;
         }
 
-        public ContextStreamWriter (string path, bool append, Encoding encoding, int bufferSize) : base(path,append,encoding,bufferSize) {
+        public ContextStreamWriter (string path, bool append, Encoding encoding, int bufferSize, string indent = "    ") : base(path,append,encoding,bufferSize) {
+            this.Indent = indent;
         }
 
         public void AddLevel () {
@@ -70,6 +77,13 @@ namespace ZincOxide {
 
         public void SubLevel () {
             this.indentLevel = Math.Max (0x00, this.indentLevel - 0x01);
+        }
+
+        public override void WriteLine () {
+            base.WriteLine ();
+            for (int i = 0x00; i < this.indentLevel; i++) {
+                this.Write (this.indent);
+            }
         }
 
     }

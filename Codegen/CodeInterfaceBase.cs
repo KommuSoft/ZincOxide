@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide.Codegen {
 
-    public class CodeInterfaceBase : NameBase {
+    public class CodeInterfaceBase : NameBase, ICodeInterface {
 
         private ICodePackage package;
         private readonly List<ICodeInterface> superInterfaces = new List<ICodeInterface> ();

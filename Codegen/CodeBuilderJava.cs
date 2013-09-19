@@ -18,7 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen {
 
@@ -27,6 +27,7 @@ namespace ZincOxide.Codegen {
         public CodeBuilderJava () {
         }
 
+        #region implemented abstract members of ZincOxide.Codegen.CodeBuilderBase
         public override ICodePackage NewPackage (string name) {
             return new CodePackageJava (name);
         }
@@ -34,6 +35,14 @@ namespace ZincOxide.Codegen {
         public override ICodeInterface NewInterface (ICodePackage package, string name, params ICodeInterface[] iface) {
             throw new System.NotImplementedException ();
         }
+
+        public override IEnumerable<ICodeFile> Generate () {
+            foreach (CodeInterfaceJava iface in this.Interfaces<CodeInterfaceJava>()) {
+                yield return new ContextWriteableCodeFile (string.Format ("{0}{1}.java", iface.Package.Path, iface.Name), iface);
+            }
+        }
+        #endregion
+
 
     }
 

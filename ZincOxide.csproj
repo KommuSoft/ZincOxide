@@ -119,6 +119,10 @@
     <Compile Include="MiniZinc\ZincOxideMiniZincException.cs" />
     <Compile Include="Codegen\CodePackageJava.cs" />
     <Compile Include="ContextStreamWriter.cs" />
+    <Compile Include="Codegen\IContextWriteable.cs" />
+    <Compile Include="Codegen\ContextWriteableUtils.cs" />
+    <Compile Include="Codegen\ContextWriteableCodeFile.cs" />
+    <Compile Include="Codegen\CodeFileBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

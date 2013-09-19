@@ -22,7 +22,7 @@ using System.IO;
 
 namespace ZincOxide.Codegen {
 
-    public class CodeInterfaceJava : CodeInterfaceBase, IWriteable {
+    public class CodeInterfaceJava : CodeInterfaceBase, IContextWriteable {
 
         public override string Name {
             get {
@@ -41,11 +41,11 @@ namespace ZincOxide.Codegen {
         }
 
         #region IWriteable implementation
-        public void Write (StreamWriter writer) {
+        public void Write (ContextStreamWriter writer) {
             if (this.Package != null) {
                 writer.WriteLine ("package {0}", this.Package.Name);
             }
-            writer.Write ("interface {0}", this.Name);
+            writer.Write ("public interface {0}", this.Name);
             if (this.SuperInterfaces.Count > 0x00) {
                 writer.Write (" implements {0}", string.Join (", ", this.SuperInterfaces));
             }

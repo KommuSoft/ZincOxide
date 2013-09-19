@@ -37,6 +37,14 @@ namespace ZincOxide.Codegen {
             }
         }
 
+        #region implemented abstract members of ZincOxide.Codegen.CodePackageBase
+        public override string Path {
+            get {
+                return string.Format ("{0}/", this.Name.Replace ('.', '/'));
+            }
+        }
+        #endregion
+
         public CodePackageJava (string name) : base(name) {
         }
 

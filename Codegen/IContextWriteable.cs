@@ -1,5 +1,5 @@
 //
-//  ICodePackage.cs
+//  IContextWriteable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,13 +22,10 @@ using System;
 
 namespace ZincOxide.Codegen {
 
-    public interface ICodePackage : IName {
+    public interface IContextWriteable {
 
-        string Path {
-            get;
-        }
+        void Write (ContextStreamWriter writer);
 
     }
 
 }
-

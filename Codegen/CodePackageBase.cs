@@ -24,6 +24,12 @@ namespace ZincOxide.Codegen {
 
     public abstract class CodePackageBase : NameBase, ICodePackage {
 
+        #region ICodePackage implementation
+        public abstract string Path {
+            get;
+        }
+        #endregion
+
         protected CodePackageBase (string name) : base(name) {
         }
 

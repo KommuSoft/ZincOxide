@@ -18,19 +18,31 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen {
 
     public abstract class CodeBuilderBase : ICodeBuilder {
 
+        private readonly List<ICodeInterface> interfaces = new List<ICodeInterface> ();
+
         public CodeBuilderBase () {
+        }
+
+        public IEnumerable<T> Interfaces<T> () where T : ICodeInterface {
+            foreach (ICodeInterface iface in this.interfaces) {
+                if (iface is T) {
+                    yield return (T)iface;
+                }
+            }
         }
 
         #region ICodeBuilder implementation
         public abstract ICodePackage NewPackage (string name);
 
         public abstract ICodeInterface NewInterface (ICodePackage package, string name, params ICodeInterface[] iface);
+
+        public abstract IEnumerable<ICodeFile> Generate ();
         #endregion
 
     }
