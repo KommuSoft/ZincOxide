@@ -1,5 +1,16 @@
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* IName.cs:
+	* NameBase.cs:
+	* NameRegister.cs:
+	* ZincOxide.csproj:
+	* INameRegister.cs:
+	* IReadWriteable.cs:
+	* GenerateNameRegister.cs:
+	* IGenerateNameRegister.cs: 
+
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* SetLiteral.cs:
 	* ZincOxide.csproj:
 	* EvaluationResult.cs:

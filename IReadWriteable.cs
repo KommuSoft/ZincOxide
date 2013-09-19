@@ -1,5 +1,5 @@
 //
-//  IName.cs
+//  IReadWriteable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,14 +22,8 @@ using System;
 
 namespace ZincOxide {
 
-    public interface IName {
-
-        string Name {
-            get;
-        }
-
-        bool EqualName (IName other);
-
+    public interface IReadWriteable : IReadable, IWriteable {
     }
 
 }
+

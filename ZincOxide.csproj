@@ -99,6 +99,12 @@
     <Compile Include="MiniZinc\ZincTypeInstAndIdent.cs" />
     <Compile Include="MiniZinc\IZincTypeInstExpressionBox.cs" />
     <Compile Include="MiniZinc\ZincTypeInstExpressionBoxBase.cs" />
+    <Compile Include="IReadWriteable.cs" />
+    <Compile Include="NameRegister.cs" />
+    <Compile Include="INameRegister.cs" />
+    <Compile Include="Codegen\OuputFile.cs" />
+    <Compile Include="IGenerateNameRegister.cs" />
+    <Compile Include="GenerateNameRegister.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -1,5 +1,5 @@
 //
-//  IName.cs
+//  OuputFile.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,16 +20,17 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Codegen {
 
-    public interface IName {
+    public class OuputFile : IWriteable {
 
-        string Name {
-            get;
+        #region IWriteable implementation
+        public void Write (System.IO.StreamWriter writer) {
+            //TODO
         }
-
-        bool EqualName (IName other);
+        #endregion
 
     }
 
 }
+

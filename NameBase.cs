@@ -22,30 +22,39 @@ using System;
 
 namespace ZincOxide {
 
-	public abstract class NameBase : IName {
+    public abstract class NameBase : IName {
 
-		private string name;
+        private string name;
 
-		public string Name {
-			get {
-				return this.name;
-			}
-			protected set {
-				this.name = value;
-			}
-		}
+		#region IName implementation
+        public string Name {
+            get {
+                return this.name;
+            }
+            protected set {
+                this.name = value;
+            }
+        }
+        #endregion
 
-		protected NameBase () {
-		}
+        protected NameBase () {
+        }
 
-		protected NameBase (string name) {
-			this.Name = name;
-		}
+        protected NameBase (string name) {
+            this.Name = name;
+        }
 
-		public override string ToString () {
-			return this.name;
-		}
+        public override string ToString () {
+            return this.name;
+        }
 
-	}
+        #region IName implementation
+        public bool EqualName (IName other) {
+            return this.name == other.Name;
+        }
+        #endregion
+
+
+    }
 }
 

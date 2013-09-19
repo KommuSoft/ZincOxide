@@ -1,5 +1,5 @@
 //
-//  IName.cs
+//  INameRegister.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,13 +22,13 @@ using System;
 
 namespace ZincOxide {
 
-    public interface IName {
+    public interface INameRegister<T> where T : IName {
 
-        string Name {
-            get;
-        }
+        void Register (T value);
 
-        bool EqualName (IName other);
+        bool Contains<U> (string name) where U : T;
+
+        U Lookup<U> (string name) where U : T;
 
     }
 
