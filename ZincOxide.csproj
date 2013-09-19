@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F54D87B0-B6A6-4E13-9890-10660779394D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ZincOxide</RootNamespace>
+    <AssemblyName>ZincOxide</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+    <GenerateDocumentation>true</GenerateDocumentation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="ThreeValueLogic.cs" />
+    <Compile Include="FourStateLogic.cs" />
+    <Compile Include="MiniZinc.cs" />
+    <Compile Include="EvaluationResult.cs" />
+    <Compile Include="Interaction.cs" />
+    <Compile Include="CompilerVerbosity.cs" />
+    <Compile Include="MiniZincParser.cs" />
+    <Compile Include="IntegerRange.cs" />
+    <Compile Include="SetLiteral.cs" />
+    <Compile Include="FloatRange.cs" />
+    <Compile Include="IName.cs" />
+    <Compile Include="NameBase.cs" />
+    <Compile Include="HeadTail.cs" />
+    <Compile Include="ZincException.cs" />
+    <Compile Include="EnumerableUtils.cs" />
+    <Compile Include="IWriteable.cs" />
+    <Compile Include="IReadable.cs" />
+    <Compile Include="ReadWriteableUtils.cs" />
+    <Compile Include="Algebra\AcasBinaryOperatorFlags.cs" />
+    <Compile Include="Algebra\AcasConstant.cs" />
+    <Compile Include="Algebra\AcasExpressionBase.cs" />
+    <Compile Include="Algebra\AcasFunction.cs" />
+    <Compile Include="Algebra\AcasFunctionInstance.cs" />
+    <Compile Include="Algebra\AcasGenericFunction.cs" />
+    <Compile Include="Algebra\AcasIExpression.cs" />
+    <Compile Include="Algebra\AcasOperator.cs" />
+    <Compile Include="Algebra\AcasType.cs" />
+    <Compile Include="Algebra\AcasVariable.cs" />
+    <Compile Include="IValidateable.cs" />
+    <Compile Include="IScope.cs" />
+    <Compile Include="Codegen\CodeBuilder.cs" />
+    <Compile Include="MiniZinc\ZincData.cs" />
+    <Compile Include="MiniZinc\ZincModel.cs" />
+    <Compile Include="MiniZinc\IZincItem.cs" />
+    <Compile Include="MiniZinc\ZincIncludeItem.cs" />
+    <Compile Include="MiniZinc\ZincItemType.cs" />
+    <Compile Include="MiniZinc\ZincPrintUtils.cs" />
+    <Compile Include="MiniZinc\ZincIdent.cs" />
+    <Compile Include="MiniZinc\ZincAnnotationItem.cs" />
+    <Compile Include="MiniZinc\IZincIdentBox.cs" />
+    <Compile Include="MiniZinc\ZincIdentBoxBase.cs" />
+    <Compile Include="MiniZinc\IZincIdentContainer.cs" />
+    <Compile Include="MiniZinc\ZincTypeInstWhereExpression.cs" />
+    <Compile Include="MiniZinc\ZincTypeInstExpressionIdent.cs" />
+    <Compile Include="MiniZinc\IZincExpression.cs" />
+    <Compile Include="MiniZinc\IZincIdentReplaceContainer.cs" />
+    <Compile Include="MiniZinc\ZincVarPar.cs" />
+    <Compile Include="MiniZinc\ZincVarDeclItem.cs" />
+    <Compile Include="MiniZinc\ZincSolveType.cs" />
+    <Compile Include="MiniZinc\ZincAnnotation.cs" />
+    <Compile Include="MiniZinc\ZincScalar.cs" />
+    <Compile Include="MiniZinc\ZincAnnotations.cs" />
+    <Compile Include="MiniZinc\ZincAssignItem.cs" />
+    <Compile Include="MiniZinc\ZincOutputItem.cs" />
+    <Compile Include="MiniZinc\ZincIdentExpressionBoxBase.cs" />
+    <Compile Include="MiniZinc\IZincIdentExpressionBox.cs" />
+    <Compile Include="MiniZinc\IZincExpressionBox.cs" />
+    <Compile Include="MiniZinc\ZincExpressionBoxBase.cs" />
+    <Compile Include="MiniZinc\ZincConstraintItem.cs" />
+    <Compile Include="MiniZinc\IZincTypeInstExpression.cs" />
+    <Compile Include="MiniZinc\IZincType.cs" />
+    <Compile Include="MiniZinc\ZincTypeInstBaseExpression.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="MonoDevelop.NUnit, Version=2.6.0.0, Culture=neutral">
+      <Private>False</Private>
+      <Package>monodevelop-core-addins</Package>
+    </Reference>
+    <Reference Include="QUT.ShiftReduceParser">
+      <HintPath>..\..\Libraries\gppg-distro-1.5.0\binaries\QUT.ShiftReduceParser.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jobshop.mzn" />
+    <None Include="jobshop2x2.data" />
+    <None Include="MiniZinc.bison" />
+    <None Include="MiniZinc.lex" />
+    <None Include="Manpage.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Codegen\" />
+    <Folder Include="Algebra\" />
+    <Folder Include="MiniZinc\" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedFlat" ResourceNamePolicy="FileFormatDefault" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+</Project>

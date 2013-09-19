@@ -1,0 +1,63 @@
+MiniZinc.bison(47,0):error 5:There are 20 non-terminating NonTerminal Symbols
+ {annotationItem, expr, assignItem, constraintItem, outputItem, exprListO, 
+    numExpr, exprAtom, exprAtomTail, setComp, tupleLiteral, ifThenElseExpr, 
+    letExpr, genCallExpr, arrayAccessTail, numExprAtom, compTail, 
+    generatorListO, generator, annotation}
+MiniZinc.bison(47,0):warning 150:The following 5 symbols form a non-terminating cycle 
+{exprListO, arrayAccessTail, exprAtomTail, exprAtom, expr}
+MiniZinc.bison(47,0):warning 151:Terminating annotationItem fixes the following size-1 NonTerminal set
+{annotationItem}
+MiniZinc.bison(47,0):warning 151:Terminating exprAtomTail fixes the following size-19 NonTerminal set
+{expr, assignItem, constraintItem, outputItem, exprListO, numExpr, exprAtom, 
+    exprAtomTail, setComp, tupleLiteral, ifThenElseExpr, letExpr, genCallExpr, 
+    arrayAccessTail, numExprAtom, compTail, generatorListO, generator, 
+    annotation}
+MiniZinc.bison(47,0):error 5:NonTerminal symbol "annotationItem" has no productions
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "tiExprAndId" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "tiExpr" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "varDeclItem" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "annotations" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "expr" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "assignItem" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "constraintItem" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "solveItem" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "outputItem" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "baseTiExpr" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "varPar" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "baseTiExprTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "setTiExprTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "arrayTiExprTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "tupleTiExprTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "tiVariableExprTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "opTiExprTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "exprListO" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "numExpr" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "exprList" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "tiExprTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "tiExprListO" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "tiExprList" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "exprAtom" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "exprBinopTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "exprAtomHead" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "exprAtomTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "binOp" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "builtinUnOp" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "identOrQuotedOp" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "setLiteral" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "setComp" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "simpleArrayLiteral" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "simpleArrayLiteralTwoD" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "tupleLiteral" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "ifThenElseExpr" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "letExpr" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "callExpr" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "genCallExpr" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "arrayAccessTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "tupleAccessTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "numExprAtom" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "numExprBinopTail" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "numExprAtomHead" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "numBinOp" is unreachable
+MiniZinc.bison(47,0):warning 152:NonTerminal symbol "builtinNumUnOp" is unreachable
+MiniZinc.bison(47,0):error 1:Too many errors, abandoning
+GPPG: opened listing file <MiniZinc.lst>
