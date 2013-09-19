@@ -23,12 +23,11 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincTypeInstExpression : ZincIdentBoxBase {
+    public class ZincTypeInstWhereExpression : ZincIdentExpressionBoxBase, IZincTypeInstExpression {
 
-        private ZincTypeInstExpression header;
-        private IZincExpression expression;
+        private ZincTypeInstWhereExpression header;
 
-        public ZincTypeInstExpression Header {
+        public ZincTypeInstWhereExpression Header {
             get {
                 return this.header;
             }
@@ -37,16 +36,7 @@ namespace ZincOxide.MiniZinc {
             }
         }
 
-        public IZincExpression Expression {
-            get {
-                return this.expression;
-            }
-            protected set {
-                this.expression = value;
-            }
-        }
-
-        public ZincTypeInstExpression (ZincTypeInstExpression header, ZincIdent ident, IZincExpression expression) : base(ident) {
+        public ZincTypeInstWhereExpression (ZincTypeInstWhereExpression header, ZincIdent ident, IZincExpression expression) : base(ident,expression) {
         }
 
         public override string ToString () {
@@ -58,8 +48,8 @@ namespace ZincOxide.MiniZinc {
         }
 
         public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.header = this.header.Replace (identMap) as ZincTypeInstExpression;
-            this.expression = this.expression.Replace (identMap) as IZincExpression;
+            this.header = this.header.Replace (identMap) as ZincTypeInstWhereExpression;
+            this.Expression = this.Expression.Replace (identMap) as IZincExpression;
             return base.Replace (identMap);
         }
 

@@ -24,10 +24,12 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincModel : IWriteable {
+    public class ZincModel : IWriteable, IZincIdentReplaceContainer {
 
         private List<ZincIncludeItem> includeItems;
         private List<ZincVarDeclItem> varDeclItems;
+        private List<ZincConstraintItem> constraintItems;
+        private List<ZincOutputItem> outputItems;
 
         public IEnumerable<IZincItem> Items {
             get {
@@ -47,6 +49,14 @@ namespace ZincOxide.MiniZinc {
             this.varDeclItems.Add (item);
         }
 
+        public void AddConstraintItem (ZincConstraintItem item) {
+            this.constraintItems.Add (item);
+        }
+
+        public void AddOutputItem (ZincOutputItem item) {
+            this.outputItems.Add (item);
+        }
+
 
         public void AddItems (IEnumerable<IZincItem> items) {
             foreach (IZincItem item in items) {
@@ -57,10 +67,16 @@ namespace ZincOxide.MiniZinc {
         public void AddItem (IZincItem item) {
             switch (item.Type) {
             case ZincItemType.Include:
-                AddIncludeItem ((ZincIncludeItem)item);
+                AddIncludeItem (item as ZincIncludeItem);
                 break;
             case ZincItemType.VarDecl:
-                AddVarDeclItem ((ZincVarDeclItem)item);
+                AddVarDeclItem (item as ZincVarDeclItem);
+                break;
+            case ZincItemType.Constraint:
+                AddConstraintItem (item as ZincConstraintItem);
+                break;
+            case ZincItemType.Output:
+                AddOutputItem (item as ZincOutputItem);
                 break;
             default :
                 Interaction.Warning ("A ZincItem was found with an unknown type. Probably you are running an outdated version of ZincOxide.");
@@ -76,6 +92,24 @@ namespace ZincOxide.MiniZinc {
             }
         }
         #endregion
+
+        #region IZincIdentContainer implementation
+        public IEnumerable<ZincIdent> InvolvedIdents () {
+            foreach (IZincItem item in this.Items) {
+                foreach (ZincIdent ident in item.InvolvedIdents()) {
+                    yield return ident;
+                }
+            }
+        }
+        #endregion
+
+        #region IZincIdentReplaceContainer implementation
+        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            //TODO implement
+            return this;
+        }
+        #endregion
+
 
 
     }

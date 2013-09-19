@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  IValidateable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,11 +22,9 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-    public interface IZincItem : IWriteable, IZincIdentReplaceContainer {
+    public interface IValidateable {
 
-        ZincItemType Type {
-            get;
-        }
+        bool Validate ();
 
     }
 

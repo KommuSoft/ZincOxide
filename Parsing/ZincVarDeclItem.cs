@@ -18,7 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace ZincOxide.MiniZinc {
@@ -45,6 +45,21 @@ namespace ZincOxide.MiniZinc {
             writer.Write (this.ToString ());
         }
         #endregion
+
+        #region IZincIdentContainer implementation
+        public IEnumerable<ZincIdent> InvolvedIdents () {
+            yield break;//TODO
+        }
+        #endregion
+
+        #region IZincIdentReplaceContainer implementation
+        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            return this;//TODO
+        }
+        #endregion
+
+
+
 
     }
 }

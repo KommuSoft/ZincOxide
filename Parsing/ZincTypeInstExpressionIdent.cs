@@ -25,9 +25,9 @@ namespace ZincOxide.MiniZinc {
 
     public class ZincTypeInstExpressionIdent : ZincIdentBoxBase {
 
-        private ZincTypeInstExpression expression;
+        private ZincTypeInstWhereExpression expression;
 
-        public ZincTypeInstExpression Expression {
+        public ZincTypeInstWhereExpression Expression {
             get {
                 return this.expression;
             }
@@ -36,7 +36,7 @@ namespace ZincOxide.MiniZinc {
             }
         }
 
-        public ZincTypeInstExpressionIdent (ZincTypeInstExpression expression, ZincIdent ident) : base(ident) {
+        public ZincTypeInstExpressionIdent (ZincTypeInstWhereExpression expression, ZincIdent ident) : base(ident) {
             this.Expression = expression;
         }
 

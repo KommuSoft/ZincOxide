@@ -1,5 +1,5 @@
 //
-//  IZincItem.cs
+//  ZincTypeInstBaseExpression.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,12 +22,19 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-    public interface IZincItem : IWriteable, IZincIdentReplaceContainer {
+    public class ZincTypeInstBaseExpression : IZincIdentReplaceContainer {
 
-        ZincItemType Type {
-            get;
+        private ZincVarPar varPar;
+
+        public ZincVarPar VarPar {
+            get {
+                return this.varPar;
+            }
         }
 
+        public ZincTypeInstBaseExpression (ZincVarPar varPar = ZincVarPar.Par) {
+        }
     }
 
 }
+
