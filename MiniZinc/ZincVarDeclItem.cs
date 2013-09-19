@@ -23,7 +23,7 @@ using System.IO;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincVarDeclItem : IZincItem {
+    public class ZincVarDeclItem : ZincIdentExpressionBoxBase, IZincItem {
 
         #region IZincItem implementation
         public ZincItemType Type {

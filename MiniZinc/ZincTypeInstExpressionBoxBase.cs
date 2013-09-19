@@ -1,5 +1,5 @@
 //
-//  ZincTypeInstBaseExpression.cs
+//  ZincTypeInstExpressionBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,58 +22,38 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincTypeInstBaseExpression : IZincIdentReplaceContainer {
+    public class ZincTypeInstExpressionBoxBase : IZincTypeInstExpressionBox {
 
-        private ZincVarPar varPar;
-        private IZincType type;
+        private IZincTypeInstExpression typeInstExpression;
 
-        public ZincVarPar VarPar {
+        public IZincTypeInstExpression TypeInstExpression {
             get {
-                return this.varPar;
+                return this.typeInstExpression;
             }
             protected set {
-                this.varPar = value;
+                this.typeInstExpression = value;
             }
         }
 
-        public IZincType Type {
-            get {
-                return this.type;
-            }
-            protected set {
-                this.type = value;
-            }
-        }
-
-        public ZincTypeInstBaseExpression (ZincVarPar varPar, IZincType type) {
-            this.VarPar = varPar;
-            this.Type = type;
-        }
-
-        public ZincTypeInstBaseExpression (IZincType type) : this(ZincVarPar.Par,type) {
-        }
-
-        public ZincTypeInstBaseExpression (IZincType type, ZincVarPar varPar = ZincVarPar.Par) : this(varPar,type) {
+        protected ZincTypeInstExpressionBoxBase (IZincTypeInstExpression typeInstExpression) {
+            this.TypeInstExpression = typeInstExpression;
         }
 
         #region IZincIdentContainer implementation
         public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;//TODO
+            //TODO
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
         public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this; //TODO
+            //TODO
         }
         #endregion
 
-        public override string ToString () {
-            return string.Format ("{0} {1}", this.VarPar, this.Type);
-        }
+
 
 
     }
-
 }
 

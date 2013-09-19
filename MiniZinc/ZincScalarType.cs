@@ -1,5 +1,5 @@
 //
-//  IZincIdentBox.cs
+//  ZincScalarType.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,11 +22,20 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-    public interface IZincIdentBox : IZincIdentReplaceContainer {
+    public class ZincScalarType : IZincType {
 
-        ZincIdent Ident {
-            get;
+        private ZincScalar scalar;
+
+        public ZincScalar Scalar {
+            get {
+                return this.scalar;
+            }
+        }
+
+        public override string ToString () {
+            return ZincPrintUtils.ScalarLiteral (this.Scalar);
         }
 
     }
+
 }
