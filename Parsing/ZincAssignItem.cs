@@ -18,11 +18,11 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.IO;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincAssignItem : ZincIdentBoxBase, IZincItem {
+    public class ZincAssignItem : ZincIdentExpressionBoxBase, IZincItem {
 
         #region IZincItem implementation
         public ZincItemType Type {
@@ -32,12 +32,16 @@ namespace ZincOxide.MiniZinc {
         }
         #endregion
 
-        public ZincAssignItem () {
+        public ZincAssignItem (ZincIdent ident, IZincExpression expression) : base(ident,expression) {
+        }
+
+        public override string ToString () {
+            return string.Format ("{0} = {1}", this.Ident, this.Expression);
         }
 
         #region IWriteable implementation
-        public void Write (System.IO.StreamWriter writer) {
-            throw new System.NotImplementedException ();
+        public void Write (StreamWriter writer) {
+            writer.Write (this.ToString ());
         }
         #endregion
 

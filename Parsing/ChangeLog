@@ -1,5 +1,15 @@
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ZincAssignItem.cs:
+	* ZincOutputItem.cs:
+	* IZincExpressionBox.cs:
+	* ZincConstraintItem.cs:
+	* ZincExpressionBoxBase.cs:
+	* IZincIdentExpressionBox.cs:
+	* ZincIdentExpressionBoxBase.cs: 
+
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincIdent.cs:
 	* ZincModel.cs:
 	* IZincIdentBox.cs:

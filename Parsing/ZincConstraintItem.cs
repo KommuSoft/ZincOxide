@@ -1,5 +1,5 @@
 //
-//  ZincOutputItem.cs
+//  ZincConstraintItem.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,21 +22,21 @@ using System.IO;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincOutputItem : ZincExpressionBoxBase, IZincItem {
+    public class ZincConstraintItem : ZincExpressionBoxBase, IZincItem {
 
         #region IZincItem implementation
         public ZincItemType Type {
             get {
-                return ZincItemType.Output;
+                return ZincItemType.Constraint;
             }
         }
         #endregion
 
-        public ZincOutputItem (IZincExpression expression) : base(expression) {
+        public ZincConstraintItem () {
         }
 
         public override string ToString () {
-            return string.Format ("output {0}", this.Expression);
+            return string.Format ("constraint {0}", this.Expression);
         }
 
         #region IWriteable implementation
@@ -44,8 +44,6 @@ namespace ZincOxide.MiniZinc {
             writer.Write (this.ToString ());
         }
         #endregion
-
-
 
     }
 }

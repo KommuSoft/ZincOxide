@@ -1,5 +1,5 @@
 //
-//  ZincIdentExpressionBoxBase.cs
+//  ZincExpressionBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-    public abstract class ZincIdentExpressionBoxBase : ZincIdentBoxBase, IZincIdentExpressionBox {
+    public class ZincExpressionBoxBase : IZincExpressionBox {
 
         private IZincExpression expression;
 
@@ -38,28 +38,28 @@ namespace ZincOxide.MiniZinc {
         #endregion
 
 
-        protected ZincIdentExpressionBoxBase () : base() {
+        protected ZincExpressionBoxBase () {
         }
 
-        protected ZincIdentExpressionBoxBase (ZincIdent ident) : base(ident) {
-        }
-
-        protected ZincIdentExpressionBoxBase (IZincExpression expression) : base() {
+        protected ZincExpressionBoxBase (IZincExpression expression) {
             this.Expression = expression;
         }
 
-        protected ZincIdentExpressionBoxBase (ZincIdent ident, IZincExpression expression) : base(ident) {
-            this.expression = expression;
+        #region IZincIdentContainer implementation
+        public IEnumerable<ZincIdent> InvolvedIdents () {
+            return this.Expression.InvolvedIdents ();
         }
+        #endregion
 
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (base.InvolvedIdents (), this.Expression.InvolvedIdents ());
-        }
-
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
+        #region IZincIdentReplaceContainer implementation
+        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
             this.expression = this.expression.Replace (identMap) as IZincExpression;
-            return base.Replace (identMap);
+            return this;
         }
+        #endregion
+
+
+
 
     }
 
