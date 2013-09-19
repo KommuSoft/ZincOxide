@@ -1,5 +1,13 @@
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* SetLiteral.cs:
+	* ZincOxide.csproj:
+	* EvaluationResult.cs:
+	* CompilerVerbosity.cs:
+	* ReadWriteableUtils.cs: 
+
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincOxide.csproj: 
 
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>

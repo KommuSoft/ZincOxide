@@ -25,7 +25,10 @@ namespace ZincOxide.MiniZinc {
 
     public class ZincAnnotations : LinkedList<ZincAnnotation>, IWriteable {
 
-        public ZincAnnotations () {
+        public ZincAnnotations (IEnumerable<ZincAnnotation> annotations) : base(annotations) {
+        }
+
+        public ZincAnnotations (params ZincAnnotation[] annotations) : base(annotations) {
         }
 
         public override string ToString () {

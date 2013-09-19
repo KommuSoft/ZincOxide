@@ -23,10 +23,10 @@ using System;
 namespace ZincOxide {
 
     public enum EvaluationResult : byte {
-        Compiled        = 0x00,
-        Succes            = 0x00,
-        RuntimeError    = 0x01,
-        StaticError        = 0x02
+        Compiled     = 0x00,
+        Succes       = 0x00,
+        RuntimeError = 0x01,
+        StaticError  = 0x02
     }
 
 }

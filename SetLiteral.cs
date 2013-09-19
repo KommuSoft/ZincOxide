@@ -21,7 +21,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide {
 
     public class SetLiteral {
 

@@ -17,7 +17,7 @@
     <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>2</WarningLevel>
+    <WarningLevel>3</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <ConsolePause>false</ConsolePause>
     <GenerateDocumentation>true</GenerateDocumentation>
@@ -33,16 +33,11 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="ThreeValueLogic.cs" />
-    <Compile Include="FourStateLogic.cs" />
     <Compile Include="MiniZinc.cs" />
     <Compile Include="EvaluationResult.cs" />
     <Compile Include="Interaction.cs" />
     <Compile Include="CompilerVerbosity.cs" />
     <Compile Include="MiniZincParser.cs" />
-    <Compile Include="IntegerRange.cs" />
-    <Compile Include="SetLiteral.cs" />
-    <Compile Include="FloatRange.cs" />
     <Compile Include="IName.cs" />
     <Compile Include="NameBase.cs" />
     <Compile Include="HeadTail.cs" />
