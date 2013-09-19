@@ -1,5 +1,14 @@
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* CodeBuilder.cs:
+	* ICodeBuilder.cs:
+	* CodeClassBase.cs:
+	* CodeClassJava.cs:
+	* ICodeInterface.cs:
+	* CodeInterfaceBase.cs: 
+
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* OuputFile.cs: 
 
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>

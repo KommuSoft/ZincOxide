@@ -1,5 +1,5 @@
 //
-//  CodeBuilder.cs
+//  CodeClassJava.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -21,15 +21,9 @@
 using System;
 
 namespace ZincOxide.Codegen {
-
-    public abstract class CodeBuilder {
-
-        public abstract ICodeClass NewClass (string name);
-
-        public abstract ICodeClass NewClass (string name, ICodeClass parent);
-
-        public abstract ICodeMethod NewMethod (ICodeClass clss, string name);
-
+    public class CodeClassJava {
+        public CodeClassJava () {
+        }
     }
-
 }
+

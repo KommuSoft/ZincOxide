@@ -58,7 +58,6 @@
     <Compile Include="Algebra\AcasVariable.cs" />
     <Compile Include="IValidateable.cs" />
     <Compile Include="IScope.cs" />
-    <Compile Include="Codegen\CodeBuilder.cs" />
     <Compile Include="MiniZinc\ZincData.cs" />
     <Compile Include="MiniZinc\ZincModel.cs" />
     <Compile Include="MiniZinc\IZincItem.cs" />
@@ -105,6 +104,11 @@
     <Compile Include="Codegen\OuputFile.cs" />
     <Compile Include="IGenerateNameRegister.cs" />
     <Compile Include="GenerateNameRegister.cs" />
+    <Compile Include="Codegen\CodeClassJava.cs" />
+    <Compile Include="Codegen\CodeClassBase.cs" />
+    <Compile Include="Codegen\ICodeInterface.cs" />
+    <Compile Include="Codegen\CodeInterfaceBase.cs" />
+    <Compile Include="Codegen\ICodeBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
