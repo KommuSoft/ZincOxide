@@ -1,6 +1,14 @@
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
 	* IScope.cs:
+	* IReadable.cs:
+	* IWriteable.cs:
+	* ZincOxide.csproj:
+	* IValidateable.cs: 
+
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* IScope.cs:
 	* IValidateable.cs: 
 
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>

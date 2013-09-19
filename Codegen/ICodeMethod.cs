@@ -1,5 +1,5 @@
 //
-//  IScope.cs
+//  ICodeMethod.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,16 +18,12 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.Collections.Generic;
+using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Codegen {
 
-    public interface IScope<T> : ICollection<T> {
-
-        IScope<T> Parent {
-            get;
-        }
+    public interface ICodeMethod {
 
     }
-}
 
+}

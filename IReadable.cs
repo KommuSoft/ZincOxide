@@ -21,7 +21,7 @@
 using System;
 using System.IO;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide {
 
     public interface IReadable {
 

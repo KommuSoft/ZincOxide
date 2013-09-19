@@ -24,7 +24,12 @@ namespace ZincOxide.Codegen {
 
     public abstract class CodeBuilder {
 
+        public abstract ICodeClass NewClass (string name);
+
+        public abstract ICodeClass NewClass (string name, ICodeClass parent);
+
+        public abstract ICodeMethod NewMethod (ICodeClass clss, string name);
+
     }
 
 }
-

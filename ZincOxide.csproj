@@ -95,6 +95,10 @@
     <Compile Include="MiniZinc\IZincTypeInstExpression.cs" />
     <Compile Include="MiniZinc\IZincType.cs" />
     <Compile Include="MiniZinc\ZincTypeInstBaseExpression.cs" />
+    <Compile Include="Codegen\JavaCodeBuilder.cs" />
+    <Compile Include="Codegen\ICodeClass.cs" />
+    <Compile Include="Codegen\ICodeMethod.cs" />
+    <Compile Include="Codegen\INamespace.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

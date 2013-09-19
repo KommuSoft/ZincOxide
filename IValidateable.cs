@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide {
 
     public interface IValidateable {
 

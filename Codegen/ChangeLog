@@ -1,0 +1,8 @@
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* INamespace.cs:
+	* ICodeClass.cs:
+	* CodeBuilder.cs:
+	* ICodeMethod.cs:
+	* JavaCodeBuilder.cs: 
+
