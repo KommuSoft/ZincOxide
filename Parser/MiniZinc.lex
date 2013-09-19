@@ -1,4 +1,4 @@
-%namespace ZincOxide.MiniZinc
+%namespace ZincOxide.Parser
 %using System;
 %option noparser
 

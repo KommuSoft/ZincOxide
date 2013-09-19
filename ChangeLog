@@ -1,5 +1,18 @@
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* MiniZinc.cs:
+	* jobshop.mzn:
+	* MiniZinc.lex:
+	* MiniZinc.bison:
+	* Interaction.cs:
+	* jobshop2x2.data:
+	* ZincOxide.csproj:
+	* MiniZincParser.cs:
+	* CompilerVerbosity.cs:
+	* GeneratorVerbosity.cs: 
+
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ReadWriteableUtils.cs: 
 
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>

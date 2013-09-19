@@ -1,0 +1,7 @@
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* MiniZinc.cs:
+	* MiniZinc.lex:
+	* MiniZinc.bison:
+	* MiniZincParser.cs: 
+

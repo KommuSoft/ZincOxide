@@ -33,11 +33,8 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="MiniZinc.cs" />
     <Compile Include="EvaluationResult.cs" />
     <Compile Include="Interaction.cs" />
-    <Compile Include="CompilerVerbosity.cs" />
-    <Compile Include="MiniZincParser.cs" />
     <Compile Include="IName.cs" />
     <Compile Include="NameBase.cs" />
     <Compile Include="HeadTail.cs" />
@@ -123,6 +120,9 @@
     <Compile Include="Codegen\ContextWriteableUtils.cs" />
     <Compile Include="Codegen\ContextWriteableCodeFile.cs" />
     <Compile Include="Codegen\CodeFileBase.cs" />
+    <Compile Include="GeneratorVerbosity.cs" />
+    <Compile Include="Parser\MiniZinc.cs" />
+    <Compile Include="Parser\MiniZincParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -137,16 +137,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="jobshop.mzn" />
-    <None Include="jobshop2x2.data" />
-    <None Include="MiniZinc.bison" />
-    <None Include="MiniZinc.lex" />
     <None Include="Manpage.txt" />
+    <None Include="Parser\MiniZinc.bison" />
+    <None Include="Parser\MiniZinc.lex" />
+    <None Include="Samples\jobshop.mzn" />
+    <None Include="Samples\jobshop2x2.data" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Codegen\" />
     <Folder Include="Algebra\" />
     <Folder Include="MiniZinc\" />
+    <Folder Include="Parser\" />
+    <Folder Include="Samples\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

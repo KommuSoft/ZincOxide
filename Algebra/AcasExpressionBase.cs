@@ -21,7 +21,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ZincOxide.Acas {
+namespace ZincOxide.Algebra {
 
     public abstract class AcasExpressionBase : AcasIExpression {
 

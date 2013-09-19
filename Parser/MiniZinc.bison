@@ -10,7 +10,7 @@
  *  Process with > gppg /nolines RealTree.y
  */
 
-%namespace ZincOxide.MiniZinc
+%namespace ZincOxide.Parser
 %output=MiniZincParser.cs 
 %partial 
 %sharetokens

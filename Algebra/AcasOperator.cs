@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Acas {
+namespace ZincOxide.Algebra {
     public class AcasOperator : AcasFunction {
 
         #region implemented abstract members of ZincOxide.AcasFunction
