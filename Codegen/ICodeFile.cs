@@ -26,6 +26,8 @@ namespace ZincOxide.Codegen {
 
         void Write (Stream stream);
 
+        string GetText ();
+
     }
 
 }

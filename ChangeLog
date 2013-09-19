@@ -1,5 +1,9 @@
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ReadWriteableUtils.cs: 
+
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincOxide.csproj:
 	* ReadWriteableUtils.cs:
 	* ContextStreamWriter.cs: 

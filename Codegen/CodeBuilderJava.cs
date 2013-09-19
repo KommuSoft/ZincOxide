@@ -32,13 +32,19 @@ namespace ZincOxide.Codegen {
             return new CodePackageJava (name);
         }
 
-        public override ICodeInterface NewInterface (ICodePackage package, string name, params ICodeInterface[] iface) {
-            throw new System.NotImplementedException ();
+        public override ICodeInterface NewInterface (ICodePackage package, string name, params ICodeInterface[] ifaces) {
+            ICodeInterface iface = new CodeInterfaceJava (name, package, ifaces);
+            this.AddInterface (iface);
+            return iface;
         }
 
         public override IEnumerable<ICodeFile> Generate () {
             foreach (CodeInterfaceJava iface in this.Interfaces<CodeInterfaceJava>()) {
-                yield return new ContextWriteableCodeFile (string.Format ("{0}{1}.java", iface.Package.Path, iface.Name), iface);
+                string path = string.Empty;
+                if (iface.Package != null) {
+                    path = iface.Package.Path;
+                }
+                yield return new ContextWriteableCodeFile (string.Format ("{0}{1}.java", path, iface.Name), iface);
             }
         }
         #endregion

@@ -37,6 +37,10 @@ namespace ZincOxide.Codegen {
             }
         }
 
+        protected void AddInterface (ICodeInterface iface) {
+            this.interfaces.Add (iface);
+        }
+
         #region ICodeBuilder implementation
         public abstract ICodePackage NewPackage (string name);
 

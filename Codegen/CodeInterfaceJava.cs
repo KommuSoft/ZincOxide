@@ -43,13 +43,14 @@ namespace ZincOxide.Codegen {
         #region IWriteable implementation
         public void Write (ContextStreamWriter writer) {
             if (this.Package != null) {
-                writer.WriteLine ("package {0}", this.Package.Name);
+                writer.WriteLine ("package {0};", this.Package.Name);
+                writer.WriteLine ();
             }
             writer.Write ("public interface {0}", this.Name);
             if (this.SuperInterfaces.Count > 0x00) {
-                writer.Write (" implements {0}", string.Join (", ", this.SuperInterfaces));
+                writer.Write (" extends {0}", string.Join (", ", this.SuperInterfaces));
             }
-            writer.WriteLine ("{");
+            writer.WriteLine (" {");
             writer.WriteLine ("}");
         }
         #endregion

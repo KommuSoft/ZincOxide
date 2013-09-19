@@ -33,6 +33,7 @@ namespace ZincOxide.Codegen {
         }
 
         public ContextWriteableCodeFile (string name, IContextWriteable writeable) : base(name) {
+            this.contextWriteable = writeable;
         }
 
         #region implemented abstract members of ZincOxide.Codegen.CodeFileBase

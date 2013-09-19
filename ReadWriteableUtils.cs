@@ -25,25 +25,25 @@ namespace ZincOxide {
     public static class ReadWriteableUtils {
 
         public static void Write (this IWriteable writeable, Stream stream) {
-            StreamWriter sw = new StreamWriter (stream);
-            writeable.Write (sw);
-            sw.Close ();
+            using (StreamWriter sw = new StreamWriter (stream)) {
+                writeable.Write (sw);
+            }
         }
         public static void Write (this IWriteable writeable, string filename, FileMode mode = FileMode.OpenOrCreate) {
-            FileStream fs = File.Open (filename, mode, FileAccess.Write);
-            writeable.Write (fs);
-            fs.Close ();
+            using (FileStream fs = File.Open (filename, mode, FileAccess.Write)) {
+                writeable.Write (fs);
+            }
         }
 
         public static void Read (this IReadable readable, Stream stream) {
-            StreamReader sr = new StreamReader (stream);
-            readable.Read (sr);
-            sr.Close ();
+            using (StreamReader sr = new StreamReader (stream)) {
+                readable.Read (sr);
+            }
         }
         public static void Read (this IReadable readable, string filename, FileMode mode = FileMode.OpenOrCreate) {
-            FileStream fs = File.Open (filename, mode, FileAccess.Read);
-            readable.Read (fs);
-            fs.Close ();
+            using (FileStream fs = File.Open (filename, mode, FileAccess.Read)) {
+                readable.Read (fs);
+            }
         }
 
     }
