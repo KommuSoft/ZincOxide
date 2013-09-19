@@ -22,11 +22,12 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public enum ZincScalar : byte {
-		Boolean	= 0x00,
-		Integer	= 0x01,
-		Float	= 0x02
-	}
+    public enum ZincScalar : byte {
+        Boolean	= 0x00,
+        Integer	= 0x01,
+        Float	= 0x02,
+        String  = 0x03
+    }
 
 }
 

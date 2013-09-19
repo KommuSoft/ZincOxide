@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace Parsing {
+namespace ZincOxide.MiniZinc {
 
     public enum ZincSolveType : byte {
         Satisfy     = 0x00,

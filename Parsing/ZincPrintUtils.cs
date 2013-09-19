@@ -22,16 +22,24 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-	public static class ZincPrintUtils {
+    public static class ZincPrintUtils {
 
-		public static string StringLiteral (string value) {
-			return string.Format ("\"{0}\"", value);
-		}
+        public static string StringLiteral (string value) {
+            return string.Format ("\"{0}\"", value);
+        }
 
-		public static string VarParLiteral (ZincVarPar varpar) {
-			return varpar.ToString ().ToLower ();
-		}
+        public static string VarParLiteral (ZincVarPar varpar) {
+            return varpar.ToString ().ToLower ();
+        }
 
-	}
+        public static string ScalarLiteral (ZincScalar scalar) {
+            return scalar.ToString ().ToLower ();
+        }
+
+        public static string SolveTypeLiteral (ZincSolveType solvetype) {
+            return solvetype.ToString ().ToLower ();
+        }
+
+    }
 
 }
