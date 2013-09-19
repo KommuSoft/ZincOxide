@@ -22,9 +22,9 @@ using System;
 
 namespace ZincOxide.Codegen {
 
-    public class CodePackageBase : NameBase, ICodePackage {
+    public abstract class CodePackageBase : NameBase, ICodePackage {
 
-        public CodePackageBase () {
+        protected CodePackageBase (string name) : base(name) {
         }
 
     }

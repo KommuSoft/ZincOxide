@@ -1,5 +1,5 @@
 //
-//  ICodePackage.cs
+//  ZincException.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,12 +19,27 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Runtime.Serialization;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide {
 
-    public interface ICodePackage : IName {
+    public class ZincOxideException : Exception {
+
+        public ZincOxideException () : base() {
+        }
+
+        public ZincOxideException (string message) : base(message) {
+        }
+
+        public ZincOxideException (string format, params object[] args) : base(string.Format(format,args)) {
+        }
+
+        public ZincOxideException (SerializationInfo info, StreamingContext context) : base(info,context) {
+        }
+
+        public ZincOxideException (string message, Exception innerException) : base(message,innerException) {
+        }
 
     }
 
 }
-

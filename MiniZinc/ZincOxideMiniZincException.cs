@@ -1,5 +1,5 @@
 //
-//  ICodePackage.cs
+//  ZincOxideMiniZincException.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,10 +19,26 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Runtime.Serialization;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.MiniZinc {
 
-    public interface ICodePackage : IName {
+    public class ZincOxideMiniZincException : ZincOxideException {
+
+        public ZincOxideMiniZincException () : base() {
+        }
+
+        public ZincOxideMiniZincException (string message) : base(message) {
+        }
+
+        public ZincOxideMiniZincException (string format, params object[] args) : base(format,args) {
+        }
+
+        public ZincOxideMiniZincException (SerializationInfo info, StreamingContext context) : base(info,context) {
+        }
+
+        public ZincOxideMiniZincException (string message, Exception innerException) : base(message,innerException) {
+        }
 
     }
 

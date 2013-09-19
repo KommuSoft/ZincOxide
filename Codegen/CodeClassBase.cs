@@ -22,22 +22,17 @@ using System;
 
 namespace ZincOxide.Codegen {
 
-    public class CodeClassBase {
+    public class CodeClassBase : CodeInterfaceBase, ICodeClass {
 
-        private string name;
-        private ICodeClass parent;
+        private readonly ICodeClass parent;
 
-        public string Name {
+        public ICodeClass Parent {
             get {
-                return this.name;
-            }
-            protected set {
-                this.name = value;
+                return parent;
             }
         }
 
-        public CodeClassBase () {
-
+        public CodeClassBase (string name, ICodePackage package = null, params ICodeInterface[] interfaces) : base(name,package,interfaces) {
         }
 
     }

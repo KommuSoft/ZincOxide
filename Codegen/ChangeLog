@@ -1,5 +1,18 @@
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* JavaUtils.cs:
+	* ICodePackage.cs:
+	* CodeClassBase.cs:
+	* CodeBuilderJava.cs:
+	* CodePackageBase.cs:
+	* CodePackageJava.cs:
+	* CodeBuilderBase.cs:
+	* CodeInterfaceJava.cs:
+	* CodeInterfaceBase.cs:
+	* ZincOxideCodeGenException.cs: 
+
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ICodeFile.cs:
 	* ICodePackage.cs:
 	* ICodeBuilder.cs:

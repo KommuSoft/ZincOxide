@@ -18,16 +18,33 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen {
 
     public class CodeInterfaceBase : NameBase {
 
-        public CodeInterfaceBase () {
+        private ICodePackage package;
+        private readonly List<ICodeInterface> superInterfaces = new List<ICodeInterface> ();
+
+        public ICodePackage Package {
+            get {
+                return this.package;
+            }
         }
 
-        public CodeInterfaceBase (string name) : base(name) {
+        public List<ICodeInterface> SuperInterfaces {
+            get {
+                return this.superInterfaces;
+            }
+        }
+
+        public CodeInterfaceBase (string name, ICodePackage package = null, params ICodeInterface[] interfaces) : this(name,package,(IEnumerable<ICodeInterface>) interfaces) {
+        }
+
+        public CodeInterfaceBase (string name, ICodePackage package, IEnumerable<ICodeInterface> interfaces) : base(name) {
+            this.package = package;
+            this.superInterfaces.AddRange (interfaces);
         }
 
     }

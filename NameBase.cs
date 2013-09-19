@@ -27,7 +27,7 @@ namespace ZincOxide {
         private string name;
 
 		#region IName implementation
-        public string Name {
+        public virtual string Name {
             get {
                 return this.name;
             }

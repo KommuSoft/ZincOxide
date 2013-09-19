@@ -1,5 +1,5 @@
 //
-//  ICodePackage.cs
+//  CodePackageJava.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,9 +22,24 @@ using System;
 
 namespace ZincOxide.Codegen {
 
-    public interface ICodePackage : IName {
+    public class CodePackageJava : CodePackageBase {
+
+        public override string Name {
+            get {
+                return base.Name;
+            }
+            protected set {
+                if (JavaUtils.ValidPackage (value)) {
+                    base.Name = value;
+                } else {
+                    throw new ZincOxideCodeGenException ("Invalid package name for Java.");
+                }
+            }
+        }
+
+        public CodePackageJava (string name) : base(name) {
+        }
 
     }
-
 }
 

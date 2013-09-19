@@ -1,5 +1,5 @@
 //
-//  ICodePackage.cs
+//  JavaUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,13 +18,23 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Text.RegularExpressions;
 
 namespace ZincOxide.Codegen {
 
-    public interface ICodePackage : IName {
+    public static class JavaUtils {
+
+        private static readonly Regex rgxIdentifier = new Regex (@"[A-Za-z][A-Za-z0-9_]*", RegexOptions.Compiled);
+        private static readonly Regex rgxPackage = new Regex (@"[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)*", RegexOptions.Compiled);
+
+        public static bool ValidIdentifier (string name) {
+            return rgxIdentifier.IsMatch (name);
+        }
+
+        public static bool ValidPackage (string name) {
+            return rgxPackage.IsMatch (name);
+        }
 
     }
-
 }
 

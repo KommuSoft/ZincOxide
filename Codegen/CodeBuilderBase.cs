@@ -22,10 +22,16 @@ using System;
 
 namespace ZincOxide.Codegen {
 
-    public class CodeBuilderBase : ICodeBuilder {
+    public abstract class CodeBuilderBase : ICodeBuilder {
 
         public CodeBuilderBase () {
         }
+
+        #region ICodeBuilder implementation
+        public abstract ICodePackage NewPackage (string name);
+
+        public abstract ICodeInterface NewInterface (ICodePackage package, string name, params ICodeInterface[] iface);
+        #endregion
 
     }
 

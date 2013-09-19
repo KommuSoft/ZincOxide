@@ -1,5 +1,5 @@
 //
-//  ZincException.cs
+//  ZincCodeGenException.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -21,25 +21,25 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace ZincOxide {
+namespace ZincOxide.Codegen {
 
-	public class ZincException : Exception {
+    public class ZincOxideCodeGenException : ZincOxideException {
 
-		public ZincException () : base() {
-		}
+        public ZincOxideCodeGenException () : base() {
+        }
 
-		public ZincException (string message) : base(message) {
-		}
+        public ZincOxideCodeGenException (string message) : base(message) {
+        }
 
-		public ZincException (string format, params object[] args) : base(string.Format(format,args)) {
-		}
+        public ZincOxideCodeGenException (string format, params object[] args) : base(format,args) {
+        }
 
-		public ZincException (SerializationInfo info, StreamingContext context) : base(info,context) {
-		}
+        public ZincOxideCodeGenException (SerializationInfo info, StreamingContext context) : base(info,context) {
+        }
 
-		public ZincException (string message, Exception innerException) : base(message,innerException) {
-		}
+        public ZincOxideCodeGenException (string message, Exception innerException) : base(message,innerException) {
+        }
 
-	}
-
+    }
 }
+

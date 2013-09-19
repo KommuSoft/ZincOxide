@@ -1,5 +1,9 @@
 2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ZincOxideMiniZincException.cs: 
+
+2013-09-19  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincVarDeclItem.cs:
 	* ZincAnnotations.cs:
 	* ZincTypeInstExpressionBoxBase.cs: 

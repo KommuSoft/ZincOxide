@@ -27,6 +27,14 @@ namespace ZincOxide.Codegen {
         public CodeBuilderJava () {
         }
 
+        public override ICodePackage NewPackage (string name) {
+            return new CodePackageJava (name);
+        }
+
+        public override ICodeInterface NewInterface (ICodePackage package, string name, params ICodeInterface[] iface) {
+            throw new System.NotImplementedException ();
+        }
+
     }
 
 }
