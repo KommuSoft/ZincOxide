@@ -1,5 +1,5 @@
 //
-//  ZincExpression.cs
+//  ZincAssignItem.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,7 +22,25 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-    public interface IZincExpression : IZincIdentReplaceContainer<IZincExpression> {
+    public class ZincAssignItem : ZincIdentBoxBase, IZincItem {
+
+        #region IZincItem implementation
+        public ZincItemType Type {
+            get {
+                return ZincItemType.Assign;
+            }
+        }
+        #endregion
+
+        public ZincAssignItem () {
+        }
+
+        #region IWriteable implementation
+        public void Write (System.IO.StreamWriter writer) {
+            throw new System.NotImplementedException ();
+        }
+        #endregion
+
 
     }
 }

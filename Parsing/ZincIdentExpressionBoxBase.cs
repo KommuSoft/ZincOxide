@@ -1,5 +1,5 @@
 //
-//  ZincTypeInstExpression.cs
+//  ZincIdentExpressionBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,24 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincTypeInstExpression : ZincIdentBoxBase {
+    public abstract class ZincIdentExpressionBoxBase : ZincIdentBoxBase, IZincIdentExpressionBox {
 
-        private ZincTypeInstExpression header;
         private IZincExpression expression;
-
-        public ZincTypeInstExpression Header {
-            get {
-                return this.header;
-            }
-            protected set {
-                this.header = value;
-            }
-        }
 
         public IZincExpression Expression {
             get {
@@ -46,23 +35,30 @@ namespace ZincOxide.MiniZinc {
             }
         }
 
-        public ZincTypeInstExpression (ZincTypeInstExpression header, ZincIdent ident, IZincExpression expression) : base(ident) {
+        protected ZincIdentExpressionBoxBase () : base() {
         }
 
-        public override string ToString () {
-            return string.Format ("( {0} : {1} where {2} )", this.Header, this.Ident, this.Expression);
+        protected ZincIdentExpressionBoxBase (ZincIdent ident) : base(ident) {
+        }
+
+        protected ZincIdentExpressionBoxBase (IZincExpression expression) : base() {
+            this.Expression = expression;
+        }
+
+        protected ZincIdentExpressionBoxBase (ZincIdent ident, IZincExpression expression) : base(ident) {
+            this.expression = expression;
         }
 
         public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (this.Header.InvolvedIdents (), base.InvolvedIdents (), this.Expression.InvolvedIdents ());
+            return EnumerableUtils.Append (base.InvolvedIdents (), this.Expression.InvolvedIdents ());
         }
 
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.header = this.header.Replace (identMap) as ZincTypeInstExpression;
+        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
             this.expression = this.expression.Replace (identMap) as IZincExpression;
             return base.Replace (identMap);
         }
 
     }
+
 }
 

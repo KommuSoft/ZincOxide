@@ -23,36 +23,36 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincTypeInstExpressionIdent : ZincIdentBoxBase {
+    public class ZincTypeInstExpressionIdent : ZincIdentBoxBase {
 
-		private ZincTypeInstExpression expression;
+        private ZincTypeInstExpression expression;
 
-		public ZincTypeInstExpression Expression {
-			get {
-				return this.expression;
-			}
-			set {
-				this.expression = value;
-			}
-		}
+        public ZincTypeInstExpression Expression {
+            get {
+                return this.expression;
+            }
+            set {
+                this.expression = value;
+            }
+        }
 
-		public ZincTypeInstExpressionIdent (ZincTypeInstExpression expression, ZincIdent ident) : base(ident) {
-			this.Expression = expression;
-		}
+        public ZincTypeInstExpressionIdent (ZincTypeInstExpression expression, ZincIdent ident) : base(ident) {
+            this.Expression = expression;
+        }
 
-		public override string ToString () {
-			return string.Format ("{0} : {1}", this.Expression, this.Ident);
-		}
+        public override string ToString () {
+            return string.Format ("{0} : {1}", this.Expression, this.Ident);
+        }
 
-		public override System.Collections.Generic.IEnumerable<ZincIdent> InvolvedIdents () {
-			return EnumerableUtils.Append (this.expression.InvolvedIdents (), base.InvolvedIdents ());
-		}
+        public override System.Collections.Generic.IEnumerable<ZincIdent> InvolvedIdents () {
+            return EnumerableUtils.Append (this.expression.InvolvedIdents (), base.InvolvedIdents ());
+        }
 
-		public override ZincIdentBoxBase Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-			this.expression.Replace (identMap);
-			return base.Replace (identMap);
-		}
+        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            this.expression.Replace (identMap);
+            return base.Replace (identMap);
+        }
 
-	}
+    }
 }
 

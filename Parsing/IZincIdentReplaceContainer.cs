@@ -22,9 +22,9 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-    public interface IZincIdentReplaceContainer<TResult> : IZincIdentContainer where TResult : IZincIdentReplaceContainer<TResult> {
+    public interface IZincIdentReplaceContainer : IZincIdentContainer {
 
-        TResult Replace (IDictionary<ZincIdent,ZincIdent> identMap);
+        IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap);
 
     }
 

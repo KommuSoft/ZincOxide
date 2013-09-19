@@ -1,5 +1,5 @@
 //
-//  IZincIdentBox.cs
+//  ZincAnnotations.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,15 +18,26 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace ZincOxide.MiniZinc {
 
-    public interface IZincIdentBox : IZincIdentReplaceContainer {
+    public class ZincAnnotations : LinkedList<ZincAnnotation>, IWriteable {
 
-        ZincIdent Ident {
-            get;
+        public ZincAnnotations () {
         }
+
+        public override string ToString () {
+            return string.Format (":: {0}", string.Join (" :: ", this));
+        }
+
+        #region IWriteable implementation
+        public void Write (StreamWriter writer) {
+            writer.Write (this.ToString ());
+        }
+        #endregion
+
 
     }
 }

@@ -23,30 +23,30 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public class ZincIdent : NameBase, IZincIdentReplaceContainer<ZincIdent> {
+    public class ZincIdent : NameBase, IZincIdentReplaceContainer {
 
-		public ZincIdent (string name) : base(name) {
-		}
+        public ZincIdent (string name) : base(name) {
+        }
 
 
 
         #region IZincIdentContainer implementation
-		public IEnumerable<ZincIdent> InvolvedIdents () {
-			yield return this;
-		}
+        public IEnumerable<ZincIdent> InvolvedIdents () {
+            yield return this;
+        }
         #endregion
 
 		#region IZincIdentReplaceContainer implementation
-		public ZincIdent Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-			ZincIdent outp;
-			if (identMap.TryGetValue (this, out outp)) {
-				return outp;
-			} else {
-				return this;
-			}
-		}
+        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            ZincIdent outp;
+            if (identMap.TryGetValue (this, out outp)) {
+                return outp;
+            } else {
+                return this;
+            }
+        }
 		#endregion
 
-	}
+    }
 
 }

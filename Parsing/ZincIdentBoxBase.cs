@@ -23,44 +23,44 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-	public abstract class ZincIdentBoxBase : IZincIdentBox<ZincIdentBoxBase> {
+    public abstract class ZincIdentBoxBase : IZincIdentBox {
 
-		private ZincIdent ident;
+        private ZincIdent ident;
 
         #region IZincIdentBox implementation
-		public ZincIdent Ident {
-			get {
-				return this.ident;
-			}
-			protected set {
-				this.ident = value;
-			}
-		}
+        public ZincIdent Ident {
+            get {
+                return this.ident;
+            }
+            protected set {
+                this.ident = value;
+            }
+        }
         #endregion
 
 
-		protected ZincIdentBoxBase () {
-		}
+        protected ZincIdentBoxBase () {
+        }
 
-		protected ZincIdentBoxBase (ZincIdent ident) {
-			this.Ident = ident;
-		}
+        protected ZincIdentBoxBase (ZincIdent ident) {
+            this.Ident = ident;
+        }
 
         #region ZincIdentContainer implementation
-		public virtual IEnumerable<ZincIdent> InvolvedIdents () {
-			yield return this.ident;
-		}
+        public virtual IEnumerable<ZincIdent> InvolvedIdents () {
+            yield return this.ident;
+        }
 		#endregion
 		#region ZincIdentReplaceContainer implementation
-		public virtual ZincIdentBoxBase Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
-			this.ident = this.ident.Replace (identMap);
-			return this;
-		}
+        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
+            this.ident = this.ident.Replace (identMap) as ZincIdent;
+            return this;
+        }
         #endregion
 
 
 
 
-	}
+    }
 }
 

@@ -31,7 +31,7 @@ namespace ZincOxide.MiniZinc {
 
         public IEnumerable<IZincItem> Items {
             get {
-                return EnumerableUtils.Append (this.includeItems, this.varDeclItems);
+                return EnumerableUtils.Append<IZincItem,ZincIncludeItem,ZincVarDeclItem> (this.includeItems, this.varDeclItems);
             }
         }
 

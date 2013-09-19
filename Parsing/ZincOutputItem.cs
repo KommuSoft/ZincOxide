@@ -1,5 +1,5 @@
 //
-//  IZincIdentBox.cs
+//  ZincOutputItem.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -21,13 +21,9 @@
 using System;
 
 namespace ZincOxide.MiniZinc {
-
-    public interface IZincIdentBox : IZincIdentReplaceContainer {
-
-        ZincIdent Ident {
-            get;
+    public class ZincOutputItem {
+        public ZincOutputItem () {
         }
-
     }
 }
 
