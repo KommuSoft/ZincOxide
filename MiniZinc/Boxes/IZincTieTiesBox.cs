@@ -1,5 +1,5 @@
 //
-//  ZincTypeInstExpressionArray.cs
+//  IZincTieTieBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,18 +18,12 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
-using ZincOxide.MiniZinc.Boxes;
 
-namespace ZincOxide.MiniZinc {
-    public class ZincTypeInstExpressionArray : ZincTieTiesBoxBase {
+namespace ZincOxide.MiniZinc.Boxes {
 
-        public ZincTypeInstExpressionArray (IZincTypeInstExpression oftype, params IZincTypeInstExpression[] attributes) : base(oftype,attributes) {
-        }
+    public interface IZincTieTiesBox : IZincTieBox, IZincTiesBox {
 
-        public override string ToString () {
-            return string.Format ("array [ {0} ] of {1}", string.Join (" , ", this.TypeInstExpressions), this.TypeInstExpression);
-        }
+
 
     }
 }

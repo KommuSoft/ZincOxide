@@ -1,5 +1,5 @@
 //
-//  ZincIdTieBoxBase.cs
+//  ZincTieTieBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,33 +19,37 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
+using System.Linq;
 using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincIdTieBoxBase : ZincIdBoxBase, IZincIdTieBox {
+    public abstract class ZincTieTiesBoxBase : ZincTieBoxBase, IZincTieTiesBox {
 
-        private IZincTypeInstExpression typeInstExpression;
+        private IList<IZincTypeInstExpression> expressions;
 
-        public IZincTypeInstExpression TypeInstExpression {
+        #region IZincTieTieBox implementation
+        public IList<IZincTypeInstExpression> TypeInstExpressions {
             get {
-                return this.typeInstExpression;
+                return this.expressions;
             }
             protected set {
-                this.typeInstExpression = value;
+                this.expressions = value;
             }
         }
-
-        protected ZincIdTieBoxBase (ZincIdent ident, IZincTypeInstExpression expression) : base(ident) {
-            this.TypeInstExpression = expression;
+        #endregion
+        protected ZincTieTiesBoxBase (IZincTypeInstExpression expression1, IList<IZincTypeInstExpression> expressions) : base(expression1) {
+            this.TypeInstExpressions = expressions;
         }
 
         public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (base.InvolvedIdents (), this.typeInstExpression.InvolvedIdents ());
+            return EnumerableUtils.Append (base.InvolvedIdents (), this.TypeInstExpressions.SelectMany (x => x.InvolvedIdents ()));
         }
 
         public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.typeInstExpression.Replace (identMap);
+            for (int i = 0x00; i < this.expressions.Count; i++) {
+                this.expressions [i] = this.expressions [i].Replace (identMap) as IZincTypeInstExpression;
+            }
             return base.Replace (identMap);
         }
 

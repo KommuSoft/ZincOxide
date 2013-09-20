@@ -1,5 +1,10 @@
 2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* Manpage.txt:
+	* ZincOxide.csproj: 
+
+2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* Program.cs:
 	* ProgramTask.cs:
 	* Interaction.cs:

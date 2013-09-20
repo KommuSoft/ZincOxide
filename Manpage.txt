@@ -17,4 +17,4 @@ zincoxide [options] zincfile
 .SH AUTHOR
     Willem Van Onsem (Willem.VanOnsem@cs.kuleuven.be)
 .SH COPYRIGHT
-    Copyright 2013 Katholieke Universiteit Leuven; Use of this software is governed by the GNU GPLv3.0 license
+    Copyright 2013 KU Leuven (Departement Computerwetenschappen, Celestijnenlaan 200A, 3001 Heverlee); Use of this software is governed by the GNU GPLv3.0 license

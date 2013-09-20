@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincTieBoxBase : IZincTieBox {
+    public abstract class ZincTieBoxBase : IZincTieBox {
 
         private IZincTypeInstExpression typeInstExpression;
 
@@ -40,14 +40,15 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
 
         #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;//TODO
+        public virtual IEnumerable<ZincIdent> InvolvedIdents () {
+            return this.TypeInstExpression.InvolvedIdents ();
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this;//TODO
+        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            this.TypeInstExpression = this.TypeInstExpression.Replace (identMap) as IZincTypeInstExpression;
+            return this;
         }
         #endregion
 
