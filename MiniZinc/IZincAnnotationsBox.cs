@@ -1,5 +1,5 @@
 //
-//  CompilerVerbosity.cs
+//  IZincAnnotationsBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,15 +20,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.MiniZinc {
 
-    [Flags]
-    public enum GeneratorVerbosity {
-        Remark     = 0x01,
-        Assumption = 0x02,
-        Warning    = 0x04,
-        Error      = 0x08
+    public interface IZincAnnotationsBox : IZincIdentReplaceContainer {
+
+        ZincAnnotations Annotations {
+            get;
+        }
+
     }
-
 }
 

@@ -33,7 +33,6 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="EvaluationResult.cs" />
     <Compile Include="Interaction.cs" />
     <Compile Include="IName.cs" />
     <Compile Include="NameBase.cs" />
@@ -123,6 +122,10 @@
     <Compile Include="GeneratorVerbosity.cs" />
     <Compile Include="Parser\MiniZinc.cs" />
     <Compile Include="Parser\MiniZincParser.cs" />
+    <Compile Include="ProgramResult.cs" />
+    <Compile Include="MiniZinc\IZincTypeInstExprAndIdentAnnotationsExpressionBox.cs" />
+    <Compile Include="MiniZinc\IZincAnnotationsBox.cs" />
+    <Compile Include="MiniZinc\ZincTypeInstExprAndIdentAnnotationsExpressionBoxBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

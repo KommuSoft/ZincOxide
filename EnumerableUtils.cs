@@ -26,11 +26,15 @@ namespace ZincOxide {
     public static class EnumerableUtils {
 
         public static IEnumerable<T> Append<T,U,V> (IEnumerable<U> list1, IEnumerable<V> list2) where U : T where V : T {
-            foreach (T t in list1) {
-                yield return t;
+            if (list1 != null) {
+                foreach (T t in list1) {
+                    yield return t;
+                }
             }
-            foreach (T t in list2) {
-                yield return t;
+            if (list2 != null) {
+                foreach (T t in list2) {
+                    yield return t;
+                }
             }
         }
 
@@ -39,9 +43,13 @@ namespace ZincOxide {
         }
 
         public static IEnumerable<T> Append<T> (IEnumerable<IEnumerable<T>> lists) {
-            foreach (IEnumerable<T> list in lists) {
-                foreach (T t in list) {
-                    yield return t;
+            if (lists != null) {
+                foreach (IEnumerable<T> list in lists) {
+                    if (list != null) {
+                        foreach (T t in list) {
+                            yield return t;
+                        }
+                    }
                 }
             }
         }

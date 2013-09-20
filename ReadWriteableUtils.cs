@@ -29,6 +29,7 @@ namespace ZincOxide {
                 writeable.Write (sw);
             }
         }
+
         public static void Write (this IWriteable writeable, string filename, FileMode mode = FileMode.OpenOrCreate) {
             using (FileStream fs = File.Open (filename, mode, FileAccess.Write)) {
                 writeable.Write (fs);
@@ -40,10 +41,24 @@ namespace ZincOxide {
                 readable.Read (sr);
             }
         }
+
         public static void Read (this IReadable readable, string filename, FileMode mode = FileMode.OpenOrCreate) {
             using (FileStream fs = File.Open (filename, mode, FileAccess.Read)) {
                 readable.Read (fs);
             }
+        }
+
+        public static string WriteString (this IWriteable writeable) {
+            string result;
+            using (MemoryStream ms = new MemoryStream ()) {
+                writeable.Write (ms);
+                using (MemoryStream ms2 = new MemoryStream (ms.ToArray ())) {
+                    using (StreamReader tr = new StreamReader (ms2)) {
+                        result = tr.ReadToEnd ();
+                    }
+                }
+            }
+            return result;
         }
 
     }

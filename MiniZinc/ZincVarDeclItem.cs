@@ -18,12 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System.Text;
 using System.Collections.Generic;
 using System.IO;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincVarDeclItem : ZincIdentExpressionBoxBase, IZincItem {
+    public class ZincVarDeclItem : ZincTypeInstExprAndIdentAnnotationsExpressionBoxBase, IZincItem {
 
         #region IZincItem implementation
         public ZincItemType Type {
@@ -37,7 +38,13 @@ namespace ZincOxide.MiniZinc {
         }
 
         public override string ToString () {
-            return string.Format ("[ZincVarDeclItem: Type={0}]", Type);
+            StringBuilder sb = new StringBuilder (this.TiExprAndIdent);
+            if (this.Annotations.Count > 0x00) {
+                sb.AppendFormat (" {0}", this.Annotations);
+            }
+            if (this.Expression != null) {
+                sb.AppendFormat (" = {0}", this.Expression);
+            }
         }
 
         #region IWriteable implementation

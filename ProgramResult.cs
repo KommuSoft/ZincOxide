@@ -22,11 +22,14 @@ using System;
 
 namespace ZincOxide {
 
-    public enum EvaluationResult : byte {
+    public enum ProgramResult : byte {
         Compiled     = 0x00,
+        Match        = 0x00,
         Succes       = 0x00,
         RuntimeError = 0x01,
-        StaticError  = 0x02
+        NoMatch      = 0x01,
+        StaticError  = 0x02,
+        CorruptInput = 0x03
     }
 
 }

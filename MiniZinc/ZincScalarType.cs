@@ -22,9 +22,9 @@ using System;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincScalarType : IZincType {
+    public sealed class ZincScalarType : IZincType {
 
-        private ZincScalar scalar;
+        private readonly ZincScalar scalar;
 
         public ZincScalar Scalar {
             get {
@@ -32,8 +32,28 @@ namespace ZincOxide.MiniZinc {
             }
         }
 
+        public ZincScalarType (ZincScalar scalar) {
+            this.scalar = scalar;
+        }
+
         public override string ToString () {
             return ZincPrintUtils.ScalarLiteral (this.Scalar);
+        }
+
+        public static implicit operator ZincScalarType (ZincScalar scalar) {
+            return new ZincScalarType (scalar);
+        }
+
+        public override int GetHashCode () {
+            return this.scalar.GetHashCode ();
+        }
+
+        public override bool Equals (object obj) {
+            if (obj is ZincScalarType) {
+                ZincScalarType zst = obj as ZincScalarType;
+                return (this.scalar == zst.scalar);
+            }
+            return false;
         }
 
     }

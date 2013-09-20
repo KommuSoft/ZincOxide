@@ -26,10 +26,10 @@ namespace ZincOxide.MiniZinc {
 
     public class ZincModel : IWriteable, IZincIdentReplaceContainer {
 
-        private List<ZincIncludeItem> includeItems;
-        private List<ZincVarDeclItem> varDeclItems;
-        private List<ZincConstraintItem> constraintItems;
-        private List<ZincOutputItem> outputItems;
+        private readonly List<ZincIncludeItem> includeItems = new List<ZincIncludeItem> ();
+        private readonly List<ZincVarDeclItem> varDeclItems = new List<ZincVarDeclItem> ();
+        private readonly List<ZincConstraintItem> constraintItems = new List<ZincConstraintItem> ();
+        private readonly List<ZincOutputItem> outputItems = new List<ZincOutputItem> ();
 
         public IEnumerable<IZincItem> Items {
             get {
