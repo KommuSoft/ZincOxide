@@ -1,5 +1,32 @@
 2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* IZincExBox.cs:
+	* IZincIdBox.cs:
+	* IZincAsBox.cs:
+	* IZincTiaBox.cs:
+	* IZincTieBox.cs:
+	* IZincExIdBox.cs:
+	* ZincExBoxBase.cs:
+	* ZincIdBoxBase.cs:
+	* IZincIdentBox.cs:
+	* ZincTieBoxBase.cs:
+	* IZincAsExTiaBox.cs:
+	* ZincExIdBoxBase.cs:
+	* ZincIdentBoxBase.cs:
+	* IZincExpressionBox.cs:
+	* ZincAsExTiaBoxBase.cs:
+	* IZincAnnotationsBox.cs:
+	* ZincExpressionBoxBase.cs:
+	* IZincIdentExpressionBox.cs:
+	* IZincTypeInstAndIdentBox.cs:
+	* ZincIdentExpressionBoxBase.cs:
+	* IZincTypeInstExpressionBox.cs:
+	* ZincTypeInstExpressionBoxBase.cs:
+	* IZincTypeInstExprAndIdentAnnotationsExpressionBox.cs:
+	* ZincTypeInstExprAndIdentAnnotationsExpressionBoxBase.cs: 
+
+2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* IZincIdentBox.cs:
 	* ZincIdentBoxBase.cs:
 	* IZincExpressionBox.cs:

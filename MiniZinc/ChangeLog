@@ -1,5 +1,10 @@
 2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ZincAnnotationItem.cs:
+	* ZincTypeInstWhereExpression.cs: 
+
+2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* IZincIdentBox.cs:
 	* ZincOutputItem.cs:
 	* ZincAssignItem.cs:

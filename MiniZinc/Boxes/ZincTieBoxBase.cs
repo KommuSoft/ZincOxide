@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincTypeInstExpressionBoxBase : IZincTypeInstExpressionBox {
+    public class ZincTieBoxBase : IZincTieBox {
 
         private IZincTypeInstExpression typeInstExpression;
 
@@ -35,7 +35,7 @@ namespace ZincOxide.MiniZinc.Boxes {
             }
         }
 
-        protected ZincTypeInstExpressionBoxBase (IZincTypeInstExpression typeInstExpression) {
+        protected ZincTieBoxBase (IZincTypeInstExpression typeInstExpression) {
             this.TypeInstExpression = typeInstExpression;
         }
 

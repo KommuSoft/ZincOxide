@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincIdentExpressionBoxBase : ZincIdentBoxBase, IZincIdentExpressionBox {
+    public abstract class ZincExIdBoxBase : ZincIdBoxBase, IZincExIdBox {
 
         private IZincExpression expression;
 
@@ -38,17 +38,17 @@ namespace ZincOxide.MiniZinc.Boxes {
         #endregion
 
 
-        protected ZincIdentExpressionBoxBase () : base() {
+        protected ZincExIdBoxBase () : base() {
         }
 
-        protected ZincIdentExpressionBoxBase (ZincIdent ident) : base(ident) {
+        protected ZincExIdBoxBase (ZincIdent ident) : base(ident) {
         }
 
-        protected ZincIdentExpressionBoxBase (IZincExpression expression) : base() {
+        protected ZincExIdBoxBase (IZincExpression expression) : base() {
             this.Expression = expression;
         }
 
-        protected ZincIdentExpressionBoxBase (ZincIdent ident, IZincExpression expression) : base(ident) {
+        protected ZincExIdBoxBase (ZincIdent ident, IZincExpression expression) : base(ident) {
             this.expression = expression;
         }
 

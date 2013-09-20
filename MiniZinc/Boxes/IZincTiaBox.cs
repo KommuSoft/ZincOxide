@@ -1,5 +1,5 @@
 //
-//  IZincAnnotationsBox.cs
+//  IZincTypeInstAndIdentBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,12 +22,12 @@ using System;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincAnnotationsBox : IZincIdentReplaceContainer {
+    public interface IZincTiaBox : IZincIdentReplaceContainer {
 
-        ZincAnnotations Annotations {
+        ZincTypeInstAndIdent TypeInstAndIdent {
             get;
         }
 
     }
-}
 
+}

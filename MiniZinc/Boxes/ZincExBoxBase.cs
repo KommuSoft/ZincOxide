@@ -1,5 +1,5 @@
 //
-//  ZincIdentBoxBase.cs
+//  ZincExpressionBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,42 +18,42 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincIdentBoxBase : IZincIdentBox {
+    public class ZincExBoxBase : IZincExBox {
 
-        private ZincIdent ident;
+        private IZincExpression expression;
 
-        #region IZincIdentBox implementation
-        public ZincIdent Ident {
+        #region IZincExpressionBox implementation
+        public IZincExpression Expression {
             get {
-                return this.ident;
+                return this.expression;
             }
             protected set {
-                this.ident = value;
+                this.expression = value;
             }
         }
         #endregion
 
 
-        protected ZincIdentBoxBase () {
+        protected ZincExBoxBase () {
         }
 
-        protected ZincIdentBoxBase (ZincIdent ident) {
-            this.Ident = ident;
+        protected ZincExBoxBase (IZincExpression expression) {
+            this.Expression = expression;
         }
 
-        #region ZincIdentContainer implementation
-        public virtual IEnumerable<ZincIdent> InvolvedIdents () {
-            yield return this.ident;
+        #region IZincIdentContainer implementation
+        public IEnumerable<ZincIdent> InvolvedIdents () {
+            return this.Expression.InvolvedIdents ();
         }
-		#endregion
-		#region ZincIdentReplaceContainer implementation
-        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
-            this.ident = this.ident.Replace (identMap) as ZincIdent;
+        #endregion
+
+        #region IZincIdentReplaceContainer implementation
+        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            this.expression = this.expression.Replace (identMap) as IZincExpression;
             return this;
         }
         #endregion
@@ -62,5 +62,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 
 
     }
+
 }
 

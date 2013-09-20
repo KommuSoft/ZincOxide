@@ -1,5 +1,5 @@
 //
-//  IZincIdentExpressionBox.cs
+//  IZincAnnotationsBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,7 +22,11 @@ using System;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincIdentExpressionBox : IZincIdentBox, IZincExpressionBox {
+    public interface IZincAsBox : IZincIdentReplaceContainer {
+
+        ZincAnnotations Annotations {
+            get;
+        }
 
     }
 }

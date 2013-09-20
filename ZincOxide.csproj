@@ -115,18 +115,18 @@
     <Compile Include="Parser\MiniZincParser.cs" />
     <Compile Include="ProgramResult.cs" />
     <Compile Include="ProgramTask.cs" />
-    <Compile Include="MiniZinc\Boxes\IZincAnnotationsBox.cs" />
-    <Compile Include="MiniZinc\Boxes\IZincExpressionBox.cs" />
-    <Compile Include="MiniZinc\Boxes\IZincIdentBox.cs" />
-    <Compile Include="MiniZinc\Boxes\IZincIdentExpressionBox.cs" />
-    <Compile Include="MiniZinc\Boxes\IZincTypeInstAndIdentBox.cs" />
-    <Compile Include="MiniZinc\Boxes\IZincTypeInstExprAndIdentAnnotationsExpressionBox.cs" />
-    <Compile Include="MiniZinc\Boxes\IZincTypeInstExpressionBox.cs" />
-    <Compile Include="MiniZinc\Boxes\ZincExpressionBoxBase.cs" />
-    <Compile Include="MiniZinc\Boxes\ZincIdentBoxBase.cs" />
-    <Compile Include="MiniZinc\Boxes\ZincIdentExpressionBoxBase.cs" />
-    <Compile Include="MiniZinc\Boxes\ZincTypeInstExpressionBoxBase.cs" />
-    <Compile Include="MiniZinc\Boxes\ZincTypeInstExprAndIdentAnnotationsExpressionBoxBase.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincAsBox.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincExBox.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincIdBox.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincTiaBox.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincAsExTiaBox.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincExIdBox.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincTieBox.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincExBoxBase.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincIdBoxBase.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincExIdBoxBase.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincAsExTiaBoxBase.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincTieBoxBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
