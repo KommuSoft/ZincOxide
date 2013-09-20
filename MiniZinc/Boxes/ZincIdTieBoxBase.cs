@@ -24,27 +24,27 @@ namespace ZincOxide.MiniZinc.Boxes {
 
     public abstract class ZincIdTieBoxBase : ZincIdBoxBase, IZincIdTieBox {
 
-        private IZincTypeInstExpression expression;
+        private IZincTypeInstExpression typeInstExpression;
 
-        public IZincTypeInstExpression Expression {
+        public IZincTypeInstExpression TypeInstExpression {
             get {
-                return this.expression;
+                return this.typeInstExpression;
             }
             protected set {
-                this.expression = value;
+                this.typeInstExpression = value;
             }
         }
 
         protected ZincIdTieBoxBase (ZincIdent ident, IZincTypeInstExpression expression) : base(ident) {
-            this.Expression = expression;
+            this.TypeInstExpression = expression;
         }
 
         public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (this.expression.InvolvedIdents (), base.InvolvedIdents ());
+            return EnumerableUtils.Append (this.typeInstExpression.InvolvedIdents (), base.InvolvedIdents ());
         }
 
         public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.expression.Replace (identMap);
+            this.typeInstExpression.Replace (identMap);
             return base.Replace (identMap);
         }
 

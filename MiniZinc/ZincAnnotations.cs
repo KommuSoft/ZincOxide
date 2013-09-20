@@ -18,12 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincAnnotations : LinkedList<ZincAnnotation>, IWriteable {
+    public class ZincAnnotations : LinkedList<ZincAnnotation>, IWriteable, IZincIdentReplaceContainer {
 
         public ZincAnnotations (IEnumerable<ZincAnnotation> annotations) : base(annotations) {
         }
@@ -40,6 +41,24 @@ namespace ZincOxide.MiniZinc {
             writer.Write (this.ToString ());
         }
         #endregion
+
+        #region IZincIdentContainer implementation
+        public IEnumerable<ZincIdent> InvolvedIdents () {
+            return this.SelectMany (x => x.InvolvedIdents ());
+        }
+        #endregion
+
+        #region IZincIdentReplaceContainer implementation
+        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            LinkedListNode<ZincAnnotation> node = this.First;
+            while (node != null) {
+                node.Value = node.Value.Replace (identMap) as ZincAnnotation;
+                node = node.Next;
+            }
+            return this;
+        }
+        #endregion
+
 
 
     }

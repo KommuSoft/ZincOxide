@@ -29,7 +29,7 @@ namespace ZincOxide.MiniZinc {
         }
 
         public override string ToString () {
-            return string.Format ("{0} : {1}", this.Expression, this.Ident);
+            return string.Format ("{0} : {1}", this.TypeInstExpression, this.Ident);
         }
 
     }

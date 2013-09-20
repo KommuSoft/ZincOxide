@@ -61,8 +61,8 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
 
         public override IZincIdentReplaceContainer Replace (System.Collections.Generic.IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.Annotations = this.Annotations.Replace (identMap);
-            this.TypeInstExprAndIdent = this.TypeInstExprAndIdent.Replace (identMap);
+            this.Annotations = this.Annotations.Replace (identMap) as ZincAnnotations;
+            this.TypeInstExprAndIdent = this.TypeInstExprAndIdent.Replace (identMap) as ZincTypeInstExprAndIdent;
             return base.Replace (identMap);
         }
 

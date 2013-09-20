@@ -18,12 +18,27 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
-    public class ZincAnnotation {
+
+    public class ZincAnnotation : IZincIdentReplaceContainer {
         public ZincAnnotation () {
         }
+
+        #region IZincIdentContainer implementation
+        public IEnumerable<ZincIdent> InvolvedIdents () {
+            yield break;//TODO
+        }
+        #endregion
+
+        #region IZincIdentReplaceContainer implementation
+        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            return this;//TODO
+        }
+        #endregion
+
     }
+
 }
 
