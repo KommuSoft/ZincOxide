@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincTypeInstBaseExpression : IZincIdentReplaceContainer {
+    public class ZincTypeInstBaseExpression : IZincIdentReplaceContainer, IZincTypeInstExpression {
 
         private ZincVarPar varPar;
         private IZincType type;
@@ -69,7 +69,7 @@ namespace ZincOxide.MiniZinc {
         #endregion
 
         public override string ToString () {
-            return string.Format ("{0} {1}", this.VarPar, this.Type);
+            return string.Format ("{0} {1}", ZincPrintUtils.VarParLiteral (this.VarPar), this.Type);
         }
 
 
