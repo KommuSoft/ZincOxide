@@ -1,5 +1,12 @@
 2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ZincModel.cs:
+	* ZincTypeInstExpressionArray.cs:
+	* ZincTypeInstArrayExpression.cs:
+	* ZincTypeInstRangeExpression.cs: 
+
+2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincTypeInstExpressionArray.cs: 
 
 2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>

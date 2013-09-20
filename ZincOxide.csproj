@@ -133,10 +133,11 @@
     <Compile Include="ProgramUtils.cs" />
     <Compile Include="ProgramEnvironment.cs" />
     <Compile Include="programVerbosity.cs" />
-    <Compile Include="MiniZinc\ZincTypeInstExpressionArray.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTieTiesBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTieTiesBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTiesBox.cs" />
+    <Compile Include="MiniZinc\ZincTypeInstArrayExpression.cs" />
+    <Compile Include="MiniZinc\ZincTypeInstRangeExpression.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

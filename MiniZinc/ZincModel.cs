@@ -43,19 +43,27 @@ namespace ZincOxide.MiniZinc {
         }
 
         public void AddIncludeItem (ZincIncludeItem item) {
-            this.includeItems.Add (item);
+            if (item != null) {
+                this.includeItems.Add (item);
+            }
         }
 
         public void AddVarDeclItem (ZincVarDeclItem item) {
-            this.varDeclItems.Add (item);
+            if (item != null) {
+                this.varDeclItems.Add (item);
+            }
         }
 
         public void AddConstraintItem (ZincConstraintItem item) {
-            this.constraintItems.Add (item);
+            if (item != null) {
+                this.constraintItems.Add (item);
+            }
         }
 
         public void AddOutputItem (ZincOutputItem item) {
-            this.outputItems.Add (item);
+            if (item != null) {
+                this.outputItems.Add (item);
+            }
         }
 
 
@@ -67,22 +75,24 @@ namespace ZincOxide.MiniZinc {
 
         #region IZincFile implementation
         public void AddItem (IZincItem item) {
-            switch (item.Type) {
-            case ZincItemType.Include:
-                AddIncludeItem (item as ZincIncludeItem);
-                break;
-            case ZincItemType.VarDecl:
-                AddVarDeclItem (item as ZincVarDeclItem);
-                break;
-            case ZincItemType.Constraint:
-                AddConstraintItem (item as ZincConstraintItem);
-                break;
-            case ZincItemType.Output:
-                AddOutputItem (item as ZincOutputItem);
-                break;
-            default :
-                Interaction.Warning ("A ZincItem was found with an type that cannot be added to a ZincModel. Probably you are running an outdated version of ZincOxide.");
-                break;
+            if (item != null) {
+                switch (item.Type) {
+                case ZincItemType.Include:
+                    AddIncludeItem (item as ZincIncludeItem);
+                    break;
+                case ZincItemType.VarDecl:
+                    AddVarDeclItem (item as ZincVarDeclItem);
+                    break;
+                case ZincItemType.Constraint:
+                    AddConstraintItem (item as ZincConstraintItem);
+                    break;
+                case ZincItemType.Output:
+                    AddOutputItem (item as ZincOutputItem);
+                    break;
+                default :
+                    Interaction.Warning ("A ZincItem was found with an type that cannot be added to a ZincModel. Probably you are running an outdated version of ZincOxide.");
+                    break;
+                }
             }
         }
         #endregion
