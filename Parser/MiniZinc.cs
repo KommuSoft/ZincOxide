@@ -264,7 +264,7 @@ namespace ZincOxide.MiniZinc {
 
         void GetCode () {
             if (code == '\n') {  // This needs to be fixed for other conventions
-                               // i.e. [\r\n\205\u2028\u2029] 
+                // i.e. [\r\n\205\u2028\u2029] 
                 cCol = -1;
                 lNum++;
             }
@@ -654,7 +654,7 @@ namespace ZincOxide.MiniZinc {
         
 #region UserCodeSection
 
-        public static void Main (string[] argp) {
+        /*public static void Main (string[] argp) {
             Console.WriteLine ("This is ZincOxide version 0.1 (2013)");
             if (argp.Length == 0) {
                 Console.WriteLine ("Usage: [options] file");
@@ -679,7 +679,7 @@ namespace ZincOxide.MiniZinc {
                     }
                 }
             }
-        }
+        }*/
 
 #endregion
     } // end class $Scanner
@@ -1093,11 +1093,11 @@ namespace ZincOxide.MiniZinc {
         public static BlockReader Raw (Stream stream) {
             return delegate(char[] block, int index, int number) {
                 byte[] b = new byte[number];
-                int count = stream.Read(b, 0, number);
+                int count = stream.Read (b, 0, number);
                 int i = 0;
                 int j = index;
                 for (; i < count; i++, j++)
-                    block[j] = (char)b[i];
+                    block [j] = (char)b [i];
                 return count;
             };
         }
@@ -1158,37 +1158,29 @@ namespace ZincOxide.MiniZinc {
     // ============      class CodePageHandling         =============
     // ==============================================================
 #if (!NOFILES)
-    public static class CodePageHandling
-    {
-        public static int GetCodePage(string option)
-        {
-            string command = option.ToUpperInvariant();
-            if (command.StartsWith("CodePage:", StringComparison.OrdinalIgnoreCase))
-                command = command.Substring(9);
-            try
-            {
-                if (command.Equals("RAW"))
+    public static class CodePageHandling {
+        public static int GetCodePage (string option) {
+            string command = option.ToUpperInvariant ();
+            if (command.StartsWith ("CodePage:", StringComparison.OrdinalIgnoreCase))
+                command = command.Substring (9);
+            try {
+                if (command.Equals ("RAW"))
                     return -1;
-                else if (command.Equals("GUESS"))
+                else if (command.Equals ("GUESS"))
                     return -2;
-                else if (command.Equals("DEFAULT"))
+                else if (command.Equals ("DEFAULT"))
                     return 0;
-                else if (char.IsDigit(command[0]))
-                    return int.Parse(command, CultureInfo.InvariantCulture);
-                else
-                {
-                    Encoding enc = Encoding.GetEncoding(command);
+                else if (char.IsDigit (command [0]))
+                    return int.Parse (command, CultureInfo.InvariantCulture);
+                else {
+                    Encoding enc = Encoding.GetEncoding (command);
                     return enc.CodePage;
                 }
-            }
-            catch (FormatException)
-            {
-                Console.Error.WriteLine(
+            } catch (FormatException) {
+                Console.Error.WriteLine (
                     "Invalid format \"{0}\", using machine default", option);
-            }
-            catch (ArgumentException)
-            {
-                Console.Error.WriteLine(
+            } catch (ArgumentException) {
+                Console.Error.WriteLine (
                     "Unknown code page \"{0}\", using machine default", option);
             }
             return 0;

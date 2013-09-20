@@ -23,11 +23,11 @@ using System;
 namespace ZincOxide {
 
     [Flags]
-    public enum GeneratorVerbosity {
-        Remark     = 0x01,
-        Assumption = 0x02,
-        Warning    = 0x04,
-        Error      = 0x08
+    public enum ProgramVerbosity {
+        Remark     = 0x08,
+        Assumption = 0x04,
+        Warning    = 0x02,
+        Error      = 0x01
     }
 
 }

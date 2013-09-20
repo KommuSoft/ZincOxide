@@ -1,5 +1,5 @@
 //
-//  ProgramTask.cs
+//  ProgramEnvironment.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,16 +22,31 @@ using System;
 
 namespace ZincOxide {
 
-    public enum ProgramTask : byte {
-        VerifyModel        = 0x00,
-        VerifyData         = 0x01,
-        Match              = 0x10,
-        GenerateHeuristics = 0x20,
-        GenerateBasics     = 0x21,
-        GenerateData       = 0x22,
-        Assume             = 0x30,
-        Transform          = 0x40
-    }
+    public class ProgramEnvironment {
 
+        private ProgramTask task = ProgramTask.GenerateHeuristics;
+        private ProgramVerbosity verbosity = ProgramVerbosity.Error | ProgramVerbosity.Warning;
+
+        public ProgramTask Task {
+            get {
+                return this.task;
+            }
+            set {
+                this.task = value;
+            }
+        }
+
+        public ProgramVerbosity Verbosity {
+            get {
+                return this.verbosity;
+            }
+            set {
+                this.verbosity = value;
+            }
+        }
+
+        public ProgramEnvironment () {
+        }
+    }
 }
 

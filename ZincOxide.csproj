@@ -118,7 +118,6 @@
     <Compile Include="Utils\NameBase.cs" />
     <Compile Include="Utils\NameRegister.cs" />
     <Compile Include="Utils\ReadWriteableUtils.cs" />
-    <Compile Include="GeneratorVerbosity.cs" />
     <Compile Include="Codegen\Java\CodeBuilderJava.cs" />
     <Compile Include="Codegen\Java\CodeClassJava.cs" />
     <Compile Include="Codegen\Java\CodeInterfaceJava.cs" />
@@ -130,6 +129,11 @@
     <Compile Include="Codegen\Base\CodeInterfaceBase.cs" />
     <Compile Include="Codegen\Base\CodePackageBase.cs" />
     <Compile Include="Codegen\Base\ContextWriteableCodeFile.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProgramUtils.cs" />
+    <Compile Include="ProgramEnvironment.cs" />
+    <Compile Include="programVerbosity.cs" />
+    <Compile Include="MiniZinc\ZincTypeInstExpressionArray.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -141,6 +145,9 @@
     </Reference>
     <Reference Include="QUT.ShiftReduceParser">
       <HintPath>..\..\Libraries\gppg-distro-1.5.0\binaries\QUT.ShiftReduceParser.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Options">
+      <HintPath>..\..\Libraries\mono\Mono.Options.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +167,9 @@
     <Folder Include="Utils\" />
     <Folder Include="Codegen\Java\" />
     <Folder Include="Codegen\Base\" />
+    <Folder Include="Codegen\CSharp\" />
+    <Folder Include="Transformation\" />
+    <Folder Include="Heuristics\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

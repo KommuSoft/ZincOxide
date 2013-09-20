@@ -24,9 +24,13 @@ namespace ZincOxide {
 
     public static class Interaction {
 
-        private static GeneratorVerbosity verbosityLevel;
+        private static ProgramVerbosity verbosityLevel = ProgramVerbosity.Error | ProgramVerbosity.Warning;
 
-        public static void GenericMessage (GeneratorVerbosity verbosity, string format, params object[] args) {
+        public static void SetLevel (ProgramVerbosity verbosity) {
+            verbosityLevel = verbosity;
+        }
+
+        public static void GenericMessage (ProgramVerbosity verbosity, string format, params object[] args) {
             if ((verbosity & verbosityLevel) != 0x00) {
                 Console.Write (verbosity.ToString ());
                 Console.Write (": ");
@@ -35,19 +39,19 @@ namespace ZincOxide {
         }
 
         public static void Warning (string format, params object[] args) {
-            GenericMessage (GeneratorVerbosity.Remark, format, args);
+            GenericMessage (ProgramVerbosity.Remark, format, args);
         }
 
         public static void Error (string format, params object[] args) {
-            GenericMessage (GeneratorVerbosity.Error, format, args);
+            GenericMessage (ProgramVerbosity.Error, format, args);
         }
 
         public static void Remark (string format, params object[] args) {
-            GenericMessage (GeneratorVerbosity.Remark, format, args);
+            GenericMessage (ProgramVerbosity.Remark, format, args);
         }
 
         public static void Assumption (string format, params object[] args) {
-            GenericMessage (GeneratorVerbosity.Assumption, format, args);
+            GenericMessage (ProgramVerbosity.Assumption, format, args);
         }
 
     }
