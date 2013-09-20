@@ -23,7 +23,7 @@ using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincAssignItem : ZincIdentExpressionBoxBase, IZincItem {
+    public class ZincAssignItem : ZincExIdBoxBase, IZincItem {
 
         #region IZincItem implementation
         public ZincItemType Type {

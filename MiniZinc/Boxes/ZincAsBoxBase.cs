@@ -1,5 +1,5 @@
 //
-//  ZincTypeInstExprAndIdentAnnotationsExpressionBoxBase.cs
+//  ZincAsBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,15 +19,15 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincAsExTiaBoxBase : ZincExBoxBase, IZincAsExTiaBox {
+    public class ZincAsBoxBase : IZincAsBox {
 
         private ZincAnnotations annotations;
-        private ZincTypeInstAndIdent typeInstAndIdent;
 
-        #region IZincAsBox implementation
+        #region IZincExpressionBox implementation
         public ZincAnnotations Annotations {
             get {
                 return this.annotations;
@@ -39,32 +39,26 @@ namespace ZincOxide.MiniZinc.Boxes {
         #endregion
 
 
+        protected ZincAsBoxBase () {
+        }
 
-        #region IZincTiaBox implementation
-        public ZincTypeInstAndIdent TypeInstAndIdent {
-            get {
-                return this.typeInstAndIdent;
-            }
-            protected set {
-                this.typeInstAndIdent = value;
-            }
+        protected ZincAsBoxBase (ZincAnnotations annotations) {
+            this.Annotations = annotations;
+        }
+
+        #region IZincIdentContainer implementation
+        public IEnumerable<ZincIdent> InvolvedIdents () {
+            return this.Annotations.InvolvedIdents ();
         }
         #endregion
 
-        protected ZincAsExTiaBoxBase () {
+        #region IZincIdentReplaceContainer implementation
+        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
+            return this;
         }
-
-        public override System.Collections.Generic.IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (this.Annotations.InvolvedIdents (), base.InvolvedIdents (), this.TypeInstAndIdent.InvolvedIdents ());
-        }
-
-        public override IZincIdentReplaceContainer Replace (System.Collections.Generic.IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.Annotations = this.Annotations.Replace (identMap);
-            this.TypeInstAndIdent = this.TypeInstAndIdent.Replace (identMap);
-            return base.Replace (identMap);
-        }
+        #endregion
 
     }
-
 }
 

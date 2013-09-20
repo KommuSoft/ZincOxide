@@ -1,5 +1,13 @@
 2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* IZincIdBox.cs:
+	* IZincTieBox.cs:
+	* ZincExBoxBase.cs:
+	* ZincAsBoxBase.cs:
+	* ZincAsExTiaBoxBase.cs: 
+
+2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* IZincExBox.cs:
 	* IZincIdBox.cs:
 	* IZincAsBox.cs:

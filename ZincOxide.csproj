@@ -127,6 +127,7 @@
     <Compile Include="MiniZinc\Boxes\ZincExIdBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\ZincAsExTiaBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTieBoxBase.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincAsBoxBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -159,7 +160,7 @@
     <MonoDevelop>
       <Properties>
         <Policies>
-          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedFlat" ResourceNamePolicy="FileFormatDefault" />
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedHierarchical" ResourceNamePolicy="FileFormatDefault" />
         </Policies>
       </Properties>
     </MonoDevelop>

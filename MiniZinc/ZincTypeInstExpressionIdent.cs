@@ -24,7 +24,7 @@ using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincTypeInstExpressionIdent : ZincIdentBoxBase {
+    public class ZincTypeInstExpressionIdent : ZincIdBoxBase {
 
         private ZincTypeInstWhereExpression expression;
 
