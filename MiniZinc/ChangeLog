@@ -1,5 +1,18 @@
 2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* IZincExp.cs:
+	* ZincIdent.cs:
+	* IZincNumExp.cs:
+	* ZincOutputItem.cs:
+	* ZincAssignItem.cs:
+	* ZincVarDeclItem.cs:
+	* IZincExpression.cs:
+	* ZincTypeInstWhereExpression.cs:
+	* ZincTypeInstArrayExpression.cs:
+	* ZincTypeInstRangeExpression.cs: 
+
+2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincModel.cs:
 	* ZincTypeInstExpressionArray.cs:
 	* ZincTypeInstArrayExpression.cs:

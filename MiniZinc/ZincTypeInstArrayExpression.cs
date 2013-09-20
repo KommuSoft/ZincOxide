@@ -23,7 +23,7 @@ using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincTypeInstArrayExpression : ZincTieTiesBoxBase {
+    public class ZincTypeInstArrayExpression : ZincTieTiesBoxBase, IZincType {
 
         public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, params IZincTypeInstExpression[] attributes) : base(oftype,attributes) {
         }

@@ -1,5 +1,5 @@
 //
-//  ZincAsBoxBase.cs
+//  ZincNumBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,43 +18,38 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincAsBoxBase : IZincAsBox {
+    public abstract class ZincNumBoxBase : IZincNumBox {
 
-        private ZincAnnotations annotations;
+        private IZincNumExp numExp;
 
-        #region IZincExpressionBox implementation
-        public ZincAnnotations Annotations {
+        #region IZincNumBox implementation
+        public IZincNumExp NumericExpression {
             get {
-                return this.annotations;
+                return this.numExp;
             }
             protected set {
-                this.annotations = value;
+                this.numExp = value;
             }
         }
         #endregion
 
-
-        protected ZincAsBoxBase () {
-        }
-
-        protected ZincAsBoxBase (ZincAnnotations annotations) {
-            this.Annotations = annotations;
+        protected ZincNumBoxBase (IZincNumExp numericExpression) {
+            this.NumericExpression = numericExpression;
         }
 
         #region IZincIdentContainer implementation
         public virtual IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.Annotations.InvolvedIdents ();
+            return this.NumericExpression.InvolvedIdents ();
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
         public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
+            this.NumericExpression = this.NumericExpression.Replace (identMap) as IZincNumExp;
             return this;
         }
         #endregion

@@ -55,7 +55,6 @@
     <Compile Include="MiniZinc\IZincIdentContainer.cs" />
     <Compile Include="MiniZinc\ZincTypeInstWhereExpression.cs" />
     <Compile Include="MiniZinc\ZincTypeInstExpressionIdent.cs" />
-    <Compile Include="MiniZinc\IZincExpression.cs" />
     <Compile Include="MiniZinc\IZincIdentReplaceContainer.cs" />
     <Compile Include="MiniZinc\ZincVarPar.cs" />
     <Compile Include="MiniZinc\ZincVarDeclItem.cs" />
@@ -138,6 +137,12 @@
     <Compile Include="MiniZinc\Boxes\IZincTiesBox.cs" />
     <Compile Include="MiniZinc\ZincTypeInstArrayExpression.cs" />
     <Compile Include="MiniZinc\ZincTypeInstRangeExpression.cs" />
+    <Compile Include="MiniZinc\IZincNumExp.cs" />
+    <Compile Include="MiniZinc\IZincExp.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincNumBox.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincNumNumBox.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincNumBoxBase.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincNumNumBoxBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

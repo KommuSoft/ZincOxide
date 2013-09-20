@@ -19,11 +19,19 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc {
-    public class ZincTypeInstRangeExpression {
-        public ZincTypeInstRangeExpression () {
+
+    public class ZincTypeInstRangeExpression : ZincNumNumBoxBase, IZincType {
+
+        public ZincTypeInstRangeExpression (IZincNumExp numexp1, IZincNumExp numexp2) : base(numexp1,numexp2) {
         }
+
+        public override string ToString () {
+            return string.Format ("{0} .. {1}", this.NumericExpression, this.NumericExpression2);
+        }
+
     }
 }
 

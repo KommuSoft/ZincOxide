@@ -35,10 +35,10 @@ namespace ZincOxide.MiniZinc {
         }
         #endregion
 
-        public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, ZincAnnotations anns = null, IZincExpression exp = null) : base(anns,exp,tia) {
+        public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, ZincAnnotations anns = null, IZincExp exp = null) : base(anns,exp,tia) {
         }
 
-        public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, IZincExpression exp) : this(tia,null,exp) {
+        public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, IZincExp exp) : this(tia,null,exp) {
         }
 
         public override string ToString () {

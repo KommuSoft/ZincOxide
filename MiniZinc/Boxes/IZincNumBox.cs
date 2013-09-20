@@ -1,5 +1,5 @@
 //
-//  IZincExpressionBox.cs
+//  IZincNumBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,12 +22,13 @@ using System;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincExBox : IZincIdentReplaceContainer {
+    public interface IZincNumBox : IZincIdentReplaceContainer {
 
-        IZincExp Expression {
+        IZincNumExp NumericExpression {
             get;
         }
 
     }
+
 }
 

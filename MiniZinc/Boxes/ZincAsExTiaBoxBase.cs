@@ -52,7 +52,7 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
         #endregion
 
-        protected ZincAsExTiaBoxBase (ZincAnnotations anns, IZincExpression expr, ZincTypeInstExprAndIdent tia) : base(expr) {
+        protected ZincAsExTiaBoxBase (ZincAnnotations anns, IZincExp expr, ZincTypeInstExprAndIdent tia) : base(expr) {
             this.Annotations = anns;
             this.TypeInstExprAndIdent = tia;
         }

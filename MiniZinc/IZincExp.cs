@@ -1,5 +1,5 @@
 //
-//  IZincExpressionBox.cs
+//  ZincExpression.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,14 +20,10 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc.Boxes {
+namespace ZincOxide.MiniZinc {
 
-    public interface IZincExBox : IZincIdentReplaceContainer {
-
-        IZincExp Expression {
-            get;
-        }
+    public interface IZincExp : IZincIdentReplaceContainer {
 
     }
-}
 
+}

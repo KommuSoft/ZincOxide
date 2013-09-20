@@ -33,7 +33,7 @@ namespace ZincOxide.MiniZinc {
         }
         #endregion
 
-        public ZincOutputItem (IZincExpression expression) : base(expression) {
+        public ZincOutputItem (IZincExp expression) : base(expression) {
         }
 
         public override string ToString () {

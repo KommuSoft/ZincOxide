@@ -24,7 +24,7 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincIdent : NameBase, IZincIdentReplaceContainer {
+    public class ZincIdent : NameBase, IZincNumExp, IZincIdentReplaceContainer {
 
         public ZincIdent (string name) : base(name) {
         }

@@ -1,5 +1,5 @@
 //
-//  ZincIdentExpressionBoxBase.cs
+//  ZincNumNumBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -23,46 +23,34 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincExIdBoxBase : ZincIdBoxBase, IZincExIdBox {
+    public abstract class ZincNumNumBoxBase : ZincNumBoxBase, IZincNumNumBox {
 
-        private IZincExp expression;
+        private IZincNumExp numExp2;
 
-        #region IZincExpressionBox implementation
-        public IZincExp Expression {
+        #region IZincNumNumBox implementation
+        public IZincNumExp NumericExpression2 {
             get {
-                return this.expression;
+                return this.numExp2;
             }
             protected set {
-                this.expression = value;
+                this.numExp2 = value;
             }
         }
         #endregion
 
-
-        protected ZincExIdBoxBase () : base() {
-        }
-
-        protected ZincExIdBoxBase (ZincIdent ident) : base(ident) {
-        }
-
-        protected ZincExIdBoxBase (IZincExp expression) : base() {
-            this.Expression = expression;
-        }
-
-        protected ZincExIdBoxBase (ZincIdent ident, IZincExp expression) : base(ident) {
-            this.expression = expression;
+        protected ZincNumNumBoxBase (IZincNumExp numericExpression, IZincNumExp numericExpression2) : base(numericExpression) {
+            this.NumericExpression2 = numericExpression2;
         }
 
         public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (base.InvolvedIdents (), this.Expression.InvolvedIdents ());
+            return EnumerableUtils.Append (this.NumericExpression.InvolvedIdents (), this.NumericExpression2.InvolvedIdents ());
         }
 
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
-            this.expression = this.expression.Replace (identMap) as IZincExp;
+        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            this.NumericExpression2 = this.NumericExpression2.Replace (identMap) as IZincNumExp;
             return base.Replace (identMap);
         }
 
     }
-
 }
 

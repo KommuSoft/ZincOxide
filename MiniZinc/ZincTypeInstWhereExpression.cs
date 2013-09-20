@@ -38,7 +38,7 @@ namespace ZincOxide.MiniZinc {
             }
         }
 
-        public ZincTypeInstWhereExpression (ZincTypeInstWhereExpression header, ZincIdent ident, IZincExpression expression) : base(ident,expression) {
+        public ZincTypeInstWhereExpression (ZincTypeInstWhereExpression header, ZincIdent ident, IZincExp expression) : base(ident,expression) {
         }
 
         public override string ToString () {
@@ -51,7 +51,7 @@ namespace ZincOxide.MiniZinc {
 
         public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
             this.header = this.header.Replace (identMap) as ZincTypeInstWhereExpression;
-            this.Expression = this.Expression.Replace (identMap) as IZincExpression;
+            this.Expression = this.Expression.Replace (identMap) as IZincExp;
             return base.Replace (identMap);
         }
 

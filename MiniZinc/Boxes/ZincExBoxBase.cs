@@ -24,10 +24,10 @@ namespace ZincOxide.MiniZinc.Boxes {
 
     public class ZincExBoxBase : IZincExBox {
 
-        private IZincExpression expression;
+        private IZincExp expression;
 
         #region IZincExpressionBox implementation
-        public IZincExpression Expression {
+        public IZincExp Expression {
             get {
                 return this.expression;
             }
@@ -41,7 +41,7 @@ namespace ZincOxide.MiniZinc.Boxes {
         protected ZincExBoxBase () {
         }
 
-        protected ZincExBoxBase (IZincExpression expression) {
+        protected ZincExBoxBase (IZincExp expression) {
             this.Expression = expression;
         }
 
@@ -53,7 +53,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 
         #region IZincIdentReplaceContainer implementation
         public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.expression = this.expression.Replace (identMap) as IZincExpression;
+            this.expression = this.expression.Replace (identMap) as IZincExp;
             return this;
         }
         #endregion
