@@ -18,13 +18,48 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.IO;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincData : IWriteable, IZincIdentReplaceContainer {
+    public class ZincData : IZincFile {
+
+        private readonly List<ZincAssignItem> assignItems = new List<ZincAssignItem> ();
+
         public ZincData () {
         }
+
+        #region IWriteable implementation
+        public void Write (StreamWriter writer) {
+            foreach (ZincAssignItem item in this.assignItems) {
+                item.Write (writer);
+                writer.WriteLine (";");
+            }
+        }
+        #endregion
+
+        #region IZincIdentContainer implementation
+        public IEnumerable<ZincIdent> InvolvedIdents () {
+            return this.assignItems.SelectMany (x => x.InvolvedIdents ());
+        }
+        #endregion
+
+        #region IZincIdentReplaceContainer implementation
+        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            for (int i = 0x00; i < this.assignItems.Count; i++) {
+                this.assignItems [i] = this.assignItems [i].Replace (identMap) as ZincAssignItem;
+            }
+            return this;
+        }
+        #endregion
+
+
+
+
+
+
     }
 
 }

@@ -58,13 +58,14 @@ namespace ZincOxide.MiniZinc {
 
         #region IZincIdentContainer implementation
         public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;//TODO
+            return this.type.InvolvedIdents ();
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
         public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this; //TODO
+            this.type = this.type.Replace (identMap) as IZincType;
+            return this;
         }
         #endregion
 

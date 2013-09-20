@@ -21,10 +21,11 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincModel : IWriteable, IZincIdentReplaceContainer {
+    public class ZincModel : IZincFile {
 
         private readonly List<ZincIncludeItem> includeItems = new List<ZincIncludeItem> ();
         private readonly List<ZincVarDeclItem> varDeclItems = new List<ZincVarDeclItem> ();
@@ -64,6 +65,7 @@ namespace ZincOxide.MiniZinc {
             }
         }
 
+        #region IZincFile implementation
         public void AddItem (IZincItem item) {
             switch (item.Type) {
             case ZincItemType.Include:
@@ -79,10 +81,11 @@ namespace ZincOxide.MiniZinc {
                 AddOutputItem (item as ZincOutputItem);
                 break;
             default :
-                Interaction.Warning ("A ZincItem was found with an unknown type. Probably you are running an outdated version of ZincOxide.");
+                Interaction.Warning ("A ZincItem was found with an type that cannot be added to a ZincModel. Probably you are running an outdated version of ZincOxide.");
                 break;
             }
         }
+        #endregion
 
         #region IWritable implementation
         public void Write (StreamWriter writer) {

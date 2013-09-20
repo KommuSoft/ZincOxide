@@ -21,6 +21,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.IO;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc {
 

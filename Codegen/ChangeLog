@@ -1,5 +1,17 @@
 2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ICodeFile.cs:
+	* OuputFile.cs:
+	* CodeFileBase.cs:
+	* ICodePackage.cs:
+	* CodePackageJava.cs:
+	* CodePackageBase.cs:
+	* CodeInterfaceBase.cs:
+	* CodeInterfaceJava.cs:
+	* ContextWriteableCodeFile.cs: 
+
+2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* IContextWriteable.cs:
 	* ContextWriteableUtils.cs: 
 
