@@ -25,6 +25,9 @@ namespace ZincOxide.MiniZinc {
 
     public class ZincTypeInstArrayExpression : ZincTieTiesBoxBase, IZincType {
 
+        public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, IZincTypeInstExpression atta, IZincTypeInstExpression attb) : base(oftype,new IZincTypeInstExpression[] {atta,attb}) {
+        }
+
         public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, params IZincTypeInstExpression[] attributes) : base(oftype,attributes) {
         }
 

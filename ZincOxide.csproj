@@ -143,6 +143,7 @@
     <Compile Include="MiniZinc\Boxes\IZincNumNumBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincNumBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\ZincNumNumBoxBase.cs" />
+    <Compile Include="MiniZinc\ZincIntLiteral.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
