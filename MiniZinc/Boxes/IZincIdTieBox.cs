@@ -1,5 +1,5 @@
 //
-//  ZincTypeInstAndIdent.cs
+//  IZincIdTieBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,12 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincTypeInstAndIdent {
-
-        public ZincTypeInstAndIdent () {
-        }
+    public interface IZincIdTieBox : IZincIdBox, IZincTieBox {
     }
 
 }

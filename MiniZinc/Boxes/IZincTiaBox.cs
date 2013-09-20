@@ -24,7 +24,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 
     public interface IZincTiaBox : IZincIdentReplaceContainer {
 
-        ZincTypeInstAndIdent TypeInstAndIdent {
+        ZincTypeInstExprAndIdent TypeInstExprAndIdent {
             get;
         }
 

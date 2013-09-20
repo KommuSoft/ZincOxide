@@ -25,7 +25,7 @@ namespace ZincOxide.MiniZinc.Boxes {
     public class ZincAsExTiaBoxBase : ZincExBoxBase, IZincAsExTiaBox {
 
         private ZincAnnotations annotations;
-        private ZincTypeInstAndIdent typeInstAndIdent;
+        private ZincTypeInstExprAndIdent typeInstAndIdent;
 
         #region IZincAsBox implementation
         public ZincAnnotations Annotations {
@@ -41,7 +41,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 
 
         #region IZincTiaBox implementation
-        public ZincTypeInstAndIdent TypeInstAndIdent {
+        public ZincTypeInstExprAndIdent TypeInstExprAndIdent {
             get {
                 return this.typeInstAndIdent;
             }
@@ -51,16 +51,18 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
         #endregion
 
-        protected ZincAsExTiaBoxBase () {
+        protected ZincAsExTiaBoxBase (ZincAnnotations anns, IZincExpression expr, ZincTypeInstExprAndIdent tia) : base(expr) {
+            this.Annotations = anns;
+            this.TypeInstExprAndIdent = tia;
         }
 
         public override System.Collections.Generic.IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (this.Annotations.InvolvedIdents (), base.InvolvedIdents (), this.TypeInstAndIdent.InvolvedIdents ());
+            return EnumerableUtils.Append (this.Annotations.InvolvedIdents (), base.InvolvedIdents (), this.TypeInstExprAndIdent.InvolvedIdents ());
         }
 
         public override IZincIdentReplaceContainer Replace (System.Collections.Generic.IDictionary<ZincIdent, ZincIdent> identMap) {
             this.Annotations = this.Annotations.Replace (identMap);
-            this.TypeInstAndIdent = this.TypeInstAndIdent.Replace (identMap);
+            this.TypeInstExprAndIdent = this.TypeInstExprAndIdent.Replace (identMap);
             return base.Replace (identMap);
         }
 

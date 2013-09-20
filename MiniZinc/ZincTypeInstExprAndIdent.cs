@@ -1,5 +1,5 @@
 //
-//  TypeInstExpressionIdent.cs
+//  ZincTypeInstAndIdent.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,15 +19,20 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
 using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc {
 
-    public class ZincTypeInstExpressionIdent : ZincIdBoxBase {
+    public class ZincTypeInstExprAndIdent : ZincIdTieBoxBase {
 
+        public ZincTypeInstExprAndIdent (IZincTypeInstExpression expr, ZincIdent ident) : base(ident,expr) {
+        }
 
+        public override string ToString () {
+            return string.Format ("{0} : {1}", this.Expression, this.Ident);
+        }
 
     }
+
 }
 

@@ -35,17 +35,22 @@ namespace ZincOxide.MiniZinc {
         }
         #endregion
 
-        public ZincVarDeclItem () {
+        public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, ZincAnnotations anns = null, IZincExpression exp = null) : base(anns,exp,tia) {
+        }
+
+        public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, IZincExpression exp) : this(tia,null,exp) {
         }
 
         public override string ToString () {
-            StringBuilder sb = new StringBuilder (this.TiExprAndIdent);
-            if (this.Annotations.Count > 0x00) {
+            StringBuilder sb = new StringBuilder ();
+            sb.Append (this.TypeInstExprAndIdent);
+            if (this.Annotations != null && this.Annotations.Count > 0x00) {
                 sb.AppendFormat (" {0}", this.Annotations);
             }
             if (this.Expression != null) {
                 sb.AppendFormat (" = {0}", this.Expression);
             }
+            return sb.ToString ();
         }
 
         #region IWriteable implementation
