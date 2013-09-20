@@ -1,5 +1,5 @@
 //
-//  CodeClassBase.cs
+//  JavaUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,23 +18,23 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Text.RegularExpressions;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Java {
 
-    public class CodeClassBase : CodeInterfaceBase, ICodeClass {
+    public static class JavaUtils {
 
-        private readonly ICodeClass parent;
+        private static readonly Regex rgxIdentifier = new Regex (@"[A-Za-z][A-Za-z0-9_]*", RegexOptions.Compiled);
+        private static readonly Regex rgxPackage = new Regex (@"[A-Za-z][A-Za-z0-9_]*(\.[A-Za-z][A-Za-z0-9_]*)*", RegexOptions.Compiled);
 
-        public ICodeClass Parent {
-            get {
-                return parent;
-            }
+        public static bool ValidIdentifier (string name) {
+            return rgxIdentifier.IsMatch (name);
         }
 
-        public CodeClassBase (string name, ICodePackage package = null, params ICodeInterface[] interfaces) : base(name,package,interfaces) {
+        public static bool ValidPackage (string name) {
+            return rgxPackage.IsMatch (name);
         }
 
     }
-
 }
+

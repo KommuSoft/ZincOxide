@@ -1,5 +1,5 @@
 //
-//  ContextWriteableCodeFile.cs
+//  CodeClassJava.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,33 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.IO;
-using ZincOxide.Utils;
+using System;
+using ZincOxide.Codegen.Base;
 
-namespace ZincOxide.Codegen {
-
-    public class ContextWriteableCodeFile : CodeFileBase {
-
-        private readonly IContextWriteable contextWriteable;
-
-        public IContextWriteable ContextWriteable {
-            get {
-                return this.contextWriteable;
-            }
+namespace ZincOxide.Codegen.Java {
+    public class CodeClassJava {
+        public CodeClassJava () {
         }
-
-        public ContextWriteableCodeFile (string name, IContextWriteable writeable) : base(name) {
-            this.contextWriteable = writeable;
-        }
-
-        #region implemented abstract members of ZincOxide.Codegen.CodeFileBase
-        public override void Write (Stream stream) {
-            this.contextWriteable.Write (stream);
-        }
-        #endregion
-
-
     }
-
 }
 

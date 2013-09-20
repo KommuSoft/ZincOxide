@@ -20,8 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.IO;
 using ZincOxide.Utils;
+using ZincOxide.Codegen.Base;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Java {
 
     public class CodeInterfaceJava : CodeInterfaceBase, IContextWriteable {
 

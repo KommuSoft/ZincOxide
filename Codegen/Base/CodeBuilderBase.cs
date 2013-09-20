@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Base {
 
     public abstract class CodeBuilderBase : ICodeBuilder {
 

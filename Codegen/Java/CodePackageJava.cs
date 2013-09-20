@@ -1,5 +1,5 @@
 //
-//  CodeInterfaceBase.cs
+//  CodePackageJava.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,34 +18,36 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.Collections.Generic;
+using System;
 using ZincOxide.Utils;
+using ZincOxide.Codegen.Base;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Java {
 
-    public class CodeInterfaceBase : NameBase, ICodeInterface {
+    public class CodePackageJava : CodePackageBase {
 
-        private ICodePackage package;
-        private readonly List<ICodeInterface> superInterfaces = new List<ICodeInterface> ();
-
-        public ICodePackage Package {
+        public override string Name {
             get {
-                return this.package;
+                return base.Name;
+            }
+            protected set {
+                if (JavaUtils.ValidPackage (value)) {
+                    base.Name = value;
+                } else {
+                    throw new ZincOxideCodeGenException ("Invalid package name for Java.");
+                }
             }
         }
 
-        public List<ICodeInterface> SuperInterfaces {
+        #region implemented abstract members of ZincOxide.Codegen.CodePackageBase
+        public override string Path {
             get {
-                return this.superInterfaces;
+                return string.Format ("{0}/", this.Name.Replace ('.', '/'));
             }
         }
+        #endregion
 
-        public CodeInterfaceBase (string name, ICodePackage package = null, params ICodeInterface[] interfaces) : this(name,package,(IEnumerable<ICodeInterface>) interfaces) {
-        }
-
-        public CodeInterfaceBase (string name, ICodePackage package, IEnumerable<ICodeInterface> interfaces) : base(name) {
-            this.package = package;
-            this.superInterfaces.AddRange (interfaces);
+        public CodePackageJava (string name) : base(name) {
         }
 
     }

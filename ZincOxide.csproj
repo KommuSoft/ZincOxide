@@ -69,29 +69,17 @@
     <Compile Include="MiniZinc\IZincTypeInstExpression.cs" />
     <Compile Include="MiniZinc\IZincType.cs" />
     <Compile Include="MiniZinc\ZincTypeInstBaseExpression.cs" />
-    <Compile Include="Codegen\JavaCodeBuilder.cs" />
     <Compile Include="Codegen\ICodeClass.cs" />
     <Compile Include="Codegen\ICodeMethod.cs" />
     <Compile Include="MiniZinc\ZincScalarType.cs" />
     <Compile Include="Codegen\OuputFile.cs" />
-    <Compile Include="Codegen\CodeClassJava.cs" />
-    <Compile Include="Codegen\CodeClassBase.cs" />
     <Compile Include="Codegen\ICodeInterface.cs" />
-    <Compile Include="Codegen\CodeInterfaceBase.cs" />
     <Compile Include="Codegen\ICodeBuilder.cs" />
     <Compile Include="Codegen\ICodePackage.cs" />
-    <Compile Include="Codegen\CodePackageBase.cs" />
     <Compile Include="Codegen\ICodeFile.cs" />
-    <Compile Include="Codegen\CodeBuilderBase.cs" />
-    <Compile Include="Codegen\CodeBuilderJava.cs" />
-    <Compile Include="Codegen\JavaUtils.cs" />
-    <Compile Include="Codegen\CodeInterfaceJava.cs" />
     <Compile Include="ZincOxideException.cs" />
     <Compile Include="Codegen\ZincOxideCodeGenException.cs" />
     <Compile Include="MiniZinc\ZincOxideMiniZincException.cs" />
-    <Compile Include="Codegen\CodePackageJava.cs" />
-    <Compile Include="Codegen\ContextWriteableCodeFile.cs" />
-    <Compile Include="Codegen\CodeFileBase.cs" />
     <Compile Include="Parser\MiniZinc.cs" />
     <Compile Include="Parser\MiniZincParser.cs" />
     <Compile Include="ProgramResult.cs" />
@@ -131,6 +119,17 @@
     <Compile Include="Utils\NameRegister.cs" />
     <Compile Include="Utils\ReadWriteableUtils.cs" />
     <Compile Include="GeneratorVerbosity.cs" />
+    <Compile Include="Codegen\Java\CodeBuilderJava.cs" />
+    <Compile Include="Codegen\Java\CodeClassJava.cs" />
+    <Compile Include="Codegen\Java\CodeInterfaceJava.cs" />
+    <Compile Include="Codegen\Java\CodePackageJava.cs" />
+    <Compile Include="Codegen\Java\JavaUtils.cs" />
+    <Compile Include="Codegen\Base\CodeBuilderBase.cs" />
+    <Compile Include="Codegen\Base\CodeClassBase.cs" />
+    <Compile Include="Codegen\Base\CodeFileBase.cs" />
+    <Compile Include="Codegen\Base\CodeInterfaceBase.cs" />
+    <Compile Include="Codegen\Base\CodePackageBase.cs" />
+    <Compile Include="Codegen\Base\ContextWriteableCodeFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -159,6 +158,8 @@
     <Folder Include="Samples\" />
     <Folder Include="MiniZinc\Boxes\" />
     <Folder Include="Utils\" />
+    <Folder Include="Codegen\Java\" />
+    <Folder Include="Codegen\Base\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

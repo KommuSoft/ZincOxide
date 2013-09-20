@@ -1,5 +1,5 @@
 //
-//  CodeClassJava.cs
+//  JavaCodeBuilder.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,10 +20,13 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Codegen {
-    public class CodeClassJava {
-        public CodeClassJava () {
-        }
-    }
-}
+namespace ZincOxide.Codegen.Java {
 
+    public class JavaCodeBuilder {
+
+        public JavaCodeBuilder () {
+        }
+
+    }
+
+}

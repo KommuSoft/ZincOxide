@@ -1,5 +1,5 @@
 //
-//  CodePackageJava.cs
+//  CodePackageBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -21,32 +21,17 @@
 using System;
 using ZincOxide.Utils;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Base {
 
-    public class CodePackageJava : CodePackageBase {
+    public abstract class CodePackageBase : NameBase, ICodePackage {
 
-        public override string Name {
-            get {
-                return base.Name;
-            }
-            protected set {
-                if (JavaUtils.ValidPackage (value)) {
-                    base.Name = value;
-                } else {
-                    throw new ZincOxideCodeGenException ("Invalid package name for Java.");
-                }
-            }
-        }
-
-        #region implemented abstract members of ZincOxide.Codegen.CodePackageBase
-        public override string Path {
-            get {
-                return string.Format ("{0}/", this.Name.Replace ('.', '/'));
-            }
+        #region ICodePackage implementation
+        public abstract string Path {
+            get;
         }
         #endregion
 
-        public CodePackageJava (string name) : base(name) {
+        protected CodePackageBase (string name) : base(name) {
         }
 
     }

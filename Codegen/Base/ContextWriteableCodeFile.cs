@@ -1,5 +1,5 @@
 //
-//  CodeFileBase.cs
+//  ContextWriteableCodeFile.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,37 +19,32 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.IO;
-using System;
 using ZincOxide.Utils;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Base {
 
-    public abstract class CodeFileBase : NameBase, ICodeFile {
+    public class ContextWriteableCodeFile : CodeFileBase {
 
-        protected CodeFileBase (string name) : base(name) {
+        private readonly IContextWriteable contextWriteable;
+
+        public IContextWriteable ContextWriteable {
+            get {
+                return this.contextWriteable;
+            }
         }
 
-        #region ICodeFile implementation
-        public abstract void Write (Stream stream);
+        public ContextWriteableCodeFile (string name, IContextWriteable writeable) : base(name) {
+            this.contextWriteable = writeable;
+        }
 
-        public string GetText () {
-            string result;
-            using (MemoryStream ms = new MemoryStream ()) {
-                this.Write (ms);
-                using (MemoryStream ms2 = new MemoryStream (ms.ToArray ())) {
-                    using (StreamReader tr = new StreamReader (ms2)) {
-                        result = tr.ReadToEnd ();
-                    }
-                }
-            }
-            return result;
+        #region implemented abstract members of ZincOxide.Codegen.CodeFileBase
+        public override void Write (Stream stream) {
+            this.contextWriteable.Write (stream);
         }
         #endregion
 
-        public override string ToString () {
-            return this.GetText ();
-        }
 
     }
+
 }
 

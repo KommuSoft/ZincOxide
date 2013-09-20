@@ -1,0 +1,9 @@
+2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* CodeFileBase.cs:
+	* CodeClassBase.cs:
+	* CodePackageBase.cs:
+	* CodeBuilderBase.cs:
+	* CodeInterfaceBase.cs:
+	* ContextWriteableCodeFile.cs: 
+

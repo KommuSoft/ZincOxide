@@ -1,5 +1,5 @@
 //
-//  JavaCodeBuilder.cs
+//  CodeClassBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,11 +20,19 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Base {
 
-    public class JavaCodeBuilder {
+    public class CodeClassBase : CodeInterfaceBase, ICodeClass {
 
-        public JavaCodeBuilder () {
+        private readonly ICodeClass parent;
+
+        public ICodeClass Parent {
+            get {
+                return parent;
+            }
+        }
+
+        public CodeClassBase (string name, ICodePackage package = null, params ICodeInterface[] interfaces) : base(name,package,interfaces) {
         }
 
     }
