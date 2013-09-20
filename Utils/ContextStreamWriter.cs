@@ -22,7 +22,8 @@ using System;
 using System.Text;
 using System.IO;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
+
     public class ContextStreamWriter : StreamWriter {
 
         private int indentLevel;

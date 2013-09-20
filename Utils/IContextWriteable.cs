@@ -1,5 +1,5 @@
 //
-//  IName.cs
+//  IContextWriteable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,15 +20,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
 
-    public interface IName {
+    public interface IContextWriteable {
 
-        string Name {
-            get;
-        }
-
-        bool EqualName (IName other);
+        void Write (ContextStreamWriter writer);
 
     }
 

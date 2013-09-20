@@ -1,5 +1,5 @@
 //
-//  IReadWriteable.cs
+//  IGeneratedNameRegister.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,9 +20,16 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
 
-    public interface IReadWriteable : IReadable, IWriteable {
+    public interface IGenerateNameRegister<T> : INameRegister<T> where T : IName {
+
+        Func<string,T> Generator {
+            get;
+        }
+
+        U LookupOrGenerate<U> (string name) where U : T;
+
     }
 
 }

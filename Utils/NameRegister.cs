@@ -20,7 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
+
     public class NameRegister<T> : INameRegister<T> where T : IName {
 
         private readonly Dictionary<string,T> dictionary = new Dictionary<string, T> ();

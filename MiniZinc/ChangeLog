@@ -1,5 +1,10 @@
 2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* ZincData.cs:
+	* IZincFile.cs: 
+
+2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* ZincScalar.cs:
 	* ZincTypeInstBaseExpression.cs: 
 

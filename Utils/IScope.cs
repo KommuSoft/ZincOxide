@@ -1,5 +1,5 @@
 //
-//  IValidateable.cs
+//  IScope.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,14 +18,16 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
 
-    public interface IValidateable {
+    public interface IScope<T> : ICollection<T> {
 
-        bool Validate ();
+        IScope<T> Parent {
+            get;
+        }
 
     }
-
 }
+

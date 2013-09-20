@@ -20,7 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
+
     public class GenerateNameRegister<T> : NameRegister<T>, IGenerateNameRegister<T> where T : IName {
 
         private Func<string,T> generator;

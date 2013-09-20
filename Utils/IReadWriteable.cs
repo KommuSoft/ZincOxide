@@ -1,5 +1,5 @@
 //
-//  ContextWriteableUtils.cs
+//  IReadWriteable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,25 +19,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.IO;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Utils {
 
-    public static class ContextWriteableUtils {
-
-        public static void Write (this IContextWriteable writeable, Stream stream) {
-            using (ContextStreamWriter sw = new ContextStreamWriter (stream)) {
-                writeable.Write (sw);
-            }
-        }
-
-        public static void Write (this IContextWriteable writeable, string filename, FileMode mode = FileMode.OpenOrCreate) {
-            using (FileStream fs = File.Open (filename, mode, FileAccess.Write)) {
-                writeable.Write (fs);
-            }
-        }
-
-
+    public interface IReadWriteable : IReadable, IWriteable {
     }
+
 }
 

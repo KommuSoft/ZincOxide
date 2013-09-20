@@ -1,5 +1,5 @@
 //
-//  IReadable.cs
+//  ContextWriteableUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -21,13 +21,23 @@
 using System;
 using System.IO;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
 
-    public interface IReadable {
+    public static class ContextWriteableUtils {
 
-        void Read (StreamReader sr);
+        public static void Write (this IContextWriteable writeable, Stream stream) {
+            using (ContextStreamWriter sw = new ContextStreamWriter (stream)) {
+                writeable.Write (sw);
+            }
+        }
+
+        public static void Write (this IContextWriteable writeable, string filename, FileMode mode = FileMode.OpenOrCreate) {
+            using (FileStream fs = File.Open (filename, mode, FileAccess.Write)) {
+                writeable.Write (fs);
+            }
+        }
+
 
     }
-
 }
 

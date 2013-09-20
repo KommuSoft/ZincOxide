@@ -34,13 +34,6 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="Interaction.cs" />
-    <Compile Include="IName.cs" />
-    <Compile Include="NameBase.cs" />
-    <Compile Include="HeadTail.cs" />
-    <Compile Include="EnumerableUtils.cs" />
-    <Compile Include="IWriteable.cs" />
-    <Compile Include="IReadable.cs" />
-    <Compile Include="ReadWriteableUtils.cs" />
     <Compile Include="Algebra\AcasBinaryOperatorFlags.cs" />
     <Compile Include="Algebra\AcasConstant.cs" />
     <Compile Include="Algebra\AcasExpressionBase.cs" />
@@ -51,8 +44,6 @@
     <Compile Include="Algebra\AcasOperator.cs" />
     <Compile Include="Algebra\AcasType.cs" />
     <Compile Include="Algebra\AcasVariable.cs" />
-    <Compile Include="IValidateable.cs" />
-    <Compile Include="IScope.cs" />
     <Compile Include="MiniZinc\ZincData.cs" />
     <Compile Include="MiniZinc\ZincModel.cs" />
     <Compile Include="MiniZinc\IZincItem.cs" />
@@ -82,12 +73,7 @@
     <Compile Include="Codegen\ICodeClass.cs" />
     <Compile Include="Codegen\ICodeMethod.cs" />
     <Compile Include="MiniZinc\ZincScalarType.cs" />
-    <Compile Include="IReadWriteable.cs" />
-    <Compile Include="NameRegister.cs" />
-    <Compile Include="INameRegister.cs" />
     <Compile Include="Codegen\OuputFile.cs" />
-    <Compile Include="IGenerateNameRegister.cs" />
-    <Compile Include="GenerateNameRegister.cs" />
     <Compile Include="Codegen\CodeClassJava.cs" />
     <Compile Include="Codegen\CodeClassBase.cs" />
     <Compile Include="Codegen\ICodeInterface.cs" />
@@ -104,12 +90,8 @@
     <Compile Include="Codegen\ZincOxideCodeGenException.cs" />
     <Compile Include="MiniZinc\ZincOxideMiniZincException.cs" />
     <Compile Include="Codegen\CodePackageJava.cs" />
-    <Compile Include="ContextStreamWriter.cs" />
-    <Compile Include="Codegen\IContextWriteable.cs" />
-    <Compile Include="Codegen\ContextWriteableUtils.cs" />
     <Compile Include="Codegen\ContextWriteableCodeFile.cs" />
     <Compile Include="Codegen\CodeFileBase.cs" />
-    <Compile Include="GeneratorVerbosity.cs" />
     <Compile Include="Parser\MiniZinc.cs" />
     <Compile Include="Parser\MiniZincParser.cs" />
     <Compile Include="ProgramResult.cs" />
@@ -130,6 +112,25 @@
     <Compile Include="MiniZinc\ZincTypeInstExprAndIdent.cs" />
     <Compile Include="MiniZinc\Boxes\IZincIdTieBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincIdTieBoxBase.cs" />
+    <Compile Include="MiniZinc\IZincFile.cs" />
+    <Compile Include="Utils\ContextStreamWriter.cs" />
+    <Compile Include="Utils\ContextWriteableUtils.cs" />
+    <Compile Include="Utils\EnumerableUtils.cs" />
+    <Compile Include="Utils\GenerateNameRegister.cs" />
+    <Compile Include="Utils\HeadTail.cs" />
+    <Compile Include="Utils\IContextWriteable.cs" />
+    <Compile Include="Utils\IGenerateNameRegister.cs" />
+    <Compile Include="Utils\IName.cs" />
+    <Compile Include="Utils\INameRegister.cs" />
+    <Compile Include="Utils\IReadable.cs" />
+    <Compile Include="Utils\IReadWriteable.cs" />
+    <Compile Include="Utils\IScope.cs" />
+    <Compile Include="Utils\IValidateable.cs" />
+    <Compile Include="Utils\IWriteable.cs" />
+    <Compile Include="Utils\NameBase.cs" />
+    <Compile Include="Utils\NameRegister.cs" />
+    <Compile Include="Utils\ReadWriteableUtils.cs" />
+    <Compile Include="GeneratorVerbosity.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -157,6 +158,7 @@
     <Folder Include="Parser\" />
     <Folder Include="Samples\" />
     <Folder Include="MiniZinc\Boxes\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

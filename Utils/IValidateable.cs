@@ -1,5 +1,5 @@
 //
-//  NameBase.cs
+//  IValidateable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,41 +20,12 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
 
-    public abstract class NameBase : IName {
+    public interface IValidateable {
 
-        private string name;
-
-		#region IName implementation
-        public virtual string Name {
-            get {
-                return this.name;
-            }
-            protected set {
-                this.name = value;
-            }
-        }
-        #endregion
-
-        protected NameBase () {
-        }
-
-        protected NameBase (string name) {
-            this.Name = name;
-        }
-
-        public override string ToString () {
-            return this.name;
-        }
-
-        #region IName implementation
-        public bool EqualName (IName other) {
-            return this.name == other.Name;
-        }
-        #endregion
-
+        bool Validate ();
 
     }
-}
 
+}

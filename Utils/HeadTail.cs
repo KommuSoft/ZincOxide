@@ -22,7 +22,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
 
     public sealed class HeadTail<T> : IEnumerable<T> {
 

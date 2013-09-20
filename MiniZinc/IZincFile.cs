@@ -1,5 +1,5 @@
 //
-//  IGeneratedNameRegister.cs
+//  ZincFile.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,15 +22,7 @@ using System;
 
 namespace ZincOxide {
 
-    public interface IGenerateNameRegister<T> : INameRegister<T> where T : IName {
-
-        Func<string,T> Generator {
-            get;
-        }
-
-        U LookupOrGenerate<U> (string name) where U : T;
-
+    public interface IZincFile {
     }
-
 }
 

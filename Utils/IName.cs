@@ -1,5 +1,5 @@
 //
-//  INameRegister.cs
+//  IName.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,15 +20,15 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
 
-    public interface INameRegister<T> where T : IName {
+    public interface IName {
 
-        void Register (T value);
+        string Name {
+            get;
+        }
 
-        bool Contains<U> (string name) where U : T;
-
-        U Lookup<U> (string name) where U : T;
+        bool EqualName (IName other);
 
     }
 

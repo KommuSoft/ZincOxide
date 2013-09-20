@@ -1,5 +1,5 @@
 //
-//  IContextWriteable.cs
+//  INameRegister.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,11 +20,15 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Utils {
 
-    public interface IContextWriteable {
+    public interface INameRegister<T> where T : IName {
 
-        void Write (ContextStreamWriter writer);
+        void Register (T value);
+
+        bool Contains<U> (string name) where U : T;
+
+        U Lookup<U> (string name) where U : T;
 
     }
 
