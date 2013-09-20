@@ -1,5 +1,5 @@
 //
-//  ZincExpressionBoxBase.cs
+//  ZincIdentBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,42 +18,42 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System;
 using System.Collections.Generic;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincExpressionBoxBase : IZincExpressionBox {
+    public abstract class ZincIdentBoxBase : IZincIdentBox {
 
-        private IZincExpression expression;
+        private ZincIdent ident;
 
-        #region IZincExpressionBox implementation
-        public IZincExpression Expression {
+        #region IZincIdentBox implementation
+        public ZincIdent Ident {
             get {
-                return this.expression;
+                return this.ident;
             }
             protected set {
-                this.expression = value;
+                this.ident = value;
             }
         }
         #endregion
 
 
-        protected ZincExpressionBoxBase () {
+        protected ZincIdentBoxBase () {
         }
 
-        protected ZincExpressionBoxBase (IZincExpression expression) {
-            this.Expression = expression;
+        protected ZincIdentBoxBase (ZincIdent ident) {
+            this.Ident = ident;
         }
 
-        #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.Expression.InvolvedIdents ();
+        #region ZincIdentContainer implementation
+        public virtual IEnumerable<ZincIdent> InvolvedIdents () {
+            yield return this.ident;
         }
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.expression = this.expression.Replace (identMap) as IZincExpression;
+		#endregion
+		#region ZincIdentReplaceContainer implementation
+        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
+            this.ident = this.ident.Replace (identMap) as ZincIdent;
             return this;
         }
         #endregion
@@ -62,6 +62,5 @@ namespace ZincOxide.MiniZinc {
 
 
     }
-
 }
 

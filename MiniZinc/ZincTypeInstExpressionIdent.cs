@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
+using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc {
 
@@ -44,7 +45,7 @@ namespace ZincOxide.MiniZinc {
             return string.Format ("{0} : {1}", this.Expression, this.Ident);
         }
 
-        public override System.Collections.Generic.IEnumerable<ZincIdent> InvolvedIdents () {
+        public override IEnumerable<ZincIdent> InvolvedIdents () {
             return EnumerableUtils.Append (this.expression.InvolvedIdents (), base.InvolvedIdents ());
         }
 

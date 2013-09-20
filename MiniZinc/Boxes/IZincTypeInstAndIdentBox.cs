@@ -1,5 +1,5 @@
 //
-//  IZincIdentBox.cs
+//  IZincTypeInstAndIdentBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,13 +20,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincIdentBox : IZincIdentReplaceContainer {
+    public interface IZincTypeInstAndIdentBox : IZincIdentReplaceContainer {
 
-        ZincIdent Ident {
+        ZincTypeInstAndIdent TypeInstAndIdent {
             get;
         }
 
     }
+
 }

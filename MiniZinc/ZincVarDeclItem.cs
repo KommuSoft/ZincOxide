@@ -21,6 +21,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.IO;
+using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc {
 

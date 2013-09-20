@@ -1,5 +1,5 @@
 //
-//  ZincTypeInstExpressionBoxBase.cs
+//  ZincExpressionBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,34 +20,41 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincTypeInstExpressionBoxBase : IZincTypeInstExpressionBox {
+    public class ZincExpressionBoxBase : IZincExpressionBox {
 
-        private IZincTypeInstExpression typeInstExpression;
+        private IZincExpression expression;
 
-        public IZincTypeInstExpression TypeInstExpression {
+        #region IZincExpressionBox implementation
+        public IZincExpression Expression {
             get {
-                return this.typeInstExpression;
+                return this.expression;
             }
             protected set {
-                this.typeInstExpression = value;
+                this.expression = value;
             }
         }
+        #endregion
 
-        protected ZincTypeInstExpressionBoxBase (IZincTypeInstExpression typeInstExpression) {
-            this.TypeInstExpression = typeInstExpression;
+
+        protected ZincExpressionBoxBase () {
+        }
+
+        protected ZincExpressionBoxBase (IZincExpression expression) {
+            this.Expression = expression;
         }
 
         #region IZincIdentContainer implementation
         public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;//TODO
+            return this.Expression.InvolvedIdents ();
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
         public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this;//TODO
+            this.expression = this.expression.Replace (identMap) as IZincExpression;
+            return this;
         }
         #endregion
 
@@ -55,5 +62,6 @@ namespace ZincOxide.MiniZinc {
 
 
     }
+
 }
 

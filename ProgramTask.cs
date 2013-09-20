@@ -1,5 +1,5 @@
 //
-//  IZincTypeInstanceExpressionIdentBox.cs
+//  ProgramTask.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,14 +20,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide {
 
-    public interface IZincTypeInstExpressionBox : IZincIdentReplaceContainer {
-
-        IZincTypeInstExpression TypeInstExpression {
-            get;
-        }
-
+    public enum ProgramTask : byte {
+        VerifyModel        = 0x00,
+        VerifyData         = 0x01,
+        Match              = 0x10,
+        GenerateHeuristics = 0x20,
+        GenerateData       = 0x21
     }
 
 }
