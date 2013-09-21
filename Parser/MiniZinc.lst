@@ -1,3 +1,14 @@
+
+// ==========================================================================
+//  GPPG error listing for yacc source file <MiniZinc.y - 9/21/2013 3:13:50 PM>
+// ==========================================================================
+//  Version:  1.5.0
+//  Machine:  kommusoft-X75VD
+//  DateTime: 9/21/2013 3:13:51 PM
+//  UserName: kommusoft
+// ==========================================================================
+
+
 /*
  *  This specification is for a version of the RealCalc example.
  *  This version creates a abstract syntax tree from the input,
@@ -13,7 +24,7 @@
 %output=MiniZincParser.cs 
 %namespace ZincOxide.Parser
 
-%using ZincOxide.MiniZinc;
+%using Zinc.MiniZinc;
 
 %tokentype Token
 
@@ -74,7 +85,10 @@ itemListO
 itemList
     :                           {$$ = (HeadTail<IZincItem>) null;}
     | COMMAD                    {$$ = (HeadTail<IZincItem>) null;}
-    | COMMAD item itemList      {$$ = $2&$3;}
+    | COMMAD item itemList;     {$$ = $2&$3;}
+//-----------------------------^^
+// Error: Syntax error, unexpected '{', expecting "%%", or anchoredSymbol, or EOF
+// ------------------------------------------------------------------------------
     ;
 
 item
@@ -88,4 +102,5 @@ includeItem
 %%
 /*
  * All the code is in the helper file RealTreeHelper.cs
- */ 
+ */ // ==========================================================================
+

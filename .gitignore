@@ -8,3 +8,7 @@
 *.pdf
 *.ps
 *.ods
+
+#FullPaths
+Parser/MiniZincLexer.cs 
+Parser/MiniZincParser.cs

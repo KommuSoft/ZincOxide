@@ -1,0 +1,216 @@
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-4 -> State-29
+ Reduce 6:	numExp -> numExp, OPEQUIV, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-4 -> State-39
+ Reduce 6:	numExp -> numExp, OPEQUIV, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-6 -> State-29
+ Reduce 7:	numExp -> numExp, OPIMPLI, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-6 -> State-39
+ Reduce 7:	numExp -> numExp, OPIMPLI, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-8 -> State-29
+ Reduce 8:	numExp -> numExp, OPRIMPL, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-8 -> State-39
+ Reduce 8:	numExp -> numExp, OPRIMPL, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-10 -> State-29
+ Reduce 9:	numExp -> numExp, OPVEE, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-10 -> State-39
+ Reduce 9:	numExp -> numExp, OPVEE, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-12 -> State-29
+ Reduce 10:	numExp -> numExp, OPWEDGE, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-12 -> State-39
+ Reduce 10:	numExp -> numExp, OPWEDGE, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-14 -> State-29
+ Reduce 11:	numExp -> numExp, OPLESTA, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-14 -> State-39
+ Reduce 11:	numExp -> numExp, OPLESTA, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-16 -> State-29
+ Reduce 12:	numExp -> numExp, OPGRETA, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-16 -> State-39
+ Reduce 12:	numExp -> numExp, OPGRETA, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-18 -> State-29
+ Reduce 13:	numExp -> numExp, OPLESEQ, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-18 -> State-39
+ Reduce 13:	numExp -> numExp, OPLESEQ, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-20 -> State-29
+ Reduce 14:	numExp -> numExp, OPGEAEQ, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-20 -> State-39
+ Reduce 14:	numExp -> numExp, OPGEAEQ, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-22 -> State-29
+ Reduce 15:	numExp -> numExp, OPEQUAL, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-22 -> State-39
+ Reduce 15:	numExp -> numExp, OPEQUAL, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-24 -> State-29
+ Reduce 16:	numExp -> numExp, OPNEQUA, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-24 -> State-39
+ Reduce 16:	numExp -> numExp, OPNEQUA, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-26 -> State-29
+ Reduce 17:	numExp -> numExp, OPRANGE, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-26 -> State-39
+ Reduce 17:	numExp -> numExp, OPRANGE, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-28 -> State-29
+ Reduce 18:	numExp -> numExp, OPINCRE, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-28 -> State-39
+ Reduce 18:	numExp -> numExp, OPINCRE, numExp
+Shift/Reduce conflict
+ Shift "OPEQUIV":	State-30 -> State-3
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPIMPLI":	State-30 -> State-5
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPRIMPL":	State-30 -> State-7
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPVEE":	State-30 -> State-9
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPWEDGE":	State-30 -> State-11
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPLESTA":	State-30 -> State-13
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPGRETA":	State-30 -> State-15
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPLESEQ":	State-30 -> State-17
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPGEAEQ":	State-30 -> State-19
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPEQUAL":	State-30 -> State-21
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPNEQUA":	State-30 -> State-23
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPRANGE":	State-30 -> State-25
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPINCRE":	State-30 -> State-27
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-30 -> State-29
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPADD":	State-30 -> State-31
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPSUB":	State-30 -> State-33
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPMUL":	State-30 -> State-35
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPDIV":	State-30 -> State-37
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-30 -> State-39
+ Reduce 19:	numExp -> numExp, OPANNOT, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-32 -> State-29
+ Reduce 20:	numExp -> numExp, OPADD, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-32 -> State-39
+ Reduce 20:	numExp -> numExp, OPADD, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-34 -> State-29
+ Reduce 21:	numExp -> numExp, OPSUB, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-34 -> State-39
+ Reduce 21:	numExp -> numExp, OPSUB, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-36 -> State-29
+ Reduce 22:	numExp -> numExp, OPMUL, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-36 -> State-39
+ Reduce 22:	numExp -> numExp, OPMUL, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-38 -> State-29
+ Reduce 23:	numExp -> numExp, OPDIV, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-38 -> State-39
+ Reduce 23:	numExp -> numExp, OPDIV, numExp
+Shift/Reduce conflict
+ Shift "OPEQUIV":	State-40 -> State-3
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPIMPLI":	State-40 -> State-5
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPRIMPL":	State-40 -> State-7
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPVEE":	State-40 -> State-9
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPWEDGE":	State-40 -> State-11
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPLESTA":	State-40 -> State-13
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPGRETA":	State-40 -> State-15
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPLESEQ":	State-40 -> State-17
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPGEAEQ":	State-40 -> State-19
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPEQUAL":	State-40 -> State-21
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPNEQUA":	State-40 -> State-23
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPRANGE":	State-40 -> State-25
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPINCRE":	State-40 -> State-27
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPANNOT":	State-40 -> State-29
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPADD":	State-40 -> State-31
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPSUB":	State-40 -> State-33
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPMUL":	State-40 -> State-35
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPDIV":	State-40 -> State-37
+ Reduce 24:	numExp -> numExp, OPDOT, numExp
+Shift/Reduce conflict
+ Shift "OPDOT":	State-40 -> State-39
+ Reduce 24:	numExp -> numExp, OPDOT, numExp

@@ -1,0 +1,2163 @@
+// Parser Conflict Information for grammar file "MiniZinc.y - 9/21/2013 4:26:09 AM"
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 7:	numExp -> numExp, OPEQUIV, numExp
+ Shift "OPANNOT":	State-4 -> State-29
+  Items for From-state State 4
+    7 numExp: numExp OPEQUIV numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 7:	numExp -> numExp, OPEQUIV, numExp
+ Shift "OPDOT":	State-4 -> State-39
+  Items for From-state State 4
+    7 numExp: numExp OPEQUIV numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 8:	numExp -> numExp, OPIMPLI, numExp
+ Shift "OPANNOT":	State-6 -> State-29
+  Items for From-state State 6
+    8 numExp: numExp OPIMPLI numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 8:	numExp -> numExp, OPIMPLI, numExp
+ Shift "OPDOT":	State-6 -> State-39
+  Items for From-state State 6
+    8 numExp: numExp OPIMPLI numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 9:	numExp -> numExp, OPRIMPL, numExp
+ Shift "OPANNOT":	State-8 -> State-29
+  Items for From-state State 8
+    9 numExp: numExp OPRIMPL numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 9:	numExp -> numExp, OPRIMPL, numExp
+ Shift "OPDOT":	State-8 -> State-39
+  Items for From-state State 8
+    9 numExp: numExp OPRIMPL numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 10:	numExp -> numExp, OPVEE, numExp
+ Shift "OPANNOT":	State-10 -> State-29
+  Items for From-state State 10
+    10 numExp: numExp OPVEE numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 10:	numExp -> numExp, OPVEE, numExp
+ Shift "OPDOT":	State-10 -> State-39
+  Items for From-state State 10
+    10 numExp: numExp OPVEE numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 11:	numExp -> numExp, OPWEDGE, numExp
+ Shift "OPANNOT":	State-12 -> State-29
+  Items for From-state State 12
+    11 numExp: numExp OPWEDGE numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 11:	numExp -> numExp, OPWEDGE, numExp
+ Shift "OPDOT":	State-12 -> State-39
+  Items for From-state State 12
+    11 numExp: numExp OPWEDGE numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 12:	numExp -> numExp, OPLESTA, numExp
+ Shift "OPANNOT":	State-14 -> State-29
+  Items for From-state State 14
+    12 numExp: numExp OPLESTA numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 12:	numExp -> numExp, OPLESTA, numExp
+ Shift "OPDOT":	State-14 -> State-39
+  Items for From-state State 14
+    12 numExp: numExp OPLESTA numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 13:	numExp -> numExp, OPGRETA, numExp
+ Shift "OPANNOT":	State-16 -> State-29
+  Items for From-state State 16
+    13 numExp: numExp OPGRETA numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 13:	numExp -> numExp, OPGRETA, numExp
+ Shift "OPDOT":	State-16 -> State-39
+  Items for From-state State 16
+    13 numExp: numExp OPGRETA numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 14:	numExp -> numExp, OPLESEQ, numExp
+ Shift "OPANNOT":	State-18 -> State-29
+  Items for From-state State 18
+    14 numExp: numExp OPLESEQ numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 14:	numExp -> numExp, OPLESEQ, numExp
+ Shift "OPDOT":	State-18 -> State-39
+  Items for From-state State 18
+    14 numExp: numExp OPLESEQ numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 15:	numExp -> numExp, OPGEAEQ, numExp
+ Shift "OPANNOT":	State-20 -> State-29
+  Items for From-state State 20
+    15 numExp: numExp OPGEAEQ numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 15:	numExp -> numExp, OPGEAEQ, numExp
+ Shift "OPDOT":	State-20 -> State-39
+  Items for From-state State 20
+    15 numExp: numExp OPGEAEQ numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 16:	numExp -> numExp, OPEQUAL, numExp
+ Shift "OPANNOT":	State-22 -> State-29
+  Items for From-state State 22
+    16 numExp: numExp OPEQUAL numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 16:	numExp -> numExp, OPEQUAL, numExp
+ Shift "OPDOT":	State-22 -> State-39
+  Items for From-state State 22
+    16 numExp: numExp OPEQUAL numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 17:	numExp -> numExp, OPNEQUA, numExp
+ Shift "OPANNOT":	State-24 -> State-29
+  Items for From-state State 24
+    17 numExp: numExp OPNEQUA numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 17:	numExp -> numExp, OPNEQUA, numExp
+ Shift "OPDOT":	State-24 -> State-39
+  Items for From-state State 24
+    17 numExp: numExp OPNEQUA numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 18:	numExp -> numExp, OPRANGE, numExp
+ Shift "OPANNOT":	State-26 -> State-29
+  Items for From-state State 26
+    18 numExp: numExp OPRANGE numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 18:	numExp -> numExp, OPRANGE, numExp
+ Shift "OPDOT":	State-26 -> State-39
+  Items for From-state State 26
+    18 numExp: numExp OPRANGE numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 19:	numExp -> numExp, OPINCRE, numExp
+ Shift "OPANNOT":	State-28 -> State-29
+  Items for From-state State 28
+    19 numExp: numExp OPINCRE numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 19:	numExp -> numExp, OPINCRE, numExp
+ Shift "OPDOT":	State-28 -> State-39
+  Items for From-state State 28
+    19 numExp: numExp OPINCRE numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPEQUIV", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPEQUIV":	State-30 -> State-3
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 3
+    7 numExp: numExp OPEQUIV . numExp 
+
+Shift/Reduce conflict on symbol "OPIMPLI", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPIMPLI":	State-30 -> State-5
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 5
+    8 numExp: numExp OPIMPLI . numExp 
+
+Shift/Reduce conflict on symbol "OPRIMPL", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPRIMPL":	State-30 -> State-7
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 7
+    9 numExp: numExp OPRIMPL . numExp 
+
+Shift/Reduce conflict on symbol "OPVEE", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPVEE":	State-30 -> State-9
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 9
+    10 numExp: numExp OPVEE . numExp 
+
+Shift/Reduce conflict on symbol "OPWEDGE", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPWEDGE":	State-30 -> State-11
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 11
+    11 numExp: numExp OPWEDGE . numExp 
+
+Shift/Reduce conflict on symbol "OPLESTA", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPLESTA":	State-30 -> State-13
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 13
+    12 numExp: numExp OPLESTA . numExp 
+
+Shift/Reduce conflict on symbol "OPGRETA", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPGRETA":	State-30 -> State-15
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 15
+    13 numExp: numExp OPGRETA . numExp 
+
+Shift/Reduce conflict on symbol "OPLESEQ", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPLESEQ":	State-30 -> State-17
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 17
+    14 numExp: numExp OPLESEQ . numExp 
+
+Shift/Reduce conflict on symbol "OPGEAEQ", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPGEAEQ":	State-30 -> State-19
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 19
+    15 numExp: numExp OPGEAEQ . numExp 
+
+Shift/Reduce conflict on symbol "OPEQUAL", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPEQUAL":	State-30 -> State-21
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 21
+    16 numExp: numExp OPEQUAL . numExp 
+
+Shift/Reduce conflict on symbol "OPNEQUA", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPNEQUA":	State-30 -> State-23
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 23
+    17 numExp: numExp OPNEQUA . numExp 
+
+Shift/Reduce conflict on symbol "OPRANGE", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPRANGE":	State-30 -> State-25
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 25
+    18 numExp: numExp OPRANGE . numExp 
+
+Shift/Reduce conflict on symbol "OPINCRE", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPINCRE":	State-30 -> State-27
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 27
+    19 numExp: numExp OPINCRE . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPANNOT":	State-30 -> State-29
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPADD", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPADD":	State-30 -> State-31
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 31
+    21 numExp: numExp OPADD . numExp 
+
+Shift/Reduce conflict on symbol "OPSUB", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPSUB":	State-30 -> State-33
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 33
+    22 numExp: numExp OPSUB . numExp 
+
+Shift/Reduce conflict on symbol "OPMUL", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPMUL":	State-30 -> State-35
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 35
+    23 numExp: numExp OPMUL . numExp 
+
+Shift/Reduce conflict on symbol "OPDIV", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPDIV":	State-30 -> State-37
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 37
+    24 numExp: numExp OPDIV . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 20:	numExp -> numExp, OPANNOT, numExp
+ Shift "OPDOT":	State-30 -> State-39
+  Items for From-state State 30
+    20 numExp: numExp OPANNOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 21:	numExp -> numExp, OPADD, numExp
+ Shift "OPANNOT":	State-32 -> State-29
+  Items for From-state State 32
+    21 numExp: numExp OPADD numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 21:	numExp -> numExp, OPADD, numExp
+ Shift "OPDOT":	State-32 -> State-39
+  Items for From-state State 32
+    21 numExp: numExp OPADD numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 22:	numExp -> numExp, OPSUB, numExp
+ Shift "OPANNOT":	State-34 -> State-29
+  Items for From-state State 34
+    22 numExp: numExp OPSUB numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 22:	numExp -> numExp, OPSUB, numExp
+ Shift "OPDOT":	State-34 -> State-39
+  Items for From-state State 34
+    22 numExp: numExp OPSUB numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 23:	numExp -> numExp, OPMUL, numExp
+ Shift "OPANNOT":	State-36 -> State-29
+  Items for From-state State 36
+    23 numExp: numExp OPMUL numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 23:	numExp -> numExp, OPMUL, numExp
+ Shift "OPDOT":	State-36 -> State-39
+  Items for From-state State 36
+    23 numExp: numExp OPMUL numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 24:	numExp -> numExp, OPDIV, numExp
+ Shift "OPANNOT":	State-38 -> State-29
+  Items for From-state State 38
+    24 numExp: numExp OPDIV numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 24:	numExp -> numExp, OPDIV, numExp
+ Shift "OPDOT":	State-38 -> State-39
+  Items for From-state State 38
+    24 numExp: numExp OPDIV numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+Shift/Reduce conflict on symbol "OPEQUIV", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPEQUIV":	State-40 -> State-3
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 3
+    7 numExp: numExp OPEQUIV . numExp 
+
+Shift/Reduce conflict on symbol "OPIMPLI", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPIMPLI":	State-40 -> State-5
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 5
+    8 numExp: numExp OPIMPLI . numExp 
+
+Shift/Reduce conflict on symbol "OPRIMPL", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPRIMPL":	State-40 -> State-7
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 7
+    9 numExp: numExp OPRIMPL . numExp 
+
+Shift/Reduce conflict on symbol "OPVEE", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPVEE":	State-40 -> State-9
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 9
+    10 numExp: numExp OPVEE . numExp 
+
+Shift/Reduce conflict on symbol "OPWEDGE", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPWEDGE":	State-40 -> State-11
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 11
+    11 numExp: numExp OPWEDGE . numExp 
+
+Shift/Reduce conflict on symbol "OPLESTA", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPLESTA":	State-40 -> State-13
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 13
+    12 numExp: numExp OPLESTA . numExp 
+
+Shift/Reduce conflict on symbol "OPGRETA", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPGRETA":	State-40 -> State-15
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 15
+    13 numExp: numExp OPGRETA . numExp 
+
+Shift/Reduce conflict on symbol "OPLESEQ", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPLESEQ":	State-40 -> State-17
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 17
+    14 numExp: numExp OPLESEQ . numExp 
+
+Shift/Reduce conflict on symbol "OPGEAEQ", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPGEAEQ":	State-40 -> State-19
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 19
+    15 numExp: numExp OPGEAEQ . numExp 
+
+Shift/Reduce conflict on symbol "OPEQUAL", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPEQUAL":	State-40 -> State-21
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 21
+    16 numExp: numExp OPEQUAL . numExp 
+
+Shift/Reduce conflict on symbol "OPNEQUA", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPNEQUA":	State-40 -> State-23
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 23
+    17 numExp: numExp OPNEQUA . numExp 
+
+Shift/Reduce conflict on symbol "OPRANGE", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPRANGE":	State-40 -> State-25
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 25
+    18 numExp: numExp OPRANGE . numExp 
+
+Shift/Reduce conflict on symbol "OPINCRE", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPINCRE":	State-40 -> State-27
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 27
+    19 numExp: numExp OPINCRE . numExp 
+
+Shift/Reduce conflict on symbol "OPANNOT", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPANNOT":	State-40 -> State-29
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 29
+    20 numExp: numExp OPANNOT . numExp 
+
+Shift/Reduce conflict on symbol "OPADD", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPADD":	State-40 -> State-31
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 31
+    21 numExp: numExp OPADD . numExp 
+
+Shift/Reduce conflict on symbol "OPSUB", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPSUB":	State-40 -> State-33
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 33
+    22 numExp: numExp OPSUB . numExp 
+
+Shift/Reduce conflict on symbol "OPMUL", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPMUL":	State-40 -> State-35
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 35
+    23 numExp: numExp OPMUL . numExp 
+
+Shift/Reduce conflict on symbol "OPDIV", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPDIV":	State-40 -> State-37
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 37
+    24 numExp: numExp OPDIV . numExp 
+
+Shift/Reduce conflict on symbol "OPDOT", parser will shift
+ Reduce 25:	numExp -> numExp, OPDOT, numExp
+ Shift "OPDOT":	State-40 -> State-39
+  Items for From-state State 40
+    25 numExp: numExp OPDOT numExp .
+	-lookahead: EOF, OPEQUIV, OPIMPLI, OPRIMPL, OPVEE, OPWEDGE, OPLESTA, 
+                OPGRETA, OPLESEQ, OPGEAEQ, OPEQUAL, OPNEQUA, OPRANGE, OPINCRE, 
+                OPANNOT, OPADD, OPSUB, OPMUL, OPDIV, OPDOT, CBRK
+    7 numExp: numExp . OPEQUIV numExp 
+    8 numExp: numExp . OPIMPLI numExp 
+    9 numExp: numExp . OPRIMPL numExp 
+    10 numExp: numExp . OPVEE numExp 
+    11 numExp: numExp . OPWEDGE numExp 
+    12 numExp: numExp . OPLESTA numExp 
+    13 numExp: numExp . OPGRETA numExp 
+    14 numExp: numExp . OPLESEQ numExp 
+    15 numExp: numExp . OPGEAEQ numExp 
+    16 numExp: numExp . OPEQUAL numExp 
+    17 numExp: numExp . OPNEQUA numExp 
+    18 numExp: numExp . OPRANGE numExp 
+    19 numExp: numExp . OPINCRE numExp 
+    20 numExp: numExp . OPANNOT numExp 
+    21 numExp: numExp . OPADD numExp 
+    22 numExp: numExp . OPSUB numExp 
+    23 numExp: numExp . OPMUL numExp 
+    24 numExp: numExp . OPDIV numExp 
+    25 numExp: numExp . OPDOT numExp 
+  Items for Next-state State 39
+    25 numExp: numExp OPDOT . numExp 
+
+// End conflict information for parser

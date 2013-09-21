@@ -4,7 +4,7 @@
 
 %scannertype Scanner
 %scanbasetype ScanBase
-%tokentype Tokens
+%tokentype Token
 
 %option stack, minimize, parser, verbose, codepage:raw, out:MiniZincLexer.cs
 
@@ -105,101 +105,101 @@ OTHER       .
 %%
 {COMMENT}     {}
 {NOISE}       {}
-{ACCENT}      { return (int) Tokens.ACCENT; }
-{BAR}         { return (int) Tokens.BAR; }
-{BOOLI}       { return (int) Tokens.BOOLI; }
-{CACC}        { return (int) Tokens.CACC; }
-{CBRK}        { return (int) Tokens.CBRK; }
-{CFBA}        { return (int) Tokens.CFBA; }
-{CFBR}        { return (int) Tokens.CFBR; }
-{COLON}       { return (int) Tokens.COLON; }
-{COMMAD}      { return (int) Tokens.COMMAD; }
-{COMMA}       { return (int) Tokens.COMMA; }
-{DIDENT}      { return (int) Tokens.DIDENT; }
-{FLOLI}       { return (int) Tokens.FLOLI; }
-{INTLI}       { return (int) Tokens.INTLI; }
-{KWANNO}      { return (int) Tokens.KWANNO; }
-{KWANN}       { return (int) Tokens.KWANN; }
-{KWANY}       { return (int) Tokens.KWANY; }
-{KWARRA}      { return (int) Tokens.KWARRA; }
-{KWBOOL}      { return (int) Tokens.KWBOOL; }
-{KWCASE}      { return (int) Tokens.KWCASE; }
-{KWCONS}      { return (int) Tokens.KWCONS; }
-{KWDIFF}      { return (int) Tokens.KWDIFF; }
-{KWDIV}       { return (int) Tokens.KWDIV; }
-{KWELSE}      { return (int) Tokens.KWELSE; }
-{KWELSI}      { return (int) Tokens.KWELSI; }
-{KWENDI}      { return (int) Tokens.KWENDI; }
-{KWENUM}      { return (int) Tokens.KWENUM; }
-{KWFLOA}      { return (int) Tokens.KWFLOA; }
-{KWFUNC}      { return (int) Tokens.KWFUNC; }
-{KWIF}        { return (int) Tokens.KWIF; }
-{KWINCL}      { return (int) Tokens.KWINCL; }
-{KWIN}        { return (int) Tokens.KWIN; }
-{KWINTE}      { return (int) Tokens.KWINTE; }
-{KWINT}       { return (int) Tokens.KWINT; }
-{KWLET}       { return (int) Tokens.KWLET; }
-{KWLIST}      { return (int) Tokens.KWLIST; }
-{KWMAXI}      { return (int) Tokens.KWMAXI; }
-{KWMINI}      { return (int) Tokens.KWMINI; }
-{KWMOD}       { return (int) Tokens.KWMOD; }
-{KWNOT}       { return (int) Tokens.KWNOT; }
-{KWOF}        { return (int) Tokens.KWOF; }
-{KWOP}        { return (int) Tokens.KWOP; }
-{KWOUTP}      { return (int) Tokens.KWOUTP; }
-{KWPAR}       { return (int) Tokens.KWPAR; }
-{KWPRED}      { return (int) Tokens.KWPRED; }
-{KWRECO}      { return (int) Tokens.KWRECO; }
-{KWSATI}      { return (int) Tokens.KWSATI; }
-{KWSET}       { return (int) Tokens.KWSET; }
-{KWSOLV}      { return (int) Tokens.KWSOLV; }
-{KWSTRI}      { return (int) Tokens.KWSTRI; }
-{KWSUBS}      { return (int) Tokens.KWSUBS; }
-{KWSUPE}      { return (int) Tokens.KWSUPE; }
-{KWSYMD}      { return (int) Tokens.KWSYMD; }
-{KWTEST}      { return (int) Tokens.KWTEST; }
-{KWTHEN}      { return (int) Tokens.KWTHEN; }
-{KWTUPL}      { return (int) Tokens.KWTUPL; }
-{KWTYPE}      { return (int) Tokens.KWTYPE; }
-{KWUNIO}      { return (int) Tokens.KWUNIO; }
-{KWVAR}       { return (int) Tokens.KWVAR; }
-{KWWHER}      { return (int) Tokens.KWWHER; }
-{KWXOR}       { return (int) Tokens.KWXOR; }
-{OPVEE}       { return (int) Tokens.OPVEE; }
-{OPWEDGE}     { return (int) Tokens.OPWEDGE; }
-{OACC}        { return (int) Tokens.OACC; }
-{OBRK}        { return (int) Tokens.OBRK; }
-{OFBA}        { return (int) Tokens.OFBA; }
-{OFBR}        { return (int) Tokens.OFBR; }
-{OPADD}       { return (int) Tokens.OPADD; }
-{OPANNOT}     { return (int) Tokens.OPANNOT; }
-{OPASSIG}     { return (int) Tokens.OPASSIG; }
-{OPCASE}      { return (int) Tokens.OPCASE; }
-{OPDIV}       { return (int) Tokens.OPDIV; }
-{OPDOT}       { return (int) Tokens.OPDOT; }
-{OPEQUAL}     { return (int) Tokens.OPEQUAL; }
-{OPEQUIV}     { return (int) Tokens.OPEQUIV; }
-{OPGEAEQ}     { return (int) Tokens.OPGEAEQ; }
-{OPGRETA}     { return (int) Tokens.OPGRETA; }
-{OPIMPLI}     { return (int) Tokens.OPIMPLI; }
-{OPINCRE}     { return (int) Tokens.OPINCRE; }
-{OPLESEQ}     { return (int) Tokens.OPLESEQ; }
-{OPLESTA}     { return (int) Tokens.OPLESTA; }
-{OPMUL}       { return (int) Tokens.OPMUL; }
-{OPNEQUA}     { return (int) Tokens.OPNEQUA; }
-{OPRANGE}     { return (int) Tokens.OPRANGE; }
-{OPRIMPL}     { return (int) Tokens.OPRIMPL; }
-{OPSUB}       { return (int) Tokens.OPSUB; }
-{OPUNDSC}     { return (int) Tokens.OPUNDSC; }
-{STRLI}       { return (int) Tokens.STRLI; }
-{IDENT}       { return (int) Tokens.IDENT; }
+{ACCENT}      { return (int) Token.ACCENT; }
+{BAR}         { return (int) Token.BAR; }
+{BOOLI}       { return (int) Token.BOOLI; }
+{CACC}        { return (int) Token.CACC; }
+{CBRK}        { return (int) Token.CBRK; }
+{CFBA}        { return (int) Token.CFBA; }
+{CFBR}        { return (int) Token.CFBR; }
+{COLON}       { return (int) Token.COLON; }
+{COMMAD}      { return (int) Token.COMMAD; }
+{COMMA}       { return (int) Token.COMMA; }
+{DIDENT}      { return (int) Token.DIDENT; }
+{FLOLI}       { return (int) Token.FLOLI; }
+{INTLI}       { return (int) Token.INTLI; }
+{KWANNO}      { return (int) Token.KWANNO; }
+{KWANN}       { return (int) Token.KWANN; }
+{KWANY}       { return (int) Token.KWANY; }
+{KWARRA}      { return (int) Token.KWARRA; }
+{KWBOOL}      { return (int) Token.KWBOOL; }
+{KWCASE}      { return (int) Token.KWCASE; }
+{KWCONS}      { return (int) Token.KWCONS; }
+{KWDIFF}      { return (int) Token.KWDIFF; }
+{KWDIV}       { return (int) Token.KWDIV; }
+{KWELSE}      { return (int) Token.KWELSE; }
+{KWELSI}      { return (int) Token.KWELSI; }
+{KWENDI}      { return (int) Token.KWENDI; }
+{KWENUM}      { return (int) Token.KWENUM; }
+{KWFLOA}      { return (int) Token.KWFLOA; }
+{KWFUNC}      { return (int) Token.KWFUNC; }
+{KWIF}        { return (int) Token.KWIF; }
+{KWINCL}      { return (int) Token.KWINCL; }
+{KWIN}        { return (int) Token.KWIN; }
+{KWINTE}      { return (int) Token.KWINTE; }
+{KWINT}       { return (int) Token.KWINT; }
+{KWLET}       { return (int) Token.KWLET; }
+{KWLIST}      { return (int) Token.KWLIST; }
+{KWMAXI}      { return (int) Token.KWMAXI; }
+{KWMINI}      { return (int) Token.KWMINI; }
+{KWMOD}       { return (int) Token.KWMOD; }
+{KWNOT}       { return (int) Token.KWNOT; }
+{KWOF}        { return (int) Token.KWOF; }
+{KWOP}        { return (int) Token.KWOP; }
+{KWOUTP}      { return (int) Token.KWOUTP; }
+{KWPAR}       { return (int) Token.KWPAR; }
+{KWPRED}      { return (int) Token.KWPRED; }
+{KWRECO}      { return (int) Token.KWRECO; }
+{KWSATI}      { return (int) Token.KWSATI; }
+{KWSET}       { return (int) Token.KWSET; }
+{KWSOLV}      { return (int) Token.KWSOLV; }
+{KWSTRI}      { return (int) Token.KWSTRI; }
+{KWSUBS}      { return (int) Token.KWSUBS; }
+{KWSUPE}      { return (int) Token.KWSUPE; }
+{KWSYMD}      { return (int) Token.KWSYMD; }
+{KWTEST}      { return (int) Token.KWTEST; }
+{KWTHEN}      { return (int) Token.KWTHEN; }
+{KWTUPL}      { return (int) Token.KWTUPL; }
+{KWTYPE}      { return (int) Token.KWTYPE; }
+{KWUNIO}      { return (int) Token.KWUNIO; }
+{KWVAR}       { return (int) Token.KWVAR; }
+{KWWHER}      { return (int) Token.KWWHER; }
+{KWXOR}       { return (int) Token.KWXOR; }
+{OPVEE}       { return (int) Token.OPVEE; }
+{OPWEDGE}     { return (int) Token.OPWEDGE; }
+{OACC}        { return (int) Token.OACC; }
+{OBRK}        { return (int) Token.OBRK; }
+{OFBA}        { return (int) Token.OFBA; }
+{OFBR}        { return (int) Token.OFBR; }
+{OPADD}       { return (int) Token.OPADD; }
+{OPANNOT}     { return (int) Token.OPANNOT; }
+{OPASSIG}     { return (int) Token.OPASSIG; }
+{OPCASE}      { return (int) Token.OPCASE; }
+{OPDIV}       { return (int) Token.OPDIV; }
+{OPDOT}       { return (int) Token.OPDOT; }
+{OPEQUAL}     { return (int) Token.OPEQUAL; }
+{OPEQUIV}     { return (int) Token.OPEQUIV; }
+{OPGEAEQ}     { return (int) Token.OPGEAEQ; }
+{OPGRETA}     { return (int) Token.OPGRETA; }
+{OPIMPLI}     { return (int) Token.OPIMPLI; }
+{OPINCRE}     { return (int) Token.OPINCRE; }
+{OPLESEQ}     { return (int) Token.OPLESEQ; }
+{OPLESTA}     { return (int) Token.OPLESTA; }
+{OPMUL}       { return (int) Token.OPMUL; }
+{OPNEQUA}     { return (int) Token.OPNEQUA; }
+{OPRANGE}     { return (int) Token.OPRANGE; }
+{OPRIMPL}     { return (int) Token.OPRIMPL; }
+{OPSUB}       { return (int) Token.OPSUB; }
+{OPUNDSC}     { return (int) Token.OPUNDSC; }
+{STRLI}       { return (int) Token.STRLI; }
+{IDENT}       { return (int) Token.IDENT; }
 {OTHER}       { throw new ZincOxideParserException("Unrecognized character \"{0}\"",yytext); }
 
 %%
-public IEnumerable<Tokens> Tokenize() {
+public IEnumerable<Token> Tokenize() {
     int tok;
     do {
         tok = yylex();
-        yield return (Tokens) tok;
-    } while (tok > (int)Tokens.EOF);
+        yield return (Token) tok;
+    } while (tok > (int)Token.EOF);
 }

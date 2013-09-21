@@ -147,6 +147,7 @@
     <Compile Include="Parser\ZincOxideParserException.cs" />
     <Compile Include="MiniZinc\ZincBoolLiteral.cs" />
     <Compile Include="MiniZinc\ZincFloatLiteral.cs" />
+    <Compile Include="Parser\ScanBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -168,7 +169,6 @@
     <None Include="Parser\MiniZinc.lex" />
     <None Include="Samples\jobshop.mzn" />
     <None Include="Samples\jobshop2x2.data" />
-    <None Include="Parser\MiniZinc.y" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Codegen\" />
