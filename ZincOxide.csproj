@@ -148,6 +148,11 @@
     <Compile Include="MiniZinc\ZincBoolLiteral.cs" />
     <Compile Include="MiniZinc\ZincFloatLiteral.cs" />
     <Compile Include="Parser\ParserHelper.cs" />
+    <Compile Include="Codegen\CSharp\CodeBuilderCSharp.cs" />
+    <Compile Include="Codegen\CSharp\CodeClassCSharp.cs" />
+    <Compile Include="Codegen\CSharp\CodeInterfaceCSharp.cs" />
+    <Compile Include="Codegen\CSharp\CodePackageCSharp.cs" />
+    <Compile Include="Codegen\CSharp\CSharpUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -1,1 +1,42 @@
-﻿<Properties GitUserInfo="UsingMD" />
+﻿<Properties GitUserInfo="UsingMD">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Parser/specs/MiniZinc.y">
+    <Files>
+      <File FileName="Parser/specs/MiniZinc.lex" Line="5" Column="27" />
+      <File FileName="Parser/specs/MiniZinc.y" Line="119" Column="7" />
+      <File FileName="Parser/ParserHelper.cs" Line="27" Column="33" />
+      <File FileName="Program.cs" Line="79" Column="101" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="ZincOxide" expanded="True" selected="True">
+            <Node name="References" expanded="True" />
+            <Node name="Codegen" expanded="True" />
+            <Node name="MiniZinc" expanded="True" />
+            <Node name="Parser" expanded="True">
+              <Node name="specs" expanded="True" />
+            </Node>
+            <Node name="Utils" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.BookmarkService.Bookmarks>
+    <BookmarkCollection />
+  </MonoDevelop.Ide.BookmarkService.Bookmarks>
+</Properties>
