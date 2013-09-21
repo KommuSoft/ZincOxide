@@ -26,9 +26,9 @@ namespace ZincOxide.Utils {
 
         void Register (T value);
 
-        bool Contains<U> (string name) where U : T;
+        bool Contains (string name);
 
-        U Lookup<U> (string name) where U : T;
+        T Lookup (string name);
 
     }
 

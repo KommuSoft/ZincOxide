@@ -1,5 +1,5 @@
 //
-//  GenerateNameRegister.cs
+//  FallbackNameRegister.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,33 +22,40 @@ using System;
 
 namespace ZincOxide.Utils {
 
-    public class GenerateNameRegister<T> : NameRegister<T>, IGenerateNameRegister<T> where T : IName {
+    public class FallbackNameRegister<T> : NameRegister<T>, IFallbackNameRegister<T> where T : IName {
 
-        private Func<string,T> generator;
+        private DNameRegisterFallback<T> fallback;
 
-        #region IGenerateNameRegister implementation
-        public Func<string,T> Generator {
+        public DNameRegisterFallback<T> Fallback {
             get {
-                return this.generator;
+                return this.fallback;
             }
-            set {
-                this.generator = value;
+            protected set {
+                this.fallback = value;
             }
         }
-        #endregion
 
-        public GenerateNameRegister (Func<string,T> generator) {
-            this.Generator = generator;
+        public FallbackNameRegister (DNameRegisterFallback<T> fallback) {
+            this.Fallback = fallback;
+        }
+
+        public override bool Contains (string name) {
+            if (!base.Contains (name)) {
+                try {
+                    this.fallback (name);
+                    return true;
+                } catch (ZincOxideNameNotFoundException) {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public override T Lookup (string name) {
-            T val;
             try {
                 return base.Lookup (name);
             } catch (ZincOxideNameNotFoundException) {
-                val = this.Generator (name);
-                this.Register (val);
-                return val;
+                return this.Fallback (name);
             }
         }
 

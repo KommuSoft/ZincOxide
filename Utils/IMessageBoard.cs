@@ -1,5 +1,5 @@
 //
-//  IGeneratedNameRegister.cs
+//  IMessageBoard.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,11 +22,9 @@ using System;
 
 namespace ZincOxide.Utils {
 
-    public interface IGenerateNameRegister<T> : INameRegister<T> where T : IName {
+    public interface IMessageBoard {
 
-        Func<string,T> Generator {
-            get;
-        }
+        void PostMessage (string message);
 
     }
 

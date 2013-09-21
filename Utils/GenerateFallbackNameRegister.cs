@@ -1,5 +1,5 @@
 //
-//  NameRegister.cs
+//  GenerateFallbackNameRegister.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,38 +18,40 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.Collections.Generic;
+using System;
 
 namespace ZincOxide.Utils {
 
-    public class NameRegister<T> : INameRegister<T> where T : IName {
+    public class GenerateFallbackNameRegister<T> : FallbackNameRegister<T>, IGenerateFallbackNameRegister<T> where T : IName {
 
-        private readonly Dictionary<string,T> dictionary = new Dictionary<string, T> ();
+        private Func<string,T> generator;
 
-        #region INameRegister implementation
-        public void Register (T value) {
-            if (value != null) {
-                string key = value.Name;
-                if (!this.dictionary.ContainsKey (key)) {
-                    this.dictionary.Add (key, value);
-                }
+        #region IGenerateNameRegister implementation
+        public Func<string,T> Generator {
+            get {
+                return this.generator;
             }
-        }
-
-        public virtual bool Contains (string name) {
-            return (this.dictionary.ContainsKey (name));
-        }
-
-        public virtual T Lookup (string name) {
-            T val;
-            if (this.dictionary.TryGetValue (name, out val)) {
-                return val;
-            } else {
-                throw new ZincOxideNameNotFoundException ("Name \"{0}\" not found in the name register.", name);
+            set {
+                this.generator = value;
             }
         }
         #endregion
 
-    }
-}
+        public GenerateFallbackNameRegister (DNameRegisterFallback<T> fallback, Func<string,T> generator) : base(fallback) {
+            this.Generator = generator;
+        }
 
+        public override T Lookup (string name) {
+            T val;
+            try {
+                return base.Lookup (name);
+            } catch (ZincOxideNameNotFoundException) {
+                val = this.Generator (name);
+                this.Register (val);
+                return val;
+            }
+        }
+
+    }
+
+}

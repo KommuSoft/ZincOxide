@@ -1,5 +1,5 @@
 //
-//  IGeneratedNameRegister.cs
+//  ZincOxideNameNotFoundException.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,16 +19,25 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Runtime.Serialization;
 
 namespace ZincOxide.Utils {
+    public class ZincOxideNameNotFoundException : ZincOxideException {
 
-    public interface IGenerateNameRegister<T> : INameRegister<T> where T : IName {
-
-        Func<string,T> Generator {
-            get;
+        public ZincOxideNameNotFoundException () : base() {
         }
 
-    }
+        public ZincOxideNameNotFoundException (string message) : base(message) {
+        }
 
+        public ZincOxideNameNotFoundException (string format, params object[] args) : base(format,args) {
+        }
+
+        public ZincOxideNameNotFoundException (SerializationInfo info, StreamingContext context) : base(info,context) {
+        }
+
+        public ZincOxideNameNotFoundException (string message, Exception innerException) : base(message,innerException) {
+        }
+    }
 }
 

@@ -90,5 +90,11 @@
             <returns>
             </returns>
         </member>
+        <member name="T:ZincOxide.Utils.DNameRegisterFallback`1">
+            <summary>
+            A delegate who is used as a fallback mechanism in case the name is not found in the <see cref="T:IFallbackNameRegister" />.
+            </summary>
+            <param name="name">The name looked for by the <see cref="T:IFallbackNameRegister" /></param>.
+            <returns>The value corresponding to the given name who was looked for by the <see cref="T:IFallbackNameRegister" /></returns><exception cref="T:ZincOxide.Utils.ZincOxideNameNotFoundException">In case the fallback mechanism fails as well.</exception></member>
     </members>
 </doc>

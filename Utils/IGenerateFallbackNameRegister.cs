@@ -1,5 +1,5 @@
 //
-//  IGeneratedNameRegister.cs
+//  IGenerateFallbackNameRegister.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,12 +22,7 @@ using System;
 
 namespace ZincOxide.Utils {
 
-    public interface IGenerateNameRegister<T> : INameRegister<T> where T : IName {
-
-        Func<string,T> Generator {
-            get;
-        }
-
+    public interface IGenerateFallbackNameRegister<T> : IGenerateNameRegister<T>, IFallbackNameRegister<T> where T : IName {
     }
 
 }

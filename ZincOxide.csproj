@@ -153,6 +153,14 @@
     <Compile Include="Codegen\CSharp\CodeInterfaceCSharp.cs" />
     <Compile Include="Codegen\CSharp\CodePackageCSharp.cs" />
     <Compile Include="Codegen\CSharp\CSharpUtils.cs" />
+    <Compile Include="Utils\ISoftValidateable.cs" />
+    <Compile Include="Utils\IMessageBoard.cs" />
+    <Compile Include="Utils\ZincOxideNameNotFoundException.cs" />
+    <Compile Include="Utils\DNameRegisterFallback.cs" />
+    <Compile Include="Utils\IFallbackNameRegister.cs" />
+    <Compile Include="Utils\FallbackNameRegister.cs" />
+    <Compile Include="Utils\IGenerateFallbackNameRegister.cs" />
+    <Compile Include="Utils\GenerateFallbackNameRegister.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
