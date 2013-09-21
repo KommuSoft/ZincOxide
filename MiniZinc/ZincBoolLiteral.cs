@@ -32,6 +32,10 @@ namespace ZincOxide.MiniZinc {
             }
         }
 
+        public ZincBoolLiteral (string text) {
+            this.value = bool.Parse (text);
+        }
+
         public ZincBoolLiteral (bool value) {
             this.value = value;
         }

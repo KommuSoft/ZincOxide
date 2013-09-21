@@ -1,5 +1,5 @@
 //
-//  ProgramTask.cs
+//  ZincOxideParserException.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,20 +19,27 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Runtime.Serialization;
 
-namespace ZincOxide {
+namespace ZincOxide.Parser {
 
-    public enum ProgramTask : byte {
-        VerifyModel        = 0x00,
-        VerifyData         = 0x01,
-        Match              = 0x10,
-        GenerateHeuristics = 0x20,
-        GenerateBasics     = 0x21,
-        GenerateData       = 0x22,
-        Assume             = 0x30,
-        Transform          = 0x40,
-        Lex                = 0xf0,
-        Parse              = 0xf1
+    public class ZincOxideParserException : ZincOxideException {
+
+        public ZincOxideParserException () : base() {
+        }
+
+        public ZincOxideParserException (string message) : base(message) {
+        }
+
+        public ZincOxideParserException (string format, params object[] args) : base(format,args) {
+        }
+
+        public ZincOxideParserException (SerializationInfo info, StreamingContext context) : base(info,context) {
+        }
+
+        public ZincOxideParserException (string message, Exception innerException) : base(message,innerException) {
+        }
+
     }
 
 }

@@ -20,7 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Mono.Options;
+using ZincOxide.Parser;
 
 namespace ZincOxide {
 
@@ -54,6 +56,26 @@ namespace ZincOxide {
                 Console.WriteLine ();
                 Console.WriteLine ("Options: ");
                 p.WriteOptionDescriptions (Console.Out);
+            } else {
+                DirectoryInfo dirInfo = new DirectoryInfo (".");
+                foreach (string name in files) {
+                    FileInfo[] fInfo = dirInfo.GetFiles (name);
+                    foreach (FileInfo info in fInfo) {
+                        try {
+                            using (FileStream file = new FileStream (info.FullName, FileMode.Open)) {
+                                Scanner scnr = new Scanner (file);
+                                Console.WriteLine ("File: " + info.Name);
+                                foreach (Tokens tok in scnr.Tokenize()) {
+                                    Console.Write (tok);
+                                    Console.Write (' ');
+                                }
+                                Console.WriteLine ();
+                            }
+                        } catch (IOException e) {
+                            Interaction.Warning ("File \"{0}\" not found.", info.Name);
+                        }
+                    }
+                }
             }
             return (int)ProgramResult.Succes;
         }

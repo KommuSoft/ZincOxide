@@ -79,7 +79,6 @@
     <Compile Include="ZincOxideException.cs" />
     <Compile Include="Codegen\ZincOxideCodeGenException.cs" />
     <Compile Include="MiniZinc\ZincOxideMiniZincException.cs" />
-    <Compile Include="Parser\MiniZinc.cs" />
     <Compile Include="Parser\MiniZincParser.cs" />
     <Compile Include="ProgramResult.cs" />
     <Compile Include="ProgramTask.cs" />
@@ -144,6 +143,10 @@
     <Compile Include="MiniZinc\Boxes\ZincNumBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\ZincNumNumBoxBase.cs" />
     <Compile Include="MiniZinc\ZincIntLiteral.cs" />
+    <Compile Include="Parser\MiniZincLexer.cs" />
+    <Compile Include="Parser\ZincOxideParserException.cs" />
+    <Compile Include="MiniZinc\ZincBoolLiteral.cs" />
+    <Compile Include="MiniZinc\ZincFloatLiteral.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -162,10 +165,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Manpage.txt" />
-    <None Include="Parser\MiniZinc.bison" />
     <None Include="Parser\MiniZinc.lex" />
     <None Include="Samples\jobshop.mzn" />
     <None Include="Samples\jobshop2x2.data" />
+    <None Include="Parser\MiniZinc.y" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Codegen\" />
@@ -180,6 +183,7 @@
     <Folder Include="Codegen\CSharp\" />
     <Folder Include="Transformation\" />
     <Folder Include="Heuristics\" />
+    <Folder Include="New Folder\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

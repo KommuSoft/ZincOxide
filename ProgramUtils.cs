@@ -39,9 +39,9 @@ namespace ZincOxide {
         }
 
         public static ProgramTask ParseTask (string task) {
-            Match m = rgxTask.Match (task);
-            if (m.Success) {
-                return ProgramTask.GenerateHeuristics;//TODO
+            ProgramTask result;
+            if (ProgramTask.TryParse (task, true, out result)) {
+                return result;
             } else {
                 throw new ZincOxideException ("Cannot parse the task to be executed.");
             }

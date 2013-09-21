@@ -10,11 +10,26 @@
  *  Process with > gppg /nolines RealTree.y
  */
 
-%namespace ZincOxide.Parser
 %output=MiniZincParser.cs 
+%namespace ZincOxide.Parser
+%tokentype Token
+
+%visibility public
+
+%YYLTYPE LexSpan
 %partial 
+%union {
+    public HeadTail<IZincItem> hti;
+    public ZincVarDeclItem vdi;
+    public ZincIncludeItem ii;
+    public IZincType t;
+}
+
 %sharetokens
-%start numExp
+
+
+
+%start model
 
 /*
  * The accessibility of the Parser object must not exceed that
@@ -26,9 +41,8 @@
  * ShiftReduceParser<> is public and either visibility will work.
  */
 
-%visibility public
 
-%YYSTYPE Scanner
+%YYSTYPE Object
 
 %token KWTYPE KWENUM KWINCL KWCONS KWSOLV KWSATI KWMINI KWMAXI KWOUTP KWANNO KWPRED KWTEST KWFUNC KWWHER KWVAR KWPAR KWBOOL KWINT KWFLOA KWSTRI KWANN KWSET KWOF KWARRA KWLIST KWTUPL KWRECO KWANY KWOP KWXOR KWIN KWSUBS KWSUPE KWUNIO KWDIFF KWSYMD KWINTE KWNOT KWDIV KWMOD KWFALS KWTRUE KWIF KWTHEN KWELSI KWELSE KWENDI KWCASE KWLET COMMAD COMMA COLON ACCENT BAR OACC CACC OBRK CBRK OFBR CFBR OFBA CFBA OPASSIG OPUNDSC OPEQUIV OPIMPLI OPRIMPL OPVEE OPWEDGE OPLESTA OPGRETA OPLESEQ OPGEAEQ OPEQUAL OPNEQUA OPRANGE OPINCRE OPANNOT OPADD OPSUB OPMUL OPDOT OPDIV OPCASE BOOLI INTLI FLOLI STRLI IDENT NOISE EOL COMMENT DIDENT EOF
 
@@ -46,31 +60,7 @@
 
 %%
 
-numExp
-    : IDENT
-    | INTLI
-    | FLOLI
-    | OBRK numExp CBRK
-    | numExp OPEQUIV numExp
-    | numExp OPIMPLI numExp
-    | numExp OPRIMPL numExp
-    | numExp OPVEE numExp
-    | numExp OPWEDGE numExp
-    | numExp OPLESTA numExp
-    | numExp OPGRETA numExp
-    | numExp OPLESEQ numExp
-    | numExp OPGEAEQ numExp
-    | numExp OPEQUAL numExp
-    | numExp OPNEQUA numExp
-    | numExp OPRANGE numExp
-    | numExp OPINCRE numExp
-    | numExp OPANNOT numExp
-    | numExp OPADD numExp
-    | numExp OPSUB numExp
-    | numExp OPMUL numExp
-    | numExp OPDIV numExp
-    | numExp OPDOT numExp
-    ;
+
 
 %%
 /*

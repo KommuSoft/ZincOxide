@@ -4,56 +4,56 @@
         <name>/home/kommusoft/ZincOxide/ZincOxide/bin/Debug/ZincOxide</name>
     </assembly>
     <members>
-        <member name="T:ZincOxide.MiniZinc.Tokens">
+        <member name="T:ZincOxide.Parser.Scanner">
             <summary>
             Summary Canonical example of GPLEX automaton
             </summary>
         </member>
-        <member name="P:ZincOxide.MiniZinc.Scanner.Buffer">
+        <member name="P:ZincOxide.Parser.Scanner.Buffer">
             <summary>
             The input buffer for this scanner.
             </summary>
         </member>
-        <member name="P:ZincOxide.MiniZinc.Scanner.yyleng">
+        <member name="P:ZincOxide.Parser.Scanner.yyleng">
             <summary>
             The length of the pattern in codepoints (not the same as
             string-length if the pattern contains any surrogate pairs).
             </summary>
         </member>
-        <member name="M:ZincOxide.MiniZinc.Scanner.MkBuffCtx">
+        <member name="M:ZincOxide.Parser.Scanner.MkBuffCtx">
             <summary>
             This method creates a buffer context record from
             the current buffer object, together with some
             scanner state values.
             </summary>
         </member>
-        <member name="M:ZincOxide.MiniZinc.Scanner.RestoreBuffCtx(ZincOxide.MiniZinc.Scanner.BufferContext)">
+        <member name="M:ZincOxide.Parser.Scanner.RestoreBuffCtx(ZincOxide.Parser.Scanner.BufferContext)">
             <summary>
             This method restores the buffer value and allied
             scanner state from the given context record value.
             </summary>
         </member>
-        <member name="M:ZincOxide.MiniZinc.Scanner.SetSource(System.String,System.Int32)">
+        <member name="M:ZincOxide.Parser.Scanner.SetSource(System.String,System.Int32)">
             <summary>
             Create and initialize a StringBuff buffer object for this scanner
             </summary>
             <param name="source">the input string</param>
             <param name="offset">starting offset in the string</param>
         </member>
-        <member name="M:ZincOxide.MiniZinc.Scanner.SetSource(System.Collections.Generic.IList{System.String})">
+        <member name="M:ZincOxide.Parser.Scanner.SetSource(System.Collections.Generic.IList{System.String})">
             <summary>
             Create and initialize a LineBuff buffer object for this scanner
             </summary>
             <param name="source">the list of input strings</param>
         </member>
-        <member name="M:ZincOxide.MiniZinc.Scanner.SetSource(System.IO.Stream)">
+        <member name="M:ZincOxide.Parser.Scanner.SetSource(System.IO.Stream)">
             <summary>
             Create and initialize a StreamBuff buffer object for this scanner.
             StreamBuff is buffer for 8-bit byte files.
             </summary>
             <param name="source">the input byte stream</param>
         </member>
-        <member name="M:ZincOxide.MiniZinc.Scanner.yyless(System.Int32)">
+        <member name="M:ZincOxide.Parser.Scanner.yyless(System.Int32)">
             <summary>
             Discards all but the first "n" codepoints in the recognized pattern.
             Resets the buffer position so that only n codepoints have been consumed;
@@ -61,19 +61,19 @@
             </summary>
             <param name="n">The number of codepoints to consume</param>
         </member>
-        <member name="M:ZincOxide.MiniZinc.Scanner._yytrunc(System.Int32)">
+        <member name="M:ZincOxide.Parser.Scanner._yytrunc(System.Int32)">
             <summary>
             Removes the last "n" code points from the pattern.
             </summary>
             <param name="n">The number to remove</param>
         </member>
-        <member name="T:ZincOxide.MiniZinc.StringBuffer">
+        <member name="T:ZincOxide.Parser.StringBuffer">
             <summary>
             This class reads characters from a single string as
             required, for example, by Visual Studio language services
             </summary>
         </member>
-        <member name="M:ZincOxide.MiniZinc.BuildBuffer.Mark">
+        <member name="M:ZincOxide.Parser.BuildBuffer.Mark">
             <summary>
             Marks a conservative lower bound for the buffer,
             allowing space to be reclaimed.  If an application
@@ -81,7 +81,7 @@
             in the input stream, Mark() is not called.
             </summary>
         </member>
-        <member name="M:ZincOxide.MiniZinc.BuildBuffer.Read">
+        <member name="M:ZincOxide.Parser.BuildBuffer.Read">
             <summary>
             Read returns the ordinal number of the next char, or
             EOF (-1) for an end of stream.  Note that the next
