@@ -8,6 +8,9 @@
 *.pdf
 *.ps
 *.ods
+*.Cache
+*.StyleCop
+*ChangeLog
 
 #FullPaths
 Parser/MiniZincLexer.cs 
