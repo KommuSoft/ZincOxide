@@ -1,23 +1,29 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Parser/specs/MiniZinc.y">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/ISoftValidateable.cs">
     <Files>
-      <File FileName="Parser/specs/MiniZinc.lex" Line="5" Column="27" />
-      <File FileName="Parser/specs/MiniZinc.y" Line="119" Column="7" />
-      <File FileName="Parser/ParserHelper.cs" Line="27" Column="33" />
-      <File FileName="Program.cs" Line="79" Column="101" />
+      <File FileName="Utils/FallbackNameRegister.cs" Line="38" Column="71" />
+      <File FileName="Utils/NameRegister.cs" Line="39" Column="53" />
+      <File FileName="Utils/IFallbackNameRegister.cs" Line="30" Column="1" />
+      <File FileName="Utils/INameRegister.cs" Line="27" Column="33" />
+      <File FileName="Utils/GenerateNameRegister.cs" Line="53" Column="10" />
+      <File FileName="Utils/IGenerateNameRegister.cs" Line="29" Column="10" />
+      <File FileName="Utils/IGenerateFallbackNameRegister.cs" Line="25" Column="123" />
+      <File FileName="Utils/GenerateFallbackNameRegister.cs" Line="40" Column="122" />
+      <File FileName="Utils/ISoftValidateable.cs" Line="27" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="ZincOxide" expanded="True" selected="True">
+          <Node name="ZincOxide" expanded="True">
             <Node name="References" expanded="True" />
-            <Node name="Codegen" expanded="True" />
             <Node name="MiniZinc" expanded="True" />
             <Node name="Parser" expanded="True">
               <Node name="specs" expanded="True" />
             </Node>
-            <Node name="Utils" expanded="True" />
+            <Node name="Utils" expanded="True">
+              <Node name="IMessageBoard.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
