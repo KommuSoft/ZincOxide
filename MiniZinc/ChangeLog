@@ -1,3 +1,9 @@
+2013-09-21  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
+	* ZincIntLiteral.cs:
+	* ZincBoolLiteral.cs:
+	* ZincFloatLiteral.cs: 
+
 2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
 	* ZincIntLiteral.cs:

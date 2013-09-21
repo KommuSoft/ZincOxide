@@ -46,7 +46,7 @@ namespace ZincOxide.MiniZinc.Boxes {
             return EnumerableUtils.Append (this.NumericExpression.InvolvedIdents (), this.NumericExpression2.InvolvedIdents ());
         }
 
-        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
             this.NumericExpression2 = this.NumericExpression2.Replace (identMap) as IZincNumExp;
             return base.Replace (identMap);
         }
