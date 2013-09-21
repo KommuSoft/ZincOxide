@@ -39,7 +39,13 @@ namespace ZincOxide.MiniZinc {
         }
 
         public ZincModel () {
+        }
 
+        public ZincModel (IEnumerable<IZincItem> items) : this() {
+            this.AddItems (items);
+        }
+
+        public ZincModel (params IZincItem[] items) : this((IEnumerable<IZincItem>) items) {
         }
 
         public void AddIncludeItem (ZincIncludeItem item) {
@@ -68,8 +74,10 @@ namespace ZincOxide.MiniZinc {
 
 
         public void AddItems (IEnumerable<IZincItem> items) {
-            foreach (IZincItem item in items) {
-                this.AddItem (item);
+            if (items != null) {
+                foreach (IZincItem item in items) {
+                    this.AddItem (item);
+                }
             }
         }
 
@@ -98,7 +106,7 @@ namespace ZincOxide.MiniZinc {
         #endregion
 
         #region IWritable implementation
-        public void Write (StreamWriter writer) {
+        public void Write (TextWriter writer) {
             foreach (IZincItem item in this.Items) {
                 item.Write (writer);
                 writer.WriteLine (";");

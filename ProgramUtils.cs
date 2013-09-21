@@ -27,7 +27,6 @@ namespace ZincOxide {
     public static class ProgramUtils {
 
         private static readonly Regex rgxVerbosity = new Regex (@"^(([0-9a-f])|((e|w|a|r)*)|(error|warning|assumption|remark))$", RegexOptions.Compiled | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnoreCase);
-        private static readonly Regex rgxTask = new Regex (@"^((validate-?model|validate-?data|match|generate-?data|generate-?heuristics|assume|transform|generate-basic))$");
 
         public static ProgramVerbosity ParseVersbosity (string level) {
             Match m = rgxVerbosity.Match (level);
@@ -47,7 +46,6 @@ namespace ZincOxide {
             }
         }
 
-
     }
-}
 
+}

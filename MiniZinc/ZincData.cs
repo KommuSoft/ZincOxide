@@ -32,7 +32,7 @@ namespace ZincOxide.MiniZinc {
         }
 
         #region IWriteable implementation
-        public void Write (StreamWriter writer) {
+        public void Write (TextWriter writer) {
             foreach (ZincAssignItem item in this.assignItems) {
                 item.Write (writer);
                 writer.WriteLine (";");

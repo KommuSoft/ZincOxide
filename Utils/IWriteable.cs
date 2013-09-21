@@ -24,7 +24,7 @@ namespace ZincOxide.Utils {
 
     public interface IWriteable {
 
-        void Write (StreamWriter writer);
+        void Write (TextWriter writer);
 
     }
 

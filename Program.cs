@@ -63,15 +63,23 @@ namespace ZincOxide {
                     foreach (FileInfo info in fInfo) {
                         try {
                             using (FileStream file = new FileStream (info.FullName, FileMode.Open)) {
-                                Scanner scnr = new Scanner (file);
+                                MiniZincLexer scnr = new MiniZincLexer (file);
+                                MiniZincParser pars = new MiniZincParser (scnr);
+
                                 Console.WriteLine ("File: " + info.Name);
-                                foreach (Tokens tok in scnr.Tokenize()) {
+                                /*foreach (Token tok in scnr.Tokenize()) {
                                     Console.Write (tok);
                                     Console.Write (' ');
+                                }*/
+                                pars.Parse ();
+                                if (pars.Result != null) {
+                                    Console.WriteLine ("echo: ");
+                                    pars.Result.Write (Console.Out);
+                                } else {
+                                    Interaction.Warning ("File \"{0}\" is not a valid MiniZinc file.");
                                 }
-                                Console.WriteLine ();
                             }
-                        } catch (IOException e) {
+                        } catch (IOException) {
                             Interaction.Warning ("File \"{0}\" not found.", info.Name);
                         }
                     }

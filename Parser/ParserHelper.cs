@@ -1,5 +1,5 @@
 //
-//  ZincConstraintItem.cs
+//  ParserHelper.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,33 +18,22 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.IO;
-using ZincOxide.MiniZinc.Boxes;
+using ZincOxide.MiniZinc;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.Parser {
 
-    public class ZincConstraintItem : ZincExBoxBase, IZincItem {
+    public partial class MiniZincParser {
 
-        #region IZincItem implementation
-        public ZincItemType Type {
+        private ZincModel result;
+
+        public ZincModel Result {
             get {
-                return ZincItemType.Constraint;
+                return this.result;
             }
         }
-        #endregion
 
-        public ZincConstraintItem () {
+        public MiniZincParser (MiniZincLexer scanner) : base(scanner) {
         }
-
-        public override string ToString () {
-            return string.Format ("constraint {0}", this.Expression);
-        }
-
-        #region IWriteable implementation
-        public void Write (TextWriter writer) {
-            writer.Write (this.ToString ());
-        }
-        #endregion
 
     }
 }

@@ -54,7 +54,7 @@ namespace ZincOxide.MiniZinc {
         }
 
         #region IWriteable implementation
-        public void Write (StreamWriter writer) {
+        public void Write (TextWriter writer) {
             writer.Write (this.ToString ());
         }
         #endregion

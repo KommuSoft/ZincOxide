@@ -18,7 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.IO;
 using ZincOxide.Utils;
 
 namespace ZincOxide.Codegen {
@@ -26,7 +26,7 @@ namespace ZincOxide.Codegen {
     public class OuputFile : IWriteable {
 
         #region IWriteable implementation
-        public void Write (System.IO.StreamWriter writer) {
+        public void Write (TextWriter writer) {
             //TODO
         }
         #endregion

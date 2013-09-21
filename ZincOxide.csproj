@@ -147,7 +147,7 @@
     <Compile Include="Parser\ZincOxideParserException.cs" />
     <Compile Include="MiniZinc\ZincBoolLiteral.cs" />
     <Compile Include="MiniZinc\ZincFloatLiteral.cs" />
-    <Compile Include="Parser\ScanBase.cs" />
+    <Compile Include="Parser\ParserHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -168,6 +168,8 @@
     <None Include="Manpage.txt" />
     <None Include="Samples\jobshop.mzn" />
     <None Include="Samples\jobshop2x2.data" />
+    <None Include="Parser\specs\MiniZinc.lex" />
+    <None Include="Parser\specs\MiniZinc.y" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Codegen\" />
@@ -182,7 +184,8 @@
     <Folder Include="Codegen\CSharp\" />
     <Folder Include="Transformation\" />
     <Folder Include="Heuristics\" />
-    <Folder Include="New Folder\" />
+    <Folder Include="Normalization\" />
+    <Folder Include="Parser\specs\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
