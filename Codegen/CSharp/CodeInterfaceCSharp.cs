@@ -45,14 +45,15 @@ namespace ZincOxide.Codegen.CSharp {
         #region IWriteable implementation
         public void Write (ContextStreamWriter writer) {
             if (this.Package != null) {
-                writer.WriteLine ("package {0};", this.Package.Name);
+                writer.WriteLine ("namespace {0} {", this.Package.Name);
                 writer.WriteLine ();
             }
-            writer.Write ("public interface {0}", this.Name);
+            writer.Write ("\tpublic interface {0}", this.Name);
             if (this.SuperInterfaces.Count > 0x00) {
-                writer.Write (" extends {0}", string.Join (", ", this.SuperInterfaces));
+                writer.Write (" : {0}", string.Join (", ", this.SuperInterfaces));
             }
             writer.WriteLine (" {");
+            writer.WriteLine ("\t}");
             writer.WriteLine ("}");
         }
         #endregion
