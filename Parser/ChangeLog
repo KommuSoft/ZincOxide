@@ -1,5 +1,9 @@
 2013-09-21  Willem Van Onsem  <vanonsem.willem@gmail.com>
 
+	* MiniZincLexer.cs: 
+
+2013-09-21  Willem Van Onsem  <vanonsem.willem@gmail.com>
+
 	* MiniZinc.y:
 	* ScanBase.cs:
 	* MiniZinc.cs:
