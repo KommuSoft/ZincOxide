@@ -21,7 +21,7 @@
 using System.IO;
 using ZincOxide.MiniZinc.Boxes;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Items {
 
     public class ZincConstraintItem : ZincExBoxBase, IZincItem {
 
@@ -33,7 +33,7 @@ namespace ZincOxide.MiniZinc {
         }
         #endregion
 
-        public ZincConstraintItem () {
+        public ZincConstraintItem (IZincExp expr) : base(expr) {
         }
 
         public override string ToString () {

@@ -15,6 +15,7 @@
 %parsertype MiniZincParser
 
 %using ZincOxide.MiniZinc;
+%using ZincOxide.MiniZinc.Items;
 %using ZincOxide.Utils;
 
 %tokentype Token
@@ -24,9 +25,12 @@
 %partial 
 %union {
     public HeadTail<IZincItem> hti;
+    public HeadTail<ZincAnnotation> hta;
     public HeadTail<IZincTypeInstExpression> httie;
     public IZincItem i;
     public IZincType t;
+    public IZincExp e;
+    public ZincAnnotations at;
     public ZincVarPar vp;
     public ZincIdent id;
     public IZincTypeInstExpression tie;
@@ -70,13 +74,15 @@
 
 %type <hti> itemList itemListO
 %type <httie> tiExprListO tiExprList
-%type <i> item includeItem varDeclItem
+%type <i> item includeItem varDeclItem assignItem constraintItem solveItem outputItem
 %type <t> baseTiExprTail arrayTiExprTail
 %type <vp> varPar
 %type <id> ident
 %type <tie> tiExpr baseTiExpr
 %type <tia> tiExprAndId
 %type <ne> numExp
+%type <e> expr
+%type <at> annotations
 
 %%
 
@@ -99,6 +105,14 @@ itemList
 item
     : includeItem                              {$$ = $1;}
     | varDeclItem                              {$$ = $1;}
+    | assignItem                               {$$ = $1;}
+    | constraintItem                           {$$ = $1;}
+    | solveItem                                {$$ = $1;}
+    | outputItem                               {$$ = $1;}
+    ;
+
+tiExprAndId
+    : tiExpr COLON ident                       {$$ = new ZincTypeInstExprAndIdent($1,$3);}
     ;
 
 includeItem
@@ -106,24 +120,38 @@ includeItem
     ;
 
 varDeclItem
-    : tiExprAndId annotations                  {$$ = new ZincVarDeclItem($1);}
-    | tiExprAndId annotations OPASSIG expr     {$$ = new ZincVarDeclItem($1);}//TODO
+    : tiExprAndId annotations                  {$$ = new ZincVarDeclItem($1,$2);}
+    | tiExprAndId annotations OPASSIG expr     {$$ = new ZincVarDeclItem($1,$2,$4);}
     ;
 
-tiExprAndId
-    : tiExpr COLON ident                       {$$ = new ZincTypeInstExprAndIdent($1,$3);}
+assignItem
+    : ident OPASSIG expr                       {$$ = new ZincAssignItem($1,$3);}
     ;
 
-varPar
-    :                                          {$$ = ZincVarPar.Par;}
-    | KWVAR                                    {$$ = ZincVarPar.Var;}
-    | KWPAR                                    {$$ = ZincVarPar.Par;}
+constraintItem
+    : KWCONS expr                              {$$ = new ZincConstraintItem($2);}
+    ;
+
+solveItem
+    : KWSOLV annotations KWSATI                {$$ = new ZincSolveItem($2);}
+    | KWSOLV annotations KWMAXI expr           {$$ = new ZincSolveItem($2,ZincSolveType.Maximize,$4);}
+    | KWSOLV annotations KWMINI expr           {$$ = new ZincSolveItem($2,ZincSolveType.Minimize,$4);}
+    ;
+
+outputItem
+    : KWOUTP expr                             {$$ = new ZincOutputItem($2);}
     ;
 /*#endregion  */
 
 /*#region Type-Inst Expressions  */
 tiExpr
     : baseTiExpr                               {$$ = $1;}
+    ;
+
+varPar
+    :                                          {$$ = ZincVarPar.Par;}
+    | KWVAR                                    {$$ = ZincVarPar.Var;}
+    | KWPAR                                    {$$ = ZincVarPar.Par;}
     ;
 
 baseTiExpr
@@ -155,12 +183,13 @@ tiExprList
 
 /*#region Expressions  */
 expr
-    :                                          {}
+    : numExp                                   {$$ = $1;}
     ;
 
 numExp
-    : INTLI                                    {$$ = new ZincIntLiteral(@1.ToString());}
+    : OBRK numExp CBRK                         {$$ = $2;}
     | ident                                    {$$ = $1;}
+    | INTLI                                    {$$ = new ZincIntLiteral(@1.ToString());}
     ;
 /*#endregion  */
 
@@ -170,7 +199,7 @@ ident
     ;
 
 annotations
-    :                                          {}
+    :                                          {$$ = new ZincAnnotations();}
     ;
 /*#endregion  */
 

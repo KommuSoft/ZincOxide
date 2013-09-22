@@ -22,7 +22,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Items {
 
     public class ZincData : IZincFile {
 

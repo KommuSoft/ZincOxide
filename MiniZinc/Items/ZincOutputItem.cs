@@ -1,5 +1,5 @@
 //
-//  ZincFile.cs
+//  ZincOutputItem.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,16 +18,35 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.Collections.Generic;
-using ZincOxide.Utils;
+using System.IO;
+using ZincOxide.MiniZinc.Boxes;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Items {
 
-    public interface IZincFile : IWriteable, IZincIdentReplaceContainer {
+    public class ZincOutputItem : ZincExBoxBase, IZincItem {
 
-        void AddItem (IZincItem item);
+        #region IZincItem implementation
+        public ZincItemType Type {
+            get {
+                return ZincItemType.Output;
+            }
+        }
+        #endregion
 
-        void AddItems (IEnumerable<IZincItem> items);
+        public ZincOutputItem (IZincExp expression) : base(expression) {
+        }
+
+        public override string ToString () {
+            return string.Format ("output {0}", this.Expression);
+        }
+
+        #region IWriteable implementation
+        public void Write (TextWriter writer) {
+            writer.Write (this.ToString ());
+        }
+        #endregion
+
+
 
     }
 }

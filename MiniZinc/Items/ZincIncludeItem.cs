@@ -22,7 +22,7 @@ using System.Collections.Generic;
 using System.IO;
 using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Items {
 
     public class ZincIncludeItem : NameBase, IZincItem {
 

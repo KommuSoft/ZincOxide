@@ -1,5 +1,5 @@
 //
-//  ZincOutputItem.cs
+//  ZincVarDeclItem.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,26 +18,39 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System.Text;
+using System.Collections.Generic;
 using System.IO;
 using ZincOxide.MiniZinc.Boxes;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Items {
 
-    public class ZincOutputItem : ZincExBoxBase, IZincItem {
+    public class ZincVarDeclItem : ZincAsExTiaBoxBase, IZincItem {
 
         #region IZincItem implementation
         public ZincItemType Type {
             get {
-                return ZincItemType.Output;
+                return ZincItemType.VarDecl;
             }
         }
         #endregion
 
-        public ZincOutputItem (IZincExp expression) : base(expression) {
+        public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, ZincAnnotations anns = null, IZincExp exp = null) : base(anns,exp,tia) {
+        }
+
+        public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, IZincExp exp) : this(tia,null,exp) {
         }
 
         public override string ToString () {
-            return string.Format ("output {0}", this.Expression);
+            StringBuilder sb = new StringBuilder ();
+            sb.Append (this.TypeInstExprAndIdent);
+            if (this.Annotations != null && this.Annotations.Count > 0x00) {
+                sb.AppendFormat (" {0}", this.Annotations);
+            }
+            if (this.Expression != null) {
+                sb.AppendFormat (" = {0}", this.Expression);
+            }
+            return sb.ToString ();
         }
 
         #region IWriteable implementation
@@ -45,8 +58,6 @@ namespace ZincOxide.MiniZinc {
             writer.Write (this.ToString ());
         }
         #endregion
-
-
 
     }
 }

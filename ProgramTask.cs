@@ -35,7 +35,8 @@ namespace ZincOxide {
         Transform               = 0x50,
         Lex                     = 0xf0,
         Parse                   = 0xf1,
-        Echo                    = 0xf2
+        Echo                    = 0xf2,
+        Bindings                = 0xf3
     }
 
 }

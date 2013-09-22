@@ -22,7 +22,7 @@ using System.IO;
 using System.Text;
 using ZincOxide.MiniZinc.Boxes;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Items {
 
     public class ZincSolveItem : ZincAsExBoxBase, IZincItem {
 
@@ -56,11 +56,13 @@ namespace ZincOxide.MiniZinc {
         public override string ToString () {
             StringBuilder sb = new StringBuilder ("solve ");
             if (this.Annotations != null && this.Annotations.Count > 0x00) {
-                sb.AppendFormat ("{0} ", this.Annotations);
+                sb.Append (this.Annotations);
+                sb.Append (' ');
             }
             sb.Append (ZincPrintUtils.SolveTypeLiteral (this.SolveType));
             if (this.SolveType != ZincSolveType.Satisfy) {
-                sb.Append (" {0}", this.Expression);
+                sb.Append (' ');
+                sb.Append (this.Expression);
             }
 
             return sb.ToString ();
