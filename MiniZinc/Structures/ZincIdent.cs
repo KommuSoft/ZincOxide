@@ -26,7 +26,19 @@ namespace ZincOxide.MiniZinc.Structures {
 
     public class ZincIdent : NameIdBase, IZincNumExp, IZincIdentReplaceContainer {
 
-        public ZincIdent (string name) : base(name) {
+        private ZincIdentUsage usage;
+
+        public ZincIdentUsage Usage {
+            get {
+                return this.usage;
+            }
+            set {
+                this.usage = value;
+            }
+        }
+
+        public ZincIdent (string name, ZincIdentUsage usage = ZincIdentUsage.Unknown) : base(name) {
+            this.Usage = usage;
         }
 
         #region IZincIdentContainer implementation

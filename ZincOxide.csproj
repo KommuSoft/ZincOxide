@@ -181,6 +181,8 @@
     <Compile Include="MiniZinc\Types\ZincVarification.cs" />
     <Compile Include="MiniZinc\Types\ZincCoercion.cs" />
     <Compile Include="Utils\ValidateableUtils.cs" />
+    <Compile Include="MiniZinc\Structures\ZincIdentUsage.cs" />
+    <Compile Include="MiniZinc\Structures\ZincTypeInstSetExpression.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -75,7 +75,7 @@
 %type <hti> itemList itemListO
 %type <httie> tiExprListO tiExprList
 %type <i> item includeItem varDeclItem assignItem constraintItem solveItem outputItem
-%type <t> baseTiExprTail arrayTiExprTail
+%type <t> baseTiExprTail arrayTiExprTail setTiExprTail
 %type <vp> varPar
 %type <id> ident
 %type <tie> tiExpr baseTiExpr
@@ -162,12 +162,17 @@ baseTiExprTail
     : KWBOOL                                   {$$ = new ZincScalarType(ZincScalar.Bool);}
     | KWINT                                    {$$ = new ZincScalarType(ZincScalar.Int);}
     | KWFLOA                                   {$$ = new ZincScalarType(ZincScalar.Float);}
+    | setTiExprTail                            {$$ = $1;}
     | arrayTiExprTail                          {$$ = $1;}
     | numExp OPRANGE numExp                    {$$ = new ZincTypeInstRangeExpression($1,$3);}
     ;
 
 arrayTiExprTail
     : KWARRA OFBR tiExprListO CFBR KWOF tiExpr {$$ = new ZincTypeInstArrayExpression($6,$3);}
+    ;
+
+setTiExprTail
+    : KWSET OFBR tiExpr                        {$$ = new ZincTypeInstSetExpression($3);}
     ;
 
 tiExprListO
