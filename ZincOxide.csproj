@@ -159,7 +159,6 @@
     <Compile Include="MiniZinc\Structures\ZincIdent.cs" />
     <Compile Include="MiniZinc\Structures\ZincIdentNameRegister.cs" />
     <Compile Include="MiniZinc\Structures\ZincIntLiteral.cs" />
-    <Compile Include="MiniZinc\Structures\ZincItemType.cs" />
     <Compile Include="MiniZinc\Structures\ZincScalar.cs" />
     <Compile Include="MiniZinc\Structures\ZincScalarType.cs" />
     <Compile Include="MiniZinc\Structures\ZincSolveType.cs" />
@@ -183,6 +182,10 @@
     <Compile Include="Utils\ValidateableUtils.cs" />
     <Compile Include="MiniZinc\Structures\ZincIdentUsage.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstSetExpression.cs" />
+    <Compile Include="MiniZinc\Items\ZincPredicateItem.cs" />
+    <Compile Include="MiniZinc\Items\ZincItemType.cs" />
+    <Compile Include="MiniZinc\Items\ZincFileBase.cs" />
+    <Compile Include="MiniZinc\Structures\ZincIdentScopeBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

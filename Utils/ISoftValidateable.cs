@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide.Utils {
 
-    public interface ISoftValidateable {
+    public interface ISoftValidateable : IValidateable {
 
         IEnumerable<string> SoftValidate ();
 

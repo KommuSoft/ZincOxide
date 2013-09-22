@@ -26,12 +26,12 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public class ZincData : IZincFile {
+    public class ZincData : ZincFileBase {
 
         private readonly List<ZincAssignItem> assignItems = new List<ZincAssignItem> ();
 
         #region IZincFile implementation
-        public IEnumerable<IZincItem> Items {
+        public override IEnumerable<IZincItem> Items {
             get {
                 return this.assignItems;
             }
@@ -45,7 +45,7 @@ namespace ZincOxide.MiniZinc.Items {
         }
 
         #region IWriteable implementation
-        public void Write (TextWriter writer) {
+        public override void Write (TextWriter writer) {
             foreach (ZincAssignItem item in this.assignItems) {
                 item.Write (writer);
                 writer.WriteLine (";");
@@ -54,13 +54,13 @@ namespace ZincOxide.MiniZinc.Items {
         #endregion
 
         #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
+        public override IEnumerable<ZincIdent> InvolvedIdents () {
             return this.assignItems.SelectMany (x => x.InvolvedIdents ());
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
             for (int i = 0x00; i < this.assignItems.Count; i++) {
                 this.assignItems [i] = this.assignItems [i].Replace (identMap) as ZincAssignItem;
             }
@@ -75,7 +75,7 @@ namespace ZincOxide.MiniZinc.Items {
         }
 
         #region IZincFile implementation
-        public void AddItem (IZincItem item) {
+        public override void AddItem (IZincItem item) {
             if (item != null) {
                 switch (item.Type) {
                 case ZincItemType.Assign:
@@ -87,7 +87,7 @@ namespace ZincOxide.MiniZinc.Items {
             }
         }
 
-        public void AddItems (IEnumerable<IZincItem> items) {
+        public override void AddItems (IEnumerable<IZincItem> items) {
             if (items != null) {
                 foreach (IZincItem item in items) {
                     this.AddItem (item);
@@ -97,14 +97,8 @@ namespace ZincOxide.MiniZinc.Items {
         #endregion
 
         #region ISoftValidateable implementation
-        public IEnumerable<string> SoftValidate () {
+        public override IEnumerable<string> SoftValidate () {
             yield break;
-        }
-        #endregion
-
-        #region IValidateable implementation
-        public bool Validate () {
-            return ValidateableUtils.Validate (this);
         }
         #endregion
 

@@ -23,6 +23,8 @@ using System;
 namespace ZincOxide.MiniZinc.Structures {
 
     public enum ZincItemType {
+        TypeInstanceSynonym,
+        Enum,
         Include,
         VarDecl,
         Assign,
@@ -31,6 +33,7 @@ namespace ZincOxide.MiniZinc.Structures {
         Output,
         Predicate,
         Test,
+        Function,
         Annotation
     }
 

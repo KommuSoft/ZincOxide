@@ -1,5 +1,5 @@
 //
-//  ZincVarDeclItem.cs
+//  ZincPredicateItem.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,39 +18,35 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.Text;
-using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using ZincOxide.MiniZinc.Boxes;
 using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public class ZincVarDeclItem : ZincAsExTiaBoxBase, IZincItem {
+    public class ZincPredicateItem : ZincExIdBoxBase, IZincItem {
 
         #region IZincItem implementation
         public ZincItemType Type {
             get {
-                return ZincItemType.VarDecl;
+                return ZincItemType.Predicate;
             }
         }
         #endregion
 
-        public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, ZincAnnotations anns = null, IZincExp exp = null) : base(anns,exp,tia) {
-            this.TypeInstExprAndIdent.Ident.Usage = ZincIdentUsage.GlobalVariable;
-        }
+        public ZincPredicateItem (ZincIdent ident, IZincExp body) : base(ident,body) {
+            ident.Usage = ZincIdentUsage.Function;
 
-        public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, IZincExp exp) : this(tia,null,exp) {
         }
 
         public override string ToString () {
-            StringBuilder sb = new StringBuilder ();
-            sb.Append (this.TypeInstExprAndIdent);
-            if (this.Annotations != null && this.Annotations.Count > 0x00) {
-                sb.AppendFormat (" {0}", this.Annotations);
-            }
+            StringBuilder sb = new StringBuilder ("predicate ");
+            sb.Append (this.Ident);
+            //TODO: parameters and annotations
             if (this.Expression != null) {
-                sb.AppendFormat (" = {0}", this.Expression);
+                sb.Append (" = ");
+                sb.Append (this.Expression);
             }
             return sb.ToString ();
         }

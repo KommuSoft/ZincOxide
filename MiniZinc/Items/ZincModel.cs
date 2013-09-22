@@ -26,7 +26,7 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public class ZincModel : IZincFile {
+    public class ZincModel : ZincFileBase {
 
         private readonly List<IZincItem> items = new List<IZincItem> ();
 
@@ -43,7 +43,7 @@ namespace ZincOxide.MiniZinc.Items {
         }
 
         #region IZincFile implementation
-        public IEnumerable<IZincItem> Items {
+        public override IEnumerable<IZincItem> Items {
             get {
                 return this.items;
             }
@@ -61,7 +61,7 @@ namespace ZincOxide.MiniZinc.Items {
         }
 
         #region IZincFile implementation
-        public void AddItems (IEnumerable<IZincItem> items) {
+        public override void AddItems (IEnumerable<IZincItem> items) {
             if (items != null) {
                 foreach (IZincItem item in items) {
                     this.AddItem (item);
@@ -70,7 +70,7 @@ namespace ZincOxide.MiniZinc.Items {
         }
 
 
-        public void AddItem (IZincItem item) {
+        public override void AddItem (IZincItem item) {
             if (item != null) {
                 switch (item.Type) {
                 case ZincItemType.Include:
@@ -79,7 +79,14 @@ namespace ZincOxide.MiniZinc.Items {
                 case ZincItemType.Constraint:
                 case ZincItemType.Solve:
                 case ZincItemType.Output:
+                case ZincItemType.Predicate:
+                case ZincItemType.Function:
                     this.items.Add (item);
+                    break;
+                case ZincItemType.TypeInstanceSynonym:
+                case ZincItemType.Enum:
+                case ZincItemType.Test:
+                    Interaction.Warning ("Items of type \"{0}\" are part of Zinc but not of MiniZinc.", item.Type);
                     break;
                 default :
                     Interaction.Warning ("A ZincItem was found with an type that cannot be added to a ZincModel. Probably you are running an outdated version of ZincOxide.");
@@ -90,7 +97,7 @@ namespace ZincOxide.MiniZinc.Items {
         #endregion
 
         #region IWritable implementation
-        public void Write (TextWriter writer) {
+        public override void Write (TextWriter writer) {
             foreach (IZincItem item in this.Items) {
                 item.Write (writer);
                 writer.WriteLine (";");
@@ -99,7 +106,7 @@ namespace ZincOxide.MiniZinc.Items {
         #endregion
 
         #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
+        public override IEnumerable<ZincIdent> InvolvedIdents () {
             foreach (IZincItem item in this.Items) {
                 foreach (ZincIdent ident in item.InvolvedIdents()) {
                     yield return ident;
@@ -109,7 +116,7 @@ namespace ZincOxide.MiniZinc.Items {
         #endregion
 
         #region ISoftValidateable implementation
-        public IEnumerable<string> SoftValidate () {
+        public override IEnumerable<string> SoftValidate () {
             if (this.items.Where (x => x.Type == ZincItemType.Solve).Count () != 0x01) {
                 yield return "A Zinc model always contains exactly one solve item.";
             }
@@ -118,18 +125,11 @@ namespace ZincOxide.MiniZinc.Items {
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
             //TODO implement
             return this;
         }
         #endregion
-
-        #region IValidateable implementation
-        public bool Validate () {
-            return ValidateableUtils.Validate (this);
-        }
-        #endregion
-
 
         public ZincData ConvertToZincData () {
             return new ZincData (this.Items);
