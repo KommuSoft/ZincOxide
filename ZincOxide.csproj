@@ -167,6 +167,9 @@
     <Compile Include="Normalization\PullupVarDeclTransformation.cs" />
     <Compile Include="Normalization\ReordenDeclarationTransformation.cs" />
     <Compile Include="Normalization\ITransformation.cs" />
+    <Compile Include="MiniZinc\ZincSolveItem.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincAsExBox.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincAsExBoxBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -1,5 +1,5 @@
 //
-//  IZincTypeInstExprAndIdentAnnotationsExpressionBox.cs
+//  IZincAsExBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,7 +22,8 @@ using System;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincAsExTiaBox : IZincAsExBox, IZincTiaBox {
+    public interface IZincAsExBox : IZincAsBox, IZincExBox {
     }
+
 }
 
