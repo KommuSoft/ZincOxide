@@ -1,5 +1,5 @@
 //
-//  IZincIdentScope.cs
+//  PullupVarDeclTransformation.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,16 +19,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc {
-
-    public interface IZincIdentScope : IFallbackNameRegister<ZincIdent> {
-
-        ZincIdentNameRegister NameRegister {
-            get;
+namespace ZincOxide.Normalization {
+    public class PullupVarDeclTransformation : ITransformation {
+        public PullupVarDeclTransformation () {
         }
-
     }
-
 }
+

@@ -164,6 +164,9 @@
     <Compile Include="Parser\LexSpan.cs" />
     <Compile Include="MiniZinc\ZincIdentNameRegister.cs" />
     <Compile Include="MiniZinc\IZincIdentScope.cs" />
+    <Compile Include="Normalization\PullupVarDeclTransformation.cs" />
+    <Compile Include="Normalization\ReordenDeclarationTransformation.cs" />
+    <Compile Include="Normalization\ITransformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -202,6 +205,7 @@
     <Folder Include="Heuristics\" />
     <Folder Include="Normalization\" />
     <Folder Include="Parser\specs\" />
+    <Folder Include="MiniZinc\Builtins\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
