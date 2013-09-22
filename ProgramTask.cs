@@ -32,7 +32,8 @@ namespace ZincOxide {
         Assume             = 0x30,
         Transform          = 0x40,
         Lex                = 0xf0,
-        Parse              = 0xf1
+        Parse              = 0xf1,
+        Echo               = 0xf2
     }
 
 }

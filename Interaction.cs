@@ -19,15 +19,31 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Parser;
 
 namespace ZincOxide {
 
     public static class Interaction {
 
         private static ProgramVerbosity verbosityLevel = ProgramVerbosity.Error | ProgramVerbosity.Warning;
+        private static string activeFile;
 
-        public static void SetLevel (ProgramVerbosity verbosity) {
-            verbosityLevel = verbosity;
+        public static ProgramVerbosity Level {
+            get {
+                return verbosityLevel;
+            }
+            set {
+                verbosityLevel = value;
+            }
+        }
+
+        public static string ActiveFile {
+            get {
+                return activeFile;
+            }
+            set {
+                activeFile = value;
+            }
         }
 
         public static void GenericMessage (ProgramVerbosity verbosity, string format, params object[] args) {
@@ -40,6 +56,10 @@ namespace ZincOxide {
 
         public static void Warning (string format, params object[] args) {
             GenericMessage (ProgramVerbosity.Remark, format, args);
+        }
+
+        public static void ParsingError (LexSpan location, string format, params object[] args) {
+            GenericMessage (ProgramVerbosity.Error, string.Format ("{0}({1},{2}) {3}", activeFile, location.StartLine, location.StartColumn, string.Format (format, args)));
         }
 
         public static void Error (string format, params object[] args) {

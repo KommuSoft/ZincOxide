@@ -18,6 +18,9 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+#define PARSE
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,7 +43,7 @@ namespace ZincOxide {
             List<string> files = new List<string> ();
             try {
                 files = p.Parse (args);
-                Interaction.SetLevel (environment.Verbosity);
+                Interaction.Level = environment.Verbosity;
             } catch (OptionException e) {
                 Console.Write ("zincoxide: ");
                 Console.WriteLine (e.Message);
@@ -66,12 +69,17 @@ namespace ZincOxide {
                                 MiniZincLexer scnr = new MiniZincLexer (file);
                                 MiniZincParser pars = new MiniZincParser (scnr);
 
+                                Interaction.ActiveFile = info.Name;
+
                                 Console.WriteLine ("File: " + info.Name);
+#if PARSE
+                                pars.Parse ();
+#else
                                 foreach (Token tok in scnr.Tokenize()) {
                                     Console.Write (tok);
                                     Console.Write (' ');
                                 }
-                                pars.Parse ();
+#endif
                                 if (pars.Result != null) {
                                     Console.WriteLine ("echo: ");
                                     pars.Result.Write (Console.Out);

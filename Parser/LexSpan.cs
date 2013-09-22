@@ -100,6 +100,10 @@ namespace ZincOxide.Parser {
             return buffer.GetString (startIndex, endIndex);
         }
 
+        public string LiteralString () {
+            return buffer.GetString (startIndex + 0x01, endIndex - 0x01);
+        }
+
     }
 }
 
