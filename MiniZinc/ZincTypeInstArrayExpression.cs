@@ -18,7 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc {
@@ -26,6 +26,9 @@ namespace ZincOxide.MiniZinc {
     public class ZincTypeInstArrayExpression : ZincTieTiesBoxBase, IZincType {
 
         public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, IZincTypeInstExpression atta, IZincTypeInstExpression attb) : base(oftype,new IZincTypeInstExpression[] {atta,attb}) {
+        }
+
+        public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, IEnumerable<IZincTypeInstExpression> attributes) : base(oftype,attributes) {
         }
 
         public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, params IZincTypeInstExpression[] attributes) : base(oftype,attributes) {

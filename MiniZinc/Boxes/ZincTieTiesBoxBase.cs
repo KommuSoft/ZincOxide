@@ -38,8 +38,15 @@ namespace ZincOxide.MiniZinc.Boxes {
             }
         }
         #endregion
-        protected ZincTieTiesBoxBase (IZincTypeInstExpression expression1, IList<IZincTypeInstExpression> expressions) : base(expression1) {
+        protected ZincTieTiesBoxBase (IZincTypeInstExpression expression, IList<IZincTypeInstExpression> expressions) : base(expression) {
             this.TypeInstExpressions = expressions;
+        }
+
+        protected ZincTieTiesBoxBase (IZincTypeInstExpression expression, params IZincTypeInstExpression[] expressions) : this(expression,(IList<IZincTypeInstExpression>) expressions) {
+            this.TypeInstExpressions = expressions;
+        }
+
+        protected ZincTieTiesBoxBase (IZincTypeInstExpression expression, IEnumerable<IZincTypeInstExpression> expressions) : this(expression,expressions.ToArray()) {
         }
 
         public override IEnumerable<ZincIdent> InvolvedIdents () {

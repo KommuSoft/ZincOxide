@@ -1,28 +1,26 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/ISoftValidateable.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Parser/ScanBase.cs">
     <Files>
-      <File FileName="Utils/FallbackNameRegister.cs" Line="38" Column="71" />
-      <File FileName="Utils/NameRegister.cs" Line="39" Column="53" />
-      <File FileName="Utils/IFallbackNameRegister.cs" Line="30" Column="1" />
-      <File FileName="Utils/INameRegister.cs" Line="27" Column="33" />
-      <File FileName="Utils/GenerateNameRegister.cs" Line="53" Column="10" />
-      <File FileName="Utils/IGenerateNameRegister.cs" Line="29" Column="10" />
-      <File FileName="Utils/IGenerateFallbackNameRegister.cs" Line="25" Column="123" />
-      <File FileName="Utils/GenerateFallbackNameRegister.cs" Line="40" Column="122" />
-      <File FileName="Utils/ISoftValidateable.cs" Line="27" Column="29" />
+      <File FileName="Parser/specs/MiniZinc.y" Line="56" Column="330" />
+      <File FileName="Parser/specs/MiniZinc.lex" Line="1" Column="1" />
+      <File FileName="MiniZinc/ZincTypeInstArrayExpression.cs" Line="26" Column="58" />
+      <File FileName="MiniZinc/Boxes/ZincTieTiesBoxBase.cs" Line="45" Column="1" />
+      <File FileName="Parser/LexSpan.cs" Line="98" Column="10" />
+      <File FileName="Parser/MiniZincLexer.cs" Line="2569" Column="8" />
+      <File FileName="Parser/ScanBase.cs" Line="26" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="ZincOxide" expanded="True">
             <Node name="References" expanded="True" />
-            <Node name="MiniZinc" expanded="True" />
+            <Node name="MiniZinc" expanded="True">
+              <Node name="Boxes" expanded="True" />
+            </Node>
             <Node name="Parser" expanded="True">
               <Node name="specs" expanded="True" />
-            </Node>
-            <Node name="Utils" expanded="True">
-              <Node name="IMessageBoard.cs" selected="True" />
+              <Node name="ScanBase.cs" selected="True" />
             </Node>
           </Node>
         </State>

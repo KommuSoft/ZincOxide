@@ -161,6 +161,7 @@
     <Compile Include="Utils\FallbackNameRegister.cs" />
     <Compile Include="Utils\IGenerateFallbackNameRegister.cs" />
     <Compile Include="Utils\GenerateFallbackNameRegister.cs" />
+    <Compile Include="Parser\LexSpan.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -40,13 +40,13 @@ namespace ZincOxide {
             List<string> files = new List<string> ();
             try {
                 files = p.Parse (args);
+                Interaction.SetLevel (environment.Verbosity);
             } catch (OptionException e) {
                 Console.Write ("zincoxide: ");
                 Console.WriteLine (e.Message);
                 Console.WriteLine ("Try 'zincoxide --help' for more information.");
                 return (int)ProgramResult.StaticError;
             } catch (ZincOxideException e) {
-                Interaction.SetLevel (environment.Verbosity);
                 Interaction.Error (e.Message);
                 return (int)ProgramResult.StaticError;
             }
@@ -67,10 +67,10 @@ namespace ZincOxide {
                                 MiniZincParser pars = new MiniZincParser (scnr);
 
                                 Console.WriteLine ("File: " + info.Name);
-                                /*foreach (Token tok in scnr.Tokenize()) {
+                                foreach (Token tok in scnr.Tokenize()) {
                                     Console.Write (tok);
                                     Console.Write (' ');
-                                }*/
+                                }
                                 pars.Parse ();
                                 if (pars.Result != null) {
                                     Console.WriteLine ("echo: ");

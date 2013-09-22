@@ -22,7 +22,8 @@ using System;
 using QUT.Gppg;
 
 namespace ZincOxide.Parser {
-    public abstract class ScanBase : AbstractScanner<string,LexLocation> {
+
+    public abstract class ScanBase : AbstractScanner<string,LexSpan> {
 
         protected virtual bool yywrap () {
             return true;

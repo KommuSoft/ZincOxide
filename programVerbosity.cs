@@ -23,7 +23,7 @@ using System;
 namespace ZincOxide {
 
     [Flags]
-    public enum ProgramVerbosity {
+    public enum ProgramVerbosity : byte {
         Remark     = 0x08,
         Assumption = 0x04,
         Warning    = 0x02,

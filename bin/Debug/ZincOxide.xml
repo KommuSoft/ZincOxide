@@ -96,5 +96,12 @@
             </summary>
             <param name="name">The name looked for by the <see cref="T:IFallbackNameRegister" /></param>.
             <returns>The value corresponding to the given name who was looked for by the <see cref="T:IFallbackNameRegister" /></returns><exception cref="T:ZincOxide.Utils.ZincOxideNameNotFoundException">In case the fallback mechanism fails as well.</exception></member>
+        <member name="M:ZincOxide.Parser.LexSpan.Merge(ZincOxide.Parser.LexSpan)">
+            <summary>
+            This method implements the IMerge interface
+            </summary>
+            <param name="end">The last span to be merged</param>
+            <returns>A span from the start of 'this' to the end of 'end'</returns>
+        </member>
     </members>
 </doc>
