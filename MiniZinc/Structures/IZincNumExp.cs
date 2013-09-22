@@ -1,5 +1,5 @@
 //
-//  ZincTypeInstRangeExpression.cs
+//  IZincNumExp.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,19 +19,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.MiniZinc.Boxes;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincTypeInstRangeExpression : ZincNumNumBoxBase, IZincType {
-
-        public ZincTypeInstRangeExpression (IZincNumExp numexp1, IZincNumExp numexp2) : base(numexp1,numexp2) {
-        }
-
-        public override string ToString () {
-            return string.Format ("{0} .. {1}", this.NumericExpression, this.NumericExpression2);
-        }
-
+    public interface IZincNumExp : IZincExp, IZincIdentReplaceContainer {
     }
+
 }
 

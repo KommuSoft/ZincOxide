@@ -1,5 +1,5 @@
 //
-//  ZincScalarType.cs
+//  ZincBoolLiteral.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,43 +18,30 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 using System.Collections.Generic;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public sealed class ZincScalarType : IZincType {
+    public class ZincBoolLiteral : IZincNumExp {
 
-        private readonly ZincScalar scalar;
+        private bool value;
 
-        public ZincScalar Scalar {
+        public bool Value {
             get {
-                return this.scalar;
+                return this.value;
             }
         }
 
-        public ZincScalarType (ZincScalar scalar) {
-            this.scalar = scalar;
+        public ZincBoolLiteral (string text) {
+            this.value = bool.Parse (text);
+        }
+
+        public ZincBoolLiteral (bool value) {
+            this.value = value;
         }
 
         public override string ToString () {
-            return ZincPrintUtils.ScalarLiteral (this.Scalar);
-        }
-
-        public static implicit operator ZincScalarType (ZincScalar scalar) {
-            return new ZincScalarType (scalar);
-        }
-
-        public override int GetHashCode () {
-            return this.scalar.GetHashCode ();
-        }
-
-        public override bool Equals (object obj) {
-            if (obj is ZincScalarType) {
-                ZincScalarType zst = obj as ZincScalarType;
-                return (this.scalar == zst.scalar);
-            }
-            return false;
+            return this.value.ToString ();
         }
 
         #region IZincIdentContainer implementation
@@ -70,8 +57,11 @@ namespace ZincOxide.MiniZinc {
         #endregion
 
 
-
+        public static implicit operator ZincBoolLiteral (bool value) {
+            return new ZincBoolLiteral (value);
+        }
 
     }
 
 }
+

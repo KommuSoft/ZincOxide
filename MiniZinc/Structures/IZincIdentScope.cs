@@ -1,5 +1,5 @@
 //
-//  IZincTypeInstExpression.cs
+//  IZincIdentScope.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,12 +19,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincTypeInstExpression : IZincIdentReplaceContainer {
+    public interface IZincIdentScope : IFallbackNameRegister<ZincIdent> {
+
+        ZincIdentNameRegister NameRegister {
+            get;
+        }
 
     }
 
 }
-

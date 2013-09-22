@@ -21,7 +21,7 @@
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Boxes;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
     public class ZincTypeInstArrayExpression : ZincTieTiesBoxBase, IZincType {
 

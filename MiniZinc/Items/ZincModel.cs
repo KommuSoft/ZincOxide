@@ -21,7 +21,7 @@
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-using ZincOxide.Utils;
+using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Items {
 

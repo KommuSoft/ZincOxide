@@ -21,13 +21,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-	public interface IZincIdentContainer {
+    public interface IZincIdentContainer {
 
-		IEnumerable<ZincIdent> InvolvedIdents ();
+        IEnumerable<ZincIdent> InvolvedIdents ();
 
-	}
+    }
 
 }
 

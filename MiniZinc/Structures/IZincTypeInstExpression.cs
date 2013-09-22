@@ -1,5 +1,5 @@
 //
-//  ZincItemType.cs
+//  IZincTypeInstExpression.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,18 +20,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-	public enum ZincItemType {
-		Include,
-		VarDecl,
-		Assign,
-		Constraint,
-		Solve,
-		Output,
-		Predicate,
-		Test,
-		Annotation
-	}
+    public interface IZincTypeInstExpression : IZincIdentReplaceContainer {
+
+    }
 
 }
+

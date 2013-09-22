@@ -1,5 +1,5 @@
 //
-//  IZincNumExp.cs
+//  IZincIdentReplaceContainer.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,11 +18,14 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincNumExp : IZincExp, IZincIdentReplaceContainer {
+    public interface IZincIdentReplaceContainer : IZincIdentContainer {
+
+        IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap);
+
     }
 
 }

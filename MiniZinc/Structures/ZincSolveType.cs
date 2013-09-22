@@ -1,5 +1,5 @@
 //
-//  IZincTiesBox.cs
+//  ZincSolveType.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,17 +18,15 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.Collections.Generic;
-using ZincOxide.MiniZinc.Structures;
+using System;
 
-namespace ZincOxide.MiniZinc.Boxes {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincTiesBox : IZincIdentReplaceContainer {
-
-        IList<IZincTypeInstExpression> TypeInstExpressions {
-            get;
-        }
-
+    public enum ZincSolveType : byte {
+        Satisfy     = 0x00,
+        Minimize    = 0x01,
+        Maximize    = 0x02
     }
+
 }
 

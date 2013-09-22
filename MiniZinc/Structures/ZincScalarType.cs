@@ -1,5 +1,5 @@
 //
-//  ZincAnnotations.cs
+//  ZincScalarType.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,50 +18,60 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.Linq;
+using System;
 using System.Collections.Generic;
-using System.IO;
-using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincAnnotations : LinkedList<ZincAnnotation>, IWriteable, IZincIdentReplaceContainer {
+    public sealed class ZincScalarType : IZincType {
 
-        public ZincAnnotations (IEnumerable<ZincAnnotation> annotations) : base(annotations) {
+        private readonly ZincScalar scalar;
+
+        public ZincScalar Scalar {
+            get {
+                return this.scalar;
+            }
         }
 
-        public ZincAnnotations (params ZincAnnotation[] annotations) : base(annotations) {
+        public ZincScalarType (ZincScalar scalar) {
+            this.scalar = scalar;
         }
 
         public override string ToString () {
-            return string.Format (":: {0}", string.Join (" :: ", this));
+            return ZincPrintUtils.ScalarLiteral (this.Scalar);
         }
 
-        #region IWriteable implementation
-        public void Write (TextWriter writer) {
-            writer.Write (this.ToString ());
+        public static implicit operator ZincScalarType (ZincScalar scalar) {
+            return new ZincScalarType (scalar);
         }
-        #endregion
+
+        public override int GetHashCode () {
+            return this.scalar.GetHashCode ();
+        }
+
+        public override bool Equals (object obj) {
+            if (obj is ZincScalarType) {
+                ZincScalarType zst = obj as ZincScalarType;
+                return (this.scalar == zst.scalar);
+            }
+            return false;
+        }
 
         #region IZincIdentContainer implementation
         public IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.SelectMany (x => x.InvolvedIdents ());
+            yield break;
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
         public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            LinkedListNode<ZincAnnotation> node = this.First;
-            while (node != null) {
-                node.Value = node.Value.Replace (identMap) as ZincAnnotation;
-                node = node.Next;
-            }
             return this;
         }
         #endregion
 
 
 
-    }
-}
 
+    }
+
+}

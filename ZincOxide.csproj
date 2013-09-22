@@ -44,24 +44,9 @@
     <Compile Include="Algebra\AcasOperator.cs" />
     <Compile Include="Algebra\AcasType.cs" />
     <Compile Include="Algebra\AcasVariable.cs" />
-    <Compile Include="MiniZinc\ZincItemType.cs" />
     <Compile Include="MiniZinc\ZincPrintUtils.cs" />
-    <Compile Include="MiniZinc\ZincIdent.cs" />
-    <Compile Include="MiniZinc\IZincIdentContainer.cs" />
-    <Compile Include="MiniZinc\ZincTypeInstWhereExpression.cs" />
-    <Compile Include="MiniZinc\ZincTypeInstExpressionIdent.cs" />
-    <Compile Include="MiniZinc\IZincIdentReplaceContainer.cs" />
-    <Compile Include="MiniZinc\ZincVarPar.cs" />
-    <Compile Include="MiniZinc\ZincSolveType.cs" />
-    <Compile Include="MiniZinc\ZincAnnotation.cs" />
-    <Compile Include="MiniZinc\ZincScalar.cs" />
-    <Compile Include="MiniZinc\ZincAnnotations.cs" />
-    <Compile Include="MiniZinc\IZincTypeInstExpression.cs" />
-    <Compile Include="MiniZinc\IZincType.cs" />
-    <Compile Include="MiniZinc\ZincTypeInstBaseExpression.cs" />
     <Compile Include="Codegen\ICodeClass.cs" />
     <Compile Include="Codegen\ICodeMethod.cs" />
-    <Compile Include="MiniZinc\ZincScalarType.cs" />
     <Compile Include="Codegen\OuputFile.cs" />
     <Compile Include="Codegen\ICodeInterface.cs" />
     <Compile Include="Codegen\ICodeBuilder.cs" />
@@ -86,7 +71,6 @@
     <Compile Include="MiniZinc\Boxes\ZincAsExTiaBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTieBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\ZincAsBoxBase.cs" />
-    <Compile Include="MiniZinc\ZincTypeInstExprAndIdent.cs" />
     <Compile Include="MiniZinc\Boxes\IZincIdTieBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincIdTieBoxBase.cs" />
     <Compile Include="Utils\ContextStreamWriter.cs" />
@@ -124,19 +108,12 @@
     <Compile Include="MiniZinc\Boxes\ZincTieTiesBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTieTiesBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTiesBox.cs" />
-    <Compile Include="MiniZinc\ZincTypeInstArrayExpression.cs" />
-    <Compile Include="MiniZinc\ZincTypeInstRangeExpression.cs" />
-    <Compile Include="MiniZinc\IZincNumExp.cs" />
-    <Compile Include="MiniZinc\IZincExp.cs" />
     <Compile Include="MiniZinc\Boxes\IZincNumBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincNumNumBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincNumBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\ZincNumNumBoxBase.cs" />
-    <Compile Include="MiniZinc\ZincIntLiteral.cs" />
     <Compile Include="Parser\MiniZincLexer.cs" />
     <Compile Include="Parser\ZincOxideParserException.cs" />
-    <Compile Include="MiniZinc\ZincBoolLiteral.cs" />
-    <Compile Include="MiniZinc\ZincFloatLiteral.cs" />
     <Compile Include="Parser\ParserHelper.cs" />
     <Compile Include="Codegen\CSharp\CodeBuilderCSharp.cs" />
     <Compile Include="Codegen\CSharp\CodeClassCSharp.cs" />
@@ -152,8 +129,6 @@
     <Compile Include="Utils\IGenerateFallbackNameRegister.cs" />
     <Compile Include="Utils\GenerateFallbackNameRegister.cs" />
     <Compile Include="Parser\LexSpan.cs" />
-    <Compile Include="MiniZinc\ZincIdentNameRegister.cs" />
-    <Compile Include="MiniZinc\IZincIdentScope.cs" />
     <Compile Include="Normalization\PullupVarDeclTransformation.cs" />
     <Compile Include="Normalization\ReordenDeclarationTransformation.cs" />
     <Compile Include="Normalization\ITransformation.cs" />
@@ -170,6 +145,31 @@
     <Compile Include="MiniZinc\Items\IZincFile.cs" />
     <Compile Include="MiniZinc\Items\ZincData.cs" />
     <Compile Include="MiniZinc\Items\ZincModel.cs" />
+    <Compile Include="MiniZinc\Structures\IZincExp.cs" />
+    <Compile Include="MiniZinc\Structures\IZincIdentContainer.cs" />
+    <Compile Include="MiniZinc\Structures\IZincIdentReplaceContainer.cs" />
+    <Compile Include="MiniZinc\Structures\IZincIdentScope.cs" />
+    <Compile Include="MiniZinc\Structures\IZincNumExp.cs" />
+    <Compile Include="MiniZinc\Structures\IZincType.cs" />
+    <Compile Include="MiniZinc\Structures\IZincTypeInstExpression.cs" />
+    <Compile Include="MiniZinc\Structures\ZincAnnotation.cs" />
+    <Compile Include="MiniZinc\Structures\ZincAnnotations.cs" />
+    <Compile Include="MiniZinc\Structures\ZincBoolLiteral.cs" />
+    <Compile Include="MiniZinc\Structures\ZincFloatLiteral.cs" />
+    <Compile Include="MiniZinc\Structures\ZincIdent.cs" />
+    <Compile Include="MiniZinc\Structures\ZincIdentNameRegister.cs" />
+    <Compile Include="MiniZinc\Structures\ZincIntLiteral.cs" />
+    <Compile Include="MiniZinc\Structures\ZincItemType.cs" />
+    <Compile Include="MiniZinc\Structures\ZincScalar.cs" />
+    <Compile Include="MiniZinc\Structures\ZincScalarType.cs" />
+    <Compile Include="MiniZinc\Structures\ZincSolveType.cs" />
+    <Compile Include="MiniZinc\Structures\ZincTypeInstArrayExpression.cs" />
+    <Compile Include="MiniZinc\Structures\ZincTypeInstBaseExpression.cs" />
+    <Compile Include="MiniZinc\Structures\ZincTypeInstExprAndIdent.cs" />
+    <Compile Include="MiniZinc\Structures\ZincTypeInstExpressionIdent.cs" />
+    <Compile Include="MiniZinc\Structures\ZincTypeInstRangeExpression.cs" />
+    <Compile Include="MiniZinc\Structures\ZincTypeInstWhereExpression.cs" />
+    <Compile Include="MiniZinc\Structures\ZincVarPar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -210,6 +210,7 @@
     <Folder Include="Parser\specs\" />
     <Folder Include="MiniZinc\Builtins\" />
     <Folder Include="MiniZinc\Items\" />
+    <Folder Include="MiniZinc\Structures\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

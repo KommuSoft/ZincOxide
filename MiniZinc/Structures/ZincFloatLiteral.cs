@@ -1,5 +1,5 @@
 //
-//  ZincAnnotation.cs
+//  ZincFloatLiteral.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,23 +20,50 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincAnnotation : IZincIdentReplaceContainer {
-        public ZincAnnotation () {
+    public class ZincFloatLiteral : IZincNumExp {
+
+        private double value;
+
+        public double Value {
+            get {
+                return this.value;
+            }
+        }
+
+        public ZincFloatLiteral (string text) {
+            this.value = double.Parse (text);
+        }
+
+        public ZincFloatLiteral (float value) {
+            this.value = value;
+        }
+
+        public ZincFloatLiteral (double value) {
+            this.value = value;
         }
 
         #region IZincIdentContainer implementation
         public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;//TODO
+            yield break;
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
         public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this;//TODO
+            return this;
         }
         #endregion
+
+
+        public static implicit operator ZincFloatLiteral (float value) {
+            return new ZincFloatLiteral (value);
+        }
+
+        public static implicit operator ZincFloatLiteral (double value) {
+            return new ZincFloatLiteral (value);
+        }
 
     }
 

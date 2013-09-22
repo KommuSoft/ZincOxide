@@ -14,8 +14,8 @@
 %namespace ZincOxide.Parser
 %parsertype MiniZincParser
 
-%using ZincOxide.MiniZinc;
 %using ZincOxide.MiniZinc.Items;
+%using ZincOxide.MiniZinc.Structures;
 %using ZincOxide.Utils;
 
 %tokentype Token

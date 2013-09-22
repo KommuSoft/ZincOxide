@@ -1,5 +1,5 @@
 //
-//  ZincIdent.cs
+//  ZincNameRegister.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,34 +19,33 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
 using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincIdent : NameBase, IZincNumExp, IZincIdentReplaceContainer {
+    public class ZincIdentNameRegister : GenerateFallbackNameRegister<ZincIdent> {
 
-        public ZincIdent (string name) : base(name) {
-        }
+        private ZincIdentNameRegister parent;
 
-
-
-        #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield return this;
-        }
-        #endregion
-
-		#region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            ZincIdent outp;
-            if (identMap.TryGetValue (this, out outp)) {
-                return outp;
-            } else {
-                return this;
+        public ZincIdentNameRegister Parent {
+            get {
+                return this.parent;
+            }
+            set {
+                this.parent = value;
             }
         }
-		#endregion
+
+        public ZincIdentNameRegister (ZincIdentNameRegister parent) : base(x => checkUpperNameRegister(x),x => new ZincIdent(x)) {
+        }
+
+        private ZincIdent checkUpperNameRegister (string name) {
+            if (this.parent != null) {
+                return this.parent.Lookup (name);
+            } else {
+                throw new ZincOxideNameNotFoundException ("No upper scope contains \"{0}\".", name);
+            }
+        }
 
     }
 

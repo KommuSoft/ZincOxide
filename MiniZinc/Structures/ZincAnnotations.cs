@@ -1,5 +1,5 @@
 //
-//  ZincBoolLiteral.cs
+//  ZincAnnotations.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,50 +18,50 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System.Linq;
 using System.Collections.Generic;
+using System.IO;
+using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincBoolLiteral : IZincNumExp {
+    public class ZincAnnotations : LinkedList<ZincAnnotation>, IWriteable, IZincIdentReplaceContainer {
 
-        private bool value;
-
-        public bool Value {
-            get {
-                return this.value;
-            }
+        public ZincAnnotations (IEnumerable<ZincAnnotation> annotations) : base(annotations) {
         }
 
-        public ZincBoolLiteral (string text) {
-            this.value = bool.Parse (text);
-        }
-
-        public ZincBoolLiteral (bool value) {
-            this.value = value;
+        public ZincAnnotations (params ZincAnnotation[] annotations) : base(annotations) {
         }
 
         public override string ToString () {
-            return this.value.ToString ();
+            return string.Format (":: {0}", string.Join (" :: ", this));
         }
+
+        #region IWriteable implementation
+        public void Write (TextWriter writer) {
+            writer.Write (this.ToString ());
+        }
+        #endregion
 
         #region IZincIdentContainer implementation
         public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;
+            return this.SelectMany (x => x.InvolvedIdents ());
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
         public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            LinkedListNode<ZincAnnotation> node = this.First;
+            while (node != null) {
+                node.Value = node.Value.Replace (identMap) as ZincAnnotation;
+                node = node.Next;
+            }
             return this;
         }
         #endregion
 
 
-        public static implicit operator ZincBoolLiteral (bool value) {
-            return new ZincBoolLiteral (value);
-        }
 
     }
-
 }
 

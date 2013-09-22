@@ -1,5 +1,5 @@
 //
-//  ZincScalar.cs
+//  ZincAnnotation.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,15 +18,26 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public enum ZincScalar : byte {
-        Bool    = 0x00,
-        Int     = 0x01,
-        Float	= 0x02,
-        String  = 0x03
+    public class ZincAnnotation : IZincIdentReplaceContainer {
+        public ZincAnnotation () {
+        }
+
+        #region IZincIdentContainer implementation
+        public IEnumerable<ZincIdent> InvolvedIdents () {
+            yield break;//TODO
+        }
+        #endregion
+
+        #region IZincIdentReplaceContainer implementation
+        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            return this;//TODO
+        }
+        #endregion
+
     }
 
 }

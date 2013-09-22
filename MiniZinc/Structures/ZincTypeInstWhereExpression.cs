@@ -23,7 +23,7 @@ using System.Collections.Generic;
 using ZincOxide.MiniZinc.Boxes;
 using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
     public class ZincTypeInstWhereExpression : ZincExIdBoxBase, IZincTypeInstExpression {
 

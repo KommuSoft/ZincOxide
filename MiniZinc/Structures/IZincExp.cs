@@ -1,5 +1,5 @@
 //
-//  ZincSolveType.cs
+//  ZincExpression.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,13 +20,10 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public enum ZincSolveType : byte {
-        Satisfy     = 0x00,
-        Minimize    = 0x01,
-        Maximize    = 0x02
+    public interface IZincExp : IZincIdentReplaceContainer {
+
     }
 
 }
-
