@@ -162,6 +162,8 @@
     <Compile Include="Utils\IGenerateFallbackNameRegister.cs" />
     <Compile Include="Utils\GenerateFallbackNameRegister.cs" />
     <Compile Include="Parser\LexSpan.cs" />
+    <Compile Include="MiniZinc\ZincIdentNameRegister.cs" />
+    <Compile Include="MiniZinc\IZincIdentScope.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

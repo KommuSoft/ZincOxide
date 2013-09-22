@@ -45,9 +45,9 @@ namespace ZincOxide {
                 files = p.Parse (args);
                 Interaction.Level = environment.Verbosity;
             } catch (OptionException e) {
-                Console.Write ("zincoxide: ");
-                Console.WriteLine (e.Message);
-                Console.WriteLine ("Try 'zincoxide --help' for more information.");
+                Console.Error.Write ("zincoxide: ");
+                Console.Error.WriteLine (e.Message);
+                Console.Error.WriteLine ("Try 'zincoxide --help' for more information.");
                 return (int)ProgramResult.StaticError;
             } catch (ZincOxideException e) {
                 Interaction.Error (e.Message);
@@ -55,10 +55,10 @@ namespace ZincOxide {
             }
 
             if (show_help) {
-                Console.WriteLine ("Usage: zincoxide [Options]+ files");
-                Console.WriteLine ();
-                Console.WriteLine ("Options: ");
-                p.WriteOptionDescriptions (Console.Out);
+                Console.Error.WriteLine ("Usage: zincoxide [Options]+ files");
+                Console.Error.WriteLine ();
+                Console.Error.WriteLine ("Options: ");
+                p.WriteOptionDescriptions (Console.Error);
             } else {
                 DirectoryInfo dirInfo = new DirectoryInfo (".");
                 foreach (string name in files) {
@@ -71,17 +71,17 @@ namespace ZincOxide {
 
                                 Interaction.ActiveFile = info.Name;
 
-                                Console.WriteLine ("File: " + info.Name);
+                                Console.Error.WriteLine ("File: " + info.Name);
 #if PARSE
                                 pars.Parse ();
 #else
                                 foreach (Token tok in scnr.Tokenize()) {
-                                    Console.Write (tok);
-                                    Console.Write (' ');
+                                    Console.Error.Write (tok);
+                                    Console.Error.Write (' ');
                                 }
 #endif
                                 if (pars.Result != null) {
-                                    Console.WriteLine ("echo: ");
+                                    Console.Error.WriteLine ("echo: ");
                                     pars.Result.Write (Console.Out);
                                 } else {
                                     Interaction.Warning ("File \"{0}\" is not a valid MiniZinc file.");
