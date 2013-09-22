@@ -186,6 +186,10 @@
     <Compile Include="MiniZinc\Items\ZincItemType.cs" />
     <Compile Include="MiniZinc\Items\ZincFileBase.cs" />
     <Compile Include="MiniZinc\Structures\ZincIdentScopeBase.cs" />
+    <Compile Include="MiniZinc\Structures\IZincRelation.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincAsExIdTiasBox.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincTiasBox.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincAsExIdTiasBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
