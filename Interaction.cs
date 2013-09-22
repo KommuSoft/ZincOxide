@@ -48,9 +48,9 @@ namespace ZincOxide {
 
         public static void GenericMessage (ProgramVerbosity verbosity, string format, params object[] args) {
             if ((verbosity & verbosityLevel) != 0x00) {
-                Console.Write (verbosity.ToString ());
-                Console.Write (": ");
-                Console.WriteLine (format, args);
+                Console.Error.Write (verbosity.ToString ());
+                Console.Error.Write (": ");
+                Console.Error.WriteLine (format, args);
             }
         }
 
