@@ -1,5 +1,5 @@
 //
-//  ZincIdent.cs
+//  NameIdBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,37 +19,32 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
-using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.Utils {
 
-    public class ZincIdent : NameIdBase, IZincNumExp, IZincIdentReplaceContainer {
+    public abstract class NameIdBase : NameBase, INameId {
 
-        public ZincIdent (string name) : base(name) {
-        }
+        private static uint idDispatcher = 0x00;
 
-        #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield return this;
+        private readonly uint id;
+
+        #region IId implementation
+        public uint Id {
+            get {
+                return this.id;
+            }
         }
         #endregion
 
-		#region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            ZincIdent outp;
-            if (identMap.TryGetValue (this, out outp)) {
-                return outp;
-            } else {
-                return this;
-            }
-        }
-		#endregion
 
-        public string ToBindString () {
-            return string.Format ("{0}&{1}", this.Name, this.Id);
+        protected NameIdBase () : base() {
+            this.id = idDispatcher++;
+        }
+
+        protected NameIdBase (string name) : base(name) {
+            this.id = idDispatcher++;
         }
 
     }
-
 }
+

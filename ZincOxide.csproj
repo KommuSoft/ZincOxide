@@ -170,6 +170,12 @@
     <Compile Include="MiniZinc\Structures\ZincTypeInstRangeExpression.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstWhereExpression.cs" />
     <Compile Include="MiniZinc\Structures\ZincVarPar.cs" />
+    <Compile Include="MiniZinc\Structures\ZincFundamentalType.cs" />
+    <Compile Include="MiniZinc\Structures\ZincCompound.cs" />
+    <Compile Include="Utils\IId.cs" />
+    <Compile Include="Utils\IdBase.cs" />
+    <Compile Include="Utils\INameId.cs" />
+    <Compile Include="Utils\NameIdBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -211,6 +217,7 @@
     <Folder Include="MiniZinc\Builtins\" />
     <Folder Include="MiniZinc\Items\" />
     <Folder Include="MiniZinc\Structures\" />
+    <Folder Include="Codegen\HigherOrder\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

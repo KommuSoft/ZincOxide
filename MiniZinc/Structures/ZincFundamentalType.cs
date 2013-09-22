@@ -1,5 +1,5 @@
 //
-//  ZincIdent.cs
+//  ZincFundamentalType.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,37 +19,28 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
-using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincIdent : NameIdBase, IZincNumExp, IZincIdentReplaceContainer {
+    public struct ZincFundamentalType {
 
-        public ZincIdent (string name) : base(name) {
-        }
+        private ulong data;
 
-        #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield return this;
-        }
-        #endregion
-
-		#region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            ZincIdent outp;
-            if (identMap.TryGetValue (this, out outp)) {
-                return outp;
-            } else {
-                return this;
+        public ulong Data {
+            get {
+                return this.data;
             }
         }
-		#endregion
 
-        public string ToBindString () {
-            return string.Format ("{0}&{1}", this.Name, this.Id);
+        private ZincFundamentalType (ulong data) {
+            this.data = data;
+        }
+
+        public ZincFundamentalType (ZincVarPar varpar, ZincScalar scalar) {
+            this.data = (ulong)varpar;
         }
 
     }
 
 }
+
