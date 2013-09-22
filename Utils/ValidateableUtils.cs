@@ -1,5 +1,5 @@
 //
-//  ITransformation.cs
+//  ValidatableUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,16 +18,16 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
-using ZincOxide.MiniZinc.Items;
+using System.Linq;
 
-namespace ZincOxide.Normalization {
+namespace ZincOxide.Utils {
 
-    public interface ITransformation {
+    public static class ValidateableUtils {
 
-        void Transform (IZincFile file);
+        public static bool Validate (this ISoftValidateable obj) {
+            return obj.SoftValidate ().Take (0x01).Count () >= 0x01;
+        }
 
     }
-
 }
 

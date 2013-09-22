@@ -23,8 +23,8 @@ using System;
 namespace ZincOxide.MiniZinc.Structures {
 
     public enum ZincVarPar {
-        Par = 0x00,
-        Var = 0x01
+        Par = 0x01,
+        Var = 0x02
     }
 
 }

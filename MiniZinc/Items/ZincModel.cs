@@ -22,6 +22,7 @@ using System.Linq;
 using System.IO;
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
@@ -41,11 +42,13 @@ namespace ZincOxide.MiniZinc.Items {
             }
         }
 
+        #region IZincFile implementation
         public IEnumerable<IZincItem> Items {
             get {
                 return this.items;
             }
         }
+        #endregion
 
         public ZincModel () {
         }
@@ -105,12 +108,28 @@ namespace ZincOxide.MiniZinc.Items {
         }
         #endregion
 
+        #region ISoftValidateable implementation
+        public IEnumerable<string> SoftValidate () {
+            if (this.items.Where (x => x.Type == ZincItemType.Solve).Count () != 0x01) {
+                yield return "A Zinc model always contains exactly one solve item.";
+            }
+            //TODO
+        }
+        #endregion
+
         #region IZincIdentReplaceContainer implementation
         public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
             //TODO implement
             return this;
         }
         #endregion
+
+        #region IValidateable implementation
+        public bool Validate () {
+            return ValidateableUtils.Validate (this);
+        }
+        #endregion
+
 
         public ZincData ConvertToZincData () {
             return new ZincData (this.Items);

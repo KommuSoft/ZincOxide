@@ -24,7 +24,11 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public interface IZincFile : IWriteable, IZincIdentReplaceContainer {
+    public interface IZincFile : IWriteable, IZincIdentReplaceContainer, IValidateable, ISoftValidateable {
+
+        IEnumerable<IZincItem> Items {
+            get;
+        }
 
         void AddItem (IZincItem item);
 

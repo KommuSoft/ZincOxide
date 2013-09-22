@@ -22,12 +22,21 @@ using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using ZincOxide.MiniZinc.Structures;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
     public class ZincData : IZincFile {
 
         private readonly List<ZincAssignItem> assignItems = new List<ZincAssignItem> ();
+
+        #region IZincFile implementation
+        public IEnumerable<IZincItem> Items {
+            get {
+                return this.assignItems;
+            }
+        }
+        #endregion
 
         public ZincData () {
         }
@@ -84,6 +93,18 @@ namespace ZincOxide.MiniZinc.Items {
                     this.AddItem (item);
                 }
             }
+        }
+        #endregion
+
+        #region ISoftValidateable implementation
+        public IEnumerable<string> SoftValidate () {
+            yield break;
+        }
+        #endregion
+
+        #region IValidateable implementation
+        public bool Validate () {
+            return ValidateableUtils.Validate (this);
         }
         #endregion
 

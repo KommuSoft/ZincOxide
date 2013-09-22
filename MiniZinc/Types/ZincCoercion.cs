@@ -1,5 +1,5 @@
 //
-//  ITransformation.cs
+//  ZincCoercion.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,13 +19,19 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.MiniZinc.Items;
 
-namespace ZincOxide.Normalization {
+namespace ZincOxide.MiniZinc.Types {
 
-    public interface ITransformation {
+    public class ZincCoercion : IZincTypeTransformation {
 
-        void Transform (IZincFile file);
+        public ZincCoercion () {
+        }
+
+        #region IZincTypeTransformation implementation
+        public IZincFundamentalType Transform (IZincFundamentalType type) {
+            throw new System.NotImplementedException ();//TODO
+        }
+        #endregion
 
     }
 
