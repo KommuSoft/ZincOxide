@@ -18,7 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Linq;
 using System.IO;
 using System.Collections.Generic;
 using ZincOxide.Utils;
@@ -29,8 +29,21 @@ namespace ZincOxide.MiniZinc {
 
         private readonly List<ZincIncludeItem> includeItems = new List<ZincIncludeItem> ();
         private readonly List<ZincVarDeclItem> varDeclItems = new List<ZincVarDeclItem> ();
+        private readonly List<ZincAssignItem> assignItems = new List<ZincAssignItem> ();
         private readonly List<ZincConstraintItem> constraintItems = new List<ZincConstraintItem> ();
         private readonly List<ZincOutputItem> outputItems = new List<ZincOutputItem> ();
+
+        public bool IsValidZincData {
+            get {
+                return this.Items.All (x => x is ZincVarDeclItem);
+            }
+        }
+
+        public bool IsValidZincModel {
+            get {
+                return true;//TODO: checks on VarDecl-Assign,...
+            }
+        }
 
         public IEnumerable<IZincItem> Items {
             get {
@@ -72,7 +85,7 @@ namespace ZincOxide.MiniZinc {
             }
         }
 
-
+        #region IZincFile implementation
         public void AddItems (IEnumerable<IZincItem> items) {
             if (items != null) {
                 foreach (IZincItem item in items) {
@@ -81,7 +94,7 @@ namespace ZincOxide.MiniZinc {
             }
         }
 
-        #region IZincFile implementation
+
         public void AddItem (IZincItem item) {
             if (item != null) {
                 switch (item.Type) {
@@ -131,7 +144,29 @@ namespace ZincOxide.MiniZinc {
         }
         #endregion
 
+        public ZincData ConvertToZincData () {
+            return new ZincData (this.Items);
+        }
 
+        public ZincData ReduceToZincData () {
+            return new ZincData (this.assignItems);//TODO: only par items
+        }
+
+        public static explicit operator ZincData (ZincModel model) {
+            if (model != null) {
+                return new ZincData (model.Items);
+            } else {
+                return null;
+            }
+        }
+
+        public static ZincData operator ~ (ZincModel model) {
+            if (model != null) {
+                return model.ReduceToZincData ();
+            } else {
+                return null;
+            }
+        }
 
     }
 

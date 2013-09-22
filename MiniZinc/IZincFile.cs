@@ -18,12 +18,17 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc {
 
     public interface IZincFile : IWriteable, IZincIdentReplaceContainer {
+
+        void AddItem (IZincItem item);
+
+        void AddItems (IEnumerable<IZincItem> items);
+
     }
 }
 

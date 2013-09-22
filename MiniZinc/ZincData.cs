@@ -31,6 +31,9 @@ namespace ZincOxide.MiniZinc {
         public ZincData () {
         }
 
+        public ZincData (IEnumerable<IZincItem> items) {
+        }
+
         #region IWriteable implementation
         public void Write (TextWriter writer) {
             foreach (ZincAssignItem item in this.assignItems) {
@@ -55,10 +58,33 @@ namespace ZincOxide.MiniZinc {
         }
         #endregion
 
+        public void AddAssignItem (ZincAssignItem assignItem) {
+            if (assignItem != null) {
+                this.assignItems.Add (assignItem);
+            }
+        }
 
+        #region IZincFile implementation
+        public void AddItem (IZincItem item) {
+            if (item != null) {
+                switch (item.Type) {
+                case ZincItemType.Assign:
+                    this.AddAssignItem (item as ZincAssignItem);
+                    break;
+                default:
+                    throw new ZincOxideMiniZincException ("Only assign items are valid items in a MiniZinc data file.");
+                }
+            }
+        }
 
-
-
+        public void AddItems (IEnumerable<IZincItem> items) {
+            if (items != null) {
+                foreach (IZincItem item in items) {
+                    this.AddItem (item);
+                }
+            }
+        }
+        #endregion
 
     }
 
