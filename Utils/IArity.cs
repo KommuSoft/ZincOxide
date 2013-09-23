@@ -1,5 +1,5 @@
 //
-//  IZincRelation.cs
+//  IArity.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,13 +18,17 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.MiniZinc.Boxes;
-using ZincOxide.Utils;
+using System;
 
-namespace ZincOxide.MiniZinc.Items {
+namespace ZincOxide.Utils {
 
-    public interface IZincRelation : IArity, IZincItem, IZincAsExIdTiasBox {
+    public interface IArity {
+
+        int Arity {
+            get;
+        }
 
     }
+
 }
 

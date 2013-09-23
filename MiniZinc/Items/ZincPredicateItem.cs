@@ -48,11 +48,11 @@ namespace ZincOxide.MiniZinc.Items {
         }
         #endregion
 
-        public ZincPredicateItem (ZincIdent ident, IList<ZincTypeInstExprAndIdent> parameters, ZincAnnotations annotations, IZincExp body) : base(annotations,body,ident,parameters) {
+        public ZincPredicateItem (ZincIdent ident, IList<ZincTypeInstExprAndIdent> parameters, ZincAnnotations annotations, IZincExp body = null) : base(annotations,body,ident,parameters) {
             ident.Usage = ZincIdentUsage.Function;
         }
 
-        public ZincPredicateItem (ZincIdent ident, IEnumerable<ZincTypeInstExprAndIdent> parameters, ZincAnnotations annotations, IZincExp body) : base(annotations,body,ident,parameters) {
+        public ZincPredicateItem (ZincIdent ident, IEnumerable<ZincTypeInstExprAndIdent> parameters, ZincAnnotations annotations, IZincExp body = null) : base(annotations,body,ident,parameters) {
             ident.Usage = ZincIdentUsage.Function;
         }
 
