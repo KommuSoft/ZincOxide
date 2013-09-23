@@ -188,10 +188,11 @@
     <Compile Include="MiniZinc\Structures\ZincIdentScopeBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincAsExIdTiasBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTiasBox.cs" />
-    <Compile Include="MiniZinc\Boxes\ZincAsExIdTiasBox.cs" />
     <Compile Include="MiniZinc\Items\IZincRelation.cs" />
     <Compile Include="MiniZinc\Boxes\IZincAsExIdTieTiasBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincAsExIdTieTiasBoxBase.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincAsExIdTiasBoxBase.cs" />
+    <Compile Include="MiniZinc\Items\ZincFunctionItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

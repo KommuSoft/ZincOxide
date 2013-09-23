@@ -24,7 +24,7 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincAsExIdTieTiasBoxBase : ZincAsExIdTiasBox, IZincAsExIdTieTiasBox {
+    public abstract class ZincAsExIdTieTiasBoxBase : ZincAsExIdTiasBoxBase, IZincAsExIdTieTiasBox {
 
         private IZincTypeInstExpression typeInstExpression;
 

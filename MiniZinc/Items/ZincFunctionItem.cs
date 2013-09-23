@@ -1,5 +1,5 @@
 //
-//  ZincPredicateItem.cs
+//  ZincFunctionItem.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -26,7 +26,7 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public class ZincPredicateItem : ZincAsExIdTiasBoxBase, IZincItem, IZincRelation {
+    public class ZincFunctionItem : ZincAsExIdTieTiasBoxBase, IZincItem, IZincRelation {
 
         #region IZincItem implementation
         public ZincItemType Type {
@@ -48,16 +48,18 @@ namespace ZincOxide.MiniZinc.Items {
         }
         #endregion
 
-        public ZincPredicateItem (ZincIdent ident, IList<ZincTypeInstExprAndIdent> parameters, ZincAnnotations annotations, IZincExp body) : base(annotations,body,ident,parameters) {
+        public ZincFunctionItem (IZincTypeInstExpression typeInst, ZincIdent ident, IList<ZincTypeInstExprAndIdent> parameters, ZincAnnotations annotations, IZincExp body) : base(annotations,body,ident,typeInst,parameters) {
             ident.Usage = ZincIdentUsage.Function;
         }
 
-        public ZincPredicateItem (ZincIdent ident, IEnumerable<ZincTypeInstExprAndIdent> parameters, ZincAnnotations annotations, IZincExp body) : base(annotations,body,ident,parameters) {
+        public ZincFunctionItem (IZincTypeInstExpression typeInst, ZincIdent ident, IEnumerable<ZincTypeInstExprAndIdent> parameters, ZincAnnotations annotations, IZincExp body) : base(annotations,body,ident,typeInst,parameters) {
             ident.Usage = ZincIdentUsage.Function;
         }
 
         public override string ToString () {
-            StringBuilder sb = new StringBuilder ("predicate ");
+            StringBuilder sb = new StringBuilder ("function ");
+            sb.Append (this.TypeInstExpression);
+            sb.Append (" : ");
             sb.Append (this.Ident);
             if (this.TypeInstAndIdentExpressions != null && this.TypeInstAndIdentExpressions.Count > 0x00) {
                 sb.Append (" (");
@@ -80,7 +82,7 @@ namespace ZincOxide.MiniZinc.Items {
             writer.Write (this.ToString ());
         }
         #endregion
-
     }
+
 }
 
