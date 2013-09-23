@@ -1,5 +1,5 @@
 //
-//  IZincRelation.cs
+//  IZincAsExIdTieTiasBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,10 +20,10 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc.Structures {
-    public class IZincRelation {
-        public IZincRelation () {
-        }
+namespace ZincOxide.MiniZinc.Boxes {
+
+    public interface IZincAsExIdTieTiasBox : IZincAsBox, IZincAsExBox, IZincAsExIdTiasBox, IZincExBox, IZincExIdBox, IZincIdBox, IZincIdTieBox, IZincTiasBox, IZincTieBox {
+
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  ZincIdTieBoxBase.cs
+//  ZincAsExIdTieTiasBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -24,7 +24,7 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincIdTieBoxBase : ZincIdBoxBase, IZincIdTieBox {
+    public abstract class ZincAsExIdTieTiasBoxBase : ZincAsExIdTiasBox, IZincAsExIdTieTiasBox {
 
         private IZincTypeInstExpression typeInstExpression;
 
@@ -39,9 +39,16 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
         #endregion
 
+        protected ZincAsExIdTieTiasBoxBase (ZincAnnotations annotations, IZincExp expression, ZincIdent ident, IZincTypeInstExpression typeInstExpression, IList<ZincTypeInstExprAndIdent> typeInstIdentExpressions) : base(annotations,expression,ident,typeInstIdentExpressions) {
+            this.typeInstExpression = typeInstExpression;
+        }
 
-        protected ZincIdTieBoxBase (ZincIdent ident, IZincTypeInstExpression expression) : base(ident) {
-            this.TypeInstExpression = expression;
+        protected ZincAsExIdTieTiasBoxBase (ZincAnnotations annotations, IZincExp expression, ZincIdent ident, IZincTypeInstExpression typeInstExpression, params ZincTypeInstExprAndIdent[] typeInstIdentExpressions) : base(annotations,expression,ident,typeInstIdentExpressions) {
+            this.typeInstExpression = typeInstExpression;
+        }
+
+        protected ZincAsExIdTieTiasBoxBase (ZincAnnotations annotations, IZincExp expression, ZincIdent ident, IZincTypeInstExpression typeInstExpression, IEnumerable<ZincTypeInstExprAndIdent> typeInstIdentExpressions) : base(annotations,expression,ident,typeInstIdentExpressions) {
+            this.typeInstExpression = typeInstExpression;
         }
 
         public override IEnumerable<ZincIdent> InvolvedIdents () {
@@ -54,6 +61,5 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
 
     }
-
 }
 
