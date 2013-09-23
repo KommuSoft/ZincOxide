@@ -193,6 +193,7 @@
     <Compile Include="MiniZinc\Boxes\ZincAsExIdTieTiasBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\ZincAsExIdTiasBoxBase.cs" />
     <Compile Include="MiniZinc\Items\ZincFunctionItem.cs" />
+    <Compile Include="Normalization\PredicateToFunctionTransformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

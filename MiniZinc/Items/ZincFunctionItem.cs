@@ -31,7 +31,7 @@ namespace ZincOxide.MiniZinc.Items {
         #region IZincItem implementation
         public ZincItemType Type {
             get {
-                return ZincItemType.Predicate;
+                return ZincItemType.Function;
             }
         }
         #endregion
