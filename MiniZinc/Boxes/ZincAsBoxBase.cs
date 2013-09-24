@@ -23,7 +23,7 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincAsBoxBase : ZincBoxBase, IZincAsBox {
+    public class ZincAsBoxBase : ZincBoxBase, IZincAsBox {
 
         private ZincAnnotations annotations;
 
@@ -58,6 +58,13 @@ namespace ZincOxide.MiniZinc.Boxes {
             return this;
         }
         #endregion
+
+        #region implemented abstract members of ZincOxide.MiniZinc.Boxes.ZincBoxBase
+        public override IEnumerable<IZincElement> Children () {
+            yield return this.annotations;
+        }
+        #endregion
+
 
     }
 }
