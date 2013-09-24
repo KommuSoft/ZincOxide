@@ -24,7 +24,7 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincTiesBoxBase : IZincTiesBox {
+    public class ZincTiesBoxBase : ZincBoxBase, IZincTiesBox {
 
         private IList<IZincTypeInstExpression> typeInstExpressions;
 
@@ -50,20 +50,24 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
 
         #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
+        public override IEnumerable<ZincIdent> InvolvedIdents () {
             return this.typeInstExpressions.SelectMany (x => x.InvolvedIdents ());
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
             int n = this.typeInstExpressions.Count;
             for (int i = 0x00; i < n; i++) {
                 this.typeInstExpressions [i] = this.typeInstExpressions [i].Replace (identMap) as IZincTypeInstExpression;
             }
-            return this;
+            return base.Replace (identMap);
         }
         #endregion
+
+        public override IEnumerable<IZincElement> Children () {
+            return this.typeInstExpressions;
+        }
 
     }
 

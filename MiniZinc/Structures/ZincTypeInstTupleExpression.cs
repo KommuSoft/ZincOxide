@@ -25,6 +25,19 @@ namespace ZincOxide.MiniZinc.Structures {
 
     public class ZincTypeInstTupleExpression : ZincTiesBoxBase, IZincType {
 
+        #region IFinite implementation
+        public bool Finite {
+            get {
+                foreach (IZincTypeInstExpression tie in this.TypeInstExpressions) {
+                    if (!tie.Finite) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        #endregion
+
         public ZincTypeInstTupleExpression (IEnumerable<IZincTypeInstExpression> attributes) : base(attributes) {
         }
 
@@ -32,7 +45,7 @@ namespace ZincOxide.MiniZinc.Structures {
         }
 
         public override string ToString () {
-            return string.Format ("tuple ( {0} )", string.Join (" , ", this.TypeInstExpressions), this.TypeInstExpression);
+            return string.Format ("tuple ( {0} )", string.Join (" , ", this.TypeInstExpressions));
         }
 
     }

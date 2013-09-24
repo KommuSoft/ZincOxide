@@ -25,6 +25,22 @@ namespace ZincOxide.MiniZinc.Structures {
 
     public class ZincTypeInstArrayExpression : ZincTieTiesBoxBase, IZincType {
 
+        #region IZincType implementation
+        public bool Finite {
+            get {
+                if (this.TypeInstExpression.Finite) {
+                    foreach (IZincTypeInstExpression index in this.TypeInstExpressions) {
+                        if (!index.Finite) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                return true;
+            }
+        }
+        #endregion
+
         public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, IZincTypeInstExpression atta, IZincTypeInstExpression attb) : base(oftype,new IZincTypeInstExpression[] {atta,attb}) {
         }
 

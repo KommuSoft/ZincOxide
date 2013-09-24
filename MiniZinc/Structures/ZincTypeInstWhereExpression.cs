@@ -29,6 +29,15 @@ namespace ZincOxide.MiniZinc.Structures {
 
         private ZincTypeInstWhereExpression header;
 
+        #region IFinite implementation
+        public bool Finite {
+            get {
+                return false;//TODO
+            }
+        }
+        #endregion
+
+
         public ZincTypeInstWhereExpression Header {
             get {
                 return this.header;

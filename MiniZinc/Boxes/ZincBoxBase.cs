@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
+using ZincOxide.MiniZinc.Structures;
 using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
@@ -49,6 +50,21 @@ namespace ZincOxide.MiniZinc.Boxes {
             yield break;
         }
         #endregion
+
+        #region IZincIdentContainer implementation
+        public abstract IEnumerable<ZincIdent> InvolvedIdents ();
+        #endregion
+
+        #region IZincIdentReplaceContainer implementation
+        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+            return this;
+        }
+        #endregion
+
+
+
+
+
 
     }
 

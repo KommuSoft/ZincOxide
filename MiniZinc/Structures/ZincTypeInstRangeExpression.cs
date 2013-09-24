@@ -25,6 +25,15 @@ namespace ZincOxide.MiniZinc.Structures {
 
     public class ZincTypeInstRangeExpression : ZincNumNumBoxBase, IZincType {
 
+        #region IFinite implementation
+        public bool Finite {
+            get {
+                return true;
+            }
+        }
+        #endregion
+
+
         public ZincTypeInstRangeExpression (IZincNumExp numexp1, IZincNumExp numexp2) : base(numexp1,numexp2) {
         }
 

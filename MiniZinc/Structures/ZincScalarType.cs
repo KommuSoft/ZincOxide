@@ -18,8 +18,8 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 using System.Collections.Generic;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
@@ -32,6 +32,14 @@ namespace ZincOxide.MiniZinc.Structures {
                 return this.scalar;
             }
         }
+
+        #region IZincType implementation
+        public bool Finite {
+            get {
+                return this.Scalar == ZincScalar.Bool;
+            }
+        }
+        #endregion
 
         public ZincScalarType (ZincScalar scalar) {
             this.scalar = scalar;
@@ -69,8 +77,31 @@ namespace ZincOxide.MiniZinc.Structures {
         }
         #endregion
 
+        
 
+        #region IInnerSoftValidateable implementation
+        public IEnumerable<string> InnerSoftValidate () {
+            return EnumerableUtils.Empty<string> ();
+        }
+        #endregion
 
+        #region IValidateable implementation
+        public bool Validate () {
+            return false;
+        }
+        #endregion
+
+        #region ISoftValidateable implementation
+        public IEnumerable<string> SoftValidate () {
+            return EnumerableUtils.Empty<string> ();
+        }
+        #endregion
+
+        #region IComposition implementation
+        public IEnumerable<IZincElement> Children () {
+            return EnumerableUtils.Empty<IZincElement> ();
+        }
+        #endregion
 
     }
 

@@ -204,6 +204,9 @@
     <Compile Include="MiniZinc\Boxes\ZincBoxBase.cs" />
     <Compile Include="MiniZinc\Builtins\ZincRelationAttribute.cs" />
     <Compile Include="MiniZinc\Structures\ZincNumExpLiteralBase.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincTyBox.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincTyBoxBase.cs" />
+    <Compile Include="Utils\IFinite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -247,6 +250,7 @@
     <Folder Include="MiniZinc\Structures\" />
     <Folder Include="Codegen\HigherOrder\" />
     <Folder Include="MiniZinc\Types\" />
+    <Folder Include="Complexity\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

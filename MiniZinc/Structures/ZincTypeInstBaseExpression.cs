@@ -19,13 +19,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
+using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincTypeInstBaseExpression : IZincElement, IZincTypeInstExpression {
+    public class ZincTypeInstBaseExpression : ZincTyBoxBase, IZincTypeInstExpression {
 
         private ZincVarPar varPar;
-        private IZincType type;
 
         public ZincVarPar VarPar {
             get {
@@ -36,16 +36,16 @@ namespace ZincOxide.MiniZinc.Structures {
             }
         }
 
-        public IZincType Type {
+        #region IFinite implementation
+        public bool Finite {
             get {
-                return this.type;
-            }
-            protected set {
-                this.type = value;
+                return this.Type.Finite;
             }
         }
+        #endregion
 
-        public ZincTypeInstBaseExpression (ZincVarPar varPar, IZincType type) {
+
+        public ZincTypeInstBaseExpression (ZincVarPar varPar, IZincType type) : base(type) {
             this.VarPar = varPar;
             this.Type = type;
         }
@@ -56,23 +56,9 @@ namespace ZincOxide.MiniZinc.Structures {
         public ZincTypeInstBaseExpression (IZincType type, ZincVarPar varPar = ZincVarPar.Par) : this(varPar,type) {
         }
 
-        #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.type.InvolvedIdents ();
-        }
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.type = this.type.Replace (identMap) as IZincType;
-            return this;
-        }
-        #endregion
-
         public override string ToString () {
             return string.Format ("{0} {1}", ZincPrintUtils.VarParLiteral (this.VarPar), this.Type);
         }
-
 
     }
 

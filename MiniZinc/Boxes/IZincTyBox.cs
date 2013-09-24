@@ -1,5 +1,5 @@
 //
-//  ZincTypeInstSetExpression.cs
+//  IZincTypBox.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,27 +18,17 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.MiniZinc.Boxes;
+using ZincOxide.MiniZinc.Structures;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincTypeInstSetExpression : ZincTieBoxBase, IZincType {
+    public interface IZincTyBox : IZincBox {
 
-        #region IFinite implementation
-        public bool Finite {
-            get {
-                return this.TypeInstExpression.Finite;
-            }
-        }
-        #endregion
-
-        public ZincTypeInstSetExpression (IZincTypeInstExpression expression) : base(expression) {
-        }
-
-        public override string ToString () {
-            return string.Format ("set of {0}", this.TypeInstExpression);
+        IZincType Type {
+            get;
         }
 
     }
 
 }
+

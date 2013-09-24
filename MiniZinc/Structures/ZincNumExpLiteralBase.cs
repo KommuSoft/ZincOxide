@@ -36,13 +36,13 @@ namespace ZincOxide.MiniZinc.Structures {
 
         #region IValidateable implementation
         public bool Validate () {
-            ValidateableUtils.Validate (this);
+            return ValidateableUtils.Validate (this);
         }
         #endregion
 
         #region ISoftValidateable implementation
         public IEnumerable<string> SoftValidate () {
-            ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
+            return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
         }
         #endregion
 

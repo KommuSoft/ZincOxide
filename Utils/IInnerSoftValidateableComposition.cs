@@ -1,5 +1,5 @@
 //
-//  ZincTypeInstSetExpression.cs
+//  IInnerSoftValidatableComposition.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,27 +18,10 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.MiniZinc.Boxes;
+using System;
 
-namespace ZincOxide.MiniZinc.Structures {
-
-    public class ZincTypeInstSetExpression : ZincTieBoxBase, IZincType {
-
-        #region IFinite implementation
-        public bool Finite {
-            get {
-                return this.TypeInstExpression.Finite;
-            }
-        }
-        #endregion
-
-        public ZincTypeInstSetExpression (IZincTypeInstExpression expression) : base(expression) {
-        }
-
-        public override string ToString () {
-            return string.Format ("set of {0}", this.TypeInstExpression);
-        }
-
+namespace ZincOxide.Utils {
+    public interface IInnerSoftValidatableComposition {
     }
-
 }
+

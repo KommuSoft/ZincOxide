@@ -18,13 +18,11 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincType : IZincIdentReplaceContainer {
-
-
+    public interface IZincType : IZincElement, IFinite {
 
     }
 

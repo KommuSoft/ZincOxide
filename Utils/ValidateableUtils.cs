@@ -29,7 +29,7 @@ namespace ZincOxide.Utils {
             return obj.SoftValidate ().Take (0x01).Count () >= 0x01;
         }
 
-        public static IEnumerable<string> CompositionInnerSoftValidate<T,Q> (this T value) where T : IInnerSoftValidateable, IComposition<Q> where Q : ISoftValidateable {
+        public static IEnumerable<string> CompositionInnerSoftValidate<T,Q> (this T value) where Q : ISoftValidateable, IComposition<Q> where T : IInnerSoftValidateable, IComposition<Q> {
             foreach (string exception in value.InnerSoftValidate()) {
                 yield return exception;
             }

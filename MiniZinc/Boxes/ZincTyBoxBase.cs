@@ -1,5 +1,5 @@
 //
-//  ZincAsBoxBase.cs
+//  ZincTyBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,52 +20,47 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincAsBoxBase : ZincBoxBase, IZincAsBox {
+    public class ZincTyBoxBase : ZincBoxBase, IZincTyBox {
 
-        private ZincAnnotations annotations;
+        private IZincType type;
 
-        #region IZincExpressionBox implementation
-        public ZincAnnotations Annotations {
+        #region IZincTyBox implementation
+        public IZincType Type {
             get {
-                return this.annotations;
+                return this.type;
             }
             protected set {
-                this.annotations = value;
+                this.type = value;
             }
         }
         #endregion
 
-
-        protected ZincAsBoxBase () {
-        }
-
-        protected ZincAsBoxBase (ZincAnnotations annotations) {
-            this.Annotations = annotations;
+        protected ZincTyBoxBase (IZincType type) {
+            this.type = type;
         }
 
         #region IZincIdentContainer implementation
         public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.Annotations.InvolvedIdents ();
+            return this.type.InvolvedIdents ();
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
         public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
+            this.type = this.type.Replace (identMap) as IZincType;
             return this;
         }
         #endregion
 
-        #region implemented abstract members of ZincOxide.MiniZinc.Boxes.ZincBoxBase
         public override IEnumerable<IZincElement> Children () {
-            yield return this.annotations;
+            yield return this.type;
         }
-        #endregion
-
 
     }
+
 }
 

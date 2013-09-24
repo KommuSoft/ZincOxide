@@ -47,12 +47,12 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
 
         #region ZincIdentContainer implementation
-        public virtual IEnumerable<ZincIdent> InvolvedIdents () {
+        public override IEnumerable<ZincIdent> InvolvedIdents () {
             yield return this.ident;
         }
 		#endregion
 		#region ZincIdentReplaceContainer implementation
-        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
+        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
             this.ident = this.ident.Replace (identMap) as ZincIdent;
             return this;
         }
