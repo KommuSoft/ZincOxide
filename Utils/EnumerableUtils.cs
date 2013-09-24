@@ -29,6 +29,15 @@ namespace ZincOxide.Utils {
             yield break;
         }
 
+        public static IEnumerable<T> Append<T> (T value, params IEnumerable<T>[] lists) {
+            yield return value;
+            foreach (IEnumerable<T> list in lists) {
+                foreach (T val in list) {
+                    yield return val;
+                }
+            }
+        }
+
         public static IEnumerable<T> Append<T> (params IEnumerable<T>[] lists) {
             return Append (lists);
         }

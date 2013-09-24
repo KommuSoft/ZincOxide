@@ -53,6 +53,10 @@ namespace ZincOxide.MiniZinc.Boxes {
             return base.Replace (identMap);
         }
 
+        public override IEnumerable<IZincElement> Children () {
+            return EnumerableUtils.Append (this.TypeInstExpression, base.Children ());
+        }
+
     }
 
 }

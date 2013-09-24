@@ -18,6 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
 using ZincOxide.Utils;
 
@@ -49,6 +50,10 @@ namespace ZincOxide.MiniZinc.Boxes {
         public override IZincIdentReplaceContainer Replace (System.Collections.Generic.IDictionary<ZincIdent, ZincIdent> identMap) {
             this.TypeInstExprAndIdent = this.TypeInstExprAndIdent.Replace (identMap) as ZincTypeInstExprAndIdent;
             return base.Replace (identMap);
+        }
+
+        public override IEnumerable<IZincElement> Children () {
+            return EnumerableUtils.Append (this.TypeInstExprAndIdent, base.Children ());
         }
 
     }
