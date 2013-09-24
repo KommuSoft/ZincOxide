@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincBoolLiteral : IZincNumExp {
+    public class ZincBoolLiteral : ZincNumExpLiteralBase {
 
         private bool value;
 
@@ -43,19 +43,6 @@ namespace ZincOxide.MiniZinc.Structures {
         public override string ToString () {
             return this.value.ToString ();
         }
-
-        #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;
-        }
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this;
-        }
-        #endregion
-
 
         public static implicit operator ZincBoolLiteral (bool value) {
             return new ZincBoolLiteral (value);

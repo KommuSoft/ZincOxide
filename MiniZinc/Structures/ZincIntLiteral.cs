@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincIntLiteral : IZincNumExp {
+    public class ZincIntLiteral : ZincNumExpLiteralBase {
 
         private long value;
 
@@ -67,19 +67,6 @@ namespace ZincOxide.MiniZinc.Structures {
         public override string ToString () {
             return this.value.ToString ();
         }
-
-        #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;
-        }
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this;
-        }
-        #endregion
-
 
         public static implicit operator ZincIntLiteral (long value) {
             return new ZincIntLiteral (value);

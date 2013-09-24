@@ -39,15 +39,14 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
         #endregion
 
-        protected ZincTiesBoxBase (IList<IZincTypeInstExpression> TypeInstExpressions) {
+        protected ZincTiesBoxBase (IList<IZincTypeInstExpression> typeInstExpressions) {
             this.typeInstExpressions = typeInstExpressions;
         }
 
-        protected ZincTiesBoxBase (IEnumerable<IZincTypeInstExpression> TypeInstExpressions) : this(typeInstExpressions.ToList()) {
-            this.typeInstExpressions = typeInstExpressions;
+        protected ZincTiesBoxBase (IEnumerable<IZincTypeInstExpression> typeInstExpressions) : this(typeInstExpressions.ToList()) {
         }
 
-        protected ZincTiesBoxBase (params IZincTypeInstExpression[] TypeInstExpressions) : this((IList<IZincTypeInstExpression>) typeInstExpressions) {
+        protected ZincTiesBoxBase (params IZincTypeInstExpression[] typeInstExpressions) : this((IList<IZincTypeInstExpression>) typeInstExpressions) {
         }
 
         #region IZincIdentContainer implementation

@@ -23,7 +23,7 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincTieBoxBase : IZincTieBox {
+    public abstract class ZincTieBoxBase : ZincBoxBase, IZincTieBox {
 
         private IZincTypeInstExpression typeInstExpression;
 
@@ -53,8 +53,9 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
         #endregion
 
-
-
+        public override IEnumerable<IZincElement> Children () {
+            yield return this.typeInstExpression;
+        }
 
     }
 }

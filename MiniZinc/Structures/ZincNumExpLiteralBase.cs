@@ -1,5 +1,5 @@
 //
-//  ZincAsBoxBase.cs
+//  ZincNumExpLiteralBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,46 +19,59 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
-using ZincOxide.MiniZinc.Structures;
+using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc.Boxes {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public abstract class ZincAsBoxBase : ZincBoxBase, IZincAsBox {
+    public class ZincNumExpLiteralBase : IZincNumExp {
 
-        private ZincAnnotations annotations;
+        protected ZincNumExpLiteralBase () {
+        }
 
-        #region IZincExpressionBox implementation
-        public ZincAnnotations Annotations {
-            get {
-                return this.annotations;
-            }
-            protected set {
-                this.annotations = value;
-            }
+        #region IInnerSoftValidateable implementation
+        public virtual IEnumerable<string> InnerSoftValidate () {
+            yield break;
         }
         #endregion
 
-
-        protected ZincAsBoxBase () {
+        #region IValidateable implementation
+        public bool Validate () {
+            ValidateableUtils.Validate (this);
         }
+        #endregion
 
-        protected ZincAsBoxBase (ZincAnnotations annotations) {
-            this.Annotations = annotations;
+        #region ISoftValidateable implementation
+        public IEnumerable<string> SoftValidate () {
+            ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
         }
+        #endregion
+
+        #region IComposition implementation
+        public virtual IEnumerable<IZincElement> Children () {
+            yield break;
+        }
+        #endregion
 
         #region IZincIdentContainer implementation
         public virtual IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.Annotations.InvolvedIdents ();
+            yield break;
         }
         #endregion
 
         #region IZincIdentReplaceContainer implementation
         public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
             return this;
         }
         #endregion
 
+
+
+
+
+
+
+
     }
+
 }
 

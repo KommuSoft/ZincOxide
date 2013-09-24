@@ -62,6 +62,41 @@ namespace ZincOxide.MiniZinc.Structures {
             return string.Format ("{0}&{1}", this.Name, this.Id);
         }
 
+        #region IInnerSoftValidateable implementation
+        public IEnumerable<string> InnerSoftValidate () {
+            yield break;
+        }
+        #endregion
+
+        #region IValidateable implementation
+        public bool Validate () {
+            return ValidateableUtils.Validate (this);
+        }
+        #endregion
+
+        #region ISoftValidateable implementation
+        public IEnumerable<string> SoftValidate () {
+            return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
+        }
+        #endregion
+
+        #region IComposition implementation
+        public IEnumerable<IZincElement> Children () {
+            yield break;
+        }
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 }

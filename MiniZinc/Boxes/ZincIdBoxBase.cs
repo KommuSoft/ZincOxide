@@ -23,7 +23,7 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincIdBoxBase : IZincIdBox {
+    public abstract class ZincIdBoxBase : ZincBoxBase, IZincIdBox {
 
         private ZincIdent ident;
 
@@ -58,7 +58,9 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
         #endregion
 
-
+        public override IEnumerable<IZincElement> Children () {
+            yield return this.ident;
+        }
 
 
     }

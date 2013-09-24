@@ -20,10 +20,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincExBoxBase : IZincExBox {
+    public class ZincExBoxBase : ZincBoxBase, IZincExBox {
 
         private IZincExp expression;
 
@@ -59,23 +60,9 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
         #endregion
 
-        #region IValidateable implementation
-        public bool Validate () {
-            throw new System.NotImplementedException ();
+        public override IEnumerable<IZincElement> Children () {
+            yield return this.expression;
         }
-        #endregion
-
-        #region ISoftValidateable implementation
-        public IEnumerable<string> SoftValidate () {
-            throw new System.NotImplementedException ();
-        }
-        #endregion
-
-        #region IComposition implementation
-        public IEnumerable<IZincElement> Children () {
-            throw new System.NotImplementedException ();
-        }
-        #endregion
 
     }
 

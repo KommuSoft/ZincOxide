@@ -1,5 +1,5 @@
 //
-//  ZincFloatLiteral.cs
+//  ZincBoxBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,38 +19,36 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
+using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincFloatLiteral : ZincNumExpLiteralBase {
+    public abstract class ZincBoxBase : IZincBox {
 
-        private double value;
-
-        public double Value {
-            get {
-                return this.value;
-            }
+        protected ZincBoxBase () {
         }
 
-        public ZincFloatLiteral (string text) {
-            this.value = double.Parse (text);
+        #region IValidateable implementation
+        public virtual bool Validate () {
+            return ValidateableUtils.Validate (this);
         }
+        #endregion
 
-        public ZincFloatLiteral (float value) {
-            this.value = value;
+        #region ISoftValidateable implementation
+        public virtual IEnumerable<string> SoftValidate () {
+            return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
         }
+        #endregion
 
-        public ZincFloatLiteral (double value) {
-            this.value = value;
-        }
+        #region IComposition implementation
+        public abstract IEnumerable<IZincElement> Children ();
+        #endregion
 
-        public static implicit operator ZincFloatLiteral (float value) {
-            return new ZincFloatLiteral (value);
+        #region IZincBox implementation
+        public virtual IEnumerable<string> InnerSoftValidate () {
+            yield break;
         }
-
-        public static implicit operator ZincFloatLiteral (double value) {
-            return new ZincFloatLiteral (value);
-        }
+        #endregion
 
     }
 

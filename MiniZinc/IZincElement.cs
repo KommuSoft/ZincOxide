@@ -23,7 +23,7 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc {
 
-    public interface IZincElement : ISoftValidateable, IComposition<IZincElement>, IZincIdentReplaceContainer {
+    public interface IZincElement : IInnerSoftValidateable, ISoftValidateable, IComposition<IZincElement>, IZincIdentReplaceContainer {
     }
 }
 

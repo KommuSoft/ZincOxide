@@ -18,6 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ZincOxide.Utils {
@@ -26,6 +27,17 @@ namespace ZincOxide.Utils {
 
         public static bool Validate (this ISoftValidateable obj) {
             return obj.SoftValidate ().Take (0x01).Count () >= 0x01;
+        }
+
+        public static IEnumerable<string> CompositionInnerSoftValidate<T,Q> (this T value) where T : IInnerSoftValidateable, IComposition<Q> where Q : ISoftValidateable {
+            foreach (string exception in value.InnerSoftValidate()) {
+                yield return exception;
+            }
+            foreach (Q element in value.Children()) {
+                foreach (string exception in element.SoftValidate()) {
+                    yield return exception;
+                }
+            }
         }
 
     }

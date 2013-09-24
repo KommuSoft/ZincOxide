@@ -1,5 +1,5 @@
 //
-//  IZincTypeInstExpression.cs
+//  IInnerSoftValidateable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,13 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.Utils {
+    public interface IInnerSoftValidateable {
 
-    public interface IZincTypeInstExpression : IZincElement {
+        IEnumerable<string> InnerSoftValidate ();
 
     }
-
 }
 

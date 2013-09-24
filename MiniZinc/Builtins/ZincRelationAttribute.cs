@@ -1,5 +1,5 @@
 //
-//  IZincTypeInstExpression.cs
+//  ZincRelationAttribute.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,9 +20,13 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc.Builtins {
 
-    public interface IZincTypeInstExpression : IZincElement {
+    [AttributeUsage(AttributeTargets.Class)]
+    public class ZincRelationAttribute : Attribute {
+
+        public ZincRelationAttribute () {
+        }
 
     }
 

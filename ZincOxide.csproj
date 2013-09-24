@@ -200,6 +200,10 @@
     <Compile Include="Utils\IComposition.cs" />
     <Compile Include="MiniZinc\IZincElement.cs" />
     <Compile Include="MiniZinc\Boxes\IZincBox.cs" />
+    <Compile Include="Utils\IInnerSoftValidateable.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincBoxBase.cs" />
+    <Compile Include="MiniZinc\Builtins\ZincRelationAttribute.cs" />
+    <Compile Include="MiniZinc\Structures\ZincNumExpLiteralBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
