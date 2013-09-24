@@ -28,6 +28,8 @@ namespace ZincOxide.Codegen {
 
         ICodeInterface NewInterface (ICodePackage package, string name, params ICodeInterface[] iface);
 
+        ICodeProperty NewProperty (ICodeInterface iface, string name, CodePropertyAccess access = CodePropertyAccess.Get | CodePropertyAccess.Set);
+
         IEnumerable<ICodeFile> Generate ();
 
     }

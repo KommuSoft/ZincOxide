@@ -1,5 +1,5 @@
 //
-//  ICodeInterface.cs
+//  ICodePropertyAccess.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,13 +18,14 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.Utils;
+using System;
 
 namespace ZincOxide.Codegen {
 
-    public interface ICodeInterface : IName {
-
+    [Flags]
+    public enum CodePropertyAccess : byte {
+        Get = 0x01,
+        Set = 0x02
     }
 
 }
-

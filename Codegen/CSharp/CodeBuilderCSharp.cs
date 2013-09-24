@@ -48,6 +48,13 @@ namespace ZincOxide.Codegen.CSharp {
                 yield return new ContextWriteableCodeFile (string.Format ("{0}{1}.cs", path, iface.Name), iface);
             }
         }
+
+        public override ICodeProperty NewProperty (ICodeInterface iface, string name, CodePropertyAccess access) {
+            CodePropertyCSharp cpj = new CodePropertyCSharp (name, access);
+            //iface.AddProperty (cpj);
+            //TODO
+            return cpj;
+        }
         #endregion
 
 

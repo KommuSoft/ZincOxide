@@ -48,7 +48,15 @@ namespace ZincOxide.Codegen.Java {
                 yield return new ContextWriteableCodeFile (string.Format ("{0}{1}.java", path, iface.Name), iface);
             }
         }
+
+        public override ICodeProperty NewProperty (ICodeInterface iface, string name, CodePropertyAccess access) {
+            CodePropertyJava cpj = new CodePropertyJava (name, access);
+            //iface.AddProperty (cpj);
+            //TODO
+            return cpj;
+        }
         #endregion
+
 
 
     }

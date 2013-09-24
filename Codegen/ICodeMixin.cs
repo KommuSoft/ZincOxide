@@ -1,5 +1,5 @@
 //
-//  ICodeInterface.cs
+//  IMixin.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,12 +18,11 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.Utils;
+using System;
 
 namespace ZincOxide.Codegen {
 
-    public interface ICodeInterface : IName {
-
+    public interface ICodeMixin {
     }
 
 }

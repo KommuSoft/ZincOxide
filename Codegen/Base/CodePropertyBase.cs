@@ -1,5 +1,5 @@
 //
-//  ICodeInterface.cs
+//  CodePropertyBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,11 +20,25 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using ZincOxide.Utils;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Base {
 
-    public interface ICodeInterface : IName {
+    public class CodePropertyBase : NameBase, ICodeProperty {
+
+        private CodePropertyAccess access;
+
+        public CodePropertyAccess Access {
+            get {
+                return this.access;
+            }
+            protected set {
+                this.access = value;
+            }
+        }
+
+        public CodePropertyBase (string name, CodePropertyAccess access) : base(name) {
+            this.access = access;
+        }
 
     }
 
 }
-

@@ -1,5 +1,5 @@
 //
-//  ICodeInterface.cs
+//  IProperty.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -22,9 +22,8 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.Codegen {
 
-    public interface ICodeInterface : IName {
+    public interface ICodeProperty : IName {
 
     }
 
 }
-

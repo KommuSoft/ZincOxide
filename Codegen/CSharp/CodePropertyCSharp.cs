@@ -1,5 +1,5 @@
 //
-//  ICodeInterface.cs
+//  CodePropertyCSharp.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,13 +18,15 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.Utils;
+using ZincOxide.Codegen.Base;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.CSharp {
 
-    public interface ICodeInterface : IName {
+    public class CodePropertyCSharp : CodePropertyBase {
+
+        public CodePropertyCSharp (string name, CodePropertyAccess access) : base(name,access) {
+        }
 
     }
 
 }
-

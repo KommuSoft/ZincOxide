@@ -207,6 +207,12 @@
     <Compile Include="MiniZinc\Boxes\IZincTyBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTyBoxBase.cs" />
     <Compile Include="Utils\IFinite.cs" />
+    <Compile Include="Codegen\ICodeProperty.cs" />
+    <Compile Include="Codegen\CodePropertyAccess.cs" />
+    <Compile Include="Codegen\ICodeMixin.cs" />
+    <Compile Include="Codegen\Base\CodePropertyBase.cs" />
+    <Compile Include="Codegen\Java\CodePropertyJava.cs" />
+    <Compile Include="Codegen\CSharp\CodePropertyCSharp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

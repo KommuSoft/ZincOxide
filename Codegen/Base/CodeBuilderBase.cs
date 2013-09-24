@@ -46,6 +46,8 @@ namespace ZincOxide.Codegen.Base {
 
         public abstract ICodeInterface NewInterface (ICodePackage package, string name, params ICodeInterface[] iface);
 
+        public abstract ICodeProperty NewProperty (ICodeInterface iface, string name, CodePropertyAccess access);
+
         public abstract IEnumerable<ICodeFile> Generate ();
         #endregion
 
