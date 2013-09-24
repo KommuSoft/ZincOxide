@@ -22,7 +22,7 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincExBox : IZincIdentReplaceContainer {
+    public interface IZincExBox : IZincBox {
 
         IZincExp Expression {
             get;

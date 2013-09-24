@@ -23,7 +23,7 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public interface IZincItem : IWriteable, IZincIdentReplaceContainer {
+    public interface IZincItem : IWriteable, IZincElement {
 
         ZincItemType Type {
             get;

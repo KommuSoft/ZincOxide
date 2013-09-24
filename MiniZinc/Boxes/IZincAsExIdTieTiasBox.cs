@@ -22,7 +22,7 @@ using System;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincAsExIdTieTiasBox : IZincAsBox, IZincAsExBox, IZincAsExIdTiasBox, IZincExBox, IZincExIdBox, IZincIdBox, IZincIdTieBox, IZincTiasBox, IZincTieBox {
+    public interface IZincAsExIdTieTiasBox : IZincBox, IZincAsBox, IZincAsExBox, IZincAsExIdTiasBox, IZincExBox, IZincExIdBox, IZincIdBox, IZincIdTieBox, IZincTiasBox, IZincTieBox {
 
     }
 }

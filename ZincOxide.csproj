@@ -195,6 +195,11 @@
     <Compile Include="MiniZinc\Items\ZincFunctionItem.cs" />
     <Compile Include="Normalization\PredicateToFunctionTransformation.cs" />
     <Compile Include="Utils\IArity.cs" />
+    <Compile Include="MiniZinc\Structures\ZincTypeInstTupleExpression.cs" />
+    <Compile Include="MiniZinc\Boxes\ZincTiesBoxBase.cs" />
+    <Compile Include="Utils\IComposition.cs" />
+    <Compile Include="MiniZinc\IZincElement.cs" />
+    <Compile Include="MiniZinc\Boxes\IZincBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

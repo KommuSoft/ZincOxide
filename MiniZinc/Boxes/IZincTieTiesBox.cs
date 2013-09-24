@@ -21,7 +21,7 @@
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincTieTiesBox : IZincTieBox, IZincTiesBox {
+    public interface IZincTieTiesBox : IZincBox, IZincTieBox, IZincTiesBox {
 
 
 

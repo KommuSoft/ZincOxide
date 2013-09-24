@@ -1,5 +1,5 @@
 //
-//  IZincTypeInstExprAndIdentAnnotationsExpressionBox.cs
+//  ZincTypeInstTupleExpression.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,11 +18,24 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using System.Collections.Generic;
+using ZincOxide.MiniZinc.Boxes;
 
-namespace ZincOxide.MiniZinc.Boxes {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincAsExTiaBox : IZincBox, IZincAsExBox, IZincTiaBox {
+    public class ZincTypeInstTupleExpression : ZincTiesBoxBase, IZincType {
+
+        public ZincTypeInstTupleExpression (IEnumerable<IZincTypeInstExpression> attributes) : base(attributes) {
+        }
+
+        public ZincTypeInstTupleExpression (params IZincTypeInstExpression[] attributes) : base(attributes) {
+        }
+
+        public override string ToString () {
+            return string.Format ("tuple ( {0} )", string.Join (" , ", this.TypeInstExpressions), this.TypeInstExpression);
+        }
+
     }
+
 }
 

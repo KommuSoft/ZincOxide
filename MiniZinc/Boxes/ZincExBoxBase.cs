@@ -59,6 +59,24 @@ namespace ZincOxide.MiniZinc.Boxes {
         }
         #endregion
 
+        #region IValidateable implementation
+        public bool Validate () {
+            throw new System.NotImplementedException ();
+        }
+        #endregion
+
+        #region ISoftValidateable implementation
+        public IEnumerable<string> SoftValidate () {
+            throw new System.NotImplementedException ();
+        }
+        #endregion
+
+        #region IComposition implementation
+        public IEnumerable<IZincElement> Children () {
+            throw new System.NotImplementedException ();
+        }
+        #endregion
+
     }
 
 }

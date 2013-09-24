@@ -1,5 +1,5 @@
 //
-//  IZincTypeInstExprAndIdentAnnotationsExpressionBox.cs
+//  IZincElement.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,11 +18,12 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using ZincOxide.Utils;
+using ZincOxide.MiniZinc.Structures;
 
-namespace ZincOxide.MiniZinc.Boxes {
+namespace ZincOxide.MiniZinc {
 
-    public interface IZincAsExTiaBox : IZincBox, IZincAsExBox, IZincTiaBox {
+    public interface IZincElement : ISoftValidateable, IComposition<IZincElement>, IZincIdentReplaceContainer {
     }
 }
 
