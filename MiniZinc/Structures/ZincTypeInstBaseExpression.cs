@@ -22,7 +22,7 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincTypeInstBaseExpression : IZincIdentReplaceContainer, IZincTypeInstExpression {
+    public class ZincTypeInstBaseExpression : IZincElement, IZincTypeInstExpression {
 
         private ZincVarPar varPar;
         private IZincType type;
