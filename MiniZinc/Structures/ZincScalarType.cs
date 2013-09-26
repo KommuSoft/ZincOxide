@@ -33,10 +33,24 @@ namespace ZincOxide.MiniZinc.Structures {
             }
         }
 
-        #region IZincType implementation
+        #region IFinite implementation
         public bool Finite {
             get {
                 return this.Scalar == ZincScalar.Bool;
+            }
+        }
+        #endregion
+
+        #region IZincType implementation
+        public bool Compounded {
+            get {
+                return false;
+            }
+        }
+
+        public ZincScalar ScalarType {
+            get {
+                return this.scalar;
             }
         }
         #endregion
@@ -102,6 +116,13 @@ namespace ZincOxide.MiniZinc.Structures {
             return EnumerableUtils.Empty<IZincElement> ();
         }
         #endregion
+
+        #region IZincType implementation
+        public bool IsSubType (IZincType type) {
+            return (!type.Compounded && type.ScalarType == this.ScalarType);
+        }
+        #endregion
+
 
     }
 

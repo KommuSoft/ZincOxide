@@ -33,7 +33,6 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="Interaction.cs" />
     <Compile Include="Algebra\AcasBinaryOperatorFlags.cs" />
     <Compile Include="Algebra\AcasConstant.cs" />
     <Compile Include="Algebra\AcasExpressionBase.cs" />
@@ -57,7 +56,6 @@
     <Compile Include="MiniZinc\ZincOxideMiniZincException.cs" />
     <Compile Include="Parser\MiniZincParser.cs" />
     <Compile Include="ProgramResult.cs" />
-    <Compile Include="ProgramTask.cs" />
     <Compile Include="MiniZinc\Boxes\IZincAsBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincExBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincIdBox.cs" />
@@ -103,8 +101,6 @@
     <Compile Include="Codegen\Base\ContextWriteableCodeFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramUtils.cs" />
-    <Compile Include="ProgramEnvironment.cs" />
-    <Compile Include="programVerbosity.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTieTiesBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTieTiesBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTiesBox.cs" />
@@ -202,7 +198,6 @@
     <Compile Include="MiniZinc\Boxes\IZincBox.cs" />
     <Compile Include="Utils\IInnerSoftValidateable.cs" />
     <Compile Include="MiniZinc\Boxes\ZincBoxBase.cs" />
-    <Compile Include="MiniZinc\Builtins\ZincRelationAttribute.cs" />
     <Compile Include="MiniZinc\Structures\ZincNumExpLiteralBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTyBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTyBoxBase.cs" />
@@ -213,6 +208,16 @@
     <Compile Include="Codegen\Base\CodePropertyBase.cs" />
     <Compile Include="Codegen\Java\CodePropertyJava.cs" />
     <Compile Include="Codegen\CSharp\CodePropertyCSharp.cs" />
+    <Compile Include="Utils\IDimensions.cs" />
+    <Compile Include="MiniZinc\Builtins\ZincBuiltinRelationAttribute.cs" />
+    <Compile Include="MiniZinc\Builtins\ZincBuiltinRelationRegister.cs" />
+    <Compile Include="MiniZinc\Structures\IZincRelation.cs" />
+    <Compile Include="MiniZinc\Structures\ZincRelationBase.cs" />
+    <Compile Include="MiniZinc\Structures\ZincRelationRegister.cs" />
+    <Compile Include="Environment\ProgramEnvironment.cs" />
+    <Compile Include="Environment\ProgramTask.cs" />
+    <Compile Include="Environment\programVerbosity.cs" />
+    <Compile Include="Environment\Interaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -257,6 +262,7 @@
     <Folder Include="Codegen\HigherOrder\" />
     <Folder Include="MiniZinc\Types\" />
     <Folder Include="Complexity\" />
+    <Folder Include="Environment\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

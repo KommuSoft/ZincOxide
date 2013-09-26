@@ -1,5 +1,5 @@
 //
-//  CompilerVerbosity.cs
+//  IDimensions.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,14 +20,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Utils {
 
-    [Flags]
-    public enum ProgramVerbosity : byte {
-        Remark     = 0x08,
-        Assumption = 0x04,
-        Warning    = 0x02,
-        Error      = 0x01
+    public interface IDimensions {
+
+        int Dimensions {
+            get;
+        }
+
     }
 
 }

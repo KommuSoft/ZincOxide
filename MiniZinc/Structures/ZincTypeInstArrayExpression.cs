@@ -18,25 +18,47 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System.Linq;
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Boxes;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
     public class ZincTypeInstArrayExpression : ZincTieTiesBoxBase, IZincType {
 
-        #region IZincType implementation
+        public IZincTypeInstExpression OfType {
+            get {
+                return this.TypeInstExpression;
+            }
+        }
+
+        public IList<IZincTypeInstExpression> IndexTypes {
+            get {
+                return this.TypeInstExpressions;
+            }
+        }
+
+        #region IFinite implementation
         public bool Finite {
             get {
-                if (this.TypeInstExpression.Finite) {
-                    foreach (IZincTypeInstExpression index in this.TypeInstExpressions) {
-                        if (!index.Finite) {
-                            return true;
-                        }
-                    }
-                    return false;
-                }
+                return (this.TypeInstExpression.Finite && this.TypeInstExpressions.All (x => x.Finite));
+            }
+        }
+        #endregion
+
+        #region IZincType implementation
+        public bool Compounded {
+            get {
                 return true;
+            }
+        }
+
+        public ZincScalar ScalarType {
+            get {
+                //TODO
+                return ZincScalar.Bool;
+                //return this.TypeInstExpression.ScalarType;
             }
         }
         #endregion
@@ -53,6 +75,18 @@ namespace ZincOxide.MiniZinc.Structures {
         public override string ToString () {
             return string.Format ("array [ {0} ] of {1}", string.Join (" , ", this.TypeInstExpressions), this.TypeInstExpression);
         }
+
+        #region IZincType implementation
+        public bool IsSubType (IZincType type) {
+            if (type != null && type is ZincTypeInstArrayExpression) {
+                ZincTypeInstArrayExpression zta = (ZincTypeInstArrayExpression)type;
+                return (zta.OfType.IsSubType (zta) && this.IndexTypes.All (zta.IndexTypes, (x,y) => x.IsSubType (y)));
+            } else {
+                return false;
+            }
+        }
+        #endregion
+
 
     }
 

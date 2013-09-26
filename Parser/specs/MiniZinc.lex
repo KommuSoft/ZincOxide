@@ -75,8 +75,8 @@ OPUNDSC     _
 OPEQUIV     <->
 OPIMPLI     ->
 OPRIMPL     <-
-OPVEE       \x5c/
-OPWEDGE     /\x5c
+OPVEE       \x5c\x5c/
+OPWEDGE     /\x5c\x5c
 OPLESTA     <
 OPGRETA     >
 OPLESEQ     <=

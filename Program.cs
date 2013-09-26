@@ -25,6 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Mono.Options;
+using ZincOxide.Environment;
 using ZincOxide.Parser;
 
 namespace ZincOxide {
@@ -33,17 +34,17 @@ namespace ZincOxide {
 
         public static int Main (string[] args) {
             bool show_help = false;
-            ProgramEnvironment environment = new ProgramEnvironment ();
+            ProgramEnvironment env = new ProgramEnvironment ();
             var p = new OptionSet () {
-                {"t|task=","The task to be executed (validate-model,validate-data,match,generate-data,generate-heuristics,assume).",x => environment.Task = ProgramUtils.ParseTask(x)},
-                {"v|verbosity=","The level of verbosity (error,warning,assumption,remark).",x => environment.Verbosity = ProgramUtils.ParseVersbosity(x)},
+                {"t|task=","The task to be executed (validate-model,validate-data,match,generate-data,generate-heuristics,assume).",env.SetTask},
+                {"v|verbosity=","The level of verbosity (error,warning,assumption,remark).",env.SetVersbosity},
                 {"h|help","Show this help message and exit.", x => show_help = x != null}
             };
 
             List<string> files = new List<string> ();
             try {
                 files = p.Parse (args);
-                Interaction.Level = environment.Verbosity;
+                Interaction.Level = env.Verbosity;
             } catch (OptionException e) {
                 Console.Error.Write ("zincoxide: ");
                 Console.Error.WriteLine (e.Message);

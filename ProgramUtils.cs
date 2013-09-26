@@ -28,23 +28,7 @@ namespace ZincOxide {
 
         private static readonly Regex rgxVerbosity = new Regex (@"^(([0-9a-f])|((e|w|a|r)*)|(error|warning|assumption|remark))$", RegexOptions.Compiled | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnoreCase);
 
-        public static ProgramVerbosity ParseVersbosity (string level) {
-            Match m = rgxVerbosity.Match (level);
-            if (m.Success) {
-                return ProgramVerbosity.Warning;//TODO
-            } else {
-                throw new ZincOxideException ("Cannot parse verbosity level.");
-            }
-        }
 
-        public static ProgramTask ParseTask (string task) {
-            ProgramTask result;
-            if (ProgramTask.TryParse (task, true, out result)) {
-                return result;
-            } else {
-                throw new ZincOxideException ("Cannot parse the task to be executed.");
-            }
-        }
 
     }
 

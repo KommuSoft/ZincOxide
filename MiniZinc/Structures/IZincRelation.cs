@@ -1,5 +1,5 @@
 //
-//  IZincType.cs
+//  IZincRelation.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,22 +18,24 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System.Collections.Generic;
 using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincType : IZincElement, IFinite {
+    public interface IZincRelation : IArity, IDimensions {
 
-        bool IsSubType (IZincType type);
-
-        bool Compounded {
+        IZincType OuputType {
             get;
         }
 
-        ZincScalar ScalarType {
+        IList<IZincType> InputTypes {
             get;
         }
+
+        bool Match (IEnumerable<IZincType> input);
 
     }
 
 }
+

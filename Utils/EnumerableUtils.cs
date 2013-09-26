@@ -38,6 +38,21 @@ namespace ZincOxide.Utils {
             }
         }
 
+        public static bool All<T,Q> (this IEnumerable<T> sourcex, IEnumerable<Q> sourcey, Func<T,Q,bool> function) {
+            IEnumerator<T> enumx = sourcex.GetEnumerator ();
+            IEnumerator<Q> enumy = sourcey.GetEnumerator ();
+            bool movex = enumx.MoveNext ();
+            bool movey = enumy.MoveNext ();
+            while (movex && movey) {
+                if (!function (enumx.Current, enumy.Current)) {
+                    return false;
+                }
+                movex = enumx.MoveNext ();
+                movey = enumy.MoveNext ();
+            }
+            return movex == movey;
+        }
+
         public static IEnumerable<T> Append<T> (params IEnumerable<T>[] lists) {
             return Append (lists);
         }

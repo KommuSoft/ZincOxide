@@ -21,7 +21,7 @@
 using System;
 using ZincOxide.Parser;
 
-namespace ZincOxide {
+namespace ZincOxide.Environment {
 
     public static class Interaction {
 

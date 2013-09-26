@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
+using System.Linq;
 using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc.Structures {
@@ -28,12 +29,7 @@ namespace ZincOxide.MiniZinc.Structures {
         #region IFinite implementation
         public bool Finite {
             get {
-                foreach (IZincTypeInstExpression tie in this.TypeInstExpressions) {
-                    if (!tie.Finite) {
-                        return false;
-                    }
-                }
-                return true;
+                return this.TypeInstExpressions.All (x => x.Finite);
             }
         }
         #endregion

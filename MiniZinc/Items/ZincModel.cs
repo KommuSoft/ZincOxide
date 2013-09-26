@@ -21,6 +21,7 @@
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
+using ZincOxide.Environment;
 using ZincOxide.MiniZinc.Structures;
 using ZincOxide.Utils;
 

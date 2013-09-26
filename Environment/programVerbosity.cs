@@ -1,5 +1,5 @@
 //
-//  ProgramEnvironment.cs
+//  CompilerVerbosity.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,33 +20,15 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Environment {
 
-    public class ProgramEnvironment {
-
-        private ProgramTask task = ProgramTask.GenerateHeuristics;
-        private ProgramVerbosity verbosity = ProgramVerbosity.Error | ProgramVerbosity.Warning;
-
-        public ProgramTask Task {
-            get {
-                return this.task;
-            }
-            set {
-                this.task = value;
-            }
-        }
-
-        public ProgramVerbosity Verbosity {
-            get {
-                return this.verbosity;
-            }
-            set {
-                this.verbosity = value;
-            }
-        }
-
-        public ProgramEnvironment () {
-        }
+    [Flags]
+    public enum ProgramVerbosity : byte {
+        Remark     = 0x08,
+        Assumption = 0x04,
+        Warning    = 0x02,
+        Error      = 0x01
     }
+
 }
 

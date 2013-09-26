@@ -216,10 +216,43 @@ expr
     : numExp                                                            {$$ = $1;}
     ;
 
+%left OPEQUIV
+%left OPIMPLI OPRIMPL
+%left OPVEE KWXOR
+%left OPWEDGE
+
 numExp
     : OBRK numExp CBRK                                                  {$$ = $2;}
     | ident                                                             {$$ = $1;}
     | INTLI                                                             {$$ = new ZincIntLiteral(@1.ToString());}
+    | numExpr OPINCRE numExpr                                           {}
+    | numExpr OPINCRE numExpr                                           {}
+    | numExpr OPVEE numExpr                                             {}
+    | numExpr KWXOR numExpr                                             {}
+    | numExpr OPWEDGE numExpr                                           {}
+    | numExpr OPLESTA numExpr                                           {}
+    | numExpr OPGRETA numExpr                                           {}
+    | numExpr OPLESEQ numExpr                                           {}
+    | numExpr OPGEAEQ numExpr                                           {}
+    | numExpr OPEQUAL numExpr                                           {}
+    | numExpr OPASSIG numExpr                                           {}
+    | numExpr OPNEQUA numExpr                                           {}
+    | numExpr KWSUBS numExpr                                            {}
+    | numExpr KWSUPE numExpr                                            {}
+    | numExpr KWIN numExpr                                              {}
+    | numExpr KWSUBS numExpr                                            {}
+    | numExpr KWSUPE numExpr                                            {}
+    | numExpr KWUNIO numExpr                                            {}
+    | numExpr KWDIFF numExpr                                            {}
+    | numExpr KWSYMD numExpr                                            {}
+    | numExpr OPRANGE numExpr                                           {}
+    | numExpr OPSUB numExpr                                             {}
+    | numExpr OPADD numExpr                                             {}
+    | numExpr KWINTE numExpr                                            {}
+    | numExpr OPDIV numExpr                                             {}
+    | numExpr KWMOD numExpr                                             {}
+    | numExpr OPMUL numExpr                                             {}
+    | numExpr OPINCRE numExpr                                           {}
     ;
 /*#endregion  */
 

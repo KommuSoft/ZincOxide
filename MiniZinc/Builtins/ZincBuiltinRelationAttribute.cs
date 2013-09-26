@@ -23,9 +23,9 @@ using System;
 namespace ZincOxide.MiniZinc.Builtins {
 
     [AttributeUsage(AttributeTargets.Class)]
-    public class ZincRelationAttribute : Attribute {
+    public class ZincBuiltinRelationAttribute : Attribute {
 
-        public ZincRelationAttribute () {
+        public ZincBuiltinRelationAttribute () {
         }
 
     }

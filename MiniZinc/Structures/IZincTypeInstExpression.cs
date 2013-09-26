@@ -22,7 +22,7 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincTypeInstExpression : IZincElement, IFinite {//:IZincType?
+    public interface IZincTypeInstExpression : IZincElement, IZincType {//:IZincType?
 
     }
 

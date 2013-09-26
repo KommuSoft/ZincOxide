@@ -1,5 +1,5 @@
 //
-//  IZincType.cs
+//  ProgramTask.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,22 +18,25 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.Utils;
+using System;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.Environment {
 
-    public interface IZincType : IZincElement, IFinite {
-
-        bool IsSubType (IZincType type);
-
-        bool Compounded {
-            get;
-        }
-
-        ZincScalar ScalarType {
-            get;
-        }
-
+    public enum ProgramTask : byte {
+        VerifyModel             = 0x00,
+        VerifyData              = 0x01,
+        Match                   = 0x10,
+        GenerateHeuristics      = 0x20,
+        GenerateBasics          = 0x21,
+        GenerateData            = 0x22,
+        SynthesizeAbstractModel = 0x30,
+        SynthesizeConcreteData  = 0x31,
+        Assume                  = 0x40,
+        Transform               = 0x50,
+        Lex                     = 0xf0,
+        Parse                   = 0xf1,
+        Echo                    = 0xf2,
+        Bindings                = 0xf3
     }
 
 }
