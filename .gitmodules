@@ -1,6 +1,3 @@
-[submodule "ZincOxideWebsite"]
-	path = ZincOxideWebsite
-	url = https://github.com/KommuSoft/ZincOxideWebsite.git
 [submodule "website"]
 	path = website
 	url = https://github.com/KommuSoft/ZincOxideWebsite.git
