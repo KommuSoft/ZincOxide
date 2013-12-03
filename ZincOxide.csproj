@@ -20,7 +20,12 @@
     <WarningLevel>3</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <ConsolePause>false</ConsolePause>
-    <GenerateDocumentation>true</GenerateDocumentation>
+    <DocumentationFile>bin\Debug\ZincOxide.xml</DocumentationFile>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="BeforeBuild" command="bash cc.sh" workingdir="Parser/specs/" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
@@ -223,15 +228,20 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
-    <Reference Include="MonoDevelop.NUnit, Version=2.6.0.0, Culture=neutral">
-      <Private>False</Private>
-      <Package>monodevelop-core-addins</Package>
-    </Reference>
     <Reference Include="QUT.ShiftReduceParser">
-      <HintPath>..\..\Libraries\gppg-distro-1.5.0\binaries\QUT.ShiftReduceParser.dll</HintPath>
+      <HintPath>lib\QUT.ShiftReduceParser.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Options">
-      <HintPath>..\..\Libraries\mono\Mono.Options.dll</HintPath>
+      <HintPath>lib\Mono.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.core.interfaces, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
