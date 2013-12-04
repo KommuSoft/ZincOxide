@@ -19,7 +19,7 @@ zincoxide
 zincoxide.in
 
 #FullPaths
-Parser/MiniZincLexer.cs 
+Parser/MiniZincLexer.cs
 Parser/MiniZincParser.cs
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 [Bb]in/*
