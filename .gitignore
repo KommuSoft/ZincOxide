@@ -11,6 +11,7 @@
 *.Cache
 *.StyleCop
 *ChangeLog
+*.log
 
 #FullPaths
 Parser/MiniZincLexer.cs 
