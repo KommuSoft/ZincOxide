@@ -12,6 +12,10 @@
 *.StyleCop
 *ChangeLog
 *.log
+*.xml
+
+zincoxide
+zincoxide.in
 
 #FullPaths
 Parser/MiniZincLexer.cs 
