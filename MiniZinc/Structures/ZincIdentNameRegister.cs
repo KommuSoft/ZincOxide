@@ -18,35 +18,34 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincIdentNameRegister : GenerateFallbackNameRegister<ZincIdent> {
+	public class ZincIdentNameRegister : GenerateFallbackNameRegister<ZincIdent> {
+		private ZincIdentNameRegister parent;
 
-        private ZincIdentNameRegister parent;
+		public ZincIdentNameRegister Parent {
+			get {
+				return this.parent;
+			}
+			set {
+				this.parent = value;
+			}
+		}
 
-        public ZincIdentNameRegister Parent {
-            get {
-                return this.parent;
-            }
-            set {
-                this.parent = value;
-            }
-        }
+		public ZincIdentNameRegister (ZincIdentNameRegister parent) : base (null, x => new ZincIdent (x)) {
+			this.Fallback = checkUpperNameRegister;
+		}
 
-        public ZincIdentNameRegister (ZincIdentNameRegister parent) : base(x => checkUpperNameRegister(x),x => new ZincIdent(x)) {
-        }
-
-        private ZincIdent checkUpperNameRegister (string name) {
-            if (this.parent != null) {
-                return this.parent.Lookup (name);
-            } else {
-                throw new ZincOxideNameNotFoundException ("No upper scope contains \"{0}\".", name);
-            }
-        }
-
-    }
-
+		private ZincIdent checkUpperNameRegister (string name) {
+			if (this.parent != null) {
+				return this.parent.Lookup (name);
+			} else {
+				throw new ZincOxideNameNotFoundException ("No upper scope contains \"{0}\".", name);
+			}
+		}
+	}
 }

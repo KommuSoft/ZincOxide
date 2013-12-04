@@ -18,17 +18,16 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 using QUT.Gppg;
 
 namespace ZincOxide.Parser {
 
-    public abstract class ScanBase : AbstractScanner<string,LexSpan> {
-
-        protected virtual bool yywrap () {
-            return true;
-        }
-
-    }
+	public abstract class ScanBase : AbstractScanner<StateStructure,LexSpan> {
+		protected virtual bool yywrap () {
+			return true;
+		}
+	}
 }
 
