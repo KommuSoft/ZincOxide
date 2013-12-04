@@ -13,6 +13,7 @@
 *ChangeLog
 *.log
 *.xml
+*.lst
 
 zincoxide
 zincoxide.in
