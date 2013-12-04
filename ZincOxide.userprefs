@@ -1,21 +1,8 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/ContextStreamWriter.cs">
     <Files>
-      <File FileName="Parser/ParserHelper.cs" Line="35" Column="72" />
-      <File FileName="Parser/MiniZincLexer.cs" Line="104" Column="51" />
-      <File FileName="Parser/ScanBase.cs" Line="27" Column="65" />
-      <File FileName="MiniZinc/Structures/ZincIdentNameRegister.cs" Line="40" Column="43" />
-      <File FileName="Utils/GenerateFallbackNameRegister.cs" Line="40" Column="110" />
-      <File FileName="Utils/FallbackNameRegister.cs" Line="38" Column="9" />
-      <File FileName="MiniZinc/Structures/ZincTypeInstBaseExpression.cs" Line="51" Column="33" />
-      <File FileName="MiniZinc/Structures/ZincTypeInstRangeExpression.cs" Line="52" Column="27" />
-      <File FileName="MiniZinc/Structures/ZincTypeInstWhereExpression.cs" Line="44" Column="41" />
-      <File FileName="MiniZinc/Structures/ZincTypeInstSetExpression.cs" Line="40" Column="10" />
-      <File FileName="MiniZinc/Structures/ZincTypeInstTupleExpression.cs" Line="42" Column="11" />
-      <File FileName="Parser/specs/MiniZinc.yy" Line="12" Column="30" />
-      <File FileName="Program.cs" Line="77" Column="47" />
-      <File FileName="ProgramUtils.cs" Line="28" Column="36" />
+      <File FileName="Utils/ContextStreamWriter.cs" Line="170" Column="95" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
