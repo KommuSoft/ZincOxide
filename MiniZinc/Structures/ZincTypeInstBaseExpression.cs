@@ -18,49 +18,64 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincTypeInstBaseExpression : ZincTyBoxBase, IZincTypeInstExpression {
+	public class ZincTypeInstBaseExpression : ZincTyBoxBase, IZincTypeInstExpression {
+		private ZincVarPar varPar;
 
-        private ZincVarPar varPar;
+		public ZincVarPar VarPar {
+			get {
+				return this.varPar;
+			}
+			protected set {
+				this.varPar = value;
+			}
+		}
 
-        public ZincVarPar VarPar {
-            get {
-                return this.varPar;
-            }
-            protected set {
-                this.varPar = value;
-            }
-        }
+		public bool IsSubType (IZincType type) {
+			return this.Type.IsSubType (type);
+		}
 
-        #region IFinite implementation
-        public bool Finite {
-            get {
-                return this.Type.Finite;
-            }
-        }
-        #endregion
+		public bool Compounded {
+			get {
+				return this.Type.Compounded;
+			}
+		}
 
+		public ZincScalar ScalarType {
+			get {
+				return this.Type.ScalarType;
+			}
+		}
 
-        public ZincTypeInstBaseExpression (ZincVarPar varPar, IZincType type) : base(type) {
-            this.VarPar = varPar;
-            this.Type = type;
-        }
+		#region IFinite implementation
 
-        public ZincTypeInstBaseExpression (IZincType type) : this(ZincVarPar.Par,type) {
-        }
+		public bool Finite {
+			get {
+				return this.Type.Finite;
+			}
+		}
 
-        public ZincTypeInstBaseExpression (IZincType type, ZincVarPar varPar = ZincVarPar.Par) : this(varPar,type) {
-        }
+		#endregion
 
-        public override string ToString () {
-            return string.Format ("{0} {1}", ZincPrintUtils.VarParLiteral (this.VarPar), this.Type);
-        }
+		public ZincTypeInstBaseExpression (ZincVarPar varPar, IZincType type) : base (type) {
+			this.VarPar = varPar;
+			this.Type = type;
+		}
 
-    }
+		public ZincTypeInstBaseExpression (IZincType type) : this (ZincVarPar.Par, type) {
+		}
 
+		public ZincTypeInstBaseExpression (IZincType type, ZincVarPar varPar = ZincVarPar.Par) : this (varPar, type) {
+		}
+
+		public override string ToString () {
+			return string.Format ("{0} {1}", ZincPrintUtils.VarParLiteral (this.VarPar), this.Type);
+		}
+	}
 }
 

@@ -18,27 +18,46 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using ZincOxide.MiniZinc.Boxes;
+using System.Linq.Expressions;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincTypeInstSetExpression : ZincTieBoxBase, IZincType {
+	public class ZincTypeInstSetExpression : ZincTieBoxBase, IZincType {
 
-        #region IFinite implementation
-        public bool Finite {
-            get {
-                return this.TypeInstExpression.Finite;
-            }
-        }
-        #endregion
+		#region IFinite implementation
 
-        public ZincTypeInstSetExpression (IZincTypeInstExpression expression) : base(expression) {
-        }
+		public bool Finite {
+			get {
+				return this.TypeInstExpression.Finite;
+			}
+		}
 
-        public override string ToString () {
-            return string.Format ("set of {0}", this.TypeInstExpression);
-        }
+		#endregion
 
-    }
+		public bool IsSubType (IZincType type) {
+			//TODO
+			throw new System.NotImplementedException ();
+		}
 
+		public bool Compounded {
+			get {
+				return true;
+			}
+		}
+
+		public ZincScalar ScalarType {
+			get {
+				return this.TypeInstExpression.ScalarType;
+			}
+		}
+
+		public ZincTypeInstSetExpression (IZincTypeInstExpression expression) : base (expression) {
+		}
+
+		public override string ToString () {
+			return string.Format ("set of {0}", this.TypeInstExpression);
+		}
+	}
 }

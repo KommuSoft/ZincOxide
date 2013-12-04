@@ -18,18 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace ZincOxide {
 
-    public static class ProgramUtils {
-
-        private static readonly Regex rgxVerbosity = new Regex (@"^(([0-9a-f])|((e|w|a|r)*)|(error|warning|assumption|remark))$", RegexOptions.Compiled | RegexOptions.ExplicitCapture | RegexOptions.Singleline | RegexOptions.IgnoreCase);
-
-
-
-    }
-
+	public static class ProgramUtils {
+	}
 }

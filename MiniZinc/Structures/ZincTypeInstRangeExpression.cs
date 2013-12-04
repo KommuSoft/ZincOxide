@@ -18,29 +18,47 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincTypeInstRangeExpression : ZincNumNumBoxBase, IZincType {
+	public class ZincTypeInstRangeExpression : ZincNumNumBoxBase, IZincType {
 
-        #region IFinite implementation
-        public bool Finite {
-            get {
-                return true;
-            }
-        }
-        #endregion
+		#region IFinite implementation
 
+		public bool Finite {
+			get {
+				return true;
+			}
+		}
 
-        public ZincTypeInstRangeExpression (IZincNumExp numexp1, IZincNumExp numexp2) : base(numexp1,numexp2) {
-        }
+		#endregion
 
-        public override string ToString () {
-            return string.Format ("{0} .. {1}", this.NumericExpression, this.NumericExpression2);
-        }
+		public bool IsSubType (IZincType type) {
+			//TODO: implement
+			return false;
+		}
 
-    }
+		public bool Compounded {
+			get {
+				return false;
+			}
+		}
+
+		public ZincScalar ScalarType {
+			get {
+				return ZincScalar.Int;
+			}
+		}
+
+		public ZincTypeInstRangeExpression (IZincNumExp numexp1, IZincNumExp numexp2) : base (numexp1, numexp2) {
+		}
+
+		public override string ToString () {
+			return string.Format ("{0} .. {1}", this.NumericExpression, this.NumericExpression2);
+		}
+	}
 }
 

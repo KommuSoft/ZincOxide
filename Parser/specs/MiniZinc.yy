@@ -9,6 +9,7 @@
 %using ZincOxide.MiniZinc.Items;
 %using ZincOxide.MiniZinc.Structures;
 %using ZincOxide.Utils;
+%using ZincOxide.Environment;
 
 %tokentype Token
 
@@ -56,7 +57,7 @@
 %type <httie> tiExprListO tiExprList
 %type <httia> params
 %type <i> item includeItem varDeclItem assignItem constraintItem solveItem outputItem predicateItem functionItem
-%type <t> baseTiExprTail arrayTiExprTail setTiExprTail
+%type <t> baseTiExprTail arrayTiExprTail setTiExprTail tupleTiExprTail
 %type <vp> varPar
 %type <id> ident
 %type <tie> tiExpr baseTiExpr

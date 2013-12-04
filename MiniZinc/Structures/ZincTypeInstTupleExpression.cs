@@ -18,33 +18,51 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System.Collections.Generic;
 using System.Linq;
 using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincTypeInstTupleExpression : ZincTiesBoxBase, IZincType {
+	public class ZincTypeInstTupleExpression : ZincTiesBoxBase, IZincType {
+		public bool IsSubType (IZincType type) {
+			//TODO
+			throw new System.NotImplementedException ();
+		}
 
-        #region IFinite implementation
-        public bool Finite {
-            get {
-                return this.TypeInstExpressions.All (x => x.Finite);
-            }
-        }
-        #endregion
+		public bool Compounded {
+			get {
+				return true;
+			}
+		}
 
-        public ZincTypeInstTupleExpression (IEnumerable<IZincTypeInstExpression> attributes) : base(attributes) {
-        }
+		public ZincScalar ScalarType {
+			get {
+				//TODO
+				throw new System.NotImplementedException ();
+			}
+		}
 
-        public ZincTypeInstTupleExpression (params IZincTypeInstExpression[] attributes) : base(attributes) {
-        }
+		#region IFinite implementation
 
-        public override string ToString () {
-            return string.Format ("tuple ( {0} )", string.Join (" , ", this.TypeInstExpressions));
-        }
+		public bool Finite {
+			get {
+				return this.TypeInstExpressions.All (x => x.Finite);
+			}
+		}
 
-    }
+		#endregion
 
+		public ZincTypeInstTupleExpression (IEnumerable<IZincTypeInstExpression> attributes) : base (attributes) {
+		}
+
+		public ZincTypeInstTupleExpression (params IZincTypeInstExpression[] attributes) : base (attributes) {
+		}
+
+		public override string ToString () {
+			return string.Format ("tuple ( {0} )", string.Join (" , ", this.TypeInstExpressions));
+		}
+	}
 }
 

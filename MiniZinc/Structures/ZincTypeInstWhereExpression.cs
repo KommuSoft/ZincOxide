@@ -18,6 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Boxes;
@@ -25,45 +26,63 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincTypeInstWhereExpression : ZincExIdBoxBase, IZincTypeInstExpression {
+	public class ZincTypeInstWhereExpression : ZincExIdBoxBase, IZincTypeInstExpression {
+		private ZincTypeInstWhereExpression header;
 
-        private ZincTypeInstWhereExpression header;
+		#region IFinite implementation
 
-        #region IFinite implementation
-        public bool Finite {
-            get {
-                return false;//TODO
-            }
-        }
-        #endregion
+		public bool Finite {
+			get {
+				return false;//TODO
+			}
+		}
 
+		#endregion
 
-        public ZincTypeInstWhereExpression Header {
-            get {
-                return this.header;
-            }
-            protected set {
-                this.header = value;
-            }
-        }
+		public bool IsSubType (IZincType type) {
+			//TODO
+			throw new NotImplementedException ();
+		}
 
-        public ZincTypeInstWhereExpression (ZincTypeInstWhereExpression header, ZincIdent ident, IZincExp expression) : base(ident,expression) {
-        }
+		public bool Compounded {
+			get {
+				//TODO
+				throw new NotImplementedException ();
+			}
+		}
 
-        public override string ToString () {
-            return string.Format ("( {0} : {1} where {2} )", this.Header, this.Ident, this.Expression);
-        }
+		public ZincScalar ScalarType {
+			get {
+				//TODO
+				throw new NotImplementedException ();
+			}
+		}
 
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (this.Header.InvolvedIdents (), base.InvolvedIdents (), this.Expression.InvolvedIdents ());
-        }
+		public ZincTypeInstWhereExpression Header {
+			get {
+				return this.header;
+			}
+			protected set {
+				this.header = value;
+			}
+		}
 
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.header = this.header.Replace (identMap) as ZincTypeInstWhereExpression;
-            this.Expression = this.Expression.Replace (identMap) as IZincExp;
-            return base.Replace (identMap);
-        }
+		public ZincTypeInstWhereExpression (ZincTypeInstWhereExpression header, ZincIdent ident, IZincExp expression) : base (ident, expression) {
+		}
 
-    }
+		public override string ToString () {
+			return string.Format ("( {0} : {1} where {2} )", this.Header, this.Ident, this.Expression);
+		}
+
+		public override IEnumerable<ZincIdent> InvolvedIdents () {
+			return EnumerableUtils.Append (this.Header.InvolvedIdents (), base.InvolvedIdents (), this.Expression.InvolvedIdents ());
+		}
+
+		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			this.header = this.header.Replace (identMap) as ZincTypeInstWhereExpression;
+			this.Expression = this.Expression.Replace (identMap) as IZincExp;
+			return base.Replace (identMap);
+		}
+	}
 }
 

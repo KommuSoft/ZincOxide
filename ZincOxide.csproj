@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
     <ConsolePause>false</ConsolePause>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="BeforeBuild" command="bash cc.sh" workingdir="Parser/specs/" />
+      </CustomCommands>
+    </CustomCommands>
+    <DocumentationFile>bin\Release\ZincOxide.xml</DocumentationFile>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -275,6 +281,7 @@
     <Folder Include="MiniZinc\Types\" />
     <Folder Include="Complexity\" />
     <Folder Include="Environment\" />
+    <Folder Include="AbstractGraph\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

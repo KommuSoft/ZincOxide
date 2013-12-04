@@ -1,11 +1,14 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Parser/specs/MiniZinc.y">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Structures/ZincTypeInstBaseExpression.cs">
     <Files>
-      <File FileName="Parser/LexSpan.cs" Line="1" Column="1" />
-      <File FileName="Parser/MiniZincLexer.cs" Line="1" Column="1" />
-      <File FileName="Parser/ScanBase.cs" Line="26" Column="27" />
-      <File FileName="Parser/specs/MiniZinc.y" Line="175" Column="35" />
+      <File FileName="Parser/ParserHelper.cs" Line="35" Column="72" />
+      <File FileName="Parser/MiniZincLexer.cs" Line="104" Column="51" />
+      <File FileName="Parser/ScanBase.cs" Line="27" Column="65" />
+      <File FileName="MiniZinc/Structures/ZincIdentNameRegister.cs" Line="40" Column="43" />
+      <File FileName="Utils/GenerateFallbackNameRegister.cs" Line="40" Column="110" />
+      <File FileName="Utils/FallbackNameRegister.cs" Line="38" Column="9" />
+      <File FileName="MiniZinc/Structures/ZincTypeInstBaseExpression.cs" Line="33" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
