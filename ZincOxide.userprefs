@@ -1,13 +1,11 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Parser/ScanBase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Parser/specs/MiniZinc.y">
     <Files>
-      <File FileName="Parser/specs/MiniZinc.y" Line="1" Column="1" />
-      <File FileName="Parser/specs/MiniZinc.lex" Line="1" Column="1" />
-      <File FileName="MiniZinc/Boxes/ZincTieTiesBoxBase.cs" Line="1" Column="1" />
       <File FileName="Parser/LexSpan.cs" Line="1" Column="1" />
       <File FileName="Parser/MiniZincLexer.cs" Line="1" Column="1" />
       <File FileName="Parser/ScanBase.cs" Line="26" Column="27" />
+      <File FileName="Parser/specs/MiniZinc.y" Line="175" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
