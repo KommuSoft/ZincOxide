@@ -111,7 +111,6 @@
     <Compile Include="Codegen\Base\CodePackageBase.cs" />
     <Compile Include="Codegen\Base\ContextWriteableCodeFile.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProgramUtils.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTieTiesBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTieTiesBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTiesBox.cs" />
