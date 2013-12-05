@@ -232,6 +232,10 @@
     <Compile Include="Codegen\HigherOrder\ProblemFileGenerator.cs" />
     <Compile Include="Codegen\HigherOrder\SolutionFileGenerator.cs" />
     <Compile Include="Codegen\HigherOrder\IFileGenerator.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincTFScalar.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincTFSet.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IZincTF.cs" />
+    <Compile Include="Utils\IGenericEquals.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -284,6 +288,7 @@
     <Folder Include="Complexity\" />
     <Folder Include="Environment\" />
     <Folder Include="AbstractGraph\" />
+    <Folder Include="MiniZinc\Types\Fundamental\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

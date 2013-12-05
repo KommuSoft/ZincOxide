@@ -18,54 +18,53 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System.Text.RegularExpressions;
 
 namespace ZincOxide.Environment {
 
-    public class ProgramEnvironment {
+	public class ProgramEnvironment {
+		private ProgramTask task = ProgramTask.GenerateHeuristics;
+		private ProgramVerbosity verbosity = ProgramVerbosity.Error | ProgramVerbosity.Warning;
 
-        private ProgramTask task = ProgramTask.GenerateHeuristics;
-        private ProgramVerbosity verbosity = ProgramVerbosity.Error | ProgramVerbosity.Warning;
+		public ProgramTask Task {
+			get {
+				return this.task;
+			}
+			set {
+				this.task = value;
+			}
+		}
 
-        public ProgramTask Task {
-            get {
-                return this.task;
-            }
-            set {
-                this.task = value;
-            }
-        }
+		public ProgramVerbosity Verbosity {
+			get {
+				return this.verbosity;
+			}
+			set {
+				this.verbosity = value;
+			}
+		}
 
-        public ProgramVerbosity Verbosity {
-            get {
-                return this.verbosity;
-            }
-            set {
-                this.verbosity = value;
-            }
-        }
+		public ProgramEnvironment () {
+		}
 
-        public ProgramEnvironment () {
-        }
+		public void SetVersbosity (string level) {
+			ProgramVerbosity result;
+			if (ProgramTask.TryParse (level, true, out result)) {
+				this.Verbosity = result;
+			} else {
+				throw new ZincOxideException ("Cannot parse the verbositylevel to be executed.");
+			}
+		}
 
-        public void SetVersbosity (string level) {
-            ProgramVerbosity result;
-            if (ProgramTask.TryParse (level, true, out result)) {
-                this.Verbosity = result;
-            } else {
-                throw new ZincOxideException ("Cannot parse the verbositylevel to be executed.");
-            }
-        }
-
-        public void SetTask (string task) {
-            ProgramTask result;
-            if (ProgramTask.TryParse (task, true, out result)) {
-                this.Task = result;
-            } else {
-                throw new ZincOxideException ("Cannot parse the task to be executed.");
-            }
-        }
-
-    }
+		public void SetTask (string task) {
+			ProgramTask result;
+			if (ProgramTask.TryParse (task, true, out result)) {
+				this.Task = result;
+			} else {
+				throw new ZincOxideException ("Cannot parse the task to be executed.");
+			}
+		}
+	}
 }
 
