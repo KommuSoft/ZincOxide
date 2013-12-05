@@ -235,7 +235,8 @@
     <Compile Include="MiniZinc\Types\Fundamental\IZincTF.cs" />
     <Compile Include="Utils\IGenericEquals.cs" />
     <Compile Include="Environment\ProgramResult.cs" />
-    <Compile Include="Environment\ProgramDataRepresentation.cs" />
+    <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
+    <Compile Include="ProgramFloatRepresentation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
