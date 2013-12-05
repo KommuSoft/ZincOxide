@@ -47,7 +47,7 @@ namespace ZincOxide {
 					"The task to be executed (validate-model,validate-data,match,generate-data,generate-heuristics,assume).",
 					env.SetTask
 				},
-				{ "v|verbosity=","The level of verbosity (error,warning,assumption,remark).",env.SetVersbosity },
+				{ "v|verbosity=","The level of verbosity (error,warning,assumption,remark).",env.SetVerbosity },
 				{ "h|help","Show this help message and exit.", x => show_help = x != null }
 			};
 

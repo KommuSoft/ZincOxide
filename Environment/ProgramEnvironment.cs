@@ -23,32 +23,30 @@ using System.Text.RegularExpressions;
 
 namespace ZincOxide.Environment {
 
+	/// <summary>
+	/// A class that is used to set different parameters of the running program (for instance the task that should be executed, the verbosity level, etc.)
+	/// </summary>
 	public class ProgramEnvironment {
-		private ProgramTask task = ProgramTask.GenerateHeuristics;
-		private ProgramVerbosity verbosity = ProgramVerbosity.Error | ProgramVerbosity.Warning;
+		/// <summary>
+		/// The task that should be carried out. By default the <see cref="ProgramTask.GenerateHeuristics"/> is selected.
+		/// </summary>
+		public ProgramTask Task = ProgramTask.GenerateHeuristics;
+		/// <summary>
+		/// The verbosity level of the program. By default only <see cref="ProgramVerbosity.Error"/> and <see cref="ProgramVerbosity.Warning"/> are selected.
+		/// </summary>
+		public ProgramVerbosity Verbosity = ProgramVerbosity.Error | ProgramVerbosity.Warning;
 
-		public ProgramTask Task {
-			get {
-				return this.task;
-			}
-			set {
-				this.task = value;
-			}
-		}
-
-		public ProgramVerbosity Verbosity {
-			get {
-				return this.verbosity;
-			}
-			set {
-				this.verbosity = value;
-			}
-		}
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.Environment.ProgramEnvironment"/> class.
+		/// </summary>
 		public ProgramEnvironment () {
 		}
 
-		public void SetVersbosity (string level) {
+		/// <summary>
+		/// Sets the verbosity level of the program using textual input.
+		/// </summary>
+		/// <param name="level">The verbosity level specified by textual input.</param>
+		public void SetVerbosity (string level) {
 			ProgramVerbosity result;
 			if (ProgramTask.TryParse (level, true, out result)) {
 				this.Verbosity = result;
@@ -57,6 +55,10 @@ namespace ZincOxide.Environment {
 			}
 		}
 
+		/// <summary>
+		/// Sets the task that should be carried out by the program using textual input.
+		/// </summary>
+		/// <param name="task">The task that should be carried out specified by textual input.</param>
 		public void SetTask (string task) {
 			ProgramTask result;
 			if (ProgramTask.TryParse (task, true, out result)) {
