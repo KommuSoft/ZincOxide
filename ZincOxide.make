@@ -9,7 +9,7 @@ include $(top_srcdir)/config.make
 
 ifeq ($(CONFIG),DEBUG_X86)
 ASSEMBLY_COMPILER_COMMAND = dmcs
-ASSEMBLY_COMPILER_FLAGS =  -noconfig -codepage:utf8 -warn:3 -optimize- -debug "-define:DEBUG;"
+ASSEMBLY_COMPILER_FLAGS =  -noconfig -codepage:utf8 -warn:4 -optimize- -debug "-define:DEBUG;"
 ASSEMBLY = bin/Debug/ZincOxide.exe
 ASSEMBLY_MDB = $(ASSEMBLY).mdb
 COMPILE_TARGET = exe
@@ -124,7 +124,6 @@ FILES = \
 	Codegen/Base/CodePackageBase.cs \
 	Codegen/Base/ContextWriteableCodeFile.cs \
 	Program.cs \
-	ProgramUtils.cs \
 	MiniZinc/Boxes/ZincTieTiesBoxBase.cs \
 	MiniZinc/Boxes/IZincTieTiesBox.cs \
 	MiniZinc/Boxes/IZincTiesBox.cs \
@@ -242,7 +241,10 @@ FILES = \
 	Environment/ProgramTask.cs \
 	Environment/programVerbosity.cs \
 	Environment/Interaction.cs \
-	Parser/ScanBase.cs 
+	Parser/ScanBase.cs \
+	Codegen/HigherOrder/ProblemFileGenerator.cs \
+	Codegen/HigherOrder/SolutionFileGenerator.cs \
+	Codegen/HigherOrder/IFileGenerator.cs 
 
 DATA_FILES = 
 
@@ -254,6 +256,7 @@ EXTRAS = \
 	Samples/jobshop2x2.data \
 	Parser/specs/MiniZinc.ll \
 	Parser/specs/MiniZinc.yy \
+	Parser/specs/cc.sh \
 	Codegen \
 	Algebra \
 	MiniZinc \
@@ -275,7 +278,7 @@ EXTRAS = \
 	MiniZinc/Types \
 	Complexity \
 	Environment \
-	Parser/specs/cc.sh \
+	AbstractGraph \
 	zincoxide.in 
 
 REFERENCES =  \
