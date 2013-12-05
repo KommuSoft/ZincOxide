@@ -14,6 +14,7 @@
 *.log
 *.xml
 *.lst
+*.swp
 
 #FullPaths
 Parser/MiniZincLexer.cs
