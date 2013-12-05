@@ -13,8 +13,8 @@ zincoxide [options] zincfile
 .SH SEE ALSO
 
 .SH BUGS
-    currently no bugs known. You can report bugs on https://github.com/KommuSoft/ZincOxide/issues
+    currently no bugs known :-). You can report bugs on https://github.com/KommuSoft/ZincOxide/issues
 .SH AUTHOR
-    Willem Van Onsem (Willem.VanOnsem@cs.kuleuven.be)
+    Willem Van Onsem <Willem.VanOnsem@cs.kuleuven.be>
 .SH COPYRIGHT
     Copyright 2013 KU Leuven (Departement Computerwetenschappen, Celestijnenlaan 200A, 3001 Heverlee); Use of this software is governed by the GNU GPLv3.0 license
