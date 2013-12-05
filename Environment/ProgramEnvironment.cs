@@ -27,30 +27,52 @@ namespace ZincOxide.Environment {
 	/// A class that is used to set different parameters of the running program (for instance the task that should be executed, the verbosity level, etc.)
 	/// </summary>
 	public class ProgramEnvironment {
-		private ProgramIntegerRepresentation dataRepresentation = ProgramIntegerRepresentation.IntegerAsInt32 | ProgramIntegerRepresentation.FloatAsSingle;
 		/// <summary>
-		/// The task that should be carried out. By default the <see cref="ProgramTask.GenerateHeuristics"/> is selected.
+		/// The dafault task that should be carried out by the program.
 		/// </summary>
-		public ProgramTask Task = ProgramTask.GenerateHeuristics;
+		public const ProgramTask DefaultTask = ProgramTask.GenerateHeuristics;
+		/// <summary>
+		/// The default verbosity level of a program environment.
+		/// </summary>
+		public const ProgramVerbosity DefaultVerbosity = ProgramVerbosity.Error | ProgramVerbosity.Warning;
+		/// <summary>
+		/// The default integer representation of a program environment.
+		/// </summary>
+		public const ProgramIntegerRepresentation DefaultIntegerRepresentation = ProgramIntegerRepresentation.Int32;
+		/// <summary>
+		/// The default float representation of a program environment.
+		/// </summary>
+		public const ProgramFloatRepresentation DefaultFloatRepresentation = ProgramFloatRepresentation.Single;
+		/// <summary>
+		/// The task that should be carried out of a program environment.
+		/// </summary>
+		public ProgramTask Task;
 		/// <summary>
 		/// The verbosity level of the program. By default only <see cref="ProgramVerbosity.Error"/> and <see cref="ProgramVerbosity.Warning"/> are selected.
 		/// </summary>
-		public ProgramVerbosity Verbosity = ProgramVerbosity.Error | ProgramVerbosity.Warning;
-
-		public ProgramIntegerRepresentation DataRepresentation {
-			get {
-				return this.dataRepresentation;
-			}
-			set {
-				this.dataRepresentation = value;
-				//TODO: check if valid.
-			}
-		}
+		public ProgramVerbosity Verbosity;
+		/// <summary>
+		/// The way integers will be represented in the generated output.
+		/// </summary>
+		public ProgramIntegerRepresentation IntegerRepresentation;
+		/// <summary>
+		/// The way floats will be represented in the generated output.
+		/// </summary>
+		public ProgramFloatRepresentation FloatRepresentation;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincOxide.Environment.ProgramEnvironment"/> class.
 		/// </summary>
-		public ProgramEnvironment () {
+		/// <param name="task">The task to be carried out.</param>
+		/// <param name="integerRepresentation">The integer representation of the program.</param>
+		/// <param name="floatRepresentation">The float representation of the program.</param>
+		/// <param name="verbosity">The verbosity level of the program.</param>
+		public ProgramEnvironment (ProgramTask task = DefaultTask, ProgramIntegerRepresentation integerRepresentation = DefaultIntegerRepresentation,
+		                           ProgramFloatRepresentation floatRepresentation = DefaultFloatRepresentation, ProgramVerbosity verbosity = DefaultVerbosity) {
+			this.Task = task;
+			this.IntegerRepresentation = integerRepresentation;
+			this.FloatRepresentation = floatRepresentation;
+			this.Verbosity = verbosity;
 		}
 
 		/// <summary>
@@ -77,6 +99,14 @@ namespace ZincOxide.Environment {
 			} else {
 				throw new ZincOxideException ("Cannot parse the task to be executed.");
 			}
+		}
+
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincOxide.Environment.ProgramEnvironment"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincOxide.Environment.ProgramEnvironment"/>.</returns>
+		public override string ToString () {
+			return string.Format ("[ProgramEnvironment {0} {1} {2} {3}]", this.Task, this.IntegerRepresentation, this.FloatRepresentation, this.Verbosity);
 		}
 	}
 }
