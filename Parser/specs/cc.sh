@@ -3,5 +3,5 @@
 shopt -s expand_aliases
 source ~/.bashrc
 
-mono /home/kommusoft/Libraries/gppg-distro-1.5.0/binaries/Gplex.exe MiniZinc.ll
-mono /home/kommusoft/Libraries/gppg-distro-1.5.0/binaries/gppg.exe MiniZinc.yy
+mono ../../lib/Gplex.exe MiniZinc.ll
+mono ../../lib/gppg.exe MiniZinc.yy
