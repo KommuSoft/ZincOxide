@@ -1,13 +1,14 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="mono-utils/AssemblyInfo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ZincSulphate/FundamentalTypeTest.cs">
     <Files>
-      <File FileName="Utils/ContextStreamWriter.cs" Line="1" Column="1" />
-      <File FileName="Environment/Interaction.cs" Line="89" Column="1" />
-      <File FileName="Program.cs" Line="1" Column="1" />
-      <File FileName="mono-utils/DataListTest.cs" Line="34" Column="115" />
-      <File FileName="mono-utils/AssemblyInfo.cs" Line="42" Column="30" />
+      <File FileName="ZincSulphate/FundamentalTypeTest.cs" Line="31" Column="4" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

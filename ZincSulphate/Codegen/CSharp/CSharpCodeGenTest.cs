@@ -18,6 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
@@ -26,53 +27,71 @@ using ZincOxide.Codegen;
 using ZincOxide.Codegen.CSharp;
 
 namespace ZincSulphate.Codegen.CSharp {
-    [TestFixture()]
-    public class CSharpCodeGenTest {
 
-        [Test()]
-        public void TestGenerateInterface1 () {
-            string expectedContent1 = "public interface Test {\n}\n";
-            string expectedName1 = "Test.cs";
-            string expectedContent2 = "namespace just.an {\n\n\tpublic interface OtherTest : Test {\n\t}\n\n}\n";
-            string expectedName2 = "just/an/OtherTest.cs";
-            string expectedContent3 = "namespace just.an {\n\n\tpublic interface OtherTest2 : Test, OtherTest {\n\t}\n\n}\n";
-            string expectedName3 = "just/an/OtherTest2.cs";
-            CodeBuilderCSharp cbj = new CodeBuilderCSharp ();
-            ICodeInterface test1 = cbj.NewInterface (null, "Test");
-            IEnumerable<ICodeFile> files = cbj.Generate ();
-            Assert.AreEqual (0x01, files.Count ());
-            ICodeFile file = files.First ();
-            Assert.IsNotNull (file);
-            Assert.AreEqual (expectedName1, file.Name);
-            Assert.AreEqual (expectedContent1, file.GetText ());
-            ICodePackage justan = cbj.NewPackage ("just.an");
-            ICodeInterface test2 = cbj.NewInterface (justan, "OtherTest", test1);
-            files = cbj.Generate ();
-            Assert.AreEqual (0x02, files.Count ());
-            file = files.First ();
-            Assert.IsNotNull (file);
-            Assert.AreEqual (expectedName1, file.Name);
-            Assert.AreEqual (expectedContent1, file.GetText ());
-            file = files.Skip (0x01).First ();
-            Assert.IsNotNull (file);
-            Assert.AreEqual (expectedName2, file.Name);
-            Assert.AreEqual (expectedContent2, file.GetText ());
-            cbj.NewInterface (justan, "OtherTest2", test1, test2);
-            files = cbj.Generate ();
-            Assert.AreEqual (0x03, files.Count ());
-            file = files.First ();
-            Assert.IsNotNull (file);
-            Assert.AreEqual (expectedName1, file.Name);
-            Assert.AreEqual (expectedContent1, file.GetText ());
-            file = files.Skip (0x01).First ();
-            Assert.IsNotNull (file);
-            Assert.AreEqual (expectedName2, file.Name);
-            Assert.AreEqual (expectedContent2, file.GetText ());
-            file = files.Skip (0x02).First ();
-            Assert.IsNotNull (file);
-            Assert.AreEqual (expectedName3, file.Name);
-            Assert.AreEqual (expectedContent3, file.GetText ());
-        }
-    }
+	[TestFixture ()]
+	public class CSharpCodeGenTest {
+		private string expectedContent1 = "public interface Test {\n}\n";
+		private string expectedName1 = "Test.cs";
+		private string expectedContent2 = "namespace just.an {\n\n\tpublic interface OtherTest : Test {\n\t}\n\n}\n";
+		private string expectedName2 = "just/an/OtherTest.cs";
+		private string expectedContent3 = "namespace just.an {\n\n\tpublic interface OtherTest2 : Test, OtherTest {\n\t}\n\n}\n";
+		private string expectedName3 = "just/an/OtherTest2.cs";
+		private ICodeFile file;
+		private IEnumerable<ICodeFile> files;
+
+		[Test ()]
+		public void TestGenerateInterface1 () {
+			CodeBuilderCSharp cbj = new CodeBuilderCSharp ();
+			ICodeInterface test1 = cbj.NewInterface (null, "Test");
+			files = cbj.Generate ();
+			Assert.AreEqual (0x01, files.Count ());
+			file = files.First ();
+			Assert.IsNotNull (file);
+			Assert.AreEqual (expectedName1, file.Name);
+			Assert.AreEqual (expectedContent1, file.GetText ());
+		}
+
+		[Test ()]
+		public void TestGenerateInterface2 () {
+			CodeBuilderCSharp cbj = new CodeBuilderCSharp ();
+			ICodeInterface test1 = cbj.NewInterface (null, "Test");
+			Assert.IsNotNull (file);
+			ICodePackage justan = cbj.NewPackage ("just.an");
+			ICodeInterface test2 = cbj.NewInterface (justan, "OtherTest", test1);
+			files = cbj.Generate ();
+			Assert.AreEqual (0x02, files.Count ());
+			file = files.First ();
+			Assert.IsNotNull (file);
+			Assert.AreEqual (expectedName1, file.Name);
+			Assert.AreEqual (expectedContent1, file.GetText ());
+			file = files.Skip (0x01).First ();
+			Assert.IsNotNull (file);
+			Assert.AreEqual (expectedName2, file.Name);
+			Assert.AreEqual (expectedContent2, file.GetText ());
+		}
+
+		[Test ()]
+		public void TestGenerateInterface3 () {
+			CodeBuilderCSharp cbj = new CodeBuilderCSharp ();
+			ICodeInterface test1 = cbj.NewInterface (null, "Test");
+			ICodePackage justan = cbj.NewPackage ("just.an");
+			ICodeInterface test2 = cbj.NewInterface (justan, "OtherTest", test1);
+			cbj.NewInterface (justan, "OtherTest2", test1, test2);
+			files = cbj.Generate ();
+			Assert.AreEqual (0x03, files.Count ());
+			file = files.First ();
+			Assert.IsNotNull (file);
+			Assert.AreEqual (expectedName1, file.Name);
+			Assert.AreEqual (expectedContent1, file.GetText ());
+			file = files.Skip (0x01).First ();
+			Assert.IsNotNull (file);
+			Assert.AreEqual (expectedName2, file.Name);
+			Assert.AreEqual (expectedContent2, file.GetText ());
+			file = files.Skip (0x02).First ();
+			Assert.IsNotNull (file);
+			Assert.AreEqual (expectedName3, file.Name);
+			Assert.AreEqual (expectedContent3, file.GetText ());
+		}
+	}
 }
 
