@@ -44,6 +44,9 @@ namespace ZincOxide.Environment {
 		/// A MiniZinc model file is given and the program should generate heuristics who can solve the problem.
 		/// </summary>
 		GenerateHeuristics = 0x20,
+		/// <summary>
+		/// A MiniZinc model file is given and the program generates code to represent the problem and solution for the heuristic.
+		/// </summary>
 		GenerateBasics = 0x21,
 		/// <summary>
 		/// A MiniZinc model file is given and the program will generate a random data file who matches the model file.
