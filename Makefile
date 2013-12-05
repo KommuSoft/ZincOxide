@@ -12,10 +12,10 @@ include $(top_srcdir)/rules.make
 
 #Warning: This is an automatically generated file, do not edit!
 ifeq ($(CONFIG),DEBUG_X86)
- SUBDIRS =  . 
+ SUBDIRS =  .  ZincSulphate
 endif
 ifeq ($(CONFIG),RELEASE_X86)
- SUBDIRS =  . 
+ SUBDIRS =  .  ZincSulphate
 endif
 
 # Include project specific makefile

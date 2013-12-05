@@ -23,10 +23,7 @@ using System;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
-	public enum ZincTFScalar {
-		Integer,
-		Boolean,
-		Float
+	public class ZincTFScalar : IZincTF {
 	}
 }
 

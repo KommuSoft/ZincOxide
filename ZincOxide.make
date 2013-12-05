@@ -244,7 +244,11 @@ FILES = \
 	Parser/ScanBase.cs \
 	Codegen/HigherOrder/ProblemFileGenerator.cs \
 	Codegen/HigherOrder/SolutionFileGenerator.cs \
-	Codegen/HigherOrder/IFileGenerator.cs 
+	Codegen/HigherOrder/IFileGenerator.cs \
+	MiniZinc/Types/Fundamental/ZincTFScalar.cs \
+	MiniZinc/Types/Fundamental/ZincTFSet.cs \
+	MiniZinc/Types/Fundamental/IZincTF.cs \
+	Utils/IGenericEquals.cs 
 
 DATA_FILES = 
 
