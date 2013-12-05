@@ -15,9 +15,6 @@
 *.xml
 *.lst
 
-zincoxide
-zincoxide.in
-
 #FullPaths
 Parser/MiniZincLexer.cs
 Parser/MiniZincParser.cs
