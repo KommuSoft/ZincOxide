@@ -18,25 +18,69 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 
 namespace ZincOxide.Environment {
 
-    public enum ProgramTask : byte {
-        VerifyModel             = 0x00,
-        VerifyData              = 0x01,
-        Match                   = 0x10,
-        GenerateHeuristics      = 0x20,
-        GenerateBasics          = 0x21,
-        GenerateData            = 0x22,
-        SynthesizeAbstractModel = 0x30,
-        SynthesizeConcreteData  = 0x31,
-        Assume                  = 0x40,
-        Transform               = 0x50,
-        Lex                     = 0xf0,
-        Parse                   = 0xf1,
-        Echo                    = 0xf2,
-        Bindings                = 0xf3
-    }
-
+	/// <summary>
+	/// An enumeration that specifies the task the program should carry out.
+	/// </summary>
+	public enum ProgramTask : byte {
+		/// <summary>
+		/// A MiniZinc model file is given as input and the program should check if the given file is valid.
+		/// </summary>
+		VerifyModel = 0x00,
+		/// <summary>
+		/// A MiniZinc data file is given as input and the program should check if the given file is valid.
+		/// </summary>
+		VerifyData = 0x01,
+		/// <summary>
+		/// A MiniZinc model file and a MiniZinc data file are given and the program should check if the data is a data
+		/// file of the model.
+		/// </summary>
+		Match = 0x10,
+		/// <summary>
+		/// A MiniZinc model file is given and the program should generate heuristics who can solve the problem.
+		/// </summary>
+		GenerateHeuristics = 0x20,
+		GenerateBasics = 0x21,
+		/// <summary>
+		/// A MiniZinc model file is given and the program will generate a random data file who matches the model file.
+		/// </summary>
+		GenerateData = 0x22,
+		SynthesizeAbstractModel = 0x30,
+		SynthesizeConcreteData = 0x31,
+		/// <summary>
+		/// A MinZinc model file is given and the program prints a list of assumptions.
+		/// </summary>
+		Assume = 0x40,
+		/// <summary>
+		/// A MiniZinc model file is given and the program generates zero, one or more MiniZinc model files describing
+		/// the same problem together with channeling heuristics.
+		/// </summary>
+		Transform = 0x50,
+		/// <summary>
+		/// A MiniZinc model or data file is given to the program and a stream of tokens is printed on the stdout
+		/// representing the file. This task is only used for debugging purposes.
+		/// </summary>
+		Lex = 0xf0,
+		/// <summary>
+		/// A MiniZinc model or data file is given to the program and the abstract syntax tree of the file is printed
+		/// on the stdout representing the file. This task is only used for debugging purposes.
+		/// </summary>
+		Parse = 0xf1,
+		/// <summary>
+		/// A MiniZinc model or data file is given to the program and the same file is echoed again after parsing
+		/// and printing. Except for noise like tabs, spaces, the files should be identical. This task is only used
+		/// for debugging purposes.
+		/// </summary>
+		Echo = 0xf2,
+		/// <summary>
+		/// A MiniZinc model or data file is given to the program and the same file is echoed again after parsing and
+		/// printing. Identifiers are anotated with a number so that one can check if the variables are bounded
+		/// correctly. This task is only used for debugging purposes.
+		/// </summary>
+		Bindings = 0xf3
+	}
 }

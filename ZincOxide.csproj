@@ -229,6 +229,9 @@
     <Compile Include="Environment\programVerbosity.cs" />
     <Compile Include="Environment\Interaction.cs" />
     <Compile Include="Parser\ScanBase.cs" />
+    <Compile Include="Codegen\HigherOrder\ProblemFileGenerator.cs" />
+    <Compile Include="Codegen\HigherOrder\SolutionFileGenerator.cs" />
+    <Compile Include="Codegen\HigherOrder\IFileGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
