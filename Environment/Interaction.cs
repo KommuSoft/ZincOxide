@@ -58,6 +58,18 @@ namespace ZincOxide.Environment {
 			set;
 		}
 
+		/// <summary>
+		/// Prints a generic message with a give verbosity, message format and zero or more message arguments.
+		/// </summary>
+		/// <param name="verbosity">The verbosity-level of the message.</param>
+		/// <param name="format">The format of the message.</param>
+		/// <param name="args">An object array that contains zero or more objects to format. </param>
+		/// <exception cref="ArgumentNullException"><paramref name="format"/> or <paramref name="format"/> is <see langword="null"/>.</exception>
+		/// <exception cref="FormatException"><paramref name="format"/> is invalid.</exception>
+		/// <exception cref="FormatException">The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array.</exception>
+		/// <remarks>
+		/// <para>If the interaction level doesn't support the given level, no message is printed.</para>
+		/// </remarks>
 		public static void GenericMessage (ProgramVerbosity verbosity, string format, params object[] args) {
 			if ((verbosity & VerbosityLevel) != 0x00) {
 				Console.Error.Write (verbosity.ToString ());
@@ -66,37 +78,137 @@ namespace ZincOxide.Environment {
 			}
 		}
 
+		/// <summary>
+		/// Prints a warning message with a given format and arguments.
+		/// </summary>
+		/// <param name="format">The format of the message.</param>
+		/// <param name="args">An object array that contains zero or more objects to format.</param>
+		/// <exception cref="ArgumentNullException"><paramref name="format"/> or <paramref name="format"/> is <see langword="null"/>.</exception>
+		/// <exception cref="FormatException"><paramref name="format"/> is invalid.</exception>
+		/// <exception cref="FormatException">The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array.</exception>
+		/// <remarks>
+		/// <para>If the interaction level doesn't support warnings, no message is printed.</para>
+		/// </remarks>
 		public static void Warning (string format, params object[] args) {
 			GenericMessage (ProgramVerbosity.Remark, format, args);
 		}
 
+		/// <summary>
+		/// Prints a parsing error message with a given format, arguments and the name of the active file. <see cref="Interaction.Location"/> will provide
+		/// the location within the active file.
+		/// </summary>
+		/// <param name="activeFile">The name of the active file.</param>
+		/// <param name="format">The format of the message.</param>
+		/// <param name="args">An object array that contains zero or more objects to format. </param>
+		/// <exception cref="ArgumentNullException"><paramref name="format"/> or <paramref name="format"/> is <see langword="null"/>.</exception>
+		/// <exception cref="FormatException"><paramref name="format"/> is invalid.</exception>
+		/// <exception cref="FormatException">The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array.</exception>
+		/// <remarks>
+		/// <para>If the active file or the location are not effective, no parsing error message will be printed.</para>
+		/// <para>If the interaction level doesn't support errors, no message is printed.</para>
+		/// </remarks>
 		public static void ParsingError (string activeFile, string format, params object[] args) {
 			ActiveFile = activeFile;
 			ParsingError (format, args);
 		}
 
+		/// <summary>
+		/// Prints a parsing error message with a given format, arguments and the location of the error. <see cref="Interaction.ActiveFile"/> will provide the active file.
+		/// </summary>
+		/// <param name="location">The location within the active file of the error.</param>
+		/// <param name="format">The format of the message.</param>
+		/// <param name="args">An object array that contains zero or more objects to format. </param>
+		/// <exception cref="ArgumentNullException"><paramref name="format"/> or <paramref name="format"/> is <see langword="null"/>.</exception>
+		/// <exception cref="FormatException"><paramref name="format"/> is invalid.</exception>
+		/// <exception cref="FormatException">The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array.</exception>
+		/// <remarks>
+		/// <para>If the active file or the location are not effective, no parsing error message will be printed.</para>
+		/// <para>If the interaction level doesn't support errors, no message is printed.</para>
+		/// </remarks>
 		public static void ParsingError (LexSpan location, string format, params object[] args) {
 			Location = location;
 			ParsingError (format, args);
 		}
 
+		/// <summary>
+		/// Prints a parsing error message with a given format, arguments and the name of the file and the location of the error.
+		/// </summary>
+		/// <param name="activeFile">The name of the file where the error is detected.</param>
+		/// <param name="location">The location within the active file of the error.</param>
+		/// <param name="format">The format of the message.</param>
+		/// <param name="args">An object array that contains zero or more objects to format. </param>
+		/// <exception cref="ArgumentNullException"><paramref name="format"/> or <paramref name="format"/> is <see langword="null"/>.</exception>
+		/// <exception cref="FormatException"><paramref name="format"/> is invalid.</exception>
+		/// <exception cref="FormatException">The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array.</exception>
+		/// <remarks>
+		/// <para>If the active file or the location are not effective, no parsing error message will be printed.</para>
+		/// <para>If the interaction level doesn't support errors, no message is printed.</para>
+		/// </remarks>
 		public static void ParsingError (string activeFile, LexSpan location, string format, params object[] args) {
 			ActiveFile = activeFile;
 			ParsingError (location, format, args);
 		}
 
+		/// <summary>
+		/// Prints a parsing error message with a given format and arguments. <see cref="Interaction.ActiveFile"/> and <see cref="Interaction.Location"/> will provide
+		/// the name of the file and the location of the error.
+		/// </summary>
+		/// <param name="format">The format of the message.</param>
+		/// <param name="args">An object array that contains zero or more objects to format. </param>
+		/// <exception cref="ArgumentNullException"><paramref name="format"/> or <paramref name="format"/> is <see langword="null"/>.</exception>
+		/// <exception cref="FormatException"><paramref name="format"/> is invalid.</exception>
+		/// <exception cref="FormatException">The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array.</exception>
+		/// <remarks>
+		/// <para>If the active file or the location are not effective, no parsing error message will be printed.</para>
+		/// <para>If the interaction level doesn't support errors, no message is printed.</para>
+		/// </remarks>
 		public static void ParsingError (string format, params object[] args) {
-			GenericMessage (ProgramVerbosity.Error, string.Format ("{0}({1},{2}) {3}", ActiveFile, Location.StartLine, Location.StartColumn, string.Format (format, args)));
+			if (ActiveFile != null && Location != null) {
+				GenericMessage (ProgramVerbosity.Error, string.Format ("{0}({1},{2}) {3}", ActiveFile, Location.StartLine, Location.StartColumn, string.Format (format, args)));
+			}
 		}
 
+		/// <summary>
+		/// Prints an error message with a given format and arguments.
+		/// </summary>
+		/// <param name="format">The format of the message.</param>
+		/// <param name="args">An object array that contains zero or more objects to format. </param>
+		/// <exception cref="ArgumentNullException"><paramref name="format"/> or <paramref name="format"/> is <see langword="null"/>.</exception>
+		/// <exception cref="FormatException"><paramref name="format"/> is invalid.</exception>
+		/// <exception cref="FormatException">The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array.</exception>
+		/// <remarks>
+		/// <para>If the interaction level doesn't support errors, no message is printed.</para>
+		/// </remarks>
 		public static void Error (string format, params object[] args) {
 			GenericMessage (ProgramVerbosity.Error, format, args);
 		}
 
+		/// <summary>
+		/// Prints a remark message with a given format and arguments.
+		/// </summary>
+		/// <param name="format">The format of the message.</param>
+		/// <param name="args">An object array that contains zero or more objects to format. </param>
+		/// <exception cref="ArgumentNullException"><paramref name="format"/> or <paramref name="format"/> is <see langword="null"/>.</exception>
+		/// <exception cref="FormatException"><paramref name="format"/> is invalid.</exception>
+		/// <exception cref="FormatException">The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array.</exception>
+		/// <remarks>
+		/// <para>If the interaction level doesn't support remarks, no message is printed.</para>
+		/// </remarks>
 		public static void Remark (string format, params object[] args) {
 			GenericMessage (ProgramVerbosity.Remark, format, args);
 		}
 
+		/// <summary>
+		/// Prints an assumption message with a given format and arguments.
+		/// </summary>
+		/// <param name="format">The format of the message.</param>
+		/// <param name="args">An object array that contains zero or more objects to format. </param>
+		/// <exception cref="ArgumentNullException"><paramref name="format"/> or <paramref name="format"/> is <see langword="null"/>.</exception>
+		/// <exception cref="FormatException"><paramref name="format"/> is invalid.</exception>
+		/// <exception cref="FormatException">The index of a format item is less than zero, or greater than or equal to the length of the <paramref name="args"/> array.</exception>
+		/// <remarks>
+		/// <para>If the interaction level doesn't support assumptions, no message is printed.</para>
+		/// </remarks>
 		public static void Assumption (string format, params object[] args) {
 			GenericMessage (ProgramVerbosity.Assumption, format, args);
 		}
