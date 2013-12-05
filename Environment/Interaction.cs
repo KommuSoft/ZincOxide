@@ -21,6 +21,7 @@
 
 using System;
 using ZincOxide.Parser;
+using System.Configuration;
 
 namespace ZincOxide.Environment {
 
@@ -28,9 +29,6 @@ namespace ZincOxide.Environment {
 	/// A class designed to interact with the user of the program.
 	/// </summary>
 	public static class Interaction {
-		private static ProgramVerbosity verbosityLevel = ProgramVerbosity.Error | ProgramVerbosity.Warning;
-		private static string activeFile;
-
 		/// <summary>
 		/// The level of verbosity of the program: determines which messages should be printed.
 		/// </summary>
@@ -38,26 +36,30 @@ namespace ZincOxide.Environment {
 		/// <remarks>
 		/// By default, only errors and warnings are printed.
 		/// </remarks>
-		public static ProgramVerbosity Level {
-			get {
-				return verbosityLevel;
-			}
-			set {
-				verbosityLevel = value;
-			}
+		public static ProgramVerbosity VerbosityLevel = ProgramVerbosity.Error | ProgramVerbosity.Warning;
+
+		/// <summary>
+		/// The current file that is modified. This is used to provide location information when a parsing error is
+		/// reported.
+		/// </summary>
+		/// <value>The active file.</value>
+		public static string ActiveFile {
+			get;
+			set;
 		}
 
-		public static string ActiveFile {
-			get {
-				return activeFile;
-			}
-			set {
-				activeFile = value;
-			}
+		/// <summary>
+		/// The current location within the active file. This is udes to provide location information when a parsing
+		/// error is reported.
+		/// </summary>
+		/// <value>The current location within the active file.</value>
+		public static LexSpan Location {
+			get;
+			set;
 		}
 
 		public static void GenericMessage (ProgramVerbosity verbosity, string format, params object[] args) {
-			if ((verbosity & verbosityLevel) != 0x00) {
+			if ((verbosity & VerbosityLevel) != 0x00) {
 				Console.Error.Write (verbosity.ToString ());
 				Console.Error.Write (": ");
 				Console.Error.WriteLine (format, args);
@@ -68,8 +70,23 @@ namespace ZincOxide.Environment {
 			GenericMessage (ProgramVerbosity.Remark, format, args);
 		}
 
+		public static void ParsingError (string activeFile, string format, params object[] args) {
+			ActiveFile = activeFile;
+			ParsingError (format, args);
+		}
+
 		public static void ParsingError (LexSpan location, string format, params object[] args) {
-			GenericMessage (ProgramVerbosity.Error, string.Format ("{0}({1},{2}) {3}", activeFile, location.StartLine, location.StartColumn, string.Format (format, args)));
+			Location = location;
+			ParsingError (format, args);
+		}
+
+		public static void ParsingError (string activeFile, LexSpan location, string format, params object[] args) {
+			ActiveFile = activeFile;
+			ParsingError (location, format, args);
+		}
+
+		public static void ParsingError (string format, params object[] args) {
+			GenericMessage (ProgramVerbosity.Error, string.Format ("{0}({1},{2}) {3}", ActiveFile, Location.StartLine, Location.StartColumn, string.Format (format, args)));
 		}
 
 		public static void Error (string format, params object[] args) {

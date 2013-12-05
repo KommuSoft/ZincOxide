@@ -7,3 +7,6 @@
 [submodule "gplex"]
 	path = gplex
 	url = https://github.com/KommuSoft/Gardens-Point-LEX.git
+[submodule "mono-utils"]
+	path = mono-utils
+	url = https://github.com/KommuSoft/mono-utils.git

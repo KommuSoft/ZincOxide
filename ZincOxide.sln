@@ -5,12 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZincOxide", "ZincOxide.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZincSulphate", "ZincSulphate\ZincSulphate.csproj", "{E43A9277-5FCC-42B0-B600-B4BD5EF3D56C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaskellLibraries", "mono-utils\HaskellLibraries.csproj", "{BCC56048-D2A4-4646-B4D0-451C64D2D066}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCC56048-D2A4-4646-B4D0-451C64D2D066}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BCC56048-D2A4-4646-B4D0-451C64D2D066}.Debug|x86.Build.0 = Debug|Any CPU
+		{BCC56048-D2A4-4646-B4D0-451C64D2D066}.Release|x86.ActiveCfg = Release|Any CPU
+		{BCC56048-D2A4-4646-B4D0-451C64D2D066}.Release|x86.Build.0 = Release|Any CPU
 		{E43A9277-5FCC-42B0-B600-B4BD5EF3D56C}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{E43A9277-5FCC-42B0-B600-B4BD5EF3D56C}.Debug|x86.Build.0 = Debug|Any CPU
 		{E43A9277-5FCC-42B0-B600-B4BD5EF3D56C}.Release|x86.ActiveCfg = Release|Any CPU

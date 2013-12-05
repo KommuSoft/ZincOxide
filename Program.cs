@@ -54,7 +54,7 @@ namespace ZincOxide {
 			List<string> files = new List<string> ();
 			try {
 				files = p.Parse (args);
-				Interaction.Level = env.Verbosity;
+				Interaction.VerbosityLevel = env.Verbosity;
 			} catch (OptionException e) {
 				Console.Error.Write ("zincoxide: ");
 				Console.Error.WriteLine (e.Message);

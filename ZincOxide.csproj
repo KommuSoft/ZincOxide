@@ -232,7 +232,6 @@
     <Compile Include="Codegen\HigherOrder\ProblemFileGenerator.cs" />
     <Compile Include="Codegen\HigherOrder\SolutionFileGenerator.cs" />
     <Compile Include="Codegen\HigherOrder\IFileGenerator.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\ZincTFScalar.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincTFSet.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\IZincTF.cs" />
     <Compile Include="Utils\IGenericEquals.cs" />
@@ -299,4 +298,10 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <ProjectReference Include="mono-utils\HaskellLibraries.csproj">
+      <Project>{BCC56048-D2A4-4646-B4D0-451C64D2D066}</Project>
+      <Name>HaskellLibraries</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
