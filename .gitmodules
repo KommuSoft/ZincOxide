@@ -1,3 +1,9 @@
 [submodule "website"]
 	path = website
 	url = https://github.com/KommuSoft/ZincOxideWebsite.git
+[submodule "gppg"]
+	path = gppg
+	url = https://github.com/KommuSoft/Gardens-Point-Parser-Generator.git
+[submodule "gplex"]
+	path = gplex
+	url = https://github.com/KommuSoft/Gardens-Point-LEX.git
