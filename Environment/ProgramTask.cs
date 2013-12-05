@@ -49,7 +49,15 @@ namespace ZincOxide.Environment {
 		/// A MiniZinc model file is given and the program will generate a random data file who matches the model file.
 		/// </summary>
 		GenerateData = 0x22,
+		/// <summary>
+		/// Given a MiniZinc model file with potential data, the program will generate a MiniZinc model file with
+		/// ommitted data. This can be used when only a MiniZinc file with data is provided.
+		/// </summary>
 		SynthesizeAbstractModel = 0x30,
+		/// <summary>
+		/// Given a MiniZinc model file with data, the program will generate a MiniZinc data file without a model.
+		/// This can be used to split the data from the model.
+		/// </summary>
 		SynthesizeConcreteData = 0x31,
 		/// <summary>
 		/// A MinZinc model file is given and the program prints a list of assumptions.
