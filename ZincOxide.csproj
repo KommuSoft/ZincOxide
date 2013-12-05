@@ -66,7 +66,6 @@
     <Compile Include="Codegen\ZincOxideCodeGenException.cs" />
     <Compile Include="MiniZinc\ZincOxideMiniZincException.cs" />
     <Compile Include="Parser\MiniZincParser.cs" />
-    <Compile Include="ProgramResult.cs" />
     <Compile Include="MiniZinc\Boxes\IZincAsBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincExBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincIdBox.cs" />
@@ -235,6 +234,8 @@
     <Compile Include="MiniZinc\Types\Fundamental\ZincTFSet.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\IZincTF.cs" />
     <Compile Include="Utils\IGenericEquals.cs" />
+    <Compile Include="Environment\ProgramResult.cs" />
+    <Compile Include="Environment\ProgramDataRepresentation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -255,6 +256,7 @@
     <Reference Include="nunit.core.interfaces, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Manpage.txt" />

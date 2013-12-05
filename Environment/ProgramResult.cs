@@ -21,7 +21,7 @@
 
 using System;
 
-namespace ZincOxide {
+namespace ZincOxide.Environment {
 
 	/// <summary>
 	/// An enumeration describing the different exit codes and their meaning.

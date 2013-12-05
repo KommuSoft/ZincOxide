@@ -27,6 +27,7 @@ namespace ZincOxide.Environment {
 	/// A class that is used to set different parameters of the running program (for instance the task that should be executed, the verbosity level, etc.)
 	/// </summary>
 	public class ProgramEnvironment {
+		private ProgramDataRepresentation dataRepresentation = ProgramDataRepresentation.IntegerAsInt32 | ProgramDataRepresentation.FloatAsSingle;
 		/// <summary>
 		/// The task that should be carried out. By default the <see cref="ProgramTask.GenerateHeuristics"/> is selected.
 		/// </summary>
@@ -35,6 +36,16 @@ namespace ZincOxide.Environment {
 		/// The verbosity level of the program. By default only <see cref="ProgramVerbosity.Error"/> and <see cref="ProgramVerbosity.Warning"/> are selected.
 		/// </summary>
 		public ProgramVerbosity Verbosity = ProgramVerbosity.Error | ProgramVerbosity.Warning;
+
+		public ProgramDataRepresentation DataRepresentation {
+			get {
+				return this.dataRepresentation;
+			}
+			set {
+				this.dataRepresentation = value;
+				//TODO: check if valid.
+			}
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincOxide.Environment.ProgramEnvironment"/> class.
