@@ -59,15 +59,15 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// var set of bool
 	/// </code>
 	/// </example>
-	public class ZincSetType : IZincType {
-		private IZincTypeInst elementType;
+	public class ZincSetType : IZincFundamentalType {
+		private IZincFundamentalTypeInst elementType;
 
 		/// <summary>
 		/// The element's type of the set.
 		/// </summary>
 		/// <value>The element's type of the set.</value>
 		/// <exception cref="ArgumentNullException">If the given argument is <see langword="null"/>.</exception>
-		public IZincTypeInst ElementType {
+		public IZincFundamentalTypeInst ElementType {
 			get {
 				return this.elementType;
 			}
@@ -86,7 +86,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <param name="elementType">The element's type of the set.</param>
 		/// <exception cref="ArgumentNullException">If the given <paramref name="elementType"/> is <see langword="null"/>.</exception>
-		public ZincSetType (IZincTypeInst elementType) {
+		public ZincSetType (IZincFundamentalTypeInst elementType) {
 			this.ElementType = elementType;
 		}
 
@@ -105,7 +105,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <returns><see langword="true"/>, if the types where equal, <see langword="false"/> otherwise.</returns>
 		/// <param name="other">The <see cref="IZincType"/> to match this type against.</param>
-		public bool GenericEquals (IZincType other) {
+		public bool GenericEquals (IZincFundamentalType other) {
 			if (other != null && other is ZincSetType) {
 				ZincSetType zst = (ZincSetType)other;
 				return this.elementType.GenericEquals (zst.elementType);

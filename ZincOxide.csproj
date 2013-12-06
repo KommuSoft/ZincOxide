@@ -178,7 +178,6 @@
     <Compile Include="Utils\IdBase.cs" />
     <Compile Include="Utils\INameId.cs" />
     <Compile Include="Utils\NameIdBase.cs" />
-    <Compile Include="MiniZinc\Types\ZincFundamentalType.cs" />
     <Compile Include="MiniZinc\Types\IZincFundamentalType.cs" />
     <Compile Include="MiniZinc\Types\IZincTypeTransformation.cs" />
     <Compile Include="MiniZinc\Types\ZincVarification.cs" />
@@ -235,12 +234,12 @@
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
     <Compile Include="ProgramFloatRepresentation.cs" />
     <Compile Include="Utils\Maths\IMathSet.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\ZincScalarType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincSetType.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\IZincType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincArrayType.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\IZincTypeInst.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincVarPar.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IZincFundamentalType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IZincFundamentalTypeInst.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincFundamentalScalarType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
