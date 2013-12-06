@@ -235,12 +235,13 @@
     <Compile Include="ProgramFloatRepresentation.cs" />
     <Compile Include="Utils\Maths\IMathSet.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincSetType.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\ZincArrayType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincVarPar.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\IZincFundamentalType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\IZincFundamentalTypeInst.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincFundamentalScalarType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincFundamentalTypeInst.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincTypeInstanceError.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincArrayType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

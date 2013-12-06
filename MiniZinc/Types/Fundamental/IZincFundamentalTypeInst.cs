@@ -28,6 +28,14 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// </summary>
 	public interface IZincFundamentalTypeInst : IZincFundamentalType {
 		/// <summary>
+		/// Gets or sets the instantiation of the type instance.
+		/// </summary>
+		/// <value>The instantiation of the type instance.</value>
+		ZincVarPar Instantiation {
+			get;
+		}
+
+		/// <summary>
 		/// Checks if this fundamental type-instance can be varified to the given fundamental type-instance.
 		/// </summary>
 		/// <returns><see langword="true"/> if this instance can be varified the specified one; otherwise, <see langword="false"/>.</returns>

@@ -1,10 +1,9 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Types/Fundamental/ZincScalarType.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Types/Fundamental/ZubcArrayType.cs">
     <Files>
-      <File FileName="Parser/specs/MiniZinc.ll" Line="1" Column="1" />
-      <File FileName="Parser/specs/ZincOutput.ll" Line="27" Column="14" />
-      <File FileName="MiniZinc/Types/Fundamental/ZincScalarType.cs" Line="82" Column="27" />
+      <File FileName="MiniZinc/Types/Fundamental/ZincSetType.cs" Line="76" Column="95" />
+      <File FileName="MiniZinc/Types/Fundamental/ZubcArrayType.cs" Line="55" Column="55" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
