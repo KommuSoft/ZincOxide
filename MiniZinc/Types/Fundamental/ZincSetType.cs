@@ -73,7 +73,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 			}
 			protected set {
 				if (value == null) {
-					throw new ArgumentNullException ("The element type of a set must be effective.");
+					throw new ArgumentNullException ("value", "The element type of a set must be effective.");
 				} else {
 					this.elementType = value;
 				}
@@ -104,10 +104,10 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// Checks if this zinc type is equal to the given zinc type.
 		/// </summary>
 		/// <returns><see langword="true"/>, if the types where equal, <see langword="false"/> otherwise.</returns>
-		/// <param name="other">The <see cref="IZincType"/> to match this type against.</param>
+		/// <param name="other">The <see cref="IZincFundamentalType"/> to match this type against.</param>
 		public bool GenericEquals (IZincFundamentalType other) {
-			if (other != null && other is ZincSetType) {
-				ZincSetType zst = (ZincSetType)other;
+			var zst = other as ZincSetType;
+			if (zst != null) {
 				return this.elementType.GenericEquals (zst.elementType);
 			}
 			return false;

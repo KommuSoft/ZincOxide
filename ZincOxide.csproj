@@ -240,6 +240,7 @@
     <Compile Include="MiniZinc\Types\Fundamental\IZincFundamentalType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\IZincFundamentalTypeInst.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincFundamentalScalarType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincFundamentalTypeInst.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
