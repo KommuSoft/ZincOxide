@@ -1,9 +1,6 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ZincSulphate/FundamentalTypeTest.cs">
-    <Files>
-      <File FileName="ZincSulphate/FundamentalTypeTest.cs" Line="31" Column="4" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State expanded="True" selected="True" />

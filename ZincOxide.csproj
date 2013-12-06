@@ -237,6 +237,7 @@
     <Compile Include="Environment\ProgramResult.cs" />
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
     <Compile Include="ProgramFloatRepresentation.cs" />
+    <Compile Include="Utils\Maths\IMathSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -266,6 +267,7 @@
     <None Include="Parser\specs\MiniZinc.ll" />
     <None Include="Parser\specs\MiniZinc.yy" />
     <None Include="Parser\specs\cc.sh" />
+    <None Include="Parser\specs\ZincOutput.ll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Codegen\" />
@@ -291,6 +293,7 @@
     <Folder Include="Environment\" />
     <Folder Include="AbstractGraph\" />
     <Folder Include="MiniZinc\Types\Fundamental\" />
+    <Folder Include="Utils\Maths\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

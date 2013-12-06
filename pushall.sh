@@ -1,3 +1,7 @@
-git push origin master
-git push github master
-git push codeplex master
+for b in {master,type-system}
+do
+	for r in {origin,github,codeplex}
+	do
+		git push $r $b
+	done
+done
