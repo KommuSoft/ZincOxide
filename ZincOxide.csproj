@@ -173,7 +173,6 @@
     <Compile Include="MiniZinc\Structures\ZincTypeInstExpressionIdent.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstRangeExpression.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstWhereExpression.cs" />
-    <Compile Include="MiniZinc\Structures\ZincVarPar.cs" />
     <Compile Include="MiniZinc\Structures\ZincCompound.cs" />
     <Compile Include="Utils\IId.cs" />
     <Compile Include="Utils\IdBase.cs" />
@@ -239,6 +238,9 @@
     <Compile Include="MiniZinc\Types\Fundamental\ZincScalarType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincSetType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\IZincType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincArrayType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IZincTypeInst.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincVarPar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

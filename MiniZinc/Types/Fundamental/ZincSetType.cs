@@ -60,20 +60,22 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// </code>
 	/// </example>
 	public class ZincSetType : IZincType {
-		private IZincType innerType;
+		private IZincTypeInst elementType;
 
 		/// <summary>
 		/// The element's type of the set.
 		/// </summary>
 		/// <value>The element's type of the set.</value>
 		/// <exception cref="ArgumentNullException">If the given argument is <see langword="null"/>.</exception>
-		public IZincType InnerType {
+		public IZincTypeInst ElementType {
 			get {
-				return this.innerType;
+				return this.elementType;
 			}
 			protected set {
 				if (value == null) {
-					throw new ArgumentNullException ("The inner type of a set must be effective.");
+					throw new ArgumentNullException ("The element type of a set must be effective.");
+				} else {
+					this.elementType = value;
 				}
 			}
 		}
@@ -84,12 +86,16 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <param name="elementType">The element's type of the set.</param>
 		/// <exception cref="ArgumentNullException">If the given <paramref name="elementType"/> is <see langword="null"/>.</exception>
-		public ZincSetType (IZincType elementType) {
-			this.InnerType = elementType;
+		public ZincSetType (IZincTypeInst elementType) {
+			this.ElementType = elementType;
 		}
 
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincSetType"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincSetType"/>.</returns>
 		public override string ToString () {
-			return string.Format ("set of [{0}]", this.innerType);
+			return string.Format ("set of [{0}]", this.elementType);
 		}
 
 		#region IGenericEquals implementation
@@ -102,7 +108,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		public bool GenericEquals (IZincType other) {
 			if (other != null && other is ZincSetType) {
 				ZincSetType zst = (ZincSetType)other;
-				return this.innerType.GenericEquals (zst.innerType);
+				return this.elementType.GenericEquals (zst.elementType);
 			}
 			return false;
 		}

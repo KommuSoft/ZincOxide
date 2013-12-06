@@ -1,5 +1,5 @@
 //
-//  ZincFundamentalType.cs
+//  ZincArrayType.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,27 +18,12 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
-using ZincOxide.MiniZinc.Types.Fundamental;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc.Types.Fundamental {
 
-	public struct ZincFundamentalType {
-		private ulong data;
-
-		public ulong Data {
-			get {
-				return this.data;
-			}
-		}
-
-		private ZincFundamentalType (ulong data) {
-			this.data = data;
-		}
-
-		public ZincFundamentalType (ZincVarPar varpar, ZincScalar scalar) {
-			this.data = (ulong)varpar;
+	public class ZincArrayType {
+		public ZincArrayType () {
 		}
 	}
 }
