@@ -1,6 +1,6 @@
-for b in {master,type-system}
+for r in {origin,github,codeplex}
 do
-	for r in {origin,github,codeplex}
+	for b in {master,type-system}
 	do
 		git push $r $b
 	done
