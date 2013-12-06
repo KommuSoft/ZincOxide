@@ -1,5 +1,5 @@
 //
-//  IZincTF.cs
+//  ZincTFSet.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,11 +20,28 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
-	public interface IZincTF : IGenericEquals<IZincTF> {
+	public class ZincSetType : IZincTF {
+		private IZincType innerType;
+
+		public ZincSetType (IZincTF innerType) {
+			this.innerType = innerType;
+		}
+
+		public override string ToString () {
+			return string.Format ("set [{0}]", this.innerType);
+		}
+
+		#region IGenericEquals implementation
+
+		public bool GenericEquals (IZincTF other) {
+			throw new NotImplementedException ();
+		}
+
+		#endregion
+
 	}
 }
 

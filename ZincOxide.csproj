@@ -231,14 +231,14 @@
     <Compile Include="Codegen\HigherOrder\ProblemFileGenerator.cs" />
     <Compile Include="Codegen\HigherOrder\SolutionFileGenerator.cs" />
     <Compile Include="Codegen\HigherOrder\IFileGenerator.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\ZincTFSet.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\IZincTF.cs" />
     <Compile Include="Utils\IGenericEquals.cs" />
     <Compile Include="Environment\ProgramResult.cs" />
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
     <Compile Include="ProgramFloatRepresentation.cs" />
     <Compile Include="Utils\Maths\IMathSet.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincScalarType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincSetType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IZincType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
