@@ -238,6 +238,7 @@
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
     <Compile Include="ProgramFloatRepresentation.cs" />
     <Compile Include="Utils\Maths\IMathSet.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincScalarType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
