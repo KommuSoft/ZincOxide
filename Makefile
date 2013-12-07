@@ -1,5 +1,5 @@
 
-EXTRA_DIST = ZincOxide.make rules.make configure Makefile.include lib/QUT.ShiftReduceParser.dll lib/Mono.Options.dll
+EXTRA_DIST = ZincOxide.make rules.make configure Makefile.include mono-utils/lib/FSharp.PowerPack.dll lib/QUT.ShiftReduceParser.dll lib/Mono.Options.dll
 
 all: all-recursive
 
@@ -12,10 +12,10 @@ include $(top_srcdir)/rules.make
 
 #Warning: This is an automatically generated file, do not edit!
 ifeq ($(CONFIG),DEBUG_X86)
- SUBDIRS =  .  ZincSulphate
+ SUBDIRS =  mono-utils HypoZinc .  ZincSulphate
 endif
 ifeq ($(CONFIG),RELEASE_X86)
- SUBDIRS =  .  ZincSulphate
+ SUBDIRS =  mono-utils HypoZinc .  ZincSulphate
 endif
 
 # Include project specific makefile

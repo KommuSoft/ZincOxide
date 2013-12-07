@@ -13,13 +13,17 @@ ASSEMBLY_COMPILER_FLAGS =  -noconfig -codepage:utf8 -warn:4 -optimize- -debug "-
 ASSEMBLY = bin/Debug/ZincOxide.exe
 ASSEMBLY_MDB = $(ASSEMBLY).mdb
 COMPILE_TARGET = exe
-PROJECT_REFERENCES = 
+PROJECT_REFERENCES =  \
+	mono-utils/bin/Debug/HaskellLibraries.dll
 BUILD_DIR = bin/Debug
 
 ZINCOXIDE_EXE_MDB_SOURCE=bin/Debug/ZincOxide.exe.mdb
 ZINCOXIDE_EXE_MDB=$(BUILD_DIR)/ZincOxide.exe.mdb
 QUT_SHIFTREDUCEPARSER_DLL_SOURCE=lib/QUT.ShiftReduceParser.dll
 MONO_OPTIONS_DLL_SOURCE=lib/Mono.Options.dll
+HASKELLLIBRARIES_DLL_SOURCE=mono-utils/bin/Debug/HaskellLibraries.dll
+HASKELLLIBRARIES_DLL_MDB_SOURCE=mono-utils/bin/Debug/HaskellLibraries.dll.mdb
+FSHARP_POWERPACK_DLL_SOURCE=mono-utils/lib/FSharp.PowerPack.dll
 
 endif
 
@@ -29,12 +33,16 @@ ASSEMBLY_COMPILER_FLAGS =  -noconfig -codepage:utf8 -warn:4 -optimize+
 ASSEMBLY = bin/Release/ZincOxide.exe
 ASSEMBLY_MDB = 
 COMPILE_TARGET = exe
-PROJECT_REFERENCES = 
+PROJECT_REFERENCES =  \
+	mono-utils/bin/Release/HaskellLibraries.dll
 BUILD_DIR = bin/Release
 
 ZINCOXIDE_EXE_MDB=
 QUT_SHIFTREDUCEPARSER_DLL_SOURCE=lib/QUT.ShiftReduceParser.dll
 MONO_OPTIONS_DLL_SOURCE=lib/Mono.Options.dll
+HASKELLLIBRARIES_DLL_SOURCE=mono-utils/bin/Debug/HaskellLibraries.dll
+HASKELLLIBRARIES_DLL_MDB_SOURCE=mono-utils/bin/Debug/HaskellLibraries.dll.mdb
+FSHARP_POWERPACK_DLL_SOURCE=mono-utils/lib/FSharp.PowerPack.dll
 
 endif
 
@@ -44,7 +52,10 @@ SATELLITE_ASSEMBLY_NAME=$(notdir $(basename $(ASSEMBLY))).resources.dll
 PROGRAMFILES = \
 	$(ZINCOXIDE_EXE_MDB) \
 	$(QUT_SHIFTREDUCEPARSER_DLL) \
-	$(MONO_OPTIONS_DLL)  
+	$(MONO_OPTIONS_DLL) \
+	$(HASKELLLIBRARIES_DLL) \
+	$(HASKELLLIBRARIES_DLL_MDB) \
+	$(FSHARP_POWERPACK_DLL)  
 
 BINARIES = \
 	$(ZINCOXIDE)  
@@ -54,6 +65,9 @@ RESGEN=resgen2
 
 QUT_SHIFTREDUCEPARSER_DLL = $(BUILD_DIR)/QUT.ShiftReduceParser.dll
 MONO_OPTIONS_DLL = $(BUILD_DIR)/Mono.Options.dll
+HASKELLLIBRARIES_DLL = $(BUILD_DIR)/HaskellLibraries.dll
+HASKELLLIBRARIES_DLL_MDB = $(BUILD_DIR)/HaskellLibraries.dll.mdb
+FSHARP_POWERPACK_DLL = $(BUILD_DIR)/FSharp.PowerPack.dll
 ZINCOXIDE = $(BUILD_DIR)/zincoxide
 
 FILES = \
@@ -79,7 +93,6 @@ FILES = \
 	Codegen/ZincOxideCodeGenException.cs \
 	MiniZinc/ZincOxideMiniZincException.cs \
 	Parser/MiniZincParser.cs \
-	ProgramResult.cs \
 	MiniZinc/Boxes/IZincAsBox.cs \
 	MiniZinc/Boxes/IZincExBox.cs \
 	MiniZinc/Boxes/IZincIdBox.cs \
@@ -187,13 +200,11 @@ FILES = \
 	MiniZinc/Structures/ZincTypeInstExpressionIdent.cs \
 	MiniZinc/Structures/ZincTypeInstRangeExpression.cs \
 	MiniZinc/Structures/ZincTypeInstWhereExpression.cs \
-	MiniZinc/Structures/ZincVarPar.cs \
 	MiniZinc/Structures/ZincCompound.cs \
 	Utils/IId.cs \
 	Utils/IdBase.cs \
 	Utils/INameId.cs \
 	Utils/NameIdBase.cs \
-	MiniZinc/Types/ZincFundamentalType.cs \
 	MiniZinc/Types/IZincFundamentalType.cs \
 	MiniZinc/Types/IZincTypeTransformation.cs \
 	MiniZinc/Types/ZincVarification.cs \
@@ -245,10 +256,21 @@ FILES = \
 	Codegen/HigherOrder/ProblemFileGenerator.cs \
 	Codegen/HigherOrder/SolutionFileGenerator.cs \
 	Codegen/HigherOrder/IFileGenerator.cs \
-	MiniZinc/Types/Fundamental/ZincTFScalar.cs \
-	MiniZinc/Types/Fundamental/ZincTFSet.cs \
-	MiniZinc/Types/Fundamental/IZincTF.cs \
-	Utils/IGenericEquals.cs 
+	Utils/IGenericEquals.cs \
+	Environment/ProgramResult.cs \
+	Environment/ProgramIntegerRepresentation.cs \
+	ProgramFloatRepresentation.cs \
+	Utils/Maths/IMathSet.cs \
+	MiniZinc/Types/Fundamental/ZincSetType.cs \
+	MiniZinc/Types/Fundamental/ZincVarPar.cs \
+	MiniZinc/Types/Fundamental/IZincFundamentalType.cs \
+	MiniZinc/Types/Fundamental/IZincFundamentalTypeInst.cs \
+	MiniZinc/Types/Fundamental/ZincFundamentalScalarType.cs \
+	MiniZinc/Types/Fundamental/ZincFundamentalTypeInst.cs \
+	MiniZinc/Types/Fundamental/ZincTypeInstanceError.cs \
+	MiniZinc/Types/Fundamental/ZincArrayType.cs \
+	MiniZinc/Types/Fundamental/ZincTupleType.cs \
+	Properties/AssemblyInfo.cs 
 
 DATA_FILES = 
 
@@ -261,6 +283,7 @@ EXTRAS = \
 	Parser/specs/MiniZinc.ll \
 	Parser/specs/MiniZinc.yy \
 	Parser/specs/cc.sh \
+	Parser/specs/ZincOutput.ll \
 	Codegen \
 	Algebra \
 	MiniZinc \
@@ -283,13 +306,16 @@ EXTRAS = \
 	Complexity \
 	Environment \
 	AbstractGraph \
+	MiniZinc/Types/Fundamental \
+	Utils/Maths \
 	zincoxide.in 
 
 REFERENCES =  \
 	System \
 	System.Core \
 	System.Data \
-	-pkg:nunit
+	-pkg:nunit \
+	System.Numerics
 
 DLL_REFERENCES =  \
 	lib/QUT.ShiftReduceParser.dll \
@@ -304,6 +330,9 @@ all-local: $(ASSEMBLY) $(PROGRAMFILES) $(BINARIES)  $(top_srcdir)/config.make
 
 $(eval $(call emit-deploy-target,QUT_SHIFTREDUCEPARSER_DLL))
 $(eval $(call emit-deploy-target,MONO_OPTIONS_DLL))
+$(eval $(call emit-deploy-target,HASKELLLIBRARIES_DLL))
+$(eval $(call emit-deploy-target,HASKELLLIBRARIES_DLL_MDB))
+$(eval $(call emit-deploy-target,FSHARP_POWERPACK_DLL))
 $(eval $(call emit-deploy-wrapper,ZINCOXIDE,zincoxide,x))
 
 
@@ -314,6 +343,10 @@ $(build_xamlg_list): %.xaml.g.cs: %.xaml
 # Targets for Custom commands
 DEBUG|X86_BeforeBuild:
 	(cd Parser/specs/ && bash cc.sh)
+
+DEBUG|X86_AfterBuild:
+	(cd $(BUILD_DIR) && monodocer -pretty -importslashdoc:ZincOxide.xml -assembly:ZincOxide.exe -path:doc)
+	(cd $(BUILD_DIR) && mdoc export-html -o htmldocs doc/)
 
 RELEASE|X86_BeforeBuild:
 	(cd Parser/specs/ && bash cc.sh)
@@ -337,6 +370,9 @@ install-local: $(ASSEMBLY) $(ASSEMBLY_MDB)
 	$(call cp,$(ZINCOXIDE_EXE_MDB),$(DESTDIR)$(libdir)/$(PACKAGE))
 	$(call cp,$(QUT_SHIFTREDUCEPARSER_DLL),$(DESTDIR)$(libdir)/$(PACKAGE))
 	$(call cp,$(MONO_OPTIONS_DLL),$(DESTDIR)$(libdir)/$(PACKAGE))
+	$(call cp,$(HASKELLLIBRARIES_DLL),$(DESTDIR)$(libdir)/$(PACKAGE))
+	$(call cp,$(HASKELLLIBRARIES_DLL_MDB),$(DESTDIR)$(libdir)/$(PACKAGE))
+	$(call cp,$(FSHARP_POWERPACK_DLL),$(DESTDIR)$(libdir)/$(PACKAGE))
 	mkdir -p '$(DESTDIR)$(bindir)'
 	$(call cp,$(ZINCOXIDE),$(DESTDIR)$(bindir))
 	make post-install-local-hook prefix=$(prefix)
@@ -349,5 +385,8 @@ uninstall-local: $(ASSEMBLY) $(ASSEMBLY_MDB)
 	$(call rm,$(ZINCOXIDE_EXE_MDB),$(DESTDIR)$(libdir)/$(PACKAGE))
 	$(call rm,$(QUT_SHIFTREDUCEPARSER_DLL),$(DESTDIR)$(libdir)/$(PACKAGE))
 	$(call rm,$(MONO_OPTIONS_DLL),$(DESTDIR)$(libdir)/$(PACKAGE))
+	$(call rm,$(HASKELLLIBRARIES_DLL),$(DESTDIR)$(libdir)/$(PACKAGE))
+	$(call rm,$(HASKELLLIBRARIES_DLL_MDB),$(DESTDIR)$(libdir)/$(PACKAGE))
+	$(call rm,$(FSHARP_POWERPACK_DLL),$(DESTDIR)$(libdir)/$(PACKAGE))
 	$(call rm,$(ZINCOXIDE),$(DESTDIR)$(bindir))
 	make post-uninstall-local-hook prefix=$(prefix)

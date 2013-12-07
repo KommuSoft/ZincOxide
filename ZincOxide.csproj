@@ -245,6 +245,7 @@
     <Compile Include="MiniZinc\Types\Fundamental\ZincTypeInstanceError.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincArrayType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincTupleType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
