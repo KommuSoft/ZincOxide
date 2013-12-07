@@ -34,7 +34,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// type-instance expression is <c>tuple (int,var float)</c>. It is a type-instance error to precede a tuple
 	/// type-instance expression with <c>var</c>.</para>
 	/// <para>A tuple type is finite if all constituent elements are finite types. Otherwise false. The domain
-	/// of a tuple type that is a finite type is the Cartesian product of the domains of the element types.
+	/// of a tuple type that is a finite type is the Cartesian pr	oduct of the domains of the element types.
 	/// For example the domain of tuple (1..2,{3,5}) is {(1,3),(1,5),(2,3),(2,5)}</para>
 	/// <para>A tuple type is varifiable if all its constituent elements are varifiable. A tuple is
 	/// varified by varifying its constituent elements.</para>

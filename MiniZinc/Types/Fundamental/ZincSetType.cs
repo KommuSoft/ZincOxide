@@ -51,6 +51,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// <c>TI</c> can be coerced to <c>UI</c>.</para>
 	/// <para>Fixed sets can be automatically coerced to arrays. This means that array acces can be used on fixed sets.
 	/// <c>S[1]</c> is the smallest element in a fixed set <c>S</c> while <c>S[card(S)]</c> is the largest.</para>
+	/// <para>In MiniZinc, sets can only contain booleans, integers, and floats. Sets of integers may be fixed
+	/// unfixed. Other sets must be fixed.</para>
 	/// </remarks>
 	/// <example>
 	/// Some example set type-instance expressions:

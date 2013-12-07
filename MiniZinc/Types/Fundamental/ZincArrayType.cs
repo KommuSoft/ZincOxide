@@ -88,6 +88,15 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// resulting array will be in sorted order. This means that elements of fixed sets can be accessed like array
 	/// elements, using square brackets. Also <c>array[TIO] of TI</c> is coerced to <c>array[TIO] of UI</c>
 	/// if <c>TI</c> is coerced to <c>UI</c> *(i.e. coercion of element type but not the index type).</para>
+	/// <para>In MiniZinc, arrays must have indices that are contiguous integer ranges (e.g. <c>0..3</c>,
+	/// <c>10..12</c>, or the name of a set variable assigned in the model with a range value), or a tuple
+	/// of contiguous integer ranges.</para>
+	/// <para>In MiniZinc, arrays must be declared with index types that are explicit ranges, or variables that
+	/// are assigned a range value. Because these types are finite, only explicitly-indexed array variables
+	/// can be declared in MiniZinc. The one exception is that implictly-indexed arrays are allowed as arguments to
+	/// predicates and annotations.</para>
+	/// <para>In MiniZinc, arrays can only contain booleans, integers, floats, or sets of integers (all fixed or unfixed)
+	/// Furthermore, neither tuple literals nor tuple accesses are supported.</para>
 	/// </remarks>
 	public class ZincArrayType : IZincFundamentalType {
 		private IZincFundamentalTypeInst indexType, elementType;
