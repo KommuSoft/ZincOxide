@@ -28,6 +28,9 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// allowed. Tuples may contain unfixed elements.
 	/// </summary>
 	/// <remarks>
+	/// <para>A tuple base type-inst expression tail has this syntax: <c>tuple (ti-expr, ...)</c>. An example tuple
+	/// type-instance expression is <c>tuple (int,var float)</c>. It is a type-instance error to precede a tuple
+	/// type-instance expression with <c>var</c>.</para>
 	/// </remarks>
 	public class ZincTupleType {
 		public ZincTupleType () {
