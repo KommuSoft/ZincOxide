@@ -20,6 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
+using KommuSoft.HaskellLibraries;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -111,7 +113,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 			get {
 				return this.indexType;
 			}
-			set {
+			private set {
 				if (value == null) {
 					throw new ArgumentNullException ("value", "The index type must be effective.");
 				} else if (value.Instantiation == ZincVarPar.Var) {
@@ -130,7 +132,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 			get {
 				return this.elementType;
 			}
-			set {
+			private set {
 				if (value == null) {
 					throw new ArgumentException ("the element type must be effective.");
 				}
@@ -166,6 +168,14 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 
 		#endregion
 
+		/// <summary>
+		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
+		/// </summary>
+		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
+		public IEnumerable<IZincFundamentalTypeInst> GetDependingTypes () {
+			return DataList.Append (DataList.Prepend (this.IndexType, this.IndexType.GetDependingTypes ()),
+				DataList.Prepend (this.ElementType, this.ElementType.GetDependingTypes ()));
+		}
 	}
 }
 

@@ -20,6 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
+using KommuSoft.HaskellLibraries;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -73,7 +75,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 			get {
 				return this.elementType;
 			}
-			protected set {
+			private set {
 				if (value == null) {
 					throw new ArgumentNullException ("value", "The element type of a set must be effective.");
 				} else {
@@ -117,6 +119,13 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 
 		#endregion
 
+		/// <summary>
+		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
+		/// </summary>
+		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
+		public IEnumerable<IZincFundamentalTypeInst> GetDependingTypes () {
+			return DataList.Prepend (this.ElementType, this.ElementType.GetDependingTypes ());
+		}
 	}
 }
 

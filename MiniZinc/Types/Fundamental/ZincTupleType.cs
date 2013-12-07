@@ -22,6 +22,8 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using KommuSoft.HaskellLibraries;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -44,7 +46,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// <para>The coercions of a tuple are the following: <c>tuple (TI1, TI2, ..., TIn)</c> to <c>tuple (UI1, UI2, ..., UIn)</c>
 	/// if all types <c>TIi</c> coerce to <c>UIi</c>.</para>
 	/// </remarks>
-	public class ZincTupleType {
+	public class ZincTupleType : IZincFundamentalType {
 		private IList<IZincFundamentalTypeInst> itemTypes;
 
 		/// <summary>
@@ -69,7 +71,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 			get {
 				return this.itemTypes;
 			}
-			set {
+			private set {
 				if (value == null) {
 					throw new ArgumentNullException ("value", "The list of item types of a tuple must be effective.");
 				}
@@ -80,9 +82,47 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincTupleType"/> class with the types of elements.
+		/// </summary>
+		/// <param name="itemTypes">A list of items representing the type-instances of the elements of the tuple.</param>
 		public ZincTupleType (IList<IZincFundamentalTypeInst> itemTypes) {
 			this.ItemTypes = itemTypes;
 		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincTupleType"/> class with the type-instances of the elements.
+		/// </summary>
+		/// <param name="itemTypes">A list of items representing the type-instances of the elements of the tuple.</param>
+		public ZincTupleType (params IZincFundamentalTypeInst[] itemTypes) : this ((IList<IZincFundamentalTypeInst>)itemTypes) {
+		}
+
+		#region IZincFundamentalType implementation
+
+		/// <summary>
+		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
+		/// </summary>
+		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
+		public IEnumerable<IZincFundamentalTypeInst> GetDependingTypes () {
+			return this.ItemTypes;
+		}
+
+		#endregion
+
+		#region IGenericEquals implementation
+
+		/// <summary>
+		/// Checks if this zinc type is equal to the given zinc type.
+		/// </summary>
+		/// <returns><see langword="true"/>, if the types where equal, <see langword="false"/> otherwise.</returns>
+		/// <param name="other">The <see cref="IZincFundamentalType"/> to match this type against.</param>
+		public bool GenericEquals (IZincFundamentalType other) {
+			ZincTupleType ztt = other as ZincTupleType;
+			return ztt != null && EnumerableUtils.All (this.itemTypes, ztt.ItemTypes, (x, y) => x.GenericEquals (y));
+		}
+
+		#endregion
+
 	}
 }
 

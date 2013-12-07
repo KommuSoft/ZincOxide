@@ -20,30 +20,48 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
 	public class ZincFundamentalTypeInst : IZincFundamentalTypeInst {
+		/// <summary>
+		/// The default instantiation of a fundamental type instance. Given if no instantiation is given.
+		/// </summary>
 		public const ZincVarPar DefaultInstantiation = ZincVarPar.Par;
 		private ZincVarPar instantiation;
 		private IZincFundamentalType typePart;
 
+		/// <summary>
+		/// The instantiation of the fundamental type instance.
+		/// </summary>
+		/// <value>The instantiation of the fundamental type instance.</value>
 		public ZincVarPar Instantiation {
 			get {
 				return this.instantiation;
 			}
-			set {
+			private set {
 				this.instantiation = value;
 			}
 		}
 
+		/// <summary>
+		/// The type of the fundamental type instance.
+		/// </summary>
+		/// <value>The type of the fundamental type instance.</value>
+		/// <exception cref="ArgumentNullException">If the <paramref name="value"/> is not effective.</exception>
+		/// <exception cref="ArgumentException">If the given type contains varified types and the type is
+		/// specified as a parameter type.</exception>
 		public IZincFundamentalType Type {
 			get {
 				return this.typePart;
 			}
-			set {
+			private set {
 				if (value == null) {
 					throw new ArgumentNullException ("value", "The type of a type-instance must be effective.");
+				} else if (this.Instantiation == ZincVarPar.Par && value.GetDependingTypes ().Any (x => x.Instantiation == ZincVarPar.Var)) {
+					throw new ArgumentException ("If the instantiation is a parameterized, no subtypes can be varified.");
 				} else {
 					this.typePart = value;
 				}
@@ -70,9 +88,6 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <exception cref="ArgumentNullException">If <paramref name="type"/> is not effective.</exception>
 		public ZincFundamentalTypeInst (IZincFundamentalType type) : this (DefaultInstantiation, type) {
 		}
-		/*public static ZincFundamentalTypeInst operator & (ZincVarPar instantiation, IZincFundamentalType type) {
-			return new ZincFundamentalTypeInst (instantiation, type);
-		}*/
 
 		#region IZincFundamentalTypeInst implementation
 
@@ -94,6 +109,9 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 
 		#endregion
 
+		public IEnumerable<IZincFundamentalTypeInst> GetDependingTypes () {
+			return this.Type.GetDependingTypes ();
+		}
 	}
 }
 

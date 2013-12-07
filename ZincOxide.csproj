@@ -24,8 +24,6 @@
     <CustomCommands>
       <CustomCommands>
         <Command type="BeforeBuild" command="bash cc.sh" workingdir="Parser/specs/" />
-        <Command type="AfterBuild" command="monodocer -pretty -importslashdoc:ZincOxide.xml -assembly:ZincOxide.exe -path:doc" workingdir="${TargetDir}" />
-        <Command type="AfterBuild" command="mdoc export-html -o htmldocs doc/" workingdir="${TargetDir}" />
       </CustomCommands>
     </CustomCommands>
   </PropertyGroup>
@@ -43,6 +41,17 @@
       </CustomCommands>
     </CustomCommands>
     <DocumentationFile>bin\Release\ZincOxide.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Documentation|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Documentation</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="monodocer -pretty -importslashdoc:*.xml -assembly:*.exe -path:doc" workingdir="${TargetDir}" />
+        <Command type="AfterBuild" command="mdoc export-html -o htmldocs doc/" workingdir="${TargetDir}" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

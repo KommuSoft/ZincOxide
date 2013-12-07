@@ -21,10 +21,19 @@
 
 using System;
 using ZincOxide.Utils;
+using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
+	/// <summary>
+	/// A class representing a fundamental type of the MiniZinc language.
+	/// </summary>
 	public interface IZincFundamentalType : IGenericEquals<IZincFundamentalType> {
+		/// <summary>
+		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
+		/// </summary>
+		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
+		IEnumerable<IZincFundamentalTypeInst> GetDependingTypes ();
 	}
 }
 
