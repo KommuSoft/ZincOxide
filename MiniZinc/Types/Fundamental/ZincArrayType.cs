@@ -57,8 +57,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// <para>Arrays can be accessed. (TODO)</para>
 	/// <para>An array's size must be fixed. Its indices must also have fixed type-insts. Its elements may be fixed
 	/// or unfixed.</para>
-	/// <para>An array base type-inst expression tail has this syntax: <c>array [ <ti-expr> ] of <ti-expr></c>
-	/// or <c>list of <ti-expr></c> Some example array type-instance expressions:<code>
+	/// <para>An array base type-inst expression tail has this syntax: <c>array [ ti-expr ] of ti-expr</c>
+	/// or <c>list of ti-expr</c> Some example array type-instance expressions:<code>
 	/// array[1..10] of int
 	/// list of var int
 	/// </code></para>
@@ -96,6 +96,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// The index type of the array.
 		/// </summary>
 		/// <value>The index type of the array.</value>
+		/// <exception cref="ArgumentNullException">If <paramref name="value"/> is not effective.</exception>
+		/// <exception cref="ArgumentException">If <paramref name="value"/> is varified.</exception>
 		public IZincFundamentalTypeInst IndexType {
 			get {
 				return this.indexType;
@@ -114,6 +116,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// The element type of the array.
 		/// </summary>
 		/// <value>The element type of the array.</value>
+		/// <exception cref="ArgumentNullException">If <paramref name="value"/> is not effective.</exception>
 		public IZincFundamentalTypeInst ElementType {
 			get {
 				return this.elementType;
@@ -126,11 +129,27 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 			}
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincArrayType"/> class with
+		/// a given type instance for the index and the elements.
+		/// </summary>
+		/// <param name="indexType">The type of the index of the array.</param>
+		/// <param name="elementType">The type of the elements in the array.</param>
+		/// <exception cref="ArgumentNullException">If <paramref name="indexType"/> or
+		/// <paramref name="elementType"/> is not effective.</exception>
+		/// <exception cref="ArgumentException">If the <paramref name="indexType"/> is varified.</exception>
 		public ZincArrayType (IZincFundamentalTypeInst indexType, IZincFundamentalTypeInst elementType) {
+			this.IndexType = indexType;
+			this.ElementType = elementType;
 		}
 
 		#region IGenericEquals implementation
 
+		/// <summary>
+		/// Checks if this zinc type is equal to the given zinc type.
+		/// </summary>
+		/// <returns><see langword="true"/>, if both types are equal, <see langword="false"/> otherwise.</returns>
+		/// <param name="other">The zinc type to compare with.</param>
 		public bool GenericEquals (IZincFundamentalType other) {
 			ZincArrayType zat = other as ZincArrayType;
 			return zat != null && this.IndexType.GenericEquals (zat.IndexType) && this.ElementType.GenericEquals (zat.ElementType);

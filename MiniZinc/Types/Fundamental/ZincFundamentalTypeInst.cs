@@ -25,8 +25,17 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 
 	public class ZincFundamentalTypeInst : IZincFundamentalTypeInst {
 		public const ZincVarPar DefaultInstantiation = ZincVarPar.Par;
+		private ZincVarPar instantiation;
 		private IZincFundamentalType typePart;
-		public ZincVarPar Instantiation;
+
+		public ZincVarPar Instantiation {
+			get {
+				return this.instantiation;
+			}
+			set {
+				this.instantiation = value;
+			}
+		}
 
 		public IZincFundamentalType Type {
 			get {
