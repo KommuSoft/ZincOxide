@@ -109,6 +109,10 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 
 		#endregion
 
+		/// <summary>
+		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
+		/// </summary>
+		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
 		public IEnumerable<IZincFundamentalTypeInst> GetDependingTypes () {
 			return this.Type.GetDependingTypes ();
 		}

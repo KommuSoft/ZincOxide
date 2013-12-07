@@ -1,5 +1,5 @@
 /*
- *  Process with > gppg /nolines RealTree.y
+ *  Process with > gppg /nolines MiniZinc.yy
  */
 
 %output=../MiniZincParser.cs 

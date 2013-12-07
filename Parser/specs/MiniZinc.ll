@@ -1,3 +1,7 @@
+/*
+ *  Process with > gplex MiniZinc.ll
+ */
+
 %using QUT.Gppg;
 
 %namespace ZincOxide.Parser

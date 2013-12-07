@@ -1,10 +1,14 @@
+/*
+ *  Process with > gplex ZincOutput.ll
+ */
+
 %using QUT.Gppg;
 
 %namespace ZincOxide.Parser
 
 %scannertype ZincOutputLexer
 %scanbasetype ScanBase
-%tokentype Token
+%tokentype OutputToken
 
 %option stack, minimize, parser, verbose, codepage:raw, out:../ZincOutputLexer.cs
 
