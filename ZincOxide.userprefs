@@ -1,10 +1,19 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Types/Fundamental/ZubcArrayType.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="mono-utils/DataListTest.cs">
     <Files>
-      <File FileName="MiniZinc/Types/Fundamental/ZincSetType.cs" Line="76" Column="95" />
-      <File FileName="MiniZinc/Types/Fundamental/ZubcArrayType.cs" Line="55" Column="55" />
+      <File FileName="MiniZinc/Types/Fundamental/ZincSetType.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Types/Fundamental/ZincArrayType.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Types/Fundamental/IZincFundamentalTypeInst.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Types/Fundamental/ZincFundamentalTypeInst.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Types/Fundamental/ZincTupleType.cs" Line="41" Column="1" />
+      <File FileName="mono-utils/DataListTest.cs" Line="52" Column="95" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
