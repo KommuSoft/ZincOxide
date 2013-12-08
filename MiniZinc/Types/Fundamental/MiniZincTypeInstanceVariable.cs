@@ -74,7 +74,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
 		public IEnumerable<IMiniZincTypeInst> GetDependingTypes () {
-			throw new NotImplementedException ();
+			yield break;
 		}
 
 		/// <summary>
