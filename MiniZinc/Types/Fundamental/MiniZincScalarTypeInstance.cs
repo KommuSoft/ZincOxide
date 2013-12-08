@@ -1,5 +1,5 @@
 //
-//  ZincTypeInstanceError.cs
+//  MiniZincScalarType.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,24 +20,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
-using System.Runtime.Serialization;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
-	public class ZincTypeInstanceError : ZincOxideException {
-		public ZincTypeInstanceError () : base () {
-		}
-
-		public ZincTypeInstanceError (string message) : base (message) {
-		}
-
-		public ZincTypeInstanceError (string format, params object[] args) : base (format, args) {
-		}
-
-		public ZincTypeInstanceError (SerializationInfo info, StreamingContext context) : base (info, context) {
-		}
-
-		public ZincTypeInstanceError (string message, Exception innerException) : base (message, innerException) {
+	public class MiniZincScalarTypeInstance {
+		public MiniZincScalarTypeInstance () {
 		}
 	}
 }

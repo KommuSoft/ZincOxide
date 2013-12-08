@@ -101,8 +101,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// Furthermore, neither tuple literals nor tuple accesses are supported.</para>
 	/// <para>In MiniZinc, array indexed by tuples can only have integers as elements of the tuple.</para>
 	/// </remarks>
-	public class ZincArrayType : IZincFundamentalType {
-		private IZincFundamentalTypeInst indexType, elementType;
+	public class MiniZincArrayType : IMiniZincType {
+		private IMiniZincTypeInst indexType, elementType;
 
 		/// <summary>
 		/// The index type of the array.
@@ -110,7 +110,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <value>The index type of the array.</value>
 		/// <exception cref="ArgumentNullException">If <paramref name="value"/> is not effective.</exception>
 		/// <exception cref="ArgumentException">If <paramref name="value"/> is varified.</exception>
-		public IZincFundamentalTypeInst IndexType {
+		public IMiniZincTypeInst IndexType {
 			get {
 				return this.indexType;
 			}
@@ -129,7 +129,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <value>The element type of the array.</value>
 		/// <exception cref="ArgumentNullException">If <paramref name="value"/> is not effective.</exception>
-		public IZincFundamentalTypeInst ElementType {
+		public IMiniZincTypeInst ElementType {
 			get {
 				return this.elementType;
 			}
@@ -142,7 +142,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincArrayType"/> class with
+		/// Initializes a new instance of the <see cref="MiniZincArrayType"/> class with
 		/// a given type instance for the index and the elements.
 		/// </summary>
 		/// <param name="indexType">The type of the index of the array.</param>
@@ -150,7 +150,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <exception cref="ArgumentNullException">If <paramref name="indexType"/> or
 		/// <paramref name="elementType"/> is not effective.</exception>
 		/// <exception cref="ArgumentException">If the <paramref name="indexType"/> is varified.</exception>
-		public ZincArrayType (IZincFundamentalTypeInst indexType, IZincFundamentalTypeInst elementType) {
+		public MiniZincArrayType (IMiniZincTypeInst indexType, IMiniZincTypeInst elementType) {
 			this.IndexType = indexType;
 			this.ElementType = elementType;
 		}
@@ -162,8 +162,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <returns><see langword="true"/>, if both types are equal, <see langword="false"/> otherwise.</returns>
 		/// <param name="other">The zinc type to compare with.</param>
-		public bool GenericEquals (IZincFundamentalType other) {
-			ZincArrayType zat = other as ZincArrayType;
+		public bool GenericEquals (IMiniZincType other) {
+			MiniZincArrayType zat = other as MiniZincArrayType;
 			return zat != null && this.IndexType.GenericEquals (zat.IndexType) && this.ElementType.GenericEquals (zat.ElementType);
 		}
 
@@ -173,7 +173,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
 		/// </summary>
 		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
-		public IEnumerable<IZincFundamentalTypeInst> GetDependingTypes () {
+		public IEnumerable<IMiniZincTypeInst> GetDependingTypes () {
 			return DataList.Append (DataList.Prepend (this.IndexType, this.IndexType.GetDependingTypes ()),
 				DataList.Prepend (this.ElementType, this.ElementType.GetDependingTypes ()));
 		}

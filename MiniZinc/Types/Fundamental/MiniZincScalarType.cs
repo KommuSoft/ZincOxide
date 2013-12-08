@@ -26,7 +26,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// <summary>
 	/// An enum that represents the four different scalar types in (Mini)Zinc.
 	/// </summary>
-	public enum ZincFundamentalScalarType : byte {
+	public enum MiniZincScalarType : byte {
 		/// <summary>
 		/// Booleans represent truthhood or falsify. Booleans can be both fixed and unfixed.
 		/// </summary>

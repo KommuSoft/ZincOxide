@@ -25,13 +25,13 @@ using System.Linq;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
-	public class ZincFundamentalTypeInst : IZincFundamentalTypeInst {
+	public class MiniZincTypeInst : IMiniZincTypeInst {
 		/// <summary>
 		/// The default instantiation of a fundamental type instance. Given if no instantiation is given.
 		/// </summary>
 		public const ZincVarPar DefaultInstantiation = ZincVarPar.Par;
 		private ZincVarPar instantiation;
-		private IZincFundamentalType typePart;
+		private IMiniZincType typePart;
 
 		/// <summary>
 		/// The instantiation of the fundamental type instance.
@@ -53,7 +53,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <exception cref="ArgumentNullException">If the <paramref name="value"/> is not effective.</exception>
 		/// <exception cref="ArgumentException">If the given type contains varified types and the type is
 		/// specified as a parameter type.</exception>
-		public IZincFundamentalType Type {
+		public IMiniZincType Type {
 			get {
 				return this.typePart;
 			}
@@ -75,7 +75,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <param name="instantiation">The instantiation of the type-instance.</param>
 		/// <param name="type">The type of the type-instance.</param>
 		/// <exception cref="ArgumentNullException">If <paramref name="type"/> is not effective.</exception>
-		public ZincFundamentalTypeInst (ZincVarPar instantiation, IZincFundamentalType type) {
+		public MiniZincTypeInst (ZincVarPar instantiation, IMiniZincType type) {
 			this.Instantiation = instantiation;
 			this.Type = type;
 		}
@@ -86,16 +86,16 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <param name="type">The type of the type-instance.</param>
 		/// <exception cref="ArgumentNullException">If <paramref name="type"/> is not effective.</exception>
-		public ZincFundamentalTypeInst (IZincFundamentalType type) : this (DefaultInstantiation, type) {
+		public MiniZincTypeInst (IMiniZincType type) : this (DefaultInstantiation, type) {
 		}
 
 		#region IZincFundamentalTypeInst implementation
 
-		public bool CanVarify (IZincFundamentalTypeInst other) {
+		public bool CanVarify (IMiniZincTypeInst other) {
 			throw new NotImplementedException ();
 		}
 
-		public bool CanCoerce (IZincFundamentalTypeInst other) {
+		public bool CanCoerce (IMiniZincTypeInst other) {
 			throw new NotImplementedException ();
 		}
 
@@ -103,13 +103,13 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 
 		#region IGenericEquals implementation
 
-		public bool GenericEquals (IZincFundamentalType other) {
+		public bool GenericEquals (IMiniZincType other) {
 			throw new NotImplementedException ();
 		}
 
 		#endregion
 
-		public IEnumerable<IZincFundamentalTypeInst> GetDependingTypes () {
+		public IEnumerable<IMiniZincTypeInst> GetDependingTypes () {
 			return this.Type.GetDependingTypes ();
 		}
 	}

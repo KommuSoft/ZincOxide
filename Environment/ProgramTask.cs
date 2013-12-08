@@ -36,6 +36,10 @@ namespace ZincOxide.Environment {
 		/// </summary>
 		VerifyData = 0x01,
 		/// <summary>
+		/// A MiniZinc output file is given as input and the program should check if the given file is valid.
+		/// </summary>
+		VerifyOutput = 0x02,
+		/// <summary>
 		/// A MiniZinc model file and a MiniZinc data file are given and the program should check if the data is a data
 		/// file of the model.
 		/// </summary>

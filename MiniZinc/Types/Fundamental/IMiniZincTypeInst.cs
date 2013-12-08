@@ -26,7 +26,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// <summary>
 	/// A type instance for a fundamental type.
 	/// </summary>
-	public interface IZincFundamentalTypeInst : IZincFundamentalType {
+	public interface IMiniZincTypeInst : IMiniZincType {
 		/// <summary>
 		/// Gets or sets the instantiation of the type instance.
 		/// </summary>
@@ -40,14 +40,14 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <returns><see langword="true"/> if this instance can be varified the specified one; otherwise, <see langword="false"/>.</returns>
 		/// <param name="other">The other fundamental type-instance.</param>
-		bool CanVarify (IZincFundamentalTypeInst other);
+		bool CanVarify (IMiniZincTypeInst other);
 
 		/// <summary>
 		/// Checks if this fundamental type-instance can be coerced to the given fundamental type-instance.
 		/// </summary>
 		/// <returns><see langword="true"/> if this instance can be coerced the specified one; otherwise, <see langword="false"/>.</returns>
 		/// <param name="other">The other fundamental type-instance.</param>
-		bool CanCoerce (IZincFundamentalTypeInst other);
+		bool CanCoerce (IMiniZincTypeInst other);
 	}
 }
 

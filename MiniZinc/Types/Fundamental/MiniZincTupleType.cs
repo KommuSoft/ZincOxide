@@ -48,8 +48,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// <para>In MiniZinc, tuples can only be used as array indices and must contain integers and must be fixed. Furthermore,
 	/// neither tuple literals nor tupple accesses are supported.</para>
 	/// </remarks>
-	public class ZincTupleType : IZincFundamentalType {
-		private IList<IZincFundamentalTypeInst> itemTypes;
+	public class MiniZincTupleType : IMiniZincType {
+		private IList<IMiniZincTypeInst> itemTypes;
 
 		/// <summary>
 		/// Gets the <see cref="IZincFundamentalTypeInst"/> of the tuple at a specified index.
@@ -57,7 +57,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <param name="index">The index of the tuple.</param>
 		/// <exception cref="ArgumentOutOfRangeException"><paramref name="index"/> is larger or equal to the number of elements of the tuple.</exception>
 		[IndexerName ("Element")]
-		public IZincFundamentalTypeInst this [int index] {
+		public IMiniZincTypeInst this [int index] {
 			get {
 				return this.itemTypes [index];
 			}
@@ -69,7 +69,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <value>The list of type-instances of the tuple type.</value>
 		/// <exception cref="ArgumentNullException">If the <paramref name="value"/> is not effective.</exception>
 		/// <exception cref="ArgumentException">If the given list contains less than two elements.</exception>
-		public IList<IZincFundamentalTypeInst> ItemTypes {
+		public IList<IMiniZincTypeInst> ItemTypes {
 			get {
 				return this.itemTypes;
 			}
@@ -88,7 +88,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincTupleType"/> class with the types of elements.
 		/// </summary>
 		/// <param name="itemTypes">A list of items representing the type-instances of the elements of the tuple.</param>
-		public ZincTupleType (IList<IZincFundamentalTypeInst> itemTypes) {
+		public MiniZincTupleType (IList<IMiniZincTypeInst> itemTypes) {
 			this.ItemTypes = itemTypes;
 		}
 
@@ -96,7 +96,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincTupleType"/> class with the type-instances of the elements.
 		/// </summary>
 		/// <param name="itemTypes">A list of items representing the type-instances of the elements of the tuple.</param>
-		public ZincTupleType (params IZincFundamentalTypeInst[] itemTypes) : this ((IList<IZincFundamentalTypeInst>)itemTypes) {
+		public MiniZincTupleType (params IMiniZincTypeInst[] itemTypes) : this ((IList<IMiniZincTypeInst>)itemTypes) {
 		}
 
 		#region IZincFundamentalType implementation
@@ -105,7 +105,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
 		/// </summary>
 		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
-		public IEnumerable<IZincFundamentalTypeInst> GetDependingTypes () {
+		public IEnumerable<IMiniZincTypeInst> GetDependingTypes () {
 			return this.ItemTypes;
 		}
 
@@ -118,8 +118,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <returns><see langword="true"/>, if the types where equal, <see langword="false"/> otherwise.</returns>
 		/// <param name="other">The <see cref="IZincFundamentalType"/> to match this type against.</param>
-		public bool GenericEquals (IZincFundamentalType other) {
-			ZincTupleType ztt = other as ZincTupleType;
+		public bool GenericEquals (IMiniZincType other) {
+			MiniZincTupleType ztt = other as MiniZincTupleType;
 			return ztt != null && EnumerableUtils.All (this.itemTypes, ztt.ItemTypes, (x, y) => x.GenericEquals (y));
 		}
 

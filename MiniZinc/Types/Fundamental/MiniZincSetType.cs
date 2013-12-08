@@ -63,15 +63,15 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// var set of bool
 	/// </code>
 	/// </example>
-	public class ZincSetType : IZincFundamentalType {
-		private IZincFundamentalTypeInst elementType;
+	public class MiniZincSetType : IMiniZincType {
+		private IMiniZincTypeInst elementType;
 
 		/// <summary>
 		/// The element's type of the set.
 		/// </summary>
 		/// <value>The element's type of the set.</value>
 		/// <exception cref="ArgumentNullException">If the given argument is <see langword="null"/>.</exception>
-		public IZincFundamentalTypeInst ElementType {
+		public IMiniZincTypeInst ElementType {
 			get {
 				return this.elementType;
 			}
@@ -90,7 +90,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <param name="elementType">The element's type of the set.</param>
 		/// <exception cref="ArgumentNullException">If the given <paramref name="elementType"/> is <see langword="null"/>.</exception>
-		public ZincSetType (IZincFundamentalTypeInst elementType) {
+		public MiniZincSetType (IMiniZincTypeInst elementType) {
 			this.ElementType = elementType;
 		}
 
@@ -109,8 +109,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// </summary>
 		/// <returns><see langword="true"/>, if the types where equal, <see langword="false"/> otherwise.</returns>
 		/// <param name="other">The <see cref="IZincFundamentalType"/> to match this type against.</param>
-		public bool GenericEquals (IZincFundamentalType other) {
-			var zst = other as ZincSetType;
+		public bool GenericEquals (IMiniZincType other) {
+			var zst = other as MiniZincSetType;
 			if (zst != null) {
 				return this.elementType.GenericEquals (zst.elementType);
 			}
@@ -123,7 +123,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
 		/// </summary>
 		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
-		public IEnumerable<IZincFundamentalTypeInst> GetDependingTypes () {
+		public IEnumerable<IMiniZincTypeInst> GetDependingTypes () {
 			return DataList.Prepend (this.ElementType, this.ElementType.GetDependingTypes ());
 		}
 	}
