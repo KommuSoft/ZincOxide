@@ -22,6 +22,7 @@
 using NUnit.Framework;
 using System;
 using ZincOxide.MiniZinc.Types.Fundamental;
+using ZincOxide.Utils.Maths;
 
 namespace ZincSulphate.Fundamental {
 
@@ -61,6 +62,10 @@ namespace ZincSulphate.Fundamental {
 			Assert.IsFalse (MiniZincScalarTypeEntry.String.GenericEquals ((MiniZincScalarTypeEntry)MiniZincScalarType.Float));
 			Assert.IsFalse (MiniZincScalarTypeEntry.String.GenericEquals ((MiniZincScalarTypeEntry)MiniZincScalarType.Integer));
 			Assert.IsTrue (MiniZincScalarTypeEntry.String.GenericEquals ((MiniZincScalarTypeEntry)MiniZincScalarType.String));
+			Assert.AreEqual (ThreeStateValue.True, MiniZincScalarTypeEntry.Boolean.Finite);
+			Assert.AreEqual (ThreeStateValue.False, MiniZincScalarTypeEntry.Float.Finite);
+			Assert.AreEqual (ThreeStateValue.False, MiniZincScalarTypeEntry.Integer.Finite);
+			Assert.AreEqual (ThreeStateValue.False, MiniZincScalarTypeEntry.String.Finite);
 		}
 	}
 }

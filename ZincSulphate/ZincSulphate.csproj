@@ -40,6 +40,7 @@
     <Compile Include="MiniZinc\Items\ZincModelTest.cs" />
     <Compile Include="Parser\MiniZincLexerTest.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincFundamentalTypeTest.cs" />
+    <Compile Include="Utils\Maths\ThreeStateValueTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -51,5 +52,7 @@
   <ItemGroup>
     <Folder Include="MiniZinc\Types\" />
     <Folder Include="MiniZinc\Types\Fundamental\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Utils\Maths\" />
   </ItemGroup>
 </Project>
