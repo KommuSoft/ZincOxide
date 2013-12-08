@@ -52,6 +52,13 @@ namespace ZincSulphate.Maths {
 			Assert.AreEqual (ThreeStateValue.True, ThreeStateValue.True | ThreeStateValue.Unknown);
 			Assert.AreEqual (ThreeStateValue.True, ThreeStateValue.True | ThreeStateValue.True);
 		}
+
+		[Test ()]
+		public void TestNotEqual () {
+			Assert.AreNotEqual (ThreeStateValue.True, ThreeStateValue.False);
+			Assert.AreNotEqual (ThreeStateValue.False, ThreeStateValue.Unknown);
+			Assert.AreNotEqual (ThreeStateValue.Unknown, ThreeStateValue.True);
+		}
 	}
 }
 
