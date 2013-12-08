@@ -29,6 +29,28 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// </summary>
 	public class MiniZincScalarTypeEntry : IMiniZincType {
 		/// <summary>
+		/// The entry of the <see cref="MiniZincScalarType.Boolean"/> value.
+		/// </summary>
+		public static readonly MiniZincScalarTypeEntry Boolean = new MiniZincScalarTypeEntry (MiniZincScalarType.Boolean);
+		/// <summary>
+		/// The entry of the <see cref="MiniZincScalarType.Float"/> value.
+		/// </summary>
+		public static readonly MiniZincScalarTypeEntry Float = new MiniZincScalarTypeEntry (MiniZincScalarType.Float);
+		/// <summary>
+		/// The entry of the <see cref="MiniZincScalarType.Integer"/> value.
+		/// </summary>
+		public static readonly MiniZincScalarTypeEntry Integer = new MiniZincScalarTypeEntry (MiniZincScalarType.Integer);
+		/// <summary>
+		/// The entry of the <see cref="MiniZincScalarType.String"/> value.
+		/// </summary>
+		public static readonly MiniZincScalarTypeEntry String = new MiniZincScalarTypeEntry (MiniZincScalarType.String);
+		private static readonly MiniZincScalarTypeEntry[] instances = new MiniZincScalarTypeEntry[] {
+			Boolean,
+			Integer,
+			Float,
+			String
+		};
+		/// <summary>
 		/// The scalar type represented.
 		/// </summary>
 		public readonly MiniZincScalarType ScalarType;
@@ -37,7 +59,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// Initializes a new instance of the <see cref="MiniZincScalarTypeEntry"/> class with the given scalar type.
 		/// </summary>
 		/// <param name="scalarType">The scalar type that will be represented by the <see cref="IMiniZincType"/>.</param>
-		public MiniZincScalarTypeEntry (MiniZincScalarType scalarType) {
+		private MiniZincScalarTypeEntry (MiniZincScalarType scalarType) {
 			this.ScalarType = scalarType;
 		}
 
@@ -67,6 +89,15 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 
 		#endregion
 
+		/// <param name="scalar">The original scalar to convert from.</param>
+		public static implicit operator MiniZincScalarTypeEntry (MiniZincScalarType scalar) {
+			return instances [(byte)scalar];
+		}
+
+		/// <param name="entry">The entry to convert from.</param>
+		public static implicit operator MiniZincScalarType (MiniZincScalarTypeEntry entry) {
+			return entry.ScalarType;
+		}
 	}
 }
 

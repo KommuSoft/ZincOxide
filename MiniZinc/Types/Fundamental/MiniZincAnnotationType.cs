@@ -37,9 +37,14 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// </remarks>
 	public class MiniZincAnnotationType : IMiniZincType {
 		/// <summary>
+		/// Returns the instance of the MiniZincAnnotationType.
+		/// </summary>
+		public static readonly MiniZincAnnotationType Instance = new MiniZincAnnotationType ();
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="MiniZincAnnotationType"/> class.
 		/// </summary>
-		public MiniZincAnnotationType () {
+		private MiniZincAnnotationType () {
 		}
 
 		#region IMiniZincType implementation

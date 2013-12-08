@@ -35,11 +35,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FundamentalTypeTest.cs" />
     <Compile Include="Codegen\CSharp\CSharpCodeGenTest.cs" />
     <Compile Include="Codegen\Java\JavaCodeGenTest.cs" />
     <Compile Include="MiniZinc\Items\ZincModelTest.cs" />
     <Compile Include="Parser\MiniZincLexerTest.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincFundamentalTypeTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -47,5 +47,9 @@
       <Project>{F54D87B0-B6A6-4E13-9890-10660779394D}</Project>
       <Name>ZincOxide</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MiniZinc\Types\" />
+    <Folder Include="MiniZinc\Types\Fundamental\" />
   </ItemGroup>
 </Project>
