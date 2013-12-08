@@ -20,6 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
+using ZincOxide.Utils.Maths;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -53,12 +55,55 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// However, many of the built-in operations, e.g. <c>show</c> have signatures that feature type-instance
 	/// variables and they work with all valid matching MiniZinc types.</para>
 	/// </remarks>
-	public class MiniZincTypeInstanceVariable {
+	public class MiniZincTypeInstanceVariable : IMiniZincType {
+		/// <summary>
+		/// The single instance generated.
+		/// </summary>
+		public static readonly MiniZincTypeInstanceVariable Instance = new MiniZincTypeInstanceVariable ();
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MiniZincTypeInstanceVariable"/> class.
 		/// </summary>
-		public MiniZincTypeInstanceVariable () {
+		private MiniZincTypeInstanceVariable () {
 		}
+
+		#region IMiniZincType implementation
+
+		/// <summary>
+		/// Returns the enumerable of the depending <see cref="IMiniZincTypeInst"/>.
+		/// </summary>
+		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
+		public IEnumerable<IMiniZincTypeInst> GetDependingTypes () {
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Gets if the type has a finite domain.
+		/// </summary>
+		/// <value><see cref="ThreeStateValue.True"/> if the type has a finite domain,
+		/// <see cref="ThreeStateValue.False"/> otherwise.</value>
+		public ThreeStateValue Finite {
+			get {
+				return ThreeStateValue.False;
+			}
+		}
+
+		#endregion
+
+		#region IGenericEquals implementation
+
+		/// <summary>
+		/// Checks if this zinc type is equal to the given zinc type.
+		/// </summary>
+		/// <returns><see langword="true"/>, if both types are equal, <see langword="false"/> otherwise.</returns>
+		/// <param name="other">The zinc type to compare with.</param>
+		public bool GenericEquals (IMiniZincType other) {
+			MiniZincTypeInstanceVariable mztiv = other as MiniZincTypeInstanceVariable;
+			return (mztiv != null);
+		}
+
+		#endregion
+
 	}
 }
 

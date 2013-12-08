@@ -33,7 +33,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <summary>
 		/// Gets if the type has a finite domain.
 		/// </summary>
-		/// <value><see langword="true"/> if the type has a finite domain, <see langword="false"/> otherwise.</value>
+		/// <value><see cref="ThreeStateValue.True"/> if the type has a finite domain,
+		/// <see cref="ThreeStateValue.False"/> otherwise.</value>
 		ThreeStateValue Finite {
 			get;
 		}
