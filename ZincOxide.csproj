@@ -250,12 +250,13 @@
     <Compile Include="MiniZinc\Types\Fundamental\IMiniZincTypeInst.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\IMiniZincType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincArrayType.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\MiniZincScalarTypeInstance.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincScalarType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInst.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincSetType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincTupleType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInstanceError.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincScalarTypeEntry.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincAnnotationType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
