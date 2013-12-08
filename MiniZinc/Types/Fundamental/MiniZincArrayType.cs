@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using KommuSoft.HaskellLibraries;
+using ZincOxide.Utils.Maths;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -103,6 +104,16 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// </remarks>
 	public class MiniZincArrayType : IMiniZincType {
 		private IMiniZincTypeInst indexType, elementType;
+
+		/// <summary>
+		/// Gets if the type has a finite domain.
+		/// </summary>
+		/// <value><see langword="true"/> if the type has a finite domain, <see langword="false"/> otherwise.</value>
+		public ThreeStateValue Finite {
+			get {
+				return this.IndexType.Finite & this.ElementType.Finite;
+			}
+		}
 
 		/// <summary>
 		/// The index type of the array.

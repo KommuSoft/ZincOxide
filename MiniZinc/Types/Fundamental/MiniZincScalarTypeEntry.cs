@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using ZincOxide.Utils.Maths;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -54,6 +55,20 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// The scalar type represented.
 		/// </summary>
 		public readonly MiniZincScalarType ScalarType;
+
+		/// <summary>
+		/// Gets if the type has a finite domain.
+		/// </summary>
+		/// <value><see langword="true"/> if the type has a finite domain, <see langword="false"/> otherwise.</value>
+		public ThreeStateValue Finite {
+			get {
+				if (this.ScalarType == MiniZincScalarType.Boolean) {
+					return ThreeStateValue.True;
+				} else {
+					return ThreeStateValue.False;
+				}
+			}
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MiniZincScalarTypeEntry"/> class with the given scalar type.

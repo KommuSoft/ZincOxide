@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using KommuSoft.HaskellLibraries;
 using ZincOxide.Utils;
+using ZincOxide.Utils.Maths;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -52,7 +53,17 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		private IList<IMiniZincTypeInst> itemTypes;
 
 		/// <summary>
-		/// Gets the <see cref="IZincFundamentalTypeInst"/> of the tuple at a specified index.
+		/// Gets if the type has a finite domain.
+		/// </summary>
+		/// <value><see langword="true"/> if the type has a finite domain, <see langword="false"/> otherwise.</value>
+		public ThreeStateValue Finite {
+			get {
+				return DataList.Foldl1 ((x, y) => x & y, this.itemTypes.Map (x => x.Finite));
+			}
+		}
+
+		/// <summary>
+		/// Gets the <see cref="IMiniZincTypeInst"/> of the tuple at a specified index.
 		/// </summary>
 		/// <param name="index">The index of the tuple.</param>
 		/// <exception cref="ArgumentOutOfRangeException"><paramref name="index"/> is larger or equal to the number of elements of the tuple.</exception>
@@ -85,7 +96,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincTupleType"/> class with the types of elements.
+		/// Initializes a new instance of the <see cref="IMiniZincTypeInst"/> class with the types of elements.
 		/// </summary>
 		/// <param name="itemTypes">A list of items representing the type-instances of the elements of the tuple.</param>
 		public MiniZincTupleType (IList<IMiniZincTypeInst> itemTypes) {
@@ -93,7 +104,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincTupleType"/> class with the type-instances of the elements.
+		/// Initializes a new instance of the <see cref="IMiniZincTypeInst"/> class with the type-instances of the elements.
 		/// </summary>
 		/// <param name="itemTypes">A list of items representing the type-instances of the elements of the tuple.</param>
 		public MiniZincTupleType (params IMiniZincTypeInst[] itemTypes) : this ((IList<IMiniZincTypeInst>)itemTypes) {
@@ -102,7 +113,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		#region IZincFundamentalType implementation
 
 		/// <summary>
-		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
+		/// Returns the enumerable of the depending <see cref="IMiniZincTypeInst"/>.
 		/// </summary>
 		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
 		public IEnumerable<IMiniZincTypeInst> GetDependingTypes () {

@@ -19,8 +19,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
 using System.Collections.Generic;
+using ZincOxide.Utils.Maths;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -40,6 +40,16 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// Returns the instance of the MiniZincAnnotationType.
 		/// </summary>
 		public static readonly MiniZincAnnotationType Instance = new MiniZincAnnotationType ();
+
+		/// <summary>
+		/// Gets if the type has a finite domain.
+		/// </summary>
+		/// <value><see langword="true"/> if the type has a finite domain, <see langword="false"/> otherwise.</value>
+		public ThreeStateValue Finite {
+			get {
+				return ThreeStateValue.False;
+			}
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MiniZincAnnotationType"/> class.

@@ -30,15 +30,15 @@ namespace ZincOxide.Utils.Maths {
 		/// <summary>
 		/// The given proposition is true.
 		/// </summary>
-		True = 0x01,
+		True = 0x03,
 		/// <summary>
 		/// The given proposition is false.
 		/// </summary>
-		Unknown = 0x03,
+		Unknown = 0x01,
 		/// <summary>
 		/// It is unknown (or not computable) if the proposition is true or false.
 		/// </summary>
-		False = 0x02
+		False = 0x00
 	}
 }
 

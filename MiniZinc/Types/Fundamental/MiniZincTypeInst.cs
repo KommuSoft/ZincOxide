@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ZincOxide.Utils.Maths;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -32,6 +33,16 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		public const ZincVarPar DefaultInstantiation = ZincVarPar.Par;
 		private ZincVarPar instantiation;
 		private IMiniZincType typePart;
+
+		/// <summary>
+		/// Gets if the type has a finite domain.
+		/// </summary>
+		/// <value><see langword="true"/> if the type has a finite domain, <see langword="false"/> otherwise.</value>
+		public ThreeStateValue Finite {
+			get {
+				return this.Type.Finite;
+			}
+		}
 
 		/// <summary>
 		/// The instantiation of the fundamental type instance.
