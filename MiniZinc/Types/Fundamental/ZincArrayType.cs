@@ -99,6 +99,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// predicates and annotations.</para>
 	/// <para>In MiniZinc, arrays can only contain booleans, integers, floats, or sets of integers (all fixed or unfixed)
 	/// Furthermore, neither tuple literals nor tuple accesses are supported.</para>
+	/// <para>In MiniZinc, array indexed by tuples can only have integers as elements of the tuple.</para>
 	/// </remarks>
 	public class ZincArrayType : IZincFundamentalType {
 		private IZincFundamentalTypeInst indexType, elementType;

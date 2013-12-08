@@ -45,6 +45,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// at instance-time.</para>
 	/// <para>The coercions of a tuple are the following: <c>tuple (TI1, TI2, ..., TIn)</c> to <c>tuple (UI1, UI2, ..., UIn)</c>
 	/// if all types <c>TIi</c> coerce to <c>UIi</c>.</para>
+	/// <para>In MiniZinc, tuples can only be used as array indices and must contain integers and must be fixed. Furthermore,
+	/// neither tuple literals nor tupple accesses are supported.</para>
 	/// </remarks>
 	public class ZincTupleType : IZincFundamentalType {
 		private IList<IZincFundamentalTypeInst> itemTypes;
