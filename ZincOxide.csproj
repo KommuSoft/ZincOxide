@@ -257,6 +257,7 @@
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInstanceError.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincScalarTypeEntry.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincAnnotationType.cs" />
+    <Compile Include="MiniZinc\Boxes\NamespaceDoc.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
