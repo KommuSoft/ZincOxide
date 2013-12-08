@@ -259,6 +259,7 @@
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincAnnotationType.cs" />
     <Compile Include="MiniZinc\Boxes\NamespaceDoc.cs" />
     <Compile Include="Utils\Maths\ThreeStateValue.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInstanceVariable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

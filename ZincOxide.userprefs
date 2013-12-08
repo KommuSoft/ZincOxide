@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Types/Fundamental/MiniZincArrayType.cs">
     <Files>
-      <File FileName="MiniZinc/Types/Fundamental/MiniZincArrayType.cs" Line="114" Column="60" />
+      <File FileName="MiniZinc/Types/Fundamental/MiniZincArrayType.cs" Line="30" Column="18" />
       <File FileName="ZincSulphate/Utils/Maths/ThreeStateValueTest.cs" Line="44" Column="26" />
     </Files>
     <Pads>
