@@ -238,6 +238,9 @@
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
     <Compile Include="ProgramFloatRepresentation.cs" />
     <Compile Include="AbstractGraph\Multiplicity.cs" />
+    <Compile Include="AbstractGraph\LabeledGraph.cs" />
+    <Compile Include="Utils\ITag.cs" />
+    <Compile Include="Utils\TagBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
