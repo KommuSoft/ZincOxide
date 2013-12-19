@@ -237,6 +237,7 @@
     <Compile Include="Environment\ProgramResult.cs" />
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
     <Compile Include="ProgramFloatRepresentation.cs" />
+    <Compile Include="AbstractGraph\Multiplicity.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
