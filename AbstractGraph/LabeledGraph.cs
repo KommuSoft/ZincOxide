@@ -1,18 +1,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace ZincOxide.AbstractGraph
-{
-	public class LabeledGraph<TNode,TLabel>
-	{
+namespace ZincOxide.AbstractGraph {
+
+	public class LabeledGraph<TNode,TLabel> {
 		private readonly Dictionary<TNode,Node> nodes = new Dictionary<TNode, Node> ();
 
-		public LabeledGraph (IEnumerable<TNode> nodes, params Tuple<TNode,TLabel,TNode>[] edges) : this (nodes, (IEnumerable<Tuple<TNode,TLabel,TNode>>)edges)
-		{
+		public LabeledGraph (IEnumerable<TNode> nodes, params Tuple<TNode,TLabel,TNode>[] edges) : this (nodes, (IEnumerable<Tuple<TNode,TLabel,TNode>>)edges) {
 		}
 
-		public LabeledGraph (IEnumerable<TNode> nodes, IEnumerable<Tuple<TNode,TLabel,TNode>> edges)
-		{
+		public LabeledGraph (IEnumerable<TNode> nodes, IEnumerable<Tuple<TNode,TLabel,TNode>> edges) {
 			foreach (TNode node in nodes) {
 				this.nodes.Add (node, new Node (node));
 			}
@@ -27,28 +24,23 @@ namespace ZincOxide.AbstractGraph
 			}
 		}
 
-		public class Node : TagBase<TNode>
-		{
+		public class Node : TagBase<TNode> {
 			private readonly Dictionary<TLabel,TNode> edges = new Dictionary<TLabel, TNode> ();
 
-			public Node (TNode node, IEnumerable<Tuple<TLabel,TNode>> edges) : base (node)
-			{
+			public Node (TNode node, IEnumerable<Tuple<TLabel,TNode>> edges) : base (node) {
 				foreach (Tuple<TLabel,TNode> edge in edges) {
 					this.AddEdge (edge);
 				}
 			}
 
-			public Node (TNode node, params Tuple<TLabel,TNode>[] edges) : this (node, (IEnumerable<Tuple<TLabel,TNode>>)edges)
-			{
+			public Node (TNode node, params Tuple<TLabel,TNode>[] edges) : this (node, (IEnumerable<Tuple<TLabel,TNode>>)edges) {
 			}
 
-			public void AddEdge (Tuple<TLabel,TNode> edge)
-			{
+			public void AddEdge (Tuple<TLabel,TNode> edge) {
 				this.AddEdge (edge.Item1, edge.Item2);
 			}
 
-			public void AddEdge (TLabel label, TNode node)
-			{
+			public void AddEdge (TLabel label, TNode node) {
 				this.edges.Add (label, node);
 			}
 		}
