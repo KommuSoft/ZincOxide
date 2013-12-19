@@ -10,7 +10,7 @@ namespace ZincOxide.AbstractGraph {
 		private readonly Dictionary<TNode,Node> nodes = new Dictionary<TNode, Node> ();
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincOxide.AbstractGraph.LabeledGraph`2"/> class with a given set of nodes and edges.
+		/// Initializes a new instance of the <see cref="ZincOxide.AbstractGraph.LabeledGraph{T,Q}"/> class with a given set of nodes and edges.
 		/// </summary>
 		/// <param name="nodes">The set of nodes.</param>
 		/// <param name="edges">The set of edges.</param>
@@ -18,7 +18,7 @@ namespace ZincOxide.AbstractGraph {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincOxide.AbstractGraph.LabeledGraph`2"/> class with a given set of nodes and edges.
+		/// Initializes a new instance of the <see cref="ZincOxide.AbstractGraph.LabeledGraph{T,Q}"/> class with a given set of nodes and edges.
 		/// </summary>
 		/// <param name="nodes">The set of nodes.</param>
 		/// <param name="edges">The set of edges.</param>
