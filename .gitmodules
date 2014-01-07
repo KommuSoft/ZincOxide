@@ -10,3 +10,9 @@
 [submodule "mono-utils"]
 	path = mono-utils
 	url = https://github.com/KommuSoft/mono-utils.git
+[submodule "mathnet-yttrium"]
+	path = mathnet-yttrium
+	url = https://github.com/KommuSoft/mathnet-yttrium.git
+[submodule "mathnet-numerics"]
+	path = mathnet-numerics
+	url = git@github.com:KommuSoft/mathnet-numerics.git

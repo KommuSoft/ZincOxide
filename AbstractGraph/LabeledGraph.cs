@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ZincOxide.Utils;
 
 namespace ZincOxide.AbstractGraph {
 
@@ -8,6 +9,20 @@ namespace ZincOxide.AbstractGraph {
 	/// </summary>
 	public class LabeledGraph<TNode,TLabel> {
 		private readonly Dictionary<TNode,Node> nodes = new Dictionary<TNode, Node> ();
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.AbstractGraph.LabeledGraph{T,Q}"/> class with a given set of edges.
+		/// </summary>
+		/// <param name="edges">The set of edges.</param>
+		public LabeledGraph (params Tuple<TNode,TLabel,TNode>[] edges) : this (EnumerableUtils.Empty<TNode> (), edges) {
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.AbstractGraph.LabeledGraph{T,Q}"/> class with a specified set of edges.
+		/// </summary>
+		/// <param name="edges">The set of edges.</param>
+		public LabeledGraph (IEnumerable<Tuple<TNode,TLabel,TNode>> edges) : this (EnumerableUtils.Empty<TNode> (), edges) {
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincOxide.AbstractGraph.LabeledGraph{T,Q}"/> class with a given set of nodes and edges.
@@ -22,6 +37,9 @@ namespace ZincOxide.AbstractGraph {
 		/// </summary>
 		/// <param name="nodes">The set of nodes.</param>
 		/// <param name="edges">The set of edges.</param>
+		/// <remarks>
+		/// <para>Nodes not specified in the <paramref name="nodes"/> set but in the <paramref name="edges"/> set are added as well.</para>
+		/// </remarks>
 		public LabeledGraph (IEnumerable<TNode> nodes, IEnumerable<Tuple<TNode,TLabel,TNode>> edges) {
 			foreach (TNode node in nodes) {
 				this.nodes.Add (node, new Node (node));

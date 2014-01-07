@@ -241,6 +241,8 @@
     <Compile Include="AbstractGraph\LabeledGraph.cs" />
     <Compile Include="Utils\ITag.cs" />
     <Compile Include="Utils\TagBase.cs" />
+    <Compile Include="Shape.cs" />
+    <Compile Include="AbstractGraph\Shape.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
