@@ -1,15 +1,6 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AbstractGraph/LabeledGraph.cs">
-    <Files>
-      <File FileName="ZincSulphate/FundamentalTypeTest.cs" Line="1" Column="1" />
-      <File FileName="mono-utils/DataList.cs" Line="1" Column="1" />
-      <File FileName="AbstractGraph/Multiplicity.cs" Line="49" Column="45" />
-      <File FileName="AbstractGraph/LabeledGraph.cs" Line="1" Column="14" />
-      <File FileName="Utils/ITag.cs" Line="8" Column="8" />
-      <File FileName="Utils/TagBase.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
