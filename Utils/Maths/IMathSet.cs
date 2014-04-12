@@ -1,5 +1,5 @@
 //
-//  ZincTFSet.cs
+//  IMathSet.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -21,27 +21,11 @@
 
 using System;
 
-namespace ZincOxide.MiniZinc.Types.Fundamental {
+namespace ZincOxide.Utils.Maths {
 
-	public class ZincTFSet : IZincTF {
-		private IZincTF innerType;
+	public interface IMathSet<T> {
+		bool IsSubset (T other);
 
-		public ZincTFSet (IZincTF innerType) {
-			this.innerType = innerType;
-		}
-
-		public override string ToString () {
-			return string.Format ("set [{0}]", this.innerType);
-		}
-
-		#region IGenericEquals implementation
-
-		public bool GenericEquals (IZincTF other) {
-			throw new NotImplementedException ();
-		}
-
-		#endregion
-
+		bool IsSuperset (T other);
 	}
 }
-

@@ -21,10 +21,29 @@
 
 using System;
 using ZincOxide.Utils;
+using System.Collections.Generic;
+using ZincOxide.Utils.Maths;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
-	public interface IZincTF : IGenericEquals<IZincTF> {
+	/// <summary>
+	/// A class representing a fundamental type of the MiniZinc language.
+	/// </summary>
+	public interface IMiniZincType : IGenericEquals<IMiniZincType> {
+		/// <summary>
+		/// Gets if the type has a finite domain.
+		/// </summary>
+		/// <value><see cref="ThreeStateValue.True"/> if the type has a finite domain,
+		/// <see cref="ThreeStateValue.False"/> otherwise.</value>
+		ThreeStateValue Finite {
+			get;
+		}
+
+		/// <summary>
+		/// Returns the enumerable of the depending <see cref="IMiniZincTypeInst"/>.
+		/// </summary>
+		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
+		IEnumerable<IMiniZincTypeInst> GetDependingTypes ();
 	}
 }
 

@@ -18,14 +18,14 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc.Types.Fundamental {
 
-    public enum ZincVarPar {
-        Par = 0x01,
-        Var = 0x02
-    }
-
+	public enum ZincVarPar {
+		Par = 0x01,
+		Var = 0x02
+	}
 }
 

@@ -42,6 +42,17 @@
     </CustomCommands>
     <DocumentationFile>bin\Release\ZincOxide.xml</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Documentation|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Documentation</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="monodocer -pretty -importslashdoc:*.xml -assembly:*.exe -path:doc" workingdir="${TargetDir}" />
+        <Command type="AfterBuild" command="mdoc export-html -o htmldocs doc/" workingdir="${TargetDir}" />
+      </CustomCommands>
+    </CustomCommands>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="Algebra\AcasBinaryOperatorFlags.cs" />
@@ -173,13 +184,11 @@
     <Compile Include="MiniZinc\Structures\ZincTypeInstExpressionIdent.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstRangeExpression.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstWhereExpression.cs" />
-    <Compile Include="MiniZinc\Structures\ZincVarPar.cs" />
     <Compile Include="MiniZinc\Structures\ZincCompound.cs" />
     <Compile Include="Utils\IId.cs" />
     <Compile Include="Utils\IdBase.cs" />
     <Compile Include="Utils\INameId.cs" />
     <Compile Include="Utils\NameIdBase.cs" />
-    <Compile Include="MiniZinc\Types\ZincFundamentalType.cs" />
     <Compile Include="MiniZinc\Types\IZincFundamentalType.cs" />
     <Compile Include="MiniZinc\Types\IZincTypeTransformation.cs" />
     <Compile Include="MiniZinc\Types\ZincVarification.cs" />
@@ -231,8 +240,6 @@
     <Compile Include="Codegen\HigherOrder\ProblemFileGenerator.cs" />
     <Compile Include="Codegen\HigherOrder\SolutionFileGenerator.cs" />
     <Compile Include="Codegen\HigherOrder\IFileGenerator.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\ZincTFSet.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\IZincTF.cs" />
     <Compile Include="Utils\IGenericEquals.cs" />
     <Compile Include="Environment\ProgramResult.cs" />
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
@@ -243,6 +250,22 @@
     <Compile Include="Utils\TagBase.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="AbstractGraph\Shape.cs" />
+    <Compile Include="Utils\Maths\IMathSet.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincVarPar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IMiniZincTypeInst.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IMiniZincType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincArrayType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincScalarType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInst.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincSetType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincTupleType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInstanceError.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincScalarTypeEntry.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincAnnotationType.cs" />
+    <Compile Include="MiniZinc\Boxes\NamespaceDoc.cs" />
+    <Compile Include="Utils\Maths\ThreeStateValue.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInstanceVariable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -272,6 +295,7 @@
     <None Include="Parser\specs\MiniZinc.ll" />
     <None Include="Parser\specs\MiniZinc.yy" />
     <None Include="Parser\specs\cc.sh" />
+    <None Include="Parser\specs\ZincOutput.ll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Codegen\" />
@@ -297,6 +321,7 @@
     <Folder Include="Environment\" />
     <Folder Include="AbstractGraph\" />
     <Folder Include="MiniZinc\Types\Fundamental\" />
+    <Folder Include="Utils\Maths\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

@@ -10,6 +10,7 @@
 %using ZincOxide.MiniZinc.Structures;
 %using ZincOxide.Utils;
 %using ZincOxide.Environment;
+%using ZincOxide.MiniZinc.Types.Fundamental;
 
 %tokentype Token
 

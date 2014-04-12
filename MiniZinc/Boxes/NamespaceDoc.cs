@@ -1,5 +1,5 @@
 //
-//  ZincFundamentalType.cs
+//  NamespaceDoc.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,29 +18,19 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc.Boxes {
 
-    public struct ZincFundamentalType {
-
-        private ulong data;
-
-        public ulong Data {
-            get {
-                return this.data;
-            }
-        }
-
-        private ZincFundamentalType (ulong data) {
-            this.data = data;
-        }
-
-        public ZincFundamentalType (ZincVarPar varpar, ZincScalar scalar) {
-            this.data = (ulong)varpar;
-        }
-
-    }
-
+	/// <summary>
+	/// The <c>Boxes</c> namespace mainly groups fields together who are frequently used in expressions.
+	/// </summary>
+	/// <remarks>
+	/// <para>Methods who are executed recursively on expressions are implemented as well such that the calls are
+	/// propagated.</para>
+	/// </remarks>
+	public static class NamespaceDoc {
+	}
 }
 
