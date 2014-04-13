@@ -50,17 +50,17 @@ namespace ZincOxide.MiniZinc.Boxes {
 
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincAsBoxBase"/> class without a given initial
+		/// Initializes a new instance of the <see cref="ZincExBoxBase"/> class without a given initial
 		/// <see cref="IZincExp"/> instance.
 		/// </summary>
 		protected ZincExBoxBase () {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincAsBoxBase"/> class with a given initial
+		/// Initializes a new instance of the <see cref="ZincExBoxBase"/> class with a given initial
 		/// <see cref="IZincExp"/> instance.
 		/// </summary>
-		/// <param name='annotations'>
+		/// <param name='expression'>
 		/// The initial <see cref="IZincExp"/> instance to store.
 		/// </param>
 		protected ZincExBoxBase (IZincExp expression) {
