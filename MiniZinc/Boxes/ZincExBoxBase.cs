@@ -53,7 +53,7 @@ namespace ZincOxide.MiniZinc.Boxes {
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			this.expression = this.expression.Replace (identMap) as IZincExp;
 			return this;
 		}
@@ -66,4 +66,3 @@ namespace ZincOxide.MiniZinc.Boxes {
 	}
 
 }
-

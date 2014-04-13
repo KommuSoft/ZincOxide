@@ -48,13 +48,15 @@ namespace ZincOxide.MiniZinc.Boxes {
         #endregion
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincAsBoxBase"/> class without an initial <see cref="Annotations"/> instance.
+		/// Initializes a new instance of the <see cref="ZincAsBoxBase"/> class without an initial
+		/// <see cref="Annotations"/> instance.
 		/// </summary>
 		protected ZincAsBoxBase () {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincAsBoxBase"/> class with a given initial <see cref="Annotations"/> instance.
+		/// Initializes a new instance of the <see cref="ZincAsBoxBase"/> class with a given initial
+		/// <see cref="Annotations"/> instance.
 		/// </summary>
 		/// <param name='annotations'>
 		/// The initial <see cref="IZincAnnotations"/> instance to store.
@@ -65,10 +67,12 @@ namespace ZincOxide.MiniZinc.Boxes {
 
         #region IZincIdentContainer implementation
 		/// <summary>
-		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved <see cref="IZincIdent"/> instances of the container.
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
 		/// </summary>
 		/// <returns>
-		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved <see cref="IZincIdent"/> instances of the container.
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
 		/// </returns>
 		public override IEnumerable<ZincIdent> InvolvedIdents () {
 			return this.Annotations.InvolvedIdents ();
@@ -76,6 +80,13 @@ namespace ZincOxide.MiniZinc.Boxes {
         #endregion
 
         #region IZincIdentReplaceContainer implementation
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// stored as keys to the corresponding values and returns this instance.
+		/// </summary>
+		/// <returns>
+		/// This instance, for cascading purposes.
+		/// </returns>
 		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
 			return this;
