@@ -22,13 +22,23 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincNumNumBox : IZincBox, IZincNumBox {
+	/// <summary>
+	/// An <see cref="IZincBox"/> that stores two <see cref="IZincNumExp"/> instances. This is typically
+	/// used for numerical operations.
+	/// </summary>
+	public interface IZincNumNumBox : IZincBox, IZincNumBox {
 
-        IZincNumExp NumericExpression2 {
-            get;
-        }
+		/// <summary>
+		/// Gets the second <see cref="IZincTypeInstExp"/> stored in the <see cref="IZincNumNumBox"/>.
+		/// </summary>
+		/// <value>
+		/// The second <see cref="IZincTypeInstExp"/>.
+		/// </value>
+		IZincNumExp NumericExpression2 {
+			get;
+		}
 
-    }
+	}
 
 }
 

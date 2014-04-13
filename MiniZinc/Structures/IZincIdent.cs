@@ -23,6 +23,12 @@ using ZincOxide.Utils;
 namespace ZincOxide.MiniZinc.Structures {
 
 	public interface IZincIdent : INameId, IZincNumExp, IZincIdentReplaceContainer {
+
+		ZincIdentUsage Usage {
+			get;
+			set;
+		}
+
 	}
 }
 
