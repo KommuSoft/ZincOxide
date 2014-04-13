@@ -23,46 +23,46 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincIdBoxBase : ZincBoxBase, IZincIdBox {
+	public abstract class ZincIdBoxBase : ZincBoxBase, IZincIdBox {
 
-        private ZincIdent ident;
+		private IZincIdent ident;
 
         #region IZincIdentBox implementation
-        public ZincIdent Ident {
-            get {
-                return this.ident;
-            }
-            protected set {
-                this.ident = value;
-            }
-        }
+		public IZincIdent Ident {
+			get {
+				return this.ident;
+			}
+			protected set {
+				this.ident = value;
+			}
+		}
         #endregion
 
 
-        protected ZincIdBoxBase () {
-        }
+		protected ZincIdBoxBase () {
+		}
 
-        protected ZincIdBoxBase (ZincIdent ident) {
-            this.Ident = ident;
-        }
+		protected ZincIdBoxBase (IZincIdent ident) {
+			this.Ident = ident;
+		}
 
         #region ZincIdentContainer implementation
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            yield return this.ident;
-        }
+		public override IEnumerable<ZincIdent> InvolvedIdents () {
+			yield return (ZincIdent)this.ident;//TODO: pull up return class eventually
+		}
 		#endregion
 		#region ZincIdentReplaceContainer implementation
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
-            this.ident = this.ident.Replace (identMap) as ZincIdent;
-            return this;
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
+			this.ident = this.ident.Replace (identMap) as ZincIdent;
+			return this;
+		}
         #endregion
 
-        public override IEnumerable<IZincElement> Children () {
-            yield return this.ident;
-        }
+		public override IEnumerable<IZincElement> Children () {
+			yield return this.ident;
+		}
 
 
-    }
+	}
 }
 

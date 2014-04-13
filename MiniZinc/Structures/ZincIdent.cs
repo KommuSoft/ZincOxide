@@ -18,72 +18,71 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 using System.Collections.Generic;
 using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincIdent : NameIdBase, IZincNumExp, IZincIdentReplaceContainer {
+	public class ZincIdent : NameIdBase, IZincIdent {
 
-        private ZincIdentUsage usage;
+		private ZincIdentUsage usage;
 
-        public ZincIdentUsage Usage {
-            get {
-                return this.usage;
-            }
-            set {
-                this.usage = value;
-            }
-        }
+		public ZincIdentUsage Usage {
+			get {
+				return this.usage;
+			}
+			set {
+				this.usage = value;
+			}
+		}
 
-        public ZincIdent (string name, ZincIdentUsage usage = ZincIdentUsage.Unknown) : base(name) {
-            this.Usage = usage;
-        }
+		public ZincIdent (string name, ZincIdentUsage usage = ZincIdentUsage.Unknown) : base(name) {
+			this.Usage = usage;
+		}
 
         #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield return this;
-        }
+		public IEnumerable<ZincIdent> InvolvedIdents () {
+			yield return this;
+		}
         #endregion
 
 		#region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            ZincIdent outp;
-            if (identMap.TryGetValue (this, out outp)) {
-                return outp;
-            } else {
-                return this;
-            }
-        }
+		public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			ZincIdent outp;
+			if (identMap.TryGetValue (this, out outp)) {
+				return outp;
+			} else {
+				return this;
+			}
+		}
 		#endregion
 
-        public string ToBindString () {
-            return string.Format ("{0}&{1}", this.Name, this.Id);
-        }
+		public string ToBindString () {
+			return string.Format ("{0}&{1}", this.Name, this.Id);
+		}
 
         #region IInnerSoftValidateable implementation
-        public IEnumerable<string> InnerSoftValidate () {
-            yield break;
-        }
+		public IEnumerable<string> InnerSoftValidate () {
+			yield break;
+		}
         #endregion
 
         #region IValidateable implementation
-        public bool Validate () {
-            return ValidateableUtils.Validate (this);
-        }
+		public bool Validate () {
+			return ValidateableUtils.Validate (this);
+		}
         #endregion
 
         #region ISoftValidateable implementation
-        public IEnumerable<string> SoftValidate () {
-            return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
-        }
+		public IEnumerable<string> SoftValidate () {
+			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
+		}
         #endregion
 
         #region IComposition implementation
-        public IEnumerable<IZincElement> Children () {
-            yield break;
-        }
+		public IEnumerable<IZincElement> Children () {
+			yield break;
+		}
         #endregion
 
 
@@ -97,6 +96,6 @@ namespace ZincOxide.MiniZinc.Structures {
 
 
 
-    }
+	}
 
 }

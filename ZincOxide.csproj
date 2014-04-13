@@ -224,6 +224,7 @@
     <Compile Include="Environment\ProgramFloatRepresentation.cs" />
     <Compile Include="MiniZinc\Structures\IZincAnnotations.cs" />
     <Compile Include="MiniZinc\Structures\IZincAnnotation.cs" />
+    <Compile Include="MiniZinc\Structures\IZincIdent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

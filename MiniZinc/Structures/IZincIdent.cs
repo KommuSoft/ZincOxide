@@ -1,10 +1,10 @@
 //
-//  IZincExpressionBox.cs
+//  IZincIdent.cs
 //
 //  Author:
-//       Willem Van Onsem <vanonsem.willem@gmail.com>
+//       Willem Van Onsem <Willem.VanOnsem@cs.kuleuven.be>
 //
-//  Copyright (c) 2013 Willem Van Onsem
+//  Copyright (c) 2014 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,25 +18,11 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.MiniZinc.Structures;
+using ZincOxide.Utils;
 
-namespace ZincOxide.MiniZinc.Boxes {
+namespace ZincOxide.MiniZinc.Structures {
 
-	/// <summary>
-	/// An <see cref="IZincBox"/> interface that contains a <see cref="IZincExp"/> instance.
-	/// </summary>
-	public interface IZincExBox : IZincBox {
-
-		/// <summary>
-		/// Gets the <see cref="IZincExp"/> stored of the <see cref="IZincExBox"/>.
-		/// </summary>
-		/// <value>
-		/// The stored <see cref="IZincExp"/> of the <see cref="IZincExBox"/>.
-		/// </value>
-		IZincExp Expression {
-			get;
-		}
-
+	public interface IZincIdent : INameId, IZincNumExp, IZincIdentReplaceContainer {
 	}
 }
 
