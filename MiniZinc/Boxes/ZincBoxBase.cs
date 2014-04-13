@@ -30,11 +30,13 @@ namespace ZincOxide.MiniZinc.Boxes {
 	/// </summary>
 	public abstract class ZincBoxBase : IZincBox {
 
+		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincBoxBase"/> class.
 		/// </summary>
 		protected ZincBoxBase () {
 		}
+		#endregion
 
         #region IValidateable implementation
 		/// <summary>

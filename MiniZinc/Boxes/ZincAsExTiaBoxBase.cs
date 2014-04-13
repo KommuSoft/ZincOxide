@@ -62,7 +62,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// <param name='expr'>
 		/// The given initial <see cref="IZincExp"/> instance.
 		/// </param>
-		/// <param name='tias'>
+		/// <param name='tia'>
 		/// The given initial <see cref="IZincTypeInstExprAndIdent"/> instances.
 		/// </param>
 		protected ZincAsExTiaBoxBase (ZincAnnotations anns, IZincExp expr, IZincTypeInstExprAndIdent tia) : base(anns,expr) {
