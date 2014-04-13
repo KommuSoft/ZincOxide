@@ -52,29 +52,12 @@
         <Command type="AfterBuild" command="mdoc export-html -o htmldocs doc/" workingdir="${TargetDir}" />
       </CustomCommands>
     </CustomCommands>
+    <DebugType>none</DebugType>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="Algebra\AcasBinaryOperatorFlags.cs" />
-    <Compile Include="Algebra\AcasConstant.cs" />
-    <Compile Include="Algebra\AcasExpressionBase.cs" />
-    <Compile Include="Algebra\AcasFunction.cs" />
-    <Compile Include="Algebra\AcasFunctionInstance.cs" />
-    <Compile Include="Algebra\AcasGenericFunction.cs" />
-    <Compile Include="Algebra\AcasIExpression.cs" />
-    <Compile Include="Algebra\AcasOperator.cs" />
-    <Compile Include="Algebra\AcasType.cs" />
-    <Compile Include="Algebra\AcasVariable.cs" />
     <Compile Include="MiniZinc\ZincPrintUtils.cs" />
-    <Compile Include="Codegen\ICodeClass.cs" />
-    <Compile Include="Codegen\ICodeMethod.cs" />
-    <Compile Include="Codegen\OuputFile.cs" />
-    <Compile Include="Codegen\ICodeInterface.cs" />
-    <Compile Include="Codegen\ICodeBuilder.cs" />
-    <Compile Include="Codegen\ICodePackage.cs" />
-    <Compile Include="Codegen\ICodeFile.cs" />
     <Compile Include="ZincOxideException.cs" />
-    <Compile Include="Codegen\ZincOxideCodeGenException.cs" />
     <Compile Include="MiniZinc\ZincOxideMiniZincException.cs" />
     <Compile Include="Parser\MiniZincParser.cs" />
     <Compile Include="MiniZinc\Boxes\IZincAsBox.cs" />
@@ -109,17 +92,6 @@
     <Compile Include="Utils\NameBase.cs" />
     <Compile Include="Utils\NameRegister.cs" />
     <Compile Include="Utils\ReadWriteableUtils.cs" />
-    <Compile Include="Codegen\Java\CodeBuilderJava.cs" />
-    <Compile Include="Codegen\Java\CodeClassJava.cs" />
-    <Compile Include="Codegen\Java\CodeInterfaceJava.cs" />
-    <Compile Include="Codegen\Java\CodePackageJava.cs" />
-    <Compile Include="Codegen\Java\JavaUtils.cs" />
-    <Compile Include="Codegen\Base\CodeBuilderBase.cs" />
-    <Compile Include="Codegen\Base\CodeClassBase.cs" />
-    <Compile Include="Codegen\Base\CodeFileBase.cs" />
-    <Compile Include="Codegen\Base\CodeInterfaceBase.cs" />
-    <Compile Include="Codegen\Base\CodePackageBase.cs" />
-    <Compile Include="Codegen\Base\ContextWriteableCodeFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTieTiesBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTieTiesBox.cs" />
@@ -131,11 +103,6 @@
     <Compile Include="Parser\MiniZincLexer.cs" />
     <Compile Include="Parser\ZincOxideParserException.cs" />
     <Compile Include="Parser\ParserHelper.cs" />
-    <Compile Include="Codegen\CSharp\CodeBuilderCSharp.cs" />
-    <Compile Include="Codegen\CSharp\CodeClassCSharp.cs" />
-    <Compile Include="Codegen\CSharp\CodeInterfaceCSharp.cs" />
-    <Compile Include="Codegen\CSharp\CodePackageCSharp.cs" />
-    <Compile Include="Codegen\CSharp\CSharpUtils.cs" />
     <Compile Include="Utils\ISoftValidateable.cs" />
     <Compile Include="Utils\IMessageBoard.cs" />
     <Compile Include="Utils\ZincOxideNameNotFoundException.cs" />
@@ -220,12 +187,6 @@
     <Compile Include="MiniZinc\Boxes\IZincTyBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTyBoxBase.cs" />
     <Compile Include="Utils\IFinite.cs" />
-    <Compile Include="Codegen\ICodeProperty.cs" />
-    <Compile Include="Codegen\CodePropertyAccess.cs" />
-    <Compile Include="Codegen\ICodeMixin.cs" />
-    <Compile Include="Codegen\Base\CodePropertyBase.cs" />
-    <Compile Include="Codegen\Java\CodePropertyJava.cs" />
-    <Compile Include="Codegen\CSharp\CodePropertyCSharp.cs" />
     <Compile Include="Utils\IDimensions.cs" />
     <Compile Include="MiniZinc\Builtins\ZincBuiltinRelationAttribute.cs" />
     <Compile Include="MiniZinc\Builtins\ZincBuiltinRelationRegister.cs" />
@@ -237,19 +198,12 @@
     <Compile Include="Environment\programVerbosity.cs" />
     <Compile Include="Environment\Interaction.cs" />
     <Compile Include="Parser\ScanBase.cs" />
-    <Compile Include="Codegen\HigherOrder\ProblemFileGenerator.cs" />
-    <Compile Include="Codegen\HigherOrder\SolutionFileGenerator.cs" />
-    <Compile Include="Codegen\HigherOrder\IFileGenerator.cs" />
     <Compile Include="Utils\IGenericEquals.cs" />
     <Compile Include="Environment\ProgramResult.cs" />
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
     <Compile Include="ProgramFloatRepresentation.cs" />
-    <Compile Include="AbstractGraph\Multiplicity.cs" />
-    <Compile Include="AbstractGraph\LabeledGraph.cs" />
     <Compile Include="Utils\ITag.cs" />
     <Compile Include="Utils\TagBase.cs" />
-    <Compile Include="Shape.cs" />
-    <Compile Include="AbstractGraph\Shape.cs" />
     <Compile Include="Utils\Maths\IMathSet.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\ZincVarPar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -277,16 +231,23 @@
     <Reference Include="Mono.Options">
       <HintPath>lib\Mono.Options.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.core, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="nunit.core.interfaces, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System.Numerics" />
+    <Reference Include="nunit.core, Version=2.6.0.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>mono-nunit</Package>
+    </Reference>
+    <Reference Include="nunit.util, Version=2.6.0.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>mono-nunit</Package>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.0.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>mono-nunit</Package>
+    </Reference>
+    <Reference Include="nunit.core.interfaces, Version=2.6.0.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>mono-nunit</Package>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Manpage.txt" />
@@ -298,28 +259,18 @@
     <None Include="Parser\specs\ZincOutput.ll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Codegen\" />
-    <Folder Include="Algebra\" />
     <Folder Include="MiniZinc\" />
     <Folder Include="Parser\" />
     <Folder Include="Samples\" />
     <Folder Include="MiniZinc\Boxes\" />
     <Folder Include="Utils\" />
-    <Folder Include="Codegen\Java\" />
-    <Folder Include="Codegen\Base\" />
-    <Folder Include="Codegen\CSharp\" />
-    <Folder Include="Transformation\" />
-    <Folder Include="Heuristics\" />
     <Folder Include="Normalization\" />
     <Folder Include="Parser\specs\" />
     <Folder Include="MiniZinc\Builtins\" />
     <Folder Include="MiniZinc\Items\" />
     <Folder Include="MiniZinc\Structures\" />
-    <Folder Include="Codegen\HigherOrder\" />
     <Folder Include="MiniZinc\Types\" />
-    <Folder Include="Complexity\" />
     <Folder Include="Environment\" />
-    <Folder Include="AbstractGraph\" />
     <Folder Include="MiniZinc\Types\Fundamental\" />
     <Folder Include="Utils\Maths\" />
   </ItemGroup>

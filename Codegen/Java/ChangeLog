@@ -1,9 +1,0 @@
-2013-09-20  Willem Van Onsem  <vanonsem.willem@gmail.com>
-
-	* JavaUtils.cs:
-	* CodeClassJava.cs:
-	* JavaCodeBuilder.cs:
-	* CodePackageJava.cs:
-	* CodeBuilderJava.cs:
-	* CodeInterfaceJava.cs: 
-

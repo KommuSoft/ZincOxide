@@ -21,7 +21,6 @@
 
 using System;
 using ZincOxide.Parser;
-using System.Configuration;
 
 namespace ZincOxide.Environment {
 
@@ -29,6 +28,7 @@ namespace ZincOxide.Environment {
 	/// A class designed to interact with the user of the program.
 	/// </summary>
 	public static class Interaction {
+
 		/// <summary>
 		/// The level of verbosity of the program: determines which messages should be printed.
 		/// </summary>

@@ -44,5 +44,5 @@ namespace ZincOxide {
 		/// </remarks>
 		Fraction = 0x0000000000000030
 	}
-}
 
+}

@@ -27,6 +27,7 @@ namespace ZincOxide.Environment {
 	/// A class that is used to set different parameters of the running program (for instance the task that should be executed, the verbosity level, etc.)
 	/// </summary>
 	public class ProgramEnvironment {
+
 		/// <summary>
 		/// The dafault task that should be carried out by the program.
 		/// </summary>
@@ -108,6 +109,7 @@ namespace ZincOxide.Environment {
 		public override string ToString () {
 			return string.Format ("[ProgramEnvironment {0} {1} {2} {3}]", this.Task, this.IntegerRepresentation, this.FloatRepresentation, this.Verbosity);
 		}
-	}
-}
 
+	}
+
+}
