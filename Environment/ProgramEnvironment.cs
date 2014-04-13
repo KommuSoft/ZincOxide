@@ -19,46 +19,70 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System.Text.RegularExpressions;
+using ZincOxide.Exceptions;
 
 namespace ZincOxide.Environment {
 
 	/// <summary>
 	/// A class that is used to set different parameters of the running program (for instance the task that should be executed, the verbosity level, etc.)
 	/// </summary>
-	public class ProgramEnvironment {
+	public class ProgramEnvironment : IProgramEnvironment {
+
+		#region constants
 		/// <summary>
 		/// The dafault task that should be carried out by the program.
 		/// </summary>
 		public const ProgramTask DefaultTask = ProgramTask.GenerateHeuristics;
+
 		/// <summary>
 		/// The default verbosity level of a program environment.
 		/// </summary>
 		public const ProgramVerbosity DefaultVerbosity = ProgramVerbosity.Error | ProgramVerbosity.Warning;
+
 		/// <summary>
 		/// The default integer representation of a program environment.
 		/// </summary>
 		public const ProgramIntegerRepresentation DefaultIntegerRepresentation = ProgramIntegerRepresentation.Int32;
+
 		/// <summary>
 		/// The default float representation of a program environment.
 		/// </summary>
 		public const ProgramFloatRepresentation DefaultFloatRepresentation = ProgramFloatRepresentation.Single;
+		#endregion
+
+		#region IProgramEnvironment implementation
 		/// <summary>
 		/// The task that should be carried out of a program environment.
 		/// </summary>
-		public ProgramTask Task;
+		public ProgramTask Task {
+			get;
+			set;
+		}
+
 		/// <summary>
 		/// The verbosity level of the program. By default only <see cref="ProgramVerbosity.Error"/> and <see cref="ProgramVerbosity.Warning"/> are selected.
 		/// </summary>
-		public ProgramVerbosity Verbosity;
+		public ProgramVerbosity Verbosity {
+			get;
+			set;
+		}
+
 		/// <summary>
 		/// The way integers will be represented in the generated output.
 		/// </summary>
-		public ProgramIntegerRepresentation IntegerRepresentation;
+		public ProgramIntegerRepresentation IntegerRepresentation {
+			get;
+			set;
+		}
+
 		/// <summary>
 		/// The way floats will be represented in the generated output.
 		/// </summary>
-		public ProgramFloatRepresentation FloatRepresentation;
+		public ProgramFloatRepresentation FloatRepresentation {
+			get;
+			set;
+		}
+		#endregion
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincOxide.Environment.ProgramEnvironment"/> class.
@@ -67,24 +91,25 @@ namespace ZincOxide.Environment {
 		/// <param name="integerRepresentation">The integer representation of the program.</param>
 		/// <param name="floatRepresentation">The float representation of the program.</param>
 		/// <param name="verbosity">The verbosity level of the program.</param>
-		public ProgramEnvironment (ProgramTask task = DefaultTask, ProgramIntegerRepresentation integerRepresentation = DefaultIntegerRepresentation,
-		                           ProgramFloatRepresentation floatRepresentation = DefaultFloatRepresentation, ProgramVerbosity verbosity = DefaultVerbosity) {
+		public ProgramEnvironment (ProgramTask task = DefaultTask, ProgramIntegerRepresentation integerRepresentation = DefaultIntegerRepresentation, ProgramFloatRepresentation floatRepresentation = DefaultFloatRepresentation, ProgramVerbosity verbosity = DefaultVerbosity) {
 			this.Task = task;
 			this.IntegerRepresentation = integerRepresentation;
 			this.FloatRepresentation = floatRepresentation;
 			this.Verbosity = verbosity;
 		}
 
+		#region IProgramEnvironment implementation
 		/// <summary>
 		/// Sets the verbosity level of the program using textual input.
 		/// </summary>
 		/// <param name="level">The verbosity level specified by textual input.</param>
+		/// <exception cref="ZincOxideFormatException">If the given level is not a valid level.</exception>
 		public void SetVerbosity (string level) {
 			ProgramVerbosity result;
 			if (ProgramTask.TryParse (level, true, out result)) {
 				this.Verbosity = result;
 			} else {
-				throw new ZincOxideException ("Cannot parse the verbositylevel to be executed.");
+				throw new ZincOxideFormatException ("Cannot parse the verbositylevel to be executed.");
 			}
 		}
 
@@ -92,15 +117,18 @@ namespace ZincOxide.Environment {
 		/// Sets the task that should be carried out by the program using textual input.
 		/// </summary>
 		/// <param name="task">The task that should be carried out specified by textual input.</param>
+		/// <exception cref="ZincOxideFormatException">If the given task is not a valid task.</exception>
 		public void SetTask (string task) {
 			ProgramTask result;
 			if (ProgramTask.TryParse (task, true, out result)) {
 				this.Task = result;
 			} else {
-				throw new ZincOxideException ("Cannot parse the task to be executed.");
+				throw new ZincOxideFormatException ("Cannot parse the task to be executed.");
 			}
 		}
+		#endregion
 
+		#region ToString method
 		/// <summary>
 		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincOxide.Environment.ProgramEnvironment"/>.
 		/// </summary>
@@ -108,6 +136,8 @@ namespace ZincOxide.Environment {
 		public override string ToString () {
 			return string.Format ("[ProgramEnvironment {0} {1} {2} {3}]", this.Task, this.IntegerRepresentation, this.FloatRepresentation, this.Verbosity);
 		}
-	}
-}
+		#endregion
 
+	}
+
+}

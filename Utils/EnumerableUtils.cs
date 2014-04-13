@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace ZincOxide.Utils {
 
@@ -34,6 +35,21 @@ namespace ZincOxide.Utils {
 		/// <typeparam name="T">The type of the resulting <see cref="IEnumerable{T}"/>.</typeparam>
 		public static IEnumerable<T> Empty<T> () {
 			yield break;
+		}
+
+		/// <summary>
+		/// Filters the elements that belong to the result type and are effective.
+		/// </summary>
+		/// <returns>An <see cref="IEnumerable{T}"/> of the elements that belong to the result type and are effective.</returns>
+		/// <param name="source">The source of elements.</param>
+		/// <typeparam name="T">The type of the elements of the source.</typeparam>
+		/// <typeparam name="TRes">The type of the resulting elements.</typeparam>
+		public static IEnumerable<TRes> FilterCast <T,TRes> (this IEnumerable<T> source) where TRes : T {
+			foreach (T t in source) {
+				if (t != null && t is TRes) {
+					yield return (TRes)t;
+				}
+			}
 		}
 
 		/// <summary>

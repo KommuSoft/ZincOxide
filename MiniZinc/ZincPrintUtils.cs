@@ -18,28 +18,27 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using ZincOxide.MiniZinc.Structures;
+using ZincOxide.MiniZinc.Types.Fundamental;
 
 namespace ZincOxide.MiniZinc {
 
-    public static class ZincPrintUtils {
+	public static class ZincPrintUtils {
+		public static string StringLiteral (string value) {
+			return string.Format ("\"{0}\"", value);
+		}
 
-        public static string StringLiteral (string value) {
-            return string.Format ("\"{0}\"", value);
-        }
+		public static string VarParLiteral (ZincVarPar varpar) {
+			return varpar.ToString ().ToLower ();
+		}
 
-        public static string VarParLiteral (ZincVarPar varpar) {
-            return varpar.ToString ().ToLower ();
-        }
+		public static string ScalarLiteral (ZincScalar scalar) {
+			return scalar.ToString ().ToLower ();
+		}
 
-        public static string ScalarLiteral (ZincScalar scalar) {
-            return scalar.ToString ().ToLower ();
-        }
-
-        public static string SolveTypeLiteral (ZincSolveType solvetype) {
-            return solvetype.ToString ().ToLower ();
-        }
-
-    }
-
+		public static string SolveTypeLiteral (ZincSolveType solvetype) {
+			return solvetype.ToString ().ToLower ();
+		}
+	}
 }

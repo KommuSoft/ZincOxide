@@ -19,37 +19,38 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
+using ZincOxide.Exceptions;
 
 namespace ZincOxide.Utils {
 
-    public class NameRegister<T> : INameRegister<T> where T : IName {
+	public class NameRegister<T> : INameRegister<T> where T : IName {
 
-        private readonly Dictionary<string,T> dictionary = new Dictionary<string, T> ();
+		private readonly Dictionary<string,T> dictionary = new Dictionary<string, T> ();
 
         #region INameRegister implementation
-        public void Register (T value) {
-            if (value != null) {
-                string key = value.Name;
-                if (!this.dictionary.ContainsKey (key)) {
-                    this.dictionary.Add (key, value);
-                }
-            }
-        }
+		public void Register (T value) {
+			if (value != null) {
+				string key = value.Name;
+				if (!this.dictionary.ContainsKey (key)) {
+					this.dictionary.Add (key, value);
+				}
+			}
+		}
 
-        public virtual bool Contains (string name) {
-            return (this.dictionary.ContainsKey (name));
-        }
+		public virtual bool Contains (string name) {
+			return (this.dictionary.ContainsKey (name));
+		}
 
-        public virtual T Lookup (string name) {
-            T val;
-            if (this.dictionary.TryGetValue (name, out val)) {
-                return val;
-            } else {
-                throw new ZincOxideNameNotFoundException ("Name \"{0}\" not found in the name register.", name);
-            }
-        }
+		public virtual T Lookup (string name) {
+			T val;
+			if (this.dictionary.TryGetValue (name, out val)) {
+				return val;
+			} else {
+				throw new ZincOxideNameNotFoundException ("Name \"{0}\" not found in the name register.", name);
+			}
+		}
         #endregion
 
-    }
+	}
 }
 

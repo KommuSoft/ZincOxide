@@ -1,4 +1,5 @@
 %using QUT.Gppg;
+%using ZincOxide.Exceptions;
 
 %namespace ZincOxide.Parser
 
@@ -75,8 +76,8 @@ OPUNDSC     _
 OPEQUIV     <->
 OPIMPLI     ->
 OPRIMPL     <-
-OPVEE       \x5c\x5c/
-OPWEDGE     /\x5c\x5c
+OPVEE       \x5c\x2f
+OPWEDGE     \x2f\x5c
 OPLESTA     <
 OPGRETA     >
 OPLESEQ     <=

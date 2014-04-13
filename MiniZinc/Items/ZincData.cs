@@ -21,88 +21,88 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.IO;
+using ZincOxide.Exceptions;
 using ZincOxide.MiniZinc.Structures;
-using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public class ZincData : ZincFileBase {
+	public class ZincData : ZincFileBase {
 
-        private readonly List<ZincAssignItem> assignItems = new List<ZincAssignItem> ();
+		private readonly List<ZincAssignItem> assignItems = new List<ZincAssignItem> ();
 
         #region IZincFile implementation
-        public override IEnumerable<IZincItem> Items {
-            get {
-                return this.assignItems;
-            }
-        }
+		public override IEnumerable<IZincItem> Items {
+			get {
+				return this.assignItems;
+			}
+		}
         #endregion
 
-        public ZincData () {
-        }
+		public ZincData () {
+		}
 
-        public ZincData (IEnumerable<IZincItem> items) {
-        }
+		public ZincData (IEnumerable<IZincItem> items) {
+		}
 
         #region IWriteable implementation
-        public override void Write (TextWriter writer) {
-            foreach (ZincAssignItem item in this.assignItems) {
-                item.Write (writer);
-                writer.WriteLine (";");
-            }
-        }
+		public override void Write (TextWriter writer) {
+			foreach (ZincAssignItem item in this.assignItems) {
+				item.Write (writer);
+				writer.WriteLine (";");
+			}
+		}
         #endregion
 
         #region IZincIdentContainer implementation
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.assignItems.SelectMany (x => x.InvolvedIdents ());
-        }
+		public override IEnumerable<ZincIdent> InvolvedIdents () {
+			return this.assignItems.SelectMany (x => x.InvolvedIdents ());
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            for (int i = 0x00; i < this.assignItems.Count; i++) {
-                this.assignItems [i] = this.assignItems [i].Replace (identMap) as ZincAssignItem;
-            }
-            return this;
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			for (int i = 0x00; i < this.assignItems.Count; i++) {
+				this.assignItems [i] = this.assignItems [i].Replace (identMap) as ZincAssignItem;
+			}
+			return this;
+		}
         #endregion
 
-        public void AddAssignItem (ZincAssignItem assignItem) {
-            if (assignItem != null) {
-                this.assignItems.Add (assignItem);
-            }
-        }
+		public void AddAssignItem (ZincAssignItem assignItem) {
+			if (assignItem != null) {
+				this.assignItems.Add (assignItem);
+			}
+		}
 
         #region IZincFile implementation
-        public override void AddItem (IZincItem item) {
-            if (item != null) {
-                switch (item.Type) {
-                case ZincItemType.Assign:
-                    this.AddAssignItem (item as ZincAssignItem);
-                    break;
-                default:
-                    throw new ZincOxideMiniZincException ("Only assign items are valid items in a MiniZinc data file.");
-                }
-            }
-        }
+		public override void AddItem (IZincItem item) {
+			if (item != null) {
+				switch (item.Type) {
+				case ZincItemType.Assign:
+					this.AddAssignItem (item as ZincAssignItem);
+					break;
+				default:
+					throw new ZincOxideMiniZincException ("Only assign items are valid items in a MiniZinc data file.");
+				}
+			}
+		}
 
-        public override void AddItems (IEnumerable<IZincItem> items) {
-            if (items != null) {
-                foreach (IZincItem item in items) {
-                    this.AddItem (item);
-                }
-            }
-        }
+		public override void AddItems (IEnumerable<IZincItem> items) {
+			if (items != null) {
+				foreach (IZincItem item in items) {
+					this.AddItem (item);
+				}
+			}
+		}
         #endregion
 
         #region ISoftValidateable implementation
-        public override IEnumerable<string> SoftValidate () {
-            yield break;
-        }
+		public override IEnumerable<string> SoftValidate () {
+			yield break;
+		}
         #endregion
 
-    }
+	}
 
 }
 

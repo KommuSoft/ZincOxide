@@ -21,6 +21,7 @@
 
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Boxes;
+using ZincOxide.MiniZinc.Types.Fundamental;
 
 namespace ZincOxide.MiniZinc.Structures {
 
