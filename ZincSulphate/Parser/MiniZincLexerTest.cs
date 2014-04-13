@@ -41,8 +41,10 @@ namespace ZincSulphate.Parser {
 			Token.OPASSIG, Token.OACC, Token.CACC, Token.COMMA, Token.COLON, Token.KWINCL, Token.OPASSIG, Token.OPASSIG, Token.KWCONS, Token.KWSOLV, Token.KWSATI, Token.KWSOLV, Token.KWMINI, Token.KWSOLV, Token.KWMAXI,//18
 			Token.KWOUTP, Token.KWANNO, Token.KWPRED, Token.KWTEST, Token.KWFUNC, Token.COLON, Token.OPASSIG, Token.OBRK, Token.COMMA, Token.CBRK, Token.OBRK, Token.COLON, Token.KWWHER, Token.CBRK, Token.KWVAR, Token.KWPAR, Token.KWBOOL, Token.KWINT, Token.KWFLOA, Token.KWSTRI,//38
 			Token.KWANN, Token.OACC, Token.COMMA, Token.CACC, Token.OPRANGE, Token.KWSET, Token.KWOF, Token.KWARRA, Token.KWOF, Token.OFBR, Token.COMMA, Token.CFBR, Token.KWOF, Token.KWLIST, Token.KWOF, Token.KWTUPL, Token.OBRK, Token.COMMA, Token.CBRK, Token.KWRECO, Token.OBRK, Token.COMMA, Token.CBRK,Token.KWANY, Token.DIDENT, Token.KWOP, Token.OBRK, Token.COLON, Token.OBRK, Token.COMMA, Token.CBRK, Token.CBRK, Token.OBRK, Token.CBRK, Token.OPUNDSC, Token.OBRK, Token.CBRK, Token.OPEQUIV, Token.OPIMPLI,//77
-			Token.OPRIMPL, Token.OPVEE, Token.KWXOR, Token.OPWEDGE, Token.OPLESTA, Token.OPGRETA, Token.OPLESEQ, Token.OPGEAEQ, Token.OPEQUAL, Token.OPASSIG, Token.OPNEQUA, Token.KWIN, Token.KWSUBS, Token.KWSUPE, Token.KWUNIO, Token.KWDIFF, Token.KWSYMD, Token.OPRANGE, Token.KWINTE, Token.OPINCRE, Token.KWNOT, Token.ACCENT, Token.ACCENT, Token.OPADD, Token.OPSUB, Token.OPMUL, Token.OPDIV, Token.KWDIV, Token.KWMOD, Token.OPADD, Token.OPSUB, Token.KWFALS, Token.KWTRUE, Token.INTLI, Token.INTLI,
-			Token.INTLI, Token.FLOLI, Token.FLOLI, Token.FLOLI, Token.FLOLI, Token.STRLI, Token.OACC, Token.COLON, Token.CACC, Token.OACC, Token.BAR, Token.CACC, Token.COMMA, Token.KWWHER, Token.COMMA, Token.KWIN, Token.OFBA, Token.CFBA
+			Token.OPRIMPL, Token.OPVEE, Token.KWXOR, Token.OPWEDGE, Token.OPLESTA, Token.OPGRETA, Token.OPLESEQ, Token.OPGEAEQ, Token.OPEQUAL, Token.OPASSIG, Token.OPNEQUA, Token.KWIN, Token.KWSUBS, Token.KWSUPE, Token.KWUNIO, Token.KWDIFF, Token.KWSYMD, Token.OPRANGE, Token.KWINTE, Token.OPINCRE, Token.KWNOT, Token.ACCENT, Token.ACCENT, Token.OPADD, Token.OPSUB, Token.OPMUL, Token.OPDIV, Token.KWDIV, Token.KWMOD, Token.OPADD, Token.OPSUB, Token.BOOLI, Token.BOOLI, Token.INTLI, Token.INTLI,
+			Token.INTLI, Token.FLOLI, Token.FLOLI, Token.FLOLI, Token.FLOLI, Token.FLOLI, Token.STRLI, Token.OACC, Token.COMMA, Token.CACC, Token.OACC, Token.BAR, Token.CACC, Token.COMMA, Token.KWWHER, Token.COMMA, Token.KWIN, Token.OFBR, Token.CFBR, Token.OFBA, Token.CFBA, Token.OFBR, Token.BAR, Token.CFBR, Token.OFBR, Token.COMMA, Token.CFBR, Token.OBRK, Token.COMMA, Token.CBRK, Token.OPDOT, Token.OBRK, Token.COMMA, Token.CBRK, Token.COLON,
+			Token.KWIF, Token.KWTHEN, Token.KWELSI, Token.KWTHEN, Token.KWELSE, Token.KWENDI, Token.KWCASE, Token.OPCASE, Token.KWLET, Token.KWIN, Token.IDENT,
+			Token.ACCENT, Token.IDENT, Token.ACCENT, Token.OPANNOT, Token.EOF
 		};
 
 		[Test()]
@@ -65,9 +67,7 @@ namespace ZincSulphate.Parser {
 				MiniZincLexer scnr = new MiniZincLexer (ms);
 				int index = 0x00;
 				foreach (Token tok in scnr.Tokenize ()) {
-					Console.WriteLine ("{0}/{1}", index, tok);
-					Assert.AreEqual (tokens [index], tok);
-					index++;
+					Assert.AreEqual (tokens [index++], tok);
 				}
 			}
 
