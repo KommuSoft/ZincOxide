@@ -23,6 +23,10 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
+	/// <summary>
+	/// An implementation of the <see cref="IZincExpBox"/>. A <see cref="ZincBoxBase"/>
+	/// that contains a <see cref="IZincExp"/> instance.
+	/// </summary>
 	public class ZincExBoxBase : ZincBoxBase, IZincExBox {
 
 		private IZincExp expression;
@@ -38,13 +42,20 @@ namespace ZincOxide.MiniZinc.Boxes {
 		}
         #endregion
 
-
+		#region Constructors
 		protected ZincExBoxBase () {
 		}
 
 		protected ZincExBoxBase (IZincExp expression) {
 			this.Expression = expression;
 		}
+		#endregion
+
+		#region IComposition implementation
+		public override IEnumerable<IZincElement> Children () {
+			yield return this.expression;
+		}
+		#endregion
 
         #region IZincIdentContainer implementation
 		public override IEnumerable<IZincIdent> InvolvedIdents () {
@@ -58,10 +69,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 			return this;
 		}
         #endregion
-
-		public override IEnumerable<IZincElement> Children () {
-			yield return this.expression;
-		}
 
 	}
 
