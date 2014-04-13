@@ -25,7 +25,7 @@ using ZincOxide.Parser;
 namespace ZincOxide.Environment {
 
 	/// <summary>
-	/// A class designed to interact with the user of the program.
+	/// A class designed to interact with the user of the program. In most cases, this means that it prints out error messages.
 	/// </summary>
 	public static class Interaction {
 

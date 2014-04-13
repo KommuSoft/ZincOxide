@@ -117,5 +117,7 @@ namespace ZincOxide.Environment {
 		/// correctly. This task is only used for debugging purposes.
 		/// </summary>
 		Bindings = 0xf3
+
 	}
+
 }

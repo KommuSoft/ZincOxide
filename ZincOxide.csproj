@@ -197,7 +197,6 @@
     <Compile Include="Utils\IGenericEquals.cs" />
     <Compile Include="Environment\ProgramResult.cs" />
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
-    <Compile Include="ProgramFloatRepresentation.cs" />
     <Compile Include="Utils\ITag.cs" />
     <Compile Include="Utils\TagBase.cs" />
     <Compile Include="Utils\Maths\IMathSet.cs" />
@@ -222,6 +221,7 @@
     <Compile Include="Exceptions\ZincOxideParserException.cs" />
     <Compile Include="Exceptions\ZincOxideNameNotFoundException.cs" />
     <Compile Include="Exceptions\ZincOxideMiniZincTypeInstanceException.cs" />
+    <Compile Include="Environment\ProgramFloatRepresentation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

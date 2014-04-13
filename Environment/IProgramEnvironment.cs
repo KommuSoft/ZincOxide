@@ -21,6 +21,9 @@
 
 namespace ZincOxide.Environment {
 
+	/// <summary>
+	/// An interface that represents the task(s) that should be carried out by the program.
+	/// </summary>
 	public interface IProgramEnvironment {
 
 		/// <summary>
@@ -59,13 +62,16 @@ namespace ZincOxide.Environment {
 		/// Sets the verbosity level of the program using textual input.
 		/// </summary>
 		/// <param name="level">The verbosity level specified by textual input.</param>
+		/// <exception cref="ZincOxideFormatException">If the given level is not a valid level.</exception>
 		void SetVerbosity (string level);
 
 		/// <summary>
 		/// Sets the task that should be carried out by the program using textual input.
 		/// </summary>
 		/// <param name="task">The task that should be carried out specified by textual input.</param>
+		/// <exception cref="ZincOxideFormatException">If the given task is not a valid task.</exception>
 		void SetTask (string task);
+
 	}
 
 }
