@@ -22,11 +22,23 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincIdentReplaceContainer : IZincIdentContainer {
+	/// <summary>
+	/// An <see cref="IZincIdentContainer"/> interface that contains <see cref="IZincIdent"/> instances
+	/// and provides a method to replace one or more of these <see cref="IZincIdent"/> instances.
+	/// </summary>
+	public interface IZincIdentReplaceContainer : IZincIdentContainer {
 
-        IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap);
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// stored as keys to the corresponding values and returns this instance, possibly if this is an
+		/// <see cref="IZincIdent"/> itself another <see cref="IZincIdent"/>.
+		/// </summary>
+		/// <returns>
+		/// If this instance is a compound type, a reference to itself. Otherwise a <see cref="IZincIdent"/> if
+		/// this instance is a <see cref="IZincIdent"/> itself.
+		/// </returns>
+		IZincIdentReplaceContainer Replace (IDictionary<IZincIdent,IZincIdent> identMap);
 
-    }
+	}
 
 }
-

@@ -18,16 +18,30 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincIdentContainer {
+	/// <summary>
+	/// An interface that contains one or more <see cref="IZincIdent"/> instances.
+	/// These identifiers can be enumerated using the <see cref="InvolvedIdents"/> method.
+	/// </summary>
+	/// <remarks>
+	/// <para>The <see cref="IZincIdentReplaceContainer"/> provided a method to replace
+	/// identifiers with other ones.</para>
+	/// </remarks>
+	public interface IZincIdentContainer {
 
-        IEnumerable<ZincIdent> InvolvedIdents ();
+		/// <summary>
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved\
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		IEnumerable<IZincIdent> InvolvedIdents ();
 
-    }
+	}
 
 }
-

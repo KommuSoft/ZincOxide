@@ -23,11 +23,20 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-	public class ZincAsBoxBase : ZincBoxBase, IZincAsBox {
+	/// <summary>
+	/// A basic implementation of the <see cref="IZincAsBox"/> interface that contains a <see cref="IZincAnnotations"/> instance.
+	/// </summary>
+	public class ZincAsBoxBase : ZincBoxBase, IZincAsBox { //TODO: make abstract
 
 		private IZincAnnotations annotations;
 
         #region IZincExpressionBox implementation
+		/// <summary>
+		/// Gets the <see cref="IZincAnnotations"/> instance stored in the <see cref="IZincBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincAnnotations"/> instance stored in the <see cref="IZincBox"/>.
+		/// </value>
 		public IZincAnnotations Annotations {
 			get {
 				return this.annotations;
@@ -38,22 +47,36 @@ namespace ZincOxide.MiniZinc.Boxes {
 		}
         #endregion
 
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAsBoxBase"/> class without an initial <see cref="Annotations"/> instance.
+		/// </summary>
 		protected ZincAsBoxBase () {
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAsBoxBase"/> class with a given initial <see cref="Annotations"/> instance.
+		/// </summary>
+		/// <param name='annotations'>
+		/// The initial <see cref="IZincAnnotations"/> instance to store.
+		/// </param>
 		protected ZincAsBoxBase (IZincAnnotations annotations) {
 			this.Annotations = annotations;
 		}
 
         #region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
 		public override IEnumerable<ZincIdent> InvolvedIdents () {
 			return this.Annotations.InvolvedIdents ();
 		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
 			return this;
 		}

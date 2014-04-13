@@ -20,51 +20,50 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
-using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincExBoxBase : ZincBoxBase, IZincExBox {
+	public class ZincExBoxBase : ZincBoxBase, IZincExBox {
 
-        private IZincExp expression;
+		private IZincExp expression;
 
         #region IZincExpressionBox implementation
-        public IZincExp Expression {
-            get {
-                return this.expression;
-            }
-            protected set {
-                this.expression = value;
-            }
-        }
+		public IZincExp Expression {
+			get {
+				return this.expression;
+			}
+			protected set {
+				this.expression = value;
+			}
+		}
         #endregion
 
 
-        protected ZincExBoxBase () {
-        }
+		protected ZincExBoxBase () {
+		}
 
-        protected ZincExBoxBase (IZincExp expression) {
-            this.Expression = expression;
-        }
+		protected ZincExBoxBase (IZincExp expression) {
+			this.Expression = expression;
+		}
 
         #region IZincIdentContainer implementation
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.Expression.InvolvedIdents ();
-        }
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
+			return this.Expression.InvolvedIdents ();
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.expression = this.expression.Replace (identMap) as IZincExp;
-            return this;
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			this.expression = this.expression.Replace (identMap) as IZincExp;
+			return this;
+		}
         #endregion
 
-        public override IEnumerable<IZincElement> Children () {
-            yield return this.expression;
-        }
+		public override IEnumerable<IZincElement> Children () {
+			yield return this.expression;
+		}
 
-    }
+	}
 
 }
 
