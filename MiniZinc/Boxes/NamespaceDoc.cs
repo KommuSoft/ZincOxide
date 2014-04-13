@@ -19,8 +19,6 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
 namespace ZincOxide.MiniZinc.Boxes {
 
 	/// <summary>
@@ -28,7 +26,8 @@ namespace ZincOxide.MiniZinc.Boxes {
 	/// </summary>
 	/// <remarks>
 	/// <para>Methods who are executed recursively on expressions are implemented as well such that the calls are
-	/// propagated.</para>
+	/// propagated automatically.</para>
+	/// <para>This namespace is mainly used to reduce code complexity and to make sure propagation is implemented correctly.</para>
 	/// </remarks>
 	public static class NamespaceDoc {
 	}
