@@ -29,10 +29,10 @@ namespace ZincOxide.MiniZinc.Boxes {
 	public interface IZincNumNumBox : IZincBox, IZincNumBox {
 
 		/// <summary>
-		/// Gets the second <see cref="IZincTypeInstExp"/> stored in the <see cref="IZincNumNumBox"/>.
+		/// Gets the second <see cref="IZincNumExp"/> stored in the <see cref="IZincNumNumBox"/>.
 		/// </summary>
 		/// <value>
-		/// The second <see cref="IZincTypeInstExp"/>.
+		/// The second <see cref="IZincNumExp"/> stored in the <see cref="IZincNumNumBox"/>.
 		/// </value>
 		IZincNumExp NumericExpression2 {
 			get;
@@ -41,4 +41,3 @@ namespace ZincOxide.MiniZinc.Boxes {
 	}
 
 }
-
