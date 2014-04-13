@@ -24,38 +24,38 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincAsExBoxBase : ZincExBoxBase, IZincAsExBox {
+	public class ZincAsExBoxBase : ZincExBoxBase, IZincAsExBox {
 
-        private ZincAnnotations annotations;
+		private IZincAnnotations annotations;
 
         #region IZincAsBox implementation
-        public ZincAnnotations Annotations {
-            get {
-                return this.annotations;
-            }
-            protected set {
-                this.annotations = value;
-            }
-        }
+		public IZincAnnotations Annotations {
+			get {
+				return this.annotations;
+			}
+			protected set {
+				this.annotations = value;
+			}
+		}
         #endregion
 
-        protected ZincAsExBoxBase (ZincAnnotations anns, IZincExp expr) : base(expr) {
-            this.Annotations = anns;
-        }
+		protected ZincAsExBoxBase (IZincAnnotations anns, IZincExp expr) : base(expr) {
+			this.Annotations = anns;
+		}
 
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (this.Annotations.InvolvedIdents (), base.InvolvedIdents ());
-        }
+		public override IEnumerable<ZincIdent> InvolvedIdents () {
+			return EnumerableUtils.Append (this.Annotations.InvolvedIdents (), base.InvolvedIdents ());
+		}
 
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.Annotations = this.Annotations.Replace (identMap) as ZincAnnotations;
-            return base.Replace (identMap);
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			this.Annotations = this.Annotations.Replace (identMap) as ZincAnnotations;
+			return base.Replace (identMap);
+		}
 
-        public override IEnumerable<IZincElement> Children () {
-            return EnumerableUtils.Append (this.annotations, base.Children ());
-        }
+		public override IEnumerable<IZincElement> Children () {
+			return EnumerableUtils.Append (this.annotations, base.Children ());
+		}
 
-    }
+	}
 }
 

@@ -25,62 +25,62 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincAsExIdTiasBoxBase : ZincExIdBoxBase, IZincAsExIdTiasBox {
+	public class ZincAsExIdTiasBoxBase : ZincExIdBoxBase, IZincAsExIdTiasBox {
 
-        private ZincAnnotations annotations;
-        private IList<ZincTypeInstExprAndIdent> typeInstExpressions;
+		private IZincAnnotations annotations;
+		private IList<ZincTypeInstExprAndIdent> typeInstExpressions;
 
         #region IZincAsBox implementation
-        public ZincAnnotations Annotations {
-            get {
-                return this.annotations;
-            }
-            protected set {
-                this.annotations = value;
-            }
-        }
+		public IZincAnnotations Annotations {
+			get {
+				return this.annotations;
+			}
+			protected set {
+				this.annotations = value;
+			}
+		}
         #endregion
 
         #region IZincTiasBox implementation
-        public IList<ZincTypeInstExprAndIdent> TypeInstAndIdentExpressions {
-            get {
-                return this.typeInstExpressions;
-            }
-            protected set {
-                this.typeInstExpressions = value;
-            }
-        }
+		public IList<ZincTypeInstExprAndIdent> TypeInstAndIdentExpressions {
+			get {
+				return this.typeInstExpressions;
+			}
+			protected set {
+				this.typeInstExpressions = value;
+			}
+		}
         #endregion
 
-        protected ZincAsExIdTiasBoxBase (ZincAnnotations annotations, IZincExp expression, ZincIdent ident, IList<ZincTypeInstExprAndIdent> typeInstIdentExpressions) : base(ident,expression) {
-            this.Annotations = annotations;
-            this.typeInstExpressions = typeInstIdentExpressions;
-        }
+		protected ZincAsExIdTiasBoxBase (IZincAnnotations annotations, IZincExp expression, ZincIdent ident, IList<ZincTypeInstExprAndIdent> typeInstIdentExpressions) : base(ident,expression) {
+			this.Annotations = annotations;
+			this.typeInstExpressions = typeInstIdentExpressions;
+		}
 
-        protected ZincAsExIdTiasBoxBase (ZincAnnotations annotations, IZincExp expression, ZincIdent ident, params ZincTypeInstExprAndIdent[] typeInstIdentExpressions) : this(annotations,expression,ident,(IList<ZincTypeInstExprAndIdent>)typeInstIdentExpressions) {
-        }
+		protected ZincAsExIdTiasBoxBase (IZincAnnotations annotations, IZincExp expression, ZincIdent ident, params ZincTypeInstExprAndIdent[] typeInstIdentExpressions) : this(annotations,expression,ident,(IList<ZincTypeInstExprAndIdent>)typeInstIdentExpressions) {
+		}
 
-        protected ZincAsExIdTiasBoxBase (ZincAnnotations annotations, IZincExp expression, ZincIdent ident, IEnumerable<ZincTypeInstExprAndIdent> typeInstIdentExpressions) : this(annotations,expression,ident,(IList<ZincTypeInstExprAndIdent>)typeInstIdentExpressions.ToArray()) {
-        }
+		protected ZincAsExIdTiasBoxBase (IZincAnnotations annotations, IZincExp expression, ZincIdent ident, IEnumerable<ZincTypeInstExprAndIdent> typeInstIdentExpressions) : this(annotations,expression,ident,(IList<ZincTypeInstExprAndIdent>)typeInstIdentExpressions.ToArray()) {
+		}
 
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (base.InvolvedIdents (), this.annotations.InvolvedIdents (), this.typeInstExpressions.SelectMany (x => x.InvolvedIdents ()));
-        }
+		public override IEnumerable<ZincIdent> InvolvedIdents () {
+			return EnumerableUtils.Append (base.InvolvedIdents (), this.annotations.InvolvedIdents (), this.typeInstExpressions.SelectMany (x => x.InvolvedIdents ()));
+		}
 
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
-            int n = this.TypeInstAndIdentExpressions.Count;
-            for (int i = 0x00; i < n; i++) {
-                this.typeInstExpressions [i] = this.typeInstExpressions [i].Replace (identMap) as ZincTypeInstExprAndIdent;
-            }
-            return base.Replace (identMap);
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
+			int n = this.TypeInstAndIdentExpressions.Count;
+			for (int i = 0x00; i < n; i++) {
+				this.typeInstExpressions [i] = this.typeInstExpressions [i].Replace (identMap) as ZincTypeInstExprAndIdent;
+			}
+			return base.Replace (identMap);
+		}
 
-        public override IEnumerable<IZincElement> Children () {
-            return EnumerableUtils.Append (this.annotations, this.typeInstExpressions, base.Children ());
-        }
+		public override IEnumerable<IZincElement> Children () {
+			return EnumerableUtils.Append (this.annotations, this.typeInstExpressions, base.Children ());
+		}
 
 
-    }
+	}
 
 }

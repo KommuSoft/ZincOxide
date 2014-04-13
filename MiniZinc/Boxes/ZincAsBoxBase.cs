@@ -24,49 +24,49 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincAsBoxBase : ZincBoxBase, IZincAsBox {
+	public class ZincAsBoxBase : ZincBoxBase, IZincAsBox {
 
-        private ZincAnnotations annotations;
+		private IZincAnnotations annotations;
 
         #region IZincExpressionBox implementation
-        public ZincAnnotations Annotations {
-            get {
-                return this.annotations;
-            }
-            protected set {
-                this.annotations = value;
-            }
-        }
+		public IZincAnnotations Annotations {
+			get {
+				return this.annotations;
+			}
+			protected set {
+				this.annotations = value;
+			}
+		}
         #endregion
 
 
-        protected ZincAsBoxBase () {
-        }
+		protected ZincAsBoxBase () {
+		}
 
-        protected ZincAsBoxBase (ZincAnnotations annotations) {
-            this.Annotations = annotations;
-        }
+		protected ZincAsBoxBase (IZincAnnotations annotations) {
+			this.Annotations = annotations;
+		}
 
         #region IZincIdentContainer implementation
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.Annotations.InvolvedIdents ();
-        }
+		public override IEnumerable<ZincIdent> InvolvedIdents () {
+			return this.Annotations.InvolvedIdents ();
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
-            return this;
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
+			return this;
+		}
         #endregion
 
         #region implemented abstract members of ZincOxide.MiniZinc.Boxes.ZincBoxBase
-        public override IEnumerable<IZincElement> Children () {
-            yield return this.annotations;
-        }
+		public override IEnumerable<IZincElement> Children () {
+			yield return this.annotations;
+		}
         #endregion
 
 
-    }
+	}
 }
 

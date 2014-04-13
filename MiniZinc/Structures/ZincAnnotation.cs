@@ -22,23 +22,23 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincAnnotation : IZincIdentReplaceContainer {
-        public ZincAnnotation () {
-        }
+	public class ZincAnnotation : IZincAnnotation {
+		public ZincAnnotation () {
+		}
 
         #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;//TODO
-        }
+		public IEnumerable<ZincIdent> InvolvedIdents () {
+			yield break;//TODO
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this;//TODO
-        }
+		public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			return this;//TODO
+		}
         #endregion
 
-    }
+	}
 
 }
 

@@ -222,6 +222,8 @@
     <Compile Include="Exceptions\ZincOxideNameNotFoundException.cs" />
     <Compile Include="Exceptions\ZincOxideMiniZincTypeInstanceException.cs" />
     <Compile Include="Environment\ProgramFloatRepresentation.cs" />
+    <Compile Include="MiniZinc\Structures\IZincAnnotations.cs" />
+    <Compile Include="MiniZinc\Structures\IZincAnnotation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
