@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
 namespace ZincOxide.MiniZinc.Boxes {
 
 	/// <summary>
@@ -28,6 +29,18 @@ namespace ZincOxide.MiniZinc.Boxes {
 	/// <para>Methods who are executed recursively on expressions are implemented as well such that the calls are
 	/// propagated automatically.</para>
 	/// <para>This namespace is mainly used to reduce code complexity and to make sure propagation is implemented correctly.</para>
+	/// <para>The names of the interfaces and classes use the following abbreviations:
+	/// <list type="table">
+	/// <listheader><term>Abbreviation</term><description>References</description></listheader>
+	/// <item><term><c>As</c></term><description><see cref="ZincOxide.MiniZinc.Structures.IZincAnnotations"/></description></item>
+	/// <item><term><c>Ex</c></term><description><see cref="ZincOxide.MiniZinc.Structures.IZincExp"/></description></item>
+	/// <item><term><c>Id</c></term><description><see cref="ZincOxide.MiniZinc.Structures.IZincIdent"/></description></item>
+	/// <item><term><c>Num</c></term><description><see cref="ZincOxide.MiniZinc.Structures.IZincNumExp"/></description></item>
+	/// <item><term><c>Tia</c></term><description><see cref="ZincOxide.MiniZinc.Structures.IZincTypeInstExprAndIdent"/></description></item>
+	/// <item><term><c>Tie</c></term><description><see cref="ZincOxide.MiniZinc.Structures.IZincTypeInstExpression"/></description></item>
+	/// <item><term><c>Ty</c></term><description><see cref="ZincOxide.MiniZinc.Structures.IZincType"/></description></item>
+	/// </list>
+	/// </para>
 	/// </remarks>
 	public static class NamespaceDoc {
 	}
