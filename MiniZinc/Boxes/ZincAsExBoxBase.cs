@@ -24,11 +24,21 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-	public class ZincAsExBoxBase : ZincExBoxBase, IZincAsExBox {
+	/// <summary>
+	/// An implementation of the <see cref="IZincAsExBox"/> interface. A <see cref="ZincBoxBase"/> that contains
+	/// a <see cref="IZincExp"/> instance and a <see cref="IZincAnnotations"/> instance.
+	/// </summary>
+	public class ZincAsExBoxBase : ZincExBoxBase, IZincAsExBox {//TODO: make abstract
 
 		private IZincAnnotations annotations;
 
         #region IZincAsBox implementation
+		/// <summary>
+		/// Gets the <see cref="IZincAnnotations"/> instance stored in the <see cref="IZincBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincAnnotations"/> instance stored in the <see cref="IZincBox"/>.
+		/// </value>
 		public IZincAnnotations Annotations {
 			get {
 				return this.annotations;
@@ -39,23 +49,76 @@ namespace ZincOxide.MiniZinc.Boxes {
 		}
         #endregion
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Boxes.ZincAsExBoxBase"/> class
+		/// without any initial value.
+		/// </summary>
+		protected ZincAsExBoxBase () : base() {
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Boxes.ZincAsExBoxBase"/> class
+		/// with a given initial <see cref="IZincAnnotations"/> instance.
+		/// </summary>
+		/// <param name='anns'>
+		/// The given initial <see cref="IZincAnnotations"/> instance.
+		/// </param>
+		protected ZincAsExBoxBase (IZincAnnotations anns) : base() {
+			this.Annotations = anns;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Boxes.ZincAsExBoxBase"/> class
+		/// with a given initial <see cref="IZincAnnotations"/> and <see cref="IZincExp"/> instance.
+		/// </summary>
+		/// <param name='anns'>
+		/// The given initial <see cref="IZincAnnotations"/> instance.
+		/// </param>
+		/// <param name='expr'>
+		/// The given initial <see cref="IZincExp"/> instance.
+		/// </param>
 		protected ZincAsExBoxBase (IZincAnnotations anns, IZincExp expr) : base(expr) {
 			this.Annotations = anns;
 		}
 
-		public override IEnumerable<ZincIdent> InvolvedIdents () {
+		#region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the
+		/// involved <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
 			return EnumerableUtils.Append (this.Annotations.InvolvedIdents (), base.InvolvedIdents ());
 		}
+		#endregion
 
-		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+		#region IZincIdentReplaceContainer implementation
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// stored as keys to the corresponding values and returns this instance.
+		/// </summary>
+		/// <returns>
+		/// This instance, for cascading purposes.
+		/// </returns>
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			this.Annotations = this.Annotations.Replace (identMap) as ZincAnnotations;
 			return base.Replace (identMap);
 		}
+		#endregion
 
+		#region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
 		public override IEnumerable<IZincElement> Children () {
 			return EnumerableUtils.Append (this.annotations, base.Children ());
 		}
+		#endregion
 
 	}
-}
 
+}

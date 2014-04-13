@@ -74,7 +74,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
 		/// <see cref="IZincIdent"/> instances of the container.
 		/// </returns>
-		public override IEnumerable<ZincIdent> InvolvedIdents () {
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
 			return this.Annotations.InvolvedIdents ();
 		}
         #endregion
@@ -94,6 +94,10 @@ namespace ZincOxide.MiniZinc.Boxes {
         #endregion
 
         #region implemented abstract members of ZincOxide.MiniZinc.Boxes.ZincBoxBase
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
 		public override IEnumerable<IZincElement> Children () {
 			yield return this.annotations;
 		}
