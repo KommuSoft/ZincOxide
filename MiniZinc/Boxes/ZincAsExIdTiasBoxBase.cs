@@ -28,7 +28,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 	public class ZincAsExIdTiasBoxBase : ZincExIdBoxBase, IZincAsExIdTiasBox {
 
 		private IZincAnnotations annotations;
-		private IList<ZincTypeInstExprAndIdent> typeInstExpressions;
+		private IList<IZincTypeInstExprAndIdent> typeInstExpressions;
 
         #region IZincAsBox implementation
 		public IZincAnnotations Annotations {
@@ -42,7 +42,7 @@ namespace ZincOxide.MiniZinc.Boxes {
         #endregion
 
         #region IZincTiasBox implementation
-		public IList<ZincTypeInstExprAndIdent> TypeInstAndIdentExpressions {
+		public IList<IZincTypeInstExprAndIdent> TypeInstAndIdentExpressions {
 			get {
 				return this.typeInstExpressions;
 			}
@@ -52,15 +52,15 @@ namespace ZincOxide.MiniZinc.Boxes {
 		}
         #endregion
 
-		protected ZincAsExIdTiasBoxBase (IZincAnnotations annotations, IZincExp expression, ZincIdent ident, IList<ZincTypeInstExprAndIdent> typeInstIdentExpressions) : base(ident,expression) {
+		protected ZincAsExIdTiasBoxBase (IZincAnnotations annotations, IZincExp expression, ZincIdent ident, IList<IZincTypeInstExprAndIdent> typeInstIdentExpressions) : base(ident,expression) {
 			this.Annotations = annotations;
 			this.typeInstExpressions = typeInstIdentExpressions;
 		}
 
-		protected ZincAsExIdTiasBoxBase (IZincAnnotations annotations, IZincExp expression, ZincIdent ident, params ZincTypeInstExprAndIdent[] typeInstIdentExpressions) : this(annotations,expression,ident,(IList<ZincTypeInstExprAndIdent>)typeInstIdentExpressions) {
+		protected ZincAsExIdTiasBoxBase (IZincAnnotations annotations, IZincExp expression, ZincIdent ident, params IZincTypeInstExprAndIdent[] typeInstIdentExpressions) : this(annotations,expression,ident,(IList<IZincTypeInstExprAndIdent>)typeInstIdentExpressions) {
 		}
 
-		protected ZincAsExIdTiasBoxBase (IZincAnnotations annotations, IZincExp expression, ZincIdent ident, IEnumerable<ZincTypeInstExprAndIdent> typeInstIdentExpressions) : this(annotations,expression,ident,(IList<ZincTypeInstExprAndIdent>)typeInstIdentExpressions.ToArray()) {
+		protected ZincAsExIdTiasBoxBase (IZincAnnotations annotations, IZincExp expression, ZincIdent ident, IEnumerable<IZincTypeInstExprAndIdent> typeInstIdentExpressions) : this(annotations,expression,ident,(IList<IZincTypeInstExprAndIdent>)typeInstIdentExpressions.ToArray()) {
 		}
 
 		public override IEnumerable<ZincIdent> InvolvedIdents () {

@@ -22,13 +22,21 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincTieBox : IZincBox {
+	/// <summary>
+	/// An <see cref="IZincBox"/> interface that contains a <see cref="IZincTypeInstExpression"/>.
+	/// </summary>
+	public interface IZincTieBox : IZincBox {
 
-        IZincTypeInstExpression TypeInstExpression {
-            get;
-        }
+		/// <summary>
+		/// Gets the <see cref="IZincTypeInstExpression"/> instance stored in the <see cref="IZincTieBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincTypeInstExpression"/> instance stored in the <see cref="IZincTieBox"/>.
+		/// </value>
+		IZincTypeInstExpression TypeInstExpression {
+			get;
+		}
 
-    }
+	}
 
 }
-

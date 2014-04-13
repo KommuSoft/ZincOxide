@@ -225,6 +225,7 @@
     <Compile Include="MiniZinc\Structures\IZincAnnotations.cs" />
     <Compile Include="MiniZinc\Structures\IZincAnnotation.cs" />
     <Compile Include="MiniZinc\Structures\IZincIdent.cs" />
+    <Compile Include="MiniZinc\Structures\IZincTypeInstExprAndIdent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

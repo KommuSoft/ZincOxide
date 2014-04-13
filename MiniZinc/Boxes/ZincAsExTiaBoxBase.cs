@@ -24,39 +24,39 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincAsExTiaBoxBase : ZincAsExBoxBase, IZincAsExTiaBox {
+	public class ZincAsExTiaBoxBase : ZincAsExBoxBase, IZincAsExTiaBox {
 
-        private ZincTypeInstExprAndIdent typeInstAndIdent;
+		private IZincTypeInstExprAndIdent typeInstAndIdent;
 
         #region IZincTiaBox implementation
-        public ZincTypeInstExprAndIdent TypeInstExprAndIdent {
-            get {
-                return this.typeInstAndIdent;
-            }
-            protected set {
-                this.typeInstAndIdent = value;
-            }
-        }
+		public IZincTypeInstExprAndIdent TypeInstExprAndIdent {
+			get {
+				return this.typeInstAndIdent;
+			}
+			protected set {
+				this.typeInstAndIdent = value;
+			}
+		}
         #endregion
 
-        protected ZincAsExTiaBoxBase (ZincAnnotations anns, IZincExp expr, ZincTypeInstExprAndIdent tia) : base(anns,expr) {
-            this.TypeInstExprAndIdent = tia;
-        }
+		protected ZincAsExTiaBoxBase (ZincAnnotations anns, IZincExp expr, IZincTypeInstExprAndIdent tia) : base(anns,expr) {
+			this.TypeInstExprAndIdent = tia;
+		}
 
-        public override System.Collections.Generic.IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (base.InvolvedIdents (), this.TypeInstExprAndIdent.InvolvedIdents ());
-        }
+		public override IEnumerable<ZincIdent> InvolvedIdents () {
+			return EnumerableUtils.Append (base.InvolvedIdents (), this.TypeInstExprAndIdent.InvolvedIdents ());
+		}
 
-        public override IZincIdentReplaceContainer Replace (System.Collections.Generic.IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.TypeInstExprAndIdent = this.TypeInstExprAndIdent.Replace (identMap) as ZincTypeInstExprAndIdent;
-            return base.Replace (identMap);
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			this.TypeInstExprAndIdent = this.TypeInstExprAndIdent.Replace (identMap) as ZincTypeInstExprAndIdent;
+			return base.Replace (identMap);
+		}
 
-        public override IEnumerable<IZincElement> Children () {
-            return EnumerableUtils.Append (this.TypeInstExprAndIdent, base.Children ());
-        }
+		public override IEnumerable<IZincElement> Children () {
+			return EnumerableUtils.Append (this.TypeInstExprAndIdent, base.Children ());
+		}
 
-    }
+	}
 
 }
 

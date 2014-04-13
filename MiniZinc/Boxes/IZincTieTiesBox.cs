@@ -21,10 +21,10 @@
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincTieTiesBox : IZincBox, IZincTieBox, IZincTiesBox {
-
-
-
-    }
+	/// <summary>
+	/// An interface that contains both a single <see cref="IZincTypeInstExpression"/> and a <see cref="T:System.Collection.Generic.IList`1"/> of <see cref="IZincTypeInstExpression"/> instances.
+	/// </summary>
+	public interface IZincTieTiesBox : IZincBox, IZincTieBox, IZincTiesBox {
+	}
 }
 
