@@ -24,15 +24,18 @@ using ZincOxide.MiniZinc.Structures;
 namespace ZincOxide.MiniZinc.Boxes {
 
 	/// <summary>
-	/// An <see cref="IZincBox"/> interface that contains multiple <see cref="IZincTypeInstExprAndIdent"/> instances stored in a <see cref="T:System.Collections.Generic.IList`1"/>.
+	/// An <see cref="IZincBox"/> interface that contains multiple <see cref="IZincTypeInstExprAndIdent"/>
+	/// instances stored in a <see cref="T:System.Collections.Generic.IList`1"/>.
 	/// </summary>
 	public interface IZincTiasBox : IZincBox {
 
 		/// <summary>
-		/// Gets the <see cref="T:System.Collection.Generic.IList`1"/> with <see cref="IZincTypeInstExprAndIdent"/> instances stored in the <see cref="IZincTiasBox"/>.
+		/// Gets the <see cref="T:System.Collection.Generic.IList`1"/> with <see cref="IZincTypeInstExprAndIdent"/>
+		/// instances stored in the <see cref="IZincTiasBox"/>.
 		/// </summary>
 		/// <value>
-		/// The <see cref="T:System.Collection.Generic.IList`1"/> with <see cref="IZincTypeInstExprAndIdent"/> instances stored in the <see cref="IZincTiasBox"/>.
+		/// The <see cref="T:System.Collection.Generic.IList`1"/> with <see cref="IZincTypeInstExprAndIdent"/>
+		/// instances stored in the <see cref="IZincTiasBox"/>.
 		/// </value>
 		IList<IZincTypeInstExprAndIdent> TypeInstAndIdentExpressions {
 			get;

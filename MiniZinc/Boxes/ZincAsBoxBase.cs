@@ -47,6 +47,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 		}
         #endregion
 
+		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincAsBoxBase"/> class without an initial
 		/// <see cref="Annotations"/> instance.
@@ -64,6 +65,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 		protected ZincAsBoxBase (IZincAnnotations annotations) {
 			this.Annotations = annotations;
 		}
+		#endregion
 
         #region IZincIdentContainer implementation
 		/// <summary>
@@ -102,7 +104,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 			yield return this.annotations;
 		}
         #endregion
-
 
 	}
 }
