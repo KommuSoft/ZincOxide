@@ -47,16 +47,35 @@ namespace ZincOxide.MiniZinc.Boxes {
         #endregion
 
         #region ISoftValidateable implementation
+		/// <summary>
+		/// Softs the validate.
+		/// </summary>
+		/// <returns>
+		/// The validate.
+		/// </returns>
 		public virtual IEnumerable<string> SoftValidate () {
 			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
 		}
         #endregion
 
         #region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
 		public abstract IEnumerable<IZincElement> Children ();
         #endregion
 
         #region IZincBox implementation
+		/// <summary>
+		/// Gets an <see cref="T:System.Collections.Generic.IEnumerable`1"/> with error messages.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> with error messages.
+		/// </returns>
+		/// <remarks>
+		/// <para>By default, no error messages are thrown.</para>
+		/// </remarks>
 		public virtual IEnumerable<string> InnerSoftValidate () {
 			yield break;
 		}

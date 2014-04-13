@@ -47,8 +47,8 @@ namespace ZincOxide.MiniZinc.Boxes {
 		}
 
         #region ZincIdentContainer implementation
-		public override IEnumerable<ZincIdent> InvolvedIdents () {
-			yield return (ZincIdent)this.ident;//TODO: pull up return class eventually
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
+			yield return this.ident;//TODO: pull up return class eventually
 		}
 		#endregion
 		#region ZincIdentReplaceContainer implementation
