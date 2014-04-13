@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.IO;
 using Mono.Options;
 using ZincOxide.Environment;
+using ZincOxide.Exceptions;
 using ZincOxide.Parser;
 
 namespace ZincOxide {

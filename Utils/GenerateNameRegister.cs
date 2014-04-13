@@ -19,39 +19,40 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Exceptions;
 
 namespace ZincOxide.Utils {
 
-    public class GenerateNameRegister<T> : NameRegister<T>, IGenerateNameRegister<T> where T : IName {
+	public class GenerateNameRegister<T> : NameRegister<T>, IGenerateNameRegister<T> where T : IName {
 
-        private Func<string,T> generator;
+		private Func<string,T> generator;
 
         #region IGenerateNameRegister implementation
-        public Func<string,T> Generator {
-            get {
-                return this.generator;
-            }
-            set {
-                this.generator = value;
-            }
-        }
+		public Func<string,T> Generator {
+			get {
+				return this.generator;
+			}
+			set {
+				this.generator = value;
+			}
+		}
         #endregion
 
-        public GenerateNameRegister (Func<string,T> generator) {
-            this.Generator = generator;
-        }
+		public GenerateNameRegister (Func<string,T> generator) {
+			this.Generator = generator;
+		}
 
-        public override T Lookup (string name) {
-            T val;
-            try {
-                return base.Lookup (name);
-            } catch (ZincOxideNameNotFoundException) {
-                val = this.Generator (name);
-                this.Register (val);
-                return val;
-            }
-        }
+		public override T Lookup (string name) {
+			T val;
+			try {
+				return base.Lookup (name);
+			} catch (ZincOxideNameNotFoundException) {
+				val = this.Generator (name);
+				this.Register (val);
+				return val;
+			}
+		}
 
-    }
+	}
 }
 

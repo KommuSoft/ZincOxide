@@ -57,8 +57,6 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="MiniZinc\ZincPrintUtils.cs" />
-    <Compile Include="ZincOxideException.cs" />
-    <Compile Include="MiniZinc\ZincOxideMiniZincException.cs" />
     <Compile Include="Parser\MiniZincParser.cs" />
     <Compile Include="MiniZinc\Boxes\IZincAsBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincExBox.cs" />
@@ -101,11 +99,9 @@
     <Compile Include="MiniZinc\Boxes\ZincNumBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\ZincNumNumBoxBase.cs" />
     <Compile Include="Parser\MiniZincLexer.cs" />
-    <Compile Include="Parser\ZincOxideParserException.cs" />
     <Compile Include="Parser\ParserHelper.cs" />
     <Compile Include="Utils\ISoftValidateable.cs" />
     <Compile Include="Utils\IMessageBoard.cs" />
-    <Compile Include="Utils\ZincOxideNameNotFoundException.cs" />
     <Compile Include="Utils\DNameRegisterFallback.cs" />
     <Compile Include="Utils\IFallbackNameRegister.cs" />
     <Compile Include="Utils\FallbackNameRegister.cs" />
@@ -214,12 +210,18 @@
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInst.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincSetType.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincTupleType.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInstanceError.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincScalarTypeEntry.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincAnnotationType.cs" />
     <Compile Include="MiniZinc\Boxes\NamespaceDoc.cs" />
     <Compile Include="Utils\Maths\ThreeStateValue.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInstanceVariable.cs" />
+    <Compile Include="Environment\IProgramEnvironment.cs" />
+    <Compile Include="Exceptions\ZincOxideException.cs" />
+    <Compile Include="Exceptions\ZincOxideFormatException.cs" />
+    <Compile Include="Exceptions\ZincOxideMiniZincException.cs" />
+    <Compile Include="Exceptions\ZincOxideParserException.cs" />
+    <Compile Include="Exceptions\ZincOxideNameNotFoundException.cs" />
+    <Compile Include="Exceptions\ZincOxideMiniZincTypeInstanceException.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -273,12 +275,14 @@
     <Folder Include="Environment\" />
     <Folder Include="MiniZinc\Types\Fundamental\" />
     <Folder Include="Utils\Maths\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
       <Properties>
         <Policies>
           <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedHierarchical" ResourceNamePolicy="FileFormatDefault" />
+          <StandardHeader Text=" &#xA; ${FileName}&#xA; &#xA; Author:&#xA;      ${AuthorName} &lt;${AuthorEmail}&gt;&#xA;&#xA; Copyright (c) ${Year} ${CopyrightHolder}&#xA;&#xA; This program is free software: you can redistribute it and/or modify&#xA; it under the terms of the GNU General Public License as published by&#xA; the Free Software Foundation, either version 3 of the License, or&#xA; (at your option) any later version.&#xA;&#xA; This program is distributed in the hope that it will be useful,&#xA; but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xA; GNU General Public License for more details.&#xA;&#xA; You should have received a copy of the GNU General Public License&#xA; along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;." IncludeInNewFiles="True" />
         </Policies>
       </Properties>
     </MonoDevelop>

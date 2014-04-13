@@ -1,6 +1,22 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Exceptions/ZincOxideNameNotFoundException.cs">
+    <Files>
+      <File FileName="Exceptions/ZincOxideNameNotFoundException.cs" Line="30" Column="3" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="ZincOxide" expanded="True" selected="True">
+            <Node name="Environment" expanded="True" />
+            <Node name="Exceptions" expanded="True" />
+            <Node name="MiniZinc" expanded="True" />
+            <Node name="Parser" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

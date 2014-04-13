@@ -1,4 +1,5 @@
 %using QUT.Gppg;
+%using ZincOxide.Exceptions;
 
 %namespace ZincOxide.Parser
 
