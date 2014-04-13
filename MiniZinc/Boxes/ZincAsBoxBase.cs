@@ -95,7 +95,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 		}
         #endregion
 
-        #region implemented abstract members of ZincOxide.MiniZinc.Boxes.ZincBoxBase
+        #region IComposition implementation
 		/// <summary>
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
 		/// this <see cref="IZincElement"/>.
