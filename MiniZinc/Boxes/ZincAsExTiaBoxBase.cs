@@ -24,39 +24,98 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincAsExTiaBoxBase : ZincAsExBoxBase, IZincAsExTiaBox {
+	/// <summary>
+	/// An implementation of the <see cref="IZincAsExTiaBox"/>. A <see cref="ZincBoxBase"/> with
+	/// <see cref="IZincAnnotations"/>, <see cref="IZincExp"/> and <see cref="IZincTypeInstExprAndIdent"/>
+	/// instances.
+	/// </summary>
+	public class ZincAsExTiaBoxBase : ZincAsExBoxBase, IZincAsExTiaBox {
 
-        private ZincTypeInstExprAndIdent typeInstAndIdent;
+		private IZincTypeInstExprAndIdent typeInstAndIdent;
 
         #region IZincTiaBox implementation
-        public ZincTypeInstExprAndIdent TypeInstExprAndIdent {
-            get {
-                return this.typeInstAndIdent;
-            }
-            protected set {
-                this.typeInstAndIdent = value;
-            }
-        }
+		/// <summary>
+		/// Gets the <see cref="IZincTypeInstExprAndIdent"/> instance stored in the <see cref="IzincTiasBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincTypeInstExprAndIdent"/> instance stored in the <see cref="IzincTiasBox"/>.
+		/// </value>
+		public IZincTypeInstExprAndIdent TypeInstExprAndIdent {
+			get {
+				return this.typeInstAndIdent;
+			}
+			protected set {
+				this.typeInstAndIdent = value;
+			}
+		}
         #endregion
 
-        protected ZincAsExTiaBoxBase (ZincAnnotations anns, IZincExp expr, ZincTypeInstExprAndIdent tia) : base(anns,expr) {
-            this.TypeInstExprAndIdent = tia;
-        }
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAsExTiaBoxBase"/> class
+		/// with a given initial <see cref="IZincAnnotations"/>, <see cref="IZincExp"/> and
+		/// <see cref="IZincTypeInstExprAndIdent"/> instances.
+		/// </summary>
+		/// <param name='anns'>
+		/// The given initial <see cref="IZincAnnotations"/> instance.
+		/// </param>
+		/// <param name='expr'>
+		/// The given initial <see cref="IZincExp"/> instance.
+		/// </param>
+		/// <param name='tia'>
+		/// The given initial <see cref="IZincTypeInstExprAndIdent"/> instances.
+		/// </param>
+		protected ZincAsExTiaBoxBase (ZincAnnotations anns, IZincExp expr, IZincTypeInstExprAndIdent tia) : base(anns,expr) {
+			this.TypeInstExprAndIdent = tia;
+		}
+		#endregion
 
-        public override System.Collections.Generic.IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (base.InvolvedIdents (), this.TypeInstExprAndIdent.InvolvedIdents ());
-        }
+		#region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the
+		/// involved <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
+			return EnumerableUtils.Append (base.InvolvedIdents (), this.TypeInstExprAndIdent.InvolvedIdents ());
+		}
+		#endregion
 
-        public override IZincIdentReplaceContainer Replace (System.Collections.Generic.IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.TypeInstExprAndIdent = this.TypeInstExprAndIdent.Replace (identMap) as ZincTypeInstExprAndIdent;
-            return base.Replace (identMap);
-        }
+		#region IZincIdentReplaceContainer implementation
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// stored as keys to the corresponding values and returns this instance.
+		/// </summary>
+		/// <param name='identMap'>
+		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
+		/// </param>
+		/// <returns>
+		/// This instance, for cascading purposes.
+		/// </returns>
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			this.TypeInstExprAndIdent = this.TypeInstExprAndIdent.Replace (identMap) as ZincTypeInstExprAndIdent;
+			return base.Replace (identMap);
+		}
+		#endregion
 
-        public override IEnumerable<IZincElement> Children () {
-            return EnumerableUtils.Append (this.TypeInstExprAndIdent, base.Children ());
-        }
+		#region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
+		/// </returns>
+		public override IEnumerable<IZincElement> Children () {
+			return EnumerableUtils.Append (this.TypeInstExprAndIdent, base.Children ());
+		}
+		#endregion
 
-    }
+	}
 
 }
-

@@ -23,46 +23,97 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincIdBoxBase : ZincBoxBase, IZincIdBox {
+	/// <summary>
+	/// An implementation of a <see cref="IZincIdBox"/> interface. A <see cref="ZincBoxBase"/> that stores an
+	/// <see cref="IZincIdent"/> instance.
+	/// </summary>
+	public abstract class ZincIdBoxBase : ZincBoxBase, IZincIdBox {
 
-        private ZincIdent ident;
+		private IZincIdent ident;
 
-        #region IZincIdentBox implementation
-        public ZincIdent Ident {
-            get {
-                return this.ident;
-            }
-            protected set {
-                this.ident = value;
-            }
-        }
+        #region IZincIdBox implementation
+		/// <summary>
+		/// The <see cref="IZincIdent"/> stored in the <see cref="IZincIdBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincIdent"/> stored in the <see cref="IZincIdBox"/>.
+		/// </value>
+		public IZincIdent Ident {
+			get {
+				return this.ident;
+			}
+			protected set {
+				this.ident = value;
+			}
+		}
         #endregion
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincExIdBoxBase"/> class without a given initial
+		/// <see cref="IZincIdent"/> instances.
+		/// </summary>
+		protected ZincIdBoxBase () {
+		}
 
-        protected ZincIdBoxBase () {
-        }
-
-        protected ZincIdBoxBase (ZincIdent ident) {
-            this.Ident = ident;
-        }
-
-        #region ZincIdentContainer implementation
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            yield return this.ident;
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincExIdBoxBase"/> class with a given initial
+		/// <see cref="IZincIdent"/> instances.
+		/// </summary>
+		/// <param name='ident'>
+		/// The initial <see cref="IZincIdent"/> instance to store.
+		/// </param>
+		protected ZincIdBoxBase (IZincIdent ident) {
+			this.Ident = ident;
+		}
 		#endregion
-		#region ZincIdentReplaceContainer implementation
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
-            this.ident = this.ident.Replace (identMap) as ZincIdent;
-            return this;
-        }
+
+        #region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
+			yield return this.ident;
+		}
         #endregion
 
-        public override IEnumerable<IZincElement> Children () {
-            yield return this.ident;
-        }
+        #region IZincIdentReplaceContainer implementation
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// stored as keys to the corresponding values and returns this instance.
+		/// </summary>
+		/// <param name='identMap'>
+		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
+		/// </param>
+		/// <returns>
+		/// This instance, for cascading purposes.
+		/// </returns>
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent,IZincIdent> identMap) {
+			this.ident = this.ident.Replace (identMap) as ZincIdent;
+			return this;
+		}
+        #endregion
 
+		#region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
+		/// </returns>
+		public override IEnumerable<IZincElement> Children () {
+			yield return this.ident;
+		}
+		#endregion
 
-    }
+	}
+
 }
-

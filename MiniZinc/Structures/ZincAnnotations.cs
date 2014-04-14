@@ -21,69 +21,68 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.IO;
-using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincAnnotations : LinkedList<ZincAnnotation>, IWriteable, IZincElement {
+	public class ZincAnnotations : LinkedList<IZincAnnotation>, IZincAnnotations {
 
-        public ZincAnnotations (IEnumerable<ZincAnnotation> annotations) : base(annotations) {
-        }
+		public ZincAnnotations (IEnumerable<IZincAnnotation> annotations) : base(annotations) {
+		}
 
-        public ZincAnnotations (params ZincAnnotation[] annotations) : base(annotations) {
-        }
+		public ZincAnnotations (params IZincAnnotation[] annotations) : base(annotations) {
+		}
 
-        public override string ToString () {
-            return string.Format (":: {0}", string.Join (" :: ", this));
-        }
+		public override string ToString () {
+			return string.Format (":: {0}", string.Join (" :: ", this));
+		}
 
         #region IWriteable implementation
-        public void Write (TextWriter writer) {
-            writer.Write (this.ToString ());
-        }
+		public void Write (TextWriter writer) {
+			writer.Write (this.ToString ());
+		}
         #endregion
 
         #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.SelectMany (x => x.InvolvedIdents ());
-        }
+		public IEnumerable<IZincIdent> InvolvedIdents () {
+			return this.SelectMany (x => x.InvolvedIdents ());
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            LinkedListNode<ZincAnnotation> node = this.First;
-            while (node != null) {
-                node.Value = node.Value.Replace (identMap) as ZincAnnotation;
-                node = node.Next;
-            }
-            return this;
-        }
+		public IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			LinkedListNode<IZincAnnotation> node = this.First;
+			while (node != null) {
+				node.Value = node.Value.Replace (identMap) as ZincAnnotation;
+				node = node.Next;
+			}
+			return this;
+		}
         #endregion
 
         #region IInnerSoftValidateable implementation
-        public IEnumerable<string> InnerSoftValidate () {
-            throw new System.NotImplementedException ();
-        }
+		public IEnumerable<string> InnerSoftValidate () {
+			throw new System.NotImplementedException ();
+		}
         #endregion
 
         #region IValidateable implementation
-        public bool Validate () {
-            throw new System.NotImplementedException ();
-        }
+		public bool Validate () {
+			throw new System.NotImplementedException ();
+		}
         #endregion
 
         #region ISoftValidateable implementation
-        public IEnumerable<string> SoftValidate () {
-            throw new System.NotImplementedException ();
-        }
+		public IEnumerable<string> SoftValidate () {
+			throw new System.NotImplementedException ();
+		}
         #endregion
 
         #region IComposition implementation
-        public IEnumerable<IZincElement> Children () {
-            throw new System.NotImplementedException ();
-        }
+		public IEnumerable<IZincElement> Children () {
+			throw new System.NotImplementedException ();
+		}
         #endregion
 
-    }
+	}
 }
 

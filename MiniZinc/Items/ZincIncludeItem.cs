@@ -25,65 +25,65 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public class ZincIncludeItem : NameBase, IZincItem {
+	public class ZincIncludeItem : NameBase, IZincItem {
 
         #region IZincItem implementation
-        public ZincItemType Type {
-            get {
-                return ZincItemType.Include;
-            }
-        }
+		public ZincItemType Type {
+			get {
+				return ZincItemType.Include;
+			}
+		}
         #endregion
 
-        public ZincIncludeItem (string name) : base(name) {
-        }
+		public ZincIncludeItem (string name) : base(name) {
+		}
 
-        public override string ToString () {
-            return string.Format ("include {0}", ZincPrintUtils.StringLiteral (this.Name));
-        }
+		public override string ToString () {
+			return string.Format ("include {0}", ZincPrintUtils.StringLiteral (this.Name));
+		}
 
         #region IWriteable implementation
-        public void Write (TextWriter writer) {
-            writer.Write (this.ToString ());
-        }
+		public void Write (TextWriter writer) {
+			writer.Write (this.ToString ());
+		}
         #endregion
 
         #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;
-        }
+		public IEnumerable<IZincIdent> InvolvedIdents () {
+			yield break;
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this;
-        }
+		public IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			return this;
+		}
         #endregion
 
         #region IInnerSoftValidateable implementation
-        public IEnumerable<string> InnerSoftValidate () {
-            yield break;
-        }
+		public IEnumerable<string> InnerSoftValidate () {
+			yield break;
+		}
         #endregion
 
         #region IValidateable implementation
-        public bool Validate () {
-            return ValidateableUtils.Validate (this);
-        }
+		public bool Validate () {
+			return ValidateableUtils.Validate (this);
+		}
         #endregion
 
         #region ISoftValidateable implementation
-        public IEnumerable<string> SoftValidate () {
-            return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
-        }
+		public IEnumerable<string> SoftValidate () {
+			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
+		}
         #endregion
 
         #region IComposition implementation
-        public IEnumerable<IZincElement> Children () {
-            yield break;
-        }
+		public IEnumerable<IZincElement> Children () {
+			yield break;
+		}
         #endregion
 
-    }
+	}
 }
 

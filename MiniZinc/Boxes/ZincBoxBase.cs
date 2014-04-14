@@ -24,49 +24,98 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public abstract class ZincBoxBase : IZincBox {
+	/// <summary>
+	/// An abstract implementation of the <see cref="IZincBox"/> interface. This is a <see cref="IZincElement"/>
+	/// that contains one or more references to other <see cref="IZincElement"/> items.
+	/// </summary>
+	public abstract class ZincBoxBase : IZincBox {
 
-        protected ZincBoxBase () {
-        }
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincBoxBase"/> class.
+		/// </summary>
+		protected ZincBoxBase () {
+		}
+		#endregion
 
         #region IValidateable implementation
-        public virtual bool Validate () {
-            return ValidateableUtils.Validate (this);
-        }
+		/// <summary>
+		/// Validate this instance. In case the <see cref="SoftValidate"/> method
+		/// returns one or more items, the object is considered to be invalid.
+		/// </summary>
+		public virtual bool Validate () {
+			return ValidateableUtils.Validate (this);
+		}
         #endregion
 
         #region ISoftValidateable implementation
-        public virtual IEnumerable<string> SoftValidate () {
-            return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
-        }
+		/// <summary>
+		/// Softs the validate.
+		/// </summary>
+		/// <returns>
+		/// The validate.
+		/// </returns>
+		public virtual IEnumerable<string> SoftValidate () {
+			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
+		}
         #endregion
 
         #region IComposition implementation
-        public abstract IEnumerable<IZincElement> Children ();
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
+		/// </returns>
+		public abstract IEnumerable<IZincElement> Children ();
         #endregion
 
         #region IZincBox implementation
-        public virtual IEnumerable<string> InnerSoftValidate () {
-            yield break;
-        }
+		/// <summary>
+		/// Gets an <see cref="T:System.Collections.Generic.IEnumerable`1"/> with error messages.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> with error messages.
+		/// </returns>
+		/// <remarks>
+		/// <para>By default, no error messages are thrown.</para>
+		/// </remarks>
+		public virtual IEnumerable<string> InnerSoftValidate () {
+			yield break;
+		}
         #endregion
 
         #region IZincIdentContainer implementation
-        public abstract IEnumerable<ZincIdent> InvolvedIdents ();
+		/// <summary>
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the
+		/// involved <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		public abstract IEnumerable<IZincIdent> InvolvedIdents ();
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this;
-        }
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// stored as keys to the corresponding values and returns this instance.
+		/// </summary>
+		/// <param name='identMap'>
+		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
+		/// </param>
+		/// <returns>
+		/// This instance, for cascading purposes.
+		/// </returns>
+		public virtual IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			return this;
+		}
         #endregion
 
-
-
-
-
-
-    }
+	}
 
 }
-

@@ -23,107 +23,107 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public sealed class ZincScalarType : IZincType {
+	public sealed class ZincScalarType : IZincType {
 
-        private readonly ZincScalar scalar;
+		private readonly ZincScalar scalar;
 
-        public ZincScalar Scalar {
-            get {
-                return this.scalar;
-            }
-        }
+		public ZincScalar Scalar {
+			get {
+				return this.scalar;
+			}
+		}
 
         #region IFinite implementation
-        public bool Finite {
-            get {
-                return this.Scalar == ZincScalar.Bool;
-            }
-        }
+		public bool Finite {
+			get {
+				return this.Scalar == ZincScalar.Bool;
+			}
+		}
         #endregion
 
         #region IZincType implementation
-        public bool Compounded {
-            get {
-                return false;
-            }
-        }
+		public bool Compounded {
+			get {
+				return false;
+			}
+		}
 
-        public ZincScalar ScalarType {
-            get {
-                return this.scalar;
-            }
-        }
+		public ZincScalar ScalarType {
+			get {
+				return this.scalar;
+			}
+		}
         #endregion
 
-        public ZincScalarType (ZincScalar scalar) {
-            this.scalar = scalar;
-        }
+		public ZincScalarType (ZincScalar scalar) {
+			this.scalar = scalar;
+		}
 
-        public override string ToString () {
-            return ZincPrintUtils.ScalarLiteral (this.Scalar);
-        }
+		public override string ToString () {
+			return ZincPrintUtils.ScalarLiteral (this.Scalar);
+		}
 
-        public static implicit operator ZincScalarType (ZincScalar scalar) {
-            return new ZincScalarType (scalar);
-        }
+		public static implicit operator ZincScalarType (ZincScalar scalar) {
+			return new ZincScalarType (scalar);
+		}
 
-        public override int GetHashCode () {
-            return this.scalar.GetHashCode ();
-        }
+		public override int GetHashCode () {
+			return this.scalar.GetHashCode ();
+		}
 
-        public override bool Equals (object obj) {
-            if (obj is ZincScalarType) {
-                ZincScalarType zst = obj as ZincScalarType;
-                return (this.scalar == zst.scalar);
-            }
-            return false;
-        }
+		public override bool Equals (object obj) {
+			if (obj is ZincScalarType) {
+				ZincScalarType zst = obj as ZincScalarType;
+				return (this.scalar == zst.scalar);
+			}
+			return false;
+		}
 
         #region IZincIdentContainer implementation
-        public IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;
-        }
+		public IEnumerable<IZincIdent> InvolvedIdents () {
+			yield break;
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this;
-        }
+		public IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			return this;
+		}
         #endregion
 
         
 
         #region IInnerSoftValidateable implementation
-        public IEnumerable<string> InnerSoftValidate () {
-            return EnumerableUtils.Empty<string> ();
-        }
+		public IEnumerable<string> InnerSoftValidate () {
+			return EnumerableUtils.Empty<string> ();
+		}
         #endregion
 
         #region IValidateable implementation
-        public bool Validate () {
-            return false;
-        }
+		public bool Validate () {
+			return false;
+		}
         #endregion
 
         #region ISoftValidateable implementation
-        public IEnumerable<string> SoftValidate () {
-            return EnumerableUtils.Empty<string> ();
-        }
+		public IEnumerable<string> SoftValidate () {
+			return EnumerableUtils.Empty<string> ();
+		}
         #endregion
 
         #region IComposition implementation
-        public IEnumerable<IZincElement> Children () {
-            return EnumerableUtils.Empty<IZincElement> ();
-        }
+		public IEnumerable<IZincElement> Children () {
+			return EnumerableUtils.Empty<IZincElement> ();
+		}
         #endregion
 
         #region IZincType implementation
-        public bool IsSubType (IZincType type) {
-            return (!type.Compounded && type.ScalarType == this.ScalarType);
-        }
+		public bool IsSubType (IZincType type) {
+			return (!type.Compounded && type.ScalarType == this.ScalarType);
+		}
         #endregion
 
 
-    }
+	}
 
 }

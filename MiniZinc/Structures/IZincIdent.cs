@@ -1,10 +1,10 @@
 //
-//  ZincTypeInstAndIdent.cs
+//  IZincIdent.cs
 //
 //  Author:
-//       Willem Van Onsem <vanonsem.willem@gmail.com>
+//       Willem Van Onsem <Willem.VanOnsem@cs.kuleuven.be>
 //
-//  Copyright (c) 2013 Willem Van Onsem
+//  Copyright (c) 2014 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,21 +18,17 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
-using ZincOxide.MiniZinc.Boxes;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-	public class ZincTypeInstExprAndIdent : ZincIdTieBoxBase, IZincTypeInstExprAndIdent {
+	public interface IZincIdent : INameId, IZincNumExp, IZincIdentReplaceContainer {
 
-		public ZincTypeInstExprAndIdent (IZincTypeInstExpression expr, ZincIdent ident) : base(ident,expr) {
-		}
-
-		public override string ToString () {
-			return string.Format ("{0} : {1}", this.TypeInstExpression, this.Ident);
+		ZincIdentUsage Usage {
+			get;
+			set;
 		}
 
 	}
-
 }
 

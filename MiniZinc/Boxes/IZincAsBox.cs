@@ -22,12 +22,21 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincAsBox : IZincBox {
+	/// <summary>
+	/// A <see cref="IZincBox"/> that contains a <see cref="IZincAnnotations"/> element.
+	/// </summary>
+	public interface IZincAsBox : IZincBox {
 
-        ZincAnnotations Annotations {
-            get;
-        }
+		/// <summary>
+		/// Gets the <see cref="IZincAnnotations"/> instance stored in the <see cref="IZincBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincAnnotations"/> instance stored in the <see cref="IZincBox"/>.
+		/// </value>
+		IZincAnnotations Annotations {
+			get;
+		}
 
-    }
+	}
+
 }
-

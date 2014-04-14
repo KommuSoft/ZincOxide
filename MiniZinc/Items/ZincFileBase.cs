@@ -25,46 +25,46 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public abstract class ZincFileBase : ZincIdentScopeBase, IZincFile {
+	public abstract class ZincFileBase : ZincIdentScopeBase, IZincFile {
 
         #region IZincFile implementation
-        public abstract IEnumerable<IZincItem> Items {
-            get;
-        }
+		public abstract IEnumerable<IZincItem> Items {
+			get;
+		}
         #endregion
 
-        protected ZincFileBase (ZincIdentNameRegister nameRegister = null) : base(nameRegister) {
-        }
+		protected ZincFileBase (ZincIdentNameRegister nameRegister = null) : base(nameRegister) {
+		}
 
         #region IValidateable implementation
-        public bool Validate () {
-            return ValidateableUtils.Validate (this);
-        }
+		public bool Validate () {
+			return ValidateableUtils.Validate (this);
+		}
         #endregion
 
         #region IWriteable implementation
-        public abstract void Write (TextWriter writer);
+		public abstract void Write (TextWriter writer);
         #endregion
 
         #region IZincIdentContainer implementation
-        public abstract IEnumerable<ZincIdent> InvolvedIdents ();
+		public abstract IEnumerable<IZincIdent> InvolvedIdents ();
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public abstract IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap);
+		public abstract IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap);
         #endregion
 
         #region ISoftValidateable implementation
-        public abstract IEnumerable<string> SoftValidate ();
+		public abstract IEnumerable<string> SoftValidate ();
         #endregion
 
         #region IZincFile implementation
-        public abstract void AddItem (IZincItem item);
+		public abstract void AddItem (IZincItem item);
 
-        public abstract void AddItems (IEnumerable<IZincItem> items);
+		public abstract void AddItems (IEnumerable<IZincItem> items);
         #endregion
 
-    }
+	}
 
 }
 

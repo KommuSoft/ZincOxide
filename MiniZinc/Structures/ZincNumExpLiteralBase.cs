@@ -23,55 +23,48 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincNumExpLiteralBase : IZincNumExp {
+	public class ZincNumExpLiteralBase : IZincNumExp {
 
-        protected ZincNumExpLiteralBase () {
-        }
+		protected ZincNumExpLiteralBase () {
+		}
 
         #region IInnerSoftValidateable implementation
-        public virtual IEnumerable<string> InnerSoftValidate () {
-            yield break;
-        }
+		public virtual IEnumerable<string> InnerSoftValidate () {
+			yield break;
+		}
         #endregion
 
         #region IValidateable implementation
-        public bool Validate () {
-            return ValidateableUtils.Validate (this);
-        }
+		public bool Validate () {
+			return ValidateableUtils.Validate (this);
+		}
         #endregion
 
         #region ISoftValidateable implementation
-        public IEnumerable<string> SoftValidate () {
-            return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
-        }
+		public IEnumerable<string> SoftValidate () {
+			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
+		}
         #endregion
 
         #region IComposition implementation
-        public virtual IEnumerable<IZincElement> Children () {
-            yield break;
-        }
+		public virtual IEnumerable<IZincElement> Children () {
+			yield break;
+		}
         #endregion
 
         #region IZincIdentContainer implementation
-        public virtual IEnumerable<ZincIdent> InvolvedIdents () {
-            yield break;
-        }
+		public virtual IEnumerable<IZincIdent> InvolvedIdents () {
+			yield break;
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public virtual IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            return this;
-        }
+		public virtual IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			return this;
+		}
         #endregion
 
-
-
-
-
-
-
-
-    }
+	}
 
 }
 

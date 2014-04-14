@@ -20,47 +20,94 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
-using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincTyBoxBase : ZincBoxBase, IZincTyBox {
+	/// <summary>
+	/// An implementation of the <see cref="IZincTyBox"/> interface. A <see cref="ZincBoxBase"/> containing
+	/// a <see cref="IZincType"/> instance.
+	/// </summary>
+	public class ZincTyBoxBase : ZincBoxBase, IZincTyBox {
 
-        private IZincType type;
+		private IZincType type;
 
         #region IZincTyBox implementation
-        public IZincType Type {
-            get {
-                return this.type;
-            }
-            protected set {
-                this.type = value;
-            }
-        }
+		/// <summary>
+		/// Gets the <see cref="IZincType"/> instance stored in the <see cref="IZincTyBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincType"/> instance stored in the <see cref="IZincTyBox"/>.
+		/// </value>
+		public IZincType Type {
+			get {
+				return this.type;
+			}
+			protected set {
+				this.type = value;
+			}
+		}
         #endregion
 
-        protected ZincTyBoxBase (IZincType type) {
-            this.type = type;
-        }
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincTyBoxBase"/> class with an initial
+		/// <see cref="IZincType"/> instance.
+		/// </summary>
+		/// <param name='type'>
+		/// The initial <see cref="IZincType"/> instance.
+		/// </param>
+		protected ZincTyBoxBase (IZincType type) {
+			this.type = type;
+		}
+		#endregion
 
         #region IZincIdentContainer implementation
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.type.InvolvedIdents ();
-        }
+		/// <summary>
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <param name='identMap'>
+		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
+			return this.type.InvolvedIdents ();
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.type = this.type.Replace (identMap) as IZincType;
-            return this;
-        }
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// stored as keys to the corresponding values and returns this instance.
+		/// </summary>
+		/// <returns>
+		/// This instance, for cascading purposes.
+		/// </returns>
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			this.type = this.type.Replace (identMap) as IZincType;
+			return this;
+		}
         #endregion
 
-        public override IEnumerable<IZincElement> Children () {
-            yield return this.type;
-        }
+		#region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
+		/// </returns>
+		public override IEnumerable<IZincElement> Children () {
+			yield return this.type;
+		}
+		#endregion
 
-    }
+	}
 
 }
 
