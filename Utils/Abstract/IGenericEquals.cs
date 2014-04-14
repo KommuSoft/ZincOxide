@@ -19,12 +19,27 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
+namespace ZincOxide.Utils.Abstract {
 
-namespace ZincOxide.Utils {
-
+	/// <summary>
+	/// An interface that specifies that the instance supports an equality check with a certain given type.
+	/// </summary>
+	/// <typeparam name='T'>
+	/// The type of the object to check equality with.
+	/// </typeparam>
 	public interface IGenericEquals<T> {
-		bool GenericEquals (T other);
-	}
-}
 
+		/// <summary>
+		/// Checks if the given instance is equal with this instance.
+		/// </summary>
+		/// <returns>
+		/// <c>true</c> if the given instance is equal to this instance, otherwise <c>false</c>.
+		/// </returns>
+		/// <param name='other'>
+		/// The given instance to compare with.
+		/// </param>
+		bool GenericEquals (T other);
+
+	}
+
+}
