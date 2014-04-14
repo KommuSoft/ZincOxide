@@ -20,8 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using ZincOxide.Exceptions;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Nameregister {
 
 	public class GenerateFallbackNameRegister<T> : FallbackNameRegister<T>, IGenerateFallbackNameRegister<T> where T : IName {
 

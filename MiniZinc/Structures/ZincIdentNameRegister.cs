@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using ZincOxide.Exceptions;
-using ZincOxide.Utils;
+using ZincOxide.Utils.Nameregister;
 
 namespace ZincOxide.MiniZinc.Structures {
 

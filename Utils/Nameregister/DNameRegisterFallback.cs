@@ -19,14 +19,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace ZincOxide.Utils {
+using ZincOxide.Utils.Abstract;
 
-    /// <summary>
-    /// A delegate who is used as a fallback mechanism in case the name is not found in the <see cref="T:IFallbackNameRegister"/>.
-    /// </summary>
-    /// <param name="name">The name looked for by the <see cref="T:IFallbackNameRegister"/></param>.
-    /// <returns>The value corresponding to the given name who was looked for by the <see cref="T:IFallbackNameRegister"/></returns>
-    /// <exception cref="ZincOxideNameNotFoundException">In case the fallback mechanism fails as well.</exception>
-    public delegate T DNameRegisterFallback<T> (string name) where T : IName;
+namespace ZincOxide.Utils.Nameregister {
+
+	/// <summary>
+	/// A delegate who is used as a fallback mechanism in case the name is not found in the <see cref="T:IFallbackNameRegister"/>.
+	/// </summary>
+	/// <param name="name">The name looked for by the <see cref="T:IFallbackNameRegister"/></param>.
+	/// <returns>The value corresponding to the given name who was looked for by the <see cref="T:IFallbackNameRegister"/></returns>
+	/// <exception cref="ZincOxideNameNotFoundException">In case the fallback mechanism fails as well.</exception>
+	public delegate T DNameRegisterFallback<T> (string name) where T : IName;
 
 }

@@ -18,18 +18,19 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 
-namespace ZincOxide.Utils {
+using ZincOxide.Utils.Abstract;
 
-    public interface INameRegister<T> where T : IName {
+namespace ZincOxide.Utils.Nameregister {
 
-        void Register (T value);
+	public interface INameRegister<T> where T : IName {
 
-        bool Contains (string name);
+		void Register (T value);
 
-        T Lookup (string name);
+		bool Contains (string name);
 
-    }
+		T Lookup (string name);
+
+	}
 
 }

@@ -18,18 +18,36 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Abstract {
 
-    public interface IName {
+	/// <summary>
+	/// An interface that describes that the instance has a <see cref="Name"/>.
+	/// </summary>
+	public interface IName {
 
-        string Name {
-            get;
-        }
+		/// <summary>
+		/// Gets the name of this instance.
+		/// </summary>
+		/// <value>
+		/// The name of this instance.
+		/// </value>
+		string Name {
+			get;
+		}
 
-        bool EqualName (IName other);
+		/// <summary>
+		/// Check if the given <see cref="IName"/> instance has the same <see cref="Name"/> as this instance.
+		/// </summary>
+		/// <returns>
+		/// <c>true</c> if the given <see cref="IName"/> instance has the same <see cref="Name"/> as this instance;
+		/// <c>false</c> otherwise.
+		/// </returns>
+		/// <param name='other'>
+		/// The <see cref="IName"/> instance to compare with.
+		/// </param>
+		bool EqualName (IName other);
 
-    }
+	}
 
 }

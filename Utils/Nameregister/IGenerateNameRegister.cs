@@ -18,17 +18,19 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Nameregister {
 
-    public interface IGenerateNameRegister<T> : INameRegister<T> where T : IName {
+	public interface IGenerateNameRegister<T> : INameRegister<T> where T : IName {
 
-        Func<string,T> Generator {
-            get;
-        }
+		Func<string,T> Generator {
+			get;
+		}
 
-    }
+	}
 
 }
 

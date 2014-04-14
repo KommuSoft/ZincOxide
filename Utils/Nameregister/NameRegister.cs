@@ -18,10 +18,12 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System.Collections.Generic;
 using ZincOxide.Exceptions;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Nameregister {
 
 	public class NameRegister<T> : INameRegister<T> where T : IName {
 

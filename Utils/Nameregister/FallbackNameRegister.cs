@@ -20,8 +20,9 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using ZincOxide.Exceptions;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Nameregister {
 
 	/// <summary>
 	/// A name register with a fallback function that generates an object for a given name.

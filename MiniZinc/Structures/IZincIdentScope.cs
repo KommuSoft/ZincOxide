@@ -19,16 +19,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils;
+using ZincOxide.Utils.Nameregister;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincIdentScope : IFallbackNameRegister<ZincIdent> {
+	public interface IZincIdentScope : IFallbackNameRegister<ZincIdent> {
 
-        ZincIdentNameRegister NameRegister {
-            get;
-        }
+		ZincIdentNameRegister NameRegister {
+			get;
+		}
 
-    }
+	}
 
 }

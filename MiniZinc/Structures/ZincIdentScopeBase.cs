@@ -18,53 +18,53 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.Utils;
+using ZincOxide.Utils.Nameregister;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public abstract class ZincIdentScopeBase : IZincIdentScope {
+	public abstract class ZincIdentScopeBase : IZincIdentScope {
 
-        private ZincIdentNameRegister nameRegister;
+		private ZincIdentNameRegister nameRegister;
 
         #region IFallbackNameRegister implementation
-        public DNameRegisterFallback<ZincIdent> Fallback {
-            get {
-                if (this.nameRegister != null) {
-                    return this.nameRegister.Fallback;
-                } else {
-                    return null;
-                }
-            }
-        }
+		public DNameRegisterFallback<ZincIdent> Fallback {
+			get {
+				if (this.nameRegister != null) {
+					return this.nameRegister.Fallback;
+				} else {
+					return null;
+				}
+			}
+		}
         #endregion
 
         #region IZincIdentScope implementation
-        public ZincIdentNameRegister NameRegister {
-            get {
-                return this.nameRegister;
-            }
-        }
+		public ZincIdentNameRegister NameRegister {
+			get {
+				return this.nameRegister;
+			}
+		}
         #endregion
 
-        protected ZincIdentScopeBase (ZincIdentNameRegister nameRegister = null) {
-            this.nameRegister = nameRegister;
-        }
+		protected ZincIdentScopeBase (ZincIdentNameRegister nameRegister = null) {
+			this.nameRegister = nameRegister;
+		}
 
         #region INameRegister implementation
-        public void Register (ZincIdent value) {
-            this.nameRegister.Register (value);
-        }
+		public void Register (ZincIdent value) {
+			this.nameRegister.Register (value);
+		}
 
-        public bool Contains (string name) {
-            return this.nameRegister.Contains (name);
-        }
+		public bool Contains (string name) {
+			return this.nameRegister.Contains (name);
+		}
 
-        public ZincIdent Lookup (string name) {
-            return this.nameRegister.Lookup (name);
-        }
+		public ZincIdent Lookup (string name) {
+			return this.nameRegister.Lookup (name);
+		}
         #endregion
 
-    }
+	}
 
 }
 
