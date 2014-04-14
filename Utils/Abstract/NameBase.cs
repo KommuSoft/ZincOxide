@@ -21,11 +21,20 @@
 
 namespace ZincOxide.Utils.Abstract {
 
+	/// <summary>
+	/// An implementation of the <see cref="IName"/> interface.
+	/// </summary>
 	public abstract class NameBase : IName {
 
 		private string name;
 
 		#region IName implementation
+		/// <summary>
+		///  Gets the name of this instance. 
+		/// </summary>
+		/// <value>
+		///  The name of this instance. 
+		/// </value>
 		public virtual string Name {
 			get {
 				return this.name;
@@ -36,24 +45,51 @@ namespace ZincOxide.Utils.Abstract {
 		}
         #endregion
 
-		protected NameBase () {
-		}
-
-		protected NameBase (string name) {
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.Utils.Abstract.NameBase"/> class with a given
+		/// initial name.
+		/// </summary>
+		/// <param name='name'>
+		/// The initial name of this instance.
+		/// </param>
+		protected NameBase (string name = null) {
 			this.Name = name;
 		}
-
-		public override string ToString () {
-			return this.name;
-		}
+		#endregion
 
         #region IName implementation
+		/// <summary>
+		/// Check if the given <see cref="IName"/> instance has the same <see cref="Name"/> as this instance.
+		/// </summary>
+		/// <returns>
+		/// <c>true</c> if the given <see cref="IName"/> instance has the same <see cref="Name"/> as this instance;
+		/// <c>false</c> otherwise.
+		/// </returns>
+		/// <param name='other'>
+		/// The <see cref="IName"/> instance to compare with.
+		/// </param>
 		public bool EqualName (IName other) {
 			return this.name == other.Name;
 		}
         #endregion
 
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincOxide.Utils.Abstract.NameBase"/>.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="System.String"/> that represents the current <see cref="ZincOxide.Utils.Abstract.NameBase"/>.
+		/// </returns>
+		/// <remarks>
+		/// <para>The default textual representation of an <see cref="IName"/> instance is the <see cref="Name"/>
+		/// itself.</para>
+		/// </remarks>
+		public override string ToString () {
+			return this.name;
+		}
+		#endregion
 
 	}
-}
 
+}
