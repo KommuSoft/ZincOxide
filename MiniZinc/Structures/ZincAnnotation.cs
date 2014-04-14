@@ -27,13 +27,13 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 
         #region IZincIdentContainer implementation
-		public IEnumerable<ZincIdent> InvolvedIdents () {
+		public IEnumerable<IZincIdent> InvolvedIdents () {
 			yield break;//TODO
 		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-		public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+		public IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			return this;//TODO
 		}
         #endregion

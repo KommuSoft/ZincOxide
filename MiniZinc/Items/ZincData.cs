@@ -54,13 +54,13 @@ namespace ZincOxide.MiniZinc.Items {
         #endregion
 
         #region IZincIdentContainer implementation
-		public override IEnumerable<ZincIdent> InvolvedIdents () {
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
 			return this.assignItems.SelectMany (x => x.InvolvedIdents ());
 		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			for (int i = 0x00; i < this.assignItems.Count; i++) {
 				this.assignItems [i] = this.assignItems [i].Replace (identMap) as ZincAssignItem;
 			}

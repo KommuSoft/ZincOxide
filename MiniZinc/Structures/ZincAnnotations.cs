@@ -43,13 +43,13 @@ namespace ZincOxide.MiniZinc.Structures {
         #endregion
 
         #region IZincIdentContainer implementation
-		public IEnumerable<ZincIdent> InvolvedIdents () {
+		public IEnumerable<IZincIdent> InvolvedIdents () {
 			return this.SelectMany (x => x.InvolvedIdents ());
 		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-		public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+		public IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			LinkedListNode<IZincAnnotation> node = this.First;
 			while (node != null) {
 				node.Value = node.Value.Replace (identMap) as ZincAnnotation;

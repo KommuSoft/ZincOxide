@@ -41,14 +41,14 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 
         #region IZincIdentContainer implementation
-		public IEnumerable<ZincIdent> InvolvedIdents () {
+		public IEnumerable<IZincIdent> InvolvedIdents () {
 			yield return this;
 		}
         #endregion
 
 		#region IZincIdentReplaceContainer implementation
-		public IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-			ZincIdent outp;
+		public IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			IZincIdent outp;
 			if (identMap.TryGetValue (this, out outp)) {
 				return outp;
 			} else {
