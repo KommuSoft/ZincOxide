@@ -18,17 +18,25 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Abstract {
 
-    public interface IDimensions {
+	/// <summary>
+	/// An interface describing that this instance has a number of dimensions.
+	/// </summary>
+	public interface IDimensions {
 
-        int Dimensions {
-            get;
-        }
+		/// <summary>
+		/// Gets the number of dimensions of this instance.
+		/// </summary>
+		/// <value>
+		/// The number of dimensions of this instances.
+		/// </value>
+		int Dimensions {
+			get;
+		}
 
-    }
+	}
 
 }
 
