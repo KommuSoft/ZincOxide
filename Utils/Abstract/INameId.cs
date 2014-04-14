@@ -21,6 +21,10 @@
 
 namespace ZincOxide.Utils.Abstract {
 
+	/// <summary>
+	/// An interface that describes that the instance contains both a name (<see cref="IName.Name"/>) and an
+	/// identifier (<see cref="IId.Id"/>).
+	/// </summary>
 	public interface INameId : IName, IId {
 	}
 
