@@ -65,6 +65,10 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
 		/// this <see cref="IZincElement"/>.
 		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
+		/// </returns>
 		public abstract IEnumerable<IZincElement> Children ();
         #endregion
 
@@ -100,6 +104,10 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
 		/// stored as keys to the corresponding values and returns this instance.
 		/// </summary>
+		/// <param name='identMap'>
+		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
+		/// </param>
 		/// <returns>
 		/// This instance, for cascading purposes.
 		/// </returns>
