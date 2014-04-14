@@ -1,19 +1,27 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Maths/ThreeStateValue.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Abstract/NameIdBase.cs">
     <Files>
-      <File FileName="Utils/Maths/IMathSet.cs" Line="22" Column="1" />
-      <File FileName="Utils/Maths/ThreeStateValue.cs" Line="46" Column="2" />
+      <File FileName="Utils/Abstract/NameBase.cs" Line="55" Column="15" />
+      <File FileName="Utils/Abstract/IName.cs" Line="39" Column="3" />
+      <File FileName="Utils/Abstract/NameIdBase.cs" Line="51" Column="26" />
+      <File FileName="Utils/Abstract/IdBase.cs" Line="53" Column="7" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
+          <Node name="HaskellLibraries" expanded="True" />
           <Node name="HypoZinc" expanded="True">
             <Node name="Properties" expanded="True" />
           </Node>
-          <Node name="ZincOxide" expanded="True">
+          <Node name="ZincOxide" expanded="True" selected="True">
+            <Node name="MiniZinc" expanded="True">
+              <Node name="Items" expanded="True" />
+              <Node name="Structures" expanded="True" />
+            </Node>
             <Node name="Utils" expanded="True">
-              <Node name="Maths" expanded="True" />
+              <Node name="Abstract" expanded="True" />
+              <Node name="Nameregister" expanded="True" />
             </Node>
           </Node>
         </State>
