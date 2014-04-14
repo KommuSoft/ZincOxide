@@ -32,6 +32,12 @@ namespace ZincOxide.MiniZinc.Boxes {
 		private IZincNumExp numExp;
 
         #region IZincNumBox implementation
+		/// <summary>
+		/// Gets the <see cref="IZincNumExp"/> stored in the <see cref="IZincNumBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincNumExp"/> stored in the <see cref="IZincNumBox"/>.
+		/// </value>
 		public IZincNumExp NumericExpression {
 			get {
 				return this.numExp;
@@ -43,19 +49,26 @@ namespace ZincOxide.MiniZinc.Boxes {
         #endregion
 
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincNumBoxBase"/> class with a given initial
+		/// <see cref="IZincNumExp"/> instance.
+		/// </summary>
+		/// <param name='numericExpression'>
+		/// The initial numeric expression.
+		/// </param>
 		protected ZincNumBoxBase (IZincNumExp numericExpression) {
 			this.NumericExpression = numericExpression;
 		}
 		#endregion
 
         #region IZincIdentContainer implementation
-		public override IEnumerable<ZincIdent> InvolvedIdents () {
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
 			return this.NumericExpression.InvolvedIdents ();
 		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			this.NumericExpression = this.NumericExpression.Replace (identMap) as IZincNumExp;
 			return this;
 		}
