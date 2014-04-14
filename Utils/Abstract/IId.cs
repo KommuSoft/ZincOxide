@@ -18,17 +18,25 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Abstract {
 
-    public interface IId {
+	/// <summary>
+	/// An interface that specifies that this instance contains an identifier: an <see cref="uint"/> that
+	/// acts as a number indicating whether two instances are the same or not.
+	/// </summary>
+	public interface IId {
 
-        uint Id {
-            get;
-        }
+		/// <summary>
+		/// Gets the identifier of this instance.
+		/// </summary>
+		/// <value>
+		/// The identifier of this instance.
+		/// </value>
+		uint Id {
+			get;
+		}
 
-    }
+	}
 
 }
-

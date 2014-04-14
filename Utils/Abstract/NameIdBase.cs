@@ -18,33 +18,32 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Abstract {
 
-    public abstract class NameIdBase : NameBase, INameId {
+	public abstract class NameIdBase : NameBase, INameId {
 
-        private static uint idDispatcher = 0x00;
+		private static uint idDispatcher = 0x00;
 
-        private readonly uint id;
+		private readonly uint id;
 
         #region IId implementation
-        public uint Id {
-            get {
-                return this.id;
-            }
-        }
+		public uint Id {
+			get {
+				return this.id;
+			}
+		}
         #endregion
 
 
-        protected NameIdBase () : base() {
-            this.id = idDispatcher++;
-        }
+		protected NameIdBase () : base() {
+			this.id = idDispatcher++;
+		}
 
-        protected NameIdBase (string name) : base(name) {
-            this.id = idDispatcher++;
-        }
+		protected NameIdBase (string name) : base(name) {
+			this.id = idDispatcher++;
+		}
 
-    }
+	}
 }
 
