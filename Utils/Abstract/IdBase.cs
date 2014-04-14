@@ -50,8 +50,8 @@ namespace ZincOxide.Utils.Abstract {
 		/// Initializes a new instance of the <see cref="ZincOxide.Utils.Abstract.IdBase"/> class.
 		/// </summary>
 		/// <remarks>
-		/// An identifier is assigned to the instance automatically in a round robin fashion. Therefore
-		/// the chance that two instances have the same identifier is almost zero.
+		/// <para>An identifier is assigned to the instance automatically in a round robin fashion. Therefore
+		/// the chance that two instances have the same identifier is almost zero.</para>
 		/// </remarks>
 		protected IdBase () {
 			this.id = idDispatcher++;

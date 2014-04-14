@@ -53,6 +53,9 @@ namespace ZincOxide.Utils.Abstract {
 		/// <param name='name'>
 		/// The initial name of this instance.
 		/// </param>
+		/// <remarks>
+		/// <para>If no name is given; <c>null</c> is used.</para>
+		/// </remarks>
 		protected NameBase (string name = null) {
 			this.Name = name;
 		}

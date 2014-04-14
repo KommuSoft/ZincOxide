@@ -21,6 +21,9 @@
 
 namespace ZincOxide.Utils.Abstract {
 
+	/// <summary>
+	/// An implementation of the <see cref="INameId"/> interface.
+	/// </summary>
 	public abstract class NameIdBase : NameBase, INameId {
 
 		private static uint idDispatcher = 0x00;
@@ -28,6 +31,12 @@ namespace ZincOxide.Utils.Abstract {
 		private readonly uint id;
 
         #region IId implementation
+		/// <summary>
+		///  Gets the identifier of this instance. 
+		/// </summary>
+		/// <value>
+		///  The identifier of this instance. 
+		/// </value>
 		public uint Id {
 			get {
 				return this.id;
@@ -35,14 +44,22 @@ namespace ZincOxide.Utils.Abstract {
 		}
         #endregion
 
-
-		protected NameIdBase () : base() {
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NameIdBase"/> class with a given initial name.
+		/// </summary>
+		/// <param name='name'>
+		/// The given initial name.
+		/// </param>
+		/// <remarks>
+		/// <para>If no name is given; <c>null</c> is used.</para>
+		/// <para>An identifier is assigned to the instance automatically in a round robin fashion. Therefore
+		/// the chance that two instances have the same identifier is almost zero.</para>
+		/// </remarks>
+		protected NameIdBase (string name = null) : base(name) {
 			this.id = idDispatcher++;
 		}
-
-		protected NameIdBase (string name) : base(name) {
-			this.id = idDispatcher++;
-		}
+		#endregion
 
 	}
 }
