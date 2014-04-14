@@ -281,6 +281,9 @@
     <Folder Include="MiniZinc\Types\Fundamental\" />
     <Folder Include="Utils\Maths\" />
     <Folder Include="Exceptions\" />
+    <Folder Include="Utils\Abstract\" />
+    <Folder Include="Utils\IO\" />
+    <Folder Include="Utils\Collections\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
