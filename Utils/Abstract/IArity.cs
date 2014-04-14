@@ -18,17 +18,25 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Abstract {
 
-    public interface IArity {
+	/// <summary>
+	/// An interface describing that a certain instance has an arity: the number of expected parameters.
+	/// </summary>
+	public interface IArity {
 
-        int Arity {
-            get;
-        }
+		/// <summary>
+		/// Gets the arity of this instances.
+		/// </summary>
+		/// <value>
+		/// The arity of this instances: the number of expected parameters.
+		/// </value>
+		int Arity {
+			get;
+		}
 
-    }
+	}
 
 }
 
