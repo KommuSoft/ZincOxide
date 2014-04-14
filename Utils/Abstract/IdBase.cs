@@ -21,6 +21,10 @@
 
 namespace ZincOxide.Utils.Abstract {
 
+	/// <summary>
+	/// An implementation of the <see cref="IId"/> interface that automatically assigns a read-only identifer
+	/// to each object instantiated from this class.
+	/// </summary>
 	public abstract class IdBase : IId {
 
 		private static uint idDispatcher = 0x00;
@@ -28,6 +32,12 @@ namespace ZincOxide.Utils.Abstract {
 		private readonly uint id;
 
         #region IId implementation
+		/// <summary>
+		///  Gets the identifier of this instance. 
+		/// </summary>
+		/// <value>
+		///  The identifier of this instance. 
+		/// </value>
 		public uint Id {
 			get {
 				return this.id;
@@ -35,10 +45,19 @@ namespace ZincOxide.Utils.Abstract {
 		}
         #endregion
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincOxide.Utils.Abstract.IdBase"/> class.
+		/// </summary>
+		/// <remarks>
+		/// An identifier is assigned to the instance automatically in a round robin fashion. Therefore
+		/// the chance that two instances have the same identifier is almost zero.
+		/// </remarks>
 		protected IdBase () {
 			this.id = idDispatcher++;
 		}
+		#endregion
 
 	}
-}
 
+}
