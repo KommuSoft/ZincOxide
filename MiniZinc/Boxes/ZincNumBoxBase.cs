@@ -23,45 +23,51 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincNumBoxBase : ZincBoxBase, IZincNumBox {
+	/// <summary>
+	/// An implementation of the <see cref="IZincNumBox"/> interface. A <see cref="ZincBoxBase"/> containing
+	/// a <see cref="IZincNumExp"/> instance.
+	/// </summary>
+	public class ZincNumBoxBase : ZincBoxBase, IZincNumBox {
 
-        private IZincNumExp numExp;
+		private IZincNumExp numExp;
 
         #region IZincNumBox implementation
-        public IZincNumExp NumericExpression {
-            get {
-                return this.numExp;
-            }
-            protected set {
-                this.numExp = value;
-            }
-        }
+		public IZincNumExp NumericExpression {
+			get {
+				return this.numExp;
+			}
+			protected set {
+				this.numExp = value;
+			}
+		}
         #endregion
 
-        protected ZincNumBoxBase (IZincNumExp numericExpression) {
-            this.NumericExpression = numericExpression;
-        }
+		#region Constructors
+		protected ZincNumBoxBase (IZincNumExp numericExpression) {
+			this.NumericExpression = numericExpression;
+		}
+		#endregion
 
         #region IZincIdentContainer implementation
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.NumericExpression.InvolvedIdents ();
-        }
+		public override IEnumerable<ZincIdent> InvolvedIdents () {
+			return this.NumericExpression.InvolvedIdents ();
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.NumericExpression = this.NumericExpression.Replace (identMap) as IZincNumExp;
-            return this;
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			this.NumericExpression = this.NumericExpression.Replace (identMap) as IZincNumExp;
+			return this;
+		}
         #endregion
 
         #region implemented abstract members of ZincOxide.MiniZinc.Boxes.ZincBoxBase
-        public override IEnumerable<IZincElement> Children () {
-            yield return this.NumericExpression;
-        }
+		public override IEnumerable<IZincElement> Children () {
+			yield return this.NumericExpression;
+		}
         #endregion
 
 
-    }
+	}
 }
 
