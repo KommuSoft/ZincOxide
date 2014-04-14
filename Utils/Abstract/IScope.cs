@@ -20,14 +20,30 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Abstract {
 
-    public interface IScope<T> : ICollection<T> {
+	/// <summary>
+	/// An interface that describes that the object contains a hierachy of scopes.
+	/// </summary>
+	/// <remarks>
+	/// <para>Scopes contain a certain context, depending of the scope, the meaning of a certain identifer
+	/// can be overridden.</para>
+	/// </remarks>
+	public interface IScope<T> : ICollection<T> {
 
-        IScope<T> Parent {
-            get;
-        }
+		/// <summary>
+		/// Gets the parent scope of this scope.
+		/// </summary>
+		/// <value>
+		/// The parent scope of this scope.
+		/// </value>
+		/// <remarks>
+		/// <para>If no parent scope is available, <c>null</c> is returned.</para>
+		/// </remarks>
+		IScope<T> Parent {
+			get;
+		}
 
-    }
+	}
 }
 
