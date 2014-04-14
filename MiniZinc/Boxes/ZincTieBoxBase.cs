@@ -18,45 +18,46 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincTieBoxBase : ZincBoxBase, IZincTieBox {
+	public class ZincTieBoxBase : ZincBoxBase, IZincTieBox {
 
-        private IZincTypeInstExpression typeInstExpression;
+		private IZincTypeInstExpression typeInstExpression;
 
-        public IZincTypeInstExpression TypeInstExpression {
-            get {
-                return this.typeInstExpression;
-            }
-            protected set {
-                this.typeInstExpression = value;
-            }
-        }
+		public IZincTypeInstExpression TypeInstExpression {
+			get {
+				return this.typeInstExpression;
+			}
+			protected set {
+				this.typeInstExpression = value;
+			}
+		}
 
-        protected ZincTieBoxBase (IZincTypeInstExpression typeInstExpression) {
-            this.TypeInstExpression = typeInstExpression;
-        }
+		protected ZincTieBoxBase (IZincTypeInstExpression typeInstExpression) {
+			this.TypeInstExpression = typeInstExpression;
+		}
 
         #region IZincIdentContainer implementation
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.TypeInstExpression.InvolvedIdents ();
-        }
+		public override IEnumerable<ZincIdent> InvolvedIdents () {
+			return this.TypeInstExpression.InvolvedIdents ();
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.TypeInstExpression = this.TypeInstExpression.Replace (identMap) as IZincTypeInstExpression;
-            return this;
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+			this.TypeInstExpression = this.TypeInstExpression.Replace (identMap) as IZincTypeInstExpression;
+			return this;
+		}
         #endregion
 
-        public override IEnumerable<IZincElement> Children () {
-            yield return this.typeInstExpression;
-        }
+		public override IEnumerable<IZincElement> Children () {
+			yield return this.typeInstExpression;
+		}
 
-    }
+	}
 }
 
