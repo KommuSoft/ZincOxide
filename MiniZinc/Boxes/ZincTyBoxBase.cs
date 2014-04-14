@@ -24,43 +24,43 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincTyBoxBase : ZincBoxBase, IZincTyBox {
+	public class ZincTyBoxBase : ZincBoxBase, IZincTyBox {
 
-        private IZincType type;
+		private IZincType type;
 
         #region IZincTyBox implementation
-        public IZincType Type {
-            get {
-                return this.type;
-            }
-            protected set {
-                this.type = value;
-            }
-        }
+		public IZincType Type {
+			get {
+				return this.type;
+			}
+			protected set {
+				this.type = value;
+			}
+		}
         #endregion
 
-        protected ZincTyBoxBase (IZincType type) {
-            this.type = type;
-        }
+		protected ZincTyBoxBase (IZincType type) {
+			this.type = type;
+		}
 
         #region IZincIdentContainer implementation
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return this.type.InvolvedIdents ();
-        }
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
+			return this.type.InvolvedIdents ();
+		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.type = this.type.Replace (identMap) as IZincType;
-            return this;
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			this.type = this.type.Replace (identMap) as IZincType;
+			return this;
+		}
         #endregion
 
-        public override IEnumerable<IZincElement> Children () {
-            yield return this.type;
-        }
+		public override IEnumerable<IZincElement> Children () {
+			yield return this.type;
+		}
 
-    }
+	}
 
 }
 
