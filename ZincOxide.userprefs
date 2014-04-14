@@ -1,18 +1,19 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Structures/IZincIdentContainer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Maths/ThreeStateValue.cs">
     <Files>
-      <File FileName="MiniZinc/Boxes/ZincAsBoxBase.cs" Line="70" Column="16" />
-      <File FileName="MiniZinc/Boxes/IZincAsBox.cs" Line="30" Column="3" />
-      <File FileName="MiniZinc/Structures/IZincIdentContainer.cs" Line="31" Column="142" />
+      <File FileName="Utils/Maths/IMathSet.cs" Line="22" Column="1" />
+      <File FileName="Utils/Maths/ThreeStateValue.cs" Line="46" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="ZincOxide" expanded="True" selected="True">
-            <Node name="MiniZinc" expanded="True">
-              <Node name="Boxes" expanded="True" />
-              <Node name="Structures" expanded="True" />
+          <Node name="HypoZinc" expanded="True">
+            <Node name="Properties" expanded="True" />
+          </Node>
+          <Node name="ZincOxide" expanded="True">
+            <Node name="Utils" expanded="True">
+              <Node name="Maths" expanded="True" />
             </Node>
           </Node>
         </State>
