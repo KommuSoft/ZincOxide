@@ -24,40 +24,40 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincIdTieBoxBase : ZincIdBoxBase, IZincIdTieBox {
+	public class ZincIdTieBoxBase : ZincIdBoxBase, IZincIdTieBox {
 
-        private IZincTypeInstExpression typeInstExpression;
+		private IZincTypeInstExpression typeInstExpression;
 
         #region IZincTieBox implementation
-        public IZincTypeInstExpression TypeInstExpression {
-            get {
-                return this.typeInstExpression;
-            }
-            protected set {
-                this.typeInstExpression = value;
-            }
-        }
+		public IZincTypeInstExpression TypeInstExpression {
+			get {
+				return this.typeInstExpression;
+			}
+			protected set {
+				this.typeInstExpression = value;
+			}
+		}
         #endregion
 
 
-        protected ZincIdTieBoxBase (ZincIdent ident, IZincTypeInstExpression expression) : base(ident) {
-            this.TypeInstExpression = expression;
-        }
+		protected ZincIdTieBoxBase (ZincIdent ident, IZincTypeInstExpression expression) : base(ident) {
+			this.TypeInstExpression = expression;
+		}
 
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (base.InvolvedIdents (), this.typeInstExpression.InvolvedIdents ());
-        }
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
+			return EnumerableUtils.Append (base.InvolvedIdents (), this.typeInstExpression.InvolvedIdents ());
+		}
 
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.typeInstExpression.Replace (identMap);
-            return base.Replace (identMap);
-        }
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			this.typeInstExpression.Replace (identMap);
+			return base.Replace (identMap);
+		}
 
-        public override IEnumerable<IZincElement> Children () {
-            return EnumerableUtils.Append (this.TypeInstExpression, base.Children ());
-        }
+		public override IEnumerable<IZincElement> Children () {
+			return EnumerableUtils.Append (this.TypeInstExpression, base.Children ());
+		}
 
-    }
+	}
 
 }
 

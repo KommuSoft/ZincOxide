@@ -49,9 +49,20 @@ namespace ZincOxide.MiniZinc.Boxes {
         #endregion
 
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincExIdBoxBase"/> class without a given initial
+		/// <see cref="IZincIdent"/> instances.
+		/// </summary>
 		protected ZincIdBoxBase () {
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincExIdBoxBase"/> class with a given initial
+		/// <see cref="IZincIdent"/> instances.
+		/// </summary>
+		/// <param name='ident'>
+		/// The initial <see cref="IZincIdent"/> instance to store.
+		/// </param>
 		protected ZincIdBoxBase (IZincIdent ident) {
 			this.Ident = ident;
 		}
