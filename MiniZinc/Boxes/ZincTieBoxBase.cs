@@ -24,10 +24,21 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
+	/// <summary>
+	/// An implementation of the <see cref="IZincTieBox"/> interface. A <see cref="ZincBoxBase"/> that contains a
+	/// <see cref="IZincTypeInstExpression"/> instance.
+	/// </summary>
 	public class ZincTieBoxBase : ZincBoxBase, IZincTieBox {
 
 		private IZincTypeInstExpression typeInstExpression;
 
+		#region IZincTieBox implementation
+		/// <summary>
+		/// Gets the <see cref="IZincTypeInstExpression"/> instance stored in the <see cref="IZincTieBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincTypeInstExpression"/> instance stored in the <see cref="IZincTieBox"/>.
+		/// </value>
 		public IZincTypeInstExpression TypeInstExpression {
 			get {
 				return this.typeInstExpression;
@@ -36,28 +47,59 @@ namespace ZincOxide.MiniZinc.Boxes {
 				this.typeInstExpression = value;
 			}
 		}
+		#endregion
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincTieBoxBase"/> class with a given
+		/// intial <see cref="IZincTypeInstExpression"/> instance.
+		/// </summary>
+		/// <param name='typeInstExpression'>
+		/// The given initial <see cref="IZincTypeInstExpression"/> instance.
+		/// </param>
 		protected ZincTieBoxBase (IZincTypeInstExpression typeInstExpression) {
 			this.TypeInstExpression = typeInstExpression;
 		}
+		#endregion
 
         #region IZincIdentContainer implementation
-		public override IEnumerable<ZincIdent> InvolvedIdents () {
+		/// <summary>
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		public override IEnumerable<IZincIdent> InvolvedIdents () {
 			return this.TypeInstExpression.InvolvedIdents ();
 		}
         #endregion
 
         #region IZincIdentReplaceContainer implementation
-		public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// stored as keys to the corresponding values and returns this instance.
+		/// </summary>
+		/// <returns>
+		/// This instance, for cascading purposes.
+		/// </returns>
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			this.TypeInstExpression = this.TypeInstExpression.Replace (identMap) as IZincTypeInstExpression;
 			return this;
 		}
         #endregion
 
+		#region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
 		public override IEnumerable<IZincElement> Children () {
 			yield return this.typeInstExpression;
 		}
+		#endregion
 
 	}
-}
 
+}
