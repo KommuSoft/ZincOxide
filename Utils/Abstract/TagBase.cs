@@ -22,12 +22,12 @@
 namespace ZincOxide.Utils.Abstract {
 
 	/// <summary>
-	/// A base implementation class of a <see cref="ITag{T}"/>.
+	/// An implementation class of a <see cref="T:ITag`1"/> interface.
 	/// </summary>
+	/// <typeparam name='TTag'>The type of the tag object of this instance.</typeparam>
 	public abstract class TagBase<TTag>  : ITag<TTag> {
 
 		#region ITag implementation
-
 		/// <summary>
 		/// Gets the tag of the object.
 		/// </summary>
@@ -36,16 +36,17 @@ namespace ZincOxide.Utils.Abstract {
 			get;
 			protected set;
 		}
-
 		#endregion
 
+		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincOxide.TagBase{T}"/> class with a given tag.
+		/// Initializes a new instance of the <see cref="T:TagBase`1"/> class with a given tag.
 		/// </summary>
-		/// <param name="tag">The tag of the object.</param>
-		protected TagBase (TTag tag) {
+		/// <param name="tag">The initial tag of the object.</param>
+		protected TagBase (TTag tag = default(TTag)) {
 			this.Tag = tag;
 		}
+		#endregion
 	}
 }
 
