@@ -1,27 +1,23 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Abstract/NameIdBase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Collections/EnumerableUtils.cs">
     <Files>
       <File FileName="Utils/Abstract/NameBase.cs" Line="55" Column="15" />
       <File FileName="Utils/Abstract/IName.cs" Line="39" Column="3" />
       <File FileName="Utils/Abstract/NameIdBase.cs" Line="51" Column="26" />
       <File FileName="Utils/Abstract/IdBase.cs" Line="53" Column="7" />
+      <File FileName="Utils/Abstract/TagBase.cs" Line="40" Column="3" />
+      <File FileName="Utils/Collections/EnumerableUtils.cs" Line="51" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="HaskellLibraries" expanded="True" />
-          <Node name="HypoZinc" expanded="True">
-            <Node name="Properties" expanded="True" />
-          </Node>
-          <Node name="ZincOxide" expanded="True" selected="True">
-            <Node name="MiniZinc" expanded="True">
-              <Node name="Items" expanded="True" />
-              <Node name="Structures" expanded="True" />
-            </Node>
+          <Node name="ZincOxide" expanded="True">
+            <Node name="MiniZinc" expanded="True" />
             <Node name="Utils" expanded="True">
-              <Node name="Abstract" expanded="True" />
-              <Node name="Nameregister" expanded="True" />
+              <Node name="Collections" expanded="True">
+                <Node name="EnumerableUtils.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
