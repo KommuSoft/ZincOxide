@@ -19,14 +19,26 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace ZincOxide.Utils {
+namespace ZincOxide.Utils.Abstract {
 
-    public interface IFinite {
+	/// <summary>
+	/// An interface that describes a certain set where one can check whether that set is finite or not.
+	/// </summary>
+	/// <remarks>
+	/// <para>The set does not have to be an explicit collection. For instance a rectangle is an implicit set
+	/// of points.</para>
+	/// </remarks>
+	public interface IFinite {
 
-        bool Finite {
-            get;
-        }
+		/// <summary>
+		/// Gets a value indicating whether the cardinality of items contained by this instance is finite.
+		/// </summary>
+		/// <value>
+		/// <c>true</c> if the cardinality of this instance is finite; otherwise, <c>false</c>.
+		/// </value>
+		bool Finite {
+			get;
+		}
 
-    }
+	}
 }
-
