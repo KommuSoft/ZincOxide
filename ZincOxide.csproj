@@ -228,6 +228,9 @@
     <Compile Include="Utils\Validation\ISoftValidateable.cs" />
     <Compile Include="Utils\Validation\IValidateable.cs" />
     <Compile Include="Utils\Validation\ValidateableUtils.cs" />
+    <Compile Include="Representation\AbstractVariable.cs" />
+    <Compile Include="Representation\AbstractRepresentation.cs" />
+    <Compile Include="Representation\AbstractConstraint.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -272,6 +275,7 @@
     <Folder Include="Utils\Validation\" />
     <Folder Include="Utils\Designpatterns\" />
     <Folder Include="Utils\Nameregister\" />
+    <Folder Include="Representation\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
