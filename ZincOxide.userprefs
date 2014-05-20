@@ -1,12 +1,8 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Boxes/ZincExBoxBase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Normalization/PullupVarDeclTransformation.cs">
     <Files>
-      <File FileName="MiniZinc/Boxes/IZincTiaBox.cs" Line="34" Column="87" />
-      <File FileName="MiniZinc/Boxes/IZincAsExTiaBox.cs" Line="23" Column="1" />
-      <File FileName="MiniZinc/Structures/IZincAnnotations.cs" Line="26" Column="35" />
-      <File FileName="MiniZinc/Boxes/IZincExIdBox.cs" Line="30" Column="2" />
-      <File FileName="MiniZinc/Boxes/ZincExBoxBase.cs" Line="92" Column="17" />
+      <File FileName="Normalization/PullupVarDeclTransformation.cs" Line="36" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,13 +11,14 @@
             <Node name="References" expanded="True" />
             <Node name="Environment" expanded="True" />
             <Node name="MiniZinc" expanded="True">
-              <Node name="Boxes" expanded="True">
-                <Node name="ZincExBoxBase.cs" selected="True" />
-              </Node>
+              <Node name="Boxes" expanded="True" />
               <Node name="Structures" expanded="True" />
               <Node name="Types" expanded="True">
                 <Node name="Fundamental" expanded="True" />
               </Node>
+            </Node>
+            <Node name="Normalization" expanded="True">
+              <Node name="PullupVarDeclTransformation.cs" selected="True" />
             </Node>
             <Node name="Parser" expanded="True" />
             <Node name="Representation" expanded="True" />
