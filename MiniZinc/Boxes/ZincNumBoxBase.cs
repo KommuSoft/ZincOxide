@@ -30,8 +30,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 	public class ZincNumBoxBase : ZincBoxBase, IZincNumBox {
 
 		private IZincNumExp numExp;
-
-        #region IZincNumBox implementation
+		#region IZincNumBox implementation
 		/// <summary>
 		/// Gets the <see cref="IZincNumExp"/> stored in the <see cref="IZincNumBox"/>.
 		/// </summary>
@@ -46,8 +45,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 				this.numExp = value;
 			}
 		}
-        #endregion
-
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincNumBoxBase"/> class with a given initial
@@ -60,8 +58,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.NumericExpression = numericExpression;
 		}
 		#endregion
-
-        #region IZincIdentContainer implementation
+		#region IZincIdentContainer implementation
 		/// <summary>
 		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
 		/// <see cref="IZincIdent"/> instances of the container.
@@ -73,15 +70,14 @@ namespace ZincOxide.MiniZinc.Boxes {
 		public override IEnumerable<IZincIdent> InvolvedIdents () {
 			return this.NumericExpression.InvolvedIdents ();
 		}
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		/// <summary>
-		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>
 		/// stored as keys to the corresponding values and returns this instance.
 		/// </summary>
 		/// <param name='identMap'>
-		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// A <see cref="T:IDictionary`2"/> that contains pairs if
 		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
 		/// </param>
 		/// <returns>
@@ -91,8 +87,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.NumericExpression = this.NumericExpression.Replace (identMap) as IZincNumExp;
 			return this;
 		}
-        #endregion
-
+		#endregion
 		#region IComposition implementation
 		/// <summary>
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
@@ -105,9 +100,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 		public override IEnumerable<IZincElement> Children () {
 			yield return this.NumericExpression;
 		}
-        #endregion
-
-
+		#endregion
 	}
 }
 

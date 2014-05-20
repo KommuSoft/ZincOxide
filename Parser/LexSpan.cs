@@ -22,88 +22,143 @@ using QUT.Gppg;
 
 namespace ZincOxide.Parser {
 
-    public class LexSpan : IMerge<LexSpan> {
+	/// <summary>
+	/// A class that represents the lexeme span: metadata that contains information about the origin of a certain token.
+	/// </summary>
+	public class LexSpan : IMerge<LexSpan> {
 
-        private readonly int startLine;
-        private readonly int startColumn;
-        private readonly int endLine;
-        private readonly int endColumn;
-        private readonly int startIndex;
-        private readonly int endIndex;
-        private readonly ScanBuff buffer;
+		private readonly int startLine;
+		private readonly int startColumn;
+		private readonly int endLine;
+		private readonly int endColumn;
+		private readonly int startIndex;
+		private readonly int endIndex;
+		private readonly ScanBuff buffer;
 
-        public int StartLine {
-            get {
-                return startLine;
-            }
-        }
+		/// <summary>
+		/// Gets the line of the file on which the token starts.
+		/// </summary>
+		/// <value>The line of the file on which the token starts.</value>
+		public int StartLine {
+			get {
+				return startLine;
+			}
+		}
 
-        public int StartColumn {
-            get {
-                return startColumn;
-            }
-        }
+		/// <summary>
+		/// Gets the colon of the first line on which the token starts.
+		/// </summary>
+		/// <value>The colon of the first line on which the token starts.</value>
+		public int StartColumn {
+			get {
+				return startColumn;
+			}
+		}
 
-        public int EndLine {
-            get {
-                return endLine;
-            }
-        }
+		/// <summary>
+		/// Gets the line of the file on which the token ends.
+		/// </summary>
+		/// <value>The line of the file on which the token ends.</value>
+		public int EndLine {
+			get {
+				return endLine;
+			}
+		}
 
-        public int EndColumn {
-            get {
-                return endColumn;
-            }
-        }
+		/// <summary>
+		/// Gets the colon of the last line on which the token ends.
+		/// </summary>
+		/// <value>The colon of the last line on which the token ends.</value>
+		public int EndColumn {
+			get {
+				return endColumn;
+			}
+		}
 
-        public int StartIndex {
-            get {
-                return startIndex;
-            }
-        }
+		/// <summary>
+		/// Gets the start index in the original file where the token starts.
+		/// </summary>
+		/// <value>The start index in the original file where the token starts.</value>
+		public int StartIndex {
+			get {
+				return startIndex;
+			}
+		}
 
-        public int EndIndex {
-            get {
-                return endIndex;
-            }
-        }
+		/// <summary>
+		/// Gets the start index in the original file where the token ends.
+		/// </summary>
+		/// <value>The start index in the original file where the token ends.</value>
+		public int EndIndex {
+			get {
+				return endIndex;
+			}
+		}
 
-        public ScanBuff Buffer {
-            get {
-                return buffer;
-            }
-        }
+		/// <summary>
+		/// Gets the internally stored <see cref="ScanBuff"/> that contains the currently active file.
+		/// </summary>
+		/// <value>The internally stored <see cref="ScanBuff"/> that contains the currently active file.</value>
+		public ScanBuff Buffer {
+			get {
+				return buffer;
+			}
+		}
 
-        public LexSpan () {
-        }
+		/// <summary>
+		/// The default constructor, used by the <see cref="MiniZincLexer"/>.
+		/// </summary>
+		public LexSpan () {
+		}
 
-        public LexSpan (int sl, int sc, int el, int ec, int sp, int ep, ScanBuff bf) {
-            startLine = sl;
-            startColumn = sc;
-            endLine = el;
-            endColumn = ec;
-            startIndex = sp;
-            endIndex = ep;
-            buffer = bf;
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="LexSpan"/> class with parameters specifying the start and end location and the <see cref="ScanBuff"/>
+		/// that represents the currently active file.
+		/// </summary>
+		/// <param name="sl">The line number where the token starts.</param>
+		/// <param name="sc">The column number of the line where the token starts.</param>
+		/// <param name="el">The line number where the token ends.</param>
+		/// <param name="ec">The column number of the line where the token ends.</param>
+		/// <param name="sp">The index of the active file where the token starts.</param>
+		/// <param name="ep">The index of the active file where the token ends.</param>
+		/// <param name="bf">The <see cref="ScanBuff"/> that represents the active file.</param>
+		public LexSpan (int sl, int sc, int el, int ec, int sp, int ep, ScanBuff bf) {
+			startLine = sl;
+			startColumn = sc;
+			endLine = el;
+			endColumn = ec;
+			startIndex = sp;
+			endIndex = ep;
+			buffer = bf;
+		}
 
-        /// <summary>
-        /// This method implements the IMerge interface
-        /// </summary>
-        /// <param name="end">The last span to be merged</param>
-        /// <returns>A span from the start of 'this' to the end of 'end'</returns>
-        public LexSpan Merge (LexSpan end) {
-            return new LexSpan (startLine, startColumn, end.endLine, end.endColumn, startIndex, end.endIndex, buffer);
-        }
+		/// <summary>
+		/// This method implements the IMerge interface
+		/// </summary>
+		/// <param name="end">The last span to be merged</param>
+		/// <returns>A span from the start of 'this' to the end of 'end'</returns>
+		public LexSpan Merge (LexSpan end) {
+			return new LexSpan (startLine, startColumn, end.endLine, end.endColumn, startIndex, end.endIndex, buffer);
+		}
 
-        public override string ToString () {
-            return buffer.GetString (startIndex, endIndex);
-        }
+		/// <summary>
+		/// Gets the stream content that corresponds with the specified span in a textual context.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the content of the stream specified by this span.</returns>
+		public override string ToString () {
+			return buffer.GetString (startIndex, endIndex);
+		}
 
-        public string LiteralString () {
-            return buffer.GetString (startIndex + 0x01, endIndex - 0x01);
-        }
-
-    }
+		/// <summary>
+		/// Gets the text that is within the quotes of this span.
+		/// </summary>
+		/// <returns>The content of the literal string.</returns>
+		/// <remarks>
+		/// <para>In case the token is not a string literal, the behavior is random.</para>
+		/// </remarks>
+		public string LiteralString () {
+			return buffer.GetString (startIndex + 0x01, endIndex - 0x01);
+		}
+	}
 }
 

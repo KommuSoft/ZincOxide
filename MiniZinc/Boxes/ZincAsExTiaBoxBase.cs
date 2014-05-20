@@ -32,13 +32,12 @@ namespace ZincOxide.MiniZinc.Boxes {
 	public class ZincAsExTiaBoxBase : ZincAsExBoxBase, IZincAsExTiaBox {
 
 		private IZincTypeInstExprAndIdent typeInstAndIdent;
-
-        #region IZincTiaBox implementation
+		#region IZincTiaBox implementation
 		/// <summary>
-		/// Gets the <see cref="IZincTypeInstExprAndIdent"/> instance stored in the <see cref="IzincTiasBox"/>.
+		/// Gets the <see cref="IZincTypeInstExprAndIdent"/> instance stored in the <see cref="IZincTiaBox"/>.
 		/// </summary>
 		/// <value>
-		/// The <see cref="IZincTypeInstExprAndIdent"/> instance stored in the <see cref="IzincTiasBox"/>.
+		/// The <see cref="IZincTypeInstExprAndIdent"/> instance stored in the <see cref="IZincTiaBox"/>.
 		/// </value>
 		public IZincTypeInstExprAndIdent TypeInstExprAndIdent {
 			get {
@@ -48,8 +47,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 				this.typeInstAndIdent = value;
 			}
 		}
-        #endregion
-
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincAsExTiaBoxBase"/> class
@@ -69,7 +67,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.TypeInstExprAndIdent = tia;
 		}
 		#endregion
-
 		#region IZincIdentContainer implementation
 		/// <summary>
 		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the
@@ -83,14 +80,13 @@ namespace ZincOxide.MiniZinc.Boxes {
 			return EnumerableUtils.Append (base.InvolvedIdents (), this.TypeInstExprAndIdent.InvolvedIdents ());
 		}
 		#endregion
-
 		#region IZincIdentReplaceContainer implementation
 		/// <summary>
-		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>
 		/// stored as keys to the corresponding values and returns this instance.
 		/// </summary>
 		/// <param name='identMap'>
-		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// A <see cref="T:IDictionary`2"/> that contains pairs if
 		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
 		/// </param>
 		/// <returns>
@@ -101,7 +97,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 			return base.Replace (identMap);
 		}
 		#endregion
-
 		#region IComposition implementation
 		/// <summary>
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
@@ -115,7 +110,5 @@ namespace ZincOxide.MiniZinc.Boxes {
 			return EnumerableUtils.Append (this.TypeInstExprAndIdent, base.Children ());
 		}
 		#endregion
-
 	}
-
 }

@@ -18,7 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
 
@@ -31,7 +30,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 	public class ZincTieBoxBase : ZincBoxBase, IZincTieBox {
 
 		private IZincTypeInstExpression typeInstExpression;
-
 		#region IZincTieBox implementation
 		/// <summary>
 		/// Gets the <see cref="IZincTypeInstExpression"/> instance stored in the <see cref="IZincTieBox"/>.
@@ -48,7 +46,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 			}
 		}
 		#endregion
-
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincTieBoxBase"/> class with a given
@@ -61,8 +58,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.TypeInstExpression = typeInstExpression;
 		}
 		#endregion
-
-        #region IZincIdentContainer implementation
+		#region IZincIdentContainer implementation
 		/// <summary>
 		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
 		/// <see cref="IZincIdent"/> instances of the container.
@@ -74,15 +70,14 @@ namespace ZincOxide.MiniZinc.Boxes {
 		public override IEnumerable<IZincIdent> InvolvedIdents () {
 			return this.TypeInstExpression.InvolvedIdents ();
 		}
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		/// <summary>
-		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>
 		/// stored as keys to the corresponding values and returns this instance.
 		/// </summary>
 		/// <param name='identMap'>
-		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// A <see cref="T:IDictionary`2"/> that contains pairs if
 		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
 		/// </param>
 		/// <returns>
@@ -92,8 +87,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.TypeInstExpression = this.TypeInstExpression.Replace (identMap) as IZincTypeInstExpression;
 			return this;
 		}
-        #endregion
-
+		#endregion
 		#region IComposition implementation
 		/// <summary>
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
@@ -107,7 +101,5 @@ namespace ZincOxide.MiniZinc.Boxes {
 			yield return this.typeInstExpression;
 		}
 		#endregion
-
 	}
-
 }

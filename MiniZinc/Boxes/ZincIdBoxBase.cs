@@ -30,8 +30,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 	public abstract class ZincIdBoxBase : ZincBoxBase, IZincIdBox {
 
 		private IZincIdent ident;
-
-        #region IZincIdBox implementation
+		#region IZincIdBox implementation
 		/// <summary>
 		/// The <see cref="IZincIdent"/> stored in the <see cref="IZincIdBox"/>.
 		/// </summary>
@@ -46,8 +45,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 				this.ident = value;
 			}
 		}
-        #endregion
-
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincExIdBoxBase"/> class without a given initial
@@ -67,8 +65,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.Ident = ident;
 		}
 		#endregion
-
-        #region IZincIdentContainer implementation
+		#region IZincIdentContainer implementation
 		/// <summary>
 		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
 		/// <see cref="IZincIdent"/> instances of the container.
@@ -80,15 +77,14 @@ namespace ZincOxide.MiniZinc.Boxes {
 		public override IEnumerable<IZincIdent> InvolvedIdents () {
 			yield return this.ident;
 		}
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		/// <summary>
-		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// Replaces all the instances stored in the given <see cref="T:Generic.IDictionary`2"/>
 		/// stored as keys to the corresponding values and returns this instance.
 		/// </summary>
 		/// <param name='identMap'>
-		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// A <see cref="T:IDictionary`2"/> that contains pairs if
 		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
 		/// </param>
 		/// <returns>
@@ -98,8 +94,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.ident = this.ident.Replace (identMap) as ZincIdent;
 			return this;
 		}
-        #endregion
-
+		#endregion
 		#region IComposition implementation
 		/// <summary>
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
@@ -113,7 +108,5 @@ namespace ZincOxide.MiniZinc.Boxes {
 			yield return this.ident;
 		}
 		#endregion
-
 	}
-
 }
