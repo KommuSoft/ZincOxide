@@ -46,13 +46,32 @@ namespace ZincOxide.MiniZinc.Items {
 			}
 		}
 		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAnnotationItem"/> class with a given <see cref="IZincIdent"/>.
+		/// that redirects to the semantic of the annotation.
+		/// </summary>
+		/// <param name="ident">An indentifier that links to the semantics of the identifier..</param>
 		public ZincAnnotationItem (ZincIdent ident) : base(ident) {
 		}
-
+		#endregion
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincAnnotationItem"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincAnnotationItem"/>.</returns>
+		/// <remarks>
+		/// <para>The format of this method is <c>annotation identifier foo</c> with identifier the identifier that links to the semantics of the annotation.</para>
+		/// </remarks>
 		public override string ToString () {
 			return string.Format ("annotation {0} {1}", this.Ident, null);
 		}
+		#endregion
 		#region IWriteable implementation
+		/// <summary>
+		/// Writes a textual representation of this <see cref="ZincAnnotationItem"/> to the given <see cref="TextWriter"/>.
+		/// </summary>
+		/// <param name="writer">The given <see cref="TextWriter"/> to write the content of this <see cref="ZincAnnotationItem"/> to.</param>
 		public void Write (TextWriter writer) {
 			writer.Write (this.ToString ());
 		}
