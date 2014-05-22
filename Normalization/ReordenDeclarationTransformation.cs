@@ -22,18 +22,27 @@ using ZincOxide.MiniZinc.Items;
 
 namespace ZincOxide.Normalization {
 
-    public class ReordenDeclarationTransformation : ITransformation {
+	/// <summary>
+	/// A transformation that has the purposes to reorder <see cref="IZincItem"/> instances in the <see cref="IZincFile"/>
+	/// such that the declaration statements are stratified.
+	/// </summary>
+	public class ReordenDeclarationTransformation : ITransformation {
 
-        public ReordenDeclarationTransformation () {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ReordenDeclarationTransformation"/> class.
+		/// </summary>
+		public ReordenDeclarationTransformation () {
 
-        }
-
-        #region ITransformation implementation
-        public void Transform (IZincFile file) {
-            throw new System.NotImplementedException ();
-        }
-        #endregion
-
-    }
-
+		}
+		#region ITransformation implementation
+		/// <summary>
+		/// Transforms the given <see cref="IZincFile"/> by reordening the <see cref="IZincItem"/> instances such that
+		/// the resulting file is stratified.
+		/// </summary>
+		/// <param name="file">The <see cref="IZincFile"/> to be transformed.</param>
+		public void Transform (IZincFile file) {
+			throw new System.NotImplementedException ();
+		}
+		#endregion
+	}
 }
