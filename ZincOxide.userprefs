@@ -2,13 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Items/ZincAnnotationItem.cs">
     <Files>
-      <File FileName="Normalization/PullupVarDeclTransformation.cs" Line="45" Column="3" />
-      <File FileName="Normalization/ReordenDeclarationTransformation.cs" Line="42" Column="71" />
-      <File FileName="Normalization/ITransformation.cs" Line="36" Column="66" />
-      <File FileName="MiniZinc/Boxes/IZincAsExBox.cs" Line="26" Column="81" />
-      <File FileName="MiniZinc/Boxes/ZincAsExBoxBase.cs" Line="101" Column="22" />
-      <File FileName="MiniZinc/Items/IZincItem.cs" Line="32" Column="3" />
-      <File FileName="MiniZinc/Items/ZincAnnotationItem.cs" Line="74" Column="127" />
+      <File FileName="Normalization/PullupVarDeclTransformation.cs" Line="1" Column="1" />
+      <File FileName="Normalization/ReordenDeclarationTransformation.cs" Line="1" Column="1" />
+      <File FileName="Normalization/ITransformation.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Boxes/IZincAsExBox.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Boxes/ZincAsExBoxBase.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Items/IZincItem.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Items/ZincAnnotationItem.cs" Line="56" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
