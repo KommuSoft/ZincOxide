@@ -21,10 +21,20 @@
 using System.Collections.Generic;
 
 namespace ZincOxide.Utils {
-    public interface IInnerSoftValidateable {
 
-        IEnumerable<string> InnerSoftValidate ();
+	/// <summary>
+	/// An interface that specifies that the instance can be validated by emitting a number of error messages.
+	/// </summary>
+	public interface IInnerSoftValidateable {
 
-    }
+		/// <summary>
+		/// Generates a number of error messages that specify what is wrong with this instance.
+		/// </summary>
+		/// <returns>A <see cref="T:IEumerable`1"/> that contains a list of error messages describing why the instance is invalid.</returns>
+		/// <remarks>
+		/// <para>If no error messages are generated, the instance is valid, otherwise the instance is invalid.</para>
+		/// </remarks>
+		IEnumerable<string> InnerSoftValidate ();
+	}
 }
 
