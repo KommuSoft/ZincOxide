@@ -77,6 +77,7 @@ namespace ZincOxide.MiniZinc.Items {
 		}
 		#endregion
 		#region IZincIdentContainer implementation
+		/// <summary>
 		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
 		/// <see cref="IZincIdent"/> instances of the container.
 		/// </summary>
@@ -89,7 +90,8 @@ namespace ZincOxide.MiniZinc.Items {
 		}
 		#endregion
 		#region IZincIdentReplaceContainer implementation
-		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>
 		/// stored as keys to the corresponding values and returns this instance, possibly if this is an
 		/// <see cref="IZincIdent"/> itself another <see cref="IZincIdent"/>.
 		/// </summary>
@@ -102,16 +104,28 @@ namespace ZincOxide.MiniZinc.Items {
 		}
 		#endregion
 		#region IInnerSoftValidateable implementation
+		/// <summary>
+		/// Generates a number of error messages that specify what is wrong with this instance.
+		/// </summary>
+		/// <returns>A <see cref="T:IEumerable`1"/> that contains a list of error messages describing why the instance is invalid.</returns>
+		/// <remarks>
+		/// <para>If no error messages are generated, the instance is valid, otherwise the instance is invalid.</para>
+		/// </remarks>
 		public IEnumerable<string> InnerSoftValidate () {
 			yield break;
 		}
 		#endregion
 		#region IValidateable implementation
+		/// <summary>
+		/// Checks if the given instance is valid.
+		/// </summary>
+		/// <returns>True if the instance is valid, otherwise false.</returns>
 		public bool Validate () {
 			return ValidateableUtils.Validate (this);
 		}
 		#endregion
 		#region ISoftValidateable implementation
+		/// <summary>
 		/// Generates a number of error messages that specify what is wrong with this instance.
 		/// </summary>
 		/// <returns>A <see cref="T:IEumerable`1"/> that contains a list of error messages describing why the instance is invalid.</returns>
@@ -123,6 +137,12 @@ namespace ZincOxide.MiniZinc.Items {
 		}
 		#endregion
 		#region IComposition implementation
+		/// <summary>
+		/// Enumerate the children of this instance. This is done in a hierarchical manner.
+		/// </summary>
+		/// <remarks>
+		/// <para>In the case of a <see cref="ZincIncludeItem"/> instance, there are no children.</para>
+		/// </remarks>
 		public IEnumerable<IZincElement> Children () {
 			yield break;
 		}

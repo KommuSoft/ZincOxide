@@ -22,10 +22,15 @@ using System;
 
 namespace ZincOxide.Utils {
 
-    public interface IValidateable {
+	/// <summary>
+	/// An interface describing that the instance provides a way to check if the instance is valid or not.
+	/// </summary>
+	public interface IValidateable {
 
-        bool Validate ();
-
-    }
-
+		/// <summary>
+		/// Checks if the given instance is valid.
+		/// </summary>
+		/// <returns>True if the instance is valid, otherwise false.</returns>
+		bool Validate ();
+	}
 }

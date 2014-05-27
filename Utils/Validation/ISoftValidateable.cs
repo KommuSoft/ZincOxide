@@ -22,11 +22,19 @@ using System.Collections.Generic;
 
 namespace ZincOxide.Utils {
 
-    public interface ISoftValidateable : IValidateable {
+	/// <summary>
+	/// An interface that specifies that the instance can be validated by emitting a number of error messages.
+	/// </summary>
+	public interface ISoftValidateable : IValidateable {
 
-        IEnumerable<string> SoftValidate ();
-
-    }
-
+		/// <summary>
+		/// Enumerates a list of error messages specifying why the instance is not valid.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing the error messages describing why the instance is not valid.</returns>
+		/// <remarks>
+		/// <para>If no error messages are emitted, the instance is valid, otherwise the instance is invalid.</para>
+		/// </remarks>
+		IEnumerable<string> SoftValidate ();
+	}
 }
 

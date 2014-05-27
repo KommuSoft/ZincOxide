@@ -22,10 +22,19 @@ using System.Collections.Generic;
 
 namespace ZincOxide.Utils {
 
-    public interface IComposition<T> where T : IComposition<T> {
+	/// <summary>
+	/// An interface that describes the composite pattern. In the composite pattern, every item has children of a certain type <typeparamref name='TChildren'/>.
+	/// Furthermore these children must support the <see cref="T:IComposition`1"/> interface as well, with the same type of the subchildren.
+	/// </summary>
+	/// <typeparam name='TChildren'>
+	/// The type of the children of this instance.
+	/// </typeparam>
+	public interface IComposition<TChildren> where TChildren : IComposition<TChildren> {
 
-        IEnumerable<T> Children ();
-
-    }
+		/// <summary>
+		/// Enumerate the children of this instance. This is done in a hierarchical manner.
+		/// </summary>
+		IEnumerable<TChildren> Children ();
+	}
 }
 
