@@ -1,14 +1,10 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Items/ZincIncludeItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Items/IZincFile.cs">
     <Files>
-      <File FileName="MiniZinc/Items/ZincConstraintItem.cs" Line="71" Column="36" />
-      <File FileName="MiniZinc/Items/ZincIncludeItem.cs" Line="107" Column="16" />
-      <File FileName="MiniZinc/Items/IZincItem.cs" Line="30" Column="47" />
-      <File FileName="MiniZinc/IZincElement.cs" Line="26" Column="52" />
-      <File FileName="Utils/Designpatterns/IComposition.cs" Line="35" Column="85" />
-      <File FileName="Utils/Validation/ISoftValidateable.cs" Line="28" Column="45" />
-      <File FileName="Utils/Validation/IValidateable.cs" Line="30" Column="3" />
+      <File FileName="MiniZinc/Items/ZincVarDeclItem.cs" Line="99" Column="118" />
+      <File FileName="MiniZinc/Items/ZincSolveItem.cs" Line="121" Column="131" />
+      <File FileName="MiniZinc/Items/IZincFile.cs" Line="29" Column="52" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +15,7 @@
             <Node name="MiniZinc" expanded="True">
               <Node name="Boxes" expanded="True" />
               <Node name="Items" expanded="True">
-                <Node name="ZincIncludeItem.cs" selected="True" />
+                <Node name="IZincFile.cs" selected="True" />
               </Node>
               <Node name="Structures" expanded="True" />
               <Node name="Types" expanded="True">
