@@ -24,16 +24,32 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public interface IZincFile : IWriteable, IZincIdentReplaceContainer, ISoftValidateable, IZincIdentScope {
+	/// <summary>
+	/// An interface describing a Zinc file. A zinc file is a collection of <see cref="IZincItem"/> instances.
+	/// A <see cref="IZincFile"/> can be written to a stream, and has nearly all properties of a <see cref="IZincItem"/>
+	/// instance.
+	/// </summary>
+	public interface IZincFile : IWriteable, IZincIdentReplaceContainer, ISoftValidateable, IZincIdentScope {
 
-        IEnumerable<IZincItem> Items {
-            get;
-        }
+		/// <summary>
+		/// Gets a list of <see cref="IZincItem"/> instances stored in the <see cref="IZincFile"/>.
+		/// </summary>
+		/// <value>The items contained in the <see cref="IZincFile"/>.</value>
+		IEnumerable<IZincItem> Items {
+			get;
+		}
 
-        void AddItem (IZincItem item);
+		/// <summary>
+		/// Adds an <see cref="IZincItem"/> to this <see cref="IZincFile"/>.
+		/// </summary>
+		/// <param name="item">The <see cref="IZincItem"/> to add to the file.</param>
+		void AddItem (IZincItem item);
 
-        void AddItems (IEnumerable<IZincItem> items);
-
-    }
+		/// <summary>
+		/// Adds a given list of items to this <see cref="IZincFile"/>.
+		/// </summary>
+		/// <param name="items">The list of items to be added to this <see cref="IZincFile"/>.</param>
+		void AddItems (IEnumerable<IZincItem> items);
+	}
 }
 

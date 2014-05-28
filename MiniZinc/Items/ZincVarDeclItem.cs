@@ -61,14 +61,25 @@ namespace ZincOxide.MiniZinc.Items {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincVarDeclItem"/> class.
+		/// Initializes a new instance of the <see cref="ZincVarDeclItem"/> class with a given <see cref="ZincTypeInstExprAndIdent"/>
+		/// that describes the name and the type of the variable and optionally a <see cref="IZincExp"/> instance that describes
+		/// the value that must be assigned to the variable.
 		/// </summary>
-		/// <param name="tia">Tia.</param>
-		/// <param name="exp">Exp.</param>
+		/// <param name="tia">A <see cref="ZincTypeInstExprAndIdent"/> instance that describes the name and type of the variable.</param>
+		/// <param name="exp">An <see cref="IZincExp"/> instance that describes the value assigned to the variable.</param>
 		public ZincVarDeclItem (ZincTypeInstExprAndIdent tia, IZincExp exp) : this(tia,null,exp) {
 		}
 		#endregion
 		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincVarDeclItem"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincVarDeclItem"/>.</returns>
+		/// <remarks>
+		/// <para>The format of this method is <c>typeinst annotations [= expression]</c> where <c>typeinst</c> describes
+		/// the type and the name of the variable, <c>annotations</c> are the annotations of the variable declaration and
+		/// optionally <c>expression</c> describes the value that must be assigned to the variable.</para>
+		/// </remarks>
 		public override string ToString () {
 			StringBuilder sb = new StringBuilder ();
 			sb.Append (this.TypeInstExprAndIdent);
@@ -82,6 +93,10 @@ namespace ZincOxide.MiniZinc.Items {
 		}
 		#endregion
 		#region IWriteable implementation
+		/// <summary>
+		/// Writes a textual representation of this <see cref="ZincVarDeclItem"/> to the given <see cref="TextWriter"/>.
+		/// </summary>
+		/// <param name="writer">The given <see cref="TextWriter"/> to write the content of this <see cref="ZincVarDeclItem"/> to.</param>
 		public void Write (TextWriter writer) {
 			writer.Write (this.ToString ());
 		}
