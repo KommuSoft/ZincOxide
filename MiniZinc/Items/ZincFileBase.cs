@@ -27,44 +27,41 @@ namespace ZincOxide.MiniZinc.Items {
 
 	public abstract class ZincFileBase : ZincIdentScopeBase, IZincFile {
 
-        #region IZincFile implementation
+		#region IZincFile implementation
 		public abstract IEnumerable<IZincItem> Items {
 			get;
 		}
-        #endregion
-
+		#endregion
 		protected ZincFileBase (ZincIdentNameRegister nameRegister = null) : base(nameRegister) {
 		}
-
-        #region IValidateable implementation
+		#region IValidateable implementation
 		public bool Validate () {
 			return ValidateableUtils.Validate (this);
 		}
-        #endregion
-
-        #region IWriteable implementation
+		#endregion
+		#region IWriteable implementation
 		public abstract void Write (TextWriter writer);
-        #endregion
-
-        #region IZincIdentContainer implementation
-		public abstract IEnumerable<IZincIdent> InvolvedIdents ();
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentContainer implementation
+		public virtual IEnumerable<IZincIdent> InvolvedIdents () {
+			foreach (IZincItem item in this.Items) {
+				foreach (IZincIdent ident in item.InvolvedIdents()) {
+					yield return ident;
+				}
+			}
+		}
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		public abstract IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap);
-        #endregion
-
-        #region ISoftValidateable implementation
+		#endregion
+		#region ISoftValidateable implementation
 		public abstract IEnumerable<string> SoftValidate ();
-        #endregion
-
-        #region IZincFile implementation
+		#endregion
+		#region IZincFile implementation
 		public abstract void AddItem (IZincItem item);
 
 		public abstract void AddItems (IEnumerable<IZincItem> items);
-        #endregion
-
+		#endregion
 	}
-
 }
 

@@ -42,15 +42,13 @@ namespace ZincOxide.MiniZinc.Items {
 				return true;//TODO: checks on VarDecl-Assign,...
 			}
 		}
-
-        #region IZincFile implementation
+		#region IZincFile implementation
 		public override IEnumerable<IZincItem> Items {
 			get {
 				return this.items;
 			}
 		}
-        #endregion
-
+		#endregion
 		public ZincModel () {
 		}
 
@@ -60,8 +58,7 @@ namespace ZincOxide.MiniZinc.Items {
 
 		public ZincModel (params IZincItem[] items) : this((IEnumerable<IZincItem>) items) {
 		}
-
-        #region IZincFile implementation
+		#region IZincFile implementation
 		public override void AddItems (IEnumerable<IZincItem> items) {
 			if (items != null) {
 				foreach (IZincItem item in items) {
@@ -69,7 +66,6 @@ namespace ZincOxide.MiniZinc.Items {
 				}
 			}
 		}
-
 
 		public override void AddItem (IZincItem item) {
 			if (item != null) {
@@ -95,43 +91,29 @@ namespace ZincOxide.MiniZinc.Items {
 				}
 			}
 		}
-        #endregion
-
-        #region IWritable implementation
+		#endregion
+		#region IWritable implementation
 		public override void Write (TextWriter writer) {
 			foreach (IZincItem item in this.Items) {
 				item.Write (writer);
 				writer.WriteLine (";");
 			}
 		}
-        #endregion
-
-        #region IZincIdentContainer implementation
-		public override IEnumerable<IZincIdent> InvolvedIdents () {
-			foreach (IZincItem item in this.Items) {
-				foreach (IZincIdent ident in item.InvolvedIdents()) {
-					yield return ident;
-				}
-			}
-		}
-        #endregion
-
-        #region ISoftValidateable implementation
+		#endregion
+		#region ISoftValidateable implementation
 		public override IEnumerable<string> SoftValidate () {
 			if (this.items.Where (x => x.Type == ZincItemType.Solve).Count () != 0x01) {
 				yield return "A Zinc model always contains exactly one solve item.";
 			}
 			//TODO
 		}
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			//TODO implement
 			return this;
 		}
-        #endregion
-
+		#endregion
 		public ZincData ConvertToZincData () {
 			return new ZincData (this.Items);
 		}
@@ -155,7 +137,5 @@ namespace ZincOxide.MiniZinc.Items {
 				return null;
 			}
 		}
-
 	}
-
 }

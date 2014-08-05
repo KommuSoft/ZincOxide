@@ -26,55 +26,82 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Items {
 
+	/// <summary>
+	/// A zinc file that stores data about a problem instance. Such file only assigns values to the <c>par</c> variables.
+	/// </summary>
 	public class ZincData : ZincFileBase {
 
-		private readonly List<ZincAssignItem> assignItems = new List<ZincAssignItem> ();
-
-        #region IZincFile implementation
+		#region Fields
+		/// <summary>
+		/// The inner list of assign items.
+		/// </summary>
+		private readonly List<ZincAssignItem> assignItems;
+		#endregion
+		#region IZincFile implementation
+		/// <summary>
+		/// Gets a list of <see cref="IZincItem"/> instances stored in the <see cref="IZincFile"/>.
+		/// </summary>
+		/// <value>The items contained in the <see cref="IZincFile"/>.</value>
 		public override IEnumerable<IZincItem> Items {
 			get {
-				return this.assignItems;
+				return this.assignItems.AsReadOnly ();
 			}
 		}
-        #endregion
-
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincData"/> class. The file is empty.
+		/// </summary>
 		public ZincData () {
+			this.assignItems = new List<ZincAssignItem> ();
 		}
 
-		public ZincData (IEnumerable<IZincItem> items) {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincData"/> class with a given list of
+		/// <see cref="ZincAssignItem"/> elements.
+		/// </summary>
+		/// <param name="items">The list of initial <see cref="ZincAssignItem"/> instances.</param>
+		public ZincData (IEnumerable<ZincAssignItem> items) {
+			this.assignItems = items.ToList ();
 		}
 
-        #region IWriteable implementation
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincData"/> class with a given list of
+		/// <see cref="ZincAssignItem"/> elements.
+		/// </summary>
+		/// <param name="items">The list of initial <see cref="ZincAssignItem"/> instances.</param>
+		/// <remarks>
+		/// <para>Only the <see cref="IZincItem"/> are withold. The other items are simply ignored.</para>
+		/// </remarks>
+		public ZincData (IEnumerable<IZincItem> items) : this(items.OfType<ZincAssignItem> ()) {
+		}
+		#endregion
+		#region IWriteable implementation
+		/// <summary>
+		/// Write the specified writer.
+		/// </summary>
+		/// <param name="writer">Writer.</param>
 		public override void Write (TextWriter writer) {
 			foreach (ZincAssignItem item in this.assignItems) {
 				item.Write (writer);
 				writer.WriteLine (";");
 			}
 		}
-        #endregion
-
-        #region IZincIdentContainer implementation
-		public override IEnumerable<IZincIdent> InvolvedIdents () {
-			return this.assignItems.SelectMany (x => x.InvolvedIdents ());
-		}
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			for (int i = 0x00; i < this.assignItems.Count; i++) {
 				this.assignItems [i] = this.assignItems [i].Replace (identMap) as ZincAssignItem;
 			}
 			return this;
 		}
-        #endregion
-
+		#endregion
 		public void AddAssignItem (ZincAssignItem assignItem) {
 			if (assignItem != null) {
 				this.assignItems.Add (assignItem);
 			}
 		}
-
-        #region IZincFile implementation
+		#region IZincFile implementation
 		public override void AddItem (IZincItem item) {
 			if (item != null) {
 				switch (item.Type) {
@@ -94,15 +121,12 @@ namespace ZincOxide.MiniZinc.Items {
 				}
 			}
 		}
-        #endregion
-
-        #region ISoftValidateable implementation
+		#endregion
+		#region ISoftValidateable implementation
 		public override IEnumerable<string> SoftValidate () {
 			yield break;
 		}
-        #endregion
-
+		#endregion
 	}
-
 }
 

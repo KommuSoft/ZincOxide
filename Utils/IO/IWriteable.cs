@@ -22,10 +22,18 @@ using System.IO;
 
 namespace ZincOxide.Utils {
 
-    public interface IWriteable {
+	/// <summary>
+	/// An interface specifying that the content of the instance can be written to a stream or file.
+	/// </summary>
+	/// <remarks>
+	/// <para>The <see cref="ReadWriteableUtils"/> provides additional utility methods for <see cref="IWriteable"/> instances.</para>
+	/// </remarks>
+	public interface IWriteable {
 
-        void Write (TextWriter writer);
-
-    }
-
+		/// <summary>
+		/// Writes the data of this instance to the given <paramref name="writer"/>.
+		/// </summary>
+		/// <param name="writer">The given <see cref="TextWriter"/> to write the data to.</param>
+		void Write (TextWriter writer);
+	}
 }
