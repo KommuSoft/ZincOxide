@@ -27,44 +27,44 @@ namespace ZincOxide.MiniZinc.Structures {
 
 		protected ZincNumExpLiteralBase () {
 		}
-
-        #region IInnerSoftValidateable implementation
+		#region IInnerSoftValidateable implementation
 		public virtual IEnumerable<string> InnerSoftValidate () {
 			yield break;
 		}
-        #endregion
-
-        #region IValidateable implementation
+		#endregion
+		#region IValidateable implementation
 		public bool Validate () {
 			return ValidateableUtils.Validate (this);
 		}
-        #endregion
-
-        #region ISoftValidateable implementation
+		#endregion
+		#region ISoftValidateable implementation
 		public IEnumerable<string> SoftValidate () {
 			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
 		}
-        #endregion
-
-        #region IComposition implementation
+		#endregion
+		#region IComposition implementation
 		public virtual IEnumerable<IZincElement> Children () {
 			yield break;
 		}
-        #endregion
-
-        #region IZincIdentContainer implementation
+		#endregion
+		#region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:IEnumerable`1"/> containing the involved\
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
 		public virtual IEnumerable<IZincIdent> InvolvedIdents () {
 			yield break;
 		}
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		public virtual IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			return this;
 		}
-        #endregion
-
+		#endregion
 	}
-
 }
 

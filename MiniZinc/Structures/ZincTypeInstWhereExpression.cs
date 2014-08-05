@@ -18,7 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Boxes;
@@ -28,17 +27,13 @@ namespace ZincOxide.MiniZinc.Structures {
 
 	public class ZincTypeInstWhereExpression : ZincExIdBoxBase, IZincTypeInstExpression {
 		private ZincTypeInstWhereExpression header;
-
 		#region IFinite implementation
-
 		public bool Finite {
 			get {
 				return false;//TODO
 			}
 		}
-
 		#endregion
-
 		public bool IsSubType (IZincType type) {
 			//TODO
 			throw new NotImplementedException ();
@@ -74,6 +69,14 @@ namespace ZincOxide.MiniZinc.Structures {
 			return string.Format ("( {0} : {1} where {2} )", this.Header, this.Ident, this.Expression);
 		}
 
+		/// <summary>
+		/// Returns a <see cref="T:IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:IEnumerable`1"/> containing the involved\
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
 		public override IEnumerable<IZincIdent> InvolvedIdents () {
 			return EnumerableUtils.Append (this.Header.InvolvedIdents (), base.InvolvedIdents (), this.Expression.InvolvedIdents ());
 		}

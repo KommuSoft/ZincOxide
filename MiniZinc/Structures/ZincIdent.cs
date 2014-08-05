@@ -24,10 +24,19 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
+	/// <summary>
+	/// An implementation of the <see cref="IZincIdent"/> interface.
+	/// </summary>
 	public class ZincIdent : NameIdBase, IZincIdent {
 
+		#region Fields
 		private ZincIdentUsage usage;
-
+		#endregion
+		#region IZincIdent implementation
+		/// <summary>
+		/// Gets or sets the usage of the identifier (used as a hint for the compiler).
+		/// </summary>
+		/// <value>A <see cref="ZincIdentUsage"/> value describing the use of the identifier.</value>
 		public ZincIdentUsage Usage {
 			get {
 				return this.usage;
@@ -36,17 +45,31 @@ namespace ZincOxide.MiniZinc.Structures {
 				this.usage = value;
 			}
 		}
-
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincIdent"/> class with the name and optionally the usage of
+		/// the identifier.
+		/// </summary>
+		/// <param name="name">The name associated with the <see cref="ZincIdent"/>.</param>
+		/// <param name="usage">The usage of the identifer, optional, by default <see cref="ZincIdentUsage.Unknown"/>.</param>
 		public ZincIdent (string name, ZincIdentUsage usage = ZincIdentUsage.Unknown) : base(name) {
 			this.Usage = usage;
 		}
-
-        #region IZincIdentContainer implementation
+		#endregion
+		#region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:IEnumerable`1"/> containing the involved\
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
 		public IEnumerable<IZincIdent> InvolvedIdents () {
 			yield return this;
 		}
-        #endregion
-
+		#endregion
 		#region IZincIdentReplaceContainer implementation
 		public IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			IZincIdent outp;
@@ -57,46 +80,40 @@ namespace ZincOxide.MiniZinc.Structures {
 			}
 		}
 		#endregion
-
+		#region IBindToString implementation
+		/// <summary>
+		/// Generate a string that contains the content of the instances together with an identifier or a memory address.
+		/// </summary>
+		/// <returns>A string containing both the data and identifier of the instance.</returns>
+		/// <remarks>
+		/// <para>The format is <c>name&amp;id</c>.</para>
+		/// </remarks>
 		public string ToBindString () {
 			return string.Format ("{0}&{1}", this.Name, this.Id);
 		}
-
-        #region IInnerSoftValidateable implementation
+		#endregion
+		#region IInnerSoftValidateable implementation
 		public IEnumerable<string> InnerSoftValidate () {
 			yield break;
 		}
-        #endregion
-
-        #region IValidateable implementation
+		#endregion
+		#region IValidateable implementation
 		public bool Validate () {
 			return ValidateableUtils.Validate (this);
 		}
-        #endregion
-
-        #region ISoftValidateable implementation
+		#endregion
+		#region ISoftValidateable implementation
 		public IEnumerable<string> SoftValidate () {
 			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
 		}
-        #endregion
-
-        #region IComposition implementation
+		#endregion
+		#region IComposition implementation
+		/// <summary>
+		/// Enumerate the children of this instance. This is done in a hierarchical manner.
+		/// </summary>
 		public IEnumerable<IZincElement> Children () {
 			yield break;
 		}
-        #endregion
-
-
-
-
-
-
-
-
-
-
-
-
+		#endregion
 	}
-
 }

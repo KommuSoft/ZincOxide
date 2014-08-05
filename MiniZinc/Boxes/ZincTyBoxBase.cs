@@ -30,8 +30,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 	public class ZincTyBoxBase : ZincBoxBase, IZincTyBox {
 
 		private IZincType type;
-
-        #region IZincTyBox implementation
+		#region IZincTyBox implementation
 		/// <summary>
 		/// Gets the <see cref="IZincType"/> instance stored in the <see cref="IZincTyBox"/>.
 		/// </summary>
@@ -46,8 +45,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 				this.type = value;
 			}
 		}
-        #endregion
-
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincTyBoxBase"/> class with an initial
@@ -60,26 +58,20 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.type = type;
 		}
 		#endregion
-
-        #region IZincIdentContainer implementation
+		#region IZincIdentContainer implementation
 		/// <summary>
-		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// Returns a <see cref="T:IEnumerable`1"/> containing the involved
 		/// <see cref="IZincIdent"/> instances of the container.
 		/// </summary>
-		/// <param name='identMap'>
-		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
-		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
-		/// </param>
 		/// <returns>
-		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// A <see cref="T:IEnumerable`1"/> containing the involved\
 		/// <see cref="IZincIdent"/> instances of the container.
 		/// </returns>
 		public override IEnumerable<IZincIdent> InvolvedIdents () {
 			return this.type.InvolvedIdents ();
 		}
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		/// <summary>
 		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
 		/// stored as keys to the corresponding values and returns this instance.
@@ -91,8 +83,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.type = this.type.Replace (identMap) as IZincType;
 			return this;
 		}
-        #endregion
-
+		#endregion
 		#region IComposition implementation
 		/// <summary>
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
@@ -106,8 +97,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 			yield return this.type;
 		}
 		#endregion
-
 	}
-
 }
 

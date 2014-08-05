@@ -35,20 +35,25 @@ namespace ZincOxide.MiniZinc.Structures {
 		public override string ToString () {
 			return string.Format (":: {0}", string.Join (" :: ", this));
 		}
-
-        #region IWriteable implementation
+		#region IWriteable implementation
 		public void Write (TextWriter writer) {
 			writer.Write (this.ToString ());
 		}
-        #endregion
-
-        #region IZincIdentContainer implementation
+		#endregion
+		#region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:IEnumerable`1"/> containing the involved\
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
 		public IEnumerable<IZincIdent> InvolvedIdents () {
 			return this.SelectMany (x => x.InvolvedIdents ());
 		}
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		public IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			LinkedListNode<IZincAnnotation> node = this.First;
 			while (node != null) {
@@ -57,32 +62,27 @@ namespace ZincOxide.MiniZinc.Structures {
 			}
 			return this;
 		}
-        #endregion
-
-        #region IInnerSoftValidateable implementation
+		#endregion
+		#region IInnerSoftValidateable implementation
 		public IEnumerable<string> InnerSoftValidate () {
 			throw new System.NotImplementedException ();
 		}
-        #endregion
-
-        #region IValidateable implementation
+		#endregion
+		#region IValidateable implementation
 		public bool Validate () {
 			throw new System.NotImplementedException ();
 		}
-        #endregion
-
-        #region ISoftValidateable implementation
+		#endregion
+		#region ISoftValidateable implementation
 		public IEnumerable<string> SoftValidate () {
 			throw new System.NotImplementedException ();
 		}
-        #endregion
-
-        #region IComposition implementation
+		#endregion
+		#region IComposition implementation
 		public IEnumerable<IZincElement> Children () {
 			throw new System.NotImplementedException ();
 		}
-        #endregion
-
+		#endregion
 	}
 }
 

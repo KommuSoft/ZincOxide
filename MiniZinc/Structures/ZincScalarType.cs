@@ -32,16 +32,14 @@ namespace ZincOxide.MiniZinc.Structures {
 				return this.scalar;
 			}
 		}
-
-        #region IFinite implementation
+		#region IFinite implementation
 		public bool Finite {
 			get {
 				return this.Scalar == ZincScalar.Bool;
 			}
 		}
-        #endregion
-
-        #region IZincType implementation
+		#endregion
+		#region IZincType implementation
 		public bool Compounded {
 			get {
 				return false;
@@ -53,8 +51,7 @@ namespace ZincOxide.MiniZinc.Structures {
 				return this.scalar;
 			}
 		}
-        #endregion
-
+		#endregion
 		public ZincScalarType (ZincScalar scalar) {
 			this.scalar = scalar;
 		}
@@ -78,52 +75,48 @@ namespace ZincOxide.MiniZinc.Structures {
 			}
 			return false;
 		}
-
-        #region IZincIdentContainer implementation
+		#region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:IEnumerable`1"/> containing the involved\
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
 		public IEnumerable<IZincIdent> InvolvedIdents () {
 			yield break;
 		}
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		public IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			return this;
 		}
-        #endregion
-
-        
-
-        #region IInnerSoftValidateable implementation
+		#endregion
+		#region IInnerSoftValidateable implementation
 		public IEnumerable<string> InnerSoftValidate () {
 			return EnumerableUtils.Empty<string> ();
 		}
-        #endregion
-
-        #region IValidateable implementation
+		#endregion
+		#region IValidateable implementation
 		public bool Validate () {
 			return false;
 		}
-        #endregion
-
-        #region ISoftValidateable implementation
+		#endregion
+		#region ISoftValidateable implementation
 		public IEnumerable<string> SoftValidate () {
 			return EnumerableUtils.Empty<string> ();
 		}
-        #endregion
-
-        #region IComposition implementation
+		#endregion
+		#region IComposition implementation
 		public IEnumerable<IZincElement> Children () {
 			return EnumerableUtils.Empty<IZincElement> ();
 		}
-        #endregion
-
-        #region IZincType implementation
+		#endregion
+		#region IZincType implementation
 		public bool IsSubType (IZincType type) {
 			return (!type.Compounded && type.ScalarType == this.ScalarType);
 		}
-        #endregion
-
-
+		#endregion
 	}
-
 }
