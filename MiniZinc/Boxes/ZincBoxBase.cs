@@ -37,18 +37,16 @@ namespace ZincOxide.MiniZinc.Boxes {
 		protected ZincBoxBase () {
 		}
 		#endregion
-
-        #region IValidateable implementation
+		#region IValidateable implementation
 		/// <summary>
-		/// Validate this instance. In case the <see cref="SoftValidate"/> method
-		/// returns one or more items, the object is considered to be invalid.
+		/// Checks if the given instance is valid.
 		/// </summary>
-		public virtual bool Validate () {
+		/// <returns>True if the instance is valid, otherwise false.</returns>
+		public virtual bool Validate () {//TODO: document
 			return ValidateableUtils.Validate (this);
 		}
-        #endregion
-
-        #region ISoftValidateable implementation
+		#endregion
+		#region ISoftValidateable implementation
 		/// <summary>
 		/// Softs the validate.
 		/// </summary>
@@ -58,9 +56,8 @@ namespace ZincOxide.MiniZinc.Boxes {
 		public virtual IEnumerable<string> SoftValidate () {
 			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
 		}
-        #endregion
-
-        #region IComposition implementation
+		#endregion
+		#region IComposition implementation
 		/// <summary>
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
 		/// this <see cref="IZincElement"/>.
@@ -70,9 +67,8 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
 		/// </returns>
 		public abstract IEnumerable<IZincElement> Children ();
-        #endregion
-
-        #region IZincBox implementation
+		#endregion
+		#region IZincBox implementation
 		/// <summary>
 		/// Gets an <see cref="T:System.Collections.Generic.IEnumerable`1"/> with error messages.
 		/// </summary>
@@ -85,9 +81,8 @@ namespace ZincOxide.MiniZinc.Boxes {
 		public virtual IEnumerable<string> InnerSoftValidate () {
 			yield break;
 		}
-        #endregion
-
-        #region IZincIdentContainer implementation
+		#endregion
+		#region IZincIdentContainer implementation
 		/// <summary>
 		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the
 		/// involved <see cref="IZincIdent"/> instances of the container.
@@ -97,9 +92,8 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// <see cref="IZincIdent"/> instances of the container.
 		/// </returns>
 		public abstract IEnumerable<IZincIdent> InvolvedIdents ();
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		/// <summary>
 		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
 		/// stored as keys to the corresponding values and returns this instance.
@@ -114,8 +108,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 		public virtual IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			return this;
 		}
-        #endregion
-
+		#endregion
 	}
-
 }

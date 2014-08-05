@@ -107,6 +107,13 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 		#endregion
 		#region IValidateable implementation
+		/// <summary>
+		/// Checks if the given instance is valid.
+		/// </summary>
+		/// <returns>True if the instance is valid, otherwise false.</returns>
+		/// <remarks>
+		/// <para>An ident is valid if the name matches the identifier guidlines.</para>
+		/// </remarks>
 		public bool Validate () {
 			return ValidateableUtils.Validate (this);
 		}

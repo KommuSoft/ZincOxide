@@ -99,7 +99,11 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 		#endregion
 		#region IValidateable implementation
-		public bool Validate () {
+		/// <summary>
+		/// Checks if the given instance is valid.
+		/// </summary>
+		/// <returns>True if the instance is valid, otherwise false.</returns>
+		public bool Validate () {//TODO: document
 			return false;
 		}
 		#endregion

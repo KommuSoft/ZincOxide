@@ -35,7 +35,11 @@ namespace ZincOxide.MiniZinc.Items {
 		protected ZincFileBase (ZincIdentNameRegister nameRegister = null) : base(nameRegister) {
 		}
 		#region IValidateable implementation
-		public bool Validate () {
+		/// <summary>
+		/// Checks if the given instance is valid.
+		/// </summary>
+		/// <returns>True if the instance is valid, otherwise false.</returns>
+		public bool Validate () {//TODO document
 			return ValidateableUtils.Validate (this);
 		}
 		#endregion
