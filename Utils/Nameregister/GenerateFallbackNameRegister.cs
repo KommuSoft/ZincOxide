@@ -28,6 +28,9 @@ namespace ZincOxide.Utils.Nameregister {
 	/// A name register that provides a generator and supports the use of a fallback mechanism: a mechanism
 	/// used to search for the identifier if not stored in this register.
 	/// </summary>
+	/// <typeparam name='T'>
+	/// The type of element generated/stored by the name register.
+	/// </typeparam>
 	public class GenerateFallbackNameRegister<T> : FallbackNameRegister<T>, IGenerateFallbackNameRegister<T> where T : IName {
 
 		#region Fields

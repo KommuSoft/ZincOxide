@@ -29,5 +29,8 @@ namespace ZincOxide.Utils.Nameregister {
 	/// <param name="name">The name looked for by the <see cref="T:IFallbackNameRegister`1"/></param>.
 	/// <returns>The value corresponding to the given name who was looked for by the <see cref="T:IFallbackNameRegister`1"/></returns>
 	/// <exception cref="ZincOxideNameNotFoundException">In case the fallback mechanism fails as well.</exception>
+	/// <typeparam name='T'>
+	/// The type of element generated/stored by the name register.
+	/// </typeparam>
 	public delegate T DNameRegisterFallback<T> (string name) where T : IName;
 }

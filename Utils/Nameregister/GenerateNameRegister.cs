@@ -28,6 +28,9 @@ namespace ZincOxide.Utils.Nameregister {
 	/// An implementation of the <see cref="T:IGenerateNameRegister`1"/> interface: a nameregister with an attached
 	/// generator function.
 	/// </summary>
+	/// <typeparam name='T'>
+	/// The type of element generated/stored by the name register.
+	/// </typeparam>
 	public class GenerateNameRegister<T> : NameRegister<T>, IGenerateNameRegister<T> where T : IName {
 
 		#region Fields

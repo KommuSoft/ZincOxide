@@ -22,11 +22,24 @@ using ZincOxide.Utils.Nameregister;
 
 namespace ZincOxide.MiniZinc.Structures {
 
+	/// <summary>
+	/// A basic implementation of the <see cref="IZincIdentScope"/> interface: a scope where identifiers are defined
+	/// and where identifiers should be binded to the appropriate identifier.
+	/// </summary>
 	public abstract class ZincIdentScopeBase : IZincIdentScope {
 
+		#region Fields
+		/// <summary>
+		/// The name registers that stores the defined identifiers in the scope.
+		/// </summary>
 		private ZincIdentNameRegister nameRegister;
-
-        #region IFallbackNameRegister implementation
+		#endregion
+		#region IFallbackNameRegister implementation
+		/// <summary>
+		/// Gets the function used to retrieve an identifier if such identifier is not stored in this scope. Basically
+		/// the register of the level above is used.
+		/// </summary>
+		/// <value>The function used to retrieve an identifier if such identifier is not stored in this scope.</value>
 		public DNameRegisterFallback<ZincIdent> Fallback {
 			get {
 				if (this.nameRegister != null) {
@@ -36,21 +49,18 @@ namespace ZincOxide.MiniZinc.Structures {
 				}
 			}
 		}
-        #endregion
-
-        #region IZincIdentScope implementation
+		#endregion
+		#region IZincIdentScope implementation
 		public ZincIdentNameRegister NameRegister {
 			get {
 				return this.nameRegister;
 			}
 		}
-        #endregion
-
+		#endregion
 		protected ZincIdentScopeBase (ZincIdentNameRegister nameRegister = null) {
 			this.nameRegister = nameRegister;
 		}
-
-        #region INameRegister implementation
+		#region INameRegister implementation
 		public void Register (ZincIdent value) {
 			this.nameRegister.Register (value);
 		}
@@ -62,9 +72,11 @@ namespace ZincOxide.MiniZinc.Structures {
 		public ZincIdent Lookup (string name) {
 			return this.nameRegister.Lookup (name);
 		}
-        #endregion
 
+		public void CloseScope () {
+			throw new System.NotImplementedException ();
+		}
+		#endregion
 	}
-
 }
 

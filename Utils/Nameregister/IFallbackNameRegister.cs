@@ -18,17 +18,21 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Utils.Nameregister {
 
+	/// <summary>
+	/// An interface specifying a name register with a fallback mechanism.
+	/// </summary>
+	/// <typeparam name='T'>
+	/// The type of element generated/stored by the name register.
+	/// </typeparam>
 	public interface IFallbackNameRegister<T> : INameRegister<T> where T : IName {
 
 		DNameRegisterFallback<T> Fallback {
 			get;
 		}
-
 	}
 }
 

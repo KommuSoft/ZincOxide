@@ -27,6 +27,9 @@ namespace ZincOxide.Utils.Nameregister {
 	/// A <see cref="T:INameRegister`1"/> with an attached generator: a function that generates an instance
 	/// and adds it to the register in case a lookup operation fails.
 	/// </summary>
+	/// <typeparam name='T'>
+	/// The type of element generated/stored by the name register.
+	/// </typeparam>
 	public interface IGenerateNameRegister<T> : INameRegister<T> where T : IName {
 		
 		/// <summary>
