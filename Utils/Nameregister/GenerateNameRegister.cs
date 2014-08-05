@@ -24,11 +24,21 @@ using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Utils.Nameregister {
 
+	/// <summary>
+	/// An implementation of the <see cref="T:IGenerateNameRegister`1"/> interface: a nameregister with an attached
+	/// generator function.
+	/// </summary>
 	public class GenerateNameRegister<T> : NameRegister<T>, IGenerateNameRegister<T> where T : IName {
 
+		#region Fields
 		private Func<string,T> generator;
-
-        #region IGenerateNameRegister implementation
+		#endregion
+		#region IGenerateNameRegister implementation
+		/// <summary>
+		/// Gets or sets the generator that generates new instances for the register.
+		/// </summary>
+		/// <value>The generator used to generate new instance to store in this
+		/// <see cref="T:GenerateFallbackNameRegister`1"/>.</value>
 		public Func<string,T> Generator {
 			get {
 				return this.generator;
@@ -37,12 +47,22 @@ namespace ZincOxide.Utils.Nameregister {
 				this.generator = value;
 			}
 		}
-        #endregion
-
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:GenerateNameRegister`1"/> class with an intial generator function.
+		/// </summary>
+		/// <param name="generator">The function that generates a new instance in case a lookup fails.</param>
 		public GenerateNameRegister (Func<string,T> generator) {
 			this.Generator = generator;
 		}
-
+		#endregion
+		#region NameRegister override
+		/// <summary>
+		/// Looks up the given name in the name register. If the register contains an object with the given name, the
+		/// object is returned. Otherwise the object is generated, stored in register and returned.
+		/// </summary>
+		/// <param name="name">The specified key to lookup.</param>
 		public override T Lookup (string name) {
 			T val;
 			try {
@@ -53,7 +73,7 @@ namespace ZincOxide.Utils.Nameregister {
 				return val;
 			}
 		}
-
+		#endregion
 	}
 }
 

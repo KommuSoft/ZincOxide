@@ -24,11 +24,24 @@ using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Utils.Nameregister {
 
+	/// <summary>
+	/// A name register that provides a generator and supports the use of a fallback mechanism: a mechanism
+	/// used to search for the identifier if not stored in this register.
+	/// </summary>
 	public class GenerateFallbackNameRegister<T> : FallbackNameRegister<T>, IGenerateFallbackNameRegister<T> where T : IName {
 
+		#region Fields
+		/// <summary>
+		/// The generator function used to generate a new instance.
+		/// </summary>
 		private Func<string,T> generator;
-
-        #region IGenerateNameRegister implementation
+		#endregion
+		#region IGenerateNameRegister implementation
+		/// <summary>
+		/// Gets or sets the generator that generates new instances for the register.
+		/// </summary>
+		/// <value>The generator used to generate new instance to store in this
+		/// <see cref="T:GenerateFallbackNameRegister`1"/>.</value>
 		public Func<string,T> Generator {
 			get {
 				return this.generator;
@@ -37,12 +50,38 @@ namespace ZincOxide.Utils.Nameregister {
 				this.generator = value;
 			}
 		}
-        #endregion
-
-		public GenerateFallbackNameRegister (DNameRegisterFallback<T> fallback, Func<string,T> generator) : base(fallback) {
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:GenerateFallbackNameRegister`1"/> class with a given
+		/// intial generator.
+		/// </summary>
+		/// <param name="generator">The given intial generator function.</param>
+		/// <remarks>
+		/// <para>The system is initialized without fallback mechanism, no fallback will be executed.</para>
+		/// </remarks>
+		public GenerateFallbackNameRegister (Func<string,T> generator) : base(null) {
 			this.Generator = generator;
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:GenerateFallbackNameRegister`1"/> class with a given
+		/// fallback mechanism and generator function.
+		/// </summary>
+		/// <param name="fallback">The fallback mechanism that must be used before the system aims to
+		/// generate a new instance.</param>
+		/// <param name="generator">The generator, that must generate new instances .</param>
+		public GenerateFallbackNameRegister (DNameRegisterFallback<T> fallback, Func<string,T> generator) : base(fallback) {
+			this.Generator = generator;
+		}
+		#endregion
+		#region FallbackNameRegister override
+		/// <summary>
+		/// Looks up the given name in the name register. If the register contains an object with the given name, the
+		/// object is returned. Otherwise the object is generated using the fallback mechanism, stored in register and
+		/// returned.
+		/// </summary>
+		/// <param name="name">The specified key to lookup.</param>
 		public override T Lookup (string name) {
 			T val;
 			try {
@@ -53,7 +92,6 @@ namespace ZincOxide.Utils.Nameregister {
 				return val;
 			}
 		}
-
+		#endregion
 	}
-
 }

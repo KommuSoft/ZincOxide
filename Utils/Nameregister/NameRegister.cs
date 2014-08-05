@@ -18,7 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System.Collections.Generic;
 using ZincOxide.Exceptions;
 using ZincOxide.Utils.Abstract;
@@ -28,8 +27,7 @@ namespace ZincOxide.Utils.Nameregister {
 	public class NameRegister<T> : INameRegister<T> where T : IName {
 
 		private readonly Dictionary<string,T> dictionary = new Dictionary<string, T> ();
-
-        #region INameRegister implementation
+		#region INameRegister implementation
 		public void Register (T value) {
 			if (value != null) {
 				string key = value.Name;
@@ -39,10 +37,20 @@ namespace ZincOxide.Utils.Nameregister {
 			}
 		}
 
+		/// <summary>
+		/// Checks if the name register contains the given key.
+		/// </summary>
+		/// <param name="name">The specified key.</param>
 		public virtual bool Contains (string name) {
 			return (this.dictionary.ContainsKey (name));
 		}
 
+		/// <summary>
+		/// Looks up the given name in the name register. If the register contains an object with the given name, the
+		/// object is returned. Otherwise the object is generated using the fallback mechanism, stored in register and
+		/// returned.
+		/// </summary>
+		/// <param name="name">The specified key to lookup.</param>
 		public virtual T Lookup (string name) {
 			T val;
 			if (this.dictionary.TryGetValue (name, out val)) {
@@ -51,8 +59,7 @@ namespace ZincOxide.Utils.Nameregister {
 				throw new ZincOxideNameNotFoundException ("Name \"{0}\" not found in the name register.", name);
 			}
 		}
-        #endregion
-
+		#endregion
 	}
 }
 

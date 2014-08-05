@@ -18,19 +18,25 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Utils.Nameregister {
 
+	/// <summary>
+	/// A <see cref="T:INameRegister`1"/> with an attached generator: a function that generates an instance
+	/// and adds it to the register in case a lookup operation fails.
+	/// </summary>
 	public interface IGenerateNameRegister<T> : INameRegister<T> where T : IName {
-
+		
+		/// <summary>
+		/// Gets or sets the generator that generates new instances for the register.
+		/// </summary>
+		/// <value>The generator used to generate new instance to store in this
+		/// <see cref="T:GenerateFallbackNameRegister`1"/>.</value>
 		Func<string,T> Generator {
 			get;
 		}
-
 	}
-
 }
 

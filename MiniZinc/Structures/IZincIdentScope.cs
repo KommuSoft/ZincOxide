@@ -23,12 +23,19 @@ using ZincOxide.Utils.Nameregister;
 
 namespace ZincOxide.MiniZinc.Structures {
 
+	/// <summary>
+	/// An interface specifying that this instance is an object that scopes <see cref="IZincIdent"/> instances.
+	/// A scope contains a name register (with fallback mechanism to the parent scope).
+	/// </summary>
 	public interface IZincIdentScope : IFallbackNameRegister<ZincIdent> {
 
+		/// <summary>
+		/// Gets the name register associated with the scope. It stores the identifiers defined in the scope and is used
+		/// to bind/cut identifiers.
+		/// </summary>
+		/// <value>The name register associated with the scope.</value>
 		ZincIdentNameRegister NameRegister {
 			get;
 		}
-
 	}
-
 }

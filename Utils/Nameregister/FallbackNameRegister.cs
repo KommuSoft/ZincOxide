@@ -18,7 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using ZincOxide.Exceptions;
 using ZincOxide.Utils.Abstract;
 
@@ -28,6 +27,8 @@ namespace ZincOxide.Utils.Nameregister {
 	/// A name register with a fallback function that generates an object for a given name.
 	/// </summary>
 	public class FallbackNameRegister<T> : NameRegister<T>, IFallbackNameRegister<T> where T : IName {
+
+		#region IFallbackNameRegister`1 implementation
 		/// <summary>
 		/// The function that given the name register doesn't contain a key, generates an object that is stored in the name register.
 		/// </summary>
@@ -36,15 +37,21 @@ namespace ZincOxide.Utils.Nameregister {
 			get;
 			protected set;
 		}
-
+		#endregion
+		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincOxide.Utils.FallbackNameRegister{T}"/> class with a specified fallback mechanism.
+		/// Initializes a new instance of the <see cref="T:FallbackNameRegister`1"/> class with a specified fallback mechanism.
 		/// </summary>
-		/// <param name="fallback">A function that generates an object when a specific name cannot be found.</param>
-		public FallbackNameRegister (DNameRegisterFallback<T> fallback) {
+		/// <param name="fallback">A function that generates an object when a specific name cannot be found, optional, by
+		/// default <c>null</c> (no fallback).</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="fallback"/> is not effective, no fallback mechanism is used.</para>
+		/// </remarks>
+		public FallbackNameRegister (DNameRegisterFallback<T> fallback = null) {
 			this.Fallback = fallback;
 		}
-
+		#endregion
+		#region NameRegister`1 override
 		/// <summary>
 		/// Checks if the name register contains the given key.
 		/// </summary>
@@ -52,8 +59,12 @@ namespace ZincOxide.Utils.Nameregister {
 		public override bool Contains (string name) {
 			if (!base.Contains (name)) {
 				try {
-					this.Fallback (name);
-					return true;
+					if (this.Fallback != null) {
+						this.Fallback (name);
+						return true;
+					} else {
+						return false;
+					}
 				} catch (ZincOxideNameNotFoundException) {
 					return false;
 				}
@@ -71,9 +82,14 @@ namespace ZincOxide.Utils.Nameregister {
 			try {
 				return base.Lookup (name);
 			} catch (ZincOxideNameNotFoundException) {
-				return this.Fallback (name);
+				if (this.Fallback != null) {
+					return this.Fallback (name);
+				} else {
+					throw;
+				}
 			}
 		}
+		#endregion
 	}
 }
 
