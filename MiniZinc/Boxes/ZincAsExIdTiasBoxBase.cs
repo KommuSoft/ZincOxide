@@ -34,8 +34,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 
 		private IZincAnnotations annotations;
 		private IList<IZincTypeInstExprAndIdent> typeInstExpressions;
-
-        #region IZincAsBox implementation
+		#region IZincAsBox implementation
 		/// <summary>
 		/// Gets the <see cref="IZincAnnotations"/> instance stored in the <see cref="IZincBox"/>.
 		/// </summary>
@@ -50,9 +49,8 @@ namespace ZincOxide.MiniZinc.Boxes {
 				this.annotations = value;
 			}
 		}
-        #endregion
-
-        #region IZincTiasBox implementation
+		#endregion
+		#region IZincTiasBox implementation
 		/// <summary>
 		/// Gets the <see cref="T:System.Collection.Generic.IList`1"/> with <see cref="IZincTypeInstExprAndIdent"/>
 		/// instances stored in the <see cref="IZincTiasBox"/>.
@@ -69,8 +67,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 				this.typeInstExpressions = value;
 			}
 		}
-        #endregion
-
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincAsExIdTiasBoxBase"/> class
@@ -152,21 +149,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 		protected ZincAsExIdTiasBoxBase (IZincAnnotations anns, IZincExp expr, IZincIdent id, IEnumerable<IZincTypeInstExprAndIdent> tias) : this(anns,expr,id,(IList<IZincTypeInstExprAndIdent>)tias.ToArray()) {
 		}
 		#endregion
-
-		#region IZincIdentContainer implementation
-		/// <summary>
-		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the
-		/// involved <see cref="IZincIdent"/> instances of the container.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </returns>
-		public override IEnumerable<IZincIdent> InvolvedIdents () {
-			return EnumerableUtils.Append (base.InvolvedIdents (), this.annotations.InvolvedIdents (), this.typeInstExpressions.SelectMany (x => x.InvolvedIdents ()));
-		}
-		#endregion
-
 		#region IZincIdentReplaceContainer implementation
 		/// <summary>
 		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
@@ -188,7 +170,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 			return base.Replace (identMap);
 		}
 		#endregion
-
 		#region IComposition implementation
 		/// <summary>
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
@@ -202,7 +183,5 @@ namespace ZincOxide.MiniZinc.Boxes {
 			return EnumerableUtils.Append (this.annotations, this.typeInstExpressions, base.Children ());
 		}
 		#endregion
-
 	}
-
 }

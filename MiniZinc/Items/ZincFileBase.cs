@@ -49,23 +49,6 @@ namespace ZincOxide.MiniZinc.Items {
 		#region IWriteable implementation
 		public abstract void Write (TextWriter writer);
 		#endregion
-		#region IZincIdentContainer implementation
-		/// <summary>
-		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved\
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </returns>
-		public virtual IEnumerable<IZincIdent> InvolvedIdents () {
-			foreach (IZincItem item in this.Items) {
-				foreach (IZincIdent ident in item.InvolvedIdents()) {
-					yield return ident;
-				}
-			}
-		}
-		#endregion
 		#region IZincIdentReplaceContainer implementation
 		public abstract IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap);
 		#endregion

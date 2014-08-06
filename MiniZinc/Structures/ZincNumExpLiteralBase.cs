@@ -51,19 +51,6 @@ namespace ZincOxide.MiniZinc.Structures {
 			yield break;
 		}
 		#endregion
-		#region IZincIdentContainer implementation
-		/// <summary>
-		/// Returns a <see cref="T:IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:IEnumerable`1"/> containing the involved\
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </returns>
-		public virtual IEnumerable<IZincIdent> InvolvedIdents () {
-			yield break;
-		}
-		#endregion
 		#region IZincIdentReplaceContainer implementation
 		/// <summary>
 		/// Replaces all the instances stored in the given <see cref="T:IDictionary`1"/>

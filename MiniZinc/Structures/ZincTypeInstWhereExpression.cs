@@ -69,18 +69,6 @@ namespace ZincOxide.MiniZinc.Structures {
 			return string.Format ("( {0} : {1} where {2} )", this.Header, this.Ident, this.Expression);
 		}
 
-		/// <summary>
-		/// Returns a <see cref="T:IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:IEnumerable`1"/> containing the involved\
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </returns>
-		public override IEnumerable<IZincIdent> InvolvedIdents () {
-			return EnumerableUtils.Append (this.Header.InvolvedIdents (), base.InvolvedIdents (), this.Expression.InvolvedIdents ());
-		}
-
 		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent,IZincIdent> identMap) {
 			this.header = this.header.Replace (identMap) as ZincTypeInstWhereExpression;
 			this.Expression = this.Expression.Replace (identMap) as IZincExp;
