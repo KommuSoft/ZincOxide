@@ -22,12 +22,29 @@ using System;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public enum ZincIdentUsage : byte {
-        Unknown         = 0x00,
-        GlobalVariable  = 0x01,
-        LocalVariable   = 0x02,
-        Function        = 0x03,
-        Annotation      = 0x04
-    }
-
+	/// <summary>
+	/// An enum that provides a hint for the use of the identifier.
+	/// </summary>
+	public enum ZincIdentUsage : byte {
+		/// <summary>
+		/// The use of the identifier is unknown.
+		/// </summary>
+		Unknown = 0x00,
+		/// <summary>
+		/// The identifier is a global variable.
+		/// </summary>
+		GlobalVariable = 0x01,
+		/// <summary>
+		/// The identifier is a local variable.
+		/// </summary>
+		LocalVariable = 0x02,
+		/// <summary>
+		/// The identifier is a function/predicate.
+		/// </summary>
+		Function = 0x03,
+		/// <summary>
+		/// The identifier is an annotation.
+		/// </summary>
+		Annotation = 0x04
+	}
 }
