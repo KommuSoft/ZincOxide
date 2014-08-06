@@ -232,6 +232,7 @@
     <Compile Include="Representation\AbstractRepresentation.cs" />
     <Compile Include="Representation\AbstractConstraint.cs" />
     <Compile Include="Utils\IBindToString.cs" />
+    <Compile Include="Utils\Designpatterns\ICompositionUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

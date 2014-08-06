@@ -24,10 +24,25 @@ using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Utils.Nameregister {
 
+	/// <summary>
+	/// A basic implementation of the <see cref="T:INameRegister`1"/> interface.
+	/// </summary>
+	/// <typeparam name='T'>
+	/// The type of element generated/stored by the name register.
+	/// </typeparam>
 	public class NameRegister<T> : INameRegister<T> where T : IName {
 
+		#region Fields
+		/// <summary>
+		/// The dictionary used to store and retrieve values.
+		/// </summary>
 		private readonly Dictionary<string,T> dictionary = new Dictionary<string, T> ();
+		#endregion
 		#region INameRegister implementation
+		/// <summary>
+		/// Register the given <paramref name="value"/> in the register such that the instance can be looked up later.
+		/// </summary>
+		/// <param name="value">The given value to register.</param>
 		public void Register (T value) {
 			if (value != null) {
 				string key = value.Name;

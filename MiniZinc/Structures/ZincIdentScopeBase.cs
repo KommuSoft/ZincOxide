@@ -51,6 +51,11 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 		#endregion
 		#region IZincIdentScope implementation
+		/// <summary>
+		/// Gets the name register associated with the scope. It stores the identifiers defined in the scope and is used
+		/// to bind/cut identifiers.
+		/// </summary>
+		/// <value>The name register associated with the scope.</value>
 		public ZincIdentNameRegister NameRegister {
 			get {
 				return this.nameRegister;

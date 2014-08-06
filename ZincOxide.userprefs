@@ -1,9 +1,18 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Structures/IZincIdentScope.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Nameregister/NameRegister.cs">
     <Files>
-      <File FileName="MiniZinc/Structures/IZincIdentScope.cs" Line="46" Column="89" />
-      <File FileName="MiniZinc/Structures/ZincIdentScopeBase.cs" Line="25" Column="24" />
+      <File FileName="MiniZinc/Structures/IZincIdentScope.cs" Line="30" Column="45" />
+      <File FileName="MiniZinc/Structures/ZincIdentScopeBase.cs" Line="64" Column="13" />
+      <File FileName="Utils/Nameregister/IFallbackNameRegister.cs" Line="30" Column="18" />
+      <File FileName="Utils/Nameregister/IGenerateFallbackNameRegister.cs" Line="26" Column="108" />
+      <File FileName="Utils/Nameregister/FallbackNameRegister.cs" Line="31" Column="18" />
+      <File FileName="Utils/Nameregister/DNameRegisterFallback.cs" Line="34" Column="18" />
+      <File FileName="Utils/Nameregister/GenerateFallbackNameRegister.cs" Line="33" Column="18" />
+      <File FileName="Utils/Nameregister/GenerateNameRegister.cs" Line="33" Column="18" />
+      <File FileName="Utils/Nameregister/IGenerateNameRegister.cs" Line="32" Column="18" />
+      <File FileName="Utils/Nameregister/NameRegister.cs" Line="37" Column="56" />
+      <File FileName="Utils/Nameregister/INameRegister.cs" Line="28" Column="16" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,15 +21,15 @@
             <Node name="MiniZinc" expanded="True">
               <Node name="Boxes" expanded="True" />
               <Node name="Items" expanded="True" />
-              <Node name="Structures" expanded="True">
-                <Node name="IZincIdentScope.cs" selected="True" />
-              </Node>
+              <Node name="Structures" expanded="True" />
             </Node>
             <Node name="Parser" expanded="True">
               <Node name="specs" expanded="True" />
             </Node>
             <Node name="Utils" expanded="True">
-              <Node name="Nameregister" expanded="True" />
+              <Node name="Nameregister" expanded="True">
+                <Node name="NameRegister.cs" selected="True" />
+              </Node>
               <Node name="Validation" expanded="True" />
             </Node>
           </Node>
