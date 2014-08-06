@@ -133,7 +133,6 @@
     <Compile Include="MiniZinc\Items\ZincPredicateItem.cs" />
     <Compile Include="MiniZinc\Items\ZincItemType.cs" />
     <Compile Include="MiniZinc\Items\ZincFileBase.cs" />
-    <Compile Include="MiniZinc\Structures\ZincIdentScopeBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincAsExIdTiasBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTiasBox.cs" />
     <Compile Include="MiniZinc\Items\IZincRelation.cs" />
@@ -232,8 +231,10 @@
     <Compile Include="Utils\IBindToString.cs" />
     <Compile Include="Utils\Designpatterns\CompositionUtils.cs" />
     <Compile Include="MiniZinc\Structures\IZincScopeElement.cs" />
-    <Compile Include="MiniZinc\Structures\IZincElement.cs" />
-    <Compile Include="MiniZinc\Structures\ZincPrintUtils.cs" />
+    <Compile Include="MiniZinc\IZincElement.cs" />
+    <Compile Include="MiniZinc\ZincPrintUtils.cs" />
+    <Compile Include="MiniZinc\Structures\ZincScopeElementBase.cs" />
+    <Compile Include="MiniZinc\ZincElementUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

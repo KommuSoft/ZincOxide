@@ -1,5 +1,5 @@
 //
-//  ZincIdentContainer.cs
+//  IZincElement.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,19 +18,15 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.Collections.Generic;
+using ZincOxide.Utils;
+using ZincOxide.MiniZinc.Structures;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc {
 
 	/// <summary>
-	/// An interface that contains one or more <see cref="IZincIdent"/> instances.
-	/// These identifiers can be enumerated using the <see cref="InvolvedIdents"/> method.
+	/// An interface describing an element in the Zinc language. An element can be anything and is organized as a composite pattern.
 	/// </summary>
-	/// <remarks>
-	/// <para>The <see cref="IZincIdentReplaceContainer"/> provided a method to replace
-	/// identifiers with other ones.</para>
-	/// </remarks>
-	public interface IZincIdentContainer {
-
+	public interface IZincElement : IInnerSoftValidateable, ISoftValidateable, IComposition<IZincElement>, IZincIdentReplaceContainer {
 	}
 }
+

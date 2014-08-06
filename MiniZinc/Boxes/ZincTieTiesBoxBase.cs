@@ -97,19 +97,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 		protected ZincTieTiesBoxBase (IZincTypeInstExpression expression, IEnumerable<IZincTypeInstExpression> expressions) : this(expression,expressions.ToArray()) {
 		}
 		#endregion
-		#region IZincIdentContainer implementation
-		/// <summary>
-		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </returns>
-		public override IEnumerable<IZincIdent> InvolvedIdents () {
-			return EnumerableUtils.Append (base.InvolvedIdents (), this.TypeInstExpressions.SelectMany (x => x.InvolvedIdents ()));
-		}
-		#endregion
 		#region IZincIdentReplaceContainer implementation
 		/// <summary>
 		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>

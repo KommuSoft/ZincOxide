@@ -1,10 +1,10 @@
 //
-//  IZincElement.cs
+//  ZincElementUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
-//  Copyright (c) 2013 Willem Van Onsem
+//  Copyright (c) 2014 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,15 +18,27 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.Utils;
+using System;
+using System.Linq;
+using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
+using ZincOxide.Utils.Designpatterns;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc {
 
-	/// <summary>
-	/// An interface describing an element in the Zinc language. An element can be anything and is organized as a composite pattern.
-	/// </summary>
-	public interface IZincElement : IInnerSoftValidateable, ISoftValidateable, IComposition<IZincElement>, IZincIdentReplaceContainer {
+	public static class ZincElementUtils {
+
+		/// <summary>
+		/// Returns a <see cref="T:IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:IEnumerable`1"/> containing the involved\
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		public static IEnumerable<IZincIdent> InvolvedIdents (this IZincElement element) {
+			element.UniqueDescendants ().OfType<IZincIdent> ();
+		}
 	}
 }
 

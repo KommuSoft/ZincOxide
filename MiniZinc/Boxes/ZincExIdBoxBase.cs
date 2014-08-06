@@ -90,19 +90,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.expression = expression;
 		}
 		#endregion
-		#region IZincIdentContainer implementation
-		/// <summary>
-		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </returns>
-		public override IEnumerable<IZincIdent> InvolvedIdents () {
-			return EnumerableUtils.Append (base.InvolvedIdents (), this.Expression.InvolvedIdents ());
-		}
-		#endregion
 		#region IZincIdentReplaceContainer implementation
 		/// <summary>
 		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>

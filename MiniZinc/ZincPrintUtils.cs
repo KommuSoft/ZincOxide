@@ -21,7 +21,7 @@
 using ZincOxide.MiniZinc.Structures;
 using ZincOxide.MiniZinc.Types.Fundamental;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc {
 
 	/// <summary>
 	/// A utlity class, used to print information according to the MiniZinc standards.

@@ -1,5 +1,5 @@
 //
-//  ZincIdentScopeBase.cs
+//  ZincScopeElementBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,14 +20,16 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using ZincOxide.Utils.Designpatterns;
 using ZincOxide.Utils.Nameregister;
+using System.Collections.Generic;
+using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="IZincIdentScope"/> interface: a scope where identifiers are defined
+	/// A basic implementation of the <see cref="IZincScopeElement"/> interface: a scope where identifiers are defined
 	/// and where identifiers should be binded to the appropriate identifier.
 	/// </summary>
-	public abstract class ZincIdentScopeBase : IZincIdentScope {
+	public abstract class ZincScopeElementBase : IZincScopeElement {
 
 		#region Fields
 		/// <summary>
@@ -49,10 +51,10 @@ namespace ZincOxide.MiniZinc.Structures {
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincIdentScopeBase"/> class with a given initial name register.
+		/// Initializes a new instance of the <see cref="ZincScopeElementBase"/> class with a given initial name register.
 		/// </summary>
 		/// <param name="nameRegister">The name register that will store the identifiers defined in this scope.</param>
-		protected ZincIdentScopeBase (ZincIdentNameRegister nameRegister = null) {
+		protected ZincScopeElementBase (ZincIdentNameRegister nameRegister = null) {
 			this.nameRegister = nameRegister;
 		}
 		#endregion
@@ -64,7 +66,33 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// <para>When the scope closes, several operations are carried out: identifiers used in the scope
 		/// that are defined in the scope as well are redirected to the assignment identifier.</para>
 		/// </remarks>
-		public abstract void CloseScope ();
+		public virtual void CloseScope () {
+			ICompositionUtils.UniqueDescendants (this);
+		}
+		#endregion
+		#region IZincIdentReplaceContainer implementation
+		public abstract IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap);
+		#endregion
+		#region IZincIdentContainer implementation
+		public abstract IEnumerable<IZincIdent> InvolvedIdents ();
+		#endregion
+		#region IComposition implementation
+		public abstract IEnumerable<IZincElement> Children ();
+		#endregion
+		#region ISoftValidateable implementation
+		public abstract IEnumerable<string> SoftValidate ();
+		#endregion
+		#region IValidateable implementation
+		/// <summary>
+		/// Checks if the given instance is valid.
+		/// </summary>
+		/// <returns>True if the instance is valid, otherwise false.</returns>
+		public bool Validate () {
+			ValidateableUtils.Validate (this);
+		}
+		#endregion
+		#region IInnerSoftValidateable implementation
+		public abstract IEnumerable<string> InnerSoftValidate ();
 		#endregion
 	}
 }

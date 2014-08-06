@@ -22,6 +22,9 @@ using System;
 
 namespace ZincOxide.MiniZinc.Structures {
 
+	/// <summary>
+	/// An interface describing an element in the Zinc language that is a scope level as well.
+	/// </summary>
 	public interface IZincScopeElement : IZincElement, IZincIdentScope {
 	}
 }

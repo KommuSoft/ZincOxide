@@ -28,7 +28,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 	/// An implementation of the <see cref="IZincAsExBox"/> interface. A <see cref="ZincBoxBase"/> that contains
 	/// a <see cref="IZincExp"/> instance and a <see cref="IZincAnnotations"/> instance.
 	/// </summary>
-	public class ZincAsExBoxBase : ZincExBoxBase, IZincAsExBox {		//TODO: make abstract
+	public class ZincAsExBoxBase : ZincExBoxBase, IZincAsExBox {				//TODO: make abstract
 		private IZincAnnotations annotations;
 		#region IZincAsBox implementation
 		/// <summary>
@@ -77,19 +77,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// </param>
 		protected ZincAsExBoxBase (IZincAnnotations anns, IZincExp expr) : base(expr) {
 			this.Annotations = anns;
-		}
-		#endregion
-		#region IZincIdentContainer implementation
-		/// <summary>
-		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the
-		/// involved <see cref="IZincIdent"/> instances of the container.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </returns>
-		public override IEnumerable<IZincIdent> InvolvedIdents () {
-			return EnumerableUtils.Append (this.Annotations.InvolvedIdents (), base.InvolvedIdents ());
 		}
 		#endregion
 		#region IZincIdentReplaceContainer implementation
