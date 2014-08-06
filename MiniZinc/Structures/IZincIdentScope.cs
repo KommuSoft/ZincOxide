@@ -27,7 +27,7 @@ namespace ZincOxide.MiniZinc.Structures {
 	/// An interface specifying that this instance is an object that scopes <see cref="IZincIdent"/> instances.
 	/// A scope contains a name register (with fallback mechanism to the parent scope).
 	/// </summary>
-	public interface IZincIdentScope : IFallbackNameRegister<ZincIdent> {
+	public interface IZincIdentScope {
 
 		/// <summary>
 		/// Gets the name register associated with the scope. It stores the identifiers defined in the scope and is used

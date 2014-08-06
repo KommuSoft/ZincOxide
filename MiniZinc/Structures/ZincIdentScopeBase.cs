@@ -34,22 +34,6 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// </summary>
 		private ZincIdentNameRegister nameRegister;
 		#endregion
-		#region IFallbackNameRegister implementation
-		/// <summary>
-		/// Gets the function used to retrieve an identifier if such identifier is not stored in this scope. Basically
-		/// the register of the level above is used.
-		/// </summary>
-		/// <value>The function used to retrieve an identifier if such identifier is not stored in this scope.</value>
-		public DNameRegisterFallback<ZincIdent> Fallback {
-			get {
-				if (this.nameRegister != null) {
-					return this.nameRegister.Fallback;
-				} else {
-					return null;
-				}
-			}
-		}
-		#endregion
 		#region IZincIdentScope implementation
 		/// <summary>
 		/// Gets the name register associated with the scope. It stores the identifiers defined in the scope and is used
@@ -62,22 +46,23 @@ namespace ZincOxide.MiniZinc.Structures {
 			}
 		}
 		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincIdentScopeBase"/> class with a given initial name register.
+		/// </summary>
+		/// <param name="nameRegister">The name register that will store the identifiers defined in this scope.</param>
 		protected ZincIdentScopeBase (ZincIdentNameRegister nameRegister = null) {
 			this.nameRegister = nameRegister;
 		}
-		#region INameRegister implementation
-		public void Register (ZincIdent value) {
-			this.nameRegister.Register (value);
-		}
-
-		public bool Contains (string name) {
-			return this.nameRegister.Contains (name);
-		}
-
-		public ZincIdent Lookup (string name) {
-			return this.nameRegister.Lookup (name);
-		}
-
+		#endregion
+		#region IZincIdentScope implementation
+		/// <summary>
+		/// Closes the scope, used at the end of adding items to the scope.
+		/// </summary>
+		/// <remarks>
+		/// <para>When the scope closes, several operations are carried out: identifiers used in the scope
+		/// that are defined in the scope as well are redirected to the assignment identifier.</para>
+		/// </remarks>
 		public void CloseScope () {
 			throw new System.NotImplementedException ();
 		}
