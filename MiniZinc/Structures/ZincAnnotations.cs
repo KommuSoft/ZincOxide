@@ -18,20 +18,40 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace ZincOxide.MiniZinc.Structures {
 
+	/// <summary>
+	/// A <see cref="IZincItem"/> that annotates the code. This is done by providing a sequence of zero or more
+	/// <see cref="IZincAnnotation"/> instances.
+	/// </summary>
 	public class ZincAnnotations : LinkedList<IZincAnnotation>, IZincAnnotations {
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAnnotations"/> class with the given list of annotations.
+		/// </summary>
+		/// <param name="annotations">The given list of annotations.</param>
 		public ZincAnnotations (IEnumerable<IZincAnnotation> annotations) : base(annotations) {
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAnnotations"/> class with the given list of annotations.
+		/// </summary>
+		/// <param name="annotations">The given list of annotations.</param>
 		public ZincAnnotations (params IZincAnnotation[] annotations) : base(annotations) {
 		}
-
+		#endregion
+		/// <summary>
+		/// Returns a <see cref="String"/> that represents the current <see cref="ZincAnnotations"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincAnnotations"/>.</returns>
+		/// <remarks>
+		/// <para>Annotations are formatted by a list of <see cref="IZincAnnotation"/> instances separated by <c>::</c>.</para>
+		/// </remarks>
 		public override string ToString () {
 			return string.Format (":: {0}", string.Join (" :: ", this));
 		}
@@ -76,7 +96,7 @@ namespace ZincOxide.MiniZinc.Structures {
 		#endregion
 		#region IComposition implementation
 		public IEnumerable<IZincElement> Children () {
-			throw new System.NotImplementedException ();
+			return this;
 		}
 		#endregion
 	}
