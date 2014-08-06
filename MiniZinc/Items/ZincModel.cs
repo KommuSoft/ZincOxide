@@ -100,14 +100,6 @@ namespace ZincOxide.MiniZinc.Items {
 			}
 		}
 		#endregion
-		#region ISoftValidateable implementation
-		public override IEnumerable<string> SoftValidate () {
-			if (this.items.Where (x => x.Type == ZincItemType.Solve).Count () != 0x01) {
-				yield return "A Zinc model always contains exactly one solve item.";
-			}
-			//TODO
-		}
-		#endregion
 		#region IZincIdentReplaceContainer implementation
 		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
 			//TODO implement
@@ -137,5 +129,13 @@ namespace ZincOxide.MiniZinc.Items {
 				return null;
 			}
 		}
+		#region implemented abstract members of ZincScopeElementBase
+		public override IEnumerable<string> InnerSoftValidate () {
+			if (this.items.Where (x => x.Type == ZincItemType.Solve).Count () != 0x01) {
+				yield return "A Zinc model always contains exactly one solve item.";
+			}
+			//TODO
+		}
+		#endregion
 	}
 }

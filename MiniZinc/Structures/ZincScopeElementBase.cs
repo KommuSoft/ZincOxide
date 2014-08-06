@@ -22,9 +22,9 @@ using ZincOxide.Utils.Designpatterns;
 using ZincOxide.Utils.Nameregister;
 using System.Collections.Generic;
 using ZincOxide.Utils;
+using ZincOxide.MiniZinc;
 
 namespace ZincOxide.MiniZinc.Structures {
-
 	/// <summary>
 	/// A basic implementation of the <see cref="IZincScopeElement"/> interface: a scope where identifiers are defined
 	/// and where identifiers should be binded to the appropriate identifier.
@@ -67,20 +67,26 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// that are defined in the scope as well are redirected to the assignment identifier.</para>
 		/// </remarks>
 		public virtual void CloseScope () {
-			ICompositionUtils.UniqueDescendants (this);
+			//ICompositionUtils.UniqueDescendants (this);
 		}
 		#endregion
 		#region IZincIdentReplaceContainer implementation
 		public abstract IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap);
 		#endregion
-		#region IZincIdentContainer implementation
-		public abstract IEnumerable<IZincIdent> InvolvedIdents ();
-		#endregion
 		#region IComposition implementation
 		public abstract IEnumerable<IZincElement> Children ();
 		#endregion
 		#region ISoftValidateable implementation
-		public abstract IEnumerable<string> SoftValidate ();
+		/// <summary>
+		/// Enumerates a list of error messages specifying why the instance is not valid.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing the error messages describing why the instance is not valid.</returns>
+		/// <remarks>
+		/// <para>If no error messages are emitted, the instance is valid, otherwise the instance is invalid.</para>
+		/// </remarks>
+		public IEnumerable<string> SoftValidate () {
+			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
+		}
 		#endregion
 		#region IValidateable implementation
 		/// <summary>

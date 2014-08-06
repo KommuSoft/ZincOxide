@@ -106,6 +106,13 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 		#endregion
 		#region ISoftValidateable implementation
+		/// <summary>
+		/// Enumerates a list of error messages specifying why the instance is not valid.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> containing the error messages describing why the instance is not valid.</returns>
+		/// <remarks>
+		/// <para>If no error messages are emitted, the instance is valid, otherwise the instance is invalid.</para>
+		/// </remarks>
 		public IEnumerable<string> SoftValidate () {
 			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
 		}

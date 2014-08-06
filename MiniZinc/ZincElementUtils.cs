@@ -26,6 +26,10 @@ using ZincOxide.Utils.Designpatterns;
 
 namespace ZincOxide.MiniZinc {
 
+	/// <summary>
+	/// A set of utility functions used to provide functionality to <see cref="IZincElement"/> and derived
+	/// instances.
+	/// </summary>
 	public static class ZincElementUtils {
 
 		/// <summary>
@@ -36,8 +40,8 @@ namespace ZincOxide.MiniZinc {
 		/// A <see cref="T:IEnumerable`1"/> containing the involved\
 		/// <see cref="IZincIdent"/> instances of the container.
 		/// </returns>
-		public static IEnumerable<IZincIdent> InvolvedIdents (this IZincElement element) {
-			element.UniqueDescendants ().OfType<IZincIdent> ();
+		public static IEnumerable<IZincIdent> InvolvedIdents (IZincElement element) {
+			return element.UniqueDescendants ().OfType<IZincIdent> ();
 		}
 	}
 }

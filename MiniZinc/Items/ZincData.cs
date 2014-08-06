@@ -131,9 +131,9 @@ namespace ZincOxide.MiniZinc.Items {
 			}
 		}
 		#endregion
-		#region ISoftValidateable implementation
-		public override IEnumerable<string> SoftValidate () {
-			yield break;
+		#region implemented abstract members of ZincScopeElementBase
+		public override IEnumerable<string> InnerSoftValidate () {
+			throw new System.NotImplementedException ();
 		}
 		#endregion
 	}

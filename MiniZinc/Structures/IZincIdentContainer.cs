@@ -32,5 +32,14 @@ namespace ZincOxide.MiniZinc.Structures {
 	/// </remarks>
 	public interface IZincIdentContainer {
 
+		/// <summary>
+		/// Returns a <see cref="T:IEnumerable`1"/> containing the
+		/// involved <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		IEnumerable<IZincIdent> InvolvedIdents ();
 	}
 }

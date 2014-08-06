@@ -35,30 +35,25 @@ namespace ZincOxide.MiniZinc.Items {
 			get;
 		}
 		#endregion
+		#region Constructors
 		protected ZincFileBase (ZincIdentNameRegister nameRegister = null) : base(nameRegister) {
-		}
-		#region IValidateable implementation
-		/// <summary>
-		/// Checks if the given instance is valid.
-		/// </summary>
-		/// <returns>True if the instance is valid, otherwise false.</returns>
-		public bool Validate () {//TODO document
-			return ValidateableUtils.Validate (this);
 		}
 		#endregion
 		#region IWriteable implementation
 		public abstract void Write (TextWriter writer);
 		#endregion
-		#region IZincIdentReplaceContainer implementation
-		public abstract IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap);
-		#endregion
-		#region ISoftValidateable implementation
-		public abstract IEnumerable<string> SoftValidate ();
-		#endregion
 		#region IZincFile implementation
 		public abstract void AddItem (IZincItem item);
 
 		public abstract void AddItems (IEnumerable<IZincItem> items);
+		#endregion
+		#region implemented abstract members of ZincScopeElementBase
+		/// <summary>
+		/// Enumerate the children of this instance. This is done in a hierarchical manner.
+		/// </summary>
+		public override IEnumerable<IZincElement> Children () {
+			return this.Items;
+		}
 		#endregion
 	}
 }

@@ -21,6 +21,7 @@
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
 using ZincOxide.Utils;
+using System.Linq;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
@@ -91,7 +92,9 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
 		/// <see cref="IZincIdent"/> instances of the container.
 		/// </returns>
-		public abstract IEnumerable<IZincIdent> InvolvedIdents ();
+		public virtual IEnumerable<IZincIdent> InvolvedIdents () {
+			return ZincOxide.Utils.Designpatterns.ICompositionUtils.UniqueDescendants (this).OfType<IZincIdent> ();
+		}
 		#endregion
 		#region IZincIdentReplaceContainer implementation
 		/// <summary>
