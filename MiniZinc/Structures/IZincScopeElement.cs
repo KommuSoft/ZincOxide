@@ -1,10 +1,10 @@
 //
-//  IZincElement.cs
+//  IZincScopeElement.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
-//  Copyright (c) 2013 Willem Van Onsem
+//  Copyright (c) 2014 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,12 +18,11 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.Utils;
-using ZincOxide.MiniZinc.Structures;
+using System;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincElement : IInnerSoftValidateable, ISoftValidateable, IComposition<IZincElement>, IZincIdentReplaceContainer {
-    }
+	public interface IZincScopeElement : IZincElement, IZincIdentScope {
+	}
 }
 

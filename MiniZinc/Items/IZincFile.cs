@@ -29,7 +29,7 @@ namespace ZincOxide.MiniZinc.Items {
 	/// A <see cref="IZincFile"/> can be written to a stream, and has nearly all properties of a <see cref="IZincItem"/>
 	/// instance.
 	/// </summary>
-	public interface IZincFile : IWriteable, IZincIdentReplaceContainer, ISoftValidateable, IZincIdentScope {
+	public interface IZincFile : IWriteable, IZincElement, IZincIdentScope {
 
 		/// <summary>
 		/// Gets a list of <see cref="IZincItem"/> instances stored in the <see cref="IZincFile"/>.

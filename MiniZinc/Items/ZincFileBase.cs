@@ -25,6 +25,9 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
+	/// <summary>
+	/// A basic implementation of a <see cref="IZincFile"/> a file contains a number of <see cref="IZincItem"/> instances.
+	/// </summary>
 	public abstract class ZincFileBase : ZincIdentScopeBase, IZincFile {
 
 		#region IZincFile implementation

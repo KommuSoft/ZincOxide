@@ -57,7 +57,6 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="MiniZinc\ZincPrintUtils.cs" />
     <Compile Include="Parser\MiniZincParser.cs" />
     <Compile Include="MiniZinc\Boxes\IZincAsBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincExBox.cs" />
@@ -145,7 +144,6 @@
     <Compile Include="Normalization\PredicateToFunctionTransformation.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstTupleExpression.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTiesBoxBase.cs" />
-    <Compile Include="MiniZinc\IZincElement.cs" />
     <Compile Include="MiniZinc\Boxes\IZincBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincBoxBase.cs" />
     <Compile Include="MiniZinc\Structures\ZincNumExpLiteralBase.cs" />
@@ -232,7 +230,10 @@
     <Compile Include="Representation\AbstractRepresentation.cs" />
     <Compile Include="Representation\AbstractConstraint.cs" />
     <Compile Include="Utils\IBindToString.cs" />
-    <Compile Include="Utils\Designpatterns\ICompositionUtils.cs" />
+    <Compile Include="Utils\Designpatterns\CompositionUtils.cs" />
+    <Compile Include="MiniZinc\Structures\IZincScopeElement.cs" />
+    <Compile Include="MiniZinc\Structures\IZincElement.cs" />
+    <Compile Include="MiniZinc\Structures\ZincPrintUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -18,6 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using ZincOxide.Utils.Designpatterns;
 using ZincOxide.Utils.Nameregister;
 
 namespace ZincOxide.MiniZinc.Structures {
@@ -63,9 +64,7 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// <para>When the scope closes, several operations are carried out: identifiers used in the scope
 		/// that are defined in the scope as well are redirected to the assignment identifier.</para>
 		/// </remarks>
-		public void CloseScope () {
-			throw new System.NotImplementedException ();
-		}
+		public abstract void CloseScope ();
 		#endregion
 	}
 }
