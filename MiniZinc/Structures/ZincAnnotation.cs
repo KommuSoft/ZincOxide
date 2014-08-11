@@ -22,34 +22,22 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-	public class ZincAnnotation : IZincAnnotation {
+	/// <summary>
+	/// An implementation of the <see cref="IZincAnnotation"/> interface: an interface to store/describe annotations
+	/// in the MiniZinc language.
+	/// </summary>
+	public class ZincAnnotation : ZincLeafElement, IZincAnnotation {
+
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAnnotation"/> class.
+		/// </summary>
 		public ZincAnnotation () {
 		}
-		#region IZincIdentReplaceContainer implementation
-		/// <summary>
-		/// Replaces all the instances stored in the given <see cref="T:IDictionary`1"/>
-		/// stored as keys to the corresponding values and returns this instance, possibly if this is an
-		/// <see cref="IZincIdent"/> itself another <see cref="IZincIdent"/>.
-		/// </summary>
-		/// <returns>
-		/// If this instance is a compound type, a reference to itself. Otherwise a <see cref="IZincIdent"/> if
-		/// this instance is a <see cref="IZincIdent"/> itself.
-		/// </returns>
-		public IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
-			return this;//TODO
-		}
 		#endregion
-		#region IZincIdentContainer implementation
-		/// <summary>
-		/// Returns a <see cref="T:IEnumerable`1"/> containing the
-		/// involved <see cref="IZincIdent"/> instances of the container.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </returns>
-		public IEnumerable<IZincIdent> InvolvedIdents () {
-			yield break;
+		#region implemented abstract members of ZincLeafElement
+		public override IEnumerable<string> InnerSoftValidate () {
+			yield break;//TODO
 		}
 		#endregion
 	}
