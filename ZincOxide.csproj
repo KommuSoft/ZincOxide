@@ -235,6 +235,7 @@
     <Compile Include="MiniZinc\ZincPrintUtils.cs" />
     <Compile Include="MiniZinc\Structures\ZincScopeElementBase.cs" />
     <Compile Include="MiniZinc\ZincElementUtils.cs" />
+    <Compile Include="MiniZinc\Structures\ZincLeafElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

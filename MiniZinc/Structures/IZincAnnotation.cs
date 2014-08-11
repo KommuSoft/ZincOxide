@@ -22,6 +22,9 @@ using System;
 
 namespace ZincOxide.MiniZinc.Structures {
 
+	/// <summary>
+	/// An interface describing an annotation in MiniZinc.
+	/// </summary>
 	public interface IZincAnnotation : IZincElement {
 	}
 }
