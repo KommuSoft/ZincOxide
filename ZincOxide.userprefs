@@ -1,6 +1,14 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Structures/ZincAnnotations.cs">
+    <Files>
+      <File FileName="MiniZinc/Structures/ZincAnnotations.cs" Line="110" Column="43" />
+      <File FileName="MiniZinc/Structures/ZincLeafElement.cs" Line="102" Column="48" />
+      <File FileName="Utils/Validation/ValidateableUtils.cs" Line="32" Column="3" />
+      <File FileName="MiniZinc/Items/ZincIncludeItem.cs" Line="146" Column="34" />
+      <File FileName="MiniZinc/Structures/IZincIdentContainer.cs" Line="43" Column="27" />
+      <File FileName="MiniZinc/Boxes/ZincBoxBase.cs" Line="42" Column="3" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
@@ -9,13 +17,14 @@
               <Node name="Boxes" expanded="True" />
               <Node name="Items" expanded="True" />
               <Node name="Structures" expanded="True">
-                <Node name="IZincIdentContainer.cs" selected="True" />
+                <Node name="ZincAnnotations.cs" selected="True" />
               </Node>
             </Node>
             <Node name="Parser" expanded="True">
               <Node name="specs" expanded="True" />
             </Node>
             <Node name="Utils" expanded="True">
+              <Node name="Collections" expanded="True" />
               <Node name="Validation" expanded="True" />
             </Node>
           </Node>

@@ -21,6 +21,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using ZincOxide.Utils;
+using ZincOxide.MiniZinc.Items;
 
 namespace ZincOxide.MiniZinc.Structures {
 
@@ -56,6 +59,10 @@ namespace ZincOxide.MiniZinc.Structures {
 			return string.Format (":: {0}", string.Join (" :: ", this));
 		}
 		#region IWriteable implementation
+		/// <summary>
+		/// Writes the content of this <see cref="ZincAnnotations"/> instance to the given <see cref="TextWriter"/>.
+		/// </summary>
+		/// <param name="writer">The writer to write the content to.</param>
 		public void Write (TextWriter writer) {
 			writer.Write (this.ToString ());
 		}
@@ -80,23 +87,39 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 		#endregion
 		#region IInnerSoftValidateable implementation
+		/// <summary>
+		/// Generates a number of error messages that specify what is wrong with this instance.
+		/// </summary>
+		/// <returns>A <see cref="T:IEumerable`1"/> that contains a list of error messages describing why the instance is invalid.</returns>
+		/// <remarks>
+		/// <para>If no error messages are generated, the instance is valid, otherwise the instance is invalid.</para>
+		/// </remarks>
 		public IEnumerable<string> InnerSoftValidate () {
-			throw new System.NotImplementedException ();
+			yield break;//TODO
 		}
 		#endregion
 		#region IValidateable implementation
-		public bool Validate () {
-			throw new System.NotImplementedException ();
+		/// <summary>
+		/// Checks if the given instance is valid.
+		/// </summary>
+		/// <returns>True if the instance is valid, otherwise false.</returns>
+		public bool Validate () {//TODO: document
+			return ValidateableUtils.Validate (this);
 		}
 		#endregion
 		#region ISoftValidateable implementation
 		public IEnumerable<string> SoftValidate () {
-			throw new System.NotImplementedException ();
+			return ValidateableUtils.CompositionInnerSoftValidate<IZincElement,IZincElement> (this);
 		}
 		#endregion
 		#region IComposition implementation
 		public IEnumerable<IZincElement> Children () {
 			return this;
+		}
+		#endregion
+		#region IZincIdentContainer implementation
+		public IEnumerable<IZincIdent> InvolvedIdents () {
+			return ZincOxide.Utils.Designpatterns.ICompositionUtils.UniqueDescendants (this).OfType<IZincIdent> ();
 		}
 		#endregion
 	}

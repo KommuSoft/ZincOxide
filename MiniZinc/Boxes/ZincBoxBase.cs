@@ -98,11 +98,11 @@ namespace ZincOxide.MiniZinc.Boxes {
 		#endregion
 		#region IZincIdentReplaceContainer implementation
 		/// <summary>
-		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>
 		/// stored as keys to the corresponding values and returns this instance.
 		/// </summary>
 		/// <param name='identMap'>
-		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// A <see cref="T:IDictionary`2"/> that contains pairs if
 		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
 		/// </param>
 		/// <returns>
