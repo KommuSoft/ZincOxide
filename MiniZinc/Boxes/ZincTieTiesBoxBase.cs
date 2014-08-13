@@ -126,7 +126,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
 		/// </returns>
 		public override IEnumerable<IZincElement> Children () {
-			return EnumerableUtils.Append (this.TypeInstExpressions, base.Children ());
+			return EnumerableUtils.Append (new IEnumerable<IZincElement>[] { this.TypeInstExpressions, base.Children () });
 		}
 		#endregion
 	}

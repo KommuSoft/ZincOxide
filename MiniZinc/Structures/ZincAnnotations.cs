@@ -23,6 +23,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ZincOxide.Utils;
+using ZincOxide.Utils.Designpatterns;
 using ZincOxide.MiniZinc.Items;
 
 namespace ZincOxide.MiniZinc.Structures {
@@ -120,13 +121,21 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 		#endregion
 		#region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
+		/// </returns>
 		public IEnumerable<IZincElement> Children () {
 			return this;
 		}
 		#endregion
 		#region IZincIdentContainer implementation
 		public IEnumerable<IZincIdent> InvolvedIdents () {
-			return ZincOxide.Utils.Designpatterns.ICompositionUtils.UniqueDescendants (this).OfType<IZincIdent> ();
+			return ICompositionUtils.UniqueDescendants (this).OfType<IZincIdent> ();
 		}
 		#endregion
 	}

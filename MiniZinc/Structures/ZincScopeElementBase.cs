@@ -25,6 +25,7 @@ using ZincOxide.Utils;
 using ZincOxide.MiniZinc;
 
 namespace ZincOxide.MiniZinc.Structures {
+
 	/// <summary>
 	/// A basic implementation of the <see cref="IZincScopeElement"/> interface: a scope where identifiers are defined
 	/// and where identifiers should be binded to the appropriate identifier.
@@ -74,6 +75,14 @@ namespace ZincOxide.MiniZinc.Structures {
 		public abstract IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap);
 		#endregion
 		#region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincElement"/> instance.
+		/// </returns>
 		public abstract IEnumerable<IZincElement> Children ();
 		#endregion
 		#region ISoftValidateable implementation

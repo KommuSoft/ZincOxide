@@ -107,6 +107,14 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 		#endregion
 		#region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincElement"/> instance.
+		/// </returns>
 		public IEnumerable<IZincElement> Children () {
 			return EnumerableUtils.Empty<IZincElement> ();
 		}

@@ -49,8 +49,13 @@ namespace ZincOxide.MiniZinc.Items {
 		#endregion
 		#region implemented abstract members of ZincScopeElementBase
 		/// <summary>
-		/// Enumerate the children of this instance. This is done in a hierarchical manner.
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
 		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincElement"/> instance.
+		/// </returns>
 		public override IEnumerable<IZincElement> Children () {
 			return this.Items;
 		}
