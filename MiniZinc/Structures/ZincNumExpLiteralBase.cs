@@ -25,8 +25,10 @@ namespace ZincOxide.MiniZinc.Structures {
 
 	public class ZincNumExpLiteralBase : IZincNumExp {
 
+		#region Constructors
 		protected ZincNumExpLiteralBase () {
 		}
+		#endregion
 		#region IInnerSoftValidateable implementation
 		/// <summary>
 		/// Generates a number of error messages that specify what is wrong with this instance.

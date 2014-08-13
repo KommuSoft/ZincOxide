@@ -72,6 +72,15 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 		#endregion
 		#region IZincIdentReplaceContainer implementation
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`1"/>
+		/// stored as keys to the corresponding values and returns this instance, possibly if this is an
+		/// <see cref="IZincIdent"/> itself another <see cref="IZincIdent"/>.
+		/// </summary>
+		/// <returns>
+		/// If this instance is a compound type, a reference to itself. Otherwise a <see cref="IZincIdent"/> if
+		/// this instance is a <see cref="IZincIdent"/> itself.
+		/// </returns>
 		public abstract IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap);
 		#endregion
 		#region IComposition implementation

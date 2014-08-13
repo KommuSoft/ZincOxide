@@ -69,6 +69,15 @@ namespace ZincOxide.MiniZinc.Structures {
 			return string.Format ("( {0} : {1} where {2} )", this.Header, this.Ident, this.Expression);
 		}
 
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`1"/>
+		/// stored as keys to the corresponding values and returns this instance, possibly if this is an
+		/// <see cref="IZincIdent"/> itself another <see cref="IZincIdent"/>.
+		/// </summary>
+		/// <returns>
+		/// If this instance is a compound type, a reference to itself. Otherwise a <see cref="IZincIdent"/> if
+		/// this instance is a <see cref="IZincIdent"/> itself.
+		/// </returns>
 		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent,IZincIdent> identMap) {
 			this.header = this.header.Replace (identMap) as ZincTypeInstWhereExpression;
 			this.Expression = this.Expression.Replace (identMap) as IZincExp;
