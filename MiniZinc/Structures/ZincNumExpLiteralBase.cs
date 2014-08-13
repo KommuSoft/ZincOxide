@@ -28,6 +28,13 @@ namespace ZincOxide.MiniZinc.Structures {
 		protected ZincNumExpLiteralBase () {
 		}
 		#region IInnerSoftValidateable implementation
+		/// <summary>
+		/// Generates a number of error messages that specify what is wrong with this instance.
+		/// </summary>
+		/// <returns>A <see cref="T:IEumerable`1"/> that contains a list of error messages describing why the instance is invalid.</returns>
+		/// <remarks>
+		/// <para>If no error messages are generated, the instance is valid, otherwise the instance is invalid.</para>
+		/// </remarks>
 		public virtual IEnumerable<string> InnerSoftValidate () {
 			yield break;
 		}

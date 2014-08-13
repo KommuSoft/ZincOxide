@@ -36,6 +36,13 @@ namespace ZincOxide.MiniZinc.Structures {
 		}
 		#endregion
 		#region implemented abstract members of ZincLeafElement
+		/// <summary>
+		/// Generates a number of error messages that specify what is wrong with this instance.
+		/// </summary>
+		/// <returns>A <see cref="T:IEumerable`1"/> that contains a list of error messages describing why the instance is invalid.</returns>
+		/// <remarks>
+		/// <para>If no error messages are generated, the instance is valid, otherwise the instance is invalid.</para>
+		/// </remarks>
 		public override IEnumerable<string> InnerSoftValidate () {
 			yield break;//TODO
 		}
