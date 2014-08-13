@@ -2,12 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Structures/ZincAnnotations.cs">
     <Files>
-      <File FileName="MiniZinc/Structures/ZincAnnotations.cs" Line="110" Column="43" />
-      <File FileName="MiniZinc/Structures/ZincLeafElement.cs" Line="1" Column="1" />
-      <File FileName="Utils/Validation/ValidateableUtils.cs" Line="1" Column="1" />
-      <File FileName="MiniZinc/Items/ZincIncludeItem.cs" Line="1" Column="1" />
-      <File FileName="MiniZinc/Structures/IZincIdentContainer.cs" Line="1" Column="1" />
-      <File FileName="MiniZinc/Boxes/ZincBoxBase.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Structures/ZincAnnotations.cs" Line="124" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,11 +15,7 @@
                 <Node name="ZincAnnotations.cs" selected="True" />
               </Node>
             </Node>
-            <Node name="Parser" expanded="True">
-              <Node name="specs" expanded="True" />
-            </Node>
             <Node name="Utils" expanded="True">
-              <Node name="Collections" expanded="True" />
               <Node name="Validation" expanded="True" />
             </Node>
           </Node>

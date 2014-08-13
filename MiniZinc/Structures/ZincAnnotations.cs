@@ -127,15 +127,23 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// </summary>
 		/// <returns>
 		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
-		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincElement"/> instance.
 		/// </returns>
 		public IEnumerable<IZincElement> Children () {
 			return this;
 		}
 		#endregion
 		#region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:IEnumerable`1"/> containing the
+		/// involved <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
 		public IEnumerable<IZincIdent> InvolvedIdents () {
-			return ICompositionUtils.UniqueDescendants (this).OfType<IZincIdent> ();
+			return ZincElementUtils.InvolvedIdents (this);
 		}
 		#endregion
 	}

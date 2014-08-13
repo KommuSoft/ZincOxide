@@ -94,7 +94,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// <see cref="IZincIdent"/> instances of the container.
 		/// </returns>
 		public virtual IEnumerable<IZincIdent> InvolvedIdents () {
-			return ZincOxide.Utils.Designpatterns.ICompositionUtils.UniqueDescendants (this).OfType<IZincIdent> ();
+			return ZincElementUtils.InvolvedIdents (this);
 		}
 		#endregion
 		#region IZincIdentReplaceContainer implementation

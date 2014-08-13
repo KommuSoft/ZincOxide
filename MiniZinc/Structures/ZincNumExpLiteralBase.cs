@@ -80,6 +80,19 @@ namespace ZincOxide.MiniZinc.Structures {
 			return this;
 		}
 		#endregion
+		#region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the
+		/// involved <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		public virtual IEnumerable<IZincIdent> InvolvedIdents () {
+			return ZincElementUtils.InvolvedIdents (this);
+		}
+		#endregion
 	}
 }
 

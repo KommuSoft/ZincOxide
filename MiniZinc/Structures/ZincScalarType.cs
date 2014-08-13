@@ -20,6 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 using ZincOxide.Utils;
+using ZincOxide.Utils.Designpatterns;
+using System.Linq;
 
 namespace ZincOxide.MiniZinc.Structures {
 
@@ -122,6 +124,19 @@ namespace ZincOxide.MiniZinc.Structures {
 		#region IZincType implementation
 		public bool IsSubType (IZincType type) {
 			return (!type.Compounded && type.ScalarType == this.ScalarType);
+		}
+		#endregion
+		#region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:IEnumerable`1"/> containing the
+		/// involved <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		public IEnumerable<IZincIdent> InvolvedIdents () {
+			return ZincElementUtils.InvolvedIdents (this);
 		}
 		#endregion
 	}

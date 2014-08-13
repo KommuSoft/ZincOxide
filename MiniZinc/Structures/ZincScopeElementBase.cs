@@ -103,11 +103,24 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// </summary>
 		/// <returns>True if the instance is valid, otherwise false.</returns>
 		public bool Validate () {
-			ValidateableUtils.Validate (this);
+			return ValidateableUtils.Validate (this);
 		}
 		#endregion
 		#region IInnerSoftValidateable implementation
 		public abstract IEnumerable<string> InnerSoftValidate ();
+		#endregion
+		#region IZincIdentContainer implementation
+		/// <summary>
+		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the
+		/// involved <see cref="IZincIdent"/> instances of the container.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
+		/// <see cref="IZincIdent"/> instances of the container.
+		/// </returns>
+		public virtual IEnumerable<IZincIdent> InvolvedIdents () {
+			return ZincElementUtils.InvolvedIdents (this);
+		}
 		#endregion
 	}
 }
