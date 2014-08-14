@@ -25,14 +25,23 @@ namespace ZincOxide.MiniZinc.Structures {
 
 	public class ZincTypeInstExprAndIdent : ZincIdTieBoxBase, IZincTypeInstExprAndIdent {
 
+		#region Constructors
 		public ZincTypeInstExprAndIdent (IZincTypeInstExpression expr, ZincIdent ident) : base(ident,expr) {
 		}
-
+		#endregion
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincTypeInstExprAndIdent"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincTypeInstExprAndIdent"/>.</returns>
+		/// <remarks>
+		/// <para>The result is a string format according to <c>type : ident</c> where <c>type</c> and <c>ident</c> are replaced
+		/// by the textual representation of respectively the types of the variable and the identifier.</para>
+		/// </remarks>
 		public override string ToString () {
 			return string.Format ("{0} : {1}", this.TypeInstExpression, this.Ident);
 		}
-
+		#endregion
 	}
-
 }
 

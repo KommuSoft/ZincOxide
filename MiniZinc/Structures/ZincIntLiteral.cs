@@ -22,81 +22,86 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincIntLiteral : ZincNumExpLiteralBase {
+	public class ZincIntLiteral : ZincNumExpLiteralBase {
 
-        private long value;
+		private long value;
 
-        public long Value {
-            get {
-                return this.value;
-            }
-        }
+		public long Value {
+			get {
+				return this.value;
+			}
+		}
 
-        public ZincIntLiteral (string text) {
-            this.value = int.Parse (text);
-        }
+		public ZincIntLiteral (string text) {
+			this.value = int.Parse (text);
+		}
 
-        public ZincIntLiteral (long value) {
-            this.value = value;
-        }
+		public ZincIntLiteral (long value) {
+			this.value = value;
+		}
 
-        public ZincIntLiteral (int value) {
-            this.value = value;
-        }
+		public ZincIntLiteral (int value) {
+			this.value = value;
+		}
 
-        public ZincIntLiteral (short value) {
-            this.value = value;
-        }
+		public ZincIntLiteral (short value) {
+			this.value = value;
+		}
 
-        public ZincIntLiteral (byte value) {
-            this.value = value;
-        }
+		public ZincIntLiteral (byte value) {
+			this.value = value;
+		}
 
-        public ZincIntLiteral (uint value) {
-            this.value = value;
-        }
+		public ZincIntLiteral (uint value) {
+			this.value = value;
+		}
 
-        public ZincIntLiteral (ushort value) {
-            this.value = value;
-        }
+		public ZincIntLiteral (ushort value) {
+			this.value = value;
+		}
 
-        public ZincIntLiteral (sbyte value) {
-            this.value = value;
-        }
+		public ZincIntLiteral (sbyte value) {
+			this.value = value;
+		}
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincIntLiteral"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincIntLiteral"/>.</returns>
+		/// <remarks>
+		/// <para>The result is either the integer typesetted in the decimal number system.</para>
+		/// </remarks>
+		public override string ToString () {
+			return this.value.ToString ();
+		}
+		#endregion
+		public static implicit operator ZincIntLiteral (long value) {
+			return new ZincIntLiteral (value);
+		}
 
-        public override string ToString () {
-            return this.value.ToString ();
-        }
+		public static implicit operator ZincIntLiteral (int value) {
+			return new ZincIntLiteral (value);
+		}
 
-        public static implicit operator ZincIntLiteral (long value) {
-            return new ZincIntLiteral (value);
-        }
+		public static implicit operator ZincIntLiteral (short value) {
+			return new ZincIntLiteral (value);
+		}
 
-        public static implicit operator ZincIntLiteral (int value) {
-            return new ZincIntLiteral (value);
-        }
+		public static implicit operator ZincIntLiteral (byte value) {
+			return new ZincIntLiteral (value);
+		}
 
-        public static implicit operator ZincIntLiteral (short value) {
-            return new ZincIntLiteral (value);
-        }
+		public static implicit operator ZincIntLiteral (uint value) {
+			return new ZincIntLiteral (value);
+		}
 
-        public static implicit operator ZincIntLiteral (byte value) {
-            return new ZincIntLiteral (value);
-        }
+		public static implicit operator ZincIntLiteral (ushort value) {
+			return new ZincIntLiteral (value);
+		}
 
-        public static implicit operator ZincIntLiteral (uint value) {
-            return new ZincIntLiteral (value);
-        }
-
-        public static implicit operator ZincIntLiteral (ushort value) {
-            return new ZincIntLiteral (value);
-        }
-
-        public static implicit operator ZincIntLiteral (sbyte value) {
-            return new ZincIntLiteral (value);
-        }
-
-    }
-
+		public static implicit operator ZincIntLiteral (sbyte value) {
+			return new ZincIntLiteral (value);
+		}
+	}
 }
 

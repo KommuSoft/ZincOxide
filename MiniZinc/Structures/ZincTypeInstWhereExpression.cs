@@ -26,7 +26,9 @@ using ZincOxide.Utils;
 namespace ZincOxide.MiniZinc.Structures {
 
 	public class ZincTypeInstWhereExpression : ZincExIdBoxBase, IZincTypeInstExpression {
+		#region Fields
 		private ZincTypeInstWhereExpression header;
+		#endregion
 		#region IFinite implementation
 		public bool Finite {
 			get {
@@ -34,6 +36,7 @@ namespace ZincOxide.MiniZinc.Structures {
 			}
 		}
 		#endregion
+		#region Properties
 		public bool IsSubType (IZincType type) {
 			//TODO
 			throw new NotImplementedException ();
@@ -61,14 +64,25 @@ namespace ZincOxide.MiniZinc.Structures {
 				this.header = value;
 			}
 		}
-
+		#endregion
+		#region Constructors
 		public ZincTypeInstWhereExpression (ZincTypeInstWhereExpression header, ZincIdent ident, IZincExp expression) : base (ident, expression) {
 		}
-
+		#endregion
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincTypeInstWhereExpression"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincTypeInstWhereExpression"/>.</returns>
+		/// <remarks>
+		/// <para>The result is a string format according to <c>type : ident where expression</c> where <c>type</c>, <c>ident</c> and <c>expression</c> are replaced
+		/// by the textual representation of the type and the name of the variable and the expression that describes the type further.</para>
+		/// </remarks>
 		public override string ToString () {
 			return string.Format ("( {0} : {1} where {2} )", this.Header, this.Ident, this.Expression);
 		}
-
+		#endregion
+		#region IZincIdentReplaceContainer implementation
 		/// <summary>
 		/// Replaces all the instances stored in the given <see cref="T:IDictionary`1"/>
 		/// stored as keys to the corresponding values and returns this instance, possibly if this is an
@@ -83,6 +97,7 @@ namespace ZincOxide.MiniZinc.Structures {
 			this.Expression = this.Expression.Replace (identMap) as IZincExp;
 			return base.Replace (identMap);
 		}
+		#endregion
 	}
 }
 

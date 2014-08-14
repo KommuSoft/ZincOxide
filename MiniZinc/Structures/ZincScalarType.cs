@@ -57,11 +57,18 @@ namespace ZincOxide.MiniZinc.Structures {
 		public ZincScalarType (ZincScalar scalar) {
 			this.scalar = scalar;
 		}
-
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincScalarType"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincScalarType"/>.</returns>
+		/// <remarks>
+		/// <para>The result is the name of the scalar type (in lower case).</para>
+		/// </remarks>
 		public override string ToString () {
 			return ZincPrintUtils.ScalarLiteral (this.Scalar);
 		}
-
+		#endregion
 		public static implicit operator ZincScalarType (ZincScalar scalar) {
 			return new ZincScalarType (scalar);
 		}
