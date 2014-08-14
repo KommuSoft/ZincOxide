@@ -29,7 +29,7 @@ namespace ZincOxide.MiniZinc.Items {
 	/// <summary>
 	/// A zinc file that stores data about a problem instance. Such file only assigns values to the <c>par</c> variables.
 	/// </summary>
-	public class ZincData : ZincFileBase {
+	public class ZincData : ZincFileBase, IZincDataFile {
 
 		#region Fields
 		/// <summary>
@@ -105,11 +105,20 @@ namespace ZincOxide.MiniZinc.Items {
 			return this;
 		}
 		#endregion
+		#region IZincDataFile
+		/// <summary>
+		/// Adds the given <paramref name="assignItem"/> to this data file.
+		/// </summary>
+		/// <param name="assignItem">The given <see cref="ZincAssignItem"/> to add to the data file.</param>
+		/// <remarks>
+		/// <para>If the given item is not effective, nothing happens.</para>
+		/// </remarks>
 		public void AddAssignItem (ZincAssignItem assignItem) {
 			if (assignItem != null) {
 				this.assignItems.Add (assignItem);
 			}
 		}
+		#endregion
 		#region IZincFile implementation
 		public override void AddItem (IZincItem item) {
 			if (item != null) {

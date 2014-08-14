@@ -58,7 +58,7 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincTypeInstRangeExpression"/>.</returns>
 		/// <remarks>
 		/// <para>The result is a string format according to <c>from .. to</c> where <c>from</c> and <c>to</c> are replaced
-		/// by the textual representation of the <see cref="NumericExpression"/> instances describing the range.</para>
+		/// by the textual representation of the <see cref="IZincNumExp"/> instances describing the range.</para>
 		/// </remarks>
 		public override string ToString () {
 			return string.Format ("{0} .. {1}", this.NumericExpression, this.NumericExpression2);

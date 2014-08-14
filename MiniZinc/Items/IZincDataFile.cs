@@ -1,10 +1,10 @@
 //
-//  IZincAsExIdTieTiasBox.cs
+//  IZincDataFile.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
-//  Copyright (c) 2013 Willem Van Onsem
+//  Copyright (c) 2014 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,14 +18,23 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.MiniZinc.Structures;
+using System;
 
-namespace ZincOxide.MiniZinc.Boxes {
+namespace ZincOxide.MiniZinc.Items {
 
 	/// <summary>
-	/// A <see cref="IZincBox"/> interface that contains <see cref="IZincAnnotations"/>, <see cref="IZincExp"/>, <see cref="IZincIdent"/>, <see cref="IZincTypeInstExpression"/> and <see cref="IZincTypeInstExprAndIdent"/> instances.
-	/// The last type can occur in multiple instances.
+	/// An interface describing a datafile where the values for parameters in a MiniZinc model are stored.
 	/// </summary>
-	public interface IZincAsExIdTieTiasBox : IZincBox, IZincAsBox, IZincAsExBox, IZincAsExIdTiasBox, IZincExBox, IZincExIdBox, IZincIdBox, IZincIdTieBox, IZincTiasBox, IZincTieBox {
+	public interface IZincDataFile : IZincFile {
+
+		/// <summary>
+		/// Adds the given <paramref name="assignItem"/> to this data file.
+		/// </summary>
+		/// <param name="assignItem">The given <see cref="ZincAssignItem"/> to add to the data file.</param>
+		/// <remarks>
+		/// <para>If the given item is not effective, nothing happens.</para>
+		/// </remarks>
+		void AddAssignItem (ZincAssignItem assignItem);
 	}
 }
+
