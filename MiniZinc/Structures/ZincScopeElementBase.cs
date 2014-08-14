@@ -23,6 +23,7 @@ using ZincOxide.Utils.Nameregister;
 using System.Collections.Generic;
 using ZincOxide.Utils;
 using ZincOxide.MiniZinc;
+using System.Linq;
 
 namespace ZincOxide.MiniZinc.Structures {
 
@@ -68,7 +69,9 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// that are defined in the scope as well are redirected to the assignment identifier.</para>
 		/// </remarks>
 		public virtual void CloseScope () {
-			//ICompositionUtils.UniqueDescendants (this);
+			foreach (IZincScopeElement scope in ICompositionUtils.TypeBlanket<IZincElement,IZincScopeElement> (this)) {
+				scope.CloseScope ();
+			}
 		}
 		#endregion
 		#region IZincIdentReplaceContainer implementation

@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
+using System;
 
 namespace ZincOxide.Utils.Designpatterns {
 
@@ -81,6 +82,68 @@ namespace ZincOxide.Utils.Designpatterns {
 					if (enumerated.Add (child)) {
 						yield return child;
 						generationStack.Push (child.Children ().GetEnumerator ());
+					}
+				} else {
+					generationStack.Pop ();
+				}
+			} while (generationStack.Count > 0x00);
+		}
+
+		/// <summary>
+		/// Enumerate the closests descendants of <paramref name="root"/> that match the the given <paramref name="predicate"/>.
+		/// </summary>
+		/// <param name="root">The given root that provides the descendants.</param>
+		/// <param name="predicate">The predicate that should be satisfied in order to return a descendant.</param>
+		/// <typeparam name="TChildren">The type of elements over which the composite pattern enumerates.</typeparam>
+		public static IEnumerable<TChildren> Blanket<TChildren> (this TChildren root, Predicate<TChildren> predicate) where TChildren : IComposition<TChildren> {
+			HashSet<TChildren> enumerated = new HashSet<TChildren> ();
+			enumerated.Add (root);
+			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
+			IEnumerator<TChildren> cur;
+			TChildren child;
+			generationStack.Push (root.Children ().GetEnumerator ());
+			do {
+				cur = generationStack.Peek ();
+				if (cur.MoveNext ()) {
+					child = cur.Current;
+					if (enumerated.Add (child)) {
+						if (predicate (child)) {
+							yield return child;
+						} else {
+							generationStack.Push (child.Children ().GetEnumerator ());
+						}
+					}
+				} else {
+					generationStack.Pop ();
+				}
+			} while (generationStack.Count > 0x00);
+		}
+
+		/// <summary>
+		/// Enumerate the closests descendants of <paramref name="root"/> that are of the given <paramref name="TType"/>.
+		/// </summary>
+		/// <param name="root">The given root that provides the descendants.</param>
+		/// <typeparam name="TChildren">The type of elements over which the composite pattern enumerates.</typeparam>
+		/// <typeparam name="TType">The type of elements that should be returned, specifies the type predicate.</typeparam>
+		public static IEnumerable<TType> TypeBlanket<TChildren,TType> (this TChildren root)
+		where TChildren : IComposition<TChildren>
+		where TType : TChildren {
+			HashSet<TChildren> enumerated = new HashSet<TChildren> ();
+			enumerated.Add (root);
+			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
+			IEnumerator<TChildren> cur;
+			TChildren child;
+			generationStack.Push (root.Children ().GetEnumerator ());
+			do {
+				cur = generationStack.Peek ();
+				if (cur.MoveNext ()) {
+					child = cur.Current;
+					if (enumerated.Add (child)) {
+						if (child is TType) {
+							yield return (TType)child;
+						} else {
+							generationStack.Push (child.Children ().GetEnumerator ());
+						}
 					}
 				} else {
 					generationStack.Pop ();
