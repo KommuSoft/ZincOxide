@@ -1,8 +1,8 @@
 //
-//  IZincTypeInstExprAndIdent.cs
+//  IZincVarDecl.cs
 //
 //  Author:
-//       Willem Van Onsem <Willem.VanOnsem@cs.kuleuven.be>
+//       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
 //  Copyright (c) 2014 Willem Van Onsem
 //
@@ -18,11 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.MiniZinc.Boxes;
+using System;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-	public interface IZincTypeInstExprAndIdent : IZincIdTieBox, IZincVarDecl {
+	/// <summary>
+	/// An interface describing a variable declaration: a declaration of an identifier with a type.
+	/// </summary>
+	public interface IZincVarDecl {
 	}
 }
-

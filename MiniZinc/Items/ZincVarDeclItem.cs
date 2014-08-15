@@ -29,7 +29,7 @@ namespace ZincOxide.MiniZinc.Items {
 	/// <summary>
 	/// An item in a <see cref="IZincFile"/> that describes a variable declaration.
 	/// </summary>
-	public class ZincVarDeclItem : ZincAsExTiaBoxBase, IZincItem {
+	public class ZincVarDeclItem : ZincAsExTiaBoxBase, IZincItem, IZincVarDecl {
 
 		#region IZincItem implementation
 		/// <summary>

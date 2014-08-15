@@ -150,6 +150,38 @@ namespace ZincOxide.Utils.Designpatterns {
 				}
 			} while (generationStack.Count > 0x00);
 		}
+
+		/// <summary>
+		/// Enumerate the closests descendants of <paramref name="root"/> that match the the given <paramref name="enumerate"/> predicate,
+		/// but nodes are only expanded if the given <paramref name="expand"/> predicate .
+		/// </summary>
+		/// <param name="root">The given root that provides the descendants.</param>
+		/// <param name="expand">A predicate thet determines whether a node will be expanded in the search of descendants.</param>
+		/// <param name="enumerate">A predicate that determines whether a node wukk be ebumerates (given it is searched for).</param>
+		/// <typeparam name="TChildren">The type of elements over which the composite pattern enumerates.</typeparam>
+		public static IEnumerable<TChildren> Blanket<TChildren> (this TChildren root, Predicate<TChildren> expand, Predicate<TChildren> enumerate) where TChildren : IComposition<TChildren> {
+			HashSet<TChildren> enumerated = new HashSet<TChildren> ();
+			enumerated.Add (root);
+			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
+			IEnumerator<TChildren> cur;
+			TChildren child;
+			generationStack.Push (root.Children ().GetEnumerator ());
+			do {
+				cur = generationStack.Peek ();
+				if (cur.MoveNext ()) {
+					child = cur.Current;
+					if (enumerated.Add (child) && enumerate (child)) {
+						if (expand (child)) {
+							yield return child;
+						} else {
+							generationStack.Push (child.Children ().GetEnumerator ());
+						}
+					}
+				} else {
+					generationStack.Pop ();
+				}
+			} while (generationStack.Count > 0x00);
+		}
 	}
 }
 

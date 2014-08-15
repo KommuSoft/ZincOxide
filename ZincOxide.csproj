@@ -237,6 +237,7 @@
     <Compile Include="MiniZinc\ZincElementUtils.cs" />
     <Compile Include="MiniZinc\Structures\ZincLeafElement.cs" />
     <Compile Include="MiniZinc\Items\IZincDataFile.cs" />
+    <Compile Include="MiniZinc\Structures\IZincVarDecl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

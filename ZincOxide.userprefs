@@ -1,8 +1,13 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Structures/ZincAnnotations.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Structures/IZincVarDecl.cs">
     <Files>
-      <File FileName="MiniZinc/Structures/ZincAnnotations.cs" Line="124" Column="10" />
+      <File FileName="MiniZinc/Items/ZincData.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Structures/IZincIdentScope.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Structures/IZincScopeElement.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Structures/ZincScopeElementBase.cs" Line="75" Column="12" />
+      <File FileName="Utils/Designpatterns/CompositionUtils.cs" Line="160" Column="120" />
+      <File FileName="MiniZinc/Structures/IZincVarDecl.cs" Line="32" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,16 +17,12 @@
               <Node name="Boxes" expanded="True" />
               <Node name="Items" expanded="True" />
               <Node name="Structures" expanded="True">
-                <Node name="ZincAnnotations.cs" selected="True" />
+                <Node name="IZincVarDecl.cs" selected="True" />
               </Node>
             </Node>
+            <Node name="Parser" expanded="True" />
             <Node name="Utils" expanded="True">
-              <Node name="Validation" expanded="True" />
-            </Node>
-          </Node>
-          <Node name="ZincSulphate" expanded="True">
-            <Node name="MiniZinc" expanded="True">
-              <Node name="Items" expanded="True" />
+              <Node name="Designpatterns" expanded="True" />
             </Node>
           </Node>
         </State>
