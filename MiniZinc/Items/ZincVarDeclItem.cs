@@ -47,6 +47,17 @@ namespace ZincOxide.MiniZinc.Items {
 			}
 		}
 		#endregion
+		#region IZincVarDecl implementation
+		/// <summary>
+		/// Gets or sets the usage of the identifier (used as a hint for the compiler).
+		/// </summary>
+		/// <value>A <see cref="ZincIdentUsage"/> value describing the use of the identifier.</value>
+		public IZincIdent DeclaredIdentifier {
+			get {
+				return this.TypeInstExprAndIdent.Ident;
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincVarDeclItem"/> class with a given <see cref="ZincTypeInstExprAndIdent"/>

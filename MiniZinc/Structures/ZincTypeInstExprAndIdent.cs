@@ -23,9 +23,31 @@ using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc.Structures {
 
+	/// <summary>
+	/// A MiniZinc statement that expresses an identifier together with its type.
+	/// </summary>
 	public class ZincTypeInstExprAndIdent : ZincIdTieBoxBase, IZincTypeInstExprAndIdent {
 
+		#region IZincVarDecl implementation
+		/// <summary>
+		/// Get the identifier defined by this variable declaration statement.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincIdent"/> defined by this variable declaration statement.
+		/// </value>
+		public IZincIdent DeclaredIdentifier {
+			get {
+				return this.Ident;
+			}
+		}
+		#endregion
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincTypeInstExprAndIdent"/> class: an identifer that is bounded
+		/// with an expression.
+		/// </summary>
+		/// <param name="expr">The expression that specifies what is assigned to the identifier.</param>
+		/// <param name="ident">The identifier to assign things to.</param>
 		public ZincTypeInstExprAndIdent (IZincTypeInstExpression expr, ZincIdent ident) : base(ident,expr) {
 		}
 		#endregion

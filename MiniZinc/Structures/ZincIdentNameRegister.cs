@@ -27,7 +27,7 @@ namespace ZincOxide.MiniZinc.Structures {
 	/// A registrar for identifiers. Used to store identifiers. The registrar has a fallback mechanism
 	/// as well such that cascading scopes are possible.
 	/// </summary>
-	public class ZincIdentNameRegister : GenerateFallbackNameRegister<ZincIdent> {
+	public class ZincIdentNameRegister : GenerateFallbackNameRegister<IZincIdent> {
 
 		#region Fields
 		private ZincIdentNameRegister parent;
@@ -45,7 +45,7 @@ namespace ZincOxide.MiniZinc.Structures {
 			this.Fallback = checkUpperNameRegister;
 		}
 
-		private ZincIdent checkUpperNameRegister (string name) {
+		private IZincIdent checkUpperNameRegister (string name) {
 			if (this.parent != null) {
 				return this.parent.Lookup (name);
 			} else {

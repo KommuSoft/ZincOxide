@@ -1,13 +1,12 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Structures/IZincVarDecl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Designpatterns/CompositionUtils.cs">
     <Files>
-      <File FileName="MiniZinc/Items/ZincData.cs" Line="1" Column="1" />
-      <File FileName="MiniZinc/Structures/IZincIdentScope.cs" Line="1" Column="1" />
-      <File FileName="MiniZinc/Structures/IZincScopeElement.cs" Line="1" Column="1" />
-      <File FileName="MiniZinc/Structures/ZincScopeElementBase.cs" Line="75" Column="12" />
-      <File FileName="Utils/Designpatterns/CompositionUtils.cs" Line="160" Column="120" />
-      <File FileName="MiniZinc/Structures/IZincVarDecl.cs" Line="32" Column="1" />
+      <File FileName="MiniZinc/Items/ZincFunctionItem.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Structures/ZincTypeInstExprAndIdent.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Structures/IZincTypeInstExprAndIdent.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Items/ZincVarDeclItem.cs" Line="1" Column="1" />
+      <File FileName="Utils/Designpatterns/CompositionUtils.cs" Line="173" Column="53" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,13 +15,13 @@
             <Node name="MiniZinc" expanded="True">
               <Node name="Boxes" expanded="True" />
               <Node name="Items" expanded="True" />
-              <Node name="Structures" expanded="True">
-                <Node name="IZincVarDecl.cs" selected="True" />
-              </Node>
+              <Node name="Structures" expanded="True" />
             </Node>
             <Node name="Parser" expanded="True" />
             <Node name="Utils" expanded="True">
-              <Node name="Designpatterns" expanded="True" />
+              <Node name="Designpatterns" expanded="True">
+                <Node name="CompositionUtils.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

@@ -73,10 +73,8 @@ namespace ZincOxide.MiniZinc.Structures {
 				scope.CloseScope ();//close al underlying scopes (cascade)
 			}
 			foreach (IZincVarDecl vardecl in ICompositionUtils.Blanket<IZincElement> (this, x => !(x is IZincScopeElement), x => x is IZincVarDecl).Cast<IZincVarDecl> ()) {
-
+				this.nameRegister.Register (vardecl.DeclaredIdentifier);
 			}
-			/*foreach() {
-			}*/
 		}
 		#endregion
 		#region IZincIdentReplaceContainer implementation

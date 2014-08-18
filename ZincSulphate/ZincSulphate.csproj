@@ -55,5 +55,6 @@
     <Folder Include="MiniZinc\Types\Fundamental\" />
     <Folder Include="Utils\" />
     <Folder Include="Utils\Maths\" />
+    <Folder Include="MiniZinc\Structures\" />
   </ItemGroup>
 </Project>
