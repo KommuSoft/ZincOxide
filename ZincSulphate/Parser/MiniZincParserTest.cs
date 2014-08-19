@@ -1,10 +1,10 @@
 //
-//  MiniZincLexerTest.cs
+//  MiniZincParserTest.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
-//  Copyright (c) 2013 Willem Van Onsem
+//  Copyright (c) 2014 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,36 +18,27 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using NUnit.Framework;
 using System;
 using System.IO;
 using NUnit.Framework;
 using ZincOxide.Parser;
+using ZincOxide.MiniZinc;
+using ZincOxide.MiniZinc.Items;
 
-namespace ZincSulphate.Parser {
+namespace ZincSulphate {
 
 	[TestFixture()]
-	public class MiniZincLexerTest {
+	public class MiniZincParserTest {
 
 		[Test()]
-		public void TestLexer0 () {
+		public void TestParser0 () {
 			using (MemoryStream ms = Content.GenerateContent0 ()) {
 				MiniZincLexer scnr = new MiniZincLexer (ms);
-				int index = 0x00;
-				foreach (Token tok in scnr.Tokenize ()) {
-					Assert.AreEqual (Content.Tokens0 [index++], tok);
-				}
-			}
-
-		}
-
-		[Test()]
-		public void TestLexer1 () {
-			using (MemoryStream ms = Content.GenerateContent1 ()) {
-				MiniZincLexer scnr = new MiniZincLexer (ms);
-				int index = 0x00;
-				foreach (Token tok in scnr.Tokenize ()) {
-					Assert.AreEqual (Content.Tokens1 [index++], tok);
-				}
+				MiniZincParser pars = new MiniZincParser (scnr);
+				pars.Parse ();
+				ZincModel model = pars.Result;
+				Assert.IsNotNull (model);
 			}
 
 		}

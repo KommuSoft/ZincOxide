@@ -207,6 +207,7 @@ public IEnumerable<Token> Tokenize() {
     int tok;
     do {
         tok = yylex();
+        Console.WriteLine((Token) tok);
         yield return (Token) tok;
     } while (tok > (int)Token.EOF);
 }

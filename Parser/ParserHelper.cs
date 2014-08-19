@@ -50,6 +50,7 @@ namespace ZincOxide.Parser {
 		/// </summary>
 		/// <param name="scanner">A lexer that will provide the tokens to parse.</param>
 		public MiniZincParser (MiniZincLexer scanner) : base(scanner) {
+			this.result = new ZincModel ();
 		}
 
 		/// <summary>
