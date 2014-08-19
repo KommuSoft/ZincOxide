@@ -157,7 +157,6 @@
     <Compile Include="Environment\ProgramTask.cs" />
     <Compile Include="Environment\programVerbosity.cs" />
     <Compile Include="Environment\Interaction.cs" />
-    <Compile Include="Parser\ScanBase.cs" />
     <Compile Include="Environment\ProgramResult.cs" />
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
     <Compile Include="Utils\Maths\IMathSet.cs" />
