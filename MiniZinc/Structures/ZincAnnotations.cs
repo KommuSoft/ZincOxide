@@ -46,8 +46,7 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// Initializes a new instance of the <see cref="ZincAnnotations"/> class with the given list of annotations.
 		/// </summary>
 		/// <param name="annotations">The given list of annotations.</param>
-		public ZincAnnotations (params IZincAnnotation[] annotations) : base(annotations) {
-			IEnumerator<IZincElement> enr = this.Children ().GetEnumerator ();
+		public ZincAnnotations (params IZincAnnotation[] annotations) : base((IEnumerable<IZincAnnotation>) annotations) {
 		}
 		#endregion
 		/// <summary>

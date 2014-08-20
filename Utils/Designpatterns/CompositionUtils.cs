@@ -214,7 +214,8 @@ namespace ZincOxide.Utils.Designpatterns {
 		/// <para>The root is tested first as a potential environment.</para>
 		/// </remarks>
 		public static IEnumerable<Tuple<TEnv,TChild>> DoubleBlanket<TEnv,TChild> (this TChild root, Predicate<TChild> expand, Predicate<TChild> enumerate, Predicate<TEnv> environment)
-		where TChild : IComposition<TChild> {
+		where TChild : IComposition<TChild>
+		where TEnv : class {
 			Contract.Requires (root != null);
 			Contract.Requires (expand != null);
 			Contract.Requires (enumerate != null);
@@ -226,7 +227,11 @@ namespace ZincOxide.Utils.Designpatterns {
 			IEnumerator<TChild> cur;
 			TChild child;
 			generationStack.Push (root.Children ().GetEnumerator ());
-			environmentStack.Push (default(TEnv));
+			if (root is TEnv && environment (root as TEnv)) {
+				environmentStack.Push (root as TEnv);
+			} else {
+				environmentStack.Push (null);
+			}
 			do {
 				cur = generationStack.Peek ();
 				if (cur.MoveNext ()) {
