@@ -29,7 +29,7 @@ namespace ZincOxide.MiniZinc.Structures {
 	public interface IZincIdentReplaceContainer : IZincIdentContainer {
 
 		/// <summary>
-		/// Replaces all the instances stored in the given <see cref="T:IDictionary`1"/>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>
 		/// stored as keys to the corresponding values and returns this instance, possibly if this is an
 		/// <see cref="IZincIdent"/> itself another <see cref="IZincIdent"/>.
 		/// </summary>
