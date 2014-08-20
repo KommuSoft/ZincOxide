@@ -264,6 +264,7 @@
     <None Include="Parser\specs\MiniZinc.yy" />
     <None Include="Parser\specs\cc.sh" />
     <None Include="Parser\specs\ZincOutput.ll" />
+    <None Include="checklog.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MiniZinc\" />

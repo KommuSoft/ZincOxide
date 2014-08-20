@@ -127,13 +127,13 @@ namespace ZincOxide.Parser {
 		/// <param name="ep">The index of the active file where the token ends.</param>
 		/// <param name="bf">The <see cref="ScanBuff"/> that represents the active file.</param>
 		public LexSpan (int sl, int sc, int el, int ec, int sp, int ep, ScanBuff bf) {
-			//Contract.Assert (sl >= 0);
-			//Contract.Assert (sc >= 0);
-			//Contract.Assert (el >= 0);
-			//Contract.Assert (ec >= 0);
-			//Contract.Assert (sp >= 0);
-			//Contract.Assert (ep >= 0);//TODO: enable contracts
-			//Contract.Assert (bf != null);
+			Contract.Requires (sl >= 0);
+			Contract.Requires (sc >= 0);
+			Contract.Requires (el >= 0);
+			Contract.Requires (ec >= 0);
+			Contract.Requires (sp >= 0);
+			Contract.Requires (ep >= 0);
+			Contract.Requires (bf != null);
 			startLine = sl;
 			startColumn = sc;
 			endLine = el;

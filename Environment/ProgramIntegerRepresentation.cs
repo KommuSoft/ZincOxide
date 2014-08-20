@@ -18,6 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System.Numerics;
 
 namespace ZincOxide.Environment {
 
@@ -30,17 +31,14 @@ namespace ZincOxide.Environment {
 		/// Integers will be represented as <see cref="Int16"/> or <see langword="short"/>.
 		/// </summary>
 		Int16 = 0x0000000000000001,
-
 		/// <summary>
 		/// Integers will be represented as <see cref="Int32"/> or <see langword="int"/>.
 		/// </summary>
 		Int32 = 0x0000000000000002,
-
 		/// <summary>
 		/// Integers will be represented as <see cref="Int64"/> or <see langword="long"/>.
 		/// </summary>
 		Int64 = 0x0000000000000003,
-
 		/// <summary>
 		/// Integers will be represented as <see cref="BigInteger"/> with infinite length (bounded by memory limit).
 		/// </summary>
@@ -49,7 +47,5 @@ namespace ZincOxide.Environment {
 		/// Only when the problem has dimensional problems, one should use this option.</para>
 		/// </remarks>
 		Integer = 0x0000000000000004
-
 	}
-
 }
