@@ -82,6 +82,8 @@ namespace ZincOxide.MiniZinc.Structures {
 				this.nameRegister.Register (vardecl.DeclaredIdentifier);
 			}
 			foreach (IZincScopeElement subScope in ICompositionUtils.TypeBlanket<IZincElement,IZincScopeElement> (this)) {
+				Console.WriteLine (subScope);
+				Console.WriteLine (subScope == this);
 				subScope.CloseScope (this);//close al underlying scopes (cascade)
 			}
 		}

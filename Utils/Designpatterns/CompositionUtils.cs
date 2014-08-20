@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
 using System;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Utils.Designpatterns {
 
@@ -133,7 +134,9 @@ namespace ZincOxide.Utils.Designpatterns {
 			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
 			IEnumerator<TChildren> cur;
 			TChildren child;
+			Console.WriteLine ("Expand {0}", root);
 			generationStack.Push (root.Children ().GetEnumerator ());
+			Console.WriteLine ("[done]");
 			do {
 				cur = generationStack.Peek ();
 				if (cur.MoveNext ()) {
@@ -142,7 +145,23 @@ namespace ZincOxide.Utils.Designpatterns {
 						if (child is TType) {
 							yield return (TType)child;
 						} else {
-							generationStack.Push (child.Children ().GetEnumerator ());
+							IEnumerable<TChildren> enb = child.Children ();
+							if (enb != null) {
+								IEnumerator<TChildren> enm = enb.GetEnumerator ();
+								if (enm != null) {
+									generationStack.Push (null);
+								}
+#if DEBUG
+									else {
+									Console.WriteLine ("{0} returns null child", child);
+								}
+#endif
+							}
+#if DEBUG
+							else {
+								Console.WriteLine ("{0} returns null child", child);
+							}
+#endif
 						}
 					}
 				} else {

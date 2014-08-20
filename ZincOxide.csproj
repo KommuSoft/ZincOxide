@@ -239,6 +239,7 @@
     <Compile Include="MiniZinc\Structures\IZincVarDecl.cs" />
     <Compile Include="MiniZinc\Items\IZincModel.cs" />
     <Compile Include="Utils\Abstract\NullSafe.cs" />
+    <Compile Include="Exceptions\ZincOxideBugException.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

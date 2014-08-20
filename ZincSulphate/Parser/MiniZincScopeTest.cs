@@ -33,16 +33,17 @@ namespace ZincSulphate {
 
 		[Test()]
 		public void TestScope0 () {
-			using (MemoryStream ms = Content.GenerateContent0 ()) {
-				MiniZincLexer scnr = new MiniZincLexer (ms);
-				MiniZincParser pars = new MiniZincParser (scnr);
-				pars.Parse ();
-				ZincModel model = pars.Result;
-				Assert.IsNotNull (model);
-				model.CloseScope (null);
-				ZincIdentNameRegister zinr = model.NameRegister;
-				//Console.WriteLine ("end");
-			}
+			MemoryStream ms = Content.GenerateContent0 ();
+			//using () {
+			MiniZincLexer scnr = new MiniZincLexer (ms);
+			MiniZincParser pars = new MiniZincParser (scnr);
+			pars.Parse ();
+			ZincModel model = pars.Result;
+			Assert.IsNotNull (model);
+			model.CloseScope (null);
+			ZincIdentNameRegister zinr = model.NameRegister;
+			//Console.WriteLine ("end");
+			//}
 
 		}
 	}
