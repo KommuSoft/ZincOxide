@@ -1,5 +1,5 @@
 //
-//  MiniZincParserTest.cs
+//  IZincModel.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,30 +18,15 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.IO;
-using NUnit.Framework;
-using ZincOxide.Parser;
-using ZincOxide.MiniZinc.Items;
-using System.Linq;
+using System;
 
-namespace ZincSulphate {
+namespace ZincOxide.MiniZinc.Items {
 
-	[TestFixture()]
-	public class MiniZincParserTest {
-
-		[Test()]
-		public void TestParser0 () {
-			using (MemoryStream ms = Content.GenerateContent0 ()) {
-				MiniZincLexer scnr = new MiniZincLexer (ms);
-				MiniZincParser pars = new MiniZincParser (scnr);
-				pars.Parse ();
-				ZincModel model = pars.Result;
-				Assert.IsNotNull (model);
-				IZincItem[] items = model.Items.ToArray ();
-				Assert.AreEqual (Content.NItems0, items.Length);
-			}
-
-		}
+	/// <summary>
+	/// An interface describing a Zinc model: a Zinc file where the parameter variables are unassigned (unless
+	/// relations between the variables are expressed).
+	/// </summary>
+	public interface IZincModel : IZincDataFile {
 	}
 }
 

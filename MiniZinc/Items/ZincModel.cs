@@ -27,7 +27,11 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-	public class ZincModel : ZincFileBase {
+	/// <summary>
+	/// A class representing a ZincModel (see <see cref="IZincModel"/>). A model does not assign values to
+	/// parameter variables directly: only relations between the parameters are expressed.
+	/// </summary>
+	public class  ZincModel : ZincFileBase, IZincModel {
 
 		private readonly List<IZincItem> items = new List<IZincItem> ();
 
@@ -59,6 +63,13 @@ namespace ZincOxide.MiniZinc.Items {
 		public ZincModel (params IZincItem[] items) : this((IEnumerable<IZincItem>) items) {
 		}
 		#region IZincFile implementation
+		/// <summary>
+		/// Adds the given <see cref="T:IEnumerable`1"/> of <see cref="IZincItem"/> instances to this <see cref="IZincModel"/>.
+		/// </summary>
+		/// <param name="items">The given list of <see cref="IZincItem"/> instances to be added.</param>
+		/// <remarks>
+		/// <para>Invalid itemS in the list are not added, but a warning will be printed for these items.</para>
+		/// </remarks>
 		public override void AddItems (IEnumerable<IZincItem> items) {
 			if (items != null) {
 				foreach (IZincItem item in items) {
@@ -67,6 +78,13 @@ namespace ZincOxide.MiniZinc.Items {
 			}
 		}
 
+		/// <summary>
+		/// Add the given <see cref="IZincItem"/> to this <see cref="IZincModel"/>, but only if it is valid in MiniZinc.
+		/// </summary>
+		/// <param name="item">The given <see cref="IZincItem"/> to be added.</param>
+		/// <remarks>
+		/// <para>If an invalid item is added, nothing happens, but a warning is printed.</para>
+		/// </remarks>
 		public override void AddItem (IZincItem item) {
 			if (item != null) {
 				switch (item.Type) {
@@ -93,6 +111,10 @@ namespace ZincOxide.MiniZinc.Items {
 		}
 		#endregion
 		#region IWritable implementation
+		/// <summary>
+		/// Writes the textual representation of the Zinc model to the given <see cref="TextWriter"/>.
+		/// </summary>
+		/// <param name="writer">The given writer to write the textual representation to.</param>
 		public override void Write (TextWriter writer) {
 			foreach (IZincItem item in this.Items) {
 				item.Write (writer);
@@ -115,6 +137,11 @@ namespace ZincOxide.MiniZinc.Items {
 			return this;
 		}
 		#endregion
+		/// <summary>
+		/// Convert the given parameter assignments to a returned <see cref="ZincData"/> instance.
+		/// </summary>
+		/// <returns>A <see cref="ZincData"/> instance that contains all the raw parameter value assignments, this can
+		/// be used to separate the data from the model.</returns>
 		public ZincData ConvertToZincData () {
 			return new ZincData (this.Items);
 		}

@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using ZincOxide.Exceptions;
 using ZincOxide.Utils.Abstract;
+using System.Collections.Generic;
 
 namespace ZincOxide.Utils.Nameregister {
 
@@ -51,5 +52,13 @@ namespace ZincOxide.Utils.Nameregister {
 		/// <exception cref="ZincOxideNameNotFoundException">If the given <paramref name="name"/> cannot be found
 		/// in the register and all fallback mechanisms are exhausted.</exception>
 		T Lookup (string name);
+
+		/// <summary>
+		/// Enumerate all the elements stored in the name register (at this level, without using fallbacks, etc.).
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:IEnumerable`1"/> instance that enumerates all the elements stored in this name register.
+		/// </returns>
+		IEnumerable<T> Elements ();
 	}
 }

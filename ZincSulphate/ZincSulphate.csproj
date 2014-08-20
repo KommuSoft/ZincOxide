@@ -36,6 +36,8 @@
     <Reference Include="QUT.ShiftReduceParser">
       <HintPath>..\lib\QUT.ShiftReduceParser.dll</HintPath>
     </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MiniZinc\Items\ZincModelTest.cs" />
@@ -44,6 +46,7 @@
     <Compile Include="Utils\Maths\ThreeStateValueTest.cs" />
     <Compile Include="Parser\MiniZincParserTest.cs" />
     <Compile Include="Parser\Content.cs" />
+    <Compile Include="Parser\MiniZincScopeTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

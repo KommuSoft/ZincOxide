@@ -52,6 +52,7 @@ namespace ZincSulphate {
 		private const string str0_15 = ")";
 		private const string str0_16 = ");";
 		private const string str0_17 = "solve minimize end;";
+		public const int NItems0 = 8;
 		public static readonly Token[] Tokens0 = new Token[] {
 			Token.KWINT, Token.COLON, Token.IDENT, Token.COMMAD,
 			Token.KWARRA, Token.OFBR, Token.INTLI, Token.OPRANGE, Token.IDENT, Token.COMMA, Token.INTLI, Token.OPRANGE, Token.IDENT, Token.CFBR, Token.KWOF, Token.KWINT, Token.COLON, Token.IDENT, Token.COMMAD,

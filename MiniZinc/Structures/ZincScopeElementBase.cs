@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using ZincOxide.Utils;
 using ZincOxide.MiniZinc;
 using System.Linq;
+using System;
 
 namespace ZincOxide.MiniZinc.Structures {
 
@@ -69,11 +70,12 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// that are defined in the scope as well are redirected to the assignment identifier.</para>
 		/// </remarks>
 		public virtual void CloseScope () {
+			foreach (IZincVarDecl vardecl in ICompositionUtils.Blanket<IZincElement> (this, x => !(x is IZincScopeElement), x => x is IZincVarDecl).Cast<IZincVarDecl> ()) {
+				Console.WriteLine (vardecl);
+				this.nameRegister.Register (vardecl.DeclaredIdentifier);
+			}
 			foreach (IZincScopeElement scope in ICompositionUtils.TypeBlanket<IZincElement,IZincScopeElement> (this)) {
 				scope.CloseScope ();//close al underlying scopes (cascade)
-			}
-			foreach (IZincVarDecl vardecl in ICompositionUtils.Blanket<IZincElement> (this, x => !(x is IZincScopeElement), x => x is IZincVarDecl).Cast<IZincVarDecl> ()) {
-				this.nameRegister.Register (vardecl.DeclaredIdentifier);
 			}
 		}
 		#endregion

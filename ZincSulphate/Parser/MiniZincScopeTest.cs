@@ -1,5 +1,5 @@
 //
-//  MiniZincParserTest.cs
+//  MiniZincScopeTest.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -23,22 +23,26 @@ using NUnit.Framework;
 using ZincOxide.Parser;
 using ZincOxide.MiniZinc.Items;
 using System.Linq;
+using ZincOxide.MiniZinc.Structures;
+using System;
 
 namespace ZincSulphate {
 
-	[TestFixture()]
-	public class MiniZincParserTest {
+	[TestFixture]
+	public class MiniZincScopeTest {
 
 		[Test()]
-		public void TestParser0 () {
+		public void TestScope0 () {
 			using (MemoryStream ms = Content.GenerateContent0 ()) {
 				MiniZincLexer scnr = new MiniZincLexer (ms);
 				MiniZincParser pars = new MiniZincParser (scnr);
 				pars.Parse ();
 				ZincModel model = pars.Result;
 				Assert.IsNotNull (model);
-				IZincItem[] items = model.Items.ToArray ();
-				Assert.AreEqual (Content.NItems0, items.Length);
+				model.CloseScope ();
+				ZincIdentNameRegister zinr = model.NameRegister;
+				IZincIdent[] idents = zinr.Elements ().ToArray ();
+				Console.WriteLine (string.Join (",", idents.Select (x => x.ToString ())));
 			}
 
 		}

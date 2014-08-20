@@ -74,6 +74,16 @@ namespace ZincOxide.Utils.Nameregister {
 				throw new ZincOxideNameNotFoundException ("Name \"{0}\" not found in the name register.", name);
 			}
 		}
+
+		/// <summary>
+		/// Enumerate all the elements stored in the name register (at this level, without using fallbacks, etc.).
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:IEnumerable`1"/> instance that enumerates all the elements stored in this name register.
+		/// </returns>
+		public IEnumerable<T> Elements () {
+			return this.dictionary.Values;
+		}
 		#endregion
 	}
 }
