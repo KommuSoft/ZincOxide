@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using QUT.Gppg;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Parser {
 
@@ -126,6 +127,13 @@ namespace ZincOxide.Parser {
 		/// <param name="ep">The index of the active file where the token ends.</param>
 		/// <param name="bf">The <see cref="ScanBuff"/> that represents the active file.</param>
 		public LexSpan (int sl, int sc, int el, int ec, int sp, int ep, ScanBuff bf) {
+			//Contract.Assert (sl >= 0);
+			//Contract.Assert (sc >= 0);
+			//Contract.Assert (el >= 0);
+			//Contract.Assert (ec >= 0);
+			//Contract.Assert (sp >= 0);
+			//Contract.Assert (ep >= 0);//TODO: enable contracts
+			//Contract.Assert (bf != null);
 			startLine = sl;
 			startColumn = sc;
 			endLine = el;
