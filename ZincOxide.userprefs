@@ -1,9 +1,10 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Abstract/NullSafe.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Designpatterns/CompositionUtils.cs">
     <Files>
-      <File FileName="Utils/Designpatterns/CompositionUtils.cs" Line="208" Column="37" />
-      <File FileName="Utils/Abstract/NullSafe.cs" Line="84" Column="50" />
+      <File FileName="Utils/Designpatterns/CompositionUtils.cs" Line="51" Column="35" />
+      <File FileName="Utils/Abstract/NullSafe.cs" Line="70" Column="29" />
+      <File FileName="ZincSulphate/Parser/MiniZincScopeTest.cs" Line="45" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
