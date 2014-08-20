@@ -32,6 +32,5 @@ namespace ZincOxide.MiniZinc.Boxes {
 	public interface IZincBox : IZincElement, IInnerSoftValidateable {
 
 	}
-
 }
 

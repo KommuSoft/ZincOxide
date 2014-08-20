@@ -18,15 +18,20 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using ZincOxide.Exceptions;
-using ZincOxide.Utils;
+using ZincOxide.Utils.Nameregister;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-	public class ZincIdentNameRegister : GenerateFallbackNameRegister<ZincIdent> {
-		private ZincIdentNameRegister parent;
+	/// <summary>
+	/// A registrar for identifiers. Used to store identifiers. The registrar has a fallback mechanism
+	/// as well such that cascading scopes are possible.
+	/// </summary>
+	public class ZincIdentNameRegister : GenerateFallbackNameRegister<IZincIdent> {
 
+		#region Fields
+		private ZincIdentNameRegister parent;
+		#endregion
 		public ZincIdentNameRegister Parent {
 			get {
 				return this.parent;
@@ -40,7 +45,7 @@ namespace ZincOxide.MiniZinc.Structures {
 			this.Fallback = checkUpperNameRegister;
 		}
 
-		private ZincIdent checkUpperNameRegister (string name) {
+		private IZincIdent checkUpperNameRegister (string name) {
 			if (this.parent != null) {
 				return this.parent.Lookup (name);
 			} else {

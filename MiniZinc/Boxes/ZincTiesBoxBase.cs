@@ -32,8 +32,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 	public class ZincTiesBoxBase : ZincBoxBase, IZincTiesBox {
 
 		private IList<IZincTypeInstExpression> typeInstExpressions;
-
-        #region IZincTiesBox implementation
+		#region IZincTiesBox implementation
 		/// <summary>
 		/// Gets an <see cref="T:System.Collections.Generic.IList`1"/> that contains the
 		/// <see cref="IZincTypeInstExpression"/> instances stored in the <see cref="IZincTiesBox"/>.
@@ -50,8 +49,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 				this.typeInstExpressions = value;
 			}
 		}
-        #endregion
-
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincTiesBoxBase"/> class
@@ -86,22 +84,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 		protected ZincTiesBoxBase (params IZincTypeInstExpression[] typeInstExpressions) : this((IList<IZincTypeInstExpression>) typeInstExpressions) {
 		}
 		#endregion
-
-        #region IZincIdentContainer implementation
-		/// <summary>
-		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </returns>
-		public override IEnumerable<IZincIdent> InvolvedIdents () {
-			return this.typeInstExpressions.SelectMany (x => x.InvolvedIdents ());
-		}
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
+		#region IZincIdentReplaceContainer implementation
 		/// <summary>
 		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
 		/// stored as keys to the corresponding values and returns this instance.
@@ -120,8 +103,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 			}
 			return base.Replace (identMap);
 		}
-        #endregion
-
+		#endregion
 		#region IComposition implementation
 		/// <summary>
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
@@ -135,7 +117,5 @@ namespace ZincOxide.MiniZinc.Boxes {
 			return this.typeInstExpressions;
 		}
 		#endregion
-
 	}
-
 }

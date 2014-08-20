@@ -28,11 +28,9 @@ namespace ZincOxide.MiniZinc.Boxes {
 	/// An implementation of the <see cref="IZincAsExBox"/> interface. A <see cref="ZincBoxBase"/> that contains
 	/// a <see cref="IZincExp"/> instance and a <see cref="IZincAnnotations"/> instance.
 	/// </summary>
-	public class ZincAsExBoxBase : ZincExBoxBase, IZincAsExBox {//TODO: make abstract
-
+	public class ZincAsExBoxBase : ZincExBoxBase, IZincAsExBox {												//TODO: make abstract
 		private IZincAnnotations annotations;
-
-        #region IZincAsBox implementation
+		#region IZincAsBox implementation
 		/// <summary>
 		/// Gets the <see cref="IZincAnnotations"/> instance stored in the <see cref="IZincBox"/>.
 		/// </summary>
@@ -47,8 +45,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 				this.annotations = value;
 			}
 		}
-        #endregion
-
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Boxes.ZincAsExBoxBase"/> class
@@ -82,28 +79,13 @@ namespace ZincOxide.MiniZinc.Boxes {
 			this.Annotations = anns;
 		}
 		#endregion
-
-		#region IZincIdentContainer implementation
-		/// <summary>
-		/// Returns a <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the
-		/// involved <see cref="IZincIdent"/> instances of the container.
-		/// </summary>
-		/// <returns>
-		/// A <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the involved
-		/// <see cref="IZincIdent"/> instances of the container.
-		/// </returns>
-		public override IEnumerable<IZincIdent> InvolvedIdents () {
-			return EnumerableUtils.Append (this.Annotations.InvolvedIdents (), base.InvolvedIdents ());
-		}
-		#endregion
-
 		#region IZincIdentReplaceContainer implementation
 		/// <summary>
-		/// Replaces all the instances stored in the given <see cref="System.Collections.Generic.IDictionary`1"/>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>
 		/// stored as keys to the corresponding values and returns this instance.
 		/// </summary>
 		/// <param name='identMap'>
-		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// A <see cref="T:IDictionary`2"/> that contains pairs if
 		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
 		/// </param>
 		/// <returns>
@@ -114,7 +96,6 @@ namespace ZincOxide.MiniZinc.Boxes {
 			return base.Replace (identMap);
 		}
 		#endregion
-
 		#region IComposition implementation
 		/// <summary>
 		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
@@ -125,10 +106,8 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
 		/// </returns>
 		public override IEnumerable<IZincElement> Children () {
-			return EnumerableUtils.Append (this.annotations, base.Children ());
+			return EnumerableUtils.Append<IZincElement> (new IEnumerable<IZincElement>[] { this.annotations, base.Children () });
 		}
 		#endregion
-
 	}
-
 }

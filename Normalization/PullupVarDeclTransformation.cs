@@ -22,17 +22,25 @@ using ZincOxide.MiniZinc.Items;
 
 namespace ZincOxide.Normalization {
 
-    public class PullupVarDeclTransformation : ITransformation {
+	/// <summary>
+	/// A class representing a transformation where the declaration of variables is pulled up to the front of
+	/// the given <see cref="IZincFile"/>.
+	/// </summary>
+	public class PullupVarDeclTransformation : ITransformation {
 
-        public PullupVarDeclTransformation () {
-        }
-
-        #region ITransformation implementation
-        public void Transform (IZincFile file) {
-            throw new System.NotImplementedException ();
-        }
-        #endregion
-
-    }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PullupVarDeclTransformation"/> class.
+		/// </summary>
+		public PullupVarDeclTransformation () {
+		}
+		#region ITransformation implementation
+		/// <summary>
+		/// Transforms the given <see cref="IZincFile"/> by pulling up the declarations of all variables.
+		/// </summary>
+		/// <param name="file">The given file to modify.</param>
+		public void Transform (IZincFile file) {
+			throw new System.NotImplementedException ();
+		}
+		#endregion
+	}
 }
-

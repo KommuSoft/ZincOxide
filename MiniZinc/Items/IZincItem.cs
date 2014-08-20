@@ -23,12 +23,22 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public interface IZincItem : IWriteable, IZincElement {
+	/// <summary>
+	/// An interface specifying a generic item in a <see cref="IZincFile"/>. An item is a <see cref="IZincElement"/>
+	/// and must support the <see cref="IWriteable"/> interface: the content must be serializable to a MiniZinc file.
+	/// </summary>
+	public interface IZincItem : IWriteable, IZincElement {
 
-        ZincItemType Type {
-            get;
-        }
-
-    }
-
+		/// <summary>
+		/// Gets the type of the <see cref="IZincItem"/>.
+		/// </summary>
+		/// <value>The type of the <see cref="IZincItem"/>.</value>
+		/// <remarks>
+		/// <para>This property is mainly used to filter without the use
+		/// of harmful object oriented structures and to prevent users from inventing more items.</para>
+		/// </remarks>
+		ZincItemType Type {
+			get;
+		}
+	}
 }

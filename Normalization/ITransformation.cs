@@ -23,11 +23,18 @@ using ZincOxide.MiniZinc.Items;
 
 namespace ZincOxide.Normalization {
 
-    public interface ITransformation {
+	/// <summary>
+	/// An interface that specifies a transformation on a <see cref="IZincFile"/>. A transformation is an operation
+	/// that maintains the semantic of the <see cref="IZincFile"/>, but alters certain properties such that parsing,
+	/// interpreting becomes easier.
+	/// </summary>
+	public interface ITransformation {
 
-        void Transform (IZincFile file);
-
-    }
-
+		/// <summary>
+		/// Transforms the given <see cref="IZincFile"/> as specified by the concrete <see cref="ITransformation"/>.
+		/// </summary>
+		/// <param name="file">The <see cref="IZincFile"/> to transform.</param>
+		void Transform (IZincFile file);
+	}
 }
 

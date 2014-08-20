@@ -23,7 +23,10 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc {
 
-    public interface IZincElement : IInnerSoftValidateable, ISoftValidateable, IComposition<IZincElement>, IZincIdentReplaceContainer {
-    }
+	/// <summary>
+	/// An interface describing an element in the Zinc language. An element can be anything and is organized as a composite pattern.
+	/// </summary>
+	public interface IZincElement : IInnerSoftValidateable, ISoftValidateable, IComposition<IZincElement>, IZincIdentReplaceContainer {
+	}
 }
 

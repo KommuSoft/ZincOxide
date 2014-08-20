@@ -18,7 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System.Collections.Generic;
 using System.Linq;
 using ZincOxide.MiniZinc.Boxes;
@@ -43,26 +42,33 @@ namespace ZincOxide.MiniZinc.Structures {
 				throw new System.NotImplementedException ();
 			}
 		}
-
 		#region IFinite implementation
-
 		public bool Finite {
 			get {
 				return this.TypeInstExpressions.All (x => x.Finite);
 			}
 		}
-
 		#endregion
-
+		#region Constructors
 		public ZincTypeInstTupleExpression (IEnumerable<IZincTypeInstExpression> attributes) : base (attributes) {
 		}
 
 		public ZincTypeInstTupleExpression (params IZincTypeInstExpression[] attributes) : base (attributes) {
 		}
-
+		#endregion
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincTypeInstTupleExpression"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincTypeInstTupleExpression"/>.</returns>
+		/// <remarks>
+		/// <para>The result is a string format according to <c>tuple (expression,expression,expression)</c> where
+		/// <c>expression</c> are replaced by the textual representation of the expression describing the tuple.</para>
+		/// </remarks>
 		public override string ToString () {
 			return string.Format ("tuple ( {0} )", string.Join (" , ", this.TypeInstExpressions));
 		}
+		#endregion
 	}
 }
 

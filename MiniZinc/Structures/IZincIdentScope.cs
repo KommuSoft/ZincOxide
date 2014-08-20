@@ -19,16 +19,32 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils;
+using ZincOxide.Utils.Nameregister;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincIdentScope : IFallbackNameRegister<ZincIdent> {
+	/// <summary>
+	/// An interface specifying that this instance is an object that scopes <see cref="IZincIdent"/> instances.
+	/// A scope contains a name register (with fallback mechanism to the parent scope).
+	/// </summary>
+	public interface IZincIdentScope {
 
-        ZincIdentNameRegister NameRegister {
-            get;
-        }
+		/// <summary>
+		/// Gets the name register associated with the scope. It stores the identifiers defined in the scope and is used
+		/// to bind/cut identifiers.
+		/// </summary>
+		/// <value>The name register associated with the scope.</value>
+		ZincIdentNameRegister NameRegister {
+			get;
+		}
 
-    }
-
+		/// <summary>
+		/// Closes the scope, used at the end of adding items to the scope.
+		/// </summary>
+		/// <remarks>
+		/// <para>When the scope closes, several operations are carried out: identifiers used in the scope
+		/// that are defined in the scope as well are redirected to the assignment identifier.</para>
+		/// </remarks>
+		void CloseScope ();
+	}
 }

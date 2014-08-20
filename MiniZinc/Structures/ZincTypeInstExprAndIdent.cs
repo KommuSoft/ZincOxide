@@ -23,16 +23,47 @@ using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc.Structures {
 
+	/// <summary>
+	/// A MiniZinc statement that expresses an identifier together with its type.
+	/// </summary>
 	public class ZincTypeInstExprAndIdent : ZincIdTieBoxBase, IZincTypeInstExprAndIdent {
 
+		#region IZincVarDecl implementation
+		/// <summary>
+		/// Get the identifier defined by this variable declaration statement.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincIdent"/> defined by this variable declaration statement.
+		/// </value>
+		public IZincIdent DeclaredIdentifier {
+			get {
+				return this.Ident;
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincTypeInstExprAndIdent"/> class: an identifer that is bounded
+		/// with an expression.
+		/// </summary>
+		/// <param name="expr">The expression that specifies what is assigned to the identifier.</param>
+		/// <param name="ident">The identifier to assign things to.</param>
 		public ZincTypeInstExprAndIdent (IZincTypeInstExpression expr, ZincIdent ident) : base(ident,expr) {
 		}
-
+		#endregion
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincTypeInstExprAndIdent"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincTypeInstExprAndIdent"/>.</returns>
+		/// <remarks>
+		/// <para>The result is a string format according to <c>type : ident</c> where <c>type</c> and <c>ident</c> are replaced
+		/// by the textual representation of respectively the types of the variable and the identifier.</para>
+		/// </remarks>
 		public override string ToString () {
 			return string.Format ("{0} : {1}", this.TypeInstExpression, this.Ident);
 		}
-
+		#endregion
 	}
-
 }
 

@@ -18,17 +18,24 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using ZincOxide.Utils.Abstract;
 using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-	public interface IZincIdent : INameId, IZincNumExp, IZincIdentReplaceContainer {
+	/// <summary>
+	/// An interface representing an identifier in Zinc: a named object to refer to.
+	/// </summary>
+	public interface IZincIdent : INameId, IZincNumExp, IZincIdentReplaceContainer, IBindToString {
 
+		/// <summary>
+		/// Gets or sets the usage of the identifier (used as a hint for the compiler).
+		/// </summary>
+		/// <value>A <see cref="ZincIdentUsage"/> value describing the use of the identifier.</value>
 		ZincIdentUsage Usage {
 			get;
 			set;
 		}
-
 	}
 }
 

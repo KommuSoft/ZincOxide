@@ -36,7 +36,5 @@ namespace ZincOxide.MiniZinc.Boxes {
 		IZincIdent Ident {
 			get;
 		}
-
 	}
-
 }

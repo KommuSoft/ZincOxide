@@ -22,33 +22,44 @@ using System.Collections.Generic;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincBoolLiteral : ZincNumExpLiteralBase {
+	public class ZincBoolLiteral : ZincNumExpLiteralBase {
 
-        private bool value;
+		#region Fields
+		private bool value;
+		#endregion
+		#region Properties
+		public bool Value {
+			get {
+				return this.value;
+			}
+		}
+		#endregion
+		#region Constructors
+		public ZincBoolLiteral (string text) {
+			this.value = bool.Parse (text);
+		}
 
-        public bool Value {
-            get {
-                return this.value;
-            }
-        }
-
-        public ZincBoolLiteral (string text) {
-            this.value = bool.Parse (text);
-        }
-
-        public ZincBoolLiteral (bool value) {
-            this.value = value;
-        }
-
-        public override string ToString () {
-            return this.value.ToString ();
-        }
-
-        public static implicit operator ZincBoolLiteral (bool value) {
-            return new ZincBoolLiteral (value);
-        }
-
-    }
-
+		public ZincBoolLiteral (bool value) {
+			this.value = value;
+		}
+		#endregion
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincBoolLiteral"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincBoolLiteral"/>.</returns>
+		/// <remarks>
+		/// <para>The result is either <c>true</c> or <c>false</c>.</para>
+		/// </remarks>
+		public override string ToString () {
+			return this.value.ToString ();
+		}
+		#endregion
+		#region Conversion operators
+		public static implicit operator ZincBoolLiteral (bool value) {
+			return new ZincBoolLiteral (value);
+		}
+		#endregion
+	}
 }
 

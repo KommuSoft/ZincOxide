@@ -22,7 +22,7 @@ using ZincOxide.MiniZinc.Boxes;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-	public interface IZincTypeInstExprAndIdent : IZincIdTieBox {
+	public interface IZincTypeInstExprAndIdent : IZincIdTieBox, IZincVarDecl {
 	}
 }
 

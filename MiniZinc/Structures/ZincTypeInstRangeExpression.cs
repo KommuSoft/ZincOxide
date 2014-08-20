@@ -18,7 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 using ZincOxide.MiniZinc.Boxes;
 
@@ -27,15 +26,12 @@ namespace ZincOxide.MiniZinc.Structures {
 	public class ZincTypeInstRangeExpression : ZincNumNumBoxBase, IZincType {
 
 		#region IFinite implementation
-
 		public bool Finite {
 			get {
 				return true;
 			}
 		}
-
 		#endregion
-
 		public bool IsSubType (IZincType type) {
 			//TODO: implement
 			return false;
@@ -55,10 +51,19 @@ namespace ZincOxide.MiniZinc.Structures {
 
 		public ZincTypeInstRangeExpression (IZincNumExp numexp1, IZincNumExp numexp2) : base (numexp1, numexp2) {
 		}
-
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincTypeInstRangeExpression"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincTypeInstRangeExpression"/>.</returns>
+		/// <remarks>
+		/// <para>The result is a string format according to <c>from .. to</c> where <c>from</c> and <c>to</c> are replaced
+		/// by the textual representation of the <see cref="IZincNumExp"/> instances describing the range.</para>
+		/// </remarks>
 		public override string ToString () {
 			return string.Format ("{0} .. {1}", this.NumericExpression, this.NumericExpression2);
 		}
+		#endregion
 	}
 }
 

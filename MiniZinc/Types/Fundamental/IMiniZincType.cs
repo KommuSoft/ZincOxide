@@ -19,10 +19,9 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using ZincOxide.Utils;
 using System.Collections.Generic;
 using ZincOxide.Utils.Maths;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -42,7 +41,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <summary>
 		/// Returns the enumerable of the depending <see cref="IMiniZincTypeInst"/>.
 		/// </summary>
-		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
+		/// <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of the depending types.</returns>
 		IEnumerable<IMiniZincTypeInst> GetDependingTypes ();
 	}
 }

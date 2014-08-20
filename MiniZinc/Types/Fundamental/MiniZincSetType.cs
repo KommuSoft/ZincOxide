@@ -18,7 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 using System.Collections.Generic;
 using KommuSoft.HaskellLibraries;
@@ -104,7 +103,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		public MiniZincSetType (IMiniZincTypeInst elementType) {
 			this.ElementType = elementType;
 		}
-
+		#region ToString method
 		/// <summary>
 		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincSetType"/>.
 		/// </summary>
@@ -112,9 +111,8 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		public override string ToString () {
 			return string.Format ("set of [{0}]", this.elementType);
 		}
-
+		#endregion
 		#region IGenericEquals implementation
-
 		/// <summary>
 		/// Checks if this zinc type is equal to the given zinc type.
 		/// </summary>
@@ -127,9 +125,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 			}
 			return false;
 		}
-
 		#endregion
-
 		/// <summary>
 		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
 		/// </summary>

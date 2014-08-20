@@ -25,46 +25,41 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Items {
 
-	public abstract class ZincFileBase : ZincIdentScopeBase, IZincFile {
+	/// <summary>
+	/// A basic implementation of a <see cref="IZincFile"/> a file contains a number of <see cref="IZincItem"/> instances.
+	/// </summary>
+	public abstract class ZincFileBase : ZincScopeElementBase, IZincFile {
 
-        #region IZincFile implementation
+		#region IZincFile implementation
 		public abstract IEnumerable<IZincItem> Items {
 			get;
 		}
-        #endregion
-
+		#endregion
+		#region Constructors
 		protected ZincFileBase (ZincIdentNameRegister nameRegister = null) : base(nameRegister) {
 		}
-
-        #region IValidateable implementation
-		public bool Validate () {
-			return ValidateableUtils.Validate (this);
-		}
-        #endregion
-
-        #region IWriteable implementation
+		#endregion
+		#region IWriteable implementation
 		public abstract void Write (TextWriter writer);
-        #endregion
-
-        #region IZincIdentContainer implementation
-		public abstract IEnumerable<IZincIdent> InvolvedIdents ();
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
-		public abstract IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap);
-        #endregion
-
-        #region ISoftValidateable implementation
-		public abstract IEnumerable<string> SoftValidate ();
-        #endregion
-
-        #region IZincFile implementation
+		#endregion
+		#region IZincFile implementation
 		public abstract void AddItem (IZincItem item);
 
 		public abstract void AddItems (IEnumerable<IZincItem> items);
-        #endregion
-
+		#endregion
+		#region implemented abstract members of ZincScopeElementBase
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincElement"/> instance.
+		/// </returns>
+		public override IEnumerable<IZincElement> Children () {
+			return this.Items;
+		}
+		#endregion
 	}
-
 }
 

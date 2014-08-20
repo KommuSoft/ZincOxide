@@ -19,13 +19,40 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
 namespace ZincOxide.Utils.Maths {
 
-	public interface IMathSet<T> {
-		bool IsSubset (T other);
+	/// <summary>
+	/// An interface describing a mathematical definition of a set.
+	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// A set has subset and superset relations towards other sets of the same kind.
+	/// </para>
+	/// </remarks>
+	public interface IMathSet<TElement, TSet> where TSet : IMathSet<TElement,TSet> {
 
-		bool IsSuperset (T other);
+		/// <summary>
+		/// Determines whether this instance is subset the specified other.
+		/// </summary>
+		/// <returns>
+		/// <c>true</c> if this instance is subset the specified other; otherwise, <c>false</c>.
+		/// </returns>
+		/// <param name='other'>
+		/// If set to <c>true</c> other.
+		/// </param>
+		bool IsSubset (TSet other);
+
+		/// <summary>
+		/// Determines whether this instance is superset the specified other.
+		/// </summary>
+		/// <returns>
+		/// <c>true</c> if this instance is superset the specified other; otherwise, <c>false</c>.
+		/// </returns>
+		/// <param name='other'>
+		/// If set to <c>true</c> other.
+		/// </param>
+		bool IsSuperset (TSet other);
+
 	}
+
 }

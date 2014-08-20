@@ -28,15 +28,13 @@ namespace ZincOxide.MiniZinc.Boxes {
 	public interface IZincTiaBox : IZincBox {
 
 		/// <summary>
-		/// Gets the <see cref="IZincTypeInstExprAndIdent"/> instance stored in the <see cref="IzincTiasBox"/>.
+		/// Gets the <see cref="IZincTypeInstExprAndIdent"/> instance stored in the <see cref="IZincTiaBox"/>.
 		/// </summary>
 		/// <value>
-		/// The <see cref="IZincTypeInstExprAndIdent"/> instance stored in the <see cref="IzincTiasBox"/>.
+		/// The <see cref="IZincTypeInstExprAndIdent"/> instance stored in the <see cref="IZincTiaBox"/>.
 		/// </value>
 		IZincTypeInstExprAndIdent TypeInstExprAndIdent {
 			get;
 		}
-
 	}
-
 }

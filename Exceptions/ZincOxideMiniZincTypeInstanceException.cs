@@ -29,6 +29,7 @@ namespace ZincOxide.Exceptions {
 	/// </summary>
 	public class ZincOxideMiniZincTypeInstanceException : ZincOxideException {
 
+		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincOxideMiniZincTypeInstanceException"/> class without specifying a message or reason.
 		/// </summary>
@@ -70,6 +71,8 @@ namespace ZincOxide.Exceptions {
 		/// <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified. </param>
 		public ZincOxideMiniZincTypeInstanceException (string message, Exception innerException) : base (message, innerException) {
 		}
-	}
-}
+		#endregion
 
+	}
+
+}

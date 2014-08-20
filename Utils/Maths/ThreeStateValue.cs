@@ -19,26 +19,28 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-
 namespace ZincOxide.Utils.Maths {
 
 	/// <summary>
 	/// An enumeration type that represents three state logic values: true, false and unknown.
 	/// </summary>
 	public enum ThreeStateValue : byte {
+
 		/// <summary>
 		/// The given proposition is true.
 		/// </summary>
 		True = 0x03,
+
 		/// <summary>
 		/// The given proposition is false.
 		/// </summary>
 		Unknown = 0x01,
+
 		/// <summary>
 		/// It is unknown (or not computable) if the proposition is true or false.
 		/// </summary>
 		False = 0x00
-	}
-}
 
+	}
+
+}
