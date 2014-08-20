@@ -58,7 +58,11 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// </summary>
 		/// <param name="nameRegister">The name register that will store the identifiers defined in this scope.</param>
 		protected ZincScopeElementBase (ZincIdentNameRegister nameRegister = null) {
-			this.nameRegister = nameRegister;
+			if (nameRegister != null) {
+				this.nameRegister = nameRegister;
+			} else {
+				this.nameRegister = new ZincIdentNameRegister (null);
+			}
 		}
 		#endregion
 		#region IZincIdentScope implementation
@@ -71,12 +75,11 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// </remarks>
 		public virtual void CloseScope () {
 			foreach (IZincVarDecl vardecl in ICompositionUtils.Blanket<IZincElement> (this, x => !(x is IZincScopeElement), x => x is IZincVarDecl).Cast<IZincVarDecl> ()) {
-				Console.WriteLine (vardecl);
 				this.nameRegister.Register (vardecl.DeclaredIdentifier);
 			}
-			foreach (IZincScopeElement scope in ICompositionUtils.TypeBlanket<IZincElement,IZincScopeElement> (this)) {
+			/*foreach (IZincScopeElement scope in ICompositionUtils.TypeBlanket<IZincElement,IZincScopeElement> (this)) {
 				scope.CloseScope ();//close al underlying scopes (cascade)
-			}
+			}*/
 		}
 		#endregion
 		#region IZincIdentReplaceContainer implementation

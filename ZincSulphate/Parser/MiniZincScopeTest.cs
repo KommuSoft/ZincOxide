@@ -41,8 +41,7 @@ namespace ZincSulphate {
 				Assert.IsNotNull (model);
 				model.CloseScope ();
 				ZincIdentNameRegister zinr = model.NameRegister;
-				IZincIdent[] idents = zinr.Elements ().ToArray ();
-				Console.WriteLine (string.Join (",", idents.Select (x => x.ToString ())));
+				//Console.WriteLine ("end");
 			}
 
 		}

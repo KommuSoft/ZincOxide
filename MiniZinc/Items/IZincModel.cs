@@ -26,7 +26,7 @@ namespace ZincOxide.MiniZinc.Items {
 	/// An interface describing a Zinc model: a Zinc file where the parameter variables are unassigned (unless
 	/// relations between the variables are expressed).
 	/// </summary>
-	public interface IZincModel : IZincDataFile {
+	public interface IZincModel : IZincFile {
 	}
 }
 

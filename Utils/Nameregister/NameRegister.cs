@@ -21,6 +21,7 @@
 using System.Collections.Generic;
 using ZincOxide.Exceptions;
 using ZincOxide.Utils.Abstract;
+using System;
 
 namespace ZincOxide.Utils.Nameregister {
 
