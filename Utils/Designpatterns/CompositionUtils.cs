@@ -21,6 +21,8 @@
 using System.Collections.Generic;
 using System;
 using ZincOxide.Utils.Abstract;
+using ZincOxide.Exceptions;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Utils.Designpatterns {
 
@@ -40,6 +42,7 @@ namespace ZincOxide.Utils.Designpatterns {
 		/// of its children.</para>
 		/// </remarks>
 		public static IEnumerable<TChildren> Descendants<TChildren> (this TChildren root) where TChildren : IComposition<TChildren> {
+			Contract.Requires (root != null);
 			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
 			IEnumerator<TChildren> cur;
 			TChildren child;
@@ -49,7 +52,7 @@ namespace ZincOxide.Utils.Designpatterns {
 				if (cur.MoveNext ()) {
 					child = cur.Current;
 					yield return child;
-					generationStack.Push (child.Children ().GetEnumerator ());
+					child.Children ().OrNull (x => x.GetEnumerator ()).IfEffective (generationStack.Push);
 				} else {
 					generationStack.Pop ();
 				}
@@ -70,6 +73,7 @@ namespace ZincOxide.Utils.Designpatterns {
 		/// This method is thus more efficient than putting a unique constraint on the output of <see cref="M:Descendants"/></para>
 		/// </remarks>
 		public static IEnumerable<TChildren> UniqueDescendants<TChildren> (this TChildren root) where TChildren : IComposition<TChildren> {
+			Contract.Requires (root != null);
 			HashSet<TChildren> enumerated = new HashSet<TChildren> ();
 			enumerated.Add (root);
 			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
@@ -82,7 +86,7 @@ namespace ZincOxide.Utils.Designpatterns {
 					child = cur.Current;
 					if (enumerated.Add (child)) {
 						yield return child;
-						generationStack.Push (child.Children ().GetEnumerator ());
+						child.Children ().OrNull (x => x.GetEnumerator ()).IfEffective (generationStack.Push);
 					}
 				} else {
 					generationStack.Pop ();
@@ -97,6 +101,8 @@ namespace ZincOxide.Utils.Designpatterns {
 		/// <param name="predicate">The predicate that should be satisfied in order to return a descendant.</param>
 		/// <typeparam name="TChildren">The type of elements over which the composite pattern enumerates.</typeparam>
 		public static IEnumerable<TChildren> Blanket<TChildren> (this TChildren root, Predicate<TChildren> predicate) where TChildren : IComposition<TChildren> {
+			Contract.Requires (root != null);
+			Contract.Requires (predicate != null);
 			HashSet<TChildren> enumerated = new HashSet<TChildren> ();
 			enumerated.Add (root);
 			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
@@ -111,7 +117,7 @@ namespace ZincOxide.Utils.Designpatterns {
 						if (predicate (child)) {
 							yield return child;
 						} else {
-							generationStack.Push (child.Children ().GetEnumerator ());
+							child.Children ().OrNull (x => x.GetEnumerator ()).IfEffective (generationStack.Push);
 						}
 					}
 				} else {
@@ -129,39 +135,24 @@ namespace ZincOxide.Utils.Designpatterns {
 		public static IEnumerable<TType> TypeBlanket<TChildren,TType> (this TChildren root)
 		where TChildren : IComposition<TChildren>
 		where TType : TChildren {
+			Contract.Requires (root != null);
 			HashSet<TChildren> enumerated = new HashSet<TChildren> ();
 			enumerated.Add (root);
 			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
 			IEnumerator<TChildren> cur;
 			TChildren child;
-			Console.WriteLine ("Expand {0}", root);
 			generationStack.Push (root.Children ().GetEnumerator ());
-			Console.WriteLine ("[done]");
 			do {
 				cur = generationStack.Peek ();
 				if (cur.MoveNext ()) {
 					child = cur.Current;
-					if (enumerated.Add (child)) {
-						if (child is TType) {
-							yield return (TType)child;
-						} else {
-							IEnumerable<TChildren> enb = child.Children ();
-							if (enb != null) {
-								IEnumerator<TChildren> enm = enb.GetEnumerator ();
-								if (enm != null) {
-									generationStack.Push (null);
-								}
-#if DEBUG
-									else {
-									Console.WriteLine ("{0} returns null child", child);
-								}
-#endif
+					if (child != null) {
+						if (enumerated.Add (child)) {
+							if (child is TType) {
+								yield return (TType)child;
+							} else {
+								child.Children ().OrNull (x => x.GetEnumerator ()).IfEffective (generationStack.Push);
 							}
-#if DEBUG
-							else {
-								Console.WriteLine ("{0} returns null child", child);
-							}
-#endif
 						}
 					}
 				} else {
@@ -172,13 +163,17 @@ namespace ZincOxide.Utils.Designpatterns {
 
 		/// <summary>
 		/// Enumerate the closests descendants of <paramref name="root"/> that match the the given <paramref name="enumerate"/> predicate,
-		/// but nodes are only expanded if the given <paramref name="expand"/> predicate .
+		/// but nodes are only expanded if the given <paramref name="expand"/> predicate.
 		/// </summary>
 		/// <param name="root">The given root that provides the descendants.</param>
 		/// <param name="expand">A predicate thet determines whether a node will be expanded in the search of descendants.</param>
 		/// <param name="enumerate">A predicate that determines whether a node wukk be ebumerates (given it is searched for).</param>
 		/// <typeparam name="TChildren">The type of elements over which the composite pattern enumerates.</typeparam>
-		public static IEnumerable<TChildren> Blanket<TChildren> (this TChildren root, Predicate<TChildren> expand, Predicate<TChildren> enumerate) where TChildren : IComposition<TChildren> {
+		public static IEnumerable<TChildren> Blanket<TChildren> (this TChildren root, Predicate<TChildren> expand, Predicate<TChildren> enumerate)
+		where TChildren : IComposition<TChildren> {
+			Contract.Requires (root != null);
+			Contract.Requires (expand != null);
+			Contract.Requires (enumerate != null);
 			HashSet<TChildren> enumerated = new HashSet<TChildren> ();
 			enumerated.Add (root);
 			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
@@ -193,7 +188,54 @@ namespace ZincOxide.Utils.Designpatterns {
 						if (expand (child)) {
 							yield return child;
 						} else {
-							generationStack.Push (child.Children ().GetEnumerator ());
+							child.Children ().OrNull (x => x.GetEnumerator ()).IfEffective (generationStack.Push);
+						}
+					}
+				} else {
+					generationStack.Pop ();
+				}
+			} while (generationStack.Count > 0x00);
+		}
+
+		/// <summary>
+		/// Enumerate the closests descendants of <paramref name="root"/> that match the the given <paramref name="enumerate"/> predicate,
+		/// but nodes are only expanded if the given <paramref name="expand"/> predicate. Descendants are enumerated with an "environment":
+		/// the closest descendant of type <typeparamref name="TEnv"/> that satisfies the <paramref name="environment"/> predicate.
+		/// </summary>
+		/// <returns>A list of tuples of the environment instance and the associated descendant to be enumerated.</returns>
+		/// <param name="root">The root from which the double blanket is calculated.</param>
+		/// <param name="expand">A predicate that determines which node must be expanded.</param>
+		/// <param name="enumerate">A predicate that determines which nodes must be enumerated.</param>
+		/// <param name="environment">A predicate that determines whether an inode is selected as the closest environment.</param>
+		/// <typeparam name="TEnv">The type of the environment, used to determine the environment "inodes".</typeparam>
+		/// <typeparam name="TChild">The type of the elements to be enumerated.</typeparam>
+		/// <remarks>
+		/// <para>The default value of <typeparamref name="TEnv"/> is used for items where no environment is yet defined.</para>
+		/// <para>The root is tested first as a potential environment.</para>
+		/// </remarks>
+		public static IEnumerable<Tuple<TEnv,TChild>> DoubleBlanket<TEnv,TChild> (this TChild root, Predicate<TChild> expand, Predicate<TChild> enumerate, Predicate<TEnv> environment)
+		where TChild : IComposition<TChild> {
+			Contract.Requires (root != null);
+			Contract.Requires (expand != null);
+			Contract.Requires (enumerate != null);
+			Contract.Requires (environment != null);
+			HashSet<TChild> enumerated = new HashSet<TChild> ();
+			enumerated.Add (root);
+			Stack<IEnumerator<TChild>> generationStack = new Stack<IEnumerator<TChild>> ();
+			Stack<TEnv> environmentStack = new Stack<TEnv> ();//TODO
+			IEnumerator<TChild> cur;
+			TChild child;
+			generationStack.Push (root.Children ().GetEnumerator ());
+			environmentStack.Push (default(TEnv));
+			do {
+				cur = generationStack.Peek ();
+				if (cur.MoveNext ()) {
+					child = cur.Current;
+					if (enumerated.Add (child) && enumerate (child)) {
+						if (expand (child)) {
+							yield return null;
+						} else {
+							child.Children ().OrNull (x => x.GetEnumerator ()).IfEffective (generationStack.Push);
 						}
 					}
 				} else {

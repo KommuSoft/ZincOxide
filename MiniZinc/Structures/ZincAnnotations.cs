@@ -47,6 +47,7 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// </summary>
 		/// <param name="annotations">The given list of annotations.</param>
 		public ZincAnnotations (params IZincAnnotation[] annotations) : base(annotations) {
+			IEnumerator<IZincElement> enr = this.Children ().GetEnumerator ();
 		}
 		#endregion
 		/// <summary>

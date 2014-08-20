@@ -1,5 +1,5 @@
 //
-//  MiniZincScopeTest.cs
+//  BasicTests.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,30 +18,20 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.IO;
-using NUnit.Framework;
-using ZincOxide.Parser;
-using ZincOxide.MiniZinc.Items;
-using System.Linq;
-using ZincOxide.MiniZinc.Structures;
 using System;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace ZincSulphate {
 
 	[TestFixture]
-	public class MiniZincScopeTest {
+	public class BasicTests {
 
-		[Test()]
-		public void TestScope0 () {
-			MemoryStream ms = Content.GenerateContent0 ();
-			MiniZincLexer scnr = new MiniZincLexer (ms);
-			MiniZincParser pars = new MiniZincParser (scnr);
-			pars.Parse ();
-			ZincModel model = pars.Result;
-			Assert.IsNotNull (model);
-			model.CloseScope (null);
-			ZincIdentNameRegister zinr = model.NameRegister;
-
+		[Test]
+		public void TestEmptyLinkedListEnumerator () {
+			LinkedList<Object> foo = new LinkedList<Object> ();
+			IEnumerator<Object> enr = foo.GetEnumerator ();
+			Assert.IsFalse (enr.MoveNext ());
 		}
 	}
 }

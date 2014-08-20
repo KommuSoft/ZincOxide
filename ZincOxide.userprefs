@@ -1,30 +1,23 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MiniZinc/Structures/ZincScopeElementBase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Abstract/NullSafe.cs">
     <Files>
-      <File FileName="MiniZinc/Structures/IZincScopeElement.cs" Line="28" Column="64" />
-      <File FileName="MiniZinc/Structures/IZincIdentScope.cs" Line="49" Column="17" />
-      <File FileName="MiniZinc/Structures/ZincScopeElementBase.cs" Line="78" Column="17" />
-      <File FileName="Utils/Nameregister/NameRegister.cs" Line="100" Column="58" />
-      <File FileName="Utils/Nameregister/IFallbackNameRegister.cs" Line="38" Column="13" />
-      <File FileName="Utils/Nameregister/DNameRegisterFallback.cs" Line="35" Column="75" />
-      <File FileName="ZincSulphate/Parser/MiniZincScopeTest.cs" Line="42" Column="27" />
-      <File FileName="MiniZinc/Items/ZincModel.cs" Line="127" Column="24" />
-      <File FileName="MiniZinc/Structures/ZincIdentNameRegister.cs" Line="30" Column="2" />
-      <File FileName="Utils/Abstract/NullSafe.cs" Line="42" Column="31" />
+      <File FileName="Utils/Designpatterns/CompositionUtils.cs" Line="208" Column="37" />
+      <File FileName="Utils/Abstract/NullSafe.cs" Line="84" Column="50" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="ZincOxide" expanded="True">
+          <Node name="ZincOxide" expanded="True" selected="True">
+            <Node name="Exceptions" expanded="True" />
             <Node name="MiniZinc" expanded="True">
+              <Node name="Boxes" expanded="True" />
               <Node name="Items" expanded="True" />
-              <Node name="Structures" expanded="True">
-                <Node name="ZincScopeElementBase.cs" selected="True" />
-              </Node>
+              <Node name="Structures" expanded="True" />
             </Node>
             <Node name="Utils" expanded="True">
               <Node name="Abstract" expanded="True" />
+              <Node name="Designpatterns" expanded="True" />
               <Node name="Nameregister" expanded="True" />
             </Node>
           </Node>
