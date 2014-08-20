@@ -22,6 +22,7 @@ using ZincOxide.Utils.Designpatterns;
 using ZincOxide.Utils.Nameregister;
 using System.Collections.Generic;
 using ZincOxide.Utils;
+using ZincOxide.Utils.Abstract;
 using ZincOxide.MiniZinc;
 using System.Linq;
 using System;
@@ -69,17 +70,20 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// <summary>
 		/// Closes the scope, used at the end of adding items to the scope.
 		/// </summary>
+		/// <param name="scope">The outer scope, used to attach a fallback mechanism to each
+		/// scope.</param>
 		/// <remarks>
 		/// <para>When the scope closes, several operations are carried out: identifiers used in the scope
 		/// that are defined in the scope as well are redirected to the assignment identifier.</para>
 		/// </remarks>
-		public virtual void CloseScope () {
+		public virtual void CloseScope (IZincIdentScope scope) {
+			this.nameRegister.Parent = scope.OrNull (x => x.NameRegister);
 			foreach (IZincVarDecl vardecl in ICompositionUtils.Blanket<IZincElement> (this, x => !(x is IZincScopeElement), x => x is IZincVarDecl).Cast<IZincVarDecl> ()) {
 				this.nameRegister.Register (vardecl.DeclaredIdentifier);
 			}
-			/*foreach (IZincScopeElement scope in ICompositionUtils.TypeBlanket<IZincElement,IZincScopeElement> (this)) {
-				scope.CloseScope ();//close al underlying scopes (cascade)
-			}*/
+			foreach (IZincScopeElement subScope in ICompositionUtils.TypeBlanket<IZincElement,IZincScopeElement> (this)) {
+				subScope.CloseScope (this);//close al underlying scopes (cascade)
+			}
 		}
 		#endregion
 		#region IZincIdentReplaceContainer implementation

@@ -86,6 +86,25 @@ namespace ZincOxide.Utils.Nameregister {
 			return this.dictionary.Values;
 		}
 		#endregion
+		#region Utility methods
+		/// <summary>
+		/// Generate a fallback delegate from the given <see cref="T:INameRegister`1"/>.
+		/// </summary>
+		/// <returns>A fallback mechanism that consults the given name register, can be used
+		/// for generating (cascading) fallback mechanisms.</returns>
+		/// <param name="nameregister">The given name register to generate a fallback delegate from.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="nameregister"/> is not effective, a <c>null</c> pointer
+		/// is returned.</para>
+		/// </remarks>
+		public static DNameRegisterFallback<T> GenerateFallback (INameRegister<T> nameregister) {
+			if (nameregister != null) {
+				return nameregister.Lookup;
+			} else {
+				return null;
+			}
+		}
+		#endregion
 	}
 }
 

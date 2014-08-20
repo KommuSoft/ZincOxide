@@ -30,6 +30,12 @@ namespace ZincOxide.Utils.Nameregister {
 	/// </typeparam>
 	public interface IFallbackNameRegister<T> : INameRegister<T> where T : IName {
 
+		/// <summary>
+		/// Gets the fallback mechanism associated with this <see cref="T:IFallbackNameRegister`1"/>.
+		/// </summary>
+		/// <value>A <see cref="T:DNameRegisterFallback`1"/> instance that represents
+		/// the fallback mechanism of this name register, not effective if no fallback mechanism
+		/// exists.</value>
 		DNameRegisterFallback<T> Fallback {
 			get;
 		}

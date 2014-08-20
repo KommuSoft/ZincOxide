@@ -238,6 +238,7 @@
     <Compile Include="MiniZinc\Items\IZincDataFile.cs" />
     <Compile Include="MiniZinc\Structures\IZincVarDecl.cs" />
     <Compile Include="MiniZinc\Items\IZincModel.cs" />
+    <Compile Include="Utils\Abstract\NullSafe.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

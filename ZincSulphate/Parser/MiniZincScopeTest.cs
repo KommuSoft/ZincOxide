@@ -39,7 +39,7 @@ namespace ZincSulphate {
 				pars.Parse ();
 				ZincModel model = pars.Result;
 				Assert.IsNotNull (model);
-				model.CloseScope ();
+				model.CloseScope (null);
 				ZincIdentNameRegister zinr = model.NameRegister;
 				//Console.WriteLine ("end");
 			}
