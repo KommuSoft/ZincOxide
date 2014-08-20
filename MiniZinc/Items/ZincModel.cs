@@ -35,33 +35,66 @@ namespace ZincOxide.MiniZinc.Items {
 
 		private readonly List<IZincItem> items = new List<IZincItem> ();
 
+		/// <summary>
+		/// Gets a value indicating whether this instance is valid zinc data file.
+		/// </summary>
+		/// <value><c>true</c> if this instance is valid zinc data; otherwise, <c>false</c>.</value>
 		public bool IsValidZincData {
 			get {
 				return this.Items.All (x => x is ZincVarDeclItem);
 			}
 		}
 
+		/// <summary>
+		/// Gets a value indicating whether this instance is valid zinc model.
+		/// </summary>
+		/// <value><c>true</c> if this instance is valid zinc model; otherwise, <c>false</c>.</value>
 		public bool IsValidZincModel {
 			get {
 				return true;//TODO: checks on VarDecl-Assign,...
 			}
 		}
 		#region IZincFile implementation
+		/// <summary>
+		/// Enumerate all the <see cref="IZincItem"/> instances that are stored in this <see cref="IZincModel"/>.
+		/// </summary>
+		/// <value>A <see cref="T:IEnumerable`1"/> that enumerates all the items of the <see cref="IZincModel"/>.</value>
 		public override IEnumerable<IZincItem> Items {
 			get {
 				return this.items;
 			}
 		}
 		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincModel"/> class with no items to initialize.
+		/// </summary>
+		/// <remarks>
+		/// <para>In other words, the model file is empty (and is in fact not valid at all).</para>
+		/// <para>This constructor is merely used to parse data into.</para>
+		/// </remarks>
 		public ZincModel () {
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincModel"/> class with a given list of <see cref="IZincItem"/>
+		/// instances that must be stored in the file.
+		/// </summary>
+		/// <param name="items">An <see cref="T:IEnumerable`1"/> containing the <see cref="IZincItem"/> instances
+		/// that should be stored in the <see cref="IZincModel"/>.</param>
 		public ZincModel (IEnumerable<IZincItem> items) : this() {
 			this.AddItems (items);
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincModel"/> class with a given list of <see cref="IZincItem"/>
+		/// instances that must be stored in the file.
+		/// </summary>
+		/// <param name="items">An array containing the <see cref="IZincItem"/> instances
+		/// that should be stored in the <see cref="IZincModel"/>.</param>
 		public ZincModel (params IZincItem[] items) : this((IEnumerable<IZincItem>) items) {
 		}
+		#endregion
 		#region IZincFile implementation
 		/// <summary>
 		/// Adds the given <see cref="T:IEnumerable`1"/> of <see cref="IZincItem"/> instances to this <see cref="IZincModel"/>.
@@ -124,7 +157,7 @@ namespace ZincOxide.MiniZinc.Items {
 		#endregion
 		#region IZincIdentReplaceContainer implementation
 		/// <summary>
-		/// Replaces all the instances stored in the given <see cref="T:IDictionary`1"/>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>
 		/// stored as keys to the corresponding values and returns this instance, possibly if this is an
 		/// <see cref="IZincIdent"/> itself another <see cref="IZincIdent"/>.
 		/// </summary>
@@ -146,10 +179,23 @@ namespace ZincOxide.MiniZinc.Items {
 			return new ZincData (this.Items);
 		}
 
+		/// <summary>
+		/// Reduces this <see cref="IZincModel"/> to a <see cref="IZincDataFile"/> instance. Only the parameter assignment
+		/// items are kept.
+		/// </summary>
+		/// <returns>A <see cref="IZincDataFile"/> contaning the parameter value assignments of this
+		/// <see cref="IZincModel"/>.</returns>
 		public ZincData ReduceToZincData () {
 			return new ZincData (this.Items.Where (x => x.Type == ZincItemType.Assign).Cast<ZincAssignItem> ());//TODO: only par items
 		}
 
+		/// <summary>
+		/// Converts this <see cref="IZincModel"/> into a <see cref="IZincDataFile"/> containing the parameter
+		/// assignment items.
+		/// </summary>
+		/// <param name="model">The given model to convert.</param>
+		/// <returns>A <see cref="ZincData"/> instance that contains all the raw parameter value assignments, this can
+		/// be used to separate the data from the model.</returns>
 		public static explicit operator ZincData (ZincModel model) {
 			if (model != null) {
 				return new ZincData (model.Items);
@@ -158,6 +204,13 @@ namespace ZincOxide.MiniZinc.Items {
 			}
 		}
 
+		/// <summary>
+		/// Reduces this <see cref="IZincModel"/> to a <see cref="IZincDataFile"/> instance. Only the parameter assignment
+		/// items are kept.
+		/// </summary>
+		/// <param name="model">The given model to convert.</param>
+		/// <returns>A <see cref="IZincDataFile"/> contaning the parameter value assignments of this
+		/// <see cref="IZincModel"/>.</returns>
 		public static ZincData operator ~ (ZincModel model) {
 			if (model != null) {
 				return model.ReduceToZincData ();
