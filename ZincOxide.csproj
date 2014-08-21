@@ -243,6 +243,7 @@
     <Compile Include="Utils\Abstract\NullSafe.cs" />
     <Compile Include="Exceptions\ZincOxideBugException.cs" />
     <Compile Include="Parser\ILexSpan.cs" />
+    <Compile Include="Utils\Functional\FunctionUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -289,6 +290,7 @@
     <Folder Include="Utils\Designpatterns\" />
     <Folder Include="Utils\Nameregister\" />
     <Folder Include="Representation\" />
+    <Folder Include="Utils\Functional\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

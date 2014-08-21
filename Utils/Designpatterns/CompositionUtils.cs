@@ -43,6 +43,8 @@ namespace ZincOxide.Utils.Designpatterns {
 		/// </remarks>
 		public static IEnumerable<TChildren> Descendants<TChildren> (this TChildren root) where TChildren : IComposition<TChildren> {
 			Contract.Requires (root != null);
+			Contract.Ensures (Contract.Result<IEnumerable<TChildren>> () != null);
+			Contract.Ensures (Contract.ForAll (Contract.Result<IEnumerable<TChildren>> (), g => g != null));
 			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
 			IEnumerator<TChildren> cur;
 			TChildren child;
@@ -103,6 +105,8 @@ namespace ZincOxide.Utils.Designpatterns {
 		public static IEnumerable<TChildren> Blanket<TChildren> (this TChildren root, Predicate<TChildren> predicate) where TChildren : IComposition<TChildren> {
 			Contract.Requires (root != null);
 			Contract.Requires (predicate != null);
+			Contract.Ensures (Contract.Result<IEnumerable<TChildren>> () != null);
+			Contract.Ensures (Contract.ForAll (Contract.Result<IEnumerable<TChildren>> (), g => g != null));
 			HashSet<TChildren> enumerated = new HashSet<TChildren> ();
 			enumerated.Add (root);
 			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
@@ -136,6 +140,8 @@ namespace ZincOxide.Utils.Designpatterns {
 		where TChildren : IComposition<TChildren>
 		where TType : TChildren {
 			Contract.Requires (root != null);
+			Contract.Ensures (Contract.Result<IEnumerable<TChildren>> () != null);
+			Contract.Ensures (Contract.ForAll (Contract.Result<IEnumerable<TChildren>> (), g => g != null));
 			HashSet<TChildren> enumerated = new HashSet<TChildren> ();
 			enumerated.Add (root);
 			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
@@ -174,6 +180,8 @@ namespace ZincOxide.Utils.Designpatterns {
 			Contract.Requires (root != null);
 			Contract.Requires (expand != null);
 			Contract.Requires (enumerate != null);
+			Contract.Ensures (Contract.Result<IEnumerable<TChildren>> () != null);
+			Contract.Ensures (Contract.ForAll (Contract.Result<IEnumerable<TChildren>> (), g => g != null));
 			HashSet<TChildren> enumerated = new HashSet<TChildren> ();
 			enumerated.Add (root);
 			Stack<IEnumerator<TChildren>> generationStack = new Stack<IEnumerator<TChildren>> ();
@@ -184,8 +192,8 @@ namespace ZincOxide.Utils.Designpatterns {
 				cur = generationStack.Peek ();
 				if (cur.MoveNext ()) {
 					child = cur.Current;
-					if (enumerated.Add (child) && enumerate (child)) {
-						if (expand (child)) {
+					if (enumerated.Add (child) && expand (child)) {
+						if (enumerate (child)) {
 							yield return child;
 						} else {
 							child.Children ().OrNull (x => x.GetEnumerator ()).IfEffective (generationStack.Push);
@@ -212,6 +220,7 @@ namespace ZincOxide.Utils.Designpatterns {
 		/// <remarks>
 		/// <para>The default value of <typeparamref name="TEnv"/> is used for items where no environment is yet defined.</para>
 		/// <para>The root is tested first as a potential environment.</para>
+		/// <para>It is possible that an element is enumerated with an environment that is equal to itself.</para>
 		/// </remarks>
 		public static IEnumerable<Tuple<TEnv,TChild>> DoubleBlanket<TEnv,TChild> (this TChild root, Predicate<TChild> expand, Predicate<TChild> enumerate, Predicate<TEnv> environment)
 		where TChild : IComposition<TChild>
@@ -220,6 +229,8 @@ namespace ZincOxide.Utils.Designpatterns {
 			Contract.Requires (expand != null);
 			Contract.Requires (enumerate != null);
 			Contract.Requires (environment != null);
+			Contract.Ensures (Contract.Result<IEnumerable<Tuple<TEnv,TChild>>> () != null);
+			Contract.Ensures (Contract.ForAll (Contract.Result<IEnumerable<Tuple<TEnv,TChild>>> (), g => g != null && g.Item2 != null));
 			HashSet<TChild> enumerated = new HashSet<TChild> ();
 			enumerated.Add (root);
 			Stack<IEnumerator<TChild>> generationStack = new Stack<IEnumerator<TChild>> ();
@@ -236,11 +247,12 @@ namespace ZincOxide.Utils.Designpatterns {
 				cur = generationStack.Peek ();
 				if (cur.MoveNext ()) {
 					child = cur.Current;
-					if (enumerated.Add (child) && enumerate (child)) {
-						if (expand (child)) {
-							yield return null;
+					if (enumerated.Add (child) && expand (child)) {
+						if (enumerate (child)) {
+							yield return new Tuple<TEnv,TChild> (environmentStack.Peek (), child);
 						} else {
 							child.Children ().OrNull (x => x.GetEnumerator ()).IfEffective (generationStack.Push);
+
 						}
 					}
 				} else {
