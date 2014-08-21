@@ -23,6 +23,7 @@ using System;
 using ZincOxide.Utils.Abstract;
 using ZincOxide.Exceptions;
 using System.Diagnostics.Contracts;
+using ZincOxide.Utils.Collections;
 
 namespace ZincOxide.Utils.Designpatterns {
 
@@ -233,26 +234,29 @@ namespace ZincOxide.Utils.Designpatterns {
 			Contract.Ensures (Contract.ForAll (Contract.Result<IEnumerable<Tuple<TEnv,TChild>>> (), g => g != null && g.Item2 != null));
 			HashSet<TChild> enumerated = new HashSet<TChild> ();
 			enumerated.Add (root);
-			Stack<IEnumerator<TChild>> generationStack = new Stack<IEnumerator<TChild>> ();
-			Stack<TEnv> environmentStack = new Stack<TEnv> ();//TODO
+			Stack<TEnv,IEnumerator<TChild>> generationStack = new Stack<TEnv,IEnumerator<TChild>> ();
 			IEnumerator<TChild> cur;
 			TChild child;
-			generationStack.Push (root.Children ().GetEnumerator ());
-			if (root is TEnv && environment (root as TEnv)) {
-				environmentStack.Push (root as TEnv);
-			} else {
-				environmentStack.Push (null);
+			TEnv topenv = root as TEnv, env;
+			if (topenv != null && !environment (topenv)) {
+				topenv = null;
 			}
+			generationStack.Push (topenv, root.Children ().GetEnumerator ());
 			do {
-				cur = generationStack.Peek ();
+				cur = generationStack.Peek ().Item2;
 				if (cur.MoveNext ()) {
 					child = cur.Current;
 					if (enumerated.Add (child) && expand (child)) {
+						topenv = generationStack.SafePeek1 ();
+						env = child as TEnv;
+						if (env != null && environment (env)) {
+							topenv = env;
+						}
 						if (enumerate (child)) {
-							yield return new Tuple<TEnv,TChild> (environmentStack.Peek (), child);
+							yield return null;
+							yield return new Tuple<TEnv,TChild> (topenv, child);
 						} else {
-							child.Children ().OrNull (x => x.GetEnumerator ()).IfEffective (generationStack.Push);
-
+							child.Children ().OrNull (x => x.GetEnumerator ()).IfEffective (x => generationStack.Push (topenv, x));
 						}
 					}
 				} else {

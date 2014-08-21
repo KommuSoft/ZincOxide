@@ -2,29 +2,28 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Utils/Designpatterns/CompositionUtils.cs">
     <Files>
-      <File FileName="Utils/Designpatterns/CompositionUtils.cs" Line="51" Column="35" />
-      <File FileName="Utils/Abstract/NullSafe.cs" Line="70" Column="29" />
-      <File FileName="ZincSulphate/Parser/MiniZincScopeTest.cs" Line="45" Column="4" />
+      <File FileName="Utils/Designpatterns/CompositionUtils.cs" Line="236" Column="26" />
+      <File FileName="Utils/Functional/FunctionUtils.cs" Line="1" Column="1" />
+      <File FileName="MiniZinc/Structures/ZincAnnotations.cs" Line="1" Column="1" />
+      <File FileName="Utils/Collections/TupleStacks.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="ZincOxide" expanded="True" selected="True">
-            <Node name="Exceptions" expanded="True" />
+          <Node name="ZincOxide" expanded="True">
             <Node name="MiniZinc" expanded="True">
-              <Node name="Boxes" expanded="True" />
-              <Node name="Items" expanded="True" />
               <Node name="Structures" expanded="True" />
             </Node>
+            <Node name="Parser" expanded="True" />
             <Node name="Utils" expanded="True">
-              <Node name="Abstract" expanded="True" />
-              <Node name="Designpatterns" expanded="True" />
-              <Node name="Nameregister" expanded="True" />
+              <Node name="Collections" expanded="True" />
+              <Node name="Designpatterns" expanded="True">
+                <Node name="CompositionUtils.cs" selected="True" />
+              </Node>
+              <Node name="Functional" expanded="True" />
             </Node>
           </Node>
-          <Node name="ZincSulphate" expanded="True">
-            <Node name="Parser" expanded="True" />
-          </Node>
+          <Node name="ZincSulphate" expanded="True" />
         </State>
       </Pad>
       <Pad Id="ClassPad">

@@ -1,10 +1,10 @@
 //
-//  IZincElement.cs
+//  ZincPrintUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
-//  Copyright (c) 2013 Willem Van Onsem
+//  Copyright (c) 2014 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,20 +18,23 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.Utils;
-using ZincOxide.MiniZinc.Structures;
+using System;
+using NUnit.Framework;
+using ZincOxide.MiniZinc;
 
-namespace ZincOxide.MiniZinc {
+namespace ZincSulphate {
 
-	/// <summary>
-	/// An interface describing an element in the Zinc language. An element can be anything and is organized as a composite pattern.
-	/// </summary>
-	/// <remarks>
-	/// <para>Zinc elements have (sometimes zero) children, can be validated and can contain identifiers that can be replaced with
-	/// other Zinc elements.</para>
-	/// <para>This interface is a currently a "sign" interface.</para>
-	/// </remarks>
-	public interface IZincElement : IInnerSoftValidateable, ISoftValidateable, IComposition<IZincElement>, IZincIdentReplaceContainer {
+	[TestFixture]
+	public class ZincPrintUtilsTest {
+
+		[Test]
+		public void TestStringLiteral () {
+			Assert.AreEqual ("\"\"", ZincPrintUtils.StringLiteral (string.Empty));
+			Assert.AreEqual ("\"a\"", ZincPrintUtils.StringLiteral ("a"));
+			Assert.AreEqual ("\"aa\"", ZincPrintUtils.StringLiteral ("aa"));
+			Assert.AreEqual ("\"abb\"", ZincPrintUtils.StringLiteral ("abb"));
+			Assert.AreEqual ("\"\\\"abb\\\"\"", ZincPrintUtils.StringLiteral ("\"abb\""));
+		}
 	}
 }
 

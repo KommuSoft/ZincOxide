@@ -244,6 +244,7 @@
     <Compile Include="Exceptions\ZincOxideBugException.cs" />
     <Compile Include="Parser\ILexSpan.cs" />
     <Compile Include="Utils\Functional\FunctionUtils.cs" />
+    <Compile Include="Utils\Collections\TupleStacks.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
