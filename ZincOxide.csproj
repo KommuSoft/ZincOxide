@@ -245,6 +245,7 @@
     <Compile Include="Parser\ILexSpan.cs" />
     <Compile Include="Utils\Functional\FunctionUtils.cs" />
     <Compile Include="Utils\Collections\TupleStacks.cs" />
+    <Compile Include="Utils\Functional\StandardFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -260,8 +261,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Manpage.txt" />
-    <None Include="Samples\jobshop.mzn" />
-    <None Include="Samples\jobshop2x2.data" />
     <None Include="Parser\specs\MiniZinc.ll" />
     <None Include="Parser\specs\MiniZinc.yy" />
     <None Include="Parser\specs\cc.sh" />
@@ -271,7 +270,6 @@
   <ItemGroup>
     <Folder Include="MiniZinc\" />
     <Folder Include="Parser\" />
-    <Folder Include="Samples\" />
     <Folder Include="MiniZinc\Boxes\" />
     <Folder Include="Utils\" />
     <Folder Include="Normalization\" />

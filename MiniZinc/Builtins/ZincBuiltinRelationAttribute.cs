@@ -22,13 +22,19 @@ using System;
 
 namespace ZincOxide.MiniZinc.Builtins {
 
-    [AttributeUsage(AttributeTargets.Class)]
-    public class ZincBuiltinRelationAttribute : Attribute {
-
-        public ZincBuiltinRelationAttribute () {
-        }
-
-    }
-
+	/// <summary>
+	/// An attribute to register builtin predicates, functions and other identifiers.
+	/// </summary>
+	[AttributeUsage(AttributeTargets.Class)]
+	public class ZincBuiltinRelationAttribute : Attribute {
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincBuiltinRelationAttribute"/> class. This attribute should
+		/// only be initialized on classes to register builtin relations.
+		/// </summary>
+		public ZincBuiltinRelationAttribute () {
+		}
+		#endregion
+	}
 }
 
