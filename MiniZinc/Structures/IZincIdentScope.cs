@@ -41,10 +41,12 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// <summary>
 		/// Closes the scope, used at the end of adding items to the scope.
 		/// </summary>
+		/// <param name="scope">The outer scope, used to attach a fallback mechanism to each
+		/// scope, optionally, by default not effective.</param>
 		/// <remarks>
 		/// <para>When the scope closes, several operations are carried out: identifiers used in the scope
 		/// that are defined in the scope as well are redirected to the assignment identifier.</para>
 		/// </remarks>
-		void CloseScope ();
+		void CloseScope (IZincIdentScope scope = null);
 	}
 }

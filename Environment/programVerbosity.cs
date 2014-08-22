@@ -18,7 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 
 namespace ZincOxide.Environment {
@@ -34,25 +33,20 @@ namespace ZincOxide.Environment {
 		/// Remarks is a verbosity level where simple message printed giving information about the current flow of the program.
 		/// </summary>
 		Remark = 0x08,
-
 		/// <summary>
 		/// Assumptions are a verbosity level where messages give information about the assumptions made by the program.
 		/// This is useful to debug or to reason why the program takes certain decisions.
 		/// </summary>
 		Assumption = 0x04,
-
 		/// <summary>
 		/// Warnings are a verbosity level where messages note strange aspects in the input who are not necessary wrong, but atypical.
 		/// For instance a variable is specified who is not bounded by any constraints.
 		/// </summary>
 		Warning = 0x02,
-
 		/// <summary>
 		/// Errors are a verbosity level where message note that certain aspects of the input can't be interpreted. For instance because
 		/// the input file doesn't follow the specific rules.
 		/// </summary>
 		Error = 0x01
-
 	}
 }
-

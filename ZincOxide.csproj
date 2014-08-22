@@ -15,7 +15,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
@@ -27,6 +27,7 @@
       </CustomCommands>
     </CustomCommands>
     <GenerateDocumentation>true</GenerateDocumentation>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
@@ -54,6 +55,11 @@
       </CustomCommands>
     </CustomCommands>
     <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Contracts|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Contracts</OutputPath>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -238,6 +244,12 @@
     <Compile Include="MiniZinc\Items\IZincDataFile.cs" />
     <Compile Include="MiniZinc\Structures\IZincVarDecl.cs" />
     <Compile Include="MiniZinc\Items\IZincModel.cs" />
+    <Compile Include="Utils\Abstract\NullSafe.cs" />
+    <Compile Include="Exceptions\ZincOxideBugException.cs" />
+    <Compile Include="Parser\ILexSpan.cs" />
+    <Compile Include="Utils\Functional\FunctionUtils.cs" />
+    <Compile Include="Utils\Collections\TupleStacks.cs" />
+    <Compile Include="Utils\Functional\StandardFunctions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -253,17 +265,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Manpage.txt" />
-    <None Include="Samples\jobshop.mzn" />
-    <None Include="Samples\jobshop2x2.data" />
     <None Include="Parser\specs\MiniZinc.ll" />
     <None Include="Parser\specs\MiniZinc.yy" />
     <None Include="Parser\specs\cc.sh" />
     <None Include="Parser\specs\ZincOutput.ll" />
+    <None Include="checklog.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MiniZinc\" />
     <Folder Include="Parser\" />
-    <Folder Include="Samples\" />
     <Folder Include="MiniZinc\Boxes\" />
     <Folder Include="Utils\" />
     <Folder Include="Normalization\" />
@@ -283,6 +293,7 @@
     <Folder Include="Utils\Designpatterns\" />
     <Folder Include="Utils\Nameregister\" />
     <Folder Include="Representation\" />
+    <Folder Include="Utils\Functional\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

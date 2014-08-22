@@ -1,10 +1,10 @@
 //
-//  IFallbackNameRegister.cs
+//  ILexSpan.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
-//  Copyright (c) 2013 Willem Van Onsem
+//  Copyright (c) 2014 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,27 +18,23 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.Utils.Abstract;
+using QUT.Gppg;
 
-namespace ZincOxide.Utils.Nameregister {
+namespace ZincOxide.Parser {
 
 	/// <summary>
-	/// An interface specifying a name register with a fallback mechanism.
+	/// An interface describing the lexeme span: metadata that contains information about the origin of a certain token.
 	/// </summary>
-	/// <typeparam name='T'>
-	/// The type of element generated/stored by the name register.
-	/// </typeparam>
-	public interface IFallbackNameRegister<T> : INameRegister<T> where T : IName {
+	public interface ILexSpan : IMerge<LexSpan> {
 
 		/// <summary>
-		/// Gets the fallback mechanism associated with this <see cref="T:IFallbackNameRegister`1"/>.
+		/// Gets the text that is within the quotes of this span.
 		/// </summary>
-		/// <value>A <see cref="T:DNameRegisterFallback`1"/> instance that represents
-		/// the fallback mechanism of this name register, not effective if no fallback mechanism
-		/// exists.</value>
-		DNameRegisterFallback<T> Fallback {
-			get;
-		}
+		/// <returns>The content of the literal string.</returns>
+		/// <remarks>
+		/// <para>In case the token is not a string literal, the behavior is random.</para>
+		/// </remarks>
+		string LiteralString ();
 	}
 }
 

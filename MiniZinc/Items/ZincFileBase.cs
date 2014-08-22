@@ -18,10 +18,13 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using ZincOxide.MiniZinc.Structures;
-using ZincOxide.Utils;
+using ZincOxide.Utils.Designpatterns;
+using ZincOxide.Utils.Functional;
 
 namespace ZincOxide.MiniZinc.Items {
 
@@ -58,6 +61,21 @@ namespace ZincOxide.MiniZinc.Items {
 		/// </returns>
 		public override IEnumerable<IZincElement> Children () {
 			return this.Items;
+		}
+		#endregion
+		#region CloseScope override
+		/// <summary>
+		/// Closes the scope, used at the end of adding items to the scope.
+		/// </summary>
+		/// <param name="scope">The outer scope, used to attach a fallback mechanism to each
+		/// scope, optionally, by default not effective.</param>
+		public override void CloseScope (IZincIdentScope scope = null) {
+			base.CloseScope (scope);
+			Dictionary<IZincIdent,IZincIdent> replace = new Dictionary<IZincIdent, IZincIdent> ();
+			foreach (Tuple<IZincIdentScope,IZincIdent> matcher in ICompositionUtils.DoubleBlanket<IZincIdentScope,IZincElement> (this, StandardFunctions.AllPredicate<IZincElement> (), x => x is IZincIdent, StandardFunctions.AllPredicate<IZincIdentScope> ()).Cast<Tuple<IZincIdentScope,IZincIdent>> ()) {
+				replace.Add (matcher.Item2, matcher.Item1.NameRegister.Lookup (matcher.Item2));
+			}
+			this.Replace (replace);
 		}
 		#endregion
 	}

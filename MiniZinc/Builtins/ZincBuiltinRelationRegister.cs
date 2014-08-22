@@ -22,20 +22,25 @@ using System.Reflection;
 
 namespace ZincOxide.MiniZinc.Builtins {
 
-    public class ZincBuiltinRelationRegister {
+	/// <summary>
+	/// A class representing a register to store (pointers to) builtin relations (based on their name).
+	/// </summary>
+	public class ZincBuiltinRelationRegister {
 
-        public ZincBuiltinRelationRegister () {
-        }
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincBuiltinRelationRegister"/> class without any registered
+		/// builtin relations.
+		/// </summary>
+		public ZincBuiltinRelationRegister () {
+		}
+		#endregion
+		public void AnalyzeAssembly () {
+			this.AnalyzeAssembly (Assembly.GetExecutingAssembly ());
+		}
 
-        public void AnalyzeAssembly () {
-            this.AnalyzeAssembly (Assembly.GetExecutingAssembly ());
-        }
-
-        public void AnalyzeAssembly (Assembly assembly) {
-            //TODO
-        }
-
-    }
-
+		public void AnalyzeAssembly (Assembly assembly) {
+			//TODO
+		}
+	}
 }
-

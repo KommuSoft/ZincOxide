@@ -18,13 +18,14 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.IO;
-using NUnit.Framework;
-using ZincOxide.Parser;
-using ZincOxide.MiniZinc.Items;
-using System.Linq;
-using ZincOxide.MiniZinc.Structures;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using NUnit.Framework;
+using ZincOxide.MiniZinc.Items;
+using ZincOxide.MiniZinc.Structures;
+using ZincOxide.Parser;
 
 namespace ZincSulphate {
 
@@ -33,17 +34,41 @@ namespace ZincSulphate {
 
 		[Test()]
 		public void TestScope0 () {
-			using (MemoryStream ms = Content.GenerateContent0 ()) {
-				MiniZincLexer scnr = new MiniZincLexer (ms);
-				MiniZincParser pars = new MiniZincParser (scnr);
-				pars.Parse ();
-				ZincModel model = pars.Result;
-				Assert.IsNotNull (model);
-				model.CloseScope ();
-				ZincIdentNameRegister zinr = model.NameRegister;
-				//Console.WriteLine ("end");
-			}
+			MemoryStream ms = Content.GenerateContent0 ();
+			MiniZincLexer scnr = new MiniZincLexer (ms);
+			MiniZincParser pars = new MiniZincParser (scnr);
+			pars.Parse ();
+			ZincModel model = pars.Result;
+			Assert.IsNotNull (model);
+			model.CloseScope (null);
+			//TODO: finish test
+		}
 
+		[Test()]
+		public void TestScope2 () {
+			MemoryStream ms = Content.GenerateContent2 ();
+			MiniZincLexer scnr = new MiniZincLexer (ms);
+			MiniZincParser pars = new MiniZincParser (scnr);
+			pars.Parse ();
+			ZincModel model = pars.Result;
+			Assert.IsNotNull (model);
+			model.CloseScope (null);
+			ZincIdentNameRegister zinr = model.NameRegister;
+			List<IZincIdent> iz = zinr.Elements ().ToList ();
+			List<string> izn = iz.Select (x => x.Name).ToList ();
+			Assert.AreEqual (4, izn.Count);
+			Assert.Contains ("size", izn);
+			Assert.Contains ("d", izn);
+			Assert.Contains ("total", izn);
+			Assert.Contains ("end", izn);
+			Assert.AreEqual (6, model.Items.Count ());
+			Assert.AreEqual (5, model.Items.OfType<ZincVarDeclItem> ().Count ());
+			Assert.AreEqual (1, model.Items.OfType<ZincSolveItem> ().Count ());
+			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x00]));
+			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x01]));
+			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x02]));
+			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x03]));
+			;
 		}
 	}
 }

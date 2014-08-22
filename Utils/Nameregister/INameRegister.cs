@@ -54,6 +54,16 @@ namespace ZincOxide.Utils.Nameregister {
 		T Lookup (string name);
 
 		/// <summary>
+		/// perform a lookup operation on the name of the given <paramref name="nameable"/> and retrieve the object.
+		/// If not found other mechanism can be applied or a <see cref="ZincOxideNameNotFoundException"/> exception
+		/// is thrown.
+		/// </summary>
+		/// <param name="nameable">The object with a name that must be looked up.</param>
+		/// <exception cref="ZincOxideNameNotFoundException">If the given <paramref name="name"/> cannot be found
+		/// in the register and all fallback mechanisms are exhausted.</exception>
+		T Lookup (T nameable);
+
+		/// <summary>
 		/// Enumerate all the elements stored in the name register (at this level, without using fallbacks, etc.).
 		/// </summary>
 		/// <returns>

@@ -19,14 +19,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using QUT.Gppg;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Parser {
 
 	/// <summary>
 	/// A class that represents the lexeme span: metadata that contains information about the origin of a certain token.
 	/// </summary>
-	public class LexSpan : IMerge<LexSpan> {
+	public class LexSpan : ILexSpan {
 
+		#region Fields
 		private readonly int startLine;
 		private readonly int startColumn;
 		private readonly int endLine;
@@ -34,7 +36,8 @@ namespace ZincOxide.Parser {
 		private readonly int startIndex;
 		private readonly int endIndex;
 		private readonly ScanBuff buffer;
-
+		#endregion
+		#region Properties
 		/// <summary>
 		/// Gets the line of the file on which the token starts.
 		/// </summary>
@@ -104,7 +107,8 @@ namespace ZincOxide.Parser {
 				return buffer;
 			}
 		}
-
+		#endregion
+		#region Constructors
 		/// <summary>
 		/// The default constructor, used by the <see cref="MiniZincLexer"/>.
 		/// </summary>
@@ -123,6 +127,13 @@ namespace ZincOxide.Parser {
 		/// <param name="ep">The index of the active file where the token ends.</param>
 		/// <param name="bf">The <see cref="ScanBuff"/> that represents the active file.</param>
 		public LexSpan (int sl, int sc, int el, int ec, int sp, int ep, ScanBuff bf) {
+			Contract.Requires (sl >= 0);
+			Contract.Requires (sc >= 0);
+			Contract.Requires (el >= 0);
+			Contract.Requires (ec >= 0);
+			Contract.Requires (sp >= 0);
+			Contract.Requires (ep >= 0);
+			Contract.Requires (bf != null);
 			startLine = sl;
 			startColumn = sc;
 			endLine = el;
@@ -131,7 +142,8 @@ namespace ZincOxide.Parser {
 			endIndex = ep;
 			buffer = bf;
 		}
-
+		#endregion
+		#region IMerge`1 implementation
 		/// <summary>
 		/// This method implements the IMerge interface
 		/// </summary>
@@ -140,7 +152,8 @@ namespace ZincOxide.Parser {
 		public LexSpan Merge (LexSpan end) {
 			return new LexSpan (startLine, startColumn, end.endLine, end.endColumn, startIndex, end.endIndex, buffer);
 		}
-
+		#endregion
+		#region ToString method
 		/// <summary>
 		/// Gets the stream content that corresponds with the specified span in a textual context.
 		/// </summary>
@@ -148,7 +161,8 @@ namespace ZincOxide.Parser {
 		public override string ToString () {
 			return buffer.GetString (startIndex, endIndex);
 		}
-
+		#endregion
+		#region ILexSpan implementation
 		/// <summary>
 		/// Gets the text that is within the quotes of this span.
 		/// </summary>
@@ -159,6 +173,7 @@ namespace ZincOxide.Parser {
 		public string LiteralString () {
 			return buffer.GetString (startIndex + 0x01, endIndex - 0x01);
 		}
+		#endregion
 	}
 }
 

@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using ZincOxide.Exceptions;
 using ZincOxide.Utils.Abstract;
 using System;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Utils.Nameregister {
 
@@ -84,6 +85,41 @@ namespace ZincOxide.Utils.Nameregister {
 		/// </returns>
 		public IEnumerable<T> Elements () {
 			return this.dictionary.Values;
+		}
+
+		/// <summary>
+		/// perform a lookup operation on the name of the given <paramref name="nameable"/> and retrieve the object.
+		/// If not found other mechanism can be applied or a <see cref="ZincOxideNameNotFoundException"/> exception
+		/// is thrown.
+		/// </summary>
+		/// <param name="nameable">The object with a name that must be looked up.</param>
+		/// <exception cref="ZincOxideNameNotFoundException">If the given <paramref name="name"/> cannot be found
+		/// in the register and all fallback mechanisms are exhausted.</exception>
+		/// <exception cref="ZincOxideNameNotFoundException">If the given <paramref name="nameable"/> is not effective.</exception>
+		public T Lookup (T nameable) {
+			if (nameable != null) {
+				throw new ZincOxideNameNotFoundException ("The given nameable is not effective.");
+			}
+			return this.Lookup (nameable.Name);
+		}
+		#endregion
+		#region Utility methods
+		/// <summary>
+		/// Generate a fallback delegate from the given <see cref="T:INameRegister`1"/>.
+		/// </summary>
+		/// <returns>A fallback mechanism that consults the given name register, can be used
+		/// for generating (cascading) fallback mechanisms.</returns>
+		/// <param name="nameregister">The given name register to generate a fallback delegate from.</param>
+		/// <remarks>
+		/// <para>If the given <paramref name="nameregister"/> is not effective, a <c>null</c> pointer
+		/// is returned.</para>
+		/// </remarks>
+		public static DNameRegisterFallback<T> GenerateFallback (INameRegister<T> nameregister) {
+			if (nameregister != null) {
+				return nameregister.Lookup;
+			} else {
+				return null;
+			}
 		}
 		#endregion
 	}

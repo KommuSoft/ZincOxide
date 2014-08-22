@@ -28,7 +28,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 	/// An implementation of the <see cref="IZincAsExBox"/> interface. A <see cref="ZincBoxBase"/> that contains
 	/// a <see cref="IZincExp"/> instance and a <see cref="IZincAnnotations"/> instance.
 	/// </summary>
-	public class ZincAsExBoxBase : ZincExBoxBase, IZincAsExBox {												//TODO: make abstract
+	public class ZincAsExBoxBase : ZincExBoxBase, IZincAsExBox {																//TODO: make abstract
 		private IZincAnnotations annotations;
 		#region IZincAsBox implementation
 		/// <summary>
@@ -106,7 +106,7 @@ namespace ZincOxide.MiniZinc.Boxes {
 		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
 		/// </returns>
 		public override IEnumerable<IZincElement> Children () {
-			return EnumerableUtils.Append<IZincElement> (new IEnumerable<IZincElement>[] { this.annotations, base.Children () });
+			return EnumerableUtils.Append<IZincElement> ((IZincElement)this.annotations, base.Children ());
 		}
 		#endregion
 	}

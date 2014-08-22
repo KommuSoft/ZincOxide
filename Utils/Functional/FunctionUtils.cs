@@ -1,10 +1,10 @@
 //
-//  IFallbackNameRegister.cs
+//  FunctionUtils.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
-//  Copyright (c) 2013 Willem Van Onsem
+//  Copyright (c) 2014 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,26 +18,23 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.Utils.Abstract;
+using System;
+using System.Threading.Tasks;
 
-namespace ZincOxide.Utils.Nameregister {
+namespace ZincOxide.Utils.Functional {
 
 	/// <summary>
-	/// An interface specifying a name register with a fallback mechanism.
+	/// A utility class to combine functions, currying, etc.
 	/// </summary>
-	/// <typeparam name='T'>
-	/// The type of element generated/stored by the name register.
-	/// </typeparam>
-	public interface IFallbackNameRegister<T> : INameRegister<T> where T : IName {
+	public static class FunctionUtils {
 
 		/// <summary>
-		/// Gets the fallback mechanism associated with this <see cref="T:IFallbackNameRegister`1"/>.
+		/// Generate an <see cref="T:Action`1"/> instance where a virtual parameter is introduced.
 		/// </summary>
-		/// <value>A <see cref="T:DNameRegisterFallback`1"/> instance that represents
-		/// the fallback mechanism of this name register, not effective if no fallback mechanism
-		/// exists.</value>
-		DNameRegisterFallback<T> Fallback {
-			get;
+		/// <param name="initial">The initial action without parameter that must be parameterized.</param>
+		/// <typeparam name="T">The type of the virtual parameter that must be added.</typeparam>
+		public static Action<T> Parameterize<T> (this Action initial) {
+			return x => initial ();
 		}
 	}
 }

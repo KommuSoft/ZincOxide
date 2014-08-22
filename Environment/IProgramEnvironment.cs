@@ -18,6 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using ZincOxide.Exceptions;
 
 namespace ZincOxide.Environment {
 
@@ -71,7 +72,5 @@ namespace ZincOxide.Environment {
 		/// <param name="task">The task that should be carried out specified by textual input.</param>
 		/// <exception cref="ZincOxideFormatException">If the given task is not a valid task.</exception>
 		void SetTask (string task);
-
 	}
-
 }

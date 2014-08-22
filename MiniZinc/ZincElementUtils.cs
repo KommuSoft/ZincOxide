@@ -23,6 +23,7 @@ using System.Linq;
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Structures;
 using ZincOxide.Utils.Designpatterns;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.MiniZinc {
 
@@ -32,6 +33,7 @@ namespace ZincOxide.MiniZinc {
 	/// </summary>
 	public static class ZincElementUtils {
 
+		#region Involved identities
 		/// <summary>
 		/// Returns a <see cref="T:IEnumerable`1"/> containing the involved
 		/// <see cref="IZincIdent"/> instances of the container.
@@ -41,8 +43,10 @@ namespace ZincOxide.MiniZinc {
 		/// <see cref="IZincIdent"/> instances of the container.
 		/// </returns>
 		public static IEnumerable<IZincIdent> InvolvedIdents (IZincElement element) {
+			Contract.Requires (element != null);
 			return element.UniqueDescendants ().OfType<IZincIdent> ();
 		}
+		#endregion
 	}
 }
 
