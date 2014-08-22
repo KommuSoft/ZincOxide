@@ -15,7 +15,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;CONTRACTS_FULL</DefineConstants>
+    <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
@@ -24,7 +24,6 @@
     <CustomCommands>
       <CustomCommands>
         <Command type="BeforeBuild" command="bash cc.sh" workingdir="Parser/specs/" />
-        <Command type="AfterBuild" command="ccrewrite --debug --rewrite --assembly &quot;${TargetFile}&quot;" workingdir="bin/${ProjectConfigName}/" />
       </CustomCommands>
     </CustomCommands>
     <GenerateDocumentation>true</GenerateDocumentation>
@@ -56,6 +55,11 @@
       </CustomCommands>
     </CustomCommands>
     <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Contracts|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Contracts</OutputPath>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

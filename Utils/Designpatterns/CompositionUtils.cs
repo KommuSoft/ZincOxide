@@ -231,7 +231,8 @@ namespace ZincOxide.Utils.Designpatterns {
 			Contract.Requires (enumerate != null);
 			Contract.Requires (environment != null);
 			Contract.Ensures (Contract.Result<IEnumerable<Tuple<TEnv,TChild>>> () != null);
-			Contract.Ensures (Contract.ForAll (Contract.Result<IEnumerable<Tuple<TEnv,TChild>>> (), g => g != null && g.Item2 != null));
+			//Contract.Ensures (Contract.ForAll (Contract.Result<IEnumerable<Tuple<TEnv,TChild>>> (), g => g != null && g.Item2 != null));
+			//TODO: enable contracts
 			HashSet<TChild> enumerated = new HashSet<TChild> ();
 			enumerated.Add (root);
 			Stack<TEnv,IEnumerator<TChild>> generationStack = new Stack<TEnv,IEnumerator<TChild>> ();

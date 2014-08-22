@@ -54,7 +54,21 @@ namespace ZincSulphate {
 			Assert.IsNotNull (model);
 			model.CloseScope (null);
 			ZincIdentNameRegister zinr = model.NameRegister;
-			List<string> iz = zinr.Elements ().Select (x => x.Name).ToList ();
+			List<IZincIdent> iz = zinr.Elements ().ToList ();
+			List<string> izn = iz.Select (x => x.Name).ToList ();
+			Assert.AreEqual (4, izn.Count);
+			Assert.Contains ("size", izn);
+			Assert.Contains ("d", izn);
+			Assert.Contains ("total", izn);
+			Assert.Contains ("end", izn);
+			Assert.AreEqual (6, model.Items.Count ());
+			Assert.AreEqual (5, model.Items.OfType<ZincVarDeclItem> ().Count ());
+			Assert.AreEqual (1, model.Items.OfType<ZincSolveItem> ().Count ());
+			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x00]));
+			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x01]));
+			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x02]));
+			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x03]));
+			;
 		}
 	}
 }

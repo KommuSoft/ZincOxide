@@ -48,7 +48,7 @@
     <Compile Include="Parser\Content.cs" />
     <Compile Include="Parser\MiniZincScopeTest.cs" />
     <Compile Include="BasicTests.cs" />
-    <Compile Include="MiniZinc\ZincPrintUtils.cs" />
+    <Compile Include="MiniZinc\ZincPrintUtilsTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
