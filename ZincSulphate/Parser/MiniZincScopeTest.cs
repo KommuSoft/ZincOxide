@@ -18,13 +18,14 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System.IO;
-using NUnit.Framework;
-using ZincOxide.Parser;
-using ZincOxide.MiniZinc.Items;
-using System.Linq;
-using ZincOxide.MiniZinc.Structures;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using NUnit.Framework;
+using ZincOxide.MiniZinc.Items;
+using ZincOxide.MiniZinc.Structures;
+using ZincOxide.Parser;
 
 namespace ZincSulphate {
 
@@ -40,8 +41,20 @@ namespace ZincSulphate {
 			ZincModel model = pars.Result;
 			Assert.IsNotNull (model);
 			model.CloseScope (null);
-			ZincIdentNameRegister zinr = model.NameRegister;
+			//TODO: finish test
+		}
 
+		[Test()]
+		public void TestScope2 () {
+			MemoryStream ms = Content.GenerateContent2 ();
+			MiniZincLexer scnr = new MiniZincLexer (ms);
+			MiniZincParser pars = new MiniZincParser (scnr);
+			pars.Parse ();
+			ZincModel model = pars.Result;
+			Assert.IsNotNull (model);
+			model.CloseScope (null);
+			ZincIdentNameRegister zinr = model.NameRegister;
+			List<string> iz = zinr.Elements ().Select (x => x.Name).ToList ();
 		}
 	}
 }

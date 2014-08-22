@@ -26,14 +26,6 @@ namespace ZincSulphate {
 
 	public static class Content {
 
-		private const string str1_0 = "type =\tenum";
-		private const string str1_1 = "= { } ,  \t: include = = constraint solve satisfy solve minimize solve maximize";
-		private const string str1_2 = "output annotation predicate test function    :           =(,) (:where) var par bool int float string";
-		private const string str1_3 = "ann {,} .. set of array of [,] of list of tuple (,) record (,) any $blahblah op (:(,))()_() <-> ->";
-		private const string str1_4 = @"<- \/ xor /\ < > <= >= == = != in subset superset union diff symdiff  .. intersect ++ not ' ' + - * / div mod + - false true 9845 0xdeadbeaf465";
-		private const string str1_5 = "0o04165247 0457411.1475214 0.565586451E12 4722.15415e-15 564145E5 145e+9 \"literal/string\" {,}{|}, where , in [ ] [| |] [ | ] [,] (,) . (,) :";
-		private const string str1_6 = "if then elseif then else endif case --> let in anidentifier";
-		private const string str1_7 = "'builtin' ::";
 		private const string str0_00 = "% (square) job shop scheduling in MiniZinc";
 		private const string str0_01 = "int: size;                                  % size of problem";
 		private const string str0_02 = "array [1..size,1..size] of int: d;          % task durations";
@@ -52,6 +44,21 @@ namespace ZincSulphate {
 		private const string str0_15 = ")";
 		private const string str0_16 = ");";
 		private const string str0_17 = "solve minimize end;";
+		private const string str1_0 = "type =\tenum";
+		private const string str1_1 = "= { } ,  \t: include = = constraint solve satisfy solve minimize solve maximize";
+		private const string str1_2 = "output annotation predicate test function    :           =(,) (:where) var par bool int float string";
+		private const string str1_3 = "ann {,} .. set of array of [,] of list of tuple (,) record (,) any $blahblah op (:(,))()_() <-> ->";
+		private const string str1_4 = @"<- \/ xor /\ < > <= >= == = != in subset superset union diff symdiff  .. intersect ++ not ' ' + - * / div mod + - false true 9845 0xdeadbeaf465";
+		private const string str1_5 = "0o04165247 0457411.1475214 0.565586451E12 4722.15415e-15 564145E5 145e+9 \"literal/string\" {,}{|}, where , in [ ] [| |] [ | ] [,] (,) . (,) :";
+		private const string str1_6 = "if then elseif then else endif case --> let in anidentifier";
+		private const string str1_7 = "'builtin' ::";
+		private const string str2_0 = "% (square) job shop scheduling in MiniZinc";
+		private const string str2_1 = "int: size;                                  % size of problem";
+		private const string str2_2 = "array [1..size,1..size] of int: d;          % task durations";
+		private const string str2_3 = "int: total = sum(i,j in 1..size) (d[i,j]);  % total duration";
+		private const string str2_4 = "array [1..size,1..size] of var 0..total: s; % start times";
+		private const string str2_5 = "var 0..total: end;                          % total end time";
+		private const string str2_6 = "solve minimize end;";
 		public const int NItems0 = 8;
 		public static readonly Token[] Tokens0 = new Token[] {
 			Token.KWINT, Token.COLON, Token.IDENT, Token.COMMAD,
@@ -123,6 +130,23 @@ namespace ZincSulphate {
 					tw.WriteLine (str1_5);
 					tw.WriteLine (str1_6);
 					tw.WriteLine (str1_7);
+				}
+				data = ms.GetBuffer ();
+			}
+			return new MemoryStream (data);
+		}
+
+		public static MemoryStream GenerateContent2 () {
+			byte[] data;
+			using (MemoryStream ms = new MemoryStream()) {
+				using (TextWriter tw = new StreamWriter (ms)) {
+					tw.WriteLine (str2_0);
+					tw.WriteLine (str2_1);
+					tw.WriteLine (str2_2);
+					tw.WriteLine (str2_3);
+					tw.WriteLine (str2_4);
+					tw.WriteLine (str2_5);
+					tw.WriteLine (str2_6);
 				}
 				data = ms.GetBuffer ();
 			}
