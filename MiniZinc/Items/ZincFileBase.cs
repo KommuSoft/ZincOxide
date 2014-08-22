@@ -72,9 +72,9 @@ namespace ZincOxide.MiniZinc.Items {
 		public override void CloseScope (IZincIdentScope scope = null) {
 			base.CloseScope (scope);
 			Dictionary<IZincIdent,IZincIdent> replace = new Dictionary<IZincIdent, IZincIdent> ();
-			/*foreach (Tuple<IZincIdentScope,IZincIdent> matcher in ICompositionUtils.DoubleBlanket<IZincElement,IZincIdentScope> (this,(Predicate<IZincIdentScope>)StandardFunctions.AllPredicate<IZincElement> (),x => x is IZincIdent,StandardFunctions.AllPredicate<IZincElement> ()).Cast<Tuple<IZincIdentScope,IZincIdent>> ()) {
-				//replace.Add (matcher.Item2, matcher.Item1.NameRegister.Lookup ());
-			}*/
+			foreach (Tuple<IZincIdentScope,IZincIdent> matcher in ICompositionUtils.DoubleBlanket<IZincIdentScope,IZincElement> (this, StandardFunctions.AllPredicate<IZincElement> (), x => x is IZincIdent, StandardFunctions.AllPredicate<IZincIdentScope> ()).Cast<Tuple<IZincIdentScope,IZincIdent>> ()) {
+				replace.Add (matcher.Item2, matcher.Item1.NameRegister.Lookup (matcher.Item2));
+			}
 			this.Replace (replace);
 		}
 		#endregion
