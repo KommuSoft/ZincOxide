@@ -1,8 +1,8 @@
 //
-//  IZincTypeInstExprAndIdent.cs
+//  IMiniZincCollectionType.cs
 //
 //  Author:
-//       Willem Van Onsem <Willem.VanOnsem@cs.kuleuven.be>
+//       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
 //  Copyright (c) 2014 Willem Van Onsem
 //
@@ -18,11 +18,22 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using ZincOxide.MiniZinc.Boxes;
+using System;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc.Types.Fundamental {
 
-	public interface IZincTypeInstExprAndIdent : IZincIdTieBox, IZincIdentDeclaration {
+	/// <summary>
+	/// A special case of <see cref="IMiniZincType"/> for collection types (like arrays and sets).
+	/// </summary>
+	public interface IMiniZincCollectionType : IMiniZincType {
+
+		/// <summary>
+		/// The element's type of the collection.
+		/// </summary>
+		/// <value>The element's type of the collection.</value>
+		IMiniZincTypeInst ElementType {
+			get;
+		}
 	}
 }
 

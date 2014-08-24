@@ -78,7 +78,7 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// </remarks>
 		public virtual void CloseScope (IZincIdentScope scope) {
 			this.nameRegister.Parent = scope.OrNull (x => x.NameRegister);
-			foreach (IZincVarDecl vardecl in ICompositionUtils.Blanket<IZincElement> (this, x => !(x is IZincScopeElement), x => x is IZincVarDecl).Cast<IZincVarDecl> ()) {
+			foreach (IZincIdentDeclaration vardecl in ICompositionUtils.Blanket<IZincElement> (this, x => !(x is IZincScopeElement), x => x is IZincIdentDeclaration).Cast<IZincIdentDeclaration> ()) {
 				this.nameRegister.Register (vardecl.DeclaredIdentifier);
 			}
 			foreach (IZincScopeElement subScope in ICompositionUtils.TypeBlanket<IZincElement,IZincScopeElement> (this)) {

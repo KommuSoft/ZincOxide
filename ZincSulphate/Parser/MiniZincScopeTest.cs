@@ -55,20 +55,22 @@ namespace ZincSulphate {
 			model.CloseScope (null);
 			ZincIdentNameRegister zinr = model.NameRegister;
 			List<IZincIdent> iz = zinr.Elements ().ToList ();
-			List<string> izn = iz.Select (x => x.Name).ToList ();
-			Assert.AreEqual (4, izn.Count);
-			Assert.Contains ("size", izn);
-			Assert.Contains ("d", izn);
-			Assert.Contains ("total", izn);
-			Assert.Contains ("end", izn);
+			List<string> result = iz.Select (x => x.Name).ToList ();
+			List<string> expected = new List <string> (new string[] { "size", "d", "total", "end" });
+			Assert.AreEqual (expected.Count, result.Count);
+			foreach (string si in expected) {
+				Assert.Contains (si, result);
+			}
 			Assert.AreEqual (6, model.Items.Count ());
 			Assert.AreEqual (5, model.Items.OfType<ZincVarDeclItem> ().Count ());
 			Assert.AreEqual (1, model.Items.OfType<ZincSolveItem> ().Count ());
-			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x00]));
-			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x01]));
-			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x02]));
-			Assert.IsTrue (model.Items.OfType<ZincVarDeclItem> ().Any (x => x.DeclaredIdentifier == iz [0x03]));
-			;
+			List<ZincVarDeclItem> zvd = new List<ZincVarDeclItem> ();
+			foreach (string si in expected) {
+				ZincVarDeclItem zvdi = model.Items.OfType<ZincVarDeclItem> ().Where (x => x.DeclaredIdentifier.Name == si).FirstOrDefault ();
+				Assert.NotNull (zvdi);
+				Assert.Contains (zvdi.DeclaredIdentifier, iz);
+				zvd.Add (zvdi);
+			}
 		}
 	}
 }

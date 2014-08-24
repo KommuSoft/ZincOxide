@@ -26,8 +26,18 @@ using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Items {
 
-	public class ZincPredicateItem : ZincAsExIdTiasBoxBase, IZincItem, IZincRelation {
-
+	public class ZincPredicateItem : ZincAsExIdTiasBoxBase, IZincItem, IZincRelation, IZincIdentDeclaration {
+		#region IZincIdentDeclaration implementation
+		/// <summary>
+		/// Get the identifier defined by this declaration statement.
+		/// </summary>
+		/// <value>The <see cref="IZincIdent"/> defined by this predicate declaration statement.</value>
+		public IZincIdent DeclaredIdentifier {
+			get {
+				return this.Ident;
+			}
+		}
+		#endregion
 		#region IZincItem implementation
 		public ZincItemType Type {
 			get {

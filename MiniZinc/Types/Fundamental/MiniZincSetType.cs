@@ -22,6 +22,7 @@ using System;
 using System.Collections.Generic;
 using KommuSoft.HaskellLibraries;
 using ZincOxide.Utils.Maths;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.MiniZinc.Types.Fundamental {
 
@@ -63,9 +64,12 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// var set of bool
 	/// </code>
 	/// </example>
-	public class MiniZincSetType : IMiniZincType {
-		private IMiniZincTypeInst elementType;
+	public class MiniZincSetType : IMiniZincCollectionType {
 
+		#region Fields
+		private IMiniZincTypeInst elementType;
+		#endregion
+		#region IMiniZincCollectionType implementation
 		/// <summary>
 		/// The element's type of the set.
 		/// </summary>
@@ -79,11 +83,16 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 				if (value == null) {
 					throw new ArgumentNullException ("value", "The element type of a set must be effective.");
 				} else {
+					if (value == null) {
+						throw new ArgumentNullException ("The given element type of the set is not effective.");
+					}
+					Contract.EndContractBlock ();
 					this.elementType = value;
 				}
 			}
 		}
-
+		#endregion
+		#region IMiniZincType implementation
 		/// <summary>
 		/// Gets if the type has a finite domain.
 		/// </summary>
@@ -93,21 +102,24 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 				return elementType.Finite;
 			}
 		}
-
+		#endregion
+		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincSetType"/> class with
+		/// Initializes a new instance of the <see cref="MiniZincSetType"/> class with
 		/// a given element's type.
 		/// </summary>
 		/// <param name="elementType">The element's type of the set.</param>
 		/// <exception cref="ArgumentNullException">If the given <paramref name="elementType"/> is <see langword="null"/>.</exception>
 		public MiniZincSetType (IMiniZincTypeInst elementType) {
+			Contract.Ensures (this.elementType != null);
 			this.ElementType = elementType;
 		}
+		#endregion
 		#region ToString method
 		/// <summary>
-		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincSetType"/>.
+		/// Returns a <see cref="System.String"/> that represents the current set type.
 		/// </summary>
-		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincOxide.MiniZinc.Types.Fundamental.ZincSetType"/>.</returns>
+		/// <returns>A <see cref="System.String"/> that represents the current set type.</returns>
 		public override string ToString () {
 			return string.Format ("set of [{0}]", this.elementType);
 		}
@@ -126,13 +138,15 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 			return false;
 		}
 		#endregion
+		#region IMiniZincType implementation
 		/// <summary>
-		/// Returns the enumerable of the depending <see cref="IZincFundamentalTypeInst"/>.
+		/// Returns the enumerable of the depending <see cref="IMiniZincTypeInst"/> instances.
 		/// </summary>
-		/// <returns>An <see cref="IEnumerable{T}"/> of the depending types.</returns>
+		/// <returns>An <see cref="T:IEnumerable`1"/> enumerating the depending <see cref="IMiniZincTypeInst"/> instances.</returns>
 		public IEnumerable<IMiniZincTypeInst> GetDependingTypes () {
 			return DataList.Prepend (this.ElementType, this.ElementType.GetDependingTypes ());
 		}
+		#endregion
 	}
 }
 
