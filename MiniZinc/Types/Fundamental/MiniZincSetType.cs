@@ -109,6 +109,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <param name="elementType">The element's type of the set.</param>
 		/// <exception cref="ArgumentNullException">If the given <paramref name="elementType"/> is <see langword="null"/>.</exception>
 		public MiniZincSetType (IMiniZincTypeInst elementType) {
+			Contract.Ensures (this.elementType != null);
 			this.ElementType = elementType;
 		}
 		#endregion
