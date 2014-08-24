@@ -249,8 +249,8 @@
     <Compile Include="Utils\Functional\FunctionUtils.cs" />
     <Compile Include="Utils\Collections\TupleStacks.cs" />
     <Compile Include="Utils\Functional\StandardFunctions.cs" />
-    <Compile Include="MiniZinc\IZincVarDecl.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\IMiniZincCollectionType.cs" />
+    <Compile Include="MiniZinc\IZincIdentDeclaration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -295,6 +295,7 @@
     <Folder Include="Utils\Nameregister\" />
     <Folder Include="Representation\" />
     <Folder Include="Utils\Functional\" />
+    <Folder Include="Codegen\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
