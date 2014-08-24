@@ -1,16 +1,28 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/ICodegenResult.cs">
+    <Files>
+      <File FileName="Codegen/ProblemRepresentationGenerator.cs" Line="33" Column="57" />
+      <File FileName="Codegen/IProblemRepresentationGenerator.cs" Line="31" Column="16" />
+      <File FileName="Codegen/ICodegenEnvironment.cs" Line="38" Column="3" />
+      <File FileName="Codegen/CodegenEnvironment.cs" Line="36" Column="17" />
+      <File FileName="Codegen/ICodegenerator.cs" Line="33" Column="99" />
+      <File FileName="Codegen/ICodegenResult.cs" Line="36" Column="4" />
+      <File FileName="Codegen/CodegenResult.cs" Line="59" Column="21" />
+      <File FileName="Utils/Designpatterns/CompositionUtils.cs" Line="232" Column="30" />
+      <File FileName="MiniZinc/ZincPrintUtils.cs" Line="42" Column="36" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="ZincOxide" expanded="True">
-            <Node name="MiniZinc" expanded="True" selected="True">
-              <Node name="Items" expanded="True" />
-              <Node name="Structures" expanded="True" />
-              <Node name="Types" expanded="True">
-                <Node name="Fundamental" expanded="True" />
-              </Node>
+            <Node name="Codegen" expanded="True">
+              <Node name="ICodegenResult.cs" selected="True" />
+            </Node>
+            <Node name="Environment" expanded="True" />
+            <Node name="MiniZinc" expanded="True" />
+            <Node name="Utils" expanded="True">
+              <Node name="Designpatterns" expanded="True" />
             </Node>
           </Node>
           <Node name="ZincSulphate" expanded="True">
