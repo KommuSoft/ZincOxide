@@ -250,6 +250,7 @@
     <Compile Include="Utils\Collections\TupleStacks.cs" />
     <Compile Include="Utils\Functional\StandardFunctions.cs" />
     <Compile Include="MiniZinc\IZincVarDecl.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IMiniZincCollectionType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

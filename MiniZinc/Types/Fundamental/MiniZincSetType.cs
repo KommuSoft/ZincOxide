@@ -64,7 +64,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 	/// var set of bool
 	/// </code>
 	/// </example>
-	public class MiniZincSetType : IMiniZincType {
+	public class MiniZincSetType : IMiniZincCollectionType {
 
 		#region Fields
 		private IMiniZincTypeInst elementType;
@@ -82,6 +82,10 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 				if (value == null) {
 					throw new ArgumentNullException ("value", "The element type of a set must be effective.");
 				} else {
+					if (value == null) {
+						throw new ArgumentNullException ("The given element type of the set is not effective.");
+					}
+					Contract.EndContractBlock ();
 					this.elementType = value;
 				}
 			}
@@ -105,10 +109,6 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		/// <param name="elementType">The element's type of the set.</param>
 		/// <exception cref="ArgumentNullException">If the given <paramref name="elementType"/> is <see langword="null"/>.</exception>
 		public MiniZincSetType (IMiniZincTypeInst elementType) {
-			if (elementType == null) {
-				throw new ArgumentNullException ("The given element type of the set is not effective.");
-			}
-			Contract.EndContractBlock ();
 			this.ElementType = elementType;
 		}
 		#endregion
@@ -135,6 +135,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 			return false;
 		}
 		#endregion
+		#region IMiniZincType implementation
 		/// <summary>
 		/// Returns the enumerable of the depending <see cref="IMiniZincTypeInst"/> instances.
 		/// </summary>
@@ -142,6 +143,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		public IEnumerable<IMiniZincTypeInst> GetDependingTypes () {
 			return DataList.Prepend (this.ElementType, this.ElementType.GetDependingTypes ());
 		}
+		#endregion
 	}
 }
 
