@@ -34,6 +34,14 @@ namespace ZincOxide.Codegen {
 		ICodegenEnvironment Environment {
 			get;
 		}
+
+		/// <summary>
+		/// Generate a class with the given name.
+		/// </summary>
+		/// <param name="name">The name of the class that must be generated/returned.</param>
+		/// <remarks>
+		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
+		/// </remarks>
+		void GenerateClass (string name);
 	}
 }
-
