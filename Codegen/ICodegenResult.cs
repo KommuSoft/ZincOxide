@@ -1,5 +1,5 @@
 //
-//  ProblemRepresentationGen.cs
+//  ICodegenResult.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -23,27 +23,17 @@ using System;
 namespace ZincOxide.Codegen {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="IProblemRepresentationGenerator"/>. A class that generates a class for
-	/// the problem representation (not a solution).
+	/// An interface describing the code generator result, the result can be altered by <see cref="ICodegenerator"/> instances.
 	/// </summary>
-	/// <remarks>
-	/// <para>The problem representation should be able to parse the problem input, check constraints,
-	/// and initialize solutions.</para>
-	/// </remarks>
-	public class ProblemRepresentationGenerator : IProblemRepresentationGenerator {
+	public interface ICodegenResult {
 
-		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ProblemRepresentationGenerator"/> class.
+		/// Get the environment that determines how the code should be written.
 		/// </summary>
-		public ProblemRepresentationGenerator () {
+		/// <value>A <see cref="ICodegenEnvironment"/> instance specifying how code should be written.</value>
+		ICodegenEnvironment Environment {
+			get;
 		}
-		#endregion
-		#region ICodegenerator implementation
-		public void GenerateCode (ICodegenResult result) {
-			throw new NotImplementedException ();
-		}
-		#endregion
 	}
 }
 

@@ -29,7 +29,7 @@ namespace ZincOxide.Codegen {
 	/// <para>The problem representation should be able to parse the problem input, check constraints,
 	/// and initialize solutions.</para>
 	/// </remarks>
-	public interface IProblemRepresentationGenerator {
+	public interface IProblemRepresentationGenerator : ICodegenerator {
 
 
 

@@ -255,6 +255,9 @@
     <Compile Include="Codegen\IProblemRepresentationGenerator.cs" />
     <Compile Include="Codegen\CodegenEnvironment.cs" />
     <Compile Include="Codegen\ICodegenEnvironment.cs" />
+    <Compile Include="Codegen\ICodegenerator.cs" />
+    <Compile Include="Codegen\ICodegenResult.cs" />
+    <Compile Include="Codegen\CodegenResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
