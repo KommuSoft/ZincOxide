@@ -1,21 +1,21 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ZincSulphate/Parser/MiniZincScopeTest.cs">
-    <Files>
-      <File FileName="ZincSulphate/Parser/MiniZincScopeTest.cs" Line="72" Column="4" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="ZincOxide" expanded="True">
-            <Node name="Parser" expanded="True" />
-            <Node name="Utils" expanded="True" />
+            <Node name="MiniZinc" expanded="True" selected="True">
+              <Node name="Items" expanded="True" />
+              <Node name="Structures" expanded="True" />
+              <Node name="Types" expanded="True">
+                <Node name="Fundamental" expanded="True" />
+              </Node>
+            </Node>
           </Node>
           <Node name="ZincSulphate" expanded="True">
             <Node name="MiniZinc" expanded="True" />
-            <Node name="Parser" expanded="True">
-              <Node name="MiniZincScopeTest.cs" selected="True" />
-            </Node>
+            <Node name="Parser" expanded="True" />
           </Node>
         </State>
       </Pad>
