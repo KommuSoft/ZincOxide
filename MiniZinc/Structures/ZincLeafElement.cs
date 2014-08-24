@@ -72,7 +72,7 @@ namespace ZincOxide.MiniZinc.Structures {
 		/// </summary>
 		/// <returns>
 		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
-		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="ZincLeafElement"/> instance.
 		/// </returns>
 		public virtual IEnumerable<IZincElement> Children () {
 			yield break;

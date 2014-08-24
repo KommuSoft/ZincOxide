@@ -19,8 +19,9 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.MiniZinc.Structures;
 
-namespace ZincOxide.MiniZinc.Structures {
+namespace ZincOxide.MiniZinc {
 
 	/// <summary>
 	/// An interface describing a variable declaration: a declaration of an identifier with a type.
