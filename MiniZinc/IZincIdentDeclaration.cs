@@ -26,14 +26,12 @@ namespace ZincOxide.MiniZinc {
 	/// <summary>
 	/// An interface describing a variable declaration: a declaration of an identifier with a type.
 	/// </summary>
-	public interface IZincVarDecl {
+	public interface IZincIdentDeclaration {
 
 		/// <summary>
 		/// Get the identifier defined by this variable declaration statement.
 		/// </summary>
-		/// <value>
-		/// The <see cref="IZincIdent"/> defined by this variable declaration statement.
-		/// </value>
+		/// <value>The <see cref="IZincIdent"/> defined by this variable declaration statement.</value>
 		IZincIdent DeclaredIdentifier {
 			get;
 		}

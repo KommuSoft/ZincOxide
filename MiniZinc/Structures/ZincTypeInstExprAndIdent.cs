@@ -28,9 +28,9 @@ namespace ZincOxide.MiniZinc.Structures {
 	/// </summary>
 	public class ZincTypeInstExprAndIdent : ZincIdTieBoxBase, IZincTypeInstExprAndIdent {
 
-		#region IZincVarDecl implementation
+		#region IZincIdentDeclaration implementation
 		/// <summary>
-		/// Get the identifier defined by this variable declaration statement.
+		/// Get the identifier defined by this declaration statement.
 		/// </summary>
 		/// <value>
 		/// The <see cref="IZincIdent"/> defined by this variable declaration statement.
