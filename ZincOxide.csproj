@@ -251,6 +251,10 @@
     <Compile Include="Utils\Functional\StandardFunctions.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\IMiniZincCollectionType.cs" />
     <Compile Include="MiniZinc\IZincIdentDeclaration.cs" />
+    <Compile Include="Codegen\ProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\IProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\CodegenEnvironment.cs" />
+    <Compile Include="Codegen\ICodegenEnvironment.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
