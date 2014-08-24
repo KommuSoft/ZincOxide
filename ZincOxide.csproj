@@ -295,6 +295,7 @@
     <Folder Include="Utils\Nameregister\" />
     <Folder Include="Representation\" />
     <Folder Include="Utils\Functional\" />
+    <Folder Include="Codegen\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
