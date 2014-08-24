@@ -69,6 +69,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 		#region Fields
 		private IMiniZincTypeInst elementType;
 		#endregion
+		#region IMiniZincCollectionType implementation
 		/// <summary>
 		/// The element's type of the set.
 		/// </summary>
@@ -90,6 +91,7 @@ namespace ZincOxide.MiniZinc.Types.Fundamental {
 				}
 			}
 		}
+		#endregion
 		#region IMiniZincType implementation
 		/// <summary>
 		/// Gets if the type has a finite domain.
