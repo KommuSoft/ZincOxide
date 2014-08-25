@@ -22,9 +22,45 @@ using System;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
-	public class CSharpCodegenResult {
-		public CSharpCodegenResult () {
+	/// <summary>
+	/// A code generator for the C# language.
+	/// </summary>
+	/// <remarks>
+	/// <para>C# enables several classes to be written all in the same file.</para>
+	/// </remarks>
+	public class CSharpCodegenResult : OOCodegenResultBase {
+
+		#region Constructor
+		/// <summary>
+		/// Initializes a new instance of the <see cref="CSharpCodegenResult"/> class where the result
+		/// of a code generator process can be stored and emitted.
+		/// </summary>
+		/// <param name='environment'>The environment that describes how the code should be written.</param>
+		/// <exception cref="ArgumentNullException">If the given environment is not effective.</exception>
+		protected CSharpCodegenResult (ICodegenEnvironment environment) : base(environment) {
 		}
+		#endregion
+		#region implemented abstract members of OOCodegenResultBase
+		/// <summary>
+		/// Generate a class with the given name.
+		/// </summary>
+		/// <param name="name">The name of the class that must be generated/returned.</param>
+		/// <returns>A <see cref="IClass"/> instance that represents the generated class.</returns>
+		/// <remarks>
+		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
+		/// </remarks>
+		public override IClass GenerateClass (string name) {
+			throw new NotImplementedException ();
+		}
+		#endregion
+		#region implemented abstract members of CodegenResultBase
+		/// <summary>
+		/// Emit the generated code to file, the standard output or print the appropriate errors.
+		/// </summary>
+		public override void Emit () {
+			throw new NotImplementedException ();//TODO
+		}
+		#endregion
 	}
 }
 

@@ -36,5 +36,10 @@ namespace ZincOxide.Codegen {
 		ICodegenEnvironment Environment {
 			get;
 		}
+
+		/// <summary>
+		/// Emit the generated code to file, the standard output or print the appropriate errors.
+		/// </summary>
+		void Emit ();
 	}
 }

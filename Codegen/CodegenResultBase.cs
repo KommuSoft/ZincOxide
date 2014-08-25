@@ -54,6 +54,7 @@ namespace ZincOxide.Codegen {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="CodegenResult"/> class.
 		/// </summary>
+		/// <param name='environment'>The environment that describes how the code should be written.</param>
 		/// <exception cref="ArgumentNullException">If the given environment is not effective.</exception>
 		protected CodegenResultBase (ICodegenEnvironment environment) {
 			if (environment == null) {
@@ -67,20 +68,9 @@ namespace ZincOxide.Codegen {
 		#endregion
 		#region ICodegenResult implementation
 		/// <summary>
-		/// Generate a class with the given name.
+		/// Emit the generated code to file, the standard output or print the appropriate errors.
 		/// </summary>
-		/// <param name="name">The name of the class that must be generated/returned.</param>
-		/// <exception cref="ArgumentNullException">If the given name is not effective.</exception>
-		/// <remarks>
-		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
-		/// </remarks>
-		public void GenerateClass (string name) {
-			if (name != null) {
-				throw new ArgumentNullException ("name");
-			}
-			Contract.EndContractBlock ();
-			throw new NotImplementedException ();
-		}
+		public abstract void Emit ();
 		#endregion
 	}
 }

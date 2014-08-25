@@ -43,12 +43,16 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// Generate a class with the given name.
 		/// </summary>
 		/// <param name="name">The name of the class that must be generated/returned.</param>
-		/// <exception cref="ArgumentNullException">If the given name is not effective.</exception>
-		/// <returns>The class.</returns>
+		/// <returns>A <see cref="IClass"/> instance that represents the generated class.</returns>
+		/// <remarks>
+		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
+		/// </remarks>
 		public IClass GenerateClass (string name) {
 			Contract.Requires (name != null);
 			Contract.Requires (name != string.Empty);
 			Contract.Ensures (Contract.Result<IClass> () != null);
+			Contract.Ensures (Contract.Result<IClass> ().Name != null);
+			Contract.Ensures (Contract.Result<IClass> ().Name == this.Environment.ClassPrefix + name);
 			return default(IClass);
 		}
 		#endregion

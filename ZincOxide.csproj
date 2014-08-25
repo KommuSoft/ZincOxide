@@ -24,6 +24,7 @@
     <CustomCommands>
       <CustomCommands>
         <Command type="BeforeBuild" command="bash cc.sh" workingdir="Parser/specs/" />
+        <Command type="AfterBuild" command="cccheck --assembly=${TargetFile}" workingdir="${TargetDir}" />
       </CustomCommands>
     </CustomCommands>
     <GenerateDocumentation>true</GenerateDocumentation>
@@ -267,6 +268,8 @@
     <Compile Include="Codegen\Abstract\OO\OOCodegenResultContract.cs" />
     <Compile Include="Codegen\Abstract\OO\IClass.cs" />
     <Compile Include="Codegen\CodegenEnvironmentContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Class.cs" />
+    <Compile Include="Codegen\Abstract\OO\OOCodegenResultBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

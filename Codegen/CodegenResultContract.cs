@@ -48,6 +48,13 @@ namespace ZincOxide.Codegen {
 		protected CodegenResultContract () {
 		}
 		#endregion
+		#region ICodegenResult implementation
+		/// <summary>
+		/// Emit the generated code to file, the standard output or print the appropriate errors.
+		/// </summary>
+		public void Emit () {
+		}
+		#endregion
 	}
 }
 

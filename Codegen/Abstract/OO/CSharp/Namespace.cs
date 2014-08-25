@@ -21,6 +21,7 @@
 using System;
 using System.CodeDom;
 using ZincOxide.Utils.Abstract;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -47,7 +48,10 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Namespace"/> class: a CSharp namespace.
 		/// </summary>
-		public Namespace () {
+		internal Namespace (CodeNamespace data) {
+			Contract.Requires (data != null);
+			Contract.Ensures (this.data != null);
+			this.data = data;
 		}
 		#endregion
 	}

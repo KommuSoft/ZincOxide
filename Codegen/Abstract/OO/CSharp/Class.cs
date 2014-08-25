@@ -1,5 +1,5 @@
 //
-//  ICodeResult.cs
+//  Class.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,25 +19,41 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Utils.Abstract;
+using System.CodeDom;
 using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// An interface describing the result of the code generator (language invariant) according to the
-	/// object-oriented programming paradigm.
+	/// The representation of a class in C#.
 	/// </summary>
-	[ContractClass(typeof(OOCodegenResultContract))]
-	public interface IOOCodegenResult : ICodegenResult {
+	public class Class : NameShadow, IClass {
 
+		#region Fields
+		private readonly CodeTypeDeclaration data;
+		#endregion
+		#region implemented abstract members of NameShadow
 		/// <summary>
-		/// Generate a class with the given name.
+		/// Gets the name of this C# class.
 		/// </summary>
-		/// <param name="name">The name of the class that must be generated/returned.</param>
-		/// <returns>A <see cref="IClass"/> instance that represents the generated class.</returns>
-		/// <remarks>
-		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
-		/// </remarks>
-		IClass GenerateClass (string name);
+		/// <value>The name of this C# class.</value>
+		public override string Name {
+			get {
+				return data.Name;
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Class"/> class, used to describe and alter a class in C#.
+		/// </summary>
+		internal Class (CodeTypeDeclaration data) {
+			Contract.Requires (data != null);
+			Contract.Ensures (this.data != null);
+			this.data = data;
+		}
+		#endregion
 	}
 }
+
