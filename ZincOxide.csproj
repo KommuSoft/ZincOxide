@@ -257,11 +257,13 @@
     <Compile Include="Codegen\ICodegenEnvironment.cs" />
     <Compile Include="Codegen\ICodegenerator.cs" />
     <Compile Include="Codegen\ICodegenResult.cs" />
-    <Compile Include="Codegen\CodegenResult.cs" />
     <Compile Include="Codegen\Abstract\OO\INamespace.cs" />
-    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpNamespace.cs" />
     <Compile Include="Utils\Abstract\NameShadow.cs" />
-    <Compile Include="Codegen\Abstract\OO\ICodeResult.cs" />
+    <Compile Include="Codegen\Abstract\OO\IOOCodegenResult.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpCodegenResult.cs" />
+    <Compile Include="Codegen\CodegenResultBase.cs" />
+    <Compile Include="Codegen\CodegenResultContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Namespace.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

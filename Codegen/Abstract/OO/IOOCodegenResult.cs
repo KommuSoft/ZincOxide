@@ -1,5 +1,5 @@
 //
-//  CSharpNamespace.cs
+//  ICodeResult.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,37 +19,23 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.CodeDom;
-using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// The implementation of a namespace for the C# programming language.
+	/// An interface describing the result of the code generator (language invariant) according to the
+	/// object-oriented programming paradigm.
 	/// </summary>
-	public class Namespace : NameShadow, INamespace {
+	public interface IOOCodegenResult : ICodegenResult {
 
-		#region Field
-		private readonly CodeNamespace data;
-		#endregion
-		#region IName implementation
 		/// <summary>
-		/// Gets the name of this C# namespace.
+		/// Generate a class with the given name.
 		/// </summary>
-		/// <value>The name of this C# namespace.</value>
-		public override string Name {
-			get {
-				return data.Name;
-			}
-		}
-		#endregion
-		#region Constructors
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Namespace"/> class: a CSharp namespace.
-		/// </summary>
-		public Namespace () {
-		}
-		#endregion
+		/// <param name="name">The name of the class that must be generated/returned.</param>
+		/// <exception cref="ArgumentNullException">If the given name is not effective.</exception>
+		/// <remarks>
+		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
+		/// </remarks>
+		void GenerateClass (string name);
 	}
 }
-

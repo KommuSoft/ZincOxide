@@ -1,5 +1,5 @@
 //
-//  ICodegenResult.cs
+//  CSharpCodegenResult.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,19 +20,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
-	/// <summary>
-	/// An interface describing the code generator result, the result can be altered by <see cref="ICodegenerator"/> instances.
-	/// </summary>
-	public interface ICodegenResult {
-
-		/// <summary>
-		/// Get the environment that determines how the code should be written.
-		/// </summary>
-		/// <value>A <see cref="ICodegenEnvironment"/> instance specifying how code should be written.</value>
-		ICodegenEnvironment Environment {
-			get;
+	public class CSharpCodegenResult {
+		public CSharpCodegenResult () {
 		}
 	}
 }
+

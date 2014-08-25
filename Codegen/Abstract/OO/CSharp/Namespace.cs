@@ -1,5 +1,5 @@
 //
-//  ICodeResult.cs
+//  Namespace.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,13 +19,37 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.CodeDom;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// An interface describing the result of the code generator (language invariant).
+	/// The implementation of a namespace for the C# programming language.
 	/// </summary>
-	public interface ICodeResult {
+	public class Namespace : NameShadow, INamespace {
+
+		#region Field
+		private readonly CodeNamespace data;
+		#endregion
+		#region IName implementation
+		/// <summary>
+		/// Gets the name of this C# namespace.
+		/// </summary>
+		/// <value>The name of this C# namespace.</value>
+		public override string Name {
+			get {
+				return data.Name;
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Namespace"/> class: a CSharp namespace.
+		/// </summary>
+		public Namespace () {
+		}
+		#endregion
 	}
 }
 

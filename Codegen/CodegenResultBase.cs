@@ -1,5 +1,5 @@
 //
-//  CodegenResult.cs
+//  CodegenResultBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -27,7 +27,7 @@ namespace ZincOxide.Codegen {
 	/// An implementation of the <see cref="ICodegenResult"/> interface describing the code generator result,
 	/// the result can be altered by <see cref="ICodegenerator"/> instances.
 	/// </summary>
-	public class CodegenResult : ICodegenResult {
+	public abstract class CodegenResultBase : ICodegenResult {
 
 		#region Fields
 		/// <summary>
@@ -55,7 +55,7 @@ namespace ZincOxide.Codegen {
 		/// Initializes a new instance of the <see cref="CodegenResult"/> class.
 		/// </summary>
 		/// <exception cref="ArgumentNullException">If the given environment is not effective.</exception>
-		public CodegenResult (ICodegenEnvironment environment) {
+		protected CodegenResultBase (ICodegenEnvironment environment) {
 			if (environment == null) {
 				throw new ArgumentNullException ("environment");
 			}
