@@ -90,6 +90,23 @@ namespace ZincOxide.Utils.Abstract {
 				action (data);
 			}
 		}
+
+		/// <summary>
+		/// If the given <paramref name="value"/> is not effective, <paramref name="deflt"/> is returned,
+		/// otherwise the <paramref name="value"/> is returned.
+		/// </summary>
+		/// <returns>The null.</returns>
+		/// <param name="value">Value.</param>
+		/// <param name="deflt">Deflt.</param>
+		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		public static T IfNull<T> (this T value, T deflt)
+		where T : class {
+			if (value != null) {
+				return value;
+			} else {
+				return deflt;
+			}
+		}
 	}
 }
 

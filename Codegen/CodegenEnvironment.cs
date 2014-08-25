@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen {
 
@@ -29,6 +30,8 @@ namespace ZincOxide.Codegen {
 	public class CodegenEnvironment : ICodegenEnvironment {
 
 		#region Fields
+		private readonly string _namespace = "Sample";
+		private readonly string _classprefix = "Problem";
 		#endregion
 		#region ICodegenEnvironment implementation
 		/// <summary>
@@ -37,7 +40,13 @@ namespace ZincOxide.Codegen {
 		/// <value>The namespace used in the code generation process.</value>
 		public string Namespace {
 			get {
-				throw new NotImplementedException ();
+				Contract.Ensures (Contract.Result<string> () != null);
+				return _namespace;
+			}
+			set {
+				if (value == null) {
+
+				}
 			}
 		}
 
@@ -47,7 +56,8 @@ namespace ZincOxide.Codegen {
 		/// <value>The prefix used in from of all classes, interfaces, etc.</value>
 		public string ClassPrefix {
 			get {
-				throw new NotImplementedException ();
+				Contract.Ensures (Contract.Result<string> () != null);
+				return _classprefix;
 			}
 		}
 		#endregion
