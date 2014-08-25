@@ -96,9 +96,9 @@ namespace ZincOxide.Utils.Abstract {
 		/// otherwise the <paramref name="value"/> is returned.
 		/// </summary>
 		/// <returns>The null.</returns>
-		/// <param name="value">Value.</param>
-		/// <param name="deflt">Deflt.</param>
-		/// <typeparam name="T">The 1st type parameter.</typeparam>
+		/// <param name="value">The value to check and possible return.</param>
+		/// <param name="deflt">The value to return if the given <paramref name="value"/> is null.</param>
+		/// <typeparam name="T">The type of elements over which the function is defined.</typeparam>
 		public static T IfNull<T> (this T value, T deflt)
 		where T : class {
 			if (value != null) {
