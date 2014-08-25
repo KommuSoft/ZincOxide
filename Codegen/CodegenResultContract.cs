@@ -27,8 +27,19 @@ namespace ZincOxide.Codegen {
 	/// A class describing the contracts that are assigned to the <see cref="ICodegenResult"/> interface.
 	/// </summary>
 	[ContractClassFor(typeof(ICodegenResult))]
-	public abstract class CodegenResultContract {
-
+	public abstract class CodegenResultContract : ICodegenResult {
+		#region ICodegenResult implementation
+		/// <summary>
+		/// Get the environment that determines how the code should be written.
+		/// </summary>
+		/// <value>A <see cref="ICodegenEnvironment"/> instance specifying how code should be written.</value>
+		public ICodegenEnvironment Environment {
+			get {
+				Contract.Ensures (Contract.Result<ICodegenEnvironment> () != null);
+				return default(ICodegenEnvironment);
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="CodegenResultContract"/> class to assign the proper contracts

@@ -264,6 +264,8 @@
     <Compile Include="Codegen\CodegenResultBase.cs" />
     <Compile Include="Codegen\CodegenResultContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Namespace.cs" />
+    <Compile Include="Codegen\Abstract\OO\OOCodegenResultContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\IClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

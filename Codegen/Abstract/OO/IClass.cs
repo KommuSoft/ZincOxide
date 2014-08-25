@@ -1,5 +1,5 @@
 //
-//  ICodegenResult.cs
+//  IClass.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Diagnostics.Contracts;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// An interface describing the code generator result, the result can be altered by <see cref="ICodegenerator"/> instances.
+	/// An interface describing a language invariant class: a description of a group of instances.
 	/// </summary>
-	[ContractClass(typeof(CodegenResultContract))]
-	public interface ICodegenResult {
-
-		/// <summary>
-		/// Get the environment that determines how the code should be written.
-		/// </summary>
-		/// <value>A <see cref="ICodegenEnvironment"/> instance specifying how code should be written.</value>
-		ICodegenEnvironment Environment {
-			get;
-		}
+	public interface IClass : IName {
 	}
 }
+

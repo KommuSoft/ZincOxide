@@ -1,5 +1,5 @@
 //
-//  ICodeResult.cs
+//  OOCodegenResultContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,26 +19,39 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Codegen.Abstract.OO;
 using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// An interface describing the result of the code generator (language invariant) according to the
-	/// object-oriented programming paradigm.
+	/// A contract class that enables contracts for <see cref="IOOCodegenResult"/> inheritance.
 	/// </summary>
-	[ContractClass(typeof(OOCodegenResultContract))]
-	public interface IOOCodegenResult : ICodegenResult {
+	[ContractClassFor(typeof(IOOCodegenResult))]
+	public abstract class OOCodegenResultContract : CodegenResultContract, IOOCodegenResult {
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="OOCodegenResultContract"/> class used to bind contracts
+		/// on the <see cref="IOOCodegenResult"/> instances.
+		/// </summary>
+		public OOCodegenResultContract () {
+		}
+		#endregion
+		#region IOOCodegenResult implementation
 		/// <summary>
 		/// Generate a class with the given name.
 		/// </summary>
 		/// <param name="name">The name of the class that must be generated/returned.</param>
-		/// <returns>A <see cref="IClass"/> instance that represents the generated class.</returns>
 		/// <exception cref="ArgumentNullException">If the given name is not effective.</exception>
-		/// <remarks>
-		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
-		/// </remarks>
-		IClass GenerateClass (string name);
+		/// <returns>The class.</returns>
+		public IClass GenerateClass (string name) {
+			Contract.Requires (name != null);
+			Contract.Requires (name != string.Empty);
+			Contract.Ensures (Contract.Result<IClass> () != null);
+			return default(IClass);
+		}
+		#endregion
 	}
 }
+
