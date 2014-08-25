@@ -1,5 +1,5 @@
 //
-//  CodegenEnvironment.cs
+//  CodegenEnvironmentContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,20 +20,16 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Diagnostics.Contracts;
-using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="ICodegenEnvironment"/> interface. A class
-	/// that stores parameters to generate code with.
+	/// A contract class describing the contracts that should be taken into account with respect to
+	/// <see cref="ICodegenEnvironment"/> instances.
 	/// </summary>
-	public class CodegenEnvironment : ICodegenEnvironment {
+	[ContractClassFor(typeof(ICodegenEnvironment))]
+	public class CodegenEnvironmentContract : ICodegenEnvironment {
 
-		#region Fields
-		private string _namespace = "Sample";
-		private string _classprefix = "Problem";
-		#endregion
 		#region ICodegenEnvironment implementation
 		/// <summary>
 		/// Get the namespace that should be used for code generation.
@@ -41,11 +37,8 @@ namespace ZincOxide.Codegen {
 		/// <value>The namespace used in the code generation process.</value>
 		public string Namespace {
 			get {
-				return _namespace;
-			}
-			protected set {
-				Contract.Ensures (this._namespace != null);
-				this._namespace = value.IfNull (string.Empty);
+				Contract.Ensures (Contract.Result<string> () != null);
+				return default(string);
 			}
 		}
 
@@ -55,16 +48,13 @@ namespace ZincOxide.Codegen {
 		/// <value>The prefix used in from of all classes, interfaces, etc.</value>
 		public string ClassPrefix {
 			get {
-				return _classprefix;
-			}
-			protected set {
-				Contract.Ensures (this._namespace != null);
-				this._classprefix = value.IfNull (string.Empty);
+				Contract.Ensures (Contract.Result<string> () != null);
+				return default(string);
 			}
 		}
 		#endregion
 		#region Constructors
-		public CodegenEnvironment () {
+		public CodegenEnvironmentContract () {
 		}
 		#endregion
 	}
