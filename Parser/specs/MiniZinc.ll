@@ -9,8 +9,6 @@
 
 %option stack, minimize, parser, verbose, codepage:raw, out:../MiniZincLexer.cs
 
-%option codepage:raw
-
 KWTYPE      type
 KWENUM      enum
 KWINCL      include
