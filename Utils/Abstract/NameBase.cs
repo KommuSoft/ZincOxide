@@ -18,16 +18,18 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System;
 
 namespace ZincOxide.Utils.Abstract {
 
 	/// <summary>
 	/// An implementation of the <see cref="IName"/> interface.
 	/// </summary>
-	public abstract class NameBase : IName {
+	public abstract class NameBase : NameShadow, IName {
 
+		#region Fields
 		private string name;
-
+		#endregion
 		#region IName implementation
 		/// <summary>
 		///  Gets the name of this instance. 
@@ -35,16 +37,12 @@ namespace ZincOxide.Utils.Abstract {
 		/// <value>
 		///  The name of this instance. 
 		/// </value>
-		public virtual string Name {
+		public override string Name {
 			get {
 				return this.name;
 			}
-			protected set {
-				this.name = value;
-			}
 		}
-        #endregion
-
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZincOxide.Utils.Abstract.NameBase"/> class with a given
@@ -57,26 +55,18 @@ namespace ZincOxide.Utils.Abstract {
 		/// <para>If no name is given; <c>null</c> is used.</para>
 		/// </remarks>
 		protected NameBase (string name = null) {
-			this.Name = name;
+			this.SetName (name);
 		}
 		#endregion
-
-        #region IName implementation
+		#region Protected name setter
 		/// <summary>
-		/// Check if the given <see cref="IName"/> instance has the same <see cref="Name"/> as this instance.
+		/// Sets the stored name in this <see cref="NameBase"/> instance.
 		/// </summary>
-		/// <returns>
-		/// <c>true</c> if the given <see cref="IName"/> instance has the same <see cref="Name"/> as this instance;
-		/// <c>false</c> otherwise.
-		/// </returns>
-		/// <param name='other'>
-		/// The <see cref="IName"/> instance to compare with.
-		/// </param>
-		public bool EqualName (IName other) {
-			return this.name == other.Name;
+		/// <param name="name">The new name to set.</param>
+		protected virtual void SetName (string name) {
+			this.name = name;
 		}
-        #endregion
-
+		#endregion
 		#region ToString method
 		/// <summary>
 		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincOxide.Utils.Abstract.NameBase"/>.
@@ -92,7 +82,5 @@ namespace ZincOxide.Utils.Abstract {
 			return this.name;
 		}
 		#endregion
-
 	}
-
 }

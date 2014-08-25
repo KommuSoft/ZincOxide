@@ -258,6 +258,10 @@
     <Compile Include="Codegen\ICodegenerator.cs" />
     <Compile Include="Codegen\ICodegenResult.cs" />
     <Compile Include="Codegen\CodegenResult.cs" />
+    <Compile Include="Codegen\Abstract\OO\INamespace.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpNamespace.cs" />
+    <Compile Include="Utils\Abstract\NameShadow.cs" />
+    <Compile Include="Codegen\Abstract\OO\ICodeResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -303,6 +307,9 @@
     <Folder Include="Representation\" />
     <Folder Include="Utils\Functional\" />
     <Folder Include="Codegen\" />
+    <Folder Include="Codegen\Abstract\" />
+    <Folder Include="Codegen\Abstract\OO\" />
+    <Folder Include="Codegen\Abstract\OO\CSharp\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

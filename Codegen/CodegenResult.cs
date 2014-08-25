@@ -70,10 +70,15 @@ namespace ZincOxide.Codegen {
 		/// Generate a class with the given name.
 		/// </summary>
 		/// <param name="name">The name of the class that must be generated/returned.</param>
+		/// <exception cref="ArgumentNullException">If the given name is not effective.</exception>
 		/// <remarks>
 		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
 		/// </remarks>
 		public void GenerateClass (string name) {
+			if (name != null) {
+				throw new ArgumentNullException ("name");
+			}
+			Contract.EndContractBlock ();
 			throw new NotImplementedException ();
 		}
 		#endregion
