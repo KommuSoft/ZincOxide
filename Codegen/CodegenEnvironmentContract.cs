@@ -54,7 +54,11 @@ namespace ZincOxide.Codegen {
 		}
 		#endregion
 		#region Constructors
-		public CodegenEnvironmentContract () {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="CodegenEnvironmentContract"/> class, used only for
+		/// contract checking.
+		/// </summary>
+		protected CodegenEnvironmentContract () {
 		}
 		#endregion
 	}

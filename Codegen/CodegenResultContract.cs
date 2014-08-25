@@ -45,7 +45,7 @@ namespace ZincOxide.Codegen {
 		/// Initializes a new instance of the <see cref="CodegenResultContract"/> class to assign the proper contracts
 		/// to the given code generation.
 		/// </summary>
-		public CodegenResultContract () {
+		protected CodegenResultContract () {
 		}
 		#endregion
 	}

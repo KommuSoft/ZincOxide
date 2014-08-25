@@ -35,7 +35,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// Initializes a new instance of the <see cref="OOCodegenResultContract"/> class used to bind contracts
 		/// on the <see cref="IOOCodegenResult"/> instances.
 		/// </summary>
-		public OOCodegenResultContract () {
+		protected OOCodegenResultContract () {
 		}
 		#endregion
 		#region IOOCodegenResult implementation
