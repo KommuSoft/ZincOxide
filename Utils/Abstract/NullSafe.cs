@@ -19,7 +19,10 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Linq;
 using System.Diagnostics.Contracts;
+using System.Collections.Generic;
+using ZincOxide.Utils.Functional;
 
 namespace ZincOxide.Utils.Abstract {
 
@@ -95,10 +98,14 @@ namespace ZincOxide.Utils.Abstract {
 		/// If the given <paramref name="value"/> is not effective, <paramref name="deflt"/> is returned,
 		/// otherwise the <paramref name="value"/> is returned.
 		/// </summary>
-		/// <returns>The null.</returns>
+		/// <returns><paramref name="value"/> if effective, otherwise <paramref name="deflt"/>.</returns>
 		/// <param name="value">The value to check and possible return.</param>
 		/// <param name="deflt">The value to return if the given <paramref name="value"/> is null.</param>
 		/// <typeparam name="T">The type of elements over which the function is defined.</typeparam>
+		/// <remarks>
+		/// <para>It is still possible that the result is not effective if both <paramref name="value"/>
+		/// and <paramref name="deflt"/> are null.</para>
+		/// </remarks>
 		public static T IfNull<T> (this T value, T deflt)
 		where T : class {
 			if (value != null) {
@@ -106,6 +113,50 @@ namespace ZincOxide.Utils.Abstract {
 			} else {
 				return deflt;
 			}
+		}
+
+		/// <summary>
+		/// If the given <paramref name="value"/> is not effective, the algorithm searches
+		/// for the first effective value in <paramref name="deflts"/>, otherwise the <paramref name="value"/> is returned.
+		/// </summary>
+		/// <returns><paramref name="value"/> if effective, otherwise the first effective value of
+		/// <paramref name="deflts"/> if exists, otherwise <c>null</c>.</returns>
+		/// <param name="value">The value to check and possible return.</param>
+		/// <param name="deflts">An list of default values that must be tried all until a non-effective
+		/// value is found, or the end of the list is reached.</param>
+		/// <typeparam name="T">The type of elements over which the function is defined.</typeparam>
+		/// <remarks>
+		/// <para>If the list of default values is not effective as well, null is returned.</para>
+		/// <para>It is still possible that the result is not effective if both <paramref name="value"/>
+		/// and all items in <paramref name="deflt"/> are <c>null</c> (or the list itself is <c>null</c>).</para>
+		/// </remarks>
+		public static T IfNull<T> (this T value, IEnumerable<T> deflts)
+			where T : class {
+			if (value != null || deflts == null) {
+				return value;
+			} else {
+				return Enumerable.FirstOrDefault (deflts, StandardFunctions.NotNull<T> ().Invoke);
+			}
+		}
+
+		/// <summary>
+		/// If the given <paramref name="value"/> is not effective, the algorithm searches
+		/// for the first effective value in <paramref name="deflts"/>, otherwise the <paramref name="value"/> is returned.
+		/// </summary>
+		/// <returns><paramref name="value"/> if effective, otherwise the first effective value of
+		/// <paramref name="deflts"/> if exists, otherwise <c>null</c>.</returns>
+		/// <param name="value">The value to check and possible return.</param>
+		/// <param name="deflts">An array of default values that must be tried all until a non-effective
+		/// value is found, or the end of the array is reached.</param>
+		/// <typeparam name="T">The type of elements over which the function is defined.</typeparam>
+		/// <remarks>
+		/// <para>If the array of default values is not effective as well, null is returned.</para>
+		/// <para>It is still possible that the result is not effective if both <paramref name="value"/>
+		/// and all items in <paramref name="deflt"/> are <c>null</c> (or the list itself is <c>null</c>).</para>
+		/// </remarks>
+		public static T IfNull<T> (this T value, params T[] deflts)
+			where T : class {
+			return IfNull (value, (IEnumerable<T>)deflts);
 		}
 	}
 }

@@ -45,6 +45,16 @@ namespace ZincOxide.Utils.Functional {
 		public static Predicate<T> NonePredicate<T> () {
 			return x => false;
 		}
+
+		/// <summary>
+		/// A predicate that checks if the given value is effective.
+		/// </summary>
+		/// <returns>A predicate that returns <c>true</c> if the given parameter is effective, <c>false</c> otherwise.</returns>
+		/// <typeparam name="T">The type of items over which the predicate is defined.</typeparam>
+		public static Predicate<T> NotNull<T> ()
+		where T : class {
+			return x => x != null;
+		}
 		#endregion
 	}
 }
