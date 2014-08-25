@@ -1,16 +1,31 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Parser/specs/MiniZinc.yy">
+    <Files>
+      <File FileName="Codegen/Abstract/OO/CSharp/CSharpCodegenResult.cs" Line="48" Column="53" />
+      <File FileName="Codegen/Abstract/OO/OOCodegenResultContract.cs" Line="49" Column="17" />
+      <File FileName="Codegen/Abstract/OO/IOOCodegenResult.cs" Line="33" Column="3" />
+      <File FileName="Parser/specs/MiniZinc.ll" Line="10" Column="80" />
+      <File FileName="Parser/specs/MiniZinc.yy" Line="17" Column="19" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="ZincOxide" expanded="True">
-            <Node name="MiniZinc" expanded="True" selected="True">
-              <Node name="Items" expanded="True" />
-              <Node name="Structures" expanded="True" />
-              <Node name="Types" expanded="True">
-                <Node name="Fundamental" expanded="True" />
+          <Node name="ZincOxide" expanded="True" selected="True">
+            <Node name="Codegen" expanded="True">
+              <Node name="Abstract" expanded="True">
+                <Node name="OO" expanded="True">
+                  <Node name="CSharp" expanded="True" />
+                </Node>
               </Node>
+            </Node>
+            <Node name="MiniZinc" expanded="True" />
+            <Node name="Parser" expanded="True">
+              <Node name="specs" expanded="True" />
+            </Node>
+            <Node name="Utils" expanded="True">
+              <Node name="Abstract" expanded="True" />
+              <Node name="Functional" expanded="True" />
             </Node>
           </Node>
           <Node name="ZincSulphate" expanded="True">

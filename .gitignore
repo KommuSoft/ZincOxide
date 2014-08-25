@@ -130,3 +130,6 @@ UpgradeLog*.XML
 
 #Tests
 *.test-cache
+*.htm*
+*.xhtm*
+*.dhtm*

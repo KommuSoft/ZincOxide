@@ -24,6 +24,7 @@
     <CustomCommands>
       <CustomCommands>
         <Command type="BeforeBuild" command="bash cc.sh" workingdir="Parser/specs/" />
+        <Command type="AfterBuild" command="cccheck --assembly=${TargetFile}" workingdir="${TargetDir}" />
       </CustomCommands>
     </CustomCommands>
     <GenerateDocumentation>true</GenerateDocumentation>
@@ -251,6 +252,24 @@
     <Compile Include="Utils\Functional\StandardFunctions.cs" />
     <Compile Include="MiniZinc\Types\Fundamental\IMiniZincCollectionType.cs" />
     <Compile Include="MiniZinc\IZincIdentDeclaration.cs" />
+    <Compile Include="Codegen\ProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\IProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\CodegenEnvironment.cs" />
+    <Compile Include="Codegen\ICodegenEnvironment.cs" />
+    <Compile Include="Codegen\ICodegenerator.cs" />
+    <Compile Include="Codegen\ICodegenResult.cs" />
+    <Compile Include="Codegen\Abstract\OO\INamespace.cs" />
+    <Compile Include="Utils\Abstract\NameShadow.cs" />
+    <Compile Include="Codegen\Abstract\OO\IOOCodegenResult.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpCodegenResult.cs" />
+    <Compile Include="Codegen\CodegenResultBase.cs" />
+    <Compile Include="Codegen\CodegenResultContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Namespace.cs" />
+    <Compile Include="Codegen\Abstract\OO\OOCodegenResultContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\IClass.cs" />
+    <Compile Include="Codegen\CodegenEnvironmentContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Class.cs" />
+    <Compile Include="Codegen\Abstract\OO\OOCodegenResultBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -296,6 +315,9 @@
     <Folder Include="Representation\" />
     <Folder Include="Utils\Functional\" />
     <Folder Include="Codegen\" />
+    <Folder Include="Codegen\Abstract\" />
+    <Folder Include="Codegen\Abstract\OO\" />
+    <Folder Include="Codegen\Abstract\OO\CSharp\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
