@@ -28,6 +28,7 @@ using ZincOxide.Exceptions;
 using ZincOxide.Parser;
 using ZincOxide.Codegen.Abstract.OO.CSharp;
 using ZincOxide.Codegen;
+using ZincOxide.Codegen.Abstract;
 
 namespace ZincOxide {
 

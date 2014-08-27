@@ -1,12 +1,24 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/CodegenEnvironmentContract.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/Codegenerator.cs">
     <Files>
-      <File FileName="Program.cs" Line="42" Column="4" />
-      <File FileName="Codegen/Abstract/OO/CSharp/CSharpCodegenResult.cs" Line="68" Column="33" />
-      <File FileName="Codegen/ICodegenEnvironment.cs" Line="48" Column="3" />
-      <File FileName="Codegen/CodegenEnvironment.cs" Line="77" Column="19" />
-      <File FileName="Codegen/CodegenEnvironmentContract.cs" Line="52" Column="28" />
+      <File FileName="Codegen/Abstract/CodegenEnvironment.cs" Line="25" Column="28" />
+      <File FileName="Codegen/Abstract/CodegenEnvironmentContract.cs" Line="24" Column="37" />
+      <File FileName="Codegen/Abstract/CodegenResultBase.cs" Line="24" Column="37" />
+      <File FileName="Codegen/Abstract/CodegenResultContract.cs" Line="24" Column="37" />
+      <File FileName="Codegen/Abstract/ICodegenEnvironment.cs" Line="24" Column="37" />
+      <File FileName="Codegen/Abstract/ICodegenerator.cs" Line="23" Column="37" />
+      <File FileName="Codegen/Abstract/ICodegenResult.cs" Line="24" Column="37" />
+      <File FileName="Codegen/Concrete/OO/IProblemRepresentationGenerator.cs" Line="37" Column="41" />
+      <File FileName="Codegen/Concrete/OO/ProblemRepresentationGenerator.cs" Line="45" Column="4" />
+      <File FileName="Codegen/Abstract/OO/IClass.cs" Line="1" Column="1" />
+      <File FileName="Codegen/Abstract/OO/INamespace.cs" Line="1" Column="1" />
+      <File FileName="Codegen/Abstract/OO/IOOCodegenerator.cs" Line="35" Column="3" />
+      <File FileName="Codegen/Abstract/OO/IOOCodegenResult.cs" Line="1" Column="1" />
+      <File FileName="Codegen/Abstract/OO/OOCodegenResultBase.cs" Line="1" Column="1" />
+      <File FileName="Codegen/Abstract/OO/OOCodegenResultContract.cs" Line="39" Column="4" />
+      <File FileName="Codegen/Abstract/OO/OOCodegenerator.cs" Line="1" Column="1" />
+      <File FileName="Codegen/Abstract/Codegenerator.cs" Line="25" Column="33" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,11 +29,12 @@
           <Node name="ZincOxide" expanded="True">
             <Node name="Codegen" expanded="True">
               <Node name="Abstract" expanded="True">
-                <Node name="OO" expanded="True">
-                  <Node name="CSharp" expanded="True" />
-                </Node>
+                <Node name="OO" expanded="True" />
+                <Node name="Codegenerator.cs" selected="True" />
               </Node>
-              <Node name="CodegenEnvironmentContract.cs" selected="True" />
+              <Node name="Concrete" expanded="True">
+                <Node name="OO" expanded="True" />
+              </Node>
             </Node>
             <Node name="MiniZinc" expanded="True" />
             <Node name="Parser" expanded="True">

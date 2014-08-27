@@ -271,6 +271,8 @@
     <Compile Include="Codegen\Abstract\ICodegenResult.cs" />
     <Compile Include="Codegen\Concrete\OO\IProblemRepresentationGenerator.cs" />
     <Compile Include="Codegen\Concrete\OO\ProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\Abstract\OO\OOCodegenerator.cs" />
+    <Compile Include="Codegen\Abstract\Codegenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

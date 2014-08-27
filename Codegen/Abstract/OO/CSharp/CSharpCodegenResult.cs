@@ -61,7 +61,14 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
 		/// </remarks>
 		public override IClass GenerateClass (string name) {
-			throw new NotImplementedException ();
+			Contract.Requires (name != null);
+			Contract.Requires (name != string.Empty);
+			Contract.Ensures (Contract.Result<IClass> () != null);
+			Contract.Ensures (Contract.Result<IClass> ().Name != null);
+			Contract.Ensures (Contract.Result<IClass> ().Name == this.Environment.ClassPrefix + name);
+			CodeTypeDeclaration ctd = new CodeTypeDeclaration (this.Environment.ClassPrefix + name);
+			this.cn.Types.Add (ctd);
+			return new Class (ctd);
 		}
 		#endregion
 		#region implemented abstract members of CodegenResultBase

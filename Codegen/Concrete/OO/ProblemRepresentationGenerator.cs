@@ -19,6 +19,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Codegen.Abstract;
+using ZincOxide.Codegen.Abstract.OO;
 
 namespace ZincOxide.Codegen.Concrete.OO {
 
@@ -30,8 +32,14 @@ namespace ZincOxide.Codegen.Concrete.OO {
 	/// <para>The problem representation should be able to parse the problem input, check constraints,
 	/// and initialize solutions.</para>
 	/// </remarks>
-	public class ProblemRepresentationGenerator : IProblemRepresentationGenerator {
+	public class ProblemRepresentationGenerator : OOCodegeneratorBase, IProblemRepresentationGenerator {
 
+		#region Constants
+		/// <summary>
+		/// The suffix that of the class name that is used for problem representation.
+		/// </summary>
+		public const string ProblemRepresentationClassSuffix = "ProblemRepresentation";
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ProblemRepresentationGenerator"/> class.
@@ -40,8 +48,13 @@ namespace ZincOxide.Codegen.Concrete.OO {
 		}
 		#endregion
 		#region ICodegenerator implementation
-		public void GenerateCode (ICodegenResult result) {
-			throw new NotImplementedException ();
+		/// <summary>
+		/// Generate code in the object-oriented programming paradigm using the given <see cref="IOOCodegenResult"/>
+		/// and alter it.
+		/// </summary>
+		/// <param name="result">The instance that must be modified.</param>
+		public override void GenerateCode (IOOCodegenResult result) {
+			IClass cls = result.GenerateClass (ProblemRepresentationClassSuffix);
 		}
 		#endregion
 	}
