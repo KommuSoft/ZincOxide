@@ -254,14 +254,10 @@
     <Compile Include="MiniZinc\IZincIdentDeclaration.cs" />
     <Compile Include="Codegen\Abstract\OO\INamespace.cs" />
     <Compile Include="Utils\Abstract\NameShadow.cs" />
-    <Compile Include="Codegen\Abstract\OO\IOOCodegenResult.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\CSharpCodegenResult.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Namespace.cs" />
-    <Compile Include="Codegen\Abstract\OO\OOCodegenResultContract.cs" />
     <Compile Include="Codegen\Abstract\OO\IClass.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Class.cs" />
-    <Compile Include="Codegen\Abstract\OO\OOCodegenResultBase.cs" />
-    <Compile Include="Codegen\Abstract\OO\IOOCodegenerator.cs" />
     <Compile Include="Codegen\Abstract\CodegenEnvironment.cs" />
     <Compile Include="Codegen\Abstract\CodegenEnvironmentContract.cs" />
     <Compile Include="Codegen\Abstract\CodegenResultBase.cs" />
@@ -271,8 +267,15 @@
     <Compile Include="Codegen\Abstract\ICodegenResult.cs" />
     <Compile Include="Codegen\Concrete\OO\IProblemRepresentationGenerator.cs" />
     <Compile Include="Codegen\Concrete\OO\ProblemRepresentationGenerator.cs" />
-    <Compile Include="Codegen\Abstract\OO\OOCodegeneratorBase.cs" />
     <Compile Include="Codegen\Abstract\CodegeneratorBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\IField.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Field.cs" />
+    <Compile Include="Codegen\Abstract\OO\Process\IOOCodegenerator.cs" />
+    <Compile Include="Codegen\Abstract\OO\Process\IOOCodegenResult.cs" />
+    <Compile Include="Codegen\Abstract\OO\Process\OOCodegeneratorBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\Process\OOCodegenResultBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\Process\OOCodegenResultContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\ClassBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -320,6 +323,7 @@
     <Folder Include="Codegen\Abstract\OO\CSharp\" />
     <Folder Include="Codegen\Concrete\" />
     <Folder Include="Codegen\Concrete\OO\" />
+    <Folder Include="Codegen\Abstract\OO\Process\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

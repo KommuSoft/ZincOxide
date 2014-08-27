@@ -21,6 +21,7 @@
 using System;
 using ZincOxide.Codegen.Abstract;
 using ZincOxide.Codegen.Abstract.OO;
+using ZincOxide.Codegen.Abstract.OO.Process;
 
 namespace ZincOxide.Codegen.Concrete.OO {
 
@@ -55,6 +56,9 @@ namespace ZincOxide.Codegen.Concrete.OO {
 		/// <param name="result">The instance that must be modified.</param>
 		public override void GenerateCode (IOOCodegenResult result) {
 			IClass cls = result.GenerateClass (ProblemRepresentationClassSuffix);
+			IField fa = cls.GenerateField ("a");
+			IField fb = cls.GenerateField ("b");
+			IField fc = cls.GenerateField ("c");
 		}
 		#endregion
 	}

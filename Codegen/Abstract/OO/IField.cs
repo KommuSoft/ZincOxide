@@ -1,5 +1,5 @@
 //
-//  IProblemRepresentationGenerator.cs
+//  IField.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,25 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Codegen.Abstract.OO;
-using ZincOxide.Codegen.Abstract.OO.Process;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Codegen.Concrete.OO {
+namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// An interface that generates a class for the problem representation (not a solution).
+	/// An interface describing a language-invariant field: a place in a class where information is stored.
 	/// </summary>
-	/// <remarks>
-	/// <para>The problem representation should be able to parse the problem input, check constraints,
-	/// and initialize solutions.</para>
-	/// </remarks>
-	public interface IProblemRepresentationGenerator : IOOCodegenerator {
-
-		/**
-		public void GenerateCode () {
-			throw new NotImplementedException ();
-		}
-		**/
+	public interface IField : IName {
 	}
 }
 

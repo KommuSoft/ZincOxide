@@ -1,5 +1,5 @@
 //
-//  IProblemRepresentationGenerator.cs
+//  Field.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,25 +19,39 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Codegen.Abstract.OO;
-using ZincOxide.Codegen.Abstract.OO.Process;
+using ZincOxide.Utils.Abstract;
+using System.CodeDom;
 
-namespace ZincOxide.Codegen.Concrete.OO {
+namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// An interface that generates a class for the problem representation (not a solution).
+	/// The representation of an <see cref="IField"/> in C#.
 	/// </summary>
-	/// <remarks>
-	/// <para>The problem representation should be able to parse the problem input, check constraints,
-	/// and initialize solutions.</para>
-	/// </remarks>
-	public interface IProblemRepresentationGenerator : IOOCodegenerator {
+	public class Field : NameShadow, IField {
 
-		/**
-		public void GenerateCode () {
-			throw new NotImplementedException ();
+		#region implemented abstract members of NameShadow
+		/// <summary>
+		/// Gets the name of this instance.
+		/// </summary>
+		/// <value>The name of this instance.</value>
+		public override string Name {
+			get {
+				return this.data.Name;
+			}
 		}
-		**/
+		#endregion
+		#region Fields
+		private readonly CodeMemberField data;
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Field"/> class with a given .
+		/// </summary>
+		/// <param name="data">The data that represents the class.</param>
+		internal Field (CodeMemberField data) {
+			this.data = data;
+		}
+		#endregion
 	}
 }
 

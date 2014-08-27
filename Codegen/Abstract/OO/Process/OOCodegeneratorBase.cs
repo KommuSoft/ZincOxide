@@ -21,7 +21,7 @@
 using System;
 using ZincOxide.Exceptions;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.OO.Process {
 
 	/// <summary>
 	/// A basic implementation of the <see cref="IOOCodegenerator"/>, used for

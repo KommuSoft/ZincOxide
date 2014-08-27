@@ -19,14 +19,40 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// An interface describing a language invariant class: a description of a group of instances.
+	/// An interface describing a language-invariant class: a description of a group of instances.
 	/// </summary>
 	public interface IClass : IName {
+
+		/// <summary>
+		/// Generate a field stored in this class.
+		/// </summary>
+		/// <param name='name'>The name of the field to be added.</param>
+		/// <returns>A <see cref="IField"/> instance describing the generated field.</returns>
+		IField GenerateField (string name);
+
+		/// <summary>
+		/// Add a public constructor to the class that instantiates the given fields.
+		/// </summary>
+		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
+		/// <remarks>
+		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
+		/// </remarks>
+		void AddConstructor (params IField[] fields);
+
+		/// <summary>
+		/// Add a public constructor to the class that instantiates the given fields.
+		/// </summary>
+		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
+		/// <remarks>
+		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
+		/// </remarks>
+		void AddConstructor (IEnumerable<IField> fields);
 	}
 }
 

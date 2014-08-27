@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 using ZincOxide.Utils.Abstract;
 using System.CodeDom;
 using System.Diagnostics.Contracts;
@@ -26,7 +27,7 @@ using System.Diagnostics.Contracts;
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// The representation of a class in C#.
+	/// The representation of an <see cref="IClass"/> in C#.
 	/// </summary>
 	public class Class : NameShadow, IClass {
 
@@ -48,10 +49,33 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Class"/> class, used to describe and alter a class in C#.
 		/// </summary>
+		/// <param name="data">The data that represents the class.</param>
 		internal Class (CodeTypeDeclaration data) {
 			Contract.Requires (data != null);
 			Contract.Ensures (this.data != null);
 			this.data = data;
+		}
+		#endregion
+		#region IClass implementation
+		/// <summary>
+		/// Generate a field stored in this class.
+		/// </summary>
+		/// <param name='name'>The name of the field to be added.</param>
+		/// <returns>A <see cref="IField"/> instance describing the generated field.</returns>
+		public IField GenerateField (string name) {
+			CodeMemberField cmf = new CodeMemberField (typeof(object), name);
+			this.data.Members.Add (cmf);
+			return new Field (cmf);
+		}
+		#endregion
+		#region IClass implementation
+		public void AddConstructor (params IField[] fields) {
+			this.AddConstructor ((IEnumerable<IField>)fields);
+		}
+
+		public void AddConstructor (IEnumerable<IField> fields) {
+			CodeConstructor cc = new CodeConstructor ();
+			this.data.Members.Add (cc);
 		}
 		#endregion
 	}

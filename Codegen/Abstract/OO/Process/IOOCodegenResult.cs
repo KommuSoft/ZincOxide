@@ -1,5 +1,5 @@
 //
-//  OOCodegenResultBase.cs
+//  ICodeResult.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,34 +19,25 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.OO.Process {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="IOOCodegenResult"/> interface, used for subclassing.
+	/// An interface describing the result of the code generator (language invariant) according to the
+	/// object-oriented programming paradigm.
 	/// </summary>
-	public abstract class OOCodegenResultBase : CodegenResultBase, IOOCodegenResult {
-		#region Constructors
-		/// <summary>
-		/// Initializes a new instance of the <see cref="CodegenResult"/> class.
-		/// </summary>
-		/// <param name='environment'>The environment that describes how the code should be written.</param>
-		/// <exception cref="ArgumentNullException">If the given environment is not effective.</exception>
-		protected OOCodegenResultBase (ICodegenEnvironment environment) : base(environment) {
-		}
-		#endregion
-		#region IOOCodegenResult implementation
+	[ContractClass(typeof(OOCodegenResultContract))]
+	public interface IOOCodegenResult : ICodegenResult {
+
 		/// <summary>
 		/// Generate a class with the given name.
 		/// </summary>
 		/// <param name="name">The name of the class that must be generated/returned.</param>
 		/// <returns>A <see cref="IClass"/> instance that represents the generated class.</returns>
-		/// <exception cref="ArgumentNullException">If the given name is not effective.</exception>
 		/// <remarks>
 		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
 		/// </remarks>
-		public abstract IClass GenerateClass (string name);
-		#endregion
+		IClass GenerateClass (string name);
 	}
 }
-

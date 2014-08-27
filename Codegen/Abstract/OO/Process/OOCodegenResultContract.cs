@@ -22,7 +22,7 @@ using System;
 using ZincOxide.Codegen.Abstract.OO;
 using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.OO.Process {
 
 	/// <summary>
 	/// A contract class that enables contracts for <see cref="IOOCodegenResult"/> inheritance.

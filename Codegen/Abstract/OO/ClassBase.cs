@@ -1,5 +1,5 @@
 //
-//  IOOCodegenerator.cs
+//  ClassBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,20 +19,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// A code generator for the object-oriented programming paradigm.
+	/// A basic implementation of the <see cref="IClass"/> interface, used for programming convenience.
 	/// </summary>
-	public interface IOOCodegenerator : ICodegenerator {
+	public abstract class ClassBase : NameShadow, IClass {
 
+		#region Constructors
 		/// <summary>
-		/// Generate code in the object-oriented programming paradigm using the given <see cref="IOOCodegenResult"/>
-		/// and alter it.
+		/// Initializes a new instance of the <see cref="ClassBase"/> class, since not much is known, nothing is done.
 		/// </summary>
-		/// <param name="result">The instance that must be modified.</param>
-		void GenerateCode (IOOCodegenResult result);
+		public ClassBase () {
+		}
+		#endregion
 	}
 }
 

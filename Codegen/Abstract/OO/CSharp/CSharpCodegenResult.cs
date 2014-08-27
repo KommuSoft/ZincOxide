@@ -24,6 +24,7 @@ using System.Diagnostics.Contracts;
 using System.IO;
 using System.CodeDom.Compiler;
 using Microsoft.CSharp;
+using ZincOxide.Codegen.Abstract.OO.Process;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
