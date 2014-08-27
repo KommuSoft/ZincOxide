@@ -27,7 +27,7 @@ using ZincOxide.Environment;
 using ZincOxide.Exceptions;
 using ZincOxide.Parser;
 using ZincOxide.Codegen.Abstract.OO.CSharp;
-using ZincOxide.Codegen;
+using ZincOxide.Codegen.Concrete.OO;
 using ZincOxide.Codegen.Abstract;
 
 namespace ZincOxide {
@@ -42,7 +42,10 @@ namespace ZincOxide {
 		/// <param name="args">The command-line arguments.</param>
 		/// <returns>The exit code that is given to the operating system after the program ends.</returns>
 		public static int Main (string[] args) {
-			new CSharpCodegenResult (new CodegenEnvironment ()).Emit ();
+			ICodegenResult cgr = new CSharpCodegenResult (new CodegenEnvironment ());
+			ProblemRepresentationGenerator prg = new ProblemRepresentationGenerator ();
+			prg.GenerateCode (cgr);
+			cgr.Emit ();
 			bool show_help = false;
 			ProgramEnvironment env = new ProgramEnvironment ();
 			var p = new OptionSet () { {
