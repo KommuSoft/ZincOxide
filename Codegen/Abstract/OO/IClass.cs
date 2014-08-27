@@ -43,6 +43,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <remarks>
 		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
+		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
 		/// </remarks>
 		void AddConstructor (params IField[] fields);
 
@@ -53,8 +54,20 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <remarks>
 		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
+		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
 		/// </remarks>
 		void AddConstructor (IEnumerable<IField> fields);
+
+		/// <summary>
+		/// Add a constructor to the class where all fields are included as parameters.
+		/// </summary>
+		/// <remarks>
+		/// <para>The order is determined by the order in which fields were added to the class.</para>
+		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
+		/// <para>This method is not declarative: adding fields to the class after calling this method
+		/// will not modify the constructor.</para>
+		/// </remarks>
+		void AddFieldConstructor ();
 	}
 }
 
