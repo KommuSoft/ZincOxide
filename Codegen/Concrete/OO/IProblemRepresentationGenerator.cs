@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
 	/// An interface that generates a class for the problem representation (not a solution).
