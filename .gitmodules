@@ -16,3 +16,6 @@
 [submodule "mathnet-numerics"]
 	path = mathnet-numerics
 	url = git@github.com:KommuSoft/mathnet-numerics.git
+[submodule "Resistance.Opts"]
+	path = Resistance.Opts
+	url = git@github.com:KommuSoft/Resistance.Opts.git
