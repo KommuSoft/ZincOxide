@@ -271,16 +271,13 @@
     <Compile Include="Codegen\Abstract\ICodegenResult.cs" />
     <Compile Include="Codegen\Concrete\OO\IProblemRepresentationGenerator.cs" />
     <Compile Include="Codegen\Concrete\OO\ProblemRepresentationGenerator.cs" />
-    <Compile Include="Codegen\Abstract\OO\OOCodegenerator.cs" />
-    <Compile Include="Codegen\Abstract\Codegenerator.cs" />
+    <Compile Include="Codegen\Abstract\OO\OOCodegeneratorBase.cs" />
+    <Compile Include="Codegen\Abstract\CodegeneratorBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
-    <Reference Include="Mono.Options">
-      <HintPath>lib\Mono.Options.dll</HintPath>
-    </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="QUT.ShiftReduceParser, Version=1.4.6.0, Culture=neutral, PublicKeyToken=402396ef6102baec">
       <HintPath>lib\QUT.ShiftReduceParser.dll</HintPath>
@@ -347,6 +344,10 @@
     <ProjectReference Include="mono-utils\HaskellLibraries.csproj">
       <Project>{BCC56048-D2A4-4646-B4D0-451C64D2D066}</Project>
       <Name>HaskellLibraries</Name>
+    </ProjectReference>
+    <ProjectReference Include="Resistance.Opts\Resistance.Opts\Resistance.Opts.csproj">
+      <Project>{E6CA2F2E-043B-45B3-BE65-35206790E420}</Project>
+      <Name>Resistance.Opts</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaskellLibraries", "mono-ut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HypoZinc", "HypoZinc\HypoZinc.csproj", "{A0B98A3A-0041-44FD-9B2B-AFD8C19BB920}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resistance.Opts", "Resistance.Opts\Resistance.Opts\Resistance.Opts.csproj", "{E6CA2F2E-043B-45B3-BE65-35206790E420}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -27,6 +29,10 @@ Global
 		{E43A9277-5FCC-42B0-B600-B4BD5EF3D56C}.Debug|x86.Build.0 = Debug|Any CPU
 		{E43A9277-5FCC-42B0-B600-B4BD5EF3D56C}.Release|x86.ActiveCfg = Release|Any CPU
 		{E43A9277-5FCC-42B0-B600-B4BD5EF3D56C}.Release|x86.Build.0 = Release|Any CPU
+		{E6CA2F2E-043B-45B3-BE65-35206790E420}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E6CA2F2E-043B-45B3-BE65-35206790E420}.Debug|x86.Build.0 = Debug|Any CPU
+		{E6CA2F2E-043B-45B3-BE65-35206790E420}.Release|x86.ActiveCfg = Release|Any CPU
+		{E6CA2F2E-043B-45B3-BE65-35206790E420}.Release|x86.Build.0 = Release|Any CPU
 		{F54D87B0-B6A6-4E13-9890-10660779394D}.Debug|x86.ActiveCfg = Debug|x86
 		{F54D87B0-B6A6-4E13-9890-10660779394D}.Debug|x86.Build.0 = Debug|x86
 		{F54D87B0-B6A6-4E13-9890-10660779394D}.Release|x86.ActiveCfg = Release|x86
