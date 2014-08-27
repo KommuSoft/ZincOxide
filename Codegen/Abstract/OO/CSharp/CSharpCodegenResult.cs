@@ -21,6 +21,9 @@
 using System;
 using System.CodeDom;
 using System.Diagnostics.Contracts;
+using System.IO;
+using System.CodeDom.Compiler;
+using Microsoft.CSharp;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -43,7 +46,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// </summary>
 		/// <param name='environment'>The environment that describes how the code should be written.</param>
 		/// <exception cref="ArgumentNullException">If the given environment is not effective.</exception>
-		protected CSharpCodegenResult (ICodegenEnvironment environment) : base(environment) {
+		public CSharpCodegenResult (ICodegenEnvironment environment) : base(environment) {
 			this.cn = new CodeNamespace (environment.Namespace);
 			this.ccu.Namespaces.Add (this.cn);
 		}
@@ -66,7 +69,13 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// Emit the generated code to file, the standard output or print the appropriate errors.
 		/// </summary>
 		public override void Emit () {
-			throw new NotImplementedException ();//TODO
+			using (CSharpCodeProvider cscp = new CSharpCodeProvider()) {
+				using (StreamWriter sw = new StreamWriter(this.Environment.FileName,false)) {
+					using (IndentedTextWriter itw = new IndentedTextWriter(sw)) {
+						cscp.GenerateCodeFromCompileUnit (this.ccu, itw, new CodeGeneratorOptions ());
+					}
+				}
+			}
 		}
 		#endregion
 	}

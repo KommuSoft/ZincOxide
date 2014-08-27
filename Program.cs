@@ -26,6 +26,8 @@ using Mono.Options;
 using ZincOxide.Environment;
 using ZincOxide.Exceptions;
 using ZincOxide.Parser;
+using ZincOxide.Codegen.Abstract.OO.CSharp;
+using ZincOxide.Codegen;
 
 namespace ZincOxide {
 
@@ -39,7 +41,7 @@ namespace ZincOxide {
 		/// <param name="args">The command-line arguments.</param>
 		/// <returns>The exit code that is given to the operating system after the program ends.</returns>
 		public static int Main (string[] args) {
-
+			new CSharpCodegenResult (new CodegenEnvironment ()).Emit ();
 			bool show_help = false;
 			ProgramEnvironment env = new ProgramEnvironment ();
 			var p = new OptionSet () { {
