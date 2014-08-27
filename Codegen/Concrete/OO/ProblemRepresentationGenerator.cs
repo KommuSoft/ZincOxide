@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Concrete.OO {
 
 	/// <summary>
 	/// A basic implementation of the <see cref="IProblemRepresentationGenerator"/>. A class that generates a class for

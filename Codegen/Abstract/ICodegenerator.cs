@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Abstract {
 
 	/// <summary>
 	/// An interface describing a instance that generate or alter code.

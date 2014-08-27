@@ -21,7 +21,7 @@
 using System;
 using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Abstract {
 
 	/// <summary>
 	/// An interface describing the environment in which code should be generated (like namespaces, class names, etc.).

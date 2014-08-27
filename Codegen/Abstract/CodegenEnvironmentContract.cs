@@ -21,7 +21,7 @@
 using System;
 using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen {
+namespace ZincOxide.Codegen.Abstract {
 
 	/// <summary>
 	/// A contract class describing the contracts that should be taken into account with respect to

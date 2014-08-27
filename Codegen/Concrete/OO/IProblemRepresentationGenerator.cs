@@ -19,8 +19,9 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Concrete.OO {
 
 	/// <summary>
 	/// An interface that generates a class for the problem representation (not a solution).
@@ -29,10 +30,13 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// <para>The problem representation should be able to parse the problem input, check constraints,
 	/// and initialize solutions.</para>
 	/// </remarks>
-	public interface IProblemRepresentationGenerator : ICodegenerator {
+	public interface IProblemRepresentationGenerator : IOOCodegenerator {
 
-
-
+		/**
+		public void GenerateCode () {
+			throw new NotImplementedException ();
+		}
+		**/
 	}
 }
 

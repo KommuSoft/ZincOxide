@@ -22,7 +22,17 @@ using System;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
-	public interface IOOCodegenerator {
+	/// <summary>
+	/// A code generator for the object-oriented programming paradigm.
+	/// </summary>
+	public interface IOOCodegenerator : ICodegenerator {
+
+		/// <summary>
+		/// Generate code in the object-oriented programming paradigm using the given <see cref="IOOCodegenResult"/>
+		/// and alter it.
+		/// </summary>
+		/// <param name="result">The instance that must be modified.</param>
+		void GenerateCode (IOOCodegenResult result);
 	}
 }
 
