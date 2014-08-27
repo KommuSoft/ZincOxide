@@ -1,24 +1,19 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/Codegenerator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/OO/ClassBase.cs">
     <Files>
-      <File FileName="Codegen/Abstract/CodegenEnvironment.cs" Line="25" Column="28" />
-      <File FileName="Codegen/Abstract/CodegenEnvironmentContract.cs" Line="24" Column="37" />
-      <File FileName="Codegen/Abstract/CodegenResultBase.cs" Line="24" Column="37" />
-      <File FileName="Codegen/Abstract/CodegenResultContract.cs" Line="24" Column="37" />
-      <File FileName="Codegen/Abstract/ICodegenEnvironment.cs" Line="24" Column="37" />
-      <File FileName="Codegen/Abstract/ICodegenerator.cs" Line="23" Column="37" />
-      <File FileName="Codegen/Abstract/ICodegenResult.cs" Line="24" Column="37" />
-      <File FileName="Codegen/Concrete/OO/IProblemRepresentationGenerator.cs" Line="37" Column="41" />
-      <File FileName="Codegen/Concrete/OO/ProblemRepresentationGenerator.cs" Line="45" Column="4" />
-      <File FileName="Codegen/Abstract/OO/IClass.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Abstract/OO/INamespace.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Abstract/OO/IOOCodegenerator.cs" Line="35" Column="3" />
-      <File FileName="Codegen/Abstract/OO/IOOCodegenResult.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Abstract/OO/OOCodegenResultBase.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Abstract/OO/OOCodegenResultContract.cs" Line="39" Column="4" />
-      <File FileName="Codegen/Abstract/OO/OOCodegenerator.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Abstract/Codegenerator.cs" Line="25" Column="33" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Field.cs" Line="39" Column="27" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Class.cs" Line="78" Column="31" />
+      <File FileName="Codegen/Concrete/OO/ProblemRepresentationGenerator.cs" Line="48" Column="38" />
+      <File FileName="Codegen/Abstract/OO/IClass.cs" Line="22" Column="34" />
+      <File FileName="Codegen/Abstract/OO/Process/IOOCodegenerator.cs" Line="23" Column="40" />
+      <File FileName="Codegen/Abstract/OO/Process/IOOCodegenResult.cs" Line="24" Column="48" />
+      <File FileName="Codegen/Abstract/OO/Process/OOCodegeneratorBase.cs" Line="24" Column="48" />
+      <File FileName="Codegen/Abstract/OO/Process/OOCodegenResultBase.cs" Line="23" Column="48" />
+      <File FileName="Codegen/Abstract/OO/Process/OOCodegenResultContract.cs" Line="25" Column="48" />
+      <File FileName="Codegen/Abstract/OO/CSharp/CSharpCodegenResult.cs" Line="79" Column="24" />
+      <File FileName="Codegen/Concrete/OO/IProblemRepresentationGenerator.cs" Line="44" Column="1" />
+      <File FileName="Codegen/Abstract/OO/ClassBase.cs" Line="29" Column="39" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -29,8 +24,10 @@
           <Node name="ZincOxide" expanded="True">
             <Node name="Codegen" expanded="True">
               <Node name="Abstract" expanded="True">
-                <Node name="OO" expanded="True" />
-                <Node name="Codegenerator.cs" selected="True" />
+                <Node name="OO" expanded="True">
+                  <Node name="CSharp" expanded="True" />
+                  <Node name="ClassBase.cs" selected="True" />
+                </Node>
               </Node>
               <Node name="Concrete" expanded="True">
                 <Node name="OO" expanded="True" />

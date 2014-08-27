@@ -18,18 +18,17 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
-using System.Collections.Generic;
-using ZincOxide.Utils.Abstract;
 using System.CodeDom;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Linq;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
 	/// The representation of an <see cref="IClass"/> in C#.
 	/// </summary>
-	public class Class : NameShadow, IClass {
+	public class Class : ClassBase {
 
 		#region Fields
 		private readonly CodeTypeDeclaration data;
@@ -62,19 +61,28 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// </summary>
 		/// <param name='name'>The name of the field to be added.</param>
 		/// <returns>A <see cref="IField"/> instance describing the generated field.</returns>
-		public IField GenerateField (string name) {
+		public override IField GenerateField (string name) {
 			CodeMemberField cmf = new CodeMemberField (typeof(object), name);
 			this.data.Members.Add (cmf);
 			return new Field (cmf);
 		}
-		#endregion
-		#region IClass implementation
-		public void AddConstructor (params IField[] fields) {
-			this.AddConstructor ((IEnumerable<IField>)fields);
-		}
 
-		public void AddConstructor (IEnumerable<IField> fields) {
+		/// <summary>
+		/// Add a public constructor to the class that instantiates the given fields.
+		/// </summary>
+		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
+		/// <remarks>
+		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
+		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
+		/// </remarks>
+		public override void AddConstructor (IEnumerable<IField> fields) {
 			CodeConstructor cc = new CodeConstructor ();
+			cc.Attributes = MemberAttributes.Public;
+			foreach (CodeMemberField f in fields.Where (x => x != null).OfType<Field> ().Select (x => x.Data)) {//TODO: member check
+				CodeParameterDeclarationExpression cpde = new CodeParameterDeclarationExpression (f.Type, f.Name);
+				cc.Parameters.Add (cpde);
+				cc.Statements.Add (new CodeAssignStatement (f, cpde));
+			}
 			this.data.Members.Add (cc);
 		}
 		#endregion

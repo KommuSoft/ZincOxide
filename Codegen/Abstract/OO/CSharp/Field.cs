@@ -36,12 +36,15 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <value>The name of this instance.</value>
 		public override string Name {
 			get {
-				return this.data.Name;
+				return this.Data.Name;
 			}
 		}
 		#endregion
 		#region Fields
-		private readonly CodeMemberField data;
+		/// <summary>
+		/// The data that describes the field.
+		/// </summary>
+		internal readonly CodeMemberField Data;
 		#endregion
 		#region Constructors
 		/// <summary>
@@ -49,7 +52,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// </summary>
 		/// <param name="data">The data that represents the class.</param>
 		internal Field (CodeMemberField data) {
-			this.data = data;
+			this.Data = data;
 		}
 		#endregion
 	}
