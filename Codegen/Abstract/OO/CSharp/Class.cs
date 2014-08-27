@@ -81,7 +81,9 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 			foreach (CodeMemberField f in fields.Where (x => x != null).OfType<Field> ().Select (x => x.Data)) {//TODO: member check
 				CodeParameterDeclarationExpression cpde = new CodeParameterDeclarationExpression (f.Type, f.Name);
 				cc.Parameters.Add (cpde);
-				cc.Statements.Add (new CodeAssignStatement (f, cpde));
+				CodeFieldReferenceExpression cfre = new CodeFieldReferenceExpression (new CodeThisReferenceExpression (), f.Name);
+				CodeVariableReferenceExpression cvre = new CodeVariableReferenceExpression (f.Name);
+				cc.Statements.Add (new CodeAssignStatement (cfre, cvre));
 			}
 			this.data.Members.Add (cc);
 		}
