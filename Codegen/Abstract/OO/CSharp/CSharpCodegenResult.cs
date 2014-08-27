@@ -19,6 +19,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.CodeDom;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -30,6 +32,10 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 	/// </remarks>
 	public class CSharpCodegenResult : OOCodegenResultBase {
 
+		#region Fields
+		private readonly CodeCompileUnit ccu = new CodeCompileUnit ();
+		private readonly CodeNamespace cn;
+		#endregion
 		#region Constructor
 		/// <summary>
 		/// Initializes a new instance of the <see cref="CSharpCodegenResult"/> class where the result
@@ -38,6 +44,8 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <param name='environment'>The environment that describes how the code should be written.</param>
 		/// <exception cref="ArgumentNullException">If the given environment is not effective.</exception>
 		protected CSharpCodegenResult (ICodegenEnvironment environment) : base(environment) {
+			this.cn = new CodeNamespace (environment.Namespace);
+			this.ccu.Namespaces.Add (this.cn);
 		}
 		#endregion
 		#region implemented abstract members of OOCodegenResultBase

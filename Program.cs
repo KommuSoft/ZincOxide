@@ -18,9 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 #define PARSE
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,6 +39,7 @@ namespace ZincOxide {
 		/// <param name="args">The command-line arguments.</param>
 		/// <returns>The exit code that is given to the operating system after the program ends.</returns>
 		public static int Main (string[] args) {
+
 			bool show_help = false;
 			ProgramEnvironment env = new ProgramEnvironment ();
 			var p = new OptionSet () { {
