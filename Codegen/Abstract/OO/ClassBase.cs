@@ -47,37 +47,40 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <summary>
 		/// Add a public constructor to the class that instantiates the given fields.
 		/// </summary>
+		/// <param name="modifiers">A modifier value that specifies how the constructor should be implemented.</param>
 		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
 		/// <remarks>
 		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
 		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
 		/// </remarks>
-		public void AddConstructor (params IField[] fields) {
-			this.AddConstructor ((IEnumerable<IField>)fields);
+		public void AddConstructor (OOModifiers modifiers = OOModifiers.Public, params IField[] fields) {
+			this.AddConstructor ((IEnumerable<IField>)fields, modifiers);
 		}
 
 		/// <summary>
 		/// Add a public constructor to the class that instantiates the given fields.
 		/// </summary>
 		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
+		/// <param name="modifiers">A modifier value that specifies how the constructor should be implemented.</param>
 		/// <remarks>
 		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
 		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
 		/// </remarks>
-		public abstract void AddConstructor (IEnumerable<IField> fields);
+		public abstract void AddConstructor (IEnumerable<IField> fields, OOModifiers modifiers = OOModifiers.Public);
 
 		/// <summary>
 		/// Add a constructor to the class where all fields are included as parameters.
 		/// </summary>
+		/// <param name="modifiers">A modifier value that specifies how the constructor should be implemented.</param>
 		/// <remarks>
 		/// <para>The order is determined by the order in which fields were added to the class.</para>
 		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
 		/// <para>This method is not declarative: adding fields to the class after calling this method
 		/// will not modify the constructor.</para>
 		/// </remarks>
-		public abstract void AddFieldConstructor ();
+		public abstract void AddFieldConstructor (OOModifiers modifiers = OOModifiers.Public);
 		#endregion
 	}
 }

@@ -71,25 +71,27 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// Add a public constructor to the class that instantiates the given fields.
 		/// </summary>
 		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
+		/// <param name="modifiers">A modifier value that specifies how the constructor should be implemented.</param>
 		/// <remarks>
 		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
 		/// </remarks>
-		public override void AddConstructor (IEnumerable<IField> fields) {
-			this.addConstructor (fields.Where (x => x != null).OfType<Field> ().Select (x => x.Data));
+		public override void AddConstructor (IEnumerable<IField> fields, OOModifiers modifiers = OOModifiers.Public) {
+			this.addConstructor (fields.Where (x => x != null).OfType<Field> ().Select (x => x.Data), modifiers);
 		}
 
 		/// <summary>
 		/// Add a constructor to the class where all fields are included as parameters.
 		/// </summary>
+		/// <param name="modifiers">A modifier value that specifies how the constructor should be implemented.</param>
 		/// <remarks>
 		/// <para>The order is determined by the order in which fields were added to the class.</para>
 		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
 		/// <para>This method is not declarative: adding fields to the class after calling this method
 		/// will not modify the constructor.</para>
 		/// </remarks>
-		public override void AddFieldConstructor () {
-			this.addConstructor (this.data.Members.OfType<CodeMemberField> ());
+		public override void AddFieldConstructor (OOModifiers modifiers = OOModifiers.Public) {
+			this.addConstructor (this.data.Members.OfType<CodeMemberField> (), modifiers);
 		}
 		#endregion
 		#region private methods (for convenience)
@@ -97,11 +99,12 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// Add a public constructor to the class that instantiates the given fields.
 		/// </summary>
 		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
+		/// <param name="modifiers">A modifier value that specifies how the constructor should be implemented.</param>
 		/// <remarks>
 		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
 		/// </remarks>
-		private void addConstructor (IEnumerable<CodeMemberField> fields) {
+		private void addConstructor (IEnumerable<CodeMemberField> fields, OOModifiers modifiers) {
 			CodeConstructor cc = new CodeConstructor ();
 			cc.Attributes = MemberAttributes.Public;
 			foreach (CodeMemberField f in fields) {

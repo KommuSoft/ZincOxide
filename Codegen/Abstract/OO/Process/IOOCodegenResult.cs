@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Diagnostics.Contracts;
+using ZincOxide.Environment;
 
 namespace ZincOxide.Codegen.Abstract.OO.Process {
 
@@ -39,5 +40,19 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// <para>The name is prefixed with the <see cref="P:ICodegenEnvironment.ClassPrefix"/> name automatically.</para>
 		/// </remarks>
 		IClass GenerateClass (string name);
+
+		/// <summary>
+		/// Get the type that corresponds with the given integer representation (abstract) type for the specific language.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds to the given integer representation type.</returns>
+		/// <param name="pir">The given integer representation type, optional, by default a 32-bit integer.</param>
+		IType GetIntegerType (ProgramIntegerRepresentation pir = ProgramIntegerRepresentation.Int32);
+
+		/// <summary>
+		/// Get the type that corresponds with the given float representation (abstract) type for the specific language.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds to the given float representation type.</returns>
+		/// <param name="pir">The given float representation type, optional, by default a 64-bit float.</param>
+		IType GetFloatType (ProgramFloatRepresentation pfr);
 	}
 }

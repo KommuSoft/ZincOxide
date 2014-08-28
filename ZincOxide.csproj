@@ -277,6 +277,7 @@
     <Compile Include="Codegen\Abstract\OO\Process\OOCodegenResultContract.cs" />
     <Compile Include="Codegen\Abstract\OO\ClassBase.cs" />
     <Compile Include="Codegen\Abstract\OO\OOModifiers.cs" />
+    <Compile Include="Codegen\Abstract\OO\IType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
