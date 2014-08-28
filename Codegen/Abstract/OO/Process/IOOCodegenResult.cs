@@ -53,6 +53,6 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds to the given float representation type.</returns>
 		/// <param name="pir">The given float representation type, optional, by default a 64-bit float.</param>
-		IType GetFloatType (ProgramFloatRepresentation pfr);
+		IType GetFloatType (ProgramFloatRepresentation pfr = ProgramFloatRepresentation.Double);
 	}
 }
