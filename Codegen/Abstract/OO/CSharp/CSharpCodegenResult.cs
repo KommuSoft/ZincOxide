@@ -25,6 +25,7 @@ using System.IO;
 using System.CodeDom.Compiler;
 using Microsoft.CSharp;
 using ZincOxide.Codegen.Abstract.OO.Process;
+using ZincOxide.Environment;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -77,7 +78,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds to the given integer representation type.</returns>
 		/// <param name="pir">The given integer representation type, optional, by default a 32-bit integer.</param>
-		public override IType GetIntegerType (ZincOxide.Environment.ProgramIntegerRepresentation pir = (ZincOxide.Environment.ProgramIntegerRepresentation)2L) {
+		public override IType GetIntegerType (ProgramIntegerRepresentation pir = ProgramIntegerRepresentation.Int32) {
 			throw new NotImplementedException ();
 		}
 
@@ -86,7 +87,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds to the given float representation type.</returns>
 		/// <param name="pfr">The given float representation type, optional, by default a 64-bit float.</param>
-		public override IType GetFloatType (ProgramFloatRepresentation pfr = (ProgramFloatRepresentation)32) {
+		public override IType GetFloatType (ProgramFloatRepresentation pfr = ProgramFloatRepresentation.Double) {
 			throw new NotImplementedException ();
 		}
 		#endregion

@@ -22,6 +22,7 @@ using System;
 using System.CodeDom;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+
 	/// <summary>
 	/// An already defined type in C# (example <see cref="int"/>, <see cref="DateTime"/> and <see cref="String"/>).
 	/// </summary>
@@ -29,6 +30,28 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 		#region Fields
 		private readonly CodeTypeReference data;
+		#endregion
+		#region implemented abstract members of NameShadow
+		/// <summary>
+		/// Gets the name of this C# class.
+		/// </summary>
+		/// <value>The name of this C# class.</value>
+		public override string Name {
+			get {
+				return this.data.GetType ().Name;
+			}
+		}
+		#endregion
+		#region implemented abstract members of Type
+		/// <summary>
+		/// Get a reference to this type, used for implementation and the creation of code members.
+		/// </summary>
+		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
+		public override CodeTypeReference Reference {
+			get {
+				return this.data;
+			}
+		}
 		#endregion
 		#region Constructor
 		/// <summary>

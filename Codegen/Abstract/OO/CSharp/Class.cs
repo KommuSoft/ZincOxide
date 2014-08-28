@@ -22,6 +22,8 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using ZincOxide.Codegen.Abstract.OO.CSharp;
+using ZincOxide.Exceptions;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -41,6 +43,17 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		public override string Name {
 			get {
 				return data.Name;
+			}
+		}
+		#endregion
+		#region implemented abstract members of Type
+		/// <summary>
+		/// Get a reference to this type, used for implementation and the creation of code members.
+		/// </summary>
+		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
+		public override CodeTypeReference Reference {
+			get {
+				return null;
 			}
 		}
 		#endregion
@@ -77,7 +90,12 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <param name='name'>The name of the field to be added.</param>
 		/// <returns>A <see cref="IField"/> instance describing the generated field.</returns>
 		public IField GenerateField (IType type, string name) {
-			CodeMemberField cmf = new CodeMemberField (typeof(object), name);
+			Type ty = type as Type;
+			if (ty == null) {
+				throw new ZincOxideBugException ("The type should be from the same programming language specification.");
+			}
+			Contract.EndContractBlock ();
+			CodeMemberField cmf = new CodeMemberField (ty.Reference, name);
 			this.data.Members.Add (cmf);
 			return new Field (cmf);
 		}
