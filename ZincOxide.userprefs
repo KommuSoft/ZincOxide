@@ -1,10 +1,19 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/OO/Process/IOOCodegenResult.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/OO/CSharp/Class.cs">
     <Files>
-      <File FileName="Codegen/Abstract/OO/IType.cs" Line="31" Column="32" />
-      <File FileName="Codegen/Abstract/OO/IClass.cs" Line="30" Column="33" />
-      <File FileName="Codegen/Abstract/OO/Process/IOOCodegenResult.cs" Line="52" Column="50" />
+      <File FileName="Codegen/Abstract/OO/IType.cs" Line="1" Column="1" />
+      <File FileName="Codegen/Abstract/OO/IClass.cs" Line="35" Column="48" />
+      <File FileName="Codegen/Abstract/OO/Process/IOOCodegenResult.cs" Line="55" Column="106" />
+      <File FileName="Codegen/Abstract/OO/Process/OOCodegenResultBase.cs" Line="51" Column="3" />
+      <File FileName="Codegen/Abstract/OO/CSharp/CSharpCodegenResult.cs" Line="79" Column="110" />
+      <File FileName="Codegen/Abstract/OO/Process/OOCodegenResultContract.cs" Line="70" Column="16" />
+      <File FileName="Codegen/Abstract/OO/TypeBase.cs" Line="31" Column="2" />
+      <File FileName="Codegen/Abstract/OO/ClassBase.cs" Line="30" Column="42" />
+      <File FileName="Codegen/Concrete/OO/ProblemRepresentationGenerator.cs" Line="60" Column="59" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Class.cs" Line="38" Column="38" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Type.cs" Line="22" Column="1" />
+      <File FileName="Codegen/Abstract/OO/CSharp/TypeReference.cs" Line="22" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,10 +22,10 @@
             <Node name="Codegen" expanded="True">
               <Node name="Abstract" expanded="True">
                 <Node name="OO" expanded="True">
-                  <Node name="CSharp" expanded="True" />
-                  <Node name="Process" expanded="True">
-                    <Node name="IOOCodegenResult.cs" selected="True" />
+                  <Node name="CSharp" expanded="True">
+                    <Node name="Class.cs" selected="True" />
                   </Node>
+                  <Node name="Process" expanded="True" />
                 </Node>
               </Node>
               <Node name="Concrete" expanded="True">

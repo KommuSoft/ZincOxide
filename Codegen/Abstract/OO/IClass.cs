@@ -32,9 +32,10 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <summary>
 		/// Generate a field stored in this class.
 		/// </summary>
+		/// <param name='type'>The type of the field.</param>
 		/// <param name='name'>The name of the field to be added.</param>
 		/// <returns>A <see cref="IField"/> instance describing the generated field.</returns>
-		IField GenerateField (string name);
+		IField GenerateField (IType type, string name);
 
 		/// <summary>
 		/// Add a public constructor to the class that instantiates the given fields.

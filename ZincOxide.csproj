@@ -278,6 +278,9 @@
     <Compile Include="Codegen\Abstract\OO\ClassBase.cs" />
     <Compile Include="Codegen\Abstract\OO\OOModifiers.cs" />
     <Compile Include="Codegen\Abstract\OO\IType.cs" />
+    <Compile Include="Codegen\Abstract\OO\TypeBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Type.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\BasicType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

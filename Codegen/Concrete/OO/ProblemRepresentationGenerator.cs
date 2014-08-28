@@ -56,9 +56,9 @@ namespace ZincOxide.Codegen.Concrete.OO {
 		/// <param name="result">The instance that must be modified.</param>
 		public override void GenerateCode (IOOCodegenResult result) {
 			IClass cls = result.GenerateClass (ProblemRepresentationClassSuffix);
-			IField fa = cls.GenerateField ("a");
-			IField fb = cls.GenerateField ("b");
-			IField fc = cls.GenerateField ("c");
+			IField fa = cls.GenerateField (result.GetIntegerType (), "a");
+			IField fb = cls.GenerateField (result.GetIntegerType (), "b");
+			IField fc = cls.GenerateField (result.GetIntegerType (), "c");
 			cls.AddFieldConstructor ();
 		}
 		#endregion

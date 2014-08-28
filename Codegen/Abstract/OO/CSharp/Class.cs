@@ -28,7 +28,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 	/// <summary>
 	/// The representation of an <see cref="IClass"/> in C#.
 	/// </summary>
-	public class Class : ClassBase {
+	public class Class : Type, IClass {
 
 		#region Fields
 		private readonly CodeTypeDeclaration data;
@@ -57,11 +57,26 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		#endregion
 		#region IClass implementation
 		/// <summary>
+		/// Add a public constructor to the class that instantiates the given fields.
+		/// </summary>
+		/// <param name="modifiers">A modifier value that specifies how the constructor should be implemented.</param>
+		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
+		/// <remarks>
+		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
+		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
+		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
+		/// </remarks>
+		public void AddConstructor (OOModifiers modifiers = OOModifiers.Public, params IField[] fields) {
+			this.AddConstructor ((IEnumerable<IField>)fields, modifiers);
+		}
+
+		/// <summary>
 		/// Generate a field stored in this class.
 		/// </summary>
+		/// <param name='type'>The type of the field.</param>">
 		/// <param name='name'>The name of the field to be added.</param>
 		/// <returns>A <see cref="IField"/> instance describing the generated field.</returns>
-		public override IField GenerateField (string name) {
+		public IField GenerateField (IType type, string name) {
 			CodeMemberField cmf = new CodeMemberField (typeof(object), name);
 			this.data.Members.Add (cmf);
 			return new Field (cmf);
@@ -76,7 +91,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
 		/// </remarks>
-		public override void AddConstructor (IEnumerable<IField> fields, OOModifiers modifiers = OOModifiers.Public) {
+		public void AddConstructor (IEnumerable<IField> fields, OOModifiers modifiers = OOModifiers.Public) {
 			this.addConstructor (fields.Where (x => x != null).OfType<Field> ().Select (x => x.Data), modifiers);
 		}
 
@@ -90,7 +105,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <para>This method is not declarative: adding fields to the class after calling this method
 		/// will not modify the constructor.</para>
 		/// </remarks>
-		public override void AddFieldConstructor (OOModifiers modifiers = OOModifiers.Public) {
+		public void AddFieldConstructor (OOModifiers modifiers = OOModifiers.Public) {
 			this.addConstructor (this.data.Members.OfType<CodeMemberField> (), modifiers);
 		}
 		#endregion
