@@ -21,6 +21,7 @@
 using System;
 using ZincOxide.Codegen.Abstract.OO;
 using System.Diagnostics.Contracts;
+using ZincOxide.Environment;
 
 namespace ZincOxide.Codegen.Abstract.OO.Process {
 
@@ -54,6 +55,26 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 			Contract.Ensures (Contract.Result<IClass> ().Name != null);
 			Contract.Ensures (Contract.Result<IClass> ().Name == this.Environment.ClassPrefix + name);
 			return default(IClass);
+		}
+
+		/// <summary>
+		/// Get the type that corresponds with the given integer representation (abstract) type for the specific language.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds to the given integer representation type.</returns>
+		/// <param name="pir">The given integer representation type, optional, by default a 32-bit integer.</param>
+		public IType GetIntegerType (ProgramIntegerRepresentation pir) {
+			Contract.Ensures (Contract.Result<IType> () != null);
+			return default(IType);
+		}
+
+		/// <summary>
+		/// Get the type that corresponds with the given float representation (abstract) type for the specific language.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds to the given float representation type.</returns>
+		/// <param name="pfr">The given float representation type, optional, by default a 64-bit float.</param>
+		public IType GetFloatType (ProgramFloatRepresentation pfr) {
+			Contract.Ensures (Contract.Result<IType> () != null);
+			return default(IType);
 		}
 		#endregion
 	}

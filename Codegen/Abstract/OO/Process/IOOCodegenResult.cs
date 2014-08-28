@@ -52,7 +52,7 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// Get the type that corresponds with the given float representation (abstract) type for the specific language.
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds to the given float representation type.</returns>
-		/// <param name="pir">The given float representation type, optional, by default a 64-bit float.</param>
+		/// <param name="pfr">The given float representation type, optional, by default a 64-bit float.</param>
 		IType GetFloatType (ProgramFloatRepresentation pfr = ProgramFloatRepresentation.Double);
 	}
 }

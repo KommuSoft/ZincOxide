@@ -71,6 +71,24 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 			this.cn.Types.Add (ctd);
 			return new Class (ctd);
 		}
+
+		/// <summary>
+		/// Get the type that corresponds with the given integer representation (abstract) type for the specific language.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds to the given integer representation type.</returns>
+		/// <param name="pir">The given integer representation type, optional, by default a 32-bit integer.</param>
+		public override IType GetIntegerType (ZincOxide.Environment.ProgramIntegerRepresentation pir = (ZincOxide.Environment.ProgramIntegerRepresentation)2L) {
+			throw new NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Get the type that corresponds with the given float representation (abstract) type for the specific language.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds to the given float representation type.</returns>
+		/// <param name="pfr">The given float representation type, optional, by default a 64-bit float.</param>
+		public override IType GetFloatType (ProgramFloatRepresentation pfr = (ProgramFloatRepresentation)32) {
+			throw new NotImplementedException ();
+		}
 		#endregion
 		#region implemented abstract members of CodegenResultBase
 		/// <summary>
