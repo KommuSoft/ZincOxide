@@ -117,7 +117,13 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 			CodeMemberMethod cmm = new CodeMemberMethod ();
 			cmm.Name = name;
 			cmm.Attributes = MemberAttributes.Public;
-			cmm.ReturnType = tt.OrNull (x => x.Reference);
+			if (tt != null) {
+				CodeTypeReference ctr = tt.Reference;
+				if (ctr != null) {
+					cmm.ReturnType = ctr;
+					cmm.Statements.Add (new CodeMethodReturnStatement (new CodeDefaultValueExpression (ctr)));
+				}
+			}
 			this.data.Members.Add (cmm);
 			return new Method (cmm);
 		}

@@ -60,7 +60,7 @@ namespace ZincOxide.Codegen.Concrete.OO {
 			IField fb = cls.GenerateField (result.GetIntegerType (), "b");
 			IField fc = cls.GenerateField (result.GetIntegerType (), "c");
 			cls.GenerateMethod (result.GetBooleanType (), "Verify");
-			cls.AddFieldConstructor ();
+			cls.AddConstructor (OOModifiers.Public, fa, fb, fc);
 		}
 		#endregion
 	}

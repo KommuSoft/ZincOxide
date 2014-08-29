@@ -51,6 +51,8 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// </remarks>
 		IMethod GenerateMethod (IType returnType, string name, params IType[] fields);
 
+		IMethod GenerateFormattingMethod ();
+
 		/// <summary>
 		/// Generate a method contained in this class that returns nothing, or where the return data is irrelevant.
 		/// </summary>
