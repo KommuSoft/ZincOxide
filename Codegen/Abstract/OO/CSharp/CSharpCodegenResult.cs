@@ -112,6 +112,14 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 				throw new ZincOxideBugException ("Query for a not defined integer type in C#.");
 			}
 		}
+
+		/// <summary>
+		/// Get the type used to represent a boolean.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that represents the boolean type.</returns>
+		public override IType GetBooleanType () {
+			return new TypeReference (typeof(bool));
+		}
 		#endregion
 		#region implemented abstract members of CodegenResultBase
 		/// <summary>

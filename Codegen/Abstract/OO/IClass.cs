@@ -46,6 +46,9 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <param name="returnType">A <see cref="IType"/> that specifies the return type of the method, <c>null</c> if the return type is <c>void</c> (or irrelevant).</param>
 		/// <param name="name">The name of the method to be generated.</param>
 		/// <param name="fields">A list of parameters that should be defined by the method.</param>
+		/// <remarks>
+		/// <para>The default implementation of the method is to return the default value for the <paramref name="returnType"/>.</para>
+		/// </remarks>
 		IMethod GenerateMethod (IType returnType, string name, params IType[] fields);
 
 		/// <summary>
@@ -54,6 +57,10 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
 		/// <param name="name">The name of the method to be generated.</param>
 		/// <param name="fields">A list of parameters that should be defined by the method.</param>
+		/// <remarks>
+		/// <para>The default implementation of the method is to return the default value for the return type.
+		/// In this case this means prbably not to do anything at all.</para>
+		/// </remarks>
 		IMethod GenerateMethod (string name, params IType[] fields);
 
 		/// <summary>

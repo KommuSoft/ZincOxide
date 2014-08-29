@@ -51,8 +51,13 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// Get the type that corresponds with the float representation type of the environment.
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds with the float representation type of the environment.</returns>
-		/// <param name="pfr">The given float representation type.</param>
 		IType GetFloatType ();
+
+		/// <summary>
+		/// Get the type used to represent a boolean.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that represents the boolean type.</returns>
+		IType GetBooleanType ();
 
 		/// <summary>
 		/// Get the type that corresponds with the given integer representation (abstract) type for the specific language.

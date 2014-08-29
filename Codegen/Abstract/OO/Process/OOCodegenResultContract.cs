@@ -76,6 +76,15 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		}
 
 		/// <summary>
+		/// Get the type used to represent a boolean.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that represents the boolean type.</returns>
+		public virtual IType GetBooleanType () {
+			Contract.Ensures (Contract.Result<IType> () != null);
+			return default(IType);
+		}
+
+		/// <summary>
 		/// Get the type that corresponds with the given integer representation (abstract) type for the specific language.
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds to the given integer representation type.</returns>

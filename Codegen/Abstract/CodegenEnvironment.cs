@@ -34,7 +34,7 @@ namespace ZincOxide.Codegen.Abstract {
 		#region Fields
 		private string _namespace = DefaultNamespace;
 		private string _classPrefix = DefaultClassPrefix;
-		private string _filename = DefaultNamespace;
+		private string _filename = DefaultFilename;
 		#endregion
 		#region Constants
 		/// <summary>
