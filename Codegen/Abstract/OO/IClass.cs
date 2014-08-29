@@ -21,21 +21,40 @@
 using System;
 using System.Collections.Generic;
 using ZincOxide.Utils.Abstract;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
 	/// An interface describing a language-invariant class: a description of a group of instances.
 	/// </summary>
+	[ContractClass(typeof(ClassContract))]
 	public interface IClass : IType {
 
 		/// <summary>
-		/// Generate a field stored in this class.
+		/// Generate a field contained in this class.
 		/// </summary>
 		/// <param name='type'>The type of the field.</param>
 		/// <param name='name'>The name of the field to be added.</param>
 		/// <returns>A <see cref="IField"/> instance describing the generated field.</returns>
 		IField GenerateField (IType type, string name);
+
+		/// <summary>
+		/// Generate a method contained in this class.
+		/// </summary>
+		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
+		/// <param name="returnType">A <see cref="IType"/> that specifies the return type of the method, <c>null</c> if the return type is <c>void</c> (or irrelevant).</param>
+		/// <param name="name">The name of the method to be generated.</param>
+		/// <param name="fields">A list of parameters that should be defined by the method.</param>
+		IMethod GenerateMethod (IType returnType, string name, params IType[] fields);
+
+		/// <summary>
+		/// Generate a method contained in this class that returns nothing, or where the return data is irrelevant.
+		/// </summary>
+		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
+		/// <param name="name">The name of the method to be generated.</param>
+		/// <param name="fields">A list of parameters that should be defined by the method.</param>
+		IMethod GenerateMethod (string name, params IType[] fields);
 
 		/// <summary>
 		/// Add a public constructor to the class that instantiates the given fields.

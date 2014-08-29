@@ -285,6 +285,7 @@
     <Compile Include="Codegen\Abstract\OO\FieldBase.cs" />
     <Compile Include="Codegen\Abstract\OO\MethodBase.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Method.cs" />
+    <Compile Include="Codegen\Abstract\OO\ClassContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -101,6 +101,27 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		}
 
 		/// <summary>
+		/// Generate a method contained in this class.
+		/// </summary>
+		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
+		/// <param name="returnType">A <see cref="IType"/> that specifies the return type of the method, <c>null</c> if the return type is <c>void</c> (or irrelevant).</param>
+		/// <param name="name">The name of the method to be generated.</param>
+		/// <param name="fields">A list of parameters that should be defined by the method.</param>
+		public IMethod GenerateMethod (IType returnType, string name, params IType[] fields) {
+			throw new System.NotImplementedException ();
+		}
+
+		/// <summary>
+		/// Generate a method contained in this class that returns nothing, or where the return data is irrelevant.
+		/// </summary>
+		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
+		/// <param name="name">The name of the method to be generated.</param>
+		/// <param name="fields">A list of parameters that should be defined by the method.</param>
+		public IMethod GenerateMethod (string name, params IType[] fields) {
+			return GenerateMethod (null, name, fields);
+		}
+
+		/// <summary>
 		/// Add a public constructor to the class that instantiates the given fields.
 		/// </summary>
 		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>

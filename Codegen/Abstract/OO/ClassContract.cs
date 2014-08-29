@@ -1,5 +1,5 @@
 //
-//  ClassBase.cs
+//  ClassContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,31 +19,50 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Collections.Generic;
 using ZincOxide.Utils.Abstract;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="IClass"/> interface, used for programming convenience.
+	/// A contract class that specifies the contracts attached to a <see cref="IClass"/> implementation.
 	/// </summary>
-	public abstract class ClassBase : TypeBase, IClass {
+	[ContractClassFor(IClass)]
+	public abstract class ClassContract : NameShadow, IClass {
 
+		
+		#region IName implementation
+		/// <summary>
+		/// Get the name of the class.
+		/// </summary>
+		/// <value>The name of the class.</value>
+		public string Name {
+			get {
+				Contract.Ensures (Contract.Result<string> () != null);
+				return default(string);
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ClassBase"/> class, since not much is known, nothing is done.
+		/// Initializes a new instance of the <see cref="ClassContract"/> class.
 		/// </summary>
-		protected ClassBase () {
+		protected ClassContract () {
 		}
 		#endregion
 		#region IClass implementation
 		/// <summary>
-		/// Generate a field stored in this class.
+		/// Generate a field contained in this class.
 		/// </summary>
-		/// <param name='type'>The type of the added field.</param>
+		/// <param name='type'>The type of the field.</param>
 		/// <param name='name'>The name of the field to be added.</param>
 		/// <returns>A <see cref="IField"/> instance describing the generated field.</returns>
-		public abstract IField GenerateField (IType type, string name);
+		public IField GenerateField (IType type, string name) {
+			Contract.Requires (type != null);
+			Contract.Requires (name != null);
+			Contract.Ensures (Contract.Result<IField> () != null);
+			return default(IField);
+		}
 
 		/// <summary>
 		/// Generate a method contained in this class.
@@ -52,7 +71,11 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <param name="returnType">A <see cref="IType"/> that specifies the return type of the method, <c>null</c> if the return type is <c>void</c> (or irrelevant).</param>
 		/// <param name="name">The name of the method to be generated.</param>
 		/// <param name="fields">A list of parameters that should be defined by the method.</param>
-		public abstract IMethod GenerateMethod (IType returnType, string name, params IType[] fields);
+		public IMethod GenerateMethod (IType returnType, string name, params IType[] fields) {
+			Contract.Requires (name != null);
+			Contract.Ensures (Contract.Result<IMethod> () != null);
+			return default(IMethod);
+		}
 
 		/// <summary>
 		/// Generate a method contained in this class that returns nothing, or where the return data is irrelevant.
@@ -60,22 +83,23 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
 		/// <param name="name">The name of the method to be generated.</param>
 		/// <param name="fields">A list of parameters that should be defined by the method.</param>
-		public virtual IMethod GenerateMethod (string name, params IType[] fields) {
-			return GenerateMethod (null, name, fields);
+		public IMethod GenerateMethod (string name, params IType[] fields) {
+			Contract.Requires (name != null);
+			Contract.Ensures (Contract.Result<IMethod> () != null);
+			return default(IMethod);
 		}
 
 		/// <summary>
 		/// Add a public constructor to the class that instantiates the given fields.
 		/// </summary>
-		/// <param name="modifiers">A modifier value that specifies how the constructor should be implemented.</param>
+		/// <param name="modifiers">A modifier value that specifies how the constructor should be implemented, optional, by default public access.</param>
 		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
 		/// <remarks>
 		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
 		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
 		/// </remarks>
-		public virtual void AddConstructor (OOModifiers modifiers = OOModifiers.Public, params IField[] fields) {
-			this.AddConstructor ((IEnumerable<IField>)fields, modifiers);
+		public void AddConstructor (OOModifiers modifiers, params IField[] fields) {
 		}
 
 		/// <summary>
@@ -88,7 +112,8 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
 		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
 		/// </remarks>
-		public abstract void AddConstructor (IEnumerable<IField> fields, OOModifiers modifiers = OOModifiers.Public);
+		public void AddConstructor (System.Collections.Generic.IEnumerable<IField> fields, OOModifiers modifiers) {
+		}
 
 		/// <summary>
 		/// Add a constructor to the class where all fields are included as parameters.
@@ -100,7 +125,8 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <para>This method is not declarative: adding fields to the class after calling this method
 		/// will not modify the constructor.</para>
 		/// </remarks>
-		public abstract void AddFieldConstructor (OOModifiers modifiers = OOModifiers.Public);
+		public void AddFieldConstructor (OOModifiers modifiers) {
+		}
 		#endregion
 	}
 }
