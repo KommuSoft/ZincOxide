@@ -24,6 +24,7 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using ZincOxide.Codegen.Abstract.OO.CSharp;
 using ZincOxide.Exceptions;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -108,7 +109,12 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <param name="name">The name of the method to be generated.</param>
 		/// <param name="fields">A list of parameters that should be defined by the method.</param>
 		public IMethod GenerateMethod (IType returnType, string name, params IType[] fields) {
-			throw new System.NotImplementedException ();
+			Type tt = returnType as Type;
+			CodeMemberMethod cmm = new CodeMemberMethod ();
+			cmm.Name = name;
+			cmm.ReturnType = tt.OrNull (x => x.Reference);
+			this.data.Members.Add (cmm);
+			return new Method (cmm);
 		}
 
 		/// <summary>
