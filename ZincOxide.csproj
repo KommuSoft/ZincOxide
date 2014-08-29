@@ -281,6 +281,9 @@
     <Compile Include="Codegen\Abstract\OO\TypeBase.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Type.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\TypeReference.cs" />
+    <Compile Include="Codegen\Abstract\OO\IMethod.cs" />
+    <Compile Include="Codegen\Abstract\OO\FieldBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\MethodBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

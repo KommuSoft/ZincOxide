@@ -1,5 +1,5 @@
 //
-//  Field.cs
+//  FieldBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,39 +20,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using ZincOxide.Utils.Abstract;
-using System.CodeDom;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// The representation of an <see cref="IField"/> in C#.
+	/// A basic implementation of the <see cref="IField"/> interface used to represent fields in the
+	/// object-oriented programming paradigm.
 	/// </summary>
-	public class Field : FieldBase, IField {
+	public abstract class FieldBase : NameShadow, IField {
 
-		#region implemented abstract members of NameShadow
-		/// <summary>
-		/// Gets the name of this instance.
-		/// </summary>
-		/// <value>The name of this instance.</value>
-		public override string Name {
-			get {
-				return this.Data.Name;
-			}
-		}
-		#endregion
-		#region Fields
-		/// <summary>
-		/// The data that describes the field.
-		/// </summary>
-		internal readonly CodeMemberField Data;
-		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Field"/> class with a given .
+		/// Initializes a new instance of the <see cref="FieldBase"/> class.
 		/// </summary>
-		/// <param name="data">The data that represents the class.</param>
-		internal Field (CodeMemberField data) {
-			this.Data = data;
+		protected FieldBase () {
 		}
 		#endregion
 	}
