@@ -37,6 +37,12 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		#region Fields
 		private readonly CodeTypeDeclaration data;
 		#endregion
+		#region Constants
+		/// <summary>
+		/// The name of the method that is responsible for converting an instance to a textual representation.
+		/// </summary>
+		public const string FormattingMethodName = "ToString";
+		#endregion
 		#region implemented abstract members of NameShadow
 		/// <summary>
 		/// Gets the name of this C# class.
@@ -71,6 +77,15 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		}
 		#endregion
 		#region IClass implementation
+		/// <summary>
+		/// Generate an (override) method that describes how to format the output 
+		/// </summary>
+		/// <returns>The formatting method.</returns>
+		/// <param name="modifiers">The modifiers that specify how the method should be generated.</param>
+		public IMethod GenerateFormattingMethod (OOModifiers modifiers = OOModifiers.Override) {
+			return this.GenerateMethod (new TypeReference (typeof(string)), FormattingMethodName, modifiers | OOModifiers.Public);//TODO: additional modifier manipulation?
+		}
+
 		/// <summary>
 		/// Add a public constructor to the class that instantiates the given fields.
 		/// </summary>
@@ -108,15 +123,17 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
 		/// <param name="returnType">A <see cref="IType"/> that specifies the return type of the method, <c>null</c> if the return type is <c>void</c> (or irrelevant).</param>
 		/// <param name="name">The name of the method to be generated.</param>
+		/// <param name="modifiers">The modifiers that specify how the method should be generated.</param>
 		/// <param name="fields">A list of parameters that should be defined by the method.</param>
 		/// <remarks>
 		/// <para>The default implementation of the method is to return the default value for the <paramref name="returnType"/>.</para>
 		/// </remarks>
-		public IMethod GenerateMethod (IType returnType, string name, params IType[] fields) {
+		public IMethod GenerateMethod (IType returnType, string name, OOModifiers modifiers = OOModifiers.Public, params IType[] fields) {
 			Type tt = returnType as Type;
 			CodeMemberMethod cmm = new CodeMemberMethod ();
 			cmm.Name = name;
-			cmm.Attributes = MemberAttributes.Public;
+			cmm.Attributes = CSharpUtils.ToMemberAttributes (modifiers);
+			//cmm.Attributes = MemberAttributes.Public;
 			if (tt != null) {
 				CodeTypeReference ctr = tt.Reference;
 				if (ctr != null) {
@@ -133,13 +150,14 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// </summary>
 		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
 		/// <param name="name">The name of the method to be generated.</param>
+		/// <param name="modifiers">The modifiers that specify how the method should be generated.</param>
 		/// <param name="fields">A list of parameters that should be defined by the method.</param>
 		/// <remarks>
 		/// <para>The default implementation of the method is to return the default value for the return type.
 		/// In this case this means prbably not to do anything at all.</para>
 		/// </remarks>
-		public IMethod GenerateMethod (string name, params IType[] fields) {
-			return GenerateMethod (null, name, fields);
+		public IMethod GenerateMethod (string name, OOModifiers modifiers = OOModifiers.Public, params IType[] fields) {
+			return GenerateMethod (null, name, modifiers, fields);
 		}
 
 		/// <summary>
@@ -181,7 +199,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// </remarks>
 		private void addConstructor (IEnumerable<CodeMemberField> fields, OOModifiers modifiers) {
 			CodeConstructor cc = new CodeConstructor ();
-			cc.Attributes = MemberAttributes.Public;
+			cc.Attributes = CSharpUtils.ToMemberAttributes (modifiers);
 			foreach (CodeMemberField f in fields) {
 				CodeParameterDeclarationExpression cpde = new CodeParameterDeclarationExpression (f.Type, f.Name);
 				cc.Parameters.Add (cpde);

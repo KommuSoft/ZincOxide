@@ -46,16 +46,24 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		public abstract IField GenerateField (IType type, string name);
 
 		/// <summary>
+		/// Generate an (override) method that describes how to format the output 
+		/// </summary>
+		/// <param name="modifiers">The modifiers that specify how the method should be generated.</param>
+		/// <returns>The formatting method.</returns>
+		public abstract IMethod GenerateFormattingMethod (OOModifiers modifiers = OOModifiers.Override);
+
+		/// <summary>
 		/// Generate a method contained in this class.
 		/// </summary>
 		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
 		/// <param name="returnType">A <see cref="IType"/> that specifies the return type of the method, <c>null</c> if the return type is <c>void</c> (or irrelevant).</param>
 		/// <param name="name">The name of the method to be generated.</param>
 		/// <param name="fields">A list of parameters that should be defined by the method.</param>
+		/// <param name="modifiers">The modifiers that specify how the method should be generated.</param>
 		/// <remarks>
 		/// <para>The default implementation of the method is to return the default value for the <paramref name="returnType"/>.</para>
 		/// </remarks>
-		public abstract IMethod GenerateMethod (IType returnType, string name, params IType[] fields);
+		public abstract IMethod GenerateMethod (IType returnType, string name, OOModifiers modifiers = OOModifiers.Public, params IType[] fields);
 
 		/// <summary>
 		/// Generate a method contained in this class that returns nothing, or where the return data is irrelevant.
@@ -63,12 +71,13 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
 		/// <param name="name">The name of the method to be generated.</param>
 		/// <param name="fields">A list of parameters that should be defined by the method.</param>
+		/// <param name="modifiers">The modifiers that specify how the method should be generated.</param>
 		/// <remarks>
 		/// <para>The default implementation of the method is to return the default value for the return type.
 		/// In this case this means prbably not to do anything at all.</para>
 		/// </remarks>
-		public virtual IMethod GenerateMethod (string name, params IType[] fields) {
-			return GenerateMethod (null, name, fields);
+		public virtual IMethod GenerateMethod (string name, OOModifiers modifiers = OOModifiers.Public, params IType[] fields) {
+			return GenerateMethod (null, name, modifiers, fields);
 		}
 
 		/// <summary>

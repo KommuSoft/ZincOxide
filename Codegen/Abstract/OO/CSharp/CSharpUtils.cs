@@ -35,11 +35,14 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <returns>A <see cref="MemberAttributes"/> value that corresponds to the given <paramref name="modifiers"/>.</returns>
 		/// <param name="modifiers">The given modifiers to convert.</param>
 		public static MemberAttributes ToMemberAttributes (OOModifiers modifiers) {//TODO
+			MemberAttributes ma = 0x00;
 			if ((modifiers & OOModifiers.Public) != 0x00) {
-				return MemberAttributes.Public;
-			} else {
-				return MemberAttributes.Private;
+				ma |= MemberAttributes.Public;
 			}
+			if ((modifiers & OOModifiers.Override) != 0x00) {
+				ma |= MemberAttributes.Override;
+			}
+			return ma;
 		}
 	}
 }
