@@ -51,6 +51,10 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// </remarks>
 		IMethod GenerateMethod (IType returnType, string name, params IType[] fields);
 
+		/// <summary>
+		/// Generate an (override) method that describes how to format the output 
+		/// </summary>
+		/// <returns>The formatting method.</returns>
 		IMethod GenerateFormattingMethod ();
 
 		/// <summary>

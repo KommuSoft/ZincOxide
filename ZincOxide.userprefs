@@ -1,16 +1,13 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/OO/ClassContract.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/OO/IClass.cs">
     <Files>
-      <File FileName="Codegen/Abstract/OO/IClass.cs" Line="49" Column="3" />
-      <File FileName="Codegen/Abstract/OO/IMethod.cs" Line="33" Column="36" />
-      <File FileName="Codegen/Abstract/OO/FieldBase.cs" Line="30" Column="52" />
-      <File FileName="Codegen/Abstract/OO/MethodBase.cs" Line="29" Column="17" />
-      <File FileName="Codegen/Abstract/OO/CSharp/Field.cs" Line="32" Column="53" />
-      <File FileName="Codegen/Abstract/OO/CSharp/Method.cs" Line="45" Column="23" />
-      <File FileName="Codegen/Abstract/OO/CSharp/Class.cs" Line="101" Column="4" />
-      <File FileName="Codegen/Abstract/OO/ClassBase.cs" Line="46" Column="66" />
-      <File FileName="Codegen/Abstract/OO/ClassContract.cs" Line="26" Column="65" />
+      <File FileName="Codegen/Abstract/OO/IClass.cs" Line="55" Column="77" />
+      <File FileName="Codegen/Abstract/OO/ClassBase.cs" Line="57" Column="17" />
+      <File FileName="Codegen/Abstract/OO/ClassContract.cs" Line="77" Column="17" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Class.cs" Line="122" Column="20" />
+      <File FileName="Codegen/Concrete/OO/ProblemRepresentationGenerator.cs" Line="47" Column="17" />
+      <File FileName="Codegen/Abstract/OO/CSharp/CSharpUtils.cs" Line="32" Column="87" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,7 +18,7 @@
                 <Node name="OO" expanded="True">
                   <Node name="CSharp" expanded="True" />
                   <Node name="Process" expanded="True" />
-                  <Node name="ClassContract.cs" selected="True" />
+                  <Node name="IClass.cs" selected="True" />
                 </Node>
               </Node>
               <Node name="Concrete" expanded="True">
@@ -33,7 +30,9 @@
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True" selected="True">
+          <Node name="ZincOxide" expanded="True" />
+        </State>
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State expanded="True" selected="True" />
