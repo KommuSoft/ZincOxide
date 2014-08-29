@@ -21,6 +21,7 @@
 using System;
 using System.Diagnostics.Contracts;
 using Resistance.Opts;
+using ZincOxide.Environment;
 
 namespace ZincOxide.Codegen.Abstract {
 
@@ -54,6 +55,22 @@ namespace ZincOxide.Codegen.Abstract {
 		/// <value>The name (or prefix) of the generated file(s).</value>
 		[Option(Name="filename",HelpText="The name (or prefix) of the file(s) that will be generated.")]
 		string FileName {
+			get;
+		}
+
+		/// <summary>
+		/// The way integers will be represented in the generated output.
+		/// </summary>
+		[Option(Name="integerrepresentation",HelpText="The way to represent an integer in the generated heuristics.")]
+		ProgramIntegerRepresentation IntegerRepresentation {
+			get;
+		}
+
+		/// <summary>
+		/// The way floats will be represented in the generated output.
+		/// </summary>
+		[Option(Name="floatrepresentation",HelpText="The way to represent a float in the generated heuristics.")]
+		ProgramFloatRepresentation FloatRepresentation {
 			get;
 		}
 	}

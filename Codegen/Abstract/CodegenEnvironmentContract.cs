@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Diagnostics.Contracts;
+using ZincOxide.Environment;
 
 namespace ZincOxide.Codegen.Abstract {
 
@@ -61,6 +62,24 @@ namespace ZincOxide.Codegen.Abstract {
 			get {
 				Contract.Ensures (Contract.Result<string> () != null);
 				return default(string);
+			}
+		}
+
+		/// <summary>
+		/// The way integers will be represented in the generated output.
+		/// </summary>
+		public ProgramIntegerRepresentation IntegerRepresentation {
+			get {
+				return default(ProgramIntegerRepresentation);
+			}
+		}
+
+		/// <summary>
+		/// The way integers will be represented in the generated output.
+		/// </summary>
+		public ProgramFloatRepresentation FloatRepresentation {
+			get {
+				return default(ProgramFloatRepresentation);
 			}
 		}
 		#endregion

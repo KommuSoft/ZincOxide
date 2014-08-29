@@ -58,6 +58,24 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		}
 
 		/// <summary>
+		/// Get the type that corresponds with the integer representation type of the environment.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds with the integer representation type of the environment.</returns>
+		public virtual IType GetIntegerType () {
+			Contract.Ensures (Contract.Result<IType> () != null);
+			return default(IType);
+		}
+
+		/// <summary>
+		/// Get the type that corresponds with the float representation type of the environment.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds with the float representation type of the environment.</returns>
+		public virtual IType GetFloatType () {
+			Contract.Ensures (Contract.Result<IType> () != null);
+			return default(IType);
+		}
+
+		/// <summary>
 		/// Get the type that corresponds with the given integer representation (abstract) type for the specific language.
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds to the given integer representation type.</returns>

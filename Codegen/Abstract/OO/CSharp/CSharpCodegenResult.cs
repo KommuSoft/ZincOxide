@@ -26,6 +26,8 @@ using System.CodeDom.Compiler;
 using Microsoft.CSharp;
 using ZincOxide.Codegen.Abstract.OO.Process;
 using ZincOxide.Environment;
+using ZincOxide.Exceptions;
+using System.Numerics;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -77,18 +79,38 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// Get the type that corresponds with the given integer representation (abstract) type for the specific language.
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds to the given integer representation type.</returns>
-		/// <param name="pir">The given integer representation type, optional, by default a 32-bit integer.</param>
-		public override IType GetIntegerType (ProgramIntegerRepresentation pir = ProgramIntegerRepresentation.Int32) {
-			throw new NotImplementedException ();
+		/// <param name="pir">The given integer representation type.</param>
+		public override IType GetIntegerType (ProgramIntegerRepresentation pir) {
+			switch (pir) {
+			case ProgramIntegerRepresentation.Int16:
+				return new TypeReference (typeof(short));
+			case ProgramIntegerRepresentation.Int32:
+				return new TypeReference (typeof(int));
+			case ProgramIntegerRepresentation.Int64:
+				return new TypeReference (typeof(long));
+			case ProgramIntegerRepresentation.Integer:
+				return new TypeReference (typeof(BigInteger));
+			default:
+				throw new ZincOxideBugException ("Query for a not defined integer type in C#.");
+			}
 		}
 
 		/// <summary>
 		/// Get the type that corresponds with the given float representation (abstract) type for the specific language.
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds to the given float representation type.</returns>
-		/// <param name="pfr">The given float representation type, optional, by default a 64-bit float.</param>
-		public override IType GetFloatType (ProgramFloatRepresentation pfr = ProgramFloatRepresentation.Double) {
-			throw new NotImplementedException ();
+		/// <param name="pfr">The given float representation type.</param>
+		public override IType GetFloatType (ProgramFloatRepresentation pfr) {
+			switch (pfr) {
+			case ProgramFloatRepresentation.Single:
+				return new TypeReference (typeof(float));
+			case ProgramFloatRepresentation.Double:
+				return new TypeReference (typeof(double));
+			case ProgramFloatRepresentation.Fraction:
+				throw new ZincOxideBugException ("C# has no implemented type for fractions.");
+			default:
+				throw new ZincOxideBugException ("Query for a not defined integer type in C#.");
+			}
 		}
 		#endregion
 		#region implemented abstract members of CodegenResultBase

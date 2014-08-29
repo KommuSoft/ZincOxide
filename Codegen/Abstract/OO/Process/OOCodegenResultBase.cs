@@ -49,18 +49,35 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		public abstract IClass GenerateClass (string name);
 
 		/// <summary>
+		/// Get the type that corresponds with the integer representation type of the environment.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds with the integer representation type of the environment.</returns>
+		public virtual IType GetIntegerType () {
+			return this.GetIntegerType ();
+		}
+
+		/// <summary>
+		/// Get the type that corresponds with the float representation type of the environment.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds with the float representation type of the environment.</returns>
+		/// <param name="pfr">The given float representation type.</param>
+		public virtual IType GetFloatType () {
+			return this.GetFloatType ();
+		}
+
+		/// <summary>
 		/// Get the type that corresponds with the given integer representation (abstract) type for the specific language.
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds to the given integer representation type.</returns>
-		/// <param name="pir">The given integer representation type, optional, by default a 32-bit integer.</param>
-		public abstract IType GetIntegerType (ProgramIntegerRepresentation pir = ProgramIntegerRepresentation.Int32);
+		/// <param name="pir">The given integer representation type.</param>
+		public abstract IType GetIntegerType (ProgramIntegerRepresentation pir);
 
 		/// <summary>
 		/// Get the type that corresponds with the given float representation (abstract) type for the specific language.
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds to the given float representation type.</returns>
-		/// <param name="pfr">The given float representation type, optional, by default a 64-bit float.</param>
-		public abstract IType GetFloatType (ProgramFloatRepresentation pfr = ProgramFloatRepresentation.Double);
+		/// <param name="pfr">The given float representation type.</param>
+		public abstract IType GetFloatType (ProgramFloatRepresentation pfr);
 		#endregion
 	}
 }
