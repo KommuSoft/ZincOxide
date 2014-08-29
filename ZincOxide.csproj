@@ -287,6 +287,7 @@
     <Compile Include="Codegen\Abstract\OO\CSharp\Method.cs" />
     <Compile Include="Codegen\Abstract\OO\ClassContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\CSharpUtils.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ICommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -335,6 +336,8 @@
     <Folder Include="Codegen\Concrete\" />
     <Folder Include="Codegen\Concrete\OO\" />
     <Folder Include="Codegen\Abstract\OO\Process\" />
+    <Folder Include="Codegen\Abstract\Imperative\" />
+    <Folder Include="Codegen\Abstract\Functional\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
