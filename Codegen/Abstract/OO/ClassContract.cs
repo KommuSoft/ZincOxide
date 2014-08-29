@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 using ZincOxide.Utils.Abstract;
 using System.Diagnostics.Contracts;
 
@@ -36,7 +37,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// Get the name of the class.
 		/// </summary>
 		/// <value>The name of the class.</value>
-		public string Name {
+		public override string Name {
 			get {
 				Contract.Ensures (Contract.Result<string> () != null);
 				return default(string);
@@ -112,7 +113,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
 		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
 		/// </remarks>
-		public void AddConstructor (System.Collections.Generic.IEnumerable<IField> fields, OOModifiers modifiers) {
+		public void AddConstructor (IEnumerable<IField> fields, OOModifiers modifiers) {
 		}
 
 		/// <summary>
