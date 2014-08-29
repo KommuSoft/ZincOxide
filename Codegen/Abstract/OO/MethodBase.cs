@@ -19,12 +19,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
-	public class MethodBase {
-		public MethodBase () {
+	/// <summary>
+	/// A basic implementation of the <see cref="IMethod"/> interface, used for programming convenience.
+	/// </summary>
+	public abstract class MethodBase : NameShadow, IMethod {
+
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MethodBase"/> class.
+		/// </summary>
+		protected MethodBase () {
 		}
+		#endregion
 	}
 }
 

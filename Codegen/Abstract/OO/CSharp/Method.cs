@@ -1,5 +1,5 @@
 //
-//  Field.cs
+//  Method.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,16 +19,18 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
 using System.CodeDom;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// The representation of an <see cref="IField"/> in C#.
+	/// The representation of a <see cref="IMethod"/> in C#.
 	/// </summary>
-	public class Field : FieldBase {
+	public class Method : MethodBase {
 
+		#region Fields
+		private readonly CodeMemberMethod data;
+		#endregion
 		#region implemented abstract members of NameShadow
 		/// <summary>
 		/// Gets the name of this instance.
@@ -36,23 +38,18 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <value>The name of this instance.</value>
 		public override string Name {
 			get {
-				return this.Data.Name;
+				return data.Name;
 			}
 		}
 		#endregion
-		#region Fields
-		/// <summary>
-		/// The data that describes the field.
-		/// </summary>
-		internal readonly CodeMemberField Data;
-		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Field"/> class with a given .
+		/// Initializes a new instance of the <see cref="Method"/> class with the given data specifying the
+		/// method.
 		/// </summary>
-		/// <param name="data">The data that represents the class.</param>
-		internal Field (CodeMemberField data) {
-			this.Data = data;
+		/// <param name="data">The given <see cref="CodeMemberMethod"/> that specifies the method.</param>
+		internal Method (CodeMemberMethod data) {
+			this.data = data;
 		}
 		#endregion
 	}
