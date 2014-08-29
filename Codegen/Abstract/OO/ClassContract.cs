@@ -28,7 +28,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// <summary>
 	/// A contract class that specifies the contracts attached to a <see cref="IClass"/> implementation.
 	/// </summary>
-	[ContractClassFor(IClass)]
+	[ContractClassFor(typeof(IClass))]
 	public abstract class ClassContract : NameShadow, IClass {
 
 		

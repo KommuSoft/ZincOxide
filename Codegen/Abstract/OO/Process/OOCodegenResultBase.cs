@@ -53,7 +53,7 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds with the integer representation type of the environment.</returns>
 		public virtual IType GetIntegerType () {
-			return this.GetIntegerType ();
+			return this.GetIntegerType (this.Environment.IntegerRepresentation);
 		}
 
 		/// <summary>
@@ -62,7 +62,7 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// <returns>A <see cref="IType"/> that corresponds with the float representation type of the environment.</returns>
 		/// <param name="pfr">The given float representation type.</param>
 		public virtual IType GetFloatType () {
-			return this.GetFloatType ();
+			return this.GetFloatType (this.Environment.FloatRepresentation);
 		}
 
 		/// <summary>
