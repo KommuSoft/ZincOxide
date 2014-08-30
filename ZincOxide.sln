@@ -11,12 +11,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HypoZinc", "HypoZinc\HypoZi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resistance.Opts", "Resistance.Opts\Resistance.Opts\Resistance.Opts.csproj", "{E6CA2F2E-043B-45B3-BE65-35206790E420}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUtils", "NUtils\NUtils\NUtils.csproj", "{199D5C0D-6274-453D-8E5B-24E6142903FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{199D5C0D-6274-453D-8E5B-24E6142903FB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{199D5C0D-6274-453D-8E5B-24E6142903FB}.Debug|x86.Build.0 = Debug|Any CPU
+		{199D5C0D-6274-453D-8E5B-24E6142903FB}.Release|x86.ActiveCfg = Release|Any CPU
+		{199D5C0D-6274-453D-8E5B-24E6142903FB}.Release|x86.Build.0 = Release|Any CPU
 		{A0B98A3A-0041-44FD-9B2B-AFD8C19BB920}.Debug|x86.ActiveCfg = Debug|x86
 		{A0B98A3A-0041-44FD-9B2B-AFD8C19BB920}.Debug|x86.Build.0 = Debug|x86
 		{A0B98A3A-0041-44FD-9B2B-AFD8C19BB920}.Release|x86.ActiveCfg = Release|x86

@@ -27,7 +27,5 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	/// </summary>
 	public interface ICommand {
 
-
 	}
 }
-

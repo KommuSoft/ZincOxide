@@ -19,3 +19,6 @@
 [submodule "Resistance.Opts"]
 	path = Resistance.Opts
 	url = git@github.com:KommuSoft/Resistance.Opts.git
+[submodule "NUtils"]
+	path = NUtils
+	url = git@github.com:KommuSoft/NUtils.git

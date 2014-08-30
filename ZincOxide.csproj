@@ -367,5 +367,9 @@
       <Project>{E6CA2F2E-043B-45B3-BE65-35206790E420}</Project>
       <Name>Resistance.Opts</Name>
     </ProjectReference>
+    <ProjectReference Include="NUtils\NUtils\NUtils.csproj">
+      <Project>{199D5C0D-6274-453D-8E5B-24E6142903FB}</Project>
+      <Name>NUtils</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
