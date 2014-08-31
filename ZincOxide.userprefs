@@ -1,32 +1,18 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/Imperative/ICommand.cs">
-    <Files>
-      <File FileName="Codegen/Abstract/OO/IClass.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Abstract/OO/ClassBase.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Abstract/OO/ClassContract.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Abstract/OO/CSharp/Class.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Concrete/OO/ProblemRepresentationGenerator.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Abstract/OO/CSharp/CSharpUtils.cs" Line="45" Column="14" />
-      <File FileName="Codegen/Concrete/OO/IProblemRepresentationGenerator.cs" Line="1" Column="1" />
-      <File FileName="Codegen/Abstract/Imperative/ICommand.cs" Line="26" Column="90" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
+          <Node name="Resistance.Opts" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="OptionAttribute.cs" selected="True" />
+          </Node>
           <Node name="ZincOxide" expanded="True">
+            <Node name="References" expanded="True" />
             <Node name="Codegen" expanded="True">
-              <Node name="Abstract" expanded="True">
-                <Node name="Imperative" expanded="True" selected="True" />
-                <Node name="OO" expanded="True">
-                  <Node name="CSharp" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Concrete" expanded="True">
-                <Node name="OO" expanded="True" />
-              </Node>
+              <Node name="Abstract" expanded="True" />
             </Node>
-            <Node name="Environment" expanded="True" />
           </Node>
         </State>
       </Pad>
