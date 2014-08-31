@@ -18,11 +18,14 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
+using ZincOxide.MiniZinc.Structures;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincAsExIdTiasBox : IZincBox, IZincAsBox, IZincAsExBox, IZincExBox, IZincExIdBox, IZincIdBox, IZincTiasBox {
-    }
+	/// <summary>
+	/// A <see cref="IZincBox"/> interface that contains <see cref="IZincAnnotations"/>, <see cref="IZincExp"/>, <see cref="IZincIdent"/> and <see cref="IZincTypeInstExprAndIdent"/> instances.
+	/// The last type can occur in multiple instances.
+	/// </summary>
+	public interface IZincAsExIdTiasBox : IZincBox, IZincAsBox, IZincAsExBox, IZincExBox, IZincExIdBox, IZincIdBox, IZincTiasBox {
+	}
 }
-

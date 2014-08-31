@@ -15,7 +15,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x86</PlatformTarget>
@@ -24,8 +24,11 @@
     <CustomCommands>
       <CustomCommands>
         <Command type="BeforeBuild" command="bash cc.sh" workingdir="Parser/specs/" />
+        <Command type="AfterBuild" command="cccheck --assembly=${TargetFile}" workingdir="${TargetDir}" />
       </CustomCommands>
     </CustomCommands>
+    <GenerateDocumentation>true</GenerateDocumentation>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>none</DebugType>
@@ -42,29 +45,25 @@
     </CustomCommands>
     <DocumentationFile>bin\Release\ZincOxide.xml</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Documentation|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Documentation</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="monodocer -pretty -importslashdoc:*.xml -assembly:*.exe -path:doc" workingdir="${TargetDir}" />
+        <Command type="AfterBuild" command="mdoc export-html -o htmldocs doc/" workingdir="${TargetDir}" />
+      </CustomCommands>
+    </CustomCommands>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Contracts|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Contracts</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="Algebra\AcasBinaryOperatorFlags.cs" />
-    <Compile Include="Algebra\AcasConstant.cs" />
-    <Compile Include="Algebra\AcasExpressionBase.cs" />
-    <Compile Include="Algebra\AcasFunction.cs" />
-    <Compile Include="Algebra\AcasFunctionInstance.cs" />
-    <Compile Include="Algebra\AcasGenericFunction.cs" />
-    <Compile Include="Algebra\AcasIExpression.cs" />
-    <Compile Include="Algebra\AcasOperator.cs" />
-    <Compile Include="Algebra\AcasType.cs" />
-    <Compile Include="Algebra\AcasVariable.cs" />
-    <Compile Include="MiniZinc\ZincPrintUtils.cs" />
-    <Compile Include="Codegen\ICodeClass.cs" />
-    <Compile Include="Codegen\ICodeMethod.cs" />
-    <Compile Include="Codegen\OuputFile.cs" />
-    <Compile Include="Codegen\ICodeInterface.cs" />
-    <Compile Include="Codegen\ICodeBuilder.cs" />
-    <Compile Include="Codegen\ICodePackage.cs" />
-    <Compile Include="Codegen\ICodeFile.cs" />
-    <Compile Include="ZincOxideException.cs" />
-    <Compile Include="Codegen\ZincOxideCodeGenException.cs" />
-    <Compile Include="MiniZinc\ZincOxideMiniZincException.cs" />
     <Compile Include="Parser\MiniZincParser.cs" />
     <Compile Include="MiniZinc\Boxes\IZincAsBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincExBox.cs" />
@@ -81,34 +80,6 @@
     <Compile Include="MiniZinc\Boxes\ZincAsBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincIdTieBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincIdTieBoxBase.cs" />
-    <Compile Include="Utils\ContextStreamWriter.cs" />
-    <Compile Include="Utils\ContextWriteableUtils.cs" />
-    <Compile Include="Utils\EnumerableUtils.cs" />
-    <Compile Include="Utils\GenerateNameRegister.cs" />
-    <Compile Include="Utils\HeadTail.cs" />
-    <Compile Include="Utils\IContextWriteable.cs" />
-    <Compile Include="Utils\IGenerateNameRegister.cs" />
-    <Compile Include="Utils\IName.cs" />
-    <Compile Include="Utils\INameRegister.cs" />
-    <Compile Include="Utils\IReadable.cs" />
-    <Compile Include="Utils\IReadWriteable.cs" />
-    <Compile Include="Utils\IScope.cs" />
-    <Compile Include="Utils\IValidateable.cs" />
-    <Compile Include="Utils\IWriteable.cs" />
-    <Compile Include="Utils\NameBase.cs" />
-    <Compile Include="Utils\NameRegister.cs" />
-    <Compile Include="Utils\ReadWriteableUtils.cs" />
-    <Compile Include="Codegen\Java\CodeBuilderJava.cs" />
-    <Compile Include="Codegen\Java\CodeClassJava.cs" />
-    <Compile Include="Codegen\Java\CodeInterfaceJava.cs" />
-    <Compile Include="Codegen\Java\CodePackageJava.cs" />
-    <Compile Include="Codegen\Java\JavaUtils.cs" />
-    <Compile Include="Codegen\Base\CodeBuilderBase.cs" />
-    <Compile Include="Codegen\Base\CodeClassBase.cs" />
-    <Compile Include="Codegen\Base\CodeFileBase.cs" />
-    <Compile Include="Codegen\Base\CodeInterfaceBase.cs" />
-    <Compile Include="Codegen\Base\CodePackageBase.cs" />
-    <Compile Include="Codegen\Base\ContextWriteableCodeFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTieTiesBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTieTiesBox.cs" />
@@ -118,21 +89,7 @@
     <Compile Include="MiniZinc\Boxes\ZincNumBoxBase.cs" />
     <Compile Include="MiniZinc\Boxes\ZincNumNumBoxBase.cs" />
     <Compile Include="Parser\MiniZincLexer.cs" />
-    <Compile Include="Parser\ZincOxideParserException.cs" />
     <Compile Include="Parser\ParserHelper.cs" />
-    <Compile Include="Codegen\CSharp\CodeBuilderCSharp.cs" />
-    <Compile Include="Codegen\CSharp\CodeClassCSharp.cs" />
-    <Compile Include="Codegen\CSharp\CodeInterfaceCSharp.cs" />
-    <Compile Include="Codegen\CSharp\CodePackageCSharp.cs" />
-    <Compile Include="Codegen\CSharp\CSharpUtils.cs" />
-    <Compile Include="Utils\ISoftValidateable.cs" />
-    <Compile Include="Utils\IMessageBoard.cs" />
-    <Compile Include="Utils\ZincOxideNameNotFoundException.cs" />
-    <Compile Include="Utils\DNameRegisterFallback.cs" />
-    <Compile Include="Utils\IFallbackNameRegister.cs" />
-    <Compile Include="Utils\FallbackNameRegister.cs" />
-    <Compile Include="Utils\IGenerateFallbackNameRegister.cs" />
-    <Compile Include="Utils\GenerateFallbackNameRegister.cs" />
     <Compile Include="Parser\LexSpan.cs" />
     <Compile Include="Normalization\PullupVarDeclTransformation.cs" />
     <Compile Include="Normalization\ReordenDeclarationTransformation.cs" />
@@ -173,24 +130,16 @@
     <Compile Include="MiniZinc\Structures\ZincTypeInstExpressionIdent.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstRangeExpression.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstWhereExpression.cs" />
-    <Compile Include="MiniZinc\Structures\ZincVarPar.cs" />
     <Compile Include="MiniZinc\Structures\ZincCompound.cs" />
-    <Compile Include="Utils\IId.cs" />
-    <Compile Include="Utils\IdBase.cs" />
-    <Compile Include="Utils\INameId.cs" />
-    <Compile Include="Utils\NameIdBase.cs" />
-    <Compile Include="MiniZinc\Types\ZincFundamentalType.cs" />
     <Compile Include="MiniZinc\Types\IZincFundamentalType.cs" />
     <Compile Include="MiniZinc\Types\IZincTypeTransformation.cs" />
     <Compile Include="MiniZinc\Types\ZincVarification.cs" />
     <Compile Include="MiniZinc\Types\ZincCoercion.cs" />
-    <Compile Include="Utils\ValidateableUtils.cs" />
     <Compile Include="MiniZinc\Structures\ZincIdentUsage.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstSetExpression.cs" />
     <Compile Include="MiniZinc\Items\ZincPredicateItem.cs" />
     <Compile Include="MiniZinc\Items\ZincItemType.cs" />
     <Compile Include="MiniZinc\Items\ZincFileBase.cs" />
-    <Compile Include="MiniZinc\Structures\ZincIdentScopeBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincAsExIdTiasBox.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTiasBox.cs" />
     <Compile Include="MiniZinc\Items\IZincRelation.cs" />
@@ -199,25 +148,13 @@
     <Compile Include="MiniZinc\Boxes\ZincAsExIdTiasBoxBase.cs" />
     <Compile Include="MiniZinc\Items\ZincFunctionItem.cs" />
     <Compile Include="Normalization\PredicateToFunctionTransformation.cs" />
-    <Compile Include="Utils\IArity.cs" />
     <Compile Include="MiniZinc\Structures\ZincTypeInstTupleExpression.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTiesBoxBase.cs" />
-    <Compile Include="Utils\IComposition.cs" />
-    <Compile Include="MiniZinc\IZincElement.cs" />
     <Compile Include="MiniZinc\Boxes\IZincBox.cs" />
-    <Compile Include="Utils\IInnerSoftValidateable.cs" />
     <Compile Include="MiniZinc\Boxes\ZincBoxBase.cs" />
     <Compile Include="MiniZinc\Structures\ZincNumExpLiteralBase.cs" />
     <Compile Include="MiniZinc\Boxes\IZincTyBox.cs" />
     <Compile Include="MiniZinc\Boxes\ZincTyBoxBase.cs" />
-    <Compile Include="Utils\IFinite.cs" />
-    <Compile Include="Codegen\ICodeProperty.cs" />
-    <Compile Include="Codegen\CodePropertyAccess.cs" />
-    <Compile Include="Codegen\ICodeMixin.cs" />
-    <Compile Include="Codegen\Base\CodePropertyBase.cs" />
-    <Compile Include="Codegen\Java\CodePropertyJava.cs" />
-    <Compile Include="Codegen\CSharp\CodePropertyCSharp.cs" />
-    <Compile Include="Utils\IDimensions.cs" />
     <Compile Include="MiniZinc\Builtins\ZincBuiltinRelationAttribute.cs" />
     <Compile Include="MiniZinc\Builtins\ZincBuiltinRelationRegister.cs" />
     <Compile Include="MiniZinc\Structures\IZincRelation.cs" />
@@ -227,77 +164,197 @@
     <Compile Include="Environment\ProgramTask.cs" />
     <Compile Include="Environment\programVerbosity.cs" />
     <Compile Include="Environment\Interaction.cs" />
-    <Compile Include="Parser\ScanBase.cs" />
-    <Compile Include="Codegen\HigherOrder\ProblemFileGenerator.cs" />
-    <Compile Include="Codegen\HigherOrder\SolutionFileGenerator.cs" />
-    <Compile Include="Codegen\HigherOrder\IFileGenerator.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\ZincTFSet.cs" />
-    <Compile Include="MiniZinc\Types\Fundamental\IZincTF.cs" />
-    <Compile Include="Utils\IGenericEquals.cs" />
     <Compile Include="Environment\ProgramResult.cs" />
     <Compile Include="Environment\ProgramIntegerRepresentation.cs" />
-    <Compile Include="ProgramFloatRepresentation.cs" />
+    <Compile Include="Utils\Maths\IMathSet.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\ZincVarPar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IMiniZincTypeInst.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IMiniZincType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincArrayType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincScalarType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInst.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincSetType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincTupleType.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincScalarTypeEntry.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincAnnotationType.cs" />
+    <Compile Include="MiniZinc\Boxes\NamespaceDoc.cs" />
+    <Compile Include="Utils\Maths\ThreeStateValue.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\MiniZincTypeInstanceVariable.cs" />
+    <Compile Include="Environment\IProgramEnvironment.cs" />
+    <Compile Include="Exceptions\ZincOxideException.cs" />
+    <Compile Include="Exceptions\ZincOxideFormatException.cs" />
+    <Compile Include="Exceptions\ZincOxideMiniZincException.cs" />
+    <Compile Include="Exceptions\ZincOxideParserException.cs" />
+    <Compile Include="Exceptions\ZincOxideNameNotFoundException.cs" />
+    <Compile Include="Exceptions\ZincOxideMiniZincTypeInstanceException.cs" />
+    <Compile Include="Environment\ProgramFloatRepresentation.cs" />
+    <Compile Include="MiniZinc\Structures\IZincAnnotations.cs" />
+    <Compile Include="MiniZinc\Structures\IZincAnnotation.cs" />
+    <Compile Include="MiniZinc\Structures\IZincIdent.cs" />
+    <Compile Include="MiniZinc\Structures\IZincTypeInstExprAndIdent.cs" />
+    <Compile Include="Utils\Abstract\IArity.cs" />
+    <Compile Include="Utils\Abstract\IdBase.cs" />
+    <Compile Include="Utils\Abstract\IDimensions.cs" />
+    <Compile Include="Utils\Abstract\IFinite.cs" />
+    <Compile Include="Utils\Abstract\IGenericEquals.cs" />
+    <Compile Include="Utils\Abstract\IId.cs" />
+    <Compile Include="Utils\Abstract\IName.cs" />
+    <Compile Include="Utils\Abstract\INameId.cs" />
+    <Compile Include="Utils\Abstract\IScope.cs" />
+    <Compile Include="Utils\Abstract\ITag.cs" />
+    <Compile Include="Utils\Abstract\NameBase.cs" />
+    <Compile Include="Utils\Abstract\NameIdBase.cs" />
+    <Compile Include="Utils\Abstract\TagBase.cs" />
+    <Compile Include="Utils\Collections\EnumerableUtils.cs" />
+    <Compile Include="Utils\Collections\HeadTail.cs" />
+    <Compile Include="Utils\Designpatterns\IComposition.cs" />
+    <Compile Include="Utils\IO\ContextStreamWriter.cs" />
+    <Compile Include="Utils\IO\ContextWriteableUtils.cs" />
+    <Compile Include="Utils\IO\IContextWriteable.cs" />
+    <Compile Include="Utils\IO\IReadable.cs" />
+    <Compile Include="Utils\IO\IReadWriteable.cs" />
+    <Compile Include="Utils\IO\IWriteable.cs" />
+    <Compile Include="Utils\IO\ReadWriteableUtils.cs" />
+    <Compile Include="Utils\Nameregister\DNameRegisterFallback.cs" />
+    <Compile Include="Utils\Nameregister\FallbackNameRegister.cs" />
+    <Compile Include="Utils\Nameregister\GenerateFallbackNameRegister.cs" />
+    <Compile Include="Utils\Nameregister\GenerateNameRegister.cs" />
+    <Compile Include="Utils\Nameregister\IFallbackNameRegister.cs" />
+    <Compile Include="Utils\Nameregister\IGenerateFallbackNameRegister.cs" />
+    <Compile Include="Utils\Nameregister\IGenerateNameRegister.cs" />
+    <Compile Include="Utils\Nameregister\INameRegister.cs" />
+    <Compile Include="Utils\Nameregister\NameRegister.cs" />
+    <Compile Include="Utils\Validation\IInnerSoftValidateable.cs" />
+    <Compile Include="Utils\Validation\IInnerSoftValidateableComposition.cs" />
+    <Compile Include="Utils\Validation\IMessageBoard.cs" />
+    <Compile Include="Utils\Validation\ISoftValidateable.cs" />
+    <Compile Include="Utils\Validation\IValidateable.cs" />
+    <Compile Include="Utils\Validation\ValidateableUtils.cs" />
+    <Compile Include="Representation\AbstractVariable.cs" />
+    <Compile Include="Representation\AbstractRepresentation.cs" />
+    <Compile Include="Representation\AbstractConstraint.cs" />
+    <Compile Include="Utils\IBindToString.cs" />
+    <Compile Include="Utils\Designpatterns\CompositionUtils.cs" />
+    <Compile Include="MiniZinc\Structures\IZincScopeElement.cs" />
+    <Compile Include="MiniZinc\IZincElement.cs" />
+    <Compile Include="MiniZinc\ZincPrintUtils.cs" />
+    <Compile Include="MiniZinc\Structures\ZincScopeElementBase.cs" />
+    <Compile Include="MiniZinc\ZincElementUtils.cs" />
+    <Compile Include="MiniZinc\Structures\ZincLeafElement.cs" />
+    <Compile Include="MiniZinc\Items\IZincDataFile.cs" />
+    <Compile Include="MiniZinc\Items\IZincModel.cs" />
+    <Compile Include="Utils\Abstract\NullSafe.cs" />
+    <Compile Include="Exceptions\ZincOxideBugException.cs" />
+    <Compile Include="Parser\ILexSpan.cs" />
+    <Compile Include="Utils\Functional\FunctionUtils.cs" />
+    <Compile Include="Utils\Collections\TupleStacks.cs" />
+    <Compile Include="Utils\Functional\StandardFunctions.cs" />
+    <Compile Include="MiniZinc\Types\Fundamental\IMiniZincCollectionType.cs" />
+    <Compile Include="MiniZinc\IZincIdentDeclaration.cs" />
+    <Compile Include="Codegen\Abstract\OO\INamespace.cs" />
+    <Compile Include="Utils\Abstract\NameShadow.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpCodegenResult.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Namespace.cs" />
+    <Compile Include="Codegen\Abstract\OO\IClass.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Class.cs" />
+    <Compile Include="Codegen\Abstract\CodegenEnvironment.cs" />
+    <Compile Include="Codegen\Abstract\CodegenEnvironmentContract.cs" />
+    <Compile Include="Codegen\Abstract\CodegenResultBase.cs" />
+    <Compile Include="Codegen\Abstract\CodegenResultContract.cs" />
+    <Compile Include="Codegen\Abstract\ICodegenEnvironment.cs" />
+    <Compile Include="Codegen\Abstract\ICodegenerator.cs" />
+    <Compile Include="Codegen\Abstract\ICodegenResult.cs" />
+    <Compile Include="Codegen\Concrete\OO\IProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\Concrete\OO\ProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\Abstract\CodegeneratorBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\IField.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Field.cs" />
+    <Compile Include="Codegen\Abstract\OO\Process\IOOCodegenerator.cs" />
+    <Compile Include="Codegen\Abstract\OO\Process\IOOCodegenResult.cs" />
+    <Compile Include="Codegen\Abstract\OO\Process\OOCodegeneratorBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\Process\OOCodegenResultBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\Process\OOCodegenResultContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\ClassBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\OOModifiers.cs" />
+    <Compile Include="Codegen\Abstract\OO\IType.cs" />
+    <Compile Include="Codegen\Abstract\OO\TypeBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Type.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\TypeReference.cs" />
+    <Compile Include="Codegen\Abstract\OO\IMethod.cs" />
+    <Compile Include="Codegen\Abstract\OO\FieldBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\MethodBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Method.cs" />
+    <Compile Include="Codegen\Abstract\OO\ClassContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpUtils.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ICommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
-    <Reference Include="QUT.ShiftReduceParser">
+    <Reference Include="System.Numerics" />
+    <Reference Include="QUT.ShiftReduceParser, Version=1.4.6.0, Culture=neutral, PublicKeyToken=402396ef6102baec">
       <HintPath>lib\QUT.ShiftReduceParser.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Options">
-      <HintPath>lib\Mono.Options.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.core, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="nunit.core.interfaces, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Manpage.txt" />
-    <None Include="Samples\jobshop.mzn" />
-    <None Include="Samples\jobshop2x2.data" />
     <None Include="Parser\specs\MiniZinc.ll" />
     <None Include="Parser\specs\MiniZinc.yy" />
     <None Include="Parser\specs\cc.sh" />
+    <None Include="Parser\specs\ZincOutput.ll" />
+    <None Include="checklog.md" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Codegen\" />
-    <Folder Include="Algebra\" />
     <Folder Include="MiniZinc\" />
     <Folder Include="Parser\" />
-    <Folder Include="Samples\" />
     <Folder Include="MiniZinc\Boxes\" />
     <Folder Include="Utils\" />
-    <Folder Include="Codegen\Java\" />
-    <Folder Include="Codegen\Base\" />
-    <Folder Include="Codegen\CSharp\" />
-    <Folder Include="Transformation\" />
-    <Folder Include="Heuristics\" />
     <Folder Include="Normalization\" />
     <Folder Include="Parser\specs\" />
     <Folder Include="MiniZinc\Builtins\" />
     <Folder Include="MiniZinc\Items\" />
     <Folder Include="MiniZinc\Structures\" />
-    <Folder Include="Codegen\HigherOrder\" />
     <Folder Include="MiniZinc\Types\" />
-    <Folder Include="Complexity\" />
     <Folder Include="Environment\" />
-    <Folder Include="AbstractGraph\" />
     <Folder Include="MiniZinc\Types\Fundamental\" />
+    <Folder Include="Utils\Maths\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Utils\Abstract\" />
+    <Folder Include="Utils\IO\" />
+    <Folder Include="Utils\Collections\" />
+    <Folder Include="Utils\Validation\" />
+    <Folder Include="Utils\Designpatterns\" />
+    <Folder Include="Utils\Nameregister\" />
+    <Folder Include="Representation\" />
+    <Folder Include="Utils\Functional\" />
+    <Folder Include="Codegen\" />
+    <Folder Include="Codegen\Abstract\" />
+    <Folder Include="Codegen\Abstract\OO\" />
+    <Folder Include="Codegen\Abstract\OO\CSharp\" />
+    <Folder Include="Codegen\Concrete\" />
+    <Folder Include="Codegen\Concrete\OO\" />
+    <Folder Include="Codegen\Abstract\OO\Process\" />
+    <Folder Include="Codegen\Abstract\Imperative\" />
+    <Folder Include="Codegen\Abstract\Functional\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
       <Properties>
         <Policies>
           <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedHierarchical" ResourceNamePolicy="FileFormatDefault" />
+          <StandardHeader Text=" &#xA; ${FileName}&#xA; &#xA; Author:&#xA;      ${AuthorName} &lt;${AuthorEmail}&gt;&#xA;&#xA; Copyright (c) ${Year} ${CopyrightHolder}&#xA;&#xA; This program is free software: you can redistribute it and/or modify&#xA; it under the terms of the GNU General Public License as published by&#xA; the Free Software Foundation, either version 3 of the License, or&#xA; (at your option) any later version.&#xA;&#xA; This program is distributed in the hope that it will be useful,&#xA; but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xA; GNU General Public License for more details.&#xA;&#xA; You should have received a copy of the GNU General Public License&#xA; along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;." IncludeInNewFiles="True" />
         </Policies>
+        <MonoDevelop.Autotools.MakefileInfo RelativeMakefileName="Makefile">
+          <BuildFilesVar />
+          <DeployFilesVar />
+          <ResourcesVar />
+          <OthersVar />
+          <GacRefVar />
+          <AsmRefVar />
+          <ProjectRefVar />
+        </MonoDevelop.Autotools.MakefileInfo>
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
@@ -305,6 +362,14 @@
     <ProjectReference Include="mono-utils\HaskellLibraries.csproj">
       <Project>{BCC56048-D2A4-4646-B4D0-451C64D2D066}</Project>
       <Name>HaskellLibraries</Name>
+    </ProjectReference>
+    <ProjectReference Include="Resistance.Opts\Resistance.Opts\Resistance.Opts.csproj">
+      <Project>{E6CA2F2E-043B-45B3-BE65-35206790E420}</Project>
+      <Name>Resistance.Opts</Name>
+    </ProjectReference>
+    <ProjectReference Include="NUtils\NUtils\NUtils.csproj">
+      <Project>{199D5C0D-6274-453D-8E5B-24E6142903FB}</Project>
+      <Name>NUtils</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

@@ -25,62 +25,167 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincAsExIdTiasBoxBase : ZincExIdBoxBase, IZincAsExIdTiasBox {
+	/// <summary>
+	/// An implementation of the <see cref="IZincAsExIdTiasBox"/>, a <see cref="ZincBoxBase"/>
+	/// that stores <see cref="IZincExp"/>, <see cref="IZincIdent"/>, <see cref="IZincAnnotations"/>
+	/// ans <see cref="IZincTypeInstExprAndIdent"/> instances.
+	/// </summary>
+	public class ZincAsExIdTiasBoxBase : ZincExIdBoxBase, IZincAsExIdTiasBox {
 
-        private ZincAnnotations annotations;
-        private IList<ZincTypeInstExprAndIdent> typeInstExpressions;
+		private IZincAnnotations annotations;
+		private IList<IZincTypeInstExprAndIdent> typeInstExpressions;
+		#region IZincAsBox implementation
+		/// <summary>
+		/// Gets the <see cref="IZincAnnotations"/> instance stored in the <see cref="IZincBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="IZincAnnotations"/> instance stored in the <see cref="IZincBox"/>.
+		/// </value>
+		public IZincAnnotations Annotations {
+			get {
+				return this.annotations;
+			}
+			protected set {
+				this.annotations = value;
+			}
+		}
+		#endregion
+		#region IZincTiasBox implementation
+		/// <summary>
+		/// Gets the <see cref="T:System.Collection.Generic.IList`1"/> with <see cref="IZincTypeInstExprAndIdent"/>
+		/// instances stored in the <see cref="IZincTiasBox"/>.
+		/// </summary>
+		/// <value>
+		/// The <see cref="T:System.Collection.Generic.IList`1"/> with <see cref="IZincTypeInstExprAndIdent"/>
+		/// instances stored in the <see cref="IZincTiasBox"/>.
+		/// </value>
+		public IList<IZincTypeInstExprAndIdent> TypeInstAndIdentExpressions {
+			get {
+				return this.typeInstExpressions;
+			}
+			protected set {
+				this.typeInstExpressions = value;
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAsExIdTiasBoxBase"/> class
+		/// with a given initial <see cref="IZincAnnotations"/>, <see cref="IZincExp"/>, <see cref="IZincIdent"/>
+		/// instances.
+		/// </summary>
+		/// <param name='anns'>
+		/// The given initial <see cref="IZincAnnotations"/> instance.
+		/// </param>
+		/// <param name='expr'>
+		/// The given initial <see cref="IZincExp"/> instance.
+		/// </param>
+		/// <param name='id'>
+		/// The given initial <see cref="IZincIdent"/> instance.
+		/// </param>
+		protected ZincAsExIdTiasBoxBase (IZincAnnotations anns, IZincExp expr, IZincIdent id) : base(id,expr) {
+			this.Annotations = anns;
+		}
 
-        #region IZincAsBox implementation
-        public ZincAnnotations Annotations {
-            get {
-                return this.annotations;
-            }
-            protected set {
-                this.annotations = value;
-            }
-        }
-        #endregion
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAsExIdTiasBoxBase"/> class
+		/// with a given initial <see cref="IZincAnnotations"/>, <see cref="IZincExp"/>, <see cref="IZincIdent"/> and
+		/// <see cref="IZincTypeInstExprAndIdent"/> instances.
+		/// </summary>
+		/// <param name='anns'>
+		/// The given initial <see cref="IZincAnnotations"/> instance.
+		/// </param>
+		/// <param name='expr'>
+		/// The given initial <see cref="IZincExp"/> instance.
+		/// </param>
+		/// <param name='id'>
+		/// The given initial <see cref="IZincIdent"/> instance.
+		/// </param>
+		/// <param name='tias'>
+		/// The given initial <see cref="IZincTypeInstExprAndIdent"/> instances.
+		/// </param>
+		protected ZincAsExIdTiasBoxBase (IZincAnnotations anns, IZincExp expr, IZincIdent id, IList<IZincTypeInstExprAndIdent> tias) : base(id,expr) {
+			this.Annotations = anns;
+			this.typeInstExpressions = tias;
+		}
 
-        #region IZincTiasBox implementation
-        public IList<ZincTypeInstExprAndIdent> TypeInstAndIdentExpressions {
-            get {
-                return this.typeInstExpressions;
-            }
-            protected set {
-                this.typeInstExpressions = value;
-            }
-        }
-        #endregion
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAsExIdTiasBoxBase"/> class
+		/// with a given initial <see cref="IZincAnnotations"/>, <see cref="IZincExp"/>, <see cref="IZincIdent"/> and
+		/// <see cref="IZincTypeInstExprAndIdent"/> instances.
+		/// </summary>
+		/// <param name='anns'>
+		/// The given initial <see cref="IZincAnnotations"/> instance.
+		/// </param>
+		/// <param name='expr'>
+		/// The given initial <see cref="IZincExp"/> instance.
+		/// </param>
+		/// <param name='id'>
+		/// The given initial <see cref="IZincIdent"/> instance.
+		/// </param>
+		/// <param name='tias'>
+		/// The given initial <see cref="IZincTypeInstExprAndIdent"/> instances.
+		/// </param>
+		protected ZincAsExIdTiasBoxBase (IZincAnnotations anns, IZincExp expr, IZincIdent id, params IZincTypeInstExprAndIdent[] tias) : this(anns,expr,id,(IList<IZincTypeInstExprAndIdent>)tias) {
+		}
 
-        protected ZincAsExIdTiasBoxBase (ZincAnnotations annotations, IZincExp expression, ZincIdent ident, IList<ZincTypeInstExprAndIdent> typeInstIdentExpressions) : base(ident,expression) {
-            this.Annotations = annotations;
-            this.typeInstExpressions = typeInstIdentExpressions;
-        }
-
-        protected ZincAsExIdTiasBoxBase (ZincAnnotations annotations, IZincExp expression, ZincIdent ident, params ZincTypeInstExprAndIdent[] typeInstIdentExpressions) : this(annotations,expression,ident,(IList<ZincTypeInstExprAndIdent>)typeInstIdentExpressions) {
-        }
-
-        protected ZincAsExIdTiasBoxBase (ZincAnnotations annotations, IZincExp expression, ZincIdent ident, IEnumerable<ZincTypeInstExprAndIdent> typeInstIdentExpressions) : this(annotations,expression,ident,(IList<ZincTypeInstExprAndIdent>)typeInstIdentExpressions.ToArray()) {
-        }
-
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (base.InvolvedIdents (), this.annotations.InvolvedIdents (), this.typeInstExpressions.SelectMany (x => x.InvolvedIdents ()));
-        }
-
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap) {
-            this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
-            int n = this.TypeInstAndIdentExpressions.Count;
-            for (int i = 0x00; i < n; i++) {
-                this.typeInstExpressions [i] = this.typeInstExpressions [i].Replace (identMap) as ZincTypeInstExprAndIdent;
-            }
-            return base.Replace (identMap);
-        }
-
-        public override IEnumerable<IZincElement> Children () {
-            return EnumerableUtils.Append (this.annotations, this.typeInstExpressions, base.Children ());
-        }
-
-
-    }
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincAsExIdTiasBoxBase"/> class
+		/// with a given initial <see cref="IZincAnnotations"/>, <see cref="IZincExp"/>, <see cref="IZincIdent"/> and
+		/// <see cref="IZincTypeInstExprAndIdent"/> instances.
+		/// </summary>
+		/// <param name='anns'>
+		/// The given initial <see cref="IZincAnnotations"/> instance.
+		/// </param>
+		/// <param name='expr'>
+		/// The given initial <see cref="IZincExp"/> instance.
+		/// </param>
+		/// <param name='id'>
+		/// The given initial <see cref="IZincIdent"/> instance.
+		/// </param>
+		/// <param name='tias'>
+		/// The given initial <see cref="IZincTypeInstExprAndIdent"/> instances.
+		/// </param>
+		protected ZincAsExIdTiasBoxBase (IZincAnnotations anns, IZincExp expr, IZincIdent id, IEnumerable<IZincTypeInstExprAndIdent> tias) : this(anns,expr,id,(IList<IZincTypeInstExprAndIdent>)tias.ToArray()) {
+		}
+		#endregion
+		#region IZincIdentReplaceContainer implementation
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>
+		/// stored as keys to the corresponding values and returns this instance.
+		/// </summary>
+		/// <param name='identMap'>
+		/// A <see cref="T:System.Collections.Generic.IDictionary`2"/> that contains pairs if
+		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
+		/// </param>
+		/// <returns>
+		/// This instance, for cascading purposes.
+		/// </returns>
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent, IZincIdent> identMap) {
+			this.annotations = this.annotations.Replace (identMap) as ZincAnnotations;
+			int n = this.TypeInstAndIdentExpressions.Count;
+			for (int i = 0x00; i < n; i++) {
+				this.typeInstExpressions [i] = this.typeInstExpressions [i].Replace (identMap) as ZincTypeInstExprAndIdent;
+			}
+			return base.Replace (identMap);
+		}
+		#endregion
+		#region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
+		/// </returns>
+		public override IEnumerable<IZincElement> Children () {
+			return EnumerableUtils.Append (new IEnumerable<IZincElement>[] {
+				this.annotations,
+				this.typeInstExpressions,
+				base.Children ()
+			});
+		}
+		#endregion
+	}
 }

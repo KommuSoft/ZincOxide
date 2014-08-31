@@ -1,6 +1,6 @@
 .\" Manpage for zincoxide
 .\" Contact Willem.VanOnsem@cs.kuleuven.be to correct errors and typos.
-.TH man 8 "01 Sep 2013" "0.1" "zincoxidy man page"
+.TH man 8 "01 Sep 2013" "0.1" "zincoxide man page"
 .SH NAME
 zincoxide \- Compiles a problemdescription written in MiniZinc to a set of heuristics.
 .SH SYNOPSIS

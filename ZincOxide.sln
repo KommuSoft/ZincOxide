@@ -7,12 +7,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZincSulphate", "ZincSulphat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaskellLibraries", "mono-utils\HaskellLibraries.csproj", "{BCC56048-D2A4-4646-B4D0-451C64D2D066}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HypoZinc", "HypoZinc\HypoZinc.csproj", "{A0B98A3A-0041-44FD-9B2B-AFD8C19BB920}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resistance.Opts", "Resistance.Opts\Resistance.Opts\Resistance.Opts.csproj", "{E6CA2F2E-043B-45B3-BE65-35206790E420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUtils", "NUtils\NUtils\NUtils.csproj", "{199D5C0D-6274-453D-8E5B-24E6142903FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{199D5C0D-6274-453D-8E5B-24E6142903FB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{199D5C0D-6274-453D-8E5B-24E6142903FB}.Debug|x86.Build.0 = Debug|Any CPU
+		{199D5C0D-6274-453D-8E5B-24E6142903FB}.Release|x86.ActiveCfg = Release|Any CPU
+		{199D5C0D-6274-453D-8E5B-24E6142903FB}.Release|x86.Build.0 = Release|Any CPU
+		{A0B98A3A-0041-44FD-9B2B-AFD8C19BB920}.Debug|x86.ActiveCfg = Debug|x86
+		{A0B98A3A-0041-44FD-9B2B-AFD8C19BB920}.Debug|x86.Build.0 = Debug|x86
+		{A0B98A3A-0041-44FD-9B2B-AFD8C19BB920}.Release|x86.ActiveCfg = Release|x86
+		{A0B98A3A-0041-44FD-9B2B-AFD8C19BB920}.Release|x86.Build.0 = Release|x86
 		{BCC56048-D2A4-4646-B4D0-451C64D2D066}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{BCC56048-D2A4-4646-B4D0-451C64D2D066}.Debug|x86.Build.0 = Debug|Any CPU
 		{BCC56048-D2A4-4646-B4D0-451C64D2D066}.Release|x86.ActiveCfg = Release|Any CPU
@@ -21,6 +35,10 @@ Global
 		{E43A9277-5FCC-42B0-B600-B4BD5EF3D56C}.Debug|x86.Build.0 = Debug|Any CPU
 		{E43A9277-5FCC-42B0-B600-B4BD5EF3D56C}.Release|x86.ActiveCfg = Release|Any CPU
 		{E43A9277-5FCC-42B0-B600-B4BD5EF3D56C}.Release|x86.Build.0 = Release|Any CPU
+		{E6CA2F2E-043B-45B3-BE65-35206790E420}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E6CA2F2E-043B-45B3-BE65-35206790E420}.Debug|x86.Build.0 = Debug|Any CPU
+		{E6CA2F2E-043B-45B3-BE65-35206790E420}.Release|x86.ActiveCfg = Release|Any CPU
+		{E6CA2F2E-043B-45B3-BE65-35206790E420}.Release|x86.Build.0 = Release|Any CPU
 		{F54D87B0-B6A6-4E13-9890-10660779394D}.Debug|x86.ActiveCfg = Debug|x86
 		{F54D87B0-B6A6-4E13-9890-10660779394D}.Debug|x86.Build.0 = Debug|x86
 		{F54D87B0-B6A6-4E13-9890-10660779394D}.Release|x86.ActiveCfg = Release|x86
@@ -28,5 +46,26 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = ZincOxide.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.NamespaceBraceStyle = EndOfLine
+		$2.ClassBraceStyle = EndOfLine
+		$2.InterfaceBraceStyle = EndOfLine
+		$2.StructBraceStyle = EndOfLine
+		$2.EnumBraceStyle = EndOfLine
+		$2.MethodBraceStyle = EndOfLine
+		$2.ConstructorBraceStyle = EndOfLine
+		$2.DestructorBraceStyle = EndOfLine
+		$2.AfterDelegateDeclarationParameterComma = True
+		$2.BlankLinesBeforeFirstDeclaration = 1
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$0.StandardHeader = $3
+		$3.Text = @ \n ${FileName}\n \n Author:\n      ${AuthorName} <${AuthorEmail}>\n\n Copyright (c) ${Year} ${CopyrightHolder}\n\n This program is free software: you can redistribute it and/or modify\n it under the terms of the GNU General Public License as published by\n the Free Software Foundation, either version 3 of the License, or\n (at your option) any later version.\n\n This program is distributed in the hope that it will be useful,\n but WITHOUT ANY WARRANTY; without even the implied warranty of\n MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n GNU General Public License for more details.\n\n You should have received a copy of the GNU General Public License\n along with this program.  If not, see <http://www.gnu.org/licenses/>.
+		$3.IncludeInNewFiles = True
 	EndGlobalSection
 EndGlobal

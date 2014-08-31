@@ -24,50 +24,101 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public class ZincExIdBoxBase : ZincIdBoxBase, IZincExIdBox {
+	/// <summary>
+	/// An implementation of the <see cref="IZincExIdBox"/>. A <see cref="ZincBoxBase"/> containing
+	/// <see cref="IZincExp"/> and <see cref="IZincIdent"/> instances.
+	/// </summary>
+	public class ZincExIdBoxBase : ZincIdBoxBase, IZincExIdBox {
 
-        private IZincExp expression;
+		private IZincExp expression;
+		#region IZincExBox implementation
+		/// <summary>
+		/// Gets the <see cref="IZincExp"/> stored of the <see cref="IZincExBox"/>.
+		/// </summary>
+		/// <value>
+		/// The stored <see cref="IZincExp"/> of the <see cref="IZincExBox"/>.
+		/// </value>
+		public IZincExp Expression {
+			get {
+				return this.expression;
+			}
+			protected set {
+				this.expression = value;
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincExIdBoxBase"/> class without any given initial
+		/// instances.
+		/// </summary>
+		protected ZincExIdBoxBase () : base() {
+		}
 
-        #region IZincExpressionBox implementation
-        public IZincExp Expression {
-            get {
-                return this.expression;
-            }
-            protected set {
-                this.expression = value;
-            }
-        }
-        #endregion
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincExIdBoxBase"/> class with a given initial
+		/// <see cref="IZincIdent"/> instance.
+		/// </summary>
+		/// <param name='ident'>
+		/// The initial <see cref="IZincIdent"/> instance to store.
+		/// </param>
+		protected ZincExIdBoxBase (IZincIdent ident) : base(ident) {
+		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincExIdBoxBase"/> class with a given initial
+		/// <see cref="IZincExp"/> instance.
+		/// </summary>
+		/// <param name='expression'>
+		/// The initial <see cref="IZincExp"/> instance to store.
+		/// </param>
+		protected ZincExIdBoxBase (IZincExp expression) : base() {
+			this.Expression = expression;
+		}
 
-        protected ZincExIdBoxBase () : base() {
-        }
-
-        protected ZincExIdBoxBase (ZincIdent ident) : base(ident) {
-        }
-
-        protected ZincExIdBoxBase (IZincExp expression) : base() {
-            this.Expression = expression;
-        }
-
-        protected ZincExIdBoxBase (ZincIdent ident, IZincExp expression) : base(ident) {
-            this.expression = expression;
-        }
-
-        public override IEnumerable<ZincIdent> InvolvedIdents () {
-            return EnumerableUtils.Append (base.InvolvedIdents (), this.Expression.InvolvedIdents ());
-        }
-
-        public override IZincIdentReplaceContainer Replace (IDictionary<ZincIdent,ZincIdent> identMap) {
-            this.expression = this.expression.Replace (identMap) as IZincExp;
-            return base.Replace (identMap);
-        }
-
-        public override IEnumerable<IZincElement> Children () {
-            return EnumerableUtils.Append (this.Expression, base.Children ());
-        }
-
-    }
-
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ZincExIdBoxBase"/> class with given initial
+		/// <see cref="IZincIdent"/> and <see cref="IZincExp"/> instances.
+		/// </summary>
+		/// <param name='ident'>
+		/// The initial <see cref="IZincIdent"/> instance to store.
+		/// </param>
+		/// <param name='expression'>
+		/// The initial <see cref="IZincExp"/> instance to store.
+		/// </param>
+		protected ZincExIdBoxBase (IZincIdent ident, IZincExp expression) : base(ident) {
+			this.expression = expression;
+		}
+		#endregion
+		#region IZincIdentReplaceContainer implementation
+		/// <summary>
+		/// Replaces all the instances stored in the given <see cref="T:IDictionary`2"/>
+		/// stored as keys to the corresponding values and returns this instance.
+		/// </summary>
+		/// <param name='identMap'>
+		/// A <see cref="T:IDictionary`2"/> that contains pairs if
+		/// <see cref="IZincIdent"/> instances. The keys should be replaced by the values of the dictionary.
+		/// </param>
+		/// <returns>
+		/// This instance, for cascading purposes.
+		/// </returns>
+		public override IZincIdentReplaceContainer Replace (IDictionary<IZincIdent,IZincIdent> identMap) {
+			this.expression = this.expression.Replace (identMap) as IZincExp;
+			return base.Replace (identMap);
+		}
+		#endregion
+		#region IComposition implementation
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincBox"/> instance.
+		/// </returns>
+		public override IEnumerable<IZincElement> Children () {
+			return EnumerableUtils.Append (this.Expression, base.Children ());
+		}
+		#endregion
+	}
 }
-

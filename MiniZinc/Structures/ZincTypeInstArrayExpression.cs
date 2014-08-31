@@ -25,69 +25,73 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public class ZincTypeInstArrayExpression : ZincTieTiesBoxBase, IZincType {
+	public class ZincTypeInstArrayExpression : ZincTieTiesBoxBase, IZincType {
+		public IZincTypeInstExpression OfType {
+			get {
+				return this.TypeInstExpression;
+			}
+		}
 
-        public IZincTypeInstExpression OfType {
-            get {
-                return this.TypeInstExpression;
-            }
-        }
+		public IList<IZincTypeInstExpression> IndexTypes {
+			get {
+				return this.TypeInstExpressions;
+			}
+		}
+		#region IFinite implementation
+		public bool Finite {
+			get {
+				return (this.TypeInstExpression.Finite && this.TypeInstExpressions.All (x => x.Finite));
+			}
+		}
+		#endregion
+		#region IZincType implementation
+		public bool Compounded {
+			get {
+				return true;
+			}
+		}
 
-        public IList<IZincTypeInstExpression> IndexTypes {
-            get {
-                return this.TypeInstExpressions;
-            }
-        }
+		public ZincScalar ScalarType {
+			get {
+				//TODO
+				return ZincScalar.Bool;
+				//return this.TypeInstExpression.ScalarType;
+			}
+		}
+		#endregion
+		public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, IZincTypeInstExpression atta, IZincTypeInstExpression attb) : base (oftype, new IZincTypeInstExpression[] {
+			atta,
+			attb
+		}) {
+		}
 
-        #region IFinite implementation
-        public bool Finite {
-            get {
-                return (this.TypeInstExpression.Finite && this.TypeInstExpressions.All (x => x.Finite));
-            }
-        }
-        #endregion
+		public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, IEnumerable<IZincTypeInstExpression> attributes) : base (oftype, attributes) {
+		}
 
-        #region IZincType implementation
-        public bool Compounded {
-            get {
-                return true;
-            }
-        }
-
-        public ZincScalar ScalarType {
-            get {
-                //TODO
-                return ZincScalar.Bool;
-                //return this.TypeInstExpression.ScalarType;
-            }
-        }
-        #endregion
-
-        public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, IZincTypeInstExpression atta, IZincTypeInstExpression attb) : base(oftype,new IZincTypeInstExpression[] {atta,attb}) {
-        }
-
-        public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, IEnumerable<IZincTypeInstExpression> attributes) : base(oftype,attributes) {
-        }
-
-        public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, params IZincTypeInstExpression[] attributes) : base(oftype,attributes) {
-        }
-
-        public override string ToString () {
-            return string.Format ("array [ {0} ] of {1}", string.Join (" , ", this.TypeInstExpressions), this.TypeInstExpression);
-        }
-
-        #region IZincType implementation
-        public bool IsSubType (IZincType type) {
-            if (type != null && type is ZincTypeInstArrayExpression) {
-                ZincTypeInstArrayExpression zta = (ZincTypeInstArrayExpression)type;
-                return (zta.OfType.IsSubType (zta) && this.IndexTypes.All (zta.IndexTypes, (x,y) => x.IsSubType (y)));
-            } else {
-                return false;
-            }
-        }
-        #endregion
-
-
-    }
-
+		public ZincTypeInstArrayExpression (IZincTypeInstExpression oftype, params IZincTypeInstExpression[] attributes) : base (oftype, attributes) {
+		}
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincTypeInstArrayExpression"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincTypeInstArrayExpression"/>.</returns>
+		/// <remarks>
+		/// <para>The result is a string format according to <c>array [ index ] of type</c> where <c>index</c> and <c>type</c> are replaced
+		/// by the textual representation of the types of the index and the type of the array.</para>
+		/// </remarks>
+		public override string ToString () {
+			return string.Format ("array [ {0} ] of {1}", string.Join (" , ", this.TypeInstExpressions), this.TypeInstExpression);
+		}
+		#endregion
+		#region IZincType implementation
+		public bool IsSubType (IZincType type) {
+			if (type != null && type is ZincTypeInstArrayExpression) {
+				ZincTypeInstArrayExpression zta = (ZincTypeInstArrayExpression)type;
+				return (zta.OfType.IsSubType (zta) && this.IndexTypes.All (zta.IndexTypes, (x, y) => x.IsSubType (y)));
+			} else {
+				return false;
+			}
+		}
+		#endregion
+	}
 }

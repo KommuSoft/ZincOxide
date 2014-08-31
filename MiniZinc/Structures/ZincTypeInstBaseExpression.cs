@@ -18,9 +18,9 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System.Collections.Generic;
 using ZincOxide.MiniZinc.Boxes;
+using ZincOxide.MiniZinc.Types.Fundamental;
 
 namespace ZincOxide.MiniZinc.Structures {
 
@@ -51,17 +51,13 @@ namespace ZincOxide.MiniZinc.Structures {
 				return this.Type.ScalarType;
 			}
 		}
-
 		#region IFinite implementation
-
 		public bool Finite {
 			get {
 				return this.Type.Finite;
 			}
 		}
-
 		#endregion
-
 		public ZincTypeInstBaseExpression (ZincVarPar varPar, IZincType type) : base (type) {
 			this.VarPar = varPar;
 			this.Type = type;
@@ -72,10 +68,19 @@ namespace ZincOxide.MiniZinc.Structures {
 
 		public ZincTypeInstBaseExpression (IZincType type, ZincVarPar varPar = ZincVarPar.Par) : this (varPar, type) {
 		}
-
+		#region ToString method
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="ZincTypeInstBaseExpression"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="ZincTypeInstBaseExpression"/>.</returns>
+		/// <remarks>
+		/// <para>The result is a string format according to <c>array [ index ] of type</c> where <c>index</c> and <c>type</c> are replaced
+		/// by the textual representation of the types of the index and the type of the array.</para>
+		/// </remarks>
 		public override string ToString () {
 			return string.Format ("{0} {1}", ZincPrintUtils.VarParLiteral (this.VarPar), this.Type);
 		}
+		#endregion
 	}
 }
 

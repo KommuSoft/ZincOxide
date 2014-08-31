@@ -19,23 +19,23 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Collections.Generic;
-using ZincOxide.Utils;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.MiniZinc.Structures {
 
-    public interface IZincRelation : IArity, IDimensions {
+	public interface IZincRelation : IArity, IDimensions {
 
-        IZincType OuputType {
-            get;
-        }
+		IZincType OuputType {
+			get;
+		}
 
-        IList<IZincType> InputTypes {
-            get;
-        }
+		IList<IZincType> InputTypes {
+			get;
+		}
 
-        bool Match (IEnumerable<IZincType> input);
+		bool Match (IEnumerable<IZincType> input);
 
-    }
+	}
 
 }
 

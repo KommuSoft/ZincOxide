@@ -18,15 +18,17 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 #define PARSE
-
 using System;
 using System.Collections.Generic;
 using System.IO;
 using Mono.Options;
 using ZincOxide.Environment;
+using ZincOxide.Exceptions;
 using ZincOxide.Parser;
+using ZincOxide.Codegen.Abstract.OO.CSharp;
+using ZincOxide.Codegen.Concrete.OO;
+using ZincOxide.Codegen.Abstract;
 
 namespace ZincOxide {
 
@@ -40,6 +42,10 @@ namespace ZincOxide {
 		/// <param name="args">The command-line arguments.</param>
 		/// <returns>The exit code that is given to the operating system after the program ends.</returns>
 		public static int Main (string[] args) {
+			ICodegenResult cgr = new CSharpCodegenResult (new CodegenEnvironment ());
+			ProblemRepresentationGenerator prg = new ProblemRepresentationGenerator ();
+			prg.GenerateCode (cgr);
+			cgr.Emit ();
 			bool show_help = false;
 			ProgramEnvironment env = new ProgramEnvironment ();
 			var p = new OptionSet () { {

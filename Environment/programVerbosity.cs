@@ -18,7 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 
 namespace ZincOxide.Environment {
@@ -29,6 +28,7 @@ namespace ZincOxide.Environment {
 	/// </summary>
 	[Flags]
 	public enum ProgramVerbosity : byte {
+
 		/// <summary>
 		/// Remarks is a verbosity level where simple message printed giving information about the current flow of the program.
 		/// </summary>
@@ -50,4 +50,3 @@ namespace ZincOxide.Environment {
 		Error = 0x01
 	}
 }
-

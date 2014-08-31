@@ -22,9 +22,15 @@ using ZincOxide.Utils;
 
 namespace ZincOxide.MiniZinc.Boxes {
 
-    public interface IZincBox : IZincElement, IInnerSoftValidateable {
+	/// <summary>
+	/// An interface of an elementary <see cref="IZincElement"/> that contains data.
+	/// </summary>
+	/// <remarks>
+	/// <para>Boxes do not represent real items. They are merely implementations that group
+	/// certain data and define methods on that data.</para>
+	/// </remarks>
+	public interface IZincBox : IZincElement, IInnerSoftValidateable {
 
-    }
-
+	}
 }
 

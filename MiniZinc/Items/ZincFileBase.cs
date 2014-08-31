@@ -18,53 +18,66 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using ZincOxide.MiniZinc.Structures;
-using ZincOxide.Utils;
+using ZincOxide.Utils.Designpatterns;
+using ZincOxide.Utils.Functional;
 
 namespace ZincOxide.MiniZinc.Items {
 
-    public abstract class ZincFileBase : ZincIdentScopeBase, IZincFile {
+	/// <summary>
+	/// A basic implementation of a <see cref="IZincFile"/> a file contains a number of <see cref="IZincItem"/> instances.
+	/// </summary>
+	public abstract class ZincFileBase : ZincScopeElementBase, IZincFile {
 
-        #region IZincFile implementation
-        public abstract IEnumerable<IZincItem> Items {
-            get;
-        }
-        #endregion
+		#region IZincFile implementation
+		public abstract IEnumerable<IZincItem> Items {
+			get;
+		}
+		#endregion
+		#region Constructors
+		protected ZincFileBase (ZincIdentNameRegister nameRegister = null) : base(nameRegister) {
+		}
+		#endregion
+		#region IWriteable implementation
+		public abstract void Write (TextWriter writer);
+		#endregion
+		#region IZincFile implementation
+		public abstract void AddItem (IZincItem item);
 
-        protected ZincFileBase (ZincIdentNameRegister nameRegister = null) : base(nameRegister) {
-        }
-
-        #region IValidateable implementation
-        public bool Validate () {
-            return ValidateableUtils.Validate (this);
-        }
-        #endregion
-
-        #region IWriteable implementation
-        public abstract void Write (TextWriter writer);
-        #endregion
-
-        #region IZincIdentContainer implementation
-        public abstract IEnumerable<ZincIdent> InvolvedIdents ();
-        #endregion
-
-        #region IZincIdentReplaceContainer implementation
-        public abstract IZincIdentReplaceContainer Replace (IDictionary<ZincIdent, ZincIdent> identMap);
-        #endregion
-
-        #region ISoftValidateable implementation
-        public abstract IEnumerable<string> SoftValidate ();
-        #endregion
-
-        #region IZincFile implementation
-        public abstract void AddItem (IZincItem item);
-
-        public abstract void AddItems (IEnumerable<IZincItem> items);
-        #endregion
-
-    }
-
+		public abstract void AddItems (IEnumerable<IZincItem> items);
+		#endregion
+		#region implemented abstract members of ZincScopeElementBase
+		/// <summary>
+		/// Gets a list of involved <see cref="IZincElement"/> instances that are the children of
+		/// this <see cref="IZincElement"/>.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.Generic.IEnumerable`1"/> instance of
+		/// <see cref="IZincElement"/> that are the childrens of this <see cref="IZincElement"/> instance.
+		/// </returns>
+		public override IEnumerable<IZincElement> Children () {
+			return this.Items;
+		}
+		#endregion
+		#region CloseScope override
+		/// <summary>
+		/// Closes the scope, used at the end of adding items to the scope.
+		/// </summary>
+		/// <param name="scope">The outer scope, used to attach a fallback mechanism to each
+		/// scope, optionally, by default not effective.</param>
+		public override void CloseScope (IZincIdentScope scope = null) {
+			base.CloseScope (scope);
+			Dictionary<IZincIdent,IZincIdent> replace = new Dictionary<IZincIdent, IZincIdent> ();
+			foreach (Tuple<IZincIdentScope,IZincIdent> matcher in ICompositionUtils.DoubleBlanket<IZincIdentScope,IZincElement> (this, StandardFunctions.AllPredicate<IZincElement> (), x => x is IZincIdent, StandardFunctions.AllPredicate<IZincIdentScope> ()).Cast<Tuple<IZincIdentScope,IZincIdent>> ()) {
+				replace.Add (matcher.Item2, matcher.Item1.NameRegister.Lookup (matcher.Item2));
+			}
+			this.Replace (replace);
+		}
+		#endregion
+	}
 }
 

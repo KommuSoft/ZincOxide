@@ -18,17 +18,17 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 using ZincOxide.Parser;
-using System.Configuration;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Environment {
 
 	/// <summary>
-	/// A class designed to interact with the user of the program.
+	/// A class designed to interact with the user of the program. In most cases, this means that it prints out error messages.
 	/// </summary>
 	public static class Interaction {
+
 		/// <summary>
 		/// The level of verbosity of the program: determines which messages should be printed.
 		/// </summary>

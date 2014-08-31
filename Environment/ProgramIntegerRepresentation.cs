@@ -18,8 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-using System;
 using System.Numerics;
 
 namespace ZincOxide.Environment {
@@ -28,6 +26,7 @@ namespace ZincOxide.Environment {
 	/// An enumeration class to provide information about how integers will be represented.
 	/// </summary>
 	public enum ProgramIntegerRepresentation : long {
+
 		/// <summary>
 		/// Integers will be represented as <see cref="Int16"/> or <see langword="short"/>.
 		/// </summary>
@@ -50,4 +49,3 @@ namespace ZincOxide.Environment {
 		Integer = 0x0000000000000004
 	}
 }
-

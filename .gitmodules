@@ -1,12 +1,24 @@
 [submodule "website"]
 	path = website
-	url = https://github.com/KommuSoft/ZincOxideWebsite.git
+	url = git@github.com:KommuSoft/ZincOxideWebsite.git
 [submodule "gppg"]
 	path = gppg
-	url = https://github.com/KommuSoft/Gardens-Point-Parser-Generator.git
+	url = git@github.com:KommuSoft/Gardens-Point-Parser-Generator.git
 [submodule "gplex"]
 	path = gplex
-	url = https://github.com/KommuSoft/Gardens-Point-LEX.git
+	url = git@github.com:KommuSoft/Gardens-Point-LEX.git
 [submodule "mono-utils"]
 	path = mono-utils
-	url = https://github.com/KommuSoft/mono-utils.git
+	url = git@github.com:KommuSoft/mono-utils.git
+[submodule "mathnet-yttrium"]
+	path = mathnet-yttrium
+	url = git@github.com:KommuSoft/mathnet-yttrium.git
+[submodule "mathnet-numerics"]
+	path = mathnet-numerics
+	url = git@github.com:KommuSoft/mathnet-numerics.git
+[submodule "Resistance.Opts"]
+	path = Resistance.Opts
+	url = git@github.com:KommuSoft/Resistance.Opts.git
+[submodule "NUtils"]
+	path = NUtils
+	url = git@github.com:KommuSoft/NUtils.git

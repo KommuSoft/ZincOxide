@@ -18,7 +18,6 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using System;
 using NUnit.Framework;
 using ZincOxide.MiniZinc.Structures;
 using ZincOxide.MiniZinc.Items;
@@ -26,35 +25,35 @@ using ZincOxide.Utils;
 
 namespace ZincSulphate.MiniZinc.Items {
 
-    [TestFixture()]
-    public class ZincModelTest {
+	[TestFixture()]
+	public class ZincModelTest {
 
-        [Test()]
-        public void TestGenerateModel1 () {
-            string model01 = string.Empty;
-            string model02 = "par int : size;\n";
-            string model03 = "par int : size;\npar array [ par 1 .. size , par 1 .. size ] of par int : d;\n";
-            ZincModel zm = new ZincModel ();
-            Assert.AreEqual (model01, zm.WriteString ());
-            ZincIdent size = new ZincIdent ("size");
-            zm.AddItem (new ZincVarDeclItem (new ZincTypeInstExprAndIdent (new ZincTypeInstBaseExpression (new ZincScalarType (ZincScalar.Int)), size)));
-            Assert.AreEqual (model02, zm.WriteString ());
-            ZincTypeInstBaseExpression range = new ZincTypeInstBaseExpression (new ZincTypeInstRangeExpression (new ZincIntLiteral (1), size));
-            ZincIdent d = new ZincIdent ("d");
-            zm.AddItem (new ZincVarDeclItem (new ZincTypeInstExprAndIdent (new ZincTypeInstBaseExpression (new ZincTypeInstArrayExpression (new ZincTypeInstBaseExpression (new ZincScalarType (ZincScalar.Int)), range, range)), d)));
-            Assert.AreEqual (model03, zm.WriteString ());
-        }
+		[Test()]
+		public void TestGenerateModel1 () {
+			string model01 = string.Empty;
+			string model02 = "par int : size;\n";
+			string model03 = "par int : size;\npar array [ par 1 .. size , par 1 .. size ] of par int : d;\n";
+			ZincModel zm = new ZincModel ();
+			Assert.AreEqual (model01, zm.WriteString ());
+			ZincIdent size = new ZincIdent ("size");
+			zm.AddItem (new ZincVarDeclItem (new ZincTypeInstExprAndIdent (new ZincTypeInstBaseExpression (new ZincScalarType (ZincScalar.Int)), size)));
+			Assert.AreEqual (model02, zm.WriteString ());
+			ZincTypeInstBaseExpression range = new ZincTypeInstBaseExpression (new ZincTypeInstRangeExpression (new ZincIntLiteral (1), size));
+			ZincIdent d = new ZincIdent ("d");
+			zm.AddItem (new ZincVarDeclItem (new ZincTypeInstExprAndIdent (new ZincTypeInstBaseExpression (new ZincTypeInstArrayExpression (new ZincTypeInstBaseExpression (new ZincScalarType (ZincScalar.Int)), range, range)), d)));
+			Assert.AreEqual (model03, zm.WriteString ());
+		}
 
-        [Test()]
-        public void TestGenerateModel2 () {
-            string model1 = string.Empty;
-            string model2 = "include \"aninclude\";\n";
-            ZincModel zm = new ZincModel ();
-            Assert.AreEqual (model1, zm.WriteString ());
-            zm.AddItem (new ZincIncludeItem ("aninclude"));
-            Assert.AreEqual (model2, zm.WriteString ());
-        }
+		[Test()]
+		public void TestGenerateModel2 () {
+			string model1 = string.Empty;
+			string model2 = "include \"aninclude\";\n";
+			ZincModel zm = new ZincModel ();
+			Assert.AreEqual (model1, zm.WriteString ());
+			zm.AddItem (new ZincIncludeItem ("aninclude"));
+			Assert.AreEqual (model2, zm.WriteString ());
+		}
 
-    }
+	}
 }
 
