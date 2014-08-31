@@ -1,12 +1,14 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="mono-utils/DataList.cs">
+    <Files>
+      <File FileName="mono-utils/DataList.cs" Line="24" Column="19" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Resistance.Opts" expanded="True">
-            <Node name="References" expanded="True" />
-            <Node name="OptionAttribute.cs" selected="True" />
+          <Node name="HaskellLibraries" expanded="True">
+            <Node name="References" expanded="True" selected="True" />
           </Node>
           <Node name="ZincOxide" expanded="True">
             <Node name="References" expanded="True" />
