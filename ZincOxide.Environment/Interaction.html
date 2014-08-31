@@ -1,0 +1,944 @@
+<html>
+  <head>
+    <title>ZincOxide.Environment.Interaction</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ZincOxide</a> : <a href="index.html">ZincOxide.Environment Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:ZincOxide.Environment.Interaction">Overview</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Environment.Interaction:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Environment.Interaction:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Environment.Interaction:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:ZincOxide.Environment.Interaction">Interaction  Class</h1>
+    <p class="Summary" id="T:ZincOxide.Environment.Interaction:Summary">
+            A class designed to interact with the user of the program. In most cases, this means that it prints out error messages.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:ZincOxide.Environment.Interaction:Signature">public static class  <b>Interaction</b></div>
+    </div>
+    <div class="Remarks" id="T:ZincOxide.Environment.Interaction:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:ZincOxide.Environment.Interaction:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:ZincOxide.Environment.Interaction:Docs:Version Information">
+        <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+							</p>
+        <h2 class="Section">Public Fields</h2>
+        <div class="SectionBox" id="Public Fields">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:ZincOxide.Environment.Interaction.VerbosityLevel">VerbosityLevel</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../ZincOxide.Environment/ProgramVerbosity.html">ProgramVerbosity</a>
+                  </i>. 
+            The level of verbosity of the program: determines which messages should be printed.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:ZincOxide.Environment.Interaction.ActiveFile">ActiveFile</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The current file that is modified. This is used to provide location information when a parsing error is
+            reported.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:ZincOxide.Environment.Interaction.Location">Location</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../ZincOxide.Parser/LexSpan.html">ZincOxide.Parser.LexSpan</a>
+                  </i>. 
+            The current location within the active file. This is udes to provide location information when a parsing
+            error is reported.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Environment.Interaction.Assumption(System.String,System.Object[])">Assumption</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote>
+            Prints an assumption message with a given format and arguments.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Environment.Interaction.Error(System.String,System.Object[])">Error</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote>
+            Prints an error message with a given format and arguments.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Environment.Interaction.GenericMessage(ZincOxide.Environment.ProgramVerbosity,System.String,System.Object[])">GenericMessage</a>
+                  </b>(<a href="../ZincOxide.Environment/ProgramVerbosity.html">ProgramVerbosity</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote>
+            Prints a generic message with a give verbosity, message format and zero or more message arguments.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.Object[])">ParsingError</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote>
+            Prints a parsing error message with a given format and arguments. <a href="../ZincOxide.Environment/Interaction.html#P:ZincOxide.Environment.Interaction.ActiveFile">Interaction.ActiveFile</a> and <a href="../ZincOxide.Environment/Interaction.html#P:ZincOxide.Environment.Interaction.Location">Interaction.Location</a> will provide
+            the name of the file and the location of the error.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.String,System.Object[])">ParsingError</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote>
+            Prints a parsing error message with a given format, arguments and the name of the active file. <a href="../ZincOxide.Environment/Interaction.html#P:ZincOxide.Environment.Interaction.Location">Interaction.Location</a> will provide
+            the location within the active file.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Environment.Interaction.ParsingError(ZincOxide.Parser.LexSpan,System.String,System.Object[])">ParsingError</a>
+                  </b>(<a href="../ZincOxide.Parser/LexSpan.html">ZincOxide.Parser.LexSpan</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote>
+            Prints a parsing error message with a given format, arguments and the location of the error. <a href="../ZincOxide.Environment/Interaction.html#P:ZincOxide.Environment.Interaction.ActiveFile">Interaction.ActiveFile</a> will provide the active file.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Environment.Interaction.ParsingError(System.String,ZincOxide.Parser.LexSpan,System.String,System.Object[])">ParsingError</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="../ZincOxide.Parser/LexSpan.html">ZincOxide.Parser.LexSpan</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote>
+            Prints a parsing error message with a given format, arguments and the name of the file and the location of the error.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Environment.Interaction.Remark(System.String,System.Object[])">Remark</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote>
+            Prints a remark message with a given format and arguments.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Environment.Interaction.Warning(System.String,System.Object[])">Warning</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote>
+            Prints a warning message with a given format and arguments.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:ZincOxide.Environment.Interaction:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="P:ZincOxide.Environment.Interaction.ActiveFile">ActiveFile Property</h3>
+        <blockquote id="P:ZincOxide.Environment.Interaction.ActiveFile:member">
+          <p class="Summary">
+            The current file that is modified. This is used to provide location information when a parsing error is
+            reported.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>ActiveFile</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.Environment.Interaction.ActiveFile:Value">The active file.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ZincOxide.Environment.Interaction.ActiveFile:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ZincOxide.Environment.Interaction.ActiveFile:Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Environment.Interaction.Assumption(System.String,System.Object[])">Assumption Method</h3>
+        <blockquote id="M:ZincOxide.Environment.Interaction.Assumption(System.String,System.Object[]):member">
+          <p class="Summary">
+            Prints an assumption message with a given format and arguments.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Assumption</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> format, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] args)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.Assumption(System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>format</i>
+              </dt>
+              <dd>The format of the message.</dd>
+              <dt>
+                <i>args</i>
+              </dt>
+              <dd>An object array that contains zero or more objects to format. </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.Assumption(System.String,System.Object[]):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>format</i> or <i>format</i> is <tt>null</tt>.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.FormatException">FormatException</a>
+                </td>
+                <td>The index of a format item is less than zero, or greater than or equal to the length of the <i>args</i> array.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.Assumption(System.String,System.Object[]):Remarks">If the interaction level doesn't support assumptions, no message is printed.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.Assumption(System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Environment.Interaction.Error(System.String,System.Object[])">Error Method</h3>
+        <blockquote id="M:ZincOxide.Environment.Interaction.Error(System.String,System.Object[]):member">
+          <p class="Summary">
+            Prints an error message with a given format and arguments.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Error</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> format, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] args)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.Error(System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>format</i>
+              </dt>
+              <dd>The format of the message.</dd>
+              <dt>
+                <i>args</i>
+              </dt>
+              <dd>An object array that contains zero or more objects to format. </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.Error(System.String,System.Object[]):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>format</i> or <i>format</i> is <tt>null</tt>.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.FormatException">FormatException</a>
+                </td>
+                <td>The index of a format item is less than zero, or greater than or equal to the length of the <i>args</i> array.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.Error(System.String,System.Object[]):Remarks">If the interaction level doesn't support errors, no message is printed.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.Error(System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Environment.Interaction.GenericMessage(ZincOxide.Environment.ProgramVerbosity,System.String,System.Object[])">GenericMessage Method</h3>
+        <blockquote id="M:ZincOxide.Environment.Interaction.GenericMessage(ZincOxide.Environment.ProgramVerbosity,System.String,System.Object[]):member">
+          <p class="Summary">
+            Prints a generic message with a give verbosity, message format and zero or more message arguments.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GenericMessage</b> (<a href="../ZincOxide.Environment/ProgramVerbosity.html">ProgramVerbosity</a> verbosity, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> format, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] args)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.GenericMessage(ZincOxide.Environment.ProgramVerbosity,System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>verbosity</i>
+              </dt>
+              <dd>The verbosity-level of the message.</dd>
+              <dt>
+                <i>format</i>
+              </dt>
+              <dd>The format of the message.</dd>
+              <dt>
+                <i>args</i>
+              </dt>
+              <dd>An object array that contains zero or more objects to format. </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.GenericMessage(ZincOxide.Environment.ProgramVerbosity,System.String,System.Object[]):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>format</i> or <i>format</i> is <tt>null</tt>.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.FormatException">FormatException</a>
+                </td>
+                <td>The index of a format item is less than zero, or greater than or equal to the length of the <i>args</i> array.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.GenericMessage(ZincOxide.Environment.ProgramVerbosity,System.String,System.Object[]):Remarks">If the interaction level doesn't support the given level, no message is printed.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.GenericMessage(ZincOxide.Environment.ProgramVerbosity,System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ZincOxide.Environment.Interaction.Location">Location Property</h3>
+        <blockquote id="P:ZincOxide.Environment.Interaction.Location:member">
+          <p class="Summary">
+            The current location within the active file. This is udes to provide location information when a parsing
+            error is reported.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="../ZincOxide.Parser/LexSpan.html">ZincOxide.Parser.LexSpan</a> <b>Location</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.Environment.Interaction.Location:Value">The current location within the active file.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ZincOxide.Environment.Interaction.Location:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ZincOxide.Environment.Interaction.Location:Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.Object[])">ParsingError Method</h3>
+        <blockquote id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.Object[]):member">
+          <p class="Summary">
+            Prints a parsing error message with a given format and arguments. <a href="../ZincOxide.Environment/Interaction.html#P:ZincOxide.Environment.Interaction.ActiveFile">Interaction.ActiveFile</a> and <a href="../ZincOxide.Environment/Interaction.html#P:ZincOxide.Environment.Interaction.Location">Interaction.Location</a> will provide
+            the name of the file and the location of the error.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>ParsingError</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> format, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] args)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>format</i>
+              </dt>
+              <dd>The format of the message.</dd>
+              <dt>
+                <i>args</i>
+              </dt>
+              <dd>An object array that contains zero or more objects to format. </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.Object[]):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>format</i> or <i>format</i> is <tt>null</tt>.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.FormatException">FormatException</a>
+                </td>
+                <td>The index of a format item is less than zero, or greater than or equal to the length of the <i>args</i> array.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.Object[]):Remarks">
+            <p>If the active file or the location are not effective, no parsing error message will be printed.</p>
+            <p>If the interaction level doesn't support errors, no message is printed.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.String,System.Object[])">ParsingError Method</h3>
+        <blockquote id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.String,System.Object[]):member">
+          <p class="Summary">
+            Prints a parsing error message with a given format, arguments and the name of the active file. <a href="../ZincOxide.Environment/Interaction.html#P:ZincOxide.Environment.Interaction.Location">Interaction.Location</a> will provide
+            the location within the active file.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>ParsingError</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> activeFile, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> format, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] args)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>activeFile</i>
+              </dt>
+              <dd>The name of the active file.</dd>
+              <dt>
+                <i>format</i>
+              </dt>
+              <dd>The format of the message.</dd>
+              <dt>
+                <i>args</i>
+              </dt>
+              <dd>An object array that contains zero or more objects to format. </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.String,System.Object[]):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>format</i> or <i>format</i> is <tt>null</tt>.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.FormatException">FormatException</a>
+                </td>
+                <td>The index of a format item is less than zero, or greater than or equal to the length of the <i>args</i> array.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.String,System.Object[]):Remarks">
+            <p>If the active file or the location are not effective, no parsing error message will be printed.</p>
+            <p>If the interaction level doesn't support errors, no message is printed.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Environment.Interaction.ParsingError(ZincOxide.Parser.LexSpan,System.String,System.Object[])">ParsingError Method</h3>
+        <blockquote id="M:ZincOxide.Environment.Interaction.ParsingError(ZincOxide.Parser.LexSpan,System.String,System.Object[]):member">
+          <p class="Summary">
+            Prints a parsing error message with a given format, arguments and the location of the error. <a href="../ZincOxide.Environment/Interaction.html#P:ZincOxide.Environment.Interaction.ActiveFile">Interaction.ActiveFile</a> will provide the active file.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>ParsingError</b> (<a href="../ZincOxide.Parser/LexSpan.html">ZincOxide.Parser.LexSpan</a> location, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> format, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] args)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(ZincOxide.Parser.LexSpan,System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>location</i>
+              </dt>
+              <dd>The location within the active file of the error.</dd>
+              <dt>
+                <i>format</i>
+              </dt>
+              <dd>The format of the message.</dd>
+              <dt>
+                <i>args</i>
+              </dt>
+              <dd>An object array that contains zero or more objects to format. </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(ZincOxide.Parser.LexSpan,System.String,System.Object[]):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>format</i> or <i>format</i> is <tt>null</tt>.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.FormatException">FormatException</a>
+                </td>
+                <td>The index of a format item is less than zero, or greater than or equal to the length of the <i>args</i> array.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(ZincOxide.Parser.LexSpan,System.String,System.Object[]):Remarks">
+            <p>If the active file or the location are not effective, no parsing error message will be printed.</p>
+            <p>If the interaction level doesn't support errors, no message is printed.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(ZincOxide.Parser.LexSpan,System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,ZincOxide.Parser.LexSpan,System.String,System.Object[])">ParsingError Method</h3>
+        <blockquote id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,ZincOxide.Parser.LexSpan,System.String,System.Object[]):member">
+          <p class="Summary">
+            Prints a parsing error message with a given format, arguments and the name of the file and the location of the error.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>ParsingError</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> activeFile, <a href="../ZincOxide.Parser/LexSpan.html">ZincOxide.Parser.LexSpan</a> location, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> format, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] args)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,ZincOxide.Parser.LexSpan,System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>activeFile</i>
+              </dt>
+              <dd>The name of the file where the error is detected.</dd>
+              <dt>
+                <i>location</i>
+              </dt>
+              <dd>The location within the active file of the error.</dd>
+              <dt>
+                <i>format</i>
+              </dt>
+              <dd>The format of the message.</dd>
+              <dt>
+                <i>args</i>
+              </dt>
+              <dd>An object array that contains zero or more objects to format. </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,ZincOxide.Parser.LexSpan,System.String,System.Object[]):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>format</i> or <i>format</i> is <tt>null</tt>.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.FormatException">FormatException</a>
+                </td>
+                <td>The index of a format item is less than zero, or greater than or equal to the length of the <i>args</i> array.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,ZincOxide.Parser.LexSpan,System.String,System.Object[]):Remarks">
+            <p>If the active file or the location are not effective, no parsing error message will be printed.</p>
+            <p>If the interaction level doesn't support errors, no message is printed.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.ParsingError(System.String,ZincOxide.Parser.LexSpan,System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Environment.Interaction.Remark(System.String,System.Object[])">Remark Method</h3>
+        <blockquote id="M:ZincOxide.Environment.Interaction.Remark(System.String,System.Object[]):member">
+          <p class="Summary">
+            Prints a remark message with a given format and arguments.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Remark</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> format, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] args)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.Remark(System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>format</i>
+              </dt>
+              <dd>The format of the message.</dd>
+              <dt>
+                <i>args</i>
+              </dt>
+              <dd>An object array that contains zero or more objects to format. </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.Remark(System.String,System.Object[]):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>format</i> or <i>format</i> is <tt>null</tt>.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.FormatException">FormatException</a>
+                </td>
+                <td>The index of a format item is less than zero, or greater than or equal to the length of the <i>args</i> array.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.Remark(System.String,System.Object[]):Remarks">If the interaction level doesn't support remarks, no message is printed.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.Remark(System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:ZincOxide.Environment.Interaction.VerbosityLevel">VerbosityLevel Field</h3>
+        <blockquote id="F:ZincOxide.Environment.Interaction.VerbosityLevel:member">
+          <p class="Summary">
+            The level of verbosity of the program: determines which messages should be printed.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="../ZincOxide.Environment/ProgramVerbosity.html">ProgramVerbosity</a> <b>VerbosityLevel</b> </div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="F:ZincOxide.Environment.Interaction.VerbosityLevel:Returns">A <a href="../ZincOxide.Environment/ProgramVerbosity.html">ZincOxide.Environment.ProgramVerbosity</a> describing which classes of messages that will be printed.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:ZincOxide.Environment.Interaction.VerbosityLevel:Remarks">
+            By default, only errors and warnings are printed.
+            </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:ZincOxide.Environment.Interaction.VerbosityLevel:Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Environment.Interaction.Warning(System.String,System.Object[])">Warning Method</h3>
+        <blockquote id="M:ZincOxide.Environment.Interaction.Warning(System.String,System.Object[]):member">
+          <p class="Summary">
+            Prints a warning message with a given format and arguments.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Warning</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> format, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] args)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.Warning(System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>format</i>
+              </dt>
+              <dd>The format of the message.</dd>
+              <dt>
+                <i>args</i>
+              </dt>
+              <dd>An object array that contains zero or more objects to format.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Environment.Interaction.Warning(System.String,System.Object[]):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>format</i> or <i>format</i> is <tt>null</tt>.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.FormatException">FormatException</a>
+                </td>
+                <td>The index of a format item is less than zero, or greater than or equal to the length of the <i>args</i> array.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.Warning(System.String,System.Object[]):Remarks">If the interaction level doesn't support warnings, no message is printed.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Environment.Interaction.Warning(System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

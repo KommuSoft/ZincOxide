@@ -1,0 +1,551 @@
+<html>
+  <head>
+    <title>ZincOxide.Utils.EnumerableUtils</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ZincOxide</a> : <a href="index.html">ZincOxide.Utils Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:ZincOxide.Utils.EnumerableUtils">Overview</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Utils.EnumerableUtils:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Utils.EnumerableUtils:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Utils.EnumerableUtils:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:ZincOxide.Utils.EnumerableUtils">EnumerableUtils  Class</h1>
+    <p class="Summary" id="T:ZincOxide.Utils.EnumerableUtils:Summary">
+            A static class with utility methods for <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:ZincOxide.Utils.EnumerableUtils:Signature">public static class  <b>EnumerableUtils</b></div>
+    </div>
+    <div class="Remarks" id="T:ZincOxide.Utils.EnumerableUtils:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:ZincOxide.Utils.EnumerableUtils:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:ZincOxide.Utils.EnumerableUtils:Docs:Version Information">
+        <b>Namespace: </b>ZincOxide.Utils<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+							</p>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Utils.EnumerableUtils.All``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,System.Boolean})">All&lt;T,Q&gt;</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Q&gt;</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`3">Func&lt;T, Q, bool&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            A generalization of the all method.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})">Append&lt;T&gt;</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEnumerable&lt;T&gt;&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+            Append the specified enumerable of <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{``0}[])">Append&lt;T&gt;</a>
+                  </b>(<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+            Appends the list of <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Utils.EnumerableUtils.Append``1(``0,System.Collections.Generic.IEnumerable{``0}[])">Append&lt;T&gt;</a>
+                  </b>(<i title="The type of the resulting .">T</i>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>[])<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+            Appends the given value with a list of enumerables.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Utils.EnumerableUtils.Empty``1()">Empty&lt;T&gt;</a>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+            An empty enumerable used when an enumerable is taken as input.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Utils.EnumerableUtils.FilterCast``2(System.Collections.Generic.IEnumerable{``0})">FilterCast&lt;T,TRes&gt;</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TRes&gt;</a></nobr><blockquote>
+            Filters the elements that belong to the result type and are effective.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:ZincOxide.Utils.EnumerableUtils:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:ZincOxide.Utils.EnumerableUtils.All``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,System.Boolean})">All&lt;T,Q&gt; Generic Method</h3>
+        <blockquote id="M:ZincOxide.Utils.EnumerableUtils.All``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,System.Boolean}):member">
+          <p class="Summary">
+            A generalization of the all method.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>All&lt;T, Q&gt;</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> sourcex, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;Q&gt;</a> sourcey, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`3">Func&lt;T, Q, bool&gt;</a> function)</div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.All``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,System.Boolean}):Type Parameters">
+            <dl>
+              <dt>
+                <i>T</i>
+              </dt>
+              <dd>The type of the first list (<i>sourcex</i>).</dd>
+              <dt>
+                <i>Q</i>
+              </dt>
+              <dd>The type of the second list (<i>sourcey</i>).</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.All``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,System.Boolean}):Parameters">
+            <dl>
+              <dt>
+                <i>sourcex</i>
+              </dt>
+              <dd>The first source of values with a <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.</dd>
+              <dt>
+                <i>sourcey</i>
+              </dt>
+              <dd>The second source of values with a <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.</dd>
+              <dt>
+                <i>function</i>
+              </dt>
+              <dd>A predicate that takes as input two elements and returns a <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.All``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,System.Boolean}):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.All``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,System.Boolean}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.All``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``1},System.Func{``0,``1,System.Boolean}):Version Information">
+            <b>Namespace: </b>ZincOxide.Utils<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}})">Append&lt;T&gt; Generic Method</h3>
+        <blockquote id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}}):member">
+          <p class="Summary">
+            Append the specified enumerable of <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> <b>Append&lt;T&gt;</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IEnumerable&lt;T&gt;&gt;</a> lists)</div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}}):Type Parameters">
+            <dl>
+              <dt>
+                <i>T</i>
+              </dt>
+              <dd>The type of the <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a> lists and the resulting <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}}):Parameters">
+            <dl>
+              <dt>
+                <i>lists</i>
+              </dt>
+              <dd>The list of <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a> sources.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}}):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}}):Version Information">
+            <b>Namespace: </b>ZincOxide.Utils<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{``0}[])">Append&lt;T&gt; Generic Method</h3>
+        <blockquote id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{``0}[]):member">
+          <p class="Summary">
+            Appends the list of <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> <b>Append&lt;T&gt;</b> (<b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>[] lists)</div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{``0}[]):Type Parameters">
+            <dl>
+              <dt>
+                <i>T</i>
+              </dt>
+              <dd>The type of the <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a> lists and the resulting <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{``0}[]):Parameters">
+            <dl>
+              <dt>
+                <i>lists</i>
+              </dt>
+              <dd>The list of <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a> sources.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{``0}[]):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{``0}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(System.Collections.Generic.IEnumerable{``0}[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Utils<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Utils.EnumerableUtils.Append``1(``0,System.Collections.Generic.IEnumerable{``0}[])">Append&lt;T&gt; Generic Method</h3>
+        <blockquote id="M:ZincOxide.Utils.EnumerableUtils.Append``1(``0,System.Collections.Generic.IEnumerable{``0}[]):member">
+          <p class="Summary">
+            Appends the given value with a list of enumerables.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> <b>Append&lt;T&gt;</b> (<i title="The type of the resulting .">T</i> value, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>[] lists)</div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(``0,System.Collections.Generic.IEnumerable{``0}[]):Type Parameters">
+            <dl>
+              <dt>
+                <i>T</i>
+              </dt>
+              <dd>The type of the resulting <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(``0,System.Collections.Generic.IEnumerable{``0}[]):Parameters">
+            <dl>
+              <dt>
+                <i>value</i>
+              </dt>
+              <dd>The first element of the resulting <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.</dd>
+              <dt>
+                <i>lists</i>
+              </dt>
+              <dd>A list of enumerable that succeed the first element of the resulting <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(``0,System.Collections.Generic.IEnumerable{``0}[]):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(``0,System.Collections.Generic.IEnumerable{``0}[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Append``1(``0,System.Collections.Generic.IEnumerable{``0}[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Utils<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Utils.EnumerableUtils.Empty``1()">Empty&lt;T&gt; Generic Method</h3>
+        <blockquote id="M:ZincOxide.Utils.EnumerableUtils.Empty``1():member">
+          <p class="Summary">
+            An empty enumerable used when an enumerable is taken as input.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> <b>Empty&lt;T&gt;</b> ()</div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Empty``1():Type Parameters">
+            <dl>
+              <dt>
+                <i>T</i>
+              </dt>
+              <dd>The type of the resulting <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a>.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Empty``1():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Empty``1():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.Empty``1():Version Information">
+            <b>Namespace: </b>ZincOxide.Utils<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Utils.EnumerableUtils.FilterCast``2(System.Collections.Generic.IEnumerable{``0})">FilterCast&lt;T,TRes&gt; Generic Method</h3>
+        <blockquote id="M:ZincOxide.Utils.EnumerableUtils.FilterCast``2(System.Collections.Generic.IEnumerable{``0}):member">
+          <p class="Summary">
+            Filters the elements that belong to the result type and are effective.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;TRes&gt;</a> <b>FilterCast&lt;T, TRes&gt;</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> source)<br /> where TRes : <i title="The type of the elements of the source.">T</i></div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.FilterCast``2(System.Collections.Generic.IEnumerable{``0}):Type Parameters">
+            <dl>
+              <dt>
+                <i>T</i>
+              </dt>
+              <dd>The type of the elements of the source.</dd>
+              <dt>
+                <i>TRes</i>
+              </dt>
+              <dd>The type of the resulting elements.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.FilterCast``2(System.Collections.Generic.IEnumerable{``0}):Parameters">
+            <dl>
+              <dt>
+                <i>source</i>
+              </dt>
+              <dd>The source of elements.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.EnumerableUtils.FilterCast``2(System.Collections.Generic.IEnumerable{``0}):Returns">An <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a> of the elements that belong to the result type and are effective.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.FilterCast``2(System.Collections.Generic.IEnumerable{``0}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.EnumerableUtils.FilterCast``2(System.Collections.Generic.IEnumerable{``0}):Version Information">
+            <b>Namespace: </b>ZincOxide.Utils<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

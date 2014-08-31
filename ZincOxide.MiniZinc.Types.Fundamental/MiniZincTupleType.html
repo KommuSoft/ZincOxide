@@ -1,0 +1,654 @@
+<html>
+  <head>
+    <title>ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ZincOxide</a> : <a href="index.html">ZincOxide.MiniZinc.Types.Fundamental Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType">Overview</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType">MiniZincTupleType  Class</h1>
+    <p class="Summary" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType:Summary">
+            Tuples are fixed-size hetrogeneous collections. They must contain at least two elements. Unary tuples are not
+            allowed. Tuples may contain unfixed elements.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType:Signature">public class  <b>MiniZincTupleType</b> : <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincType.html">IMiniZincType</a>, <a href="../ZincOxide.Utils.Abstract/IGenericEquals`1.html">ZincOxide.Utils.Abstract.IGenericEquals&lt;IMiniZincType&gt;</a></div>
+    </div>
+    <div class="Remarks" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType:Docs:Remarks">
+        <p>A tuple base type-inst expression tail has this syntax: <tt>tuple (ti-expr, ...)</tt>. An example tuple
+            type-instance expression is <tt>tuple (int,var float)</tt>. It is a type-instance error to precede a tuple
+            type-instance expression with <tt>var</tt>.</p>
+        <p>A tuple type is finite if all constituent elements are finite types. Otherwise false. The domain
+            of a tuple type that is a finite type is the Cartesian pr	oduct of the domains of the element types.
+            For example the domain of tuple (1..2,{3,5}) is {(1,3),(1,5),(2,3),(2,5)}</p>
+        <p>A tuple type is varifiable if all its constituent elements are varifiable. A tuple is
+            varified by varifying its constituent elements.</p>
+        <p>Tuples are ordered lexicographically.</p>
+        <p>A tuple variable must be initialised at instance-time if any of its constituent elements must be initialized
+            at instance-time.</p>
+        <p>The coercions of a tuple are the following: <tt>tuple (TI1, TI2, ..., TIn)</tt> to <tt>tuple (UI1, UI2, ..., UIn)</tt>
+            if all types <tt>TIi</tt> coerce to <tt>UIi</tt>.</p>
+        <p>In MiniZinc, tuples can only be used as array indices and must contain integers and must be fixed. Furthermore,
+            neither tuple literals nor tupple accesses are supported.</p>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType:Docs:Version Information">
+        <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+							</p>
+        <h2 class="Section">Public Constructors</h2>
+        <div class="SectionBox" id="Public Constructors">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(System.Collections.Generic.IList{ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst})">MiniZincTupleType</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IList`1">IList&lt;IMiniZincTypeInst&gt;</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst</a> class with the types of elements.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst[])">MiniZincTupleType</a>
+                    </b>(<b>params</b> <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a>[])</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst</a> class with the type-instances of the elements.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div><i>default property</i></div><div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Element(System.Int32)">Element</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)</td>
+                <td>
+                  <i>
+                    <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a>
+                  </i>. 
+            Gets the <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst</a> of the tuple at a specified index.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Finite">Finite</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../ZincOxide.Utils.Maths/ThreeStateValue.html">ZincOxide.Utils.Maths.ThreeStateValue</a>
+                  </i>. 
+            Gets if the type has a finite domain.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.ItemTypes">ItemTypes</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IList`1">IList&lt;IMiniZincTypeInst&gt;</a>
+                  </i>. 
+            Gets or sets the list of item types of the tuple.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType)">GenericEquals</a>
+                  </b>(<a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincType.html">IMiniZincType</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Checks if this zinc type is equal to the given zinc type.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GetDependingTypes()">GetDependingTypes</a>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IMiniZincTypeInst&gt;</a></nobr><blockquote>
+            Returns the enumerable of the depending <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst</a>.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Extension Methods</h2>
+        <div class="SectionBox" id="Extension Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0})">IfEffective&lt;TX&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Action`1">Action&lt;TX&gt;</a>)<blockquote>
+            Invokes the given <i>action</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, nothing is done, otherwise the action is performed.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,System.Collections.Generic.IEnumerable{``0})">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, the algorithm searches
+            for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0)">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <i title="The type of elements over which the function is defined.">T</i>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, <i>deflt</i> is returned,
+            otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0[])">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <b>params</b> <i title="The type of elements over which the function is defined.">T</i>[])<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, the algorithm searches
+            for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.OrFalse``2(``0,System.Predicate{``0})">OrFalse&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Invokes the given <i>predicate</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, <tt>false</tt> is returned as well, otherwise the predicate is invoked
+            and the result is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(System.Collections.Generic.IList{ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst})">MiniZincTupleType Constructor</h3>
+        <blockquote id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(System.Collections.Generic.IList{ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst}):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst</a> class with the types of elements.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>MiniZincTupleType</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IList`1">IList&lt;IMiniZincTypeInst&gt;</a> itemTypes)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(System.Collections.Generic.IList{ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst}):Parameters">
+            <dl>
+              <dt>
+                <i>itemTypes</i>
+              </dt>
+              <dd>A list of items representing the type-instances of the elements of the tuple.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(System.Collections.Generic.IList{ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(System.Collections.Generic.IList{ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst}):Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst[])">MiniZincTupleType Constructor</h3>
+        <blockquote id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst[]):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst</a> class with the type-instances of the elements.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>MiniZincTupleType</b> (<b>params</b> <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a>[] itemTypes)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst[]):Parameters">
+            <dl>
+              <dt>
+                <i>itemTypes</i>
+              </dt>
+              <dd>A list of items representing the type-instances of the elements of the tuple.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst[]):Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Element(System.Int32)">Element Property</h3>
+        <blockquote id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Element(System.Int32):member">
+          <p class="Summary">
+            Gets the <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst</a> of the tuple at a specified index.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">
+            <p>
+              <i>This is the default property for this class.</i>
+            </p>public <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a> this [<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> index] { get; }</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Element(System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>index</i>
+              </dt>
+              <dd>The index of the tuple.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Element(System.Int32):Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Element(System.Int32):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentOutOfRangeException">ArgumentOutOfRangeException</a>
+                </td>
+                <td>
+                  <i>index</i> is larger or equal to the number of elements of the tuple.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Element(System.Int32):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Element(System.Int32):Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Finite">Finite Property</h3>
+        <blockquote id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Finite:member">
+          <p class="Summary">
+            Gets if the type has a finite domain.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../ZincOxide.Utils.Maths/ThreeStateValue.html">ZincOxide.Utils.Maths.ThreeStateValue</a> <b>Finite</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Finite:Value">
+            <tt>true</tt> if the type has a finite domain, <tt>false</tt> otherwise.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Finite:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.Finite:Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType)">GenericEquals Method</h3>
+        <blockquote id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType):member">
+          <p class="Summary">
+            Checks if this zinc type is equal to the given zinc type.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>GenericEquals</b> (<a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincType.html">IMiniZincType</a> other)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType):Parameters">
+            <dl>
+              <dt>
+                <i>other</i>
+              </dt>
+              <dd>The <a href="../ZincOxide.MiniZinc.Types/IZincFundamentalType.html">ZincOxide.MiniZinc.Types.IZincFundamentalType</a> to match this type against.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType):Returns">
+            <tt>true</tt>, if the types where equal, <tt>false</tt> otherwise.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType):Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GetDependingTypes()">GetDependingTypes Method</h3>
+        <blockquote id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GetDependingTypes():member">
+          <p class="Summary">
+            Returns the enumerable of the depending <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst</a>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IMiniZincTypeInst&gt;</a> <b>GetDependingTypes</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GetDependingTypes():Returns">An <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a> of the depending types.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GetDependingTypes():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.GetDependingTypes():Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.ItemTypes">ItemTypes Property</h3>
+        <blockquote id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.ItemTypes:member">
+          <p class="Summary">
+            Gets or sets the list of item types of the tuple.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IList`1">IList&lt;IMiniZincTypeInst&gt;</a> <b>ItemTypes</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.ItemTypes:Value">The list of type-instances of the tuple type.</blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.ItemTypes:Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If the <i>value</i> is not effective.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentException">ArgumentException</a>
+                </td>
+                <td>If the given list contains less than two elements.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.ItemTypes:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincTupleType.ItemTypes:Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

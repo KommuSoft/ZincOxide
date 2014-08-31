@@ -1,0 +1,576 @@
+<html>
+  <head>
+    <title>ZincOxide.Exceptions.ZincOxideBugException</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ZincOxide</a> : <a href="index.html">ZincOxide.Exceptions Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:ZincOxide.Exceptions.ZincOxideBugException">Overview</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Exceptions.ZincOxideBugException:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Exceptions.ZincOxideBugException:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Exceptions.ZincOxideBugException:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:ZincOxide.Exceptions.ZincOxideBugException">ZincOxideBugException  Class</h1>
+    <p class="Summary" id="T:ZincOxide.Exceptions.ZincOxideBugException:Summary">
+            An exception that is thrown because there is still some evil part in the ZincOxide code that is not yet resolved.
+            This is mainly used for debugging purposes.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:ZincOxide.Exceptions.ZincOxideBugException:Signature">public class  <b>ZincOxideBugException</b> : <a href="../ZincOxide.Exceptions/ZincOxideException.html">ZincOxideException</a></div>
+    </div>
+    <div class="Remarks" id="T:ZincOxide.Exceptions.ZincOxideBugException:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:ZincOxide.Exceptions.ZincOxideBugException:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:ZincOxide.Exceptions.ZincOxideBugException:Docs:Version Information">
+        <b>Namespace: </b>ZincOxide.Exceptions<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="../ZincOxide.Exceptions/ZincOxideException.html">ZincOxideException</a>.
+							</p>
+        <h2 class="Section">Public Constructors</h2>
+        <div class="SectionBox" id="Public Constructors">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:ZincOxide.Exceptions.ZincOxideBugException()">ZincOxideBugException</a>
+                    </b>()</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a> class without specifying a message or reason.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:ZincOxide.Exceptions.ZincOxideBugException(System.String)">ZincOxideBugException</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a> class with a message explaining the error.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:ZincOxide.Exceptions.ZincOxideBugException(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">ZincOxideBugException</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Runtime.Serialization.SerializationInfo">System.Runtime.Serialization.SerializationInfo</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Runtime.Serialization.StreamingContext">System.Runtime.Serialization.StreamingContext</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a> class. With serialization and streaming info.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Exception)">ZincOxideBugException</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Exception">Exception</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a> class with a message explaining the error and another Exception that caused that exception.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Object[])">ZincOxideBugException</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a> class. With a parameteric message.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Extension Methods</h2>
+        <div class="SectionBox" id="Extension Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0})">IfEffective&lt;TX&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Action`1">Action&lt;TX&gt;</a>)<blockquote>
+            Invokes the given <i>action</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, nothing is done, otherwise the action is performed.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,System.Collections.Generic.IEnumerable{``0})">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, the algorithm searches
+            for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0)">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <i title="The type of elements over which the function is defined.">T</i>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, <i>deflt</i> is returned,
+            otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0[])">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <b>params</b> <i title="The type of elements over which the function is defined.">T</i>[])<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, the algorithm searches
+            for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.OrFalse``2(``0,System.Predicate{``0})">OrFalse&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Invokes the given <i>predicate</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, <tt>false</tt> is returned as well, otherwise the predicate is invoked
+            and the result is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:ZincOxide.Exceptions.ZincOxideBugException:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="C:ZincOxide.Exceptions.ZincOxideBugException()">ZincOxideBugException Constructor</h3>
+        <blockquote id="C:ZincOxide.Exceptions.ZincOxideBugException():member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a> class without specifying a message or reason.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>ZincOxideBugException</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException():Version Information">
+            <b>Namespace: </b>ZincOxide.Exceptions<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String)">ZincOxideBugException Constructor</h3>
+        <blockquote id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a> class with a message explaining the error.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>ZincOxideBugException</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> message)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String):Parameters">
+            <dl>
+              <dt>
+                <i>message</i>
+              </dt>
+              <dd>A message explaining the error.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String):Version Information">
+            <b>Namespace: </b>ZincOxide.Exceptions<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:ZincOxide.Exceptions.ZincOxideBugException(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">ZincOxideBugException Constructor</h3>
+        <blockquote id="C:ZincOxide.Exceptions.ZincOxideBugException(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a> class. With serialization and streaming info.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>ZincOxideBugException</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Runtime.Serialization.SerializationInfo">System.Runtime.Serialization.SerializationInfo</a> info, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Runtime.Serialization.StreamingContext">System.Runtime.Serialization.StreamingContext</a> context)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext):Parameters">
+            <dl>
+              <dt>
+                <i>info</i>
+              </dt>
+              <dd>The <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Runtime.Serialization.SerializationInfo">System.Runtime.Serialization.SerializationInfo</a> that holds the serialized object data about the exception being thrown.</dd>
+              <dt>
+                <i>context</i>
+              </dt>
+              <dd>The <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Runtime.Serialization.StreamingContext">System.Runtime.Serialization.StreamingContext</a> that contains contextual information about the source or destination.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>The <i>info</i> parameter is null.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Runtime.Serialization.SerializationException">System.Runtime.Serialization.SerializationException</a>
+                </td>
+                <td>The class name is null or <a href="http://www.go-mono.com/docs/monodoc.ashx?link=P:System.Exception.HResult">Exception.HResult</a> is zero (0).</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext):Version Information">
+            <b>Namespace: </b>ZincOxide.Exceptions<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Exception)">ZincOxideBugException Constructor</h3>
+        <blockquote id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Exception):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a> class with a message explaining the error and another Exception that caused that exception.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>ZincOxideBugException</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> message, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Exception">Exception</a> innerException)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Exception):Parameters">
+            <dl>
+              <dt>
+                <i>message</i>
+              </dt>
+              <dd>The error message that explains the reason for the exception.</dd>
+              <dt>
+                <i>innerException</i>
+              </dt>
+              <dd>The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified. </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Exception):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Exception):Version Information">
+            <b>Namespace: </b>ZincOxide.Exceptions<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Object[])">ZincOxideBugException Constructor</h3>
+        <blockquote id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Object[]):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a> class. With a parameteric message.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>ZincOxideBugException</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> format, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] args)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>format</i>
+              </dt>
+              <dd>The format of the error message.</dd>
+              <dt>
+                <i>args</i>
+              </dt>
+              <dd>Parameters that are shifted into the message.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Object[]):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>
+                  <i>format</i> or <i>args</i> is null. </td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.FormatException">FormatException</a>
+                </td>
+                <td>
+                  <i>format</i> The index of a format item is less than zero, or greater than or equal to the length of the <i>args</i> array.  </td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Object[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:ZincOxide.Exceptions.ZincOxideBugException(System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Exceptions<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

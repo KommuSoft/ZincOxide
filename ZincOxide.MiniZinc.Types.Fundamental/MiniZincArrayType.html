@@ -1,0 +1,665 @@
+<html>
+  <head>
+    <title>ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ZincOxide</a> : <a href="index.html">ZincOxide.MiniZinc.Types.Fundamental Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType">Overview</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType">MiniZincArrayType  Class</h1>
+    <p class="Summary" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType:Summary">
+            Zinc arrays are maps from fixed keys (a.k.a. indices) to values. Keys and values can be of any type. When used
+            with integers keys, zinc arrays can be used like arrays in languages like Java, but with other types of keys,
+            they act like associative arrays. Using floats or types containing floats as keys can be dangerous because their
+            impricise equality comparsion and an implementation may give a warning in this case. The values can hae any
+            type-instance. Arrays of arrays are allowed.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType:Signature">public class  <b>MiniZincArrayType</b> : <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincType.html">IMiniZincType</a>, <a href="../ZincOxide.Utils.Abstract/IGenericEquals`1.html">ZincOxide.Utils.Abstract.IGenericEquals&lt;IMiniZincType&gt;</a></div>
+    </div>
+    <div class="Remarks" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType:Docs:Remarks">
+        <p>All arrays are one dimensional. However, multi-dimensional arrays can be simulated using a tuple
+            as index and there is some syntactic sugar to make this easier.</p>
+        <p>Zinc arrays can be declared in two different ways.
+            <ul><li></li><li></li></ul></p>
+        <p>The initialisation of an array can be done in a separate assignment statement, which may be present
+            in the mode or a separate data file.</p>
+        <p>Arrays can be accessed. (TODO)</p>
+        <p>An array's size must be fixed. Its indices must also have fixed type-insts. Its elements may be fixed
+            or unfixed.</p>
+        <p>An array base type-inst expression tail has this syntax: <tt>array [ ti-expr ] of ti-expr</tt>
+            or <tt>list of ti-expr</tt> Some example array type-instance expressions:<table class="CodeExampleTable"><tr><td><b><font size="-1"> Example</font></b></td></tr><tr><td><pre class="">
+            array[1..10] of int
+            list of var int
+            </pre></td></tr></table></p>
+        <p>Note that <tt>list of T</tt> is just syntactical sugar for <tt>array[int] of T</tt></p>
+        <p>Because arrays must be fixed-size, it is a type-inst error to precede an array type-inst expression
+            with <tt>var</tt>.</p>
+        <p>Syntactical sugar exiusts for declaring tuple-indexed arrays. For example, the second of the following
+            two declarations is syntactic sugar for the first.
+            <table class="CodeExampleTable"><tr><td><b><font size="-1"> Example</font></b></td></tr><tr><td><pre class="">
+            array[tuple(1..5, 1..4)] of int: a5;
+            array[1..5, 1..4]        of int: a5;
+            </pre></td></tr></table></p>
+        <p>Arrays are finite if the index types and the element type are all finite types. Otherwise no The domain
+            of an array type that is finite is the set of all distinct arrays whose index set equals the domain
+            of the index type and whose elements are of the array element type. For example, the domain of
+            <tt>array[5..6] of 1..2</tt> is <tt>{[5:1,6:1], [5:1,6:2], [5:2,6:1], [5:2,6:2]}</tt>.</p>
+        <p>No varification exists for an array.</p>
+        <p>Arrays are ordered lexiographically taking the absence of a value for a given key to be before any
+            value for that key. For example <tt>[1:1, 2:1]</tt> is less than <tt>[1:1,2:2,3:3]</tt> and
+            <tt>[2:0, 3:0, 4:0]</tt> is less than <tt>[1:1, 2:2, 3:3]</tt>.</p>
+        <p>An explicitly-indexed array variable must be initialised at instance-time only if its elements
+            must be initialised at instance time. An implicitly-indexed array variable must be initialised at instance-time
+            so that its length and index set is known.</p>
+        <p>The following coercions are defined. <tt>set of TI</tt> to <tt>array[1..n] of UI</tt> if <tt>TI</tt>
+            is coerced to <tt>UI</tt> where <tt>n</tt> is the number of elements in the list. The elements of the
+            resulting array will be in sorted order. This means that elements of fixed sets can be accessed like array
+            elements, using square brackets. Also <tt>array[TIO] of TI</tt> is coerced to <tt>array[TIO] of UI</tt>
+            if <tt>TI</tt> is coerced to <tt>UI</tt> *(i.e. coercion of element type but not the index type).</p>
+        <p>In MiniZinc, arrays must have indices that are contiguous integer ranges (e.g. <tt>0..3</tt>,
+            <tt>10..12</tt>, or the name of a set variable assigned in the model with a range value), or a tuple
+            of contiguous integer ranges.</p>
+        <p>In MiniZinc, arrays must be declared with index types that are explicit ranges, or variables that
+            are assigned a range value. Because these types are finite, only explicitly-indexed array variables
+            can be declared in MiniZinc. The one exception is that implictly-indexed arrays are allowed as arguments to
+            predicates and annotations.</p>
+        <p>In MiniZinc, arrays can only contain booleans, integers, floats, or sets of integers (all fixed or unfixed)
+            Furthermore, neither tuple literals nor tuple accesses are supported.</p>
+        <p>In MiniZinc, array indexed by tuples can only have integers as elements of the tuple.</p>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType:Docs:Version Information">
+        <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+							</p>
+        <h2 class="Section">Public Constructors</h2>
+        <div class="SectionBox" id="Public Constructors">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst,ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst)">MiniZincArrayType</a>
+                    </b>(<a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a>, <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a>)</div>
+                </td>
+                <td>
+            Initializes a new instance of the <a href="../ZincOxide.MiniZinc.Types.Fundamental/MiniZincArrayType.html">ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType</a> class with
+            a given type instance for the index and the elements.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.ElementType">ElementType</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a>
+                  </i>. 
+            The element type of the array.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.Finite">Finite</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../ZincOxide.Utils.Maths/ThreeStateValue.html">ZincOxide.Utils.Maths.ThreeStateValue</a>
+                  </i>. 
+            Gets if the type has a finite domain.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.IndexType">IndexType</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a>
+                  </i>. 
+            The index type of the array.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType)">GenericEquals</a>
+                  </b>(<a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincType.html">IMiniZincType</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Checks if this zinc type is equal to the given zinc type.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GetDependingTypes()">GetDependingTypes</a>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IMiniZincTypeInst&gt;</a></nobr><blockquote>
+            Returns the enumerable of the depending <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a>.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Extension Methods</h2>
+        <div class="SectionBox" id="Extension Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0})">IfEffective&lt;TX&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Action`1">Action&lt;TX&gt;</a>)<blockquote>
+            Invokes the given <i>action</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, nothing is done, otherwise the action is performed.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,System.Collections.Generic.IEnumerable{``0})">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, the algorithm searches
+            for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0)">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <i title="The type of elements over which the function is defined.">T</i>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, <i>deflt</i> is returned,
+            otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0[])">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <b>params</b> <i title="The type of elements over which the function is defined.">T</i>[])<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, the algorithm searches
+            for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.OrFalse``2(``0,System.Predicate{``0})">OrFalse&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Invokes the given <i>predicate</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, <tt>false</tt> is returned as well, otherwise the predicate is invoked
+            and the result is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst,ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst)">MiniZincArrayType Constructor</h3>
+        <blockquote id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst,ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst):member">
+          <p class="Summary">
+            Initializes a new instance of the <a href="../ZincOxide.MiniZinc.Types.Fundamental/MiniZincArrayType.html">ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType</a> class with
+            a given type instance for the index and the elements.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public  <b>MiniZincArrayType</b> (<a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a> indexType, <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a> elementType)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst,ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst):Parameters">
+            <dl>
+              <dt>
+                <i>indexType</i>
+              </dt>
+              <dd>The type of the index of the array.</dd>
+              <dt>
+                <i>elementType</i>
+              </dt>
+              <dd>The type of the elements in the array.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst,ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>indexType</i> or
+            <i>elementType</i> is not effective.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentException">ArgumentException</a>
+                </td>
+                <td>If the <i>indexType</i> is varified.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst,ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst,ZincOxide.MiniZinc.Types.Fundamental.IMiniZincTypeInst):Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.ElementType">ElementType Property</h3>
+        <blockquote id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.ElementType:member">
+          <p class="Summary">
+            The element type of the array.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a> <b>ElementType</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.ElementType:Value">The element type of the array.</blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.ElementType:Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>value</i> is not effective.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.ElementType:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.ElementType:Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.Finite">Finite Property</h3>
+        <blockquote id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.Finite:member">
+          <p class="Summary">
+            Gets if the type has a finite domain.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../ZincOxide.Utils.Maths/ThreeStateValue.html">ZincOxide.Utils.Maths.ThreeStateValue</a> <b>Finite</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.Finite:Value">
+            <tt>true</tt> if the type has a finite domain, <tt>false</tt> otherwise.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.Finite:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.Finite:Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType)">GenericEquals Method</h3>
+        <blockquote id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType):member">
+          <p class="Summary">
+            Checks if this zinc type is equal to the given zinc type.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> <b>GenericEquals</b> (<a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincType.html">IMiniZincType</a> other)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType):Parameters">
+            <dl>
+              <dt>
+                <i>other</i>
+              </dt>
+              <dd>The zinc type to compare with.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType):Returns">
+            <tt>true</tt>, if both types are equal, <tt>false</tt> otherwise.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GenericEquals(ZincOxide.MiniZinc.Types.Fundamental.IMiniZincType):Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GetDependingTypes()">GetDependingTypes Method</h3>
+        <blockquote id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GetDependingTypes():member">
+          <p class="Summary">
+            Returns the enumerable of the depending <a href="javascript:alert(&quot;Documentation not found.&quot;)">.</a>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IMiniZincTypeInst&gt;</a> <b>GetDependingTypes</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GetDependingTypes():Returns">An <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable`1</a> of the depending types.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GetDependingTypes():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.GetDependingTypes():Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.IndexType">IndexType Property</h3>
+        <blockquote id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.IndexType:member">
+          <p class="Summary">
+            The index type of the array.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../ZincOxide.MiniZinc.Types.Fundamental/IMiniZincTypeInst.html">IMiniZincTypeInst</a> <b>IndexType</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.IndexType:Value">The index type of the array.</blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.IndexType:Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentNullException">ArgumentNullException</a>
+                </td>
+                <td>If <i>value</i> is not effective.</td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.ArgumentException">ArgumentException</a>
+                </td>
+                <td>If <i>value</i> is varified.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.IndexType:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ZincOxide.MiniZinc.Types.Fundamental.MiniZincArrayType.IndexType:Version Information">
+            <b>Namespace: </b>ZincOxide.MiniZinc.Types.Fundamental<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

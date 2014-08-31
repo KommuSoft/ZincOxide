@@ -1,0 +1,337 @@
+<html>
+  <head>
+    <title>ZincOxide: ZincOxide.Utils.Abstract</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ZincOxide</a>
+    </div>
+    <h1 class="PageTitle">ZincOxide.Utils.Abstract Namespace</h1>
+    <p class="Summary">
+    </p>
+    <div>
+    </div>
+    <div class="Remarks">
+      <h2 class="Section"> Namespace</h2>
+      <p>
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </p>
+      <table class="TypesListing" style="margin-top: 1em">
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IArity.html">IArity</a>
+          </td>
+          <td>
+            An interface describing that a certain instance has an arity: the number of expected parameters.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IdBase.html">IdBase</a>
+          </td>
+          <td>
+            An implementation of the <a href="../ZincOxide.Utils.Abstract/IId.html">ZincOxide.Utils.Abstract.IId</a> interface that automatically assigns a read-only identifer
+            to each object instantiated from this class.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IDimensions.html">IDimensions</a>
+          </td>
+          <td>
+            An interface describing that this instance has a number of dimensions.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IFinite.html">IFinite</a>
+          </td>
+          <td>
+            An interface that describes a certain set where one can check whether that set is finite or not.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IGenericEquals`1.html">IGenericEquals&lt;T&gt;</a>
+          </td>
+          <td>
+            An interface that specifies that the instance supports an equality check with a certain given type.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IId.html">IId</a>
+          </td>
+          <td>
+            An interface that specifies that this instance contains an identifier: an <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.UInt32">uint</a> that
+            acts as a number indicating whether two instances are the same or not.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IName.html">IName</a>
+          </td>
+          <td>
+            An interface that describes that the instance has a <a href="../ZincOxide.Utils.Abstract/IName.html#P:ZincOxide.Utils.Abstract.IName.Name">ZincOxide.Utils.Abstract.IName.Name</a>.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./INameId.html">INameId</a>
+          </td>
+          <td>
+            An interface that describes that the instance contains both a name (<a href="../ZincOxide.Utils.Abstract/IName.html#P:ZincOxide.Utils.Abstract.IName.Name">ZincOxide.Utils.Abstract.IName.Name</a>) and an
+            identifier (<a href="../ZincOxide.Utils.Abstract/IId.html#P:ZincOxide.Utils.Abstract.IId.Id">ZincOxide.Utils.Abstract.IId.Id</a>).
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IScope`1.html">IScope&lt;T&gt;</a>
+          </td>
+          <td>
+            An interface that describes that the object contains a hierachy of scopes.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./ITag`1.html">ITag&lt;TTag&gt;</a>
+          </td>
+          <td>
+            An interface that describes that this instance contains a tag object.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./NameBase.html">NameBase</a>
+          </td>
+          <td>
+            An implementation of the <a href="../ZincOxide.Utils.Abstract/IName.html">ZincOxide.Utils.Abstract.IName</a> interface.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./NameIdBase.html">NameIdBase</a>
+          </td>
+          <td>
+            An implementation of the <a href="../ZincOxide.Utils.Abstract/INameId.html">ZincOxide.Utils.Abstract.INameId</a> interface.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./NameShadow.html">NameShadow</a>
+          </td>
+          <td>
+            A shadow implementation of the <a href="../ZincOxide.Utils.Abstract/IName.html">ZincOxide.Utils.Abstract.IName</a> interface: only very default methods are implemented.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./NullSafe.html">NullSafe</a>
+          </td>
+          <td>
+            A utility library that can be used to make null checks way easier to handle.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./TagBase`1.html">TagBase&lt;TTag&gt;</a>
+          </td>
+          <td>
+            An implementation class of a <a href="javascript:alert(&quot;Documentation not found.&quot;)">ITag`1</a> interface.
+            </td>
+        </tr>
+      </table>
+    </div>
+    <div class="Members">
+    </div>
+    <hr size="1" />
+    <div class="Copyright">To be added.</div>
+  </body>
+</html>

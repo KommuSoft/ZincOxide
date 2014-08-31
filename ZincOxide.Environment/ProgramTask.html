@@ -1,0 +1,378 @@
+<html>
+  <head>
+    <title>ZincOxide.Environment.ProgramTask</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ZincOxide</a> : <a href="index.html">ZincOxide.Environment Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:ZincOxide.Environment.ProgramTask">Overview</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Environment.ProgramTask:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Environment.ProgramTask:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Environment.ProgramTask:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:ZincOxide.Environment.ProgramTask">ProgramTask  Enum</h1>
+    <p class="Summary" id="T:ZincOxide.Environment.ProgramTask:Summary">
+            An enumeration that specifies the task the program should carry out.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:ZincOxide.Environment.ProgramTask:Signature">public enum <b>ProgramTask</b></div>
+    </div>
+    <div class="Remarks" id="T:ZincOxide.Environment.ProgramTask:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:ZincOxide.Environment.ProgramTask:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Members</h2>
+      <div class="SectionBox" id="T:ZincOxide.Environment.ProgramTask:Docs:Members">
+        <table class="Enumeration">
+          <tr>
+            <th>Member Name</th>
+            <th>Description</th>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.Assume">
+              <b>Assume</b>
+            </td>
+            <td>
+            A MinZinc model file is given and the program prints a list of assumptions.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.Bindings">
+              <b>Bindings</b>
+            </td>
+            <td>
+            A MiniZinc model or data file is given to the program and the same file is echoed again after parsing and
+            printing. Identifiers are anotated with a number so that one can check if the variables are bounded
+            correctly. This task is only used for debugging purposes.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.Echo">
+              <b>Echo</b>
+            </td>
+            <td>
+            A MiniZinc model or data file is given to the program and the same file is echoed again after parsing
+            and printing. Except for noise like tabs, spaces, the files should be identical. This task is only used
+            for debugging purposes.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.GenerateBasics">
+              <b>GenerateBasics</b>
+            </td>
+            <td>
+            A MiniZinc model file is given and the program generates code to represent the problem and solution for the heuristic.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.GenerateData">
+              <b>GenerateData</b>
+            </td>
+            <td>
+            A MiniZinc model file is given and the program will generate a random data file who matches the model file.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.GenerateHeuristics">
+              <b>GenerateHeuristics</b>
+            </td>
+            <td>
+            A MiniZinc model file is given and the program should generate heuristics who can solve the problem.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.GenerateStatistics">
+              <b>GenerateStatistics</b>
+            </td>
+            <td>
+            Generate statistics based on a large set of data files.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.Lex">
+              <b>Lex</b>
+            </td>
+            <td>
+            A MiniZinc model or data file is given to the program and a stream of tokens is printed on the stdout
+            representing the file. This task is only used for debugging purposes.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.Match">
+              <b>Match</b>
+            </td>
+            <td>
+            A MiniZinc model file and a MiniZinc data file are given and the program should check if the data is a data
+            file of the model.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.Parse">
+              <b>Parse</b>
+            </td>
+            <td>
+            A MiniZinc model or data file is given to the program and the abstract syntax tree of the file is printed
+            on the stdout representing the file. This task is only used for debugging purposes.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.SynthesizeAbstractModel">
+              <b>SynthesizeAbstractModel</b>
+            </td>
+            <td>
+            Given a MiniZinc model file with potential data, the program will generate a MiniZinc model file with
+            ommitted data. This can be used when only a MiniZinc file with data is provided.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.SynthesizeConcreteData">
+              <b>SynthesizeConcreteData</b>
+            </td>
+            <td>
+            Given a MiniZinc model file with data, the program will generate a MiniZinc data file without a model.
+            This can be used to split the data from the model.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.Transform">
+              <b>Transform</b>
+            </td>
+            <td>
+            A MiniZinc model file is given and the program generates zero, one or more MiniZinc model files describing
+            the same problem together with channeling heuristics.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.VerifyData">
+              <b>VerifyData</b>
+            </td>
+            <td>
+            A MiniZinc data file is given as input and the program should check if the given file is valid.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.VerifyModel">
+              <b>VerifyModel</b>
+            </td>
+            <td>
+            A MiniZinc model file is given as input and the program should check if the given file is valid.
+            </td>
+          </tr>
+          <tr valign="top">
+            <td id="F:ZincOxide.Environment.ProgramTask.VerifyOutput">
+              <b>VerifyOutput</b>
+            </td>
+            <td>
+            A MiniZinc output file is given as input and the program should check if the given file is valid.
+            </td>
+          </tr>
+        </table>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:ZincOxide.Environment.ProgramTask:Docs:Version Information">
+        <b>Namespace: </b>ZincOxide.Environment<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5356.35116, 0.1.5356.35135, 0.1.5356.35285</div>
+    </div>
+    <div class="Members" id="T:ZincOxide.Environment.ProgramTask:Members">
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>
