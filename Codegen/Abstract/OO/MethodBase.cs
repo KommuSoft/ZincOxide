@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using ZincOxide.Utils.Abstract;
+using ZincOxide.Codegen.Abstract.Imperative;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -34,6 +35,18 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// </summary>
 		protected MethodBase () {
 		}
+		#endregion
+		#region IProcedureMember implementation
+		/// <summary>
+		/// Reimplement the procedure member with the given <paramref name="commands"/>.
+		/// </summary>
+		/// <param name="commands">The list of commands that are the implementation of
+		/// the <see cref="IProcedureMember"/>.</param>
+		/// <remarks>
+		/// <para>if the given <paramref name="commands"/> is not effective, no modifications
+		/// is done to the method.</para>
+		/// </remarks>
+		public abstract void Reimplement (ICommand commands);
 		#endregion
 	}
 }

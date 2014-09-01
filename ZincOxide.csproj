@@ -277,7 +277,6 @@
     <Compile Include="Codegen\Abstract\OO\OOModifiers.cs" />
     <Compile Include="Codegen\Abstract\OO\IType.cs" />
     <Compile Include="Codegen\Abstract\OO\TypeBase.cs" />
-    <Compile Include="Codegen\Abstract\OO\CSharp\Type.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\TypeReference.cs" />
     <Compile Include="Codegen\Abstract\OO\IMethod.cs" />
     <Compile Include="Codegen\Abstract\OO\FieldBase.cs" />
@@ -289,6 +288,8 @@
     <Compile Include="Codegen\Concrete\OO\IOOProblemRepresentationGenerator.cs" />
     <Compile Include="Codegen\Concrete\OO\OOProblemRepresentationGenerator.cs" />
     <Compile Include="Codegen\Concrete\IProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\Abstract\OO\IProcedureMember.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\ICSharpType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

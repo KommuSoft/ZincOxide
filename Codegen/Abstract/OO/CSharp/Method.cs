@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.CodeDom;
+using ZincOxide.Codegen.Abstract.Imperative;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -29,7 +30,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 	public class Method : MethodBase {
 
 		#region Fields
-		private readonly CodeMemberMethod data;
+		internal readonly CodeMemberMethod Data;
 		#endregion
 		#region implemented abstract members of NameShadow
 		/// <summary>
@@ -38,7 +39,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <value>The name of this instance.</value>
 		public override string Name {
 			get {
-				return data.Name;
+				return Data.Name;
 			}
 		}
 		#endregion
@@ -49,7 +50,12 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// </summary>
 		/// <param name="data">The given <see cref="CodeMemberMethod"/> that specifies the method.</param>
 		internal Method (CodeMemberMethod data) {
-			this.data = data;
+			this.Data = data;
+		}
+		#endregion
+		#region implemented abstract members of MethodBase
+		public override void Reimplement (ICommand commands) {
+			throw new NotImplementedException ();
 		}
 		#endregion
 	}

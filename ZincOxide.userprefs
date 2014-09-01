@@ -1,35 +1,16 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Concrete/IProblemRepresentationGenerator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/OO/CSharp/Method.cs">
     <Files>
-      <File FileName="mono-utils/DataList.cs" Line="23" Column="34" />
-      <File FileName="Codegen/Concrete/OO/IOOProblemRepresentationGenerator.cs" Line="34" Column="104" />
-      <File FileName="Codegen/Concrete/OO/OOProblemRepresentationGenerator.cs" Line="43" Column="23" />
-      <File FileName="Codegen/Concrete/IProblemRepresentationGenerator.cs" Line="31" Column="34" />
+      <File FileName="Codegen/Abstract/OO/IMethod.cs" Line="33" Column="45" />
+      <File FileName="Codegen/Abstract/OO/IProcedureMember.cs" Line="33" Column="3" />
+      <File FileName="Codegen/Abstract/OO/MethodBase.cs" Line="49" Column="53" />
+      <File FileName="Codegen/Abstract/OO/CSharp/ICSharpType.cs" Line="37" Column="4" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Class.cs" Line="26" Column="28" />
+      <File FileName="Codegen/Abstract/OO/CSharp/TypeReference.cs" Line="40" Column="18" />
+      <File FileName="Codegen/Abstract/OO/ClassBase.cs" Line="1" Column="1" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Method.cs" Line="42" Column="15" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="ZincOxide" expanded="True">
-            <Node name="Codegen" expanded="True">
-              <Node name="Concrete" expanded="True">
-                <Node name="OO" expanded="True" />
-                <Node name="IProblemRepresentationGenerator.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
-      </Pad>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True" />
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

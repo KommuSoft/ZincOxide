@@ -1,5 +1,5 @@
 //
-//  Type.cs
+//  IProcedureMember.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,31 +19,27 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.CodeDom;
+using ZincOxide.Utils.Abstract;
+using ZincOxide.Codegen.Abstract.Imperative;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// The representation of a <see cref="IType"/> in C#.
+	/// An interface describing a procedure member. A procedure member has a name and
+	/// a set of imperative instructions that must be called when needed.
 	/// </summary>
-	public abstract class Type : TypeBase {
+	public interface IProcedureMember : IName {
 
-		#region Referencing
 		/// <summary>
-		/// Get a reference to this type, used for implementation and the creation of code members.
+		/// Reimplement the procedure member with the given <paramref name="commands"/>.
 		/// </summary>
-		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
-		public abstract CodeTypeReference Reference {
-			get;
-		}
-		#endregion
-		#region Constructors
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Type"/> class.
-		/// </summary>
-		protected Type () {
-		}
-		#endregion
+		/// <param name="commands">The list of commands that are the implementation of
+		/// the <see cref="IProcedureMember"/>.</param>
+		/// <remarks>
+		/// <para>if the given <paramref name="commands"/> is not effective, no modifications
+		/// is done to the method.</para>
+		/// </remarks>
+		void Reimplement (ICommand commands);
 	}
 }
 

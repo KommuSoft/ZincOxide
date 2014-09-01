@@ -30,7 +30,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// A method computes something (based on the state of the instance over which it is defined),
 	/// alters the state of an object, or both.
 	/// </remarks>
-	public interface IMethod : IName {
+	public interface IMethod : IProcedureMember {
 	}
 }
 

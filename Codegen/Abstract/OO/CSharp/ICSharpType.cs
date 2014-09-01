@@ -1,5 +1,5 @@
 //
-//  CSharpUtils.cs
+//  Type.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -24,29 +24,16 @@ using System.CodeDom;
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// A utility class used to write C# code more effectively.
+	/// The representation of a <see cref="IType"/> in C#.
 	/// </summary>
-	public static class CSharpUtils {
+	public interface ICSharpType : IType {
 
 		/// <summary>
-		/// Converts the given <paramref name="modifiers"/> to a <see cref="MemberAttributes"/> value
-		/// with approximately the same semantical value.
+		/// Get a reference to this type, used for implementation and the creation of code members.
 		/// </summary>
-		/// <returns>A <see cref="MemberAttributes"/> value that corresponds to the given <paramref name="modifiers"/>.</returns>
-		/// <param name="modifiers">The given modifiers to convert.</param>
-		public static MemberAttributes ToMemberAttributes (OOModifiers modifiers) {//TODO
-			MemberAttributes ma = 0x00;
-			if ((modifiers & OOModifiers.Public) != 0x00) {
-				ma |= MemberAttributes.Public;
-			}
-			if ((modifiers & OOModifiers.Override) != 0x00) {
-				ma |= MemberAttributes.Override;
-			}
-			return ma;
-		}
-
-		public static void ImplementProblemToStringMethod (IMethod im) {
-
+		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
+		CodeTypeReference Reference {
+			get;
 		}
 	}
 }

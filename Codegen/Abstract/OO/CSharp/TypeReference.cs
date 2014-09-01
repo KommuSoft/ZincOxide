@@ -20,13 +20,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.CodeDom;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
 	/// An already defined type in C# (example <see cref="int"/>, <see cref="DateTime"/> and <see cref="String"/>).
 	/// </summary>
-	public class TypeReference : ZincOxide.Codegen.Abstract.OO.CSharp.Type {
+	public class TypeReference : NameShadow, ICSharpType {
 
 		#region Fields
 		private readonly CodeTypeReference data;
@@ -47,7 +48,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// Get a reference to this type, used for implementation and the creation of code members.
 		/// </summary>
 		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
-		public override CodeTypeReference Reference {
+		public CodeTypeReference Reference {
 			get {
 				return this.data;
 			}
