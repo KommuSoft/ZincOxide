@@ -265,8 +265,6 @@
     <Compile Include="Codegen\Abstract\ICodegenEnvironment.cs" />
     <Compile Include="Codegen\Abstract\ICodegenerator.cs" />
     <Compile Include="Codegen\Abstract\ICodegenResult.cs" />
-    <Compile Include="Codegen\Concrete\OO\IProblemRepresentationGenerator.cs" />
-    <Compile Include="Codegen\Concrete\OO\ProblemRepresentationGenerator.cs" />
     <Compile Include="Codegen\Abstract\CodegeneratorBase.cs" />
     <Compile Include="Codegen\Abstract\OO\IField.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Field.cs" />
@@ -288,6 +286,9 @@
     <Compile Include="Codegen\Abstract\OO\ClassContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\CSharpUtils.cs" />
     <Compile Include="Codegen\Abstract\Imperative\ICommand.cs" />
+    <Compile Include="Codegen\Concrete\OO\IOOProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\Concrete\OO\OOProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\Concrete\IProblemRepresentationGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

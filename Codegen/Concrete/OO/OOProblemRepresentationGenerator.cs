@@ -24,16 +24,15 @@ using ZincOxide.Codegen.Abstract.OO;
 using ZincOxide.Codegen.Abstract.OO.Process;
 
 namespace ZincOxide.Codegen.Concrete.OO {
-
 	/// <summary>
-	/// A basic implementation of the <see cref="IProblemRepresentationGenerator"/>. A class that generates a class for
+	/// A basic implementation of the <see cref="IOOProblemRepresentationGenerator"/>. A class that generates a class for
 	/// the problem representation (not a solution).
 	/// </summary>
 	/// <remarks>
 	/// <para>The problem representation should be able to parse the problem input, check constraints,
 	/// and initialize solutions.</para>
 	/// </remarks>
-	public class ProblemRepresentationGenerator : OOCodegeneratorBase, IProblemRepresentationGenerator {
+	public class OOProblemRepresentationGenerator : OOCodegeneratorBase, IOOProblemRepresentationGenerator {
 
 		#region Constants
 		/// <summary>
@@ -43,9 +42,9 @@ namespace ZincOxide.Codegen.Concrete.OO {
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ProblemRepresentationGenerator"/> class.
+		/// Initializes a new instance of the <see cref="OOProblemRepresentationGenerator"/> class.
 		/// </summary>
-		public ProblemRepresentationGenerator () {
+		public OOProblemRepresentationGenerator () {
 		}
 		#endregion
 		#region ICodegenerator implementation

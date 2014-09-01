@@ -1,12 +1,24 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="mono-utils/DataList.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Concrete/IProblemRepresentationGenerator.cs">
     <Files>
       <File FileName="mono-utils/DataList.cs" Line="23" Column="34" />
+      <File FileName="Codegen/Concrete/OO/IOOProblemRepresentationGenerator.cs" Line="34" Column="104" />
+      <File FileName="Codegen/Concrete/OO/OOProblemRepresentationGenerator.cs" Line="43" Column="23" />
+      <File FileName="Codegen/Concrete/IProblemRepresentationGenerator.cs" Line="31" Column="34" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="ZincOxide" expanded="True">
+            <Node name="Codegen" expanded="True">
+              <Node name="Concrete" expanded="True">
+                <Node name="OO" expanded="True" />
+                <Node name="IProblemRepresentationGenerator.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />

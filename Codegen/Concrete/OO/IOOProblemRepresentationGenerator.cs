@@ -1,5 +1,5 @@
 //
-//  IProblemRepresentationGenerator.cs
+//  IOOProblemRepresentationGenerator.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -31,7 +31,7 @@ namespace ZincOxide.Codegen.Concrete.OO {
 	/// <para>The problem representation should be able to parse the problem input, check constraints,
 	/// and initialize solutions.</para>
 	/// </remarks>
-	public interface IProblemRepresentationGenerator : IOOCodegenerator {
+	public interface IOOProblemRepresentationGenerator : IOOCodegenerator, IProblemRepresentationGenerator {
 
 
 	}
