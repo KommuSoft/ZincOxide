@@ -120,6 +120,19 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		public override IType GetBooleanType () {
 			return new TypeReference (typeof(bool));
 		}
+
+		/// <summary>
+		/// Get the type that corresponds with a string builder.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds with the programming language string builder type.</returns>
+		/// <remarks>
+		/// <para>A string builder is a class that enables fast string generation where appending
+		/// takes at most linear time in the length of the string to append and not in the length
+		/// of the resulting string.</para>
+		/// </remarks>
+		public override IType GetStringBuilderType () {
+			return new TypeReference (typeof(bool));
+		}
 		#endregion
 		#region implemented abstract members of CodegenResultBase
 		/// <summary>
