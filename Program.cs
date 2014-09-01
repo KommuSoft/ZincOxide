@@ -43,7 +43,7 @@ namespace ZincOxide {
 		/// <returns>The exit code that is given to the operating system after the program ends.</returns>
 		public static int Main (string[] args) {
 			ICodegenResult cgr = new CSharpCodegenResult (new CodegenEnvironment ());
-			ProblemRepresentationGenerator prg = new ProblemRepresentationGenerator ();
+			OOProblemRepresentationGenerator prg = new OOProblemRepresentationGenerator ();
 			prg.GenerateCode (cgr);
 			cgr.Emit ();
 			bool show_help = false;
