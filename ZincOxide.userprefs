@@ -1,11 +1,12 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/OO/Process/OOCodegenResultContract.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/Imperative/CommandSequenceBase.cs">
     <Files>
-      <File FileName="Codegen/Abstract/OO/Process/IOOCodegenResult.cs" Line="76" Column="3" />
-      <File FileName="Codegen/Abstract/OO/Process/OOCodegenResultBase.cs" Line="96" Column="19" />
-      <File FileName="Codegen/Abstract/OO/CSharp/CSharpCodegenResult.cs" Line="134" Column="44" />
-      <File FileName="Codegen/Abstract/OO/Process/OOCodegenResultContract.cs" Line="37" Column="55" />
+      <File FileName="Codegen/Abstract/Imperative/ICommandSequence.cs" Line="30" Column="50" />
+      <File FileName="Codegen/Abstract/Imperative/IIfThenElseCommand.cs" Line="50" Column="93" />
+      <File FileName="Codegen/Abstract/Imperative/ICondition.cs" Line="29" Column="31" />
+      <File FileName="Codegen/Abstract/Imperative/CommandBase.cs" Line="35" Column="16" />
+      <File FileName="Codegen/Abstract/Imperative/CommandSequenceBase.cs" Line="29" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
