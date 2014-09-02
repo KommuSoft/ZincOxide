@@ -1,5 +1,5 @@
 //
-//  IType.cs
+//  ITypeContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,18 +19,37 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
 using System.Diagnostics.Contracts;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// An interface describing a type in the object-oriented programming paradigm. In most
-	/// object-oriented programming languages, types go beyond classes since for instance
-	/// primitive types are not considered to be classes.
+	/// A contract class for a <see cref="IType"/>, an interface describing a type in the object-oriented programming
+	/// paradigm.
 	/// </summary>
-	[ContractClass(typeof(TypeContract))]
-	public interface IType : IName {
+	[ContractClassFor(typeof(IType))]
+	public class TypeContract : NameShadow, IType {
+
+		#region IName implementation
+		/// <summary>
+		/// Get the name of the type.
+		/// </summary>
+		/// <value>The name of the type.</value>
+		public override string Name {
+			get {
+				Contract.Ensures (Contract.Result<string> () != null);
+				return default(string);
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="TypeContract"/> class.
+		/// </summary>
+		protected TypeContract () {
+		}
+		#endregion
 	}
 }
 

@@ -20,7 +20,6 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
-using ZincOxide.Utils.Abstract;
 using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO {
@@ -29,21 +28,8 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// A contract class that specifies the contracts attached to a <see cref="IClass"/> implementation.
 	/// </summary>
 	[ContractClassFor(typeof(IClass))]
-	public abstract class ClassContract : NameShadow, IClass {
+	public abstract class ClassContract : TypeContract, IClass {
 
-		
-		#region IName implementation
-		/// <summary>
-		/// Get the name of the class.
-		/// </summary>
-		/// <value>The name of the class.</value>
-		public override string Name {
-			get {
-				Contract.Ensures (Contract.Result<string> () != null);
-				return default(string);
-			}
-		}
-		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ClassContract"/> class.
@@ -146,6 +132,22 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// will not modify the constructor.</para>
 		/// </remarks>
 		public void AddFieldConstructor (OOModifiers modifiers) {
+		}
+
+		/// <summary>
+		/// Obtain the method with the given <paramref name="name"/> and the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IMethod"/> instance representing the queried method, <c>null</c> if such method
+		/// does not exists.</returns>
+		/// <param name="name">The name of the requested method.</param>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested method.</param>
+		/// <remarks>
+		/// <para>In case such method does not exists, an attempt is made to find
+		/// a method where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		public IMethod GetMethod (string name, params IType[] parameters) {
+			return default(IMethod);
 		}
 		#endregion
 	}

@@ -295,6 +295,7 @@
     <Compile Include="Codegen\Abstract\Imperative\ICondition.cs" />
     <Compile Include="Codegen\Abstract\Imperative\CommandBase.cs" />
     <Compile Include="Codegen\Abstract\Imperative\CommandSequenceBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\ITypeContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
