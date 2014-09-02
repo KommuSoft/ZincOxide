@@ -290,6 +290,9 @@
     <Compile Include="Codegen\Concrete\IProblemRepresentationGenerator.cs" />
     <Compile Include="Codegen\Abstract\OO\IProcedureMember.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\ICSharpType.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ICommandSequence.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IIfThenElseCommand.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ICondition.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
