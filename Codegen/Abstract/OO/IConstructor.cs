@@ -19,12 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
 	/// A procedure that creates a new instance given a list of parameters.
 	/// </summary>
+	[ContractClass(typeof(ConstructorContract))]
 	public interface IConstructor : IProcedureMember {
 	}
 }
