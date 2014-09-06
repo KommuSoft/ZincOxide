@@ -298,8 +298,12 @@
     <Compile Include="Codegen\Abstract\OO\TypeContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\MethodReference.cs" />
     <Compile Include="Codegen\Abstract\Imperative\IExpression.cs" />
-    <Compile Include="Codegen\Abstract\OO\ProcedureMembersBase.cs" />
     <Compile Include="Codegen\Abstract\OO\ProcedureMemberContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\ProcedureMemberBaseBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\IConstructor.cs" />
+    <Compile Include="Codegen\Abstract\OO\ConstructorBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\MethodContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\ConstructorContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

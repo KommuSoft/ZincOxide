@@ -26,7 +26,6 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	/// An interface specifying a condition: an expression that results in a boolean. Such conditions can be used
 	/// for <c>if</c> statements and <c>for</c> and <c>while</c> loops.
 	/// </summary>
-	public interface ICondition {
+	public interface ICondition : IExpression {
 	}
 }
-

@@ -24,7 +24,7 @@ using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Codegen.Abstract.OO.Process {
+namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
 	/// A contract class describing the contracts that should be respected when dealing with <see cref="IProcedureMember"/> instances.

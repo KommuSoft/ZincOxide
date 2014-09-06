@@ -1,5 +1,5 @@
 //
-//  IMethod.cs
+//  IConstructor.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,20 +19,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
-using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// An interface describing a method in the object-oriented programming paradigm.
+	/// A procedure that creates a new instance given a list of parameters.
 	/// </summary>
-	/// <remarks>
-	/// A method computes something (based on the state of the instance over which it is defined),
-	/// alters the state of an object, or both.
-	/// </remarks>
-	[ContractClass(typeof(MethodContract))]
-	public interface IMethod : IProcedureMember {
+	public interface IConstructor : IProcedureMember {
 	}
 }
 

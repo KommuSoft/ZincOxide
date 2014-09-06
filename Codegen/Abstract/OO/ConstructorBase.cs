@@ -1,5 +1,5 @@
 //
-//  IMethod.cs
+//  ConstructorBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,20 +19,21 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
-using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// An interface describing a method in the object-oriented programming paradigm.
+	/// A basic implementation of the <see cref="IConstructor"/> interface, used for programming convenience.
 	/// </summary>
-	/// <remarks>
-	/// A method computes something (based on the state of the instance over which it is defined),
-	/// alters the state of an object, or both.
-	/// </remarks>
-	[ContractClass(typeof(MethodContract))]
-	public interface IMethod : IProcedureMember {
+	public abstract class ConstructorBase : ProcedureMemberBase, IConstructor {
+
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ConstructorBase"/> class.
+		/// </summary>
+		protected ConstructorBase () {
+		}
+		#endregion
 	}
 }
 
