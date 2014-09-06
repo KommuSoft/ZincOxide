@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using ZincOxide.Utils.Abstract;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -50,7 +51,23 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// a method where the parameters are generalized. If this attempt fails
 		/// as well, <c>null</c> is returned.</para>
 		/// </remarks>
-		public abstract IMethod GetMethod (string name, params IType[] parameters);
+		public virtual IMethod GetMethod (string name, params IType[] parameters) {
+			return this.GetMethod (name, (IEnumerable<IType>)parameters);
+		}
+
+		/// <summary>
+		/// Obtain the method with the given <paramref name="name"/> and the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IMethod"/> instance representing the queried method, <c>null</c> if such method
+		/// does not exists.</returns>
+		/// <param name="name">The name of the requested method.</param>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested method.</param>
+		/// <remarks>
+		/// <para>In case such method does not exists, an attempt is made to find
+		/// a method where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		public abstract IMethod GetMethod (string name, IEnumerable<IType> parameters);
 		#endregion
 	}
 }

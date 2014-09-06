@@ -21,13 +21,14 @@
 using System;
 using System.CodeDom;
 using ZincOxide.Utils.Abstract;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
 	/// An already defined type in C# (example <see cref="int"/>, <see cref="DateTime"/> and <see cref="string"/>).
 	/// </summary>
-	public class TypeReference : NameShadow, ICSharpType {
+	public class TypeReference : TypeBase, ICSharpType {
 
 		#region Fields
 		private readonly Type type;
@@ -78,8 +79,10 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <para>In case such method does not exists, an attempt is made to find
 		/// a method where the parameters are generalized. If this attempt fails
 		/// as well, <c>null</c> is returned.</para>
+		/// <para>Only effective types of the <see cref="ICSharpType"/> type are accepted.</para>
 		/// </remarks>
-		public IMethod GetMethod (string name, params IType[] parameters) {
+		public override IMethod GetMethod (string name, IEnumerable<IType> parameters) {
+
 			return null;
 		}
 		#endregion

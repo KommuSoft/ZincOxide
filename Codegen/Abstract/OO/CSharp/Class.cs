@@ -168,8 +168,8 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// a method where the parameters are generalized. If this attempt fails
 		/// as well, <c>null</c> is returned.</para>
 		/// </remarks>
-		public override IMethod GetMethod (string name, params IType[] parameters) {
-			return null;
+		public override IMethod GetMethod (string name, IEnumerable<IType> parameters) {
+			return null;//TODO
 		}
 		#endregion
 		#region private methods (for convenience)
