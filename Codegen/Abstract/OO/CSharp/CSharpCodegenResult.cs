@@ -28,6 +28,7 @@ using ZincOxide.Codegen.Abstract.OO.Process;
 using ZincOxide.Environment;
 using ZincOxide.Exceptions;
 using System.Numerics;
+using System.Text;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -122,6 +123,14 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		}
 
 		/// <summary>
+		/// Get the type that corresponds with a string.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds with the programming language's string type.</returns>
+		public override IType GetStringType () {
+			return new TypeReference (typeof(string));
+		}
+
+		/// <summary>
 		/// Get the type that corresponds with a string builder.
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds with the programming language string builder type.</returns>
@@ -131,7 +140,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// of the resulting string.</para>
 		/// </remarks>
 		public override IType GetStringBuilderType () {
-			return new TypeReference (typeof(bool));
+			return new TypeReference (typeof(StringBuilder));
 		}
 		#endregion
 		#region implemented abstract members of CodegenResultBase

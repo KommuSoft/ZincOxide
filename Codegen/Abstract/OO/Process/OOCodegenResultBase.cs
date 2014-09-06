@@ -85,6 +85,12 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		public abstract IType GetFloatType (ProgramFloatRepresentation pfr);
 
 		/// <summary>
+		/// Get the type that corresponds with a string.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds with the programming language's string type.</returns>
+		public abstract IType GetStringType ();
+
+		/// <summary>
 		/// Get the type that corresponds with a string builder.
 		/// </summary>
 		/// <returns>A <see cref="IType"/> that corresponds with the programming language string builder type.</returns>

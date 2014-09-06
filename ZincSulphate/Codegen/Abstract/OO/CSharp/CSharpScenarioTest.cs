@@ -1,5 +1,5 @@
 //
-//  IExpression.cs
+//  CSharpScenarioTest.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,17 +18,28 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using NUnit.Framework;
 using System;
+using ZincOxide.Codegen.Abstract.OO.CSharp;
+using ZincOxide.Codegen.Abstract;
+using ZincOxide.Codegen.Abstract.OO;
+using System.Text;
 
-namespace ZincOxide.Codegen.Abstract.Imperative {
+namespace ZincSulphate.Codegen.Abstract.OO.CSharp {
 
-	/// <summary>
-	/// An interface that represents an expression: a mathematical language construct that implies a list of
-	/// commands that return a certain object.
-	/// </summary>
-	/// <remarks>
-	/// <para>An expression is a (list of) commands that return a certain value.</para>
-	/// </remarks>
-	public interface IExpression : ICommand {
+	[TestFixture()]
+	public class CSharpScenarioTest {
+
+		[Test()]
+		public void TestTypeMethodExtractions () {
+			CSharpCodegenResult cscr = new CSharpCodegenResult (new CodegenEnvironment ());
+			IType sbt = cscr.GetStringBuilderType ();
+			Assert.IsNotNull (sbt);
+			IType st = cscr.GetStringType ();
+			Assert.IsNotNull (st);
+			Assert.IsNotNull (typeof(StringBuilder).GetMethod ("Append", new Type[] { typeof(string) }));
+			IMethod im = cscr.GetStringBuilderType ().GetMethod ("Append", st);
+			Assert.IsNotNull (im);
+		}
 	}
 }

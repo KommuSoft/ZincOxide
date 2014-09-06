@@ -85,7 +85,11 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// </remarks>
 		public override IMethod GetMethod (string name, IEnumerable<IType> parameters) {
 			MethodInfo mi = type.GetMethod (name, parameters.Effectives ().OfType<TypeReference> ().Select (x => x.type).ToArray ());
-			return new MethodReference (mi);
+			if (mi != null) {
+				return new MethodReference (mi);
+			} else {
+				return null;
+			}
 		}
 		#endregion
 	}
