@@ -158,6 +158,26 @@ namespace ZincOxide.Utils.Abstract {
 			where T : class {
 			return IfNull (value, (IEnumerable<T>)deflts);
 		}
+
+		/// <summary>
+		/// Generate a list of all effectives of the given list of <paramref name="values"/>.
+		/// </summary>
+		/// <returns>A list containing the given <paramref name="values"/> that are effective.</returns>
+		/// <param name="values">The given list of values to be filtered.</param>
+		/// <typeparam name="T">The type of values of in the list.</typeparam>
+		/// <remarks>
+		/// <para>If the given <paramref name="values"/> are not effective, <c>null</c> is returned.</para>
+		/// <para>The filter operation is carried out lazily, infinite lists are supported as long
+		/// as no infinite sequences of <c>null</c> values are part of the given <paramref name="values"/>.</para>
+		/// </remarks>
+		public static IEnumerable<T> Effectives<T> (this IEnumerable<T> values)
+		where T : class {
+			if (values != null) {
+				return values.Where (StandardFunctions.NotNull<T> ().Invoke);
+			} else {
+				return null;
+			}
+		}
 	}
 }
 

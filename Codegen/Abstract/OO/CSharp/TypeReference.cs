@@ -20,8 +20,10 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.CodeDom;
+using System.Linq;
 using ZincOxide.Utils.Abstract;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -82,10 +84,9 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <para>Only effective types of the <see cref="ICSharpType"/> type are accepted.</para>
 		/// </remarks>
 		public override IMethod GetMethod (string name, IEnumerable<IType> parameters) {
-
-			return null;
+			MethodInfo mi = type.GetMethod (name, parameters.Effectives ().OfType<TypeReference> ().Select (x => x.type).ToArray ());
+			return new MethodReference (mi);
 		}
 		#endregion
 	}
 }
-
