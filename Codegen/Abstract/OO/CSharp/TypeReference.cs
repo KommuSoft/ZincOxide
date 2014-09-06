@@ -30,6 +30,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 	public class TypeReference : NameShadow, ICSharpType {
 
 		#region Fields
+		private readonly Type type;
 		private readonly CodeTypeReference data;
 		#endregion
 		#region implemented abstract members of NameShadow
@@ -56,20 +57,13 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		#endregion
 		#region Constructor
 		/// <summary>
-		/// Initializes a new instance of the <see cref="TypeReference"/> class with a given <see cref="CodeTypeReference"/>
-		/// that refers to the correct type.
-		/// </summary>
-		/// <param name="data">The reference to the associated type.</param>
-		internal TypeReference (CodeTypeReference data) {
-			this.data = data;
-		}
-
-		/// <summary>
 		/// Initializes a new instance of the <see cref="TypeReference"/> class with a given <see cref="System.Type"/>
 		/// to which this reference should refer to.
 		/// </summary>
-		/// <param name="t">The type to which this type reference should refer.</param>
-		internal TypeReference (System.Type t) : this(new CodeTypeReference(t)) {
+		/// <param name="type">The type to which this type reference should refer.</param>
+		internal TypeReference (System.Type type) {
+			this.type = type;
+			this.data = new CodeTypeReference (type);
 		}
 		#endregion
 		#region IType implementation
