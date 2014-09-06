@@ -25,7 +25,7 @@ using ZincOxide.Utils.Abstract;
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// An already defined type in C# (example <see cref="int"/>, <see cref="DateTime"/> and <see cref="String"/>).
+	/// An already defined type in C# (example <see cref="int"/>, <see cref="DateTime"/> and <see cref="string"/>).
 	/// </summary>
 	public class TypeReference : NameShadow, ICSharpType {
 

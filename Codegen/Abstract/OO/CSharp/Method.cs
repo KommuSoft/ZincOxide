@@ -21,6 +21,7 @@
 using System;
 using System.CodeDom;
 using ZincOxide.Codegen.Abstract.Imperative;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -54,7 +55,25 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		}
 		#endregion
 		#region implemented abstract members of MethodBase
+		/// <summary>
+		/// Reimplement the procedure member with the given <paramref name="commands"/>.
+		/// </summary>
+		/// <param name="commands">The list of commands that are the implementation of
+		/// the <see cref="IProcedureMember"/>.</param>
+		/// <remarks>
+		/// <para>if the given <paramref name="commands"/> is not effective, no modifications
+		/// is done to the method.</para>
+		/// </remarks>
 		public override void Reimplement (ICommand commands) {
+			throw new NotImplementedException ();//TODO
+		}
+
+		/// <summary>
+		/// Generate a class command that can be used as part of a procedure implementation.
+		/// </summary>
+		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
+		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
+		public override ICommand CallCommand (IEnumerable<IExpression> parameters) {
 			throw new NotImplementedException ();
 		}
 		#endregion

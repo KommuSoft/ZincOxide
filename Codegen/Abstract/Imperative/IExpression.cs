@@ -1,5 +1,5 @@
 //
-//  MethodBase.cs
+//  IExpression.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,23 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
-using ZincOxide.Codegen.Abstract.Imperative;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="IMethod"/> interface, used for programming convenience.
+	/// An interface that represents an expression: a mathematical language construct that implies a list of
+	/// commands that return a certain object.
 	/// </summary>
-	public abstract class MethodBase : ProcedureMemberBase, IMethod {
-
-		#region Constructors
-		/// <summary>
-		/// Initializes a new instance of the <see cref="MethodBase"/> class.
-		/// </summary>
-		protected MethodBase () {
-		}
-		#endregion
+	public interface IExpression {
 	}
 }
 

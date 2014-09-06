@@ -1,5 +1,5 @@
 //
-//  IProcedureMember.cs
+//  ProcedureMemberContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,21 +19,39 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
+using System.Diagnostics.Contracts;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using ZincOxide.Codegen.Abstract.OO.Process;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.OO.Process {
 
 	/// <summary>
-	/// An interface describing a procedure member. A procedure member has a name and
-	/// a set of imperative instructions that must be called when needed.
+	/// A contract class describing the contracts that should be respected when dealing with <see cref="IProcedureMember"/> instances.
 	/// </summary>
-	[ContractClass(typeof(ProcedureMemberContract))]
-	public interface IProcedureMember : IName {
+	[ContractClassFor(typeof(IProcedureMember))]
+	public abstract class ProcedureMemberContract : NameShadow, IProcedureMember {
 
+		#region IName implementation
+		/// <summary>
+		/// Get the name of the type.
+		/// </summary>
+		/// <value>The name of the type.</value>
+		public override string Name {
+			get {
+				Contract.Ensures (Contract.Result<string> () != null);
+				return default(string);
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ProcedureMemberContract"/> class.
+		/// </summary>
+		protected ProcedureMemberContract () {
+		}
+		#endregion
+		#region IProcedureMember implementation
 		/// <summary>
 		/// Reimplement the procedure member with the given <paramref name="commands"/>.
 		/// </summary>
@@ -43,21 +61,28 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <para>if the given <paramref name="commands"/> is not effective, no modifications
 		/// is done to the method.</para>
 		/// </remarks>
-		void Reimplement (ICommand commands);
+		public abstract void Reimplement (ICommand commands);
 
 		/// <summary>
 		/// Generate a class command that can be used as part of a procedure implementation.
 		/// </summary>
 		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		ICommand CallCommand (params IExpression[] parameters);
+		public ICommand CallCommand (params IExpression[] parameters) {
+			Contract.Ensures (Contract.Result<ICommand> () != null);
+			return default(ICommand);
+		}
 
 		/// <summary>
 		/// Generate a class command that can be used as part of a procedure implementation.
 		/// </summary>
 		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		ICommand CallCommand (IEnumerable<IExpression> parameters);
+		public ICommand CallCommand (IEnumerable<IExpression> parameters) {
+			Contract.Ensures (Contract.Result<ICommand> () != null);
+			return default(ICommand);
+		}
+		#endregion
 	}
 }
 

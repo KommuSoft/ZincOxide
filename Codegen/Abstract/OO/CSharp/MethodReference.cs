@@ -1,5 +1,5 @@
 //
-//  IProcedureMember.cs
+//  MethodReference.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,20 +20,41 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using ZincOxide.Utils.Abstract;
+using System.Reflection;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using ZincOxide.Codegen.Abstract.OO.Process;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// An interface describing a procedure member. A procedure member has a name and
-	/// a set of imperative instructions that must be called when needed.
+	/// An already defined method in C# (example <see cref="M:StringBuilder.Append"/>).
 	/// </summary>
-	[ContractClass(typeof(ProcedureMemberContract))]
-	public interface IProcedureMember : IName {
+	public class MethodReference : NameShadow, IMethod {
 
+		#region Fields
+		private readonly MethodInfo data;
+		#endregion
+		#region implemented abstract members of NameShadow
+		/// <summary>
+		/// Gets the name of this method.
+		/// </summary>
+		/// <value>The name of this method.</value>
+		public override string Name {
+			get {
+				return this.data.Name;
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MethodReference"/> class.
+		/// </summary>
+		/// <param name="data">The <see cref="MethodInfo"/> that contains the specifications of the method.</param>
+		internal MethodReference (MethodInfo data) {
+			this.data = data;
+		}
+		#endregion
+		#region IProcedureMember implementation
 		/// <summary>
 		/// Reimplement the procedure member with the given <paramref name="commands"/>.
 		/// </summary>
@@ -42,22 +63,29 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <remarks>
 		/// <para>if the given <paramref name="commands"/> is not effective, no modifications
 		/// is done to the method.</para>
+		/// <para>Already defined method cannot be reimplemented. The reimplementation is ignored.</para>
 		/// </remarks>
-		void Reimplement (ICommand commands);
+		public void Reimplement (ICommand commands) {
+		}
 
 		/// <summary>
 		/// Generate a class command that can be used as part of a procedure implementation.
 		/// </summary>
 		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		ICommand CallCommand (params IExpression[] parameters);
+		public ICommand CallCommand (params IExpression[] parameters) {
+			throw new NotImplementedException ();
+		}
 
 		/// <summary>
 		/// Generate a class command that can be used as part of a procedure implementation.
 		/// </summary>
 		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		ICommand CallCommand (IEnumerable<IExpression> parameters);
+		public ICommand CallCommand (IEnumerable<IExpression> parameters) {
+			throw new NotImplementedException ();
+		}
+		#endregion
 	}
 }
 
