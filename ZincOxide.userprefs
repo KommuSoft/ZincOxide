@@ -1,26 +1,34 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ZincSulphate/Codegen/Abstract/OO/CSharp/CSharpScenarioTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/OO/CSharp/Constructor.cs">
     <Files>
-      <File FileName="Codegen/Abstract/OO/Process/IOOCodegenResult.cs" Line="66" Column="71" />
-      <File FileName="Codegen/Abstract/OO/CSharp/TypeReference.cs" Line="75" Column="17" />
-      <File FileName="Codegen/Abstract/OO/IType.cs" Line="50" Column="3" />
-      <File FileName="Codegen/Abstract/OO/TypeBase.cs" Line="70" Column="19" />
-      <File FileName="Codegen/Abstract/OO/CSharp/Class.cs" Line="49" Column="28" />
-      <File FileName="Codegen/Abstract/OO/CSharp/MethodReference.cs" Line="76" Column="3" />
-      <File FileName="Utils/Abstract/NullSafe.cs" Line="174" Column="19" />
-      <File FileName="Utils/Functional/StandardFunctions.cs" Line="54" Column="34" />
-      <File FileName="ZincSulphate/Codegen/Abstract/OO/CSharp/CSharpScenarioTest.cs" Line="30" Column="40" />
+      <File FileName="Codegen/Abstract/OO/IConstructor.cs" Line="34" Column="3" />
+      <File FileName="Codegen/Abstract/OO/ConstructorBase.cs" Line="40" Column="3" />
+      <File FileName="Codegen/Abstract/OO/CSharp/CSharpCodegenResult.cs" Line="143" Column="53" />
+      <File FileName="Codegen/Abstract/OO/Process/OOCodegenResultContract.cs" Line="127" Column="6" />
+      <File FileName="Codegen/Abstract/OO/ConstructorContract.cs" Line="58" Column="63" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Constructor.cs" Line="29" Column="15" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Method.cs" Line="61" Column="81" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="ZincOxide" expanded="True">
             <Node name="Codegen" expanded="True">
+              <Node name="Abstract" expanded="True">
+                <Node name="OO" expanded="True">
+                  <Node name="CSharp" expanded="True">
+                    <Node name="Constructor.cs" selected="True" />
+                  </Node>
+                  <Node name="Process" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="Utils" expanded="True">
               <Node name="Abstract" expanded="True" />
             </Node>
           </Node>
-          <Node name="ZincSulphate" expanded="True" selected="True">
+          <Node name="ZincSulphate" expanded="True">
             <Node name="Codegen" expanded="True">
               <Node name="Abstract" expanded="True">
                 <Node name="OO" expanded="True">
