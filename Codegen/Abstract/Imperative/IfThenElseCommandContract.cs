@@ -1,5 +1,5 @@
 //
-//  IIfStatement.cs
+//  IfThenElseCommandContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -24,35 +24,52 @@ using System.Diagnostics.Contracts;
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// A <c>if-then-else</c> command: a condition and two (possibly empty) commands
-	/// that must be executed respectively if the condition is <c>true</c> or <c>false</c>.
+	/// A contract class for the <see cref="IIfThenElseCommand"/>.
 	/// </summary>
-	[ContractClass(typeof(IfThenElseCommandContract))]
-	public interface IIfThenElseCommand : ICommand {
+	[ContractClassFor(typeof(IIfThenElseCommand))]
+	public abstract class IfThenElseCommandContract : CommandContract, IIfThenElseCommand {
 
+		#region IIfThenElseCommand implementation
 		/// <summary>
 		/// The condition that must be checked and determines which command will be executed.
 		/// </summary>
 		/// <value>The condition that determines which command will be executed.</value>
-		ICondition Condition {
-			get;
+		public ICondition Condition {
+			get {
+				Contract.Ensures (Contract.Result<ICondition> () != null);
+				return default(ICondition);
+			}
 		}
 
 		/// <summary>
 		/// The command that must be executed if the condition succeeds.
 		/// </summary>
 		/// <value>An <see cref="ICommand"/> that is executed if the <see cref="Condition"/> holds.</value>
-		ICommand TrueCommand {
-			get;
+		public ICommand TrueCommand {
+			get {
+				Contract.Ensures (Contract.Result<ICommand> () != null);
+				return default(ICommand);
+			}
 		}
 
 		/// <summary>
 		/// The command that must be executed if the condition fails.
 		/// </summary>
 		/// <value>An <see cref="ICommand"/> that is executed if the <see cref="Condition"/> fails.</value>
-		ICommand FalseCommand {
-			get;
+		public ICommand FalseCommand {
+			get {
+				Contract.Ensures (Contract.Result<ICommand> () != null);
+				return default(ICommand);
+			}
 		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="IfThenElseCommandContract"/> class.
+		/// </summary>
+		protected IfThenElseCommandContract () {
+		}
+		#endregion
 	}
 }
 
