@@ -124,6 +124,8 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// </remarks>
 		public IType GetStringBuilderType () {
 			Contract.Ensures (Contract.Result<IType> () != null);
+			//Contract.Ensures (Contract.Result<IType> ().GetConstructor () != null);
+			Contract.Ensures (Contract.Result<IType> ().GetMethod ("Append", this.GetStringType ()) != null);
 			return default(IType);
 		}
 		#endregion
