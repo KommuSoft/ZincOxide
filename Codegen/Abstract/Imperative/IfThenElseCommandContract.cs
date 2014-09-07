@@ -47,7 +47,6 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 		/// <value>An <see cref="ICommand"/> that is executed if the <see cref="Condition"/> holds.</value>
 		public ICommand TrueCommand {
 			get {
-				Contract.Ensures (Contract.Result<ICommand> () != null);
 				return default(ICommand);
 			}
 		}
@@ -58,7 +57,6 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 		/// <value>An <see cref="ICommand"/> that is executed if the <see cref="Condition"/> fails.</value>
 		public ICommand FalseCommand {
 			get {
-				Contract.Ensures (Contract.Result<ICommand> () != null);
 				return default(ICommand);
 			}
 		}
@@ -68,6 +66,7 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 		/// Initializes a new instance of the <see cref="IfThenElseCommandContract"/> class.
 		/// </summary>
 		protected IfThenElseCommandContract () {
+			Contract.Ensures (this.Condition != null);
 		}
 		#endregion
 	}
