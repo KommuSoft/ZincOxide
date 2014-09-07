@@ -206,10 +206,70 @@
         </tr>
         <tr valign="top">
           <td>
+            <a href="./CommandBase.html">CommandBase</a>
+          </td>
+          <td>
+            A basic implementation of the <a href="../ZincOxide.Codegen.Abstract.Imperative/ICommand.html">ZincOxide.Codegen.Abstract.Imperative.ICommand</a> interface.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./CommandSequenceBase.html">CommandSequenceBase</a>
+          </td>
+          <td>
+            A basic implementation of the <a href="../ZincOxide.Codegen.Abstract.Imperative/ICommandSequence.html">ZincOxide.Codegen.Abstract.Imperative.ICommandSequence</a> interface.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./ExpressionBase.html">ExpressionBase</a>
+          </td>
+          <td>
+            A basic implementation of a <a href="../ZincOxide.Codegen.Abstract.Imperative/IExpression.html">ZincOxide.Codegen.Abstract.Imperative.IExpression</a>, used for programming convenience.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
             <a href="./ICommand.html">ICommand</a>
           </td>
           <td>
             An interface specifying a command (or a structure of commands) that can be executed.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./ICommandSequence.html">ICommandSequence</a>
+          </td>
+          <td>
+            A command that is a composition of several other (more basic commands). The commands
+            are executed sequentially.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./ICondition.html">ICondition</a>
+          </td>
+          <td>
+            An interface specifying a condition: an expression that results in a boolean. Such conditions can be used
+            for <tt>if</tt> statements and <tt>for</tt> and <tt>while</tt> loops.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IExpression.html">IExpression</a>
+          </td>
+          <td>
+            An interface that represents an expression: a mathematical language construct that implies a list of
+            commands that return a certain object.
+            </td>
+        </tr>
+        <tr valign="top">
+          <td>
+            <a href="./IIfThenElseCommand.html">IIfThenElseCommand</a>
+          </td>
+          <td>
+            A <tt>if-then-else</tt> command: a condition and two (possibly empty) commands
+            that must be executed respectively if the condition is <tt>true</tt> or <tt>false</tt>.
             </td>
         </tr>
       </table>

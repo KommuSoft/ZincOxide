@@ -211,7 +211,7 @@
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference:Signature">public class  <b>TypeReference</b> : <a href="../ZincOxide.Codegen.Abstract.OO.CSharp/Type.html">Type</a></div>
+      <div class="Signature" id="T:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference:Signature">public class  <b>TypeReference</b> : <a href="../ZincOxide.Codegen.Abstract.OO/TypeBase.html">ZincOxide.Codegen.Abstract.OO.TypeBase</a>,	<a href="../ZincOxide.Codegen.Abstract.OO.CSharp/ICSharpType.html">ICSharpType</a></div>
     </div>
     <div class="Remarks" id="T:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference:Docs">
       <h2 class="Section">Remarks</h2>
@@ -220,12 +220,12 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference:Docs:Version Information">
-        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="../ZincOxide.Codegen.Abstract.OO.CSharp/Type.html">Type</a>.
+								<a href="../ZincOxide.Codegen.Abstract.OO/TypeBase.html">ZincOxide.Codegen.Abstract.OO.TypeBase</a>.
 							</p>
         <h2 class="Section">Public Properties</h2>
         <div class="SectionBox" id="Public Properties">
@@ -260,7 +260,7 @@
              (<i>Inherited from <a href="../ZincOxide.Utils.Abstract/NameShadow.html">ZincOxide.Utils.Abstract.NameShadow</a>.</i>)</td>
               </tr>
               <tr valign="top">
-                <td>[read-only]<div>override </div></td>
+                <td>[read-only]<div></div></td>
                 <td>
                   <b>
                     <a href="#P:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.Reference">Reference</a>
@@ -272,20 +272,6 @@
                   </i>. 
             Get a reference to this type, used for implementation and the creation of code members.
             </td>
-              </tr>
-              <tr valign="top">
-                <td>[read-only]<div>abstract </div></td>
-                <td>
-                  <b>
-                    <a href="../ZincOxide.Codegen.Abstract.OO.CSharp/Type.html#P:ZincOxide.Codegen.Abstract.OO.CSharp.Type.Reference">Reference</a>
-                  </b>
-                </td>
-                <td>
-                  <i>
-                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.CodeDom.CodeTypeReference">System.CodeDom.CodeTypeReference</a>
-                  </i>. 
-            Get a reference to this type, used for implementation and the creation of code members.
-             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO.CSharp/Type.html">Type</a>.</i>)</td>
               </tr>
             </table>
           </div>
@@ -305,6 +291,40 @@
                   </b>(<a href="../ZincOxide.Utils.Abstract/IName.html">ZincOxide.Utils.Abstract.IName</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Check if the given <a href="../ZincOxide.Utils.Abstract/IName.html">ZincOxide.Utils.Abstract.IName</a> instance has the same <a href="../ZincOxide.Utils.Abstract/NameShadow.html#P:ZincOxide.Utils.Abstract.NameShadow.Name">ZincOxide.Utils.Abstract.NameShadow.Name</a> as this instance.
              (<i>Inherited from <a href="../ZincOxide.Utils.Abstract/NameShadow.html">ZincOxide.Utils.Abstract.NameShadow</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType})">GetMethod</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.OO.IType&gt;</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/TypeBase.html#M:ZincOxide.Codegen.Abstract.OO.TypeBase.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType})">GetMethod</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.OO.IType&gt;</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/TypeBase.html">ZincOxide.Codegen.Abstract.OO.TypeBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/TypeBase.html#M:ZincOxide.Codegen.Abstract.OO.TypeBase.GetMethod(System.String,ZincOxide.Codegen.Abstract.OO.IType[])">GetMethod</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">ZincOxide.Codegen.Abstract.OO.IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/TypeBase.html">ZincOxide.Codegen.Abstract.OO.TypeBase</a>.</i>)</blockquote></td>
               </tr>
             </table>
           </div>
@@ -394,6 +414,41 @@
     <div class="Members" id="T:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType})">GetMethod Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):member">
+          <p class="Summary">
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> <b>GetMethod</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.OO.IType&gt;</a> parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Parameters">
+            <dl>
+              <dt>
+                <i>name</i>
+              </dt>
+              <dd>The name of the requested method.</dd>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>The list of the type of the parameters (or generalizations) of the requested method.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> instance representing the queried method, <tt>null</tt> if such method
+            does not exists.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Remarks">
+            <p>In case such method does not exists, an attempt is made to find
+            a method where the parameters are generalized. If this attempt fails
+            as well, <tt>null</tt> is returned.</p>
+            <p>Only effective types of the <a href="../ZincOxide.Codegen.Abstract.OO.CSharp/ICSharpType.html">ZincOxide.Codegen.Abstract.OO.CSharp.ICSharpType</a> type are accepted.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
+          <hr size="1" />
+        </blockquote>
         <h3 id="P:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.Name">Name Property</h3>
         <blockquote id="P:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.Name:member">
           <p class="Summary">
@@ -409,7 +464,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.Name:Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
           <hr size="1" />
         </blockquote>
         <h3 id="P:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.Reference">Reference Property</h3>
@@ -418,7 +473,7 @@
             Get a reference to this type, used for implementation and the creation of code members.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.CodeDom.CodeTypeReference">System.CodeDom.CodeTypeReference</a> <b>Reference</b>  { get; }</div>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.CodeDom.CodeTypeReference">System.CodeDom.CodeTypeReference</a> <b>Reference</b>  { get; }</div>
           <h4 class="Subsection">Value</h4>
           <blockquote class="SubsectionBox" id="P:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.Reference:Value">A <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.CodeDom.CodeTypeReference">System.CodeDom.CodeTypeReference</a> that refers to this type.</blockquote>
           <h2 class="Section">Remarks</h2>
@@ -427,7 +482,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:ZincOxide.Codegen.Abstract.OO.CSharp.TypeReference.Reference:Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
           <hr size="1" />
         </blockquote>
       </div>

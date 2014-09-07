@@ -213,7 +213,7 @@
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:ZincOxide.Codegen.Abstract.OO.IType:Signature">public interface  <b>IType</b> : <a href="../ZincOxide.Utils.Abstract/IName.html">ZincOxide.Utils.Abstract.IName</a></div>
+      <div class="Signature" id="T:ZincOxide.Codegen.Abstract.OO.IType:Signature">[System.Diagnostics.Contracts.ContractClass(typeof(ZincOxide.Codegen.Abstract.OO.TypeContract))]<br />public interface  <b>IType</b> : <a href="../ZincOxide.Utils.Abstract/IName.html">ZincOxide.Utils.Abstract.IName</a></div>
     </div>
     <div class="Remarks" id="T:ZincOxide.Codegen.Abstract.OO.IType:Docs">
       <h2 class="Section">Remarks</h2>
@@ -222,9 +222,40 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:ZincOxide.Codegen.Abstract.OO.IType:Docs:Version Information">
-        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType})">GetMethod</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IType&gt;</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a></nobr><blockquote>
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,ZincOxide.Codegen.Abstract.OO.IType[])">GetMethod</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a></nobr><blockquote>
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
         <h2 class="Section">Extension Methods</h2>
         <div class="SectionBox" id="Extension Methods">
           <div class="SubsectionBox">
@@ -310,6 +341,70 @@
     <div class="Members" id="T:ZincOxide.Codegen.Abstract.OO.IType:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType})">GetMethod Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):member">
+          <p class="Summary">
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a> <b>GetMethod</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IType&gt;</a> parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Parameters">
+            <dl>
+              <dt>
+                <i>name</i>
+              </dt>
+              <dd>The name of the requested method.</dd>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>The list of the type of the parameters (or generalizations) of the requested method.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> instance representing the queried method, <tt>null</tt> if such method
+            does not exists.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Remarks">In case such method does not exists, an attempt is made to find
+            a method where the parameters are generalized. If this attempt fails
+            as well, <tt>null</tt> is returned.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,ZincOxide.Codegen.Abstract.OO.IType[])">GetMethod Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,ZincOxide.Codegen.Abstract.OO.IType[]):member">
+          <p class="Summary">
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a> <b>GetMethod</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,ZincOxide.Codegen.Abstract.OO.IType[]):Parameters">
+            <dl>
+              <dt>
+                <i>name</i>
+              </dt>
+              <dd>The name of the requested method.</dd>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>The list of the type of the parameters (or generalizations) of the requested method.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,ZincOxide.Codegen.Abstract.OO.IType[]):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> instance representing the queried method, <tt>null</tt> if such method
+            does not exists.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,ZincOxide.Codegen.Abstract.OO.IType[]):Remarks">In case such method does not exists, an attempt is made to find
+            a method where the parameters are generalized. If this attempt fails
+            as well, <tt>null</tt> is returned.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IType.GetMethod(System.String,ZincOxide.Codegen.Abstract.OO.IType[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
+          <hr size="1" />
+        </blockquote>
       </div>
     </div>
     <hr size="1" />

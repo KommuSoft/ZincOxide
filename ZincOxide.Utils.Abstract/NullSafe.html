@@ -220,7 +220,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:ZincOxide.Utils.Abstract.NullSafe:Docs:Version Information">
-        <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+        <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -231,6 +231,17 @@
         <div class="SectionBox" id="Public Methods">
           <div class="SubsectionBox">
             <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Utils.Abstract.NullSafe.Effectives``1(System.Collections.Generic.IEnumerable{``0})">Effectives&lt;T&gt;</a>
+                  </b>(<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a></nobr><blockquote>
+            Generate a list of all effectives of the given list of <i>values</i>.
+            </blockquote></td>
+              </tr>
               <tr valign="top">
                 <td>
                   <div>static </div>
@@ -312,6 +323,44 @@
     <div class="Members" id="T:ZincOxide.Utils.Abstract.NullSafe:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:ZincOxide.Utils.Abstract.NullSafe.Effectives``1(System.Collections.Generic.IEnumerable{``0})">Effectives&lt;T&gt; Generic Method</h3>
+        <blockquote id="M:ZincOxide.Utils.Abstract.NullSafe.Effectives``1(System.Collections.Generic.IEnumerable{``0}):member">
+          <p class="Summary">
+            Generate a list of all effectives of the given list of <i>values</i>.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public static <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> <b>Effectives&lt;T&gt;</b> (<i>this</i> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a> values)<br /> where T : class</div>
+          <h4 class="Subsection">Type Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.Effectives``1(System.Collections.Generic.IEnumerable{``0}):Type Parameters">
+            <dl>
+              <dt>
+                <i>T</i>
+              </dt>
+              <dd>The type of values of in the list.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.Effectives``1(System.Collections.Generic.IEnumerable{``0}):Parameters">
+            <dl>
+              <dt>
+                <i>values</i>
+              </dt>
+              <dd>The given list of values to be filtered.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.Effectives``1(System.Collections.Generic.IEnumerable{``0}):Returns">A list containing the given <i>values</i> that are effective.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.Effectives``1(System.Collections.Generic.IEnumerable{``0}):Remarks">
+            <p>If the given <i>values</i> is not effective, an empty list is returned.</p>
+            <p>The filter operation is carried out lazily, infinite lists are supported as long
+            as no infinite sequences of <tt>null</tt> values are part of the given <i>values</i>.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.Effectives``1(System.Collections.Generic.IEnumerable{``0}):Version Information">
+            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
+          <hr size="1" />
+        </blockquote>
         <h3 id="M:ZincOxide.Utils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0})">IfEffective&lt;TX&gt; Generic Method</h3>
         <blockquote id="M:ZincOxide.Utils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0}):member">
           <p class="Summary">
@@ -346,7 +395,7 @@
           <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0}):Remarks">For performance issues, the <i>action</i> is assumed to be effective, no check is done.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0}):Version Information">
-            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,System.Collections.Generic.IEnumerable{``0})">IfNull&lt;T&gt; Generic Method</h3>
@@ -392,7 +441,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,System.Collections.Generic.IEnumerable{``0}):Version Information">
-            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0)">IfNull&lt;T&gt; Generic Method</h3>
@@ -433,7 +482,7 @@
             and <i>deflt</i> are null.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0):Version Information">
-            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0[])">IfNull&lt;T&gt; Generic Method</h3>
@@ -479,7 +528,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0[]):Version Information">
-            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Utils.Abstract.NullSafe.OrFalse``2(``0,System.Predicate{``0})">OrFalse&lt;TX,TResult&gt; Generic Method</h3>
@@ -525,7 +574,7 @@
           <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.OrFalse``2(``0,System.Predicate{``0}):Remarks">For performance issues, the <i>predicate</i> is assumed to be effective, no check is done.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.OrFalse``2(``0,System.Predicate{``0}):Version Information">
-            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Utils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt; Generic Method</h3>
@@ -568,7 +617,7 @@
           <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1}):Remarks">For performance issues, the <i>function</i> is assumed to be effective, no check is done.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Utils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1}):Version Information">
-            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+            <b>Namespace: </b>ZincOxide.Utils.Abstract<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
           <hr size="1" />
         </blockquote>
       </div>

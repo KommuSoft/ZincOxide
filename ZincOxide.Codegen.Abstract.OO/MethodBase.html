@@ -211,7 +211,7 @@
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:ZincOxide.Codegen.Abstract.OO.MethodBase:Signature">public abstract class  <b>MethodBase</b> : <a href="../ZincOxide.Utils.Abstract/NameShadow.html">ZincOxide.Utils.Abstract.NameShadow</a>,	<a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a></div>
+      <div class="Signature" id="T:ZincOxide.Codegen.Abstract.OO.MethodBase:Signature">public abstract class  <b>MethodBase</b> : <a href="../ZincOxide.Codegen.Abstract.OO/ProcedureMemberBase.html">ProcedureMemberBase</a>,	<a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a></div>
     </div>
     <div class="Remarks" id="T:ZincOxide.Codegen.Abstract.OO.MethodBase:Docs">
       <h2 class="Section">Remarks</h2>
@@ -220,12 +220,12 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:ZincOxide.Codegen.Abstract.OO.MethodBase:Docs:Version Information">
-        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="../ZincOxide.Utils.Abstract/NameShadow.html">ZincOxide.Utils.Abstract.NameShadow</a>.
+								<a href="../ZincOxide.Codegen.Abstract.OO/ProcedureMemberBase.html">ProcedureMemberBase</a>.
 							</p>
         <h2 class="Section">Protected Constructors</h2>
         <div class="SectionBox" id="Protected Constructors">
@@ -276,6 +276,29 @@
             <table class="TypeMembers">
               <tr valign="top">
                 <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Imperative.IExpression})">CallCommand</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Imperative/IExpression.html">ZincOxide.Codegen.Abstract.Imperative.IExpression</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.Imperative.IExpression&gt;</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.Imperative/ICommand.html">ZincOxide.Codegen.Abstract.Imperative.ICommand</a></nobr><blockquote>
+            Generate a class command that can be used as part of a procedure implementation.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,ZincOxide.Codegen.Abstract.Imperative.IExpression[])">CallCommand</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Imperative/IExpression.html">ZincOxide.Codegen.Abstract.Imperative.IExpression</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Imperative/IExpression.html">ZincOxide.Codegen.Abstract.Imperative.IExpression</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.Imperative/ICommand.html">ZincOxide.Codegen.Abstract.Imperative.ICommand</a></nobr><blockquote>
+            Generate a class command that can be used as part of a procedure implementation.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
                   <div>
                   </div>
                 </td>
@@ -285,6 +308,17 @@
                   </b>(<a href="../ZincOxide.Utils.Abstract/IName.html">ZincOxide.Utils.Abstract.IName</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
             Check if the given <a href="../ZincOxide.Utils.Abstract/IName.html">ZincOxide.Utils.Abstract.IName</a> instance has the same <a href="../ZincOxide.Utils.Abstract/NameShadow.html#P:ZincOxide.Utils.Abstract.NameShadow.Name">ZincOxide.Utils.Abstract.NameShadow.Name</a> as this instance.
              (<i>Inherited from <a href="../ZincOxide.Utils.Abstract/NameShadow.html">ZincOxide.Utils.Abstract.NameShadow</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/ProcedureMemberBase.html#M:ZincOxide.Codegen.Abstract.OO.ProcedureMemberBase.Reimplement(ZincOxide.Codegen.Abstract.Imperative.ICommand)">Reimplement</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Imperative/ICommand.html">ZincOxide.Codegen.Abstract.Imperative.ICommand</a>)<blockquote>
+            Reimplement the procedure member with the given <i>commands</i>.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/ProcedureMemberBase.html">ProcedureMemberBase</a>.</i>)</blockquote></td>
               </tr>
             </table>
           </div>
@@ -387,7 +421,69 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:ZincOxide.Codegen.Abstract.OO.MethodBase():Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5357.13398</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Imperative.IExpression})">CallCommand Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Imperative.IExpression}):member">
+          <p class="Summary">
+            Generate a class command that can be used as part of a procedure implementation.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public abstract <a href="../ZincOxide.Codegen.Abstract.Imperative/ICommand.html">ZincOxide.Codegen.Abstract.Imperative.ICommand</a> <b>CallCommand</b> (<a href="../ZincOxide.Codegen.Abstract.Imperative/IExpression.html">ZincOxide.Codegen.Abstract.Imperative.IExpression</a> instance, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.Imperative.IExpression&gt;</a> parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Imperative.IExpression}):Parameters">
+            <dl>
+              <dt>
+                <i>instance</i>
+              </dt>
+              <dd>The instance on which the command is applied.</dd>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>The given list of expressions with which the call is initialized.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Imperative.IExpression}):Returns">A <a href="../ZincOxide.Codegen.Abstract.Imperative/ICommand.html">ZincOxide.Codegen.Abstract.Imperative.ICommand</a> that represents a call to this <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> with the given <i>parameters</i>.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Imperative.IExpression}):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Imperative.IExpression}):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,ZincOxide.Codegen.Abstract.Imperative.IExpression[])">CallCommand Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,ZincOxide.Codegen.Abstract.Imperative.IExpression[]):member">
+          <p class="Summary">
+            Generate a class command that can be used as part of a procedure implementation.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public virtual <a href="../ZincOxide.Codegen.Abstract.Imperative/ICommand.html">ZincOxide.Codegen.Abstract.Imperative.ICommand</a> <b>CallCommand</b> (<a href="../ZincOxide.Codegen.Abstract.Imperative/IExpression.html">ZincOxide.Codegen.Abstract.Imperative.IExpression</a> instance, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Imperative/IExpression.html">ZincOxide.Codegen.Abstract.Imperative.IExpression</a>[] parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,ZincOxide.Codegen.Abstract.Imperative.IExpression[]):Parameters">
+            <dl>
+              <dt>
+                <i>instance</i>
+              </dt>
+              <dd>The instance on which the command is applied.</dd>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>The given list of expressions with which the call is initialized.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,ZincOxide.Codegen.Abstract.Imperative.IExpression[]):Returns">A <a href="../ZincOxide.Codegen.Abstract.Imperative/ICommand.html">ZincOxide.Codegen.Abstract.Imperative.ICommand</a> that represents a call to this <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> with the given <i>parameters</i>.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,ZincOxide.Codegen.Abstract.Imperative.IExpression[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,ZincOxide.Codegen.Abstract.Imperative.IExpression[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5363.20968</div>
           <hr size="1" />
         </blockquote>
       </div>
