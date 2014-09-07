@@ -20,6 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Diagnostics.Contracts;
+using ZincOxide.Codegen.Abstract.Imperative;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -28,6 +30,20 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// </summary>
 	[ContractClass(typeof(ConstructorContract))]
 	public interface IConstructor : IProcedureMember {
+
+		/// <summary>
+		/// Generate a command that creates a new instance of a type using this <see cref="IConstructor"/>.
+		/// </summary>
+		/// <returns>A <see cref="IExpression"/> that represents a call to this <see cref="IConstructor"/> with the given <paramref name="parameters"/>.</returns>
+		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
+		IExpression CallCommand (params IExpression[] parameters);
+
+		/// <summary>
+		/// Generate a command that creates a new instance of a type using this <see cref="IConstructor"/>.
+		/// </summary>
+		/// <returns>A <see cref="IExpression"/> that represents a call to this <see cref="IConstructor"/> with the given <paramref name="parameters"/>.</returns>
+		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
+		IExpression CallCommand (IEnumerable<IExpression> parameters);
 	}
 }
 
