@@ -1,5 +1,5 @@
 //
-//  ICommand.cs
+//  IProcedure.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,15 +19,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Diagnostics.Contracts;
+using ZincOxide.Utils.Abstract;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface specifying a command (or a structure of commands) that can be executed.
+	/// An interface representing a procedure: a set of instructions grouped
+	/// together in a named entity.
 	/// </summary>
-	[ContractClass(typeof(CommandContract))]
-	public interface ICommand {
+	public interface IProcedure : IName {
 
+		/// <summary>
+		/// Enumerate the parameters of the procedure.
+		/// </summary>
+		/// <returns>The parameters of this <see cref="IProcedure"/>.</returns>
+		IEnumerable<IParameter> GetParameters ();
 	}
 }
+

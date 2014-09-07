@@ -1,5 +1,5 @@
 //
-//  ICommand.cs
+//  ProcedureBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,15 +19,30 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Diagnostics.Contracts;
+using ZincOxide.Utils.Abstract;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface specifying a command (or a structure of commands) that can be executed.
+	/// A basic implementation of the <see cref="IProcedure"/> interface.
 	/// </summary>
-	[ContractClass(typeof(CommandContract))]
-	public interface ICommand {
+	public abstract class ProcedureBase : NameShadow, IProcedure {
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ProcedureBase"/> class.
+		/// </summary>
+		protected ProcedureBase () {
+		}
+		#endregion
+		#region IProcedure implementation
+		/// <summary>
+		/// Enumerate the parameters of the procedure.
+		/// </summary>
+		/// <returns>The parameters of this <see cref="IProcedure"/>.</returns>
+		public abstract IEnumerable<IParameter> GetParameters ();
+		#endregion
 	}
 }
+

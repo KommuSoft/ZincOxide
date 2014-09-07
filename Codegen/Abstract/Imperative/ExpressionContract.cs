@@ -1,5 +1,5 @@
 //
-//  ICommand.cs
+//  ExpressionContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -24,10 +24,18 @@ using System.Diagnostics.Contracts;
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface specifying a command (or a structure of commands) that can be executed.
+	/// A contract class for <see cref="IExpression"/> instances.
 	/// </summary>
-	[ContractClass(typeof(CommandContract))]
-	public interface ICommand {
+	[ContractClassFor(typeof(IExpression))]
+	public abstract class ExpressionContract : CommandContract, IExpression {
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ExpressionContract"/> class.
+		/// </summary>
+		protected ExpressionContract () {
+		}
+		#endregion
 	}
 }
+

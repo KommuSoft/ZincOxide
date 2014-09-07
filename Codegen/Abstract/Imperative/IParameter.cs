@@ -30,4 +30,3 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	public interface IParameter : IVariable {
 	}
 }
-

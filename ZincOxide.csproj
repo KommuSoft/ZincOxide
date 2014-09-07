@@ -314,6 +314,12 @@
     <Compile Include="Codegen\Abstract\Imperative\IVariable.cs" />
     <Compile Include="Codegen\Abstract\Imperative\VariableBase.cs" />
     <Compile Include="Codegen\Abstract\Imperative\IParameter.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IProcedure.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ProcedureBase.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\CommandContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\CommandSequenceContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ConditionContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ExpressionContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
@@ -27,6 +28,7 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	/// A command that is a composition of several other (more basic commands). The commands
 	/// are executed sequentially.
 	/// </summary>
+	[ContractClass(typeof(CommandSequenceContract))]
 	public interface ICommandSequence : ICommand, IEnumerable<ICommand> {
 	}
 }

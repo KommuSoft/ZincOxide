@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
@@ -26,6 +27,10 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	/// An interface specifying a condition: an expression that results in a boolean. Such conditions can be used
 	/// for <c>if</c> statements and <c>for</c> and <c>while</c> loops.
 	/// </summary>
+	/// <remarks>
+	/// <para>A condition is an expression that returns a boolean value.</para>
+	/// </remarks>
+	[ContractClass(typeof(ConditionContract))]
 	public interface ICondition : IExpression {
 	}
 }
