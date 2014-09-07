@@ -1,5 +1,5 @@
 //
-//  Constructor.cs
+//  ConstructorReference.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,20 +19,19 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Reflection;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
-using System.CodeDom;
+using System.Reflection;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// The C# implementation of a constructor.
+	/// A reference to a predefined constructor in C#.
 	/// </summary>
-	public class Constructor : ConstructorBase {
+	public class ConstructorReference : ConstructorBase {
 
 		#region Fields
-		private readonly CodeConstructor data;
+		private readonly ConstructorInfo data;
 		#endregion
 		#region implemented abstract members of NameShadow
 		/// <summary>
@@ -51,7 +50,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// containing the specifications of the constructor.
 		/// </summary>
 		/// <param name="data">A <see cref="ConstructorInfo"/> specifying the constructor.</param>
-		internal Constructor (CodeConstructor data) {
+		internal ConstructorReference (ConstructorInfo data) {
 			this.data = data;
 		}
 		#endregion
@@ -64,9 +63,9 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <remarks>
 		/// <para>if the given <paramref name="commands"/> is not effective, no modifications
 		/// is done to the method.</para>
+		/// <para>Predefined constructor cannot be reimplemented, the method call is ignored.</para>
 		/// </remarks>
 		public override void Reimplement (ICommand commands) {
-			throw new NotImplementedException ();//TODO
 		}
 		#endregion
 		#region implemented abstract members of ConstructorBase

@@ -305,6 +305,7 @@
     <Compile Include="Codegen\Abstract\OO\MethodContract.cs" />
     <Compile Include="Codegen\Abstract\OO\ConstructorContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Constructor.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\ConstructorReference.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
