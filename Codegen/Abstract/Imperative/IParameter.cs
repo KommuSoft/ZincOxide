@@ -1,5 +1,5 @@
 //
-//  IField.cs
+//  IParameter.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,15 +19,15 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
 using ZincOxide.Codegen.Abstract.Imperative;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface describing a language-invariant field: a place in a class where information is stored.
+	/// An interface representing a parameter: a concept in a programming language that takes
+	/// the input of a procedure/function call.
 	/// </summary>
-	public interface IField : IName, IVariable {
+	public interface IParameter : IVariable {
 	}
 }
 

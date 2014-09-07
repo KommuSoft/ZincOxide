@@ -313,6 +313,7 @@
     <Compile Include="Codegen\Abstract\ProgrammingLanguageParadigm.cs" />
     <Compile Include="Codegen\Abstract\Imperative\IVariable.cs" />
     <Compile Include="Codegen\Abstract\Imperative\VariableBase.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IParameter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
