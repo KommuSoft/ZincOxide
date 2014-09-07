@@ -1,25 +1,15 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/OO/CSharp/Constructor.cs">
-    <Files>
-      <File FileName="Codegen/Abstract/OO/IConstructor.cs" Line="34" Column="3" />
-      <File FileName="Codegen/Abstract/OO/ConstructorBase.cs" Line="40" Column="3" />
-      <File FileName="Codegen/Abstract/OO/CSharp/CSharpCodegenResult.cs" Line="143" Column="53" />
-      <File FileName="Codegen/Abstract/OO/Process/OOCodegenResultContract.cs" Line="127" Column="6" />
-      <File FileName="Codegen/Abstract/OO/ConstructorContract.cs" Line="58" Column="63" />
-      <File FileName="Codegen/Abstract/OO/CSharp/Constructor.cs" Line="29" Column="15" />
-      <File FileName="Codegen/Abstract/OO/CSharp/Method.cs" Line="61" Column="81" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="ZincOxide" expanded="True">
             <Node name="Codegen" expanded="True">
               <Node name="Abstract" expanded="True">
-                <Node name="OO" expanded="True">
-                  <Node name="CSharp" expanded="True">
-                    <Node name="Constructor.cs" selected="True" />
-                  </Node>
+                <Node name="Imperative" expanded="True" />
+                <Node name="OO" expanded="True" selected="True">
+                  <Node name="CSharp" expanded="True" />
                   <Node name="Process" expanded="True" />
                 </Node>
               </Node>
