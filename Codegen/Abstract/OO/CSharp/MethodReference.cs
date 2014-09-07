@@ -29,7 +29,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 	/// <summary>
 	/// An already defined method in C# (example <see cref="M:StringBuilder.Append"/>).
 	/// </summary>
-	public class MethodReference : NameShadow, IMethod {
+	public class MethodReference : MethodBase, IMethod {
 
 		#region Fields
 		private readonly MethodInfo data;
@@ -65,25 +65,17 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// is done to the method.</para>
 		/// <para>Already defined method cannot be reimplemented. The reimplementation is ignored.</para>
 		/// </remarks>
-		public void Reimplement (ICommand commands) {
+		public override void Reimplement (ICommand commands) {
 		}
 
 		/// <summary>
 		/// Generate a class command that can be used as part of a procedure implementation.
 		/// </summary>
 		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
+		/// <param name="instance">The instance on which the command is applied.</param>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public ICommand CallCommand (params IExpression[] parameters) {
-			throw new NotImplementedException ();
-		}
-
-		/// <summary>
-		/// Generate a class command that can be used as part of a procedure implementation.
-		/// </summary>
-		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
-		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public ICommand CallCommand (IEnumerable<IExpression> parameters) {
-			throw new NotImplementedException ();
+		public override ICommand CallCommand (IExpression instance, IEnumerable<IExpression> parameters) {
+			throw new NotImplementedException ();//TODO
 		}
 		#endregion
 	}

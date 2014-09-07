@@ -39,6 +39,36 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		#endregion
 		#region IClass implementation
 		/// <summary>
+		/// Obtain the constructor with the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IConstructor"/> instance representing the queried constructor, <c>null</c> if such constructor
+		/// does not exists.</returns>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested constructors.</param>
+		/// <remarks>
+		/// <para>In case such constructor does not exists, an attempt is made to find
+		/// a constructor where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		public IConstructor GetConstructor (params IType[] parameters) {
+			return default(IConstructor);
+		}
+
+		/// <summary>
+		/// Obtain the constructor with the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IConstructor"/> instance representing the queried constructor, <c>null</c> if such constructor
+		/// does not exists.</returns>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested constructors.</param>
+		/// <remarks>
+		/// <para>In case such constructor does not exists, an attempt is made to find
+		/// a constructor where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		public IConstructor GetConstructor (IEnumerable<IType> parameters) {
+			return default(IConstructor);
+		}
+
+		/// <summary>
 		/// Generate a field contained in this class.
 		/// </summary>
 		/// <param name='type'>The type of the field.</param>

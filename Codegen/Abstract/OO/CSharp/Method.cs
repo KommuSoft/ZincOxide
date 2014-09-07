@@ -72,8 +72,9 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// Generate a class command that can be used as part of a procedure implementation.
 		/// </summary>
 		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
+		/// <param name="instance">The instance on which the command is applied.</param>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public override ICommand CallCommand (IEnumerable<IExpression> parameters) {
+		public override ICommand CallCommand (IExpression instance, IEnumerable<IExpression> parameters) {
 			throw new NotImplementedException ();
 		}
 		#endregion

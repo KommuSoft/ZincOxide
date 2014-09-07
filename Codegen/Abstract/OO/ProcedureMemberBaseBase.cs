@@ -24,7 +24,6 @@ using System.Collections.Generic;
 using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.OO {
-
 	/// <summary>
 	/// A basic implementation of the <see cref="IProcedureMember"/> interface.
 	/// </summary>
@@ -48,22 +47,6 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// is done to the method.</para>
 		/// </remarks>
 		public abstract void Reimplement (ICommand commands);
-
-		/// <summary>
-		/// Generate a class command that can be used as part of a procedure implementation.
-		/// </summary>
-		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
-		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public virtual ICommand CallCommand (params IExpression[] parameters) {
-			return CallCommand ((IEnumerable<IExpression>)parameters);
-		}
-
-		/// <summary>
-		/// Generate a class command that can be used as part of a procedure implementation.
-		/// </summary>
-		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
-		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public abstract ICommand CallCommand (IEnumerable<IExpression> parameters);
 		#endregion
 	}
 }

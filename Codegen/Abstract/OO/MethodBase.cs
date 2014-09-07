@@ -21,6 +21,7 @@
 using System;
 using ZincOxide.Utils.Abstract;
 using ZincOxide.Codegen.Abstract.Imperative;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -35,6 +36,25 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// </summary>
 		protected MethodBase () {
 		}
+		#endregion
+		#region IMethod implementation
+		/// <summary>
+		/// Generate a class command that can be used as part of a procedure implementation.
+		/// </summary>
+		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
+		/// <param name="instance">The instance on which the command is applied.</param>
+		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
+		public virtual ICommand CallCommand (IExpression instance, params IExpression[] parameters) {
+			return CallCommand (instance, (IEnumerable<IExpression>)parameters);
+		}
+
+		/// <summary>
+		/// Generate a class command that can be used as part of a procedure implementation.
+		/// </summary>
+		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
+		/// <param name="instance">The instance on which the command is applied.</param>
+		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
+		public abstract ICommand CallCommand (IExpression instance, IEnumerable<IExpression> parameters);
 		#endregion
 	}
 }

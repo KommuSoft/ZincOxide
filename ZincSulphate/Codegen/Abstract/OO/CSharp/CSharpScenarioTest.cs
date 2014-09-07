@@ -37,7 +37,6 @@ namespace ZincSulphate.Codegen.Abstract.OO.CSharp {
 			Assert.IsNotNull (sbt);
 			IType st = cscr.GetStringType ();
 			Assert.IsNotNull (st);
-			Assert.IsNotNull (typeof(StringBuilder).GetMethod ("Append", new Type[] { typeof(string) }));
 			IMethod im = cscr.GetStringBuilderType ().GetMethod ("Append", st);
 			Assert.IsNotNull (im);
 		}
