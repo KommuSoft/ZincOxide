@@ -1,5 +1,5 @@
 //
-//  Expression.cs
+//  VariableBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,20 +19,21 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Codegen.Abstract.Imperative;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// The representation of a <see cref="IExpression"/> in the C# programming language.
+	/// A basic implementation of the <see cref="IVariable"/> interface.
 	/// </summary>
-	public abstract class Expression  : ExpressionBase {
+	public class VariableBase : NameBase, IVariable {
 
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Expression"/> class.
+		/// Initializes a new instance of the <see cref="VariableBase"/> class with a given variable name.
 		/// </summary>
-		protected Expression () {
+		/// <param name="name">The name of the variable.</param>
+		protected VariableBase (string name) : base(name) {
 		}
 		#endregion
 	}

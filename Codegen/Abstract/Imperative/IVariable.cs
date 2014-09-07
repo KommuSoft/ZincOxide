@@ -1,5 +1,5 @@
 //
-//  Expression.cs
+//  IVariable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,15 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Codegen.Abstract.Imperative;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// The representation of a <see cref="IExpression"/> in the C# programming language.
+	/// An interface representing a variable in the imperative paradigm. A variable stores
+	/// data and is used to perform manipulation.
 	/// </summary>
-	public abstract class Expression  : ExpressionBase {
-
-		#region Constructors
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Expression"/> class.
-		/// </summary>
-		protected Expression () {
-		}
-		#endregion
+	public interface IVariable : IName {
 	}
 }
 

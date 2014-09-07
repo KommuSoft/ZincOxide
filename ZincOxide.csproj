@@ -311,6 +311,8 @@
     <Compile Include="Codegen\Abstract\Imperative\ExpressionBase.cs" />
     <Compile Include="Codegen\Abstract\CodegenResultAttribute.cs" />
     <Compile Include="Codegen\Abstract\ProgrammingLanguageParadigm.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IVariable.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\VariableBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
