@@ -38,7 +38,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 	/// <remarks>
 	/// <para>C# enables several classes to be written all in the same file.</para>
 	/// </remarks>
-	[CodegenResult("C#",ProgrammingLanguageParadigm.ObjectOriented)]
+	[CodegenResult("C#",ProgrammingLanguageParadigm.Imperative|ProgrammingLanguageParadigm.ObjectOriented)]
 	public class CSharpCodegenResult : OOCodegenResultBase {
 
 		#region Fields
