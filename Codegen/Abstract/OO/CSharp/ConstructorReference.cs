@@ -75,6 +75,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <returns>A <see cref="IExpression"/> that represents a call to this <see cref="IConstructor"/> with the given <paramref name="parameters"/>.</returns>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
 		public override IExpression CallCommand (IEnumerable<IExpression> parameters) {
+
 			throw new NotImplementedException ();//TODO
 		}
 		#endregion

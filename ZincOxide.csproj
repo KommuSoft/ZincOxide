@@ -306,6 +306,9 @@
     <Compile Include="Codegen\Abstract\OO\ConstructorContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Constructor.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\ConstructorReference.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Command.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Expression.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ExpressionBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
