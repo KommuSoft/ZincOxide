@@ -20,13 +20,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using ZincOxide.Utils.Abstract;
+using ZincOxide.Codegen.Abstract.Imperative;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
 	/// An interface describing a language-invariant field: a place in a class where information is stored.
 	/// </summary>
-	public interface IField : IName {
+	public interface IField : IName, IVariable {
 	}
 }
 

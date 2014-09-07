@@ -1,5 +1,5 @@
 //
-//  ICommand.cs
+//  CommandContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,14 +20,23 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Diagnostics.Contracts;
+using ZincOxide.Codegen.Abstract.Imperative;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface specifying a command (or a structure of commands) that can be executed.
+	/// A contract class used for <see cref="ICommand"/> instances.
 	/// </summary>
-	[ContractClass(typeof(CommandContract))]
-	public interface ICommand {
+	[ContractClassFor(typeof(ICommand))]
+	public abstract class CommandContract : ICommand {
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="CommandContract"/> class.
+		/// </summary>
+		protected CommandContract () {
+		}
+		#endregion
 	}
 }
+

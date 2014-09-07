@@ -1,5 +1,5 @@
 //
-//  IIfStatement.cs
+//  ProcedureContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,39 +20,35 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Diagnostics.Contracts;
+using ZincOxide.Utils.Abstract;
+using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// A <c>if-then-else</c> command: a condition and two (possibly empty) commands
-	/// that must be executed respectively if the condition is <c>true</c> or <c>false</c>.
+	/// A contract class for <see cref="IProcedure"/> instances.
 	/// </summary>
-	[ContractClass(typeof(IfThenElseCommandContract))]
-	public interface IIfThenElseCommand : ICommand {
+	[ContractClassFor(typeof(IProcedure))]
+	public abstract class ProcedureContract : NameContract, IProcedure {
 
+		#region Constructors
 		/// <summary>
-		/// The condition that must be checked and determines which command will be executed.
+		/// Initializes a new instance of the <see cref="ProcedureContract"/> class.
 		/// </summary>
-		/// <value>The condition that determines which command will be executed.</value>
-		ICondition Condition {
-			get;
+		protected ProcedureContract () {
 		}
-
+		#endregion
+		#region IProcedure implementation
 		/// <summary>
-		/// The command that must be executed if the condition succeeds.
+		/// Enumerate the parameters of the procedure.
 		/// </summary>
-		/// <value>An <see cref="ICommand"/> that is executed if the <see cref="Condition"/> holds.</value>
-		ICommand TrueCommand {
-			get;
+		/// <returns>The parameters of this <see cref="IProcedure"/>.</returns>
+		public IEnumerable<IParameter> GetParameters () {
+			Contract.Ensures (Contract.Result<IEnumerable<IParameter>> () != null);
+			Contract.Ensures (Contract.ForAll (Contract.Result<IEnumerable<IParameter>> (), x => x != null));
+			return default(IEnumerable<IParameter>);
 		}
-
-		/// <summary>
-		/// The command that must be executed if the condition fails.
-		/// </summary>
-		/// <value>An <see cref="ICommand"/> that is executed if the <see cref="Condition"/> fails.</value>
-		ICommand FalseCommand {
-			get;
-		}
+		#endregion
 	}
 }
 

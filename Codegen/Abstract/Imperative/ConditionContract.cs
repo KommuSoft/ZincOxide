@@ -1,5 +1,5 @@
 //
-//  ICommand.cs
+//  ConditionContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -24,10 +24,18 @@ using System.Diagnostics.Contracts;
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface specifying a command (or a structure of commands) that can be executed.
+	/// A contract class for the <see cref="ICondition"/>
 	/// </summary>
-	[ContractClass(typeof(CommandContract))]
-	public interface ICommand {
+	[ContractClassFor(typeof(ICondition))]
+	public abstract class ConditionContract : ExpressionContract, ICondition {
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ConditionContract"/> class.
+		/// </summary>
+		protected ConditionContract () {
+		}
+		#endregion
 	}
 }
+

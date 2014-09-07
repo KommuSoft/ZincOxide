@@ -309,6 +309,22 @@
     <Compile Include="Codegen\Abstract\OO\CSharp\Command.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Expression.cs" />
     <Compile Include="Codegen\Abstract\Imperative\ExpressionBase.cs" />
+    <Compile Include="Codegen\Abstract\CodegenResultAttribute.cs" />
+    <Compile Include="Codegen\Abstract\ProgrammingLanguageParadigm.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IVariable.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\VariableBase.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IParameter.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IProcedure.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ProcedureBase.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\CommandContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\CommandSequenceContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ConditionContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ExpressionContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IfThenElseCommandContract.cs" />
+    <Compile Include="Utils\Abstract\NameContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ParameterContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ProcedureContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\VariableContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

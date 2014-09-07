@@ -1,5 +1,5 @@
 //
-//  ICommand.cs
+//  IParameter.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,15 +19,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Codegen.Abstract.Imperative;
 using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface specifying a command (or a structure of commands) that can be executed.
+	/// An interface representing a parameter: a concept in a programming language that takes
+	/// the input of a procedure/function call.
 	/// </summary>
-	[ContractClass(typeof(CommandContract))]
-	public interface ICommand {
-
+	[ContractClass(typeof(ParameterContract))]
+	public interface IParameter : IVariable {
 	}
 }

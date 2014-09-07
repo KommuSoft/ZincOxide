@@ -1,10 +1,10 @@
 //
-//  IName.cs
+//  NameContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
 //
-//  Copyright (c) 2013 Willem Van Onsem
+//  Copyright (c) 2014 Willem Van Onsem
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -18,26 +18,37 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System;
 using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Utils.Abstract {
 
 	/// <summary>
-	/// An interface that describes that the instance has a <see cref="Name"/>.
+	/// A contract class of a <see cref="IName"/> instance.
 	/// </summary>
-	[ContractClass(typeof(NameContract))]
-	public interface IName {
-
+	[ContractClassFor(typeof(IName))]
+	public abstract class NameContract : IName {
+		#region IName implementation
 		/// <summary>
 		/// Gets the name of this instance.
 		/// </summary>
 		/// <value>
 		/// The name of this instance.
 		/// </value>
-		string Name {
-			get;
+		public string Name {
+			get {
+				return default(string);
+			}
 		}
-
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="NameContract"/> class.
+		/// </summary>
+		protected NameContract () {
+		}
+		#endregion
+		#region IName implementation
 		/// <summary>
 		/// Check if the given <see cref="IName"/> instance has the same <see cref="Name"/> as this instance.
 		/// </summary>
@@ -48,6 +59,10 @@ namespace ZincOxide.Utils.Abstract {
 		/// <param name='other'>
 		/// The <see cref="IName"/> instance to compare with.
 		/// </param>
-		bool EqualName (IName other);
+		public bool EqualName (IName other) {
+			return default(bool);
+		}
+		#endregion
 	}
 }
+

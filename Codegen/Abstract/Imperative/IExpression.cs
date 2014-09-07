@@ -19,6 +19,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
@@ -29,6 +30,7 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	/// <remarks>
 	/// <para>An expression is a (list of) commands that return a certain value.</para>
 	/// </remarks>
+	[ContractClass(typeof(ExpressionContract))]
 	public interface IExpression : ICommand {
 	}
 }

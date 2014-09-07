@@ -1,5 +1,5 @@
 //
-//  ICommand.cs
+//  IVariable.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,15 +19,17 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Utils.Abstract;
 using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface specifying a command (or a structure of commands) that can be executed.
+	/// An interface representing a variable in the imperative paradigm. A variable stores
+	/// data and is used to perform manipulation.
 	/// </summary>
-	[ContractClass(typeof(CommandContract))]
-	public interface ICommand {
-
+	[ContractClass(typeof(VariableContract))]
+	public interface IVariable : IName {
 	}
 }
+

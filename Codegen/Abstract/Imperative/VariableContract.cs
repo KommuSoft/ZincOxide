@@ -1,5 +1,5 @@
 //
-//  ICommand.cs
+//  VariableContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,14 +20,23 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Diagnostics.Contracts;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface specifying a command (or a structure of commands) that can be executed.
+	/// A contract class for <see cref="IVariable"/> instances.
 	/// </summary>
-	[ContractClass(typeof(CommandContract))]
-	public interface ICommand {
+	[ContractClassFor(typeof(IVariable))]
+	public abstract class VariableContract : NameContract, IVariable {
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="VariableContract"/> class.
+		/// </summary>
+		protected VariableContract () {
+		}
+		#endregion
 	}
 }
+

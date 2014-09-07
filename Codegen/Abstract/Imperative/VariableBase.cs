@@ -1,5 +1,5 @@
 //
-//  ICommand.cs
+//  VariableBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,15 +19,23 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.Diagnostics.Contracts;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface specifying a command (or a structure of commands) that can be executed.
+	/// A basic implementation of the <see cref="IVariable"/> interface.
 	/// </summary>
-	[ContractClass(typeof(CommandContract))]
-	public interface ICommand {
+	public class VariableBase : NameBase, IVariable {
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="VariableBase"/> class with a given variable name.
+		/// </summary>
+		/// <param name="name">The name of the variable.</param>
+		protected VariableBase (string name) : base(name) {
+		}
+		#endregion
 	}
 }
+

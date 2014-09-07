@@ -46,4 +46,3 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		IExpression CallCommand (IEnumerable<IExpression> parameters);
 	}
 }
-

@@ -19,15 +19,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Codegen.Abstract.Imperative;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
 	/// The representation of a <see cref="IExpression"/> in the C# programming language.
 	/// </summary>
-	public class Expression {
-		public Expression () {
+	public abstract class Expression  : ExpressionBase {
+
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Expression"/> class.
+		/// </summary>
+		protected Expression () {
 		}
+		#endregion
 	}
 }
 
