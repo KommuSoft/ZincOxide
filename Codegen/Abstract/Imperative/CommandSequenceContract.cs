@@ -35,6 +35,7 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 		/// Initializes a new instance of the <see cref="CommandSequenceContract"/> class.
 		/// </summary>
 		protected CommandSequenceContract () {
+			Contract.Ensures (Contract.ForAll (this, x => x != null));
 		}
 		#endregion
 		#region IEnumerable implementation

@@ -1,5 +1,5 @@
 //
-//  IProcedure.cs
+//  ProcedureContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,24 +19,36 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Diagnostics.Contracts;
 using ZincOxide.Utils.Abstract;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface representing a procedure: a set of instructions grouped
-	/// together in a named entity.
+	/// A contract class for <see cref="IProcedure"/> instances.
 	/// </summary>
-	[ContractClass(typeof(ProcedureContract))]
-	public interface IProcedure : IName {
+	[ContractClassFor(typeof(IProcedure))]
+	public abstract class ProcedureContract : NameContract, IProcedure {
 
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ProcedureContract"/> class.
+		/// </summary>
+		protected ProcedureContract () {
+		}
+		#endregion
+		#region IProcedure implementation
 		/// <summary>
 		/// Enumerate the parameters of the procedure.
 		/// </summary>
 		/// <returns>The parameters of this <see cref="IProcedure"/>.</returns>
-		IEnumerable<IParameter> GetParameters ();
+		public IEnumerable<IParameter> GetParameters () {
+			Contract.Ensures (Contract.Result<IEnumerable<IParameter>> () != null);
+			Contract.Ensures (Contract.ForAll (Contract.Result<IEnumerable<IParameter>> (), x => x != null));
+			return default(IEnumerable<IParameter>);
+		}
+		#endregion
 	}
 }
 

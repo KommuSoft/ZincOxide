@@ -322,6 +322,9 @@
     <Compile Include="Codegen\Abstract\Imperative\ExpressionContract.cs" />
     <Compile Include="Codegen\Abstract\Imperative\IfThenElseCommandContract.cs" />
     <Compile Include="Utils\Abstract\NameContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ParameterContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ProcedureContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\VariableContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

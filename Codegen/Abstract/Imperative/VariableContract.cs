@@ -1,5 +1,5 @@
 //
-//  IProcedure.cs
+//  VariableContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,24 +19,24 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
-using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// An interface representing a procedure: a set of instructions grouped
-	/// together in a named entity.
+	/// A contract class for <see cref="IVariable"/> instances.
 	/// </summary>
-	[ContractClass(typeof(ProcedureContract))]
-	public interface IProcedure : IName {
+	[ContractClassFor(typeof(IVariable))]
+	public abstract class VariableContract : NameContract, IVariable {
 
+		#region Constructors
 		/// <summary>
-		/// Enumerate the parameters of the procedure.
+		/// Initializes a new instance of the <see cref="VariableContract"/> class.
 		/// </summary>
-		/// <returns>The parameters of this <see cref="IProcedure"/>.</returns>
-		IEnumerable<IParameter> GetParameters ();
+		protected VariableContract () {
+		}
+		#endregion
 	}
 }
 

@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using ZincOxide.Codegen.Abstract.Imperative;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.Imperative {
 
@@ -27,6 +28,7 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	/// An interface representing a parameter: a concept in a programming language that takes
 	/// the input of a procedure/function call.
 	/// </summary>
+	[ContractClass(typeof(ParameterContract))]
 	public interface IParameter : IVariable {
 	}
 }
