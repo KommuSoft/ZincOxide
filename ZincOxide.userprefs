@@ -1,33 +1,47 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Concrete/IProblemRepresentationGenerator.cs">
-    <Files>
-      <File FileName="mono-utils/DataList.cs" Line="23" Column="34" />
-      <File FileName="Codegen/Concrete/OO/IOOProblemRepresentationGenerator.cs" Line="34" Column="104" />
-      <File FileName="Codegen/Concrete/OO/OOProblemRepresentationGenerator.cs" Line="43" Column="23" />
-      <File FileName="Codegen/Concrete/IProblemRepresentationGenerator.cs" Line="31" Column="34" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="ZincOxide" expanded="True">
             <Node name="Codegen" expanded="True">
-              <Node name="Concrete" expanded="True">
-                <Node name="OO" expanded="True" />
-                <Node name="IProblemRepresentationGenerator.cs" selected="True" />
+              <Node name="Abstract" expanded="True">
+                <Node name="Imperative" expanded="True" />
+                <Node name="OO" expanded="True" selected="True">
+                  <Node name="CSharp" expanded="True" />
+                  <Node name="Process" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="Utils" expanded="True">
+              <Node name="Abstract" expanded="True" />
+            </Node>
+          </Node>
+          <Node name="ZincSulphate" expanded="True">
+            <Node name="Codegen" expanded="True">
+              <Node name="Abstract" expanded="True">
+                <Node name="OO" expanded="True">
+                  <Node name="CSharp" expanded="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True" selected="True">
+          <Node name="ZincOxide" expanded="True" />
+        </State>
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State expanded="True" selected="True" />
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

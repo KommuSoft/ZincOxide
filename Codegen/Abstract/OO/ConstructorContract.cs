@@ -1,5 +1,5 @@
 //
-//  MethodBase.cs
+//  ConstructorContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,42 +19,45 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
+using System.Diagnostics.Contracts;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="IMethod"/> interface, used for programming convenience.
+	/// A contract class for <see cref="IConstructor"/> instances.
 	/// </summary>
-	public abstract class MethodBase : ProcedureMemberBase, IMethod {
+	[ContractClassFor(typeof(IConstructor))]
+	public abstract class ConstructorContract : ProcedureMemberContract, IConstructor {
 
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MethodBase"/> class.
+		/// Initializes a new instance of the <see cref="ConstructorContract"/> class.
 		/// </summary>
-		protected MethodBase () {
+		protected ConstructorContract () {
 		}
 		#endregion
-		#region IMethod implementation
+		#region IConstructor implementation
 		/// <summary>
-		/// Generate a class command that can be used as part of a procedure implementation.
+		/// Generate a command that creates a new instance of a type using this <see cref="IConstructor"/>.
 		/// </summary>
-		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
-		/// <param name="instance">The instance on which the command is applied.</param>
+		/// <returns>A <see cref="IExpression"/> that represents a call to this <see cref="IConstructor"/> with the given <paramref name="parameters"/>.</returns>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public virtual ICommand CallCommand (IExpression instance, params IExpression[] parameters) {
-			return CallCommand (instance, (IEnumerable<IExpression>)parameters);
+		public IExpression CallCommand (params IExpression[] parameters) {
+			Contract.Ensures (Contract.Result<IExpression> () != null);
+			return default(IExpression);
 		}
 
 		/// <summary>
-		/// Generate a class command that can be used as part of a procedure implementation.
+		/// Generate a command that creates a new instance of a type using this <see cref="IConstructor"/>.
 		/// </summary>
-		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
-		/// <param name="instance">The instance on which the command is applied.</param>
+		/// <returns>A <see cref="IExpression"/> that represents a call to this <see cref="IConstructor"/> with the given <paramref name="parameters"/>.</returns>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public abstract ICommand CallCommand (IExpression instance, IEnumerable<IExpression> parameters);
+		public IExpression CallCommand (IEnumerable<IExpression> parameters) {
+			Contract.Ensures (Contract.Result<IExpression> () != null);
+			return default(IExpression);
+		}
 		#endregion
 	}
 }

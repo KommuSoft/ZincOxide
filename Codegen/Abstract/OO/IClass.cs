@@ -32,6 +32,32 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	public interface IClass : IType {
 
 		/// <summary>
+		/// Obtain the constructor with the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IConstructor"/> instance representing the queried constructor, <c>null</c> if such constructor
+		/// does not exists.</returns>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested constructors.</param>
+		/// <remarks>
+		/// <para>In case such constructor does not exists, an attempt is made to find
+		/// a constructor where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		IConstructor GetConstructor (params IType[] parameters);
+
+		/// <summary>
+		/// Obtain the constructor with the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IConstructor"/> instance representing the queried constructor, <c>null</c> if such constructor
+		/// does not exists.</returns>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested constructors.</param>
+		/// <remarks>
+		/// <para>In case such constructor does not exists, an attempt is made to find
+		/// a constructor where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		IConstructor GetConstructor (IEnumerable<IType> parameters);
+
+		/// <summary>
 		/// Generate a field contained in this class.
 		/// </summary>
 		/// <param name='type'>The type of the field.</param>
@@ -53,11 +79,11 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <param name="returnType">A <see cref="IType"/> that specifies the return type of the method, <c>null</c> if the return type is <c>void</c> (or irrelevant).</param>
 		/// <param name="name">The name of the method to be generated.</param>
 		/// <param name="modifiers">The modifiers that specify how the method should be generated.</param>
-		/// <param name="fields">A list of parameters that should be defined by the method.</param>
+		/// <param name="parameters">A list of parameters that should be defined by the method.</param>
 		/// <remarks>
 		/// <para>The default implementation of the method is to return the default value for the <paramref name="returnType"/>.</para>
 		/// </remarks>
-		IMethod GenerateMethod (IType returnType, string name, OOModifiers modifiers = OOModifiers.Public, params IType[] fields);
+		IMethod GenerateMethod (IType returnType, string name, OOModifiers modifiers = OOModifiers.Public, params IType[] parameters);
 
 		/// <summary>
 		/// Generate a method contained in this class that returns nothing, or where the return data is irrelevant.
@@ -65,12 +91,12 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
 		/// <param name="name">The name of the method to be generated.</param>
 		/// <param name="modifiers">The modifiers that specify how the method should be generated.</param>
-		/// <param name="fields">A list of parameters that should be defined by the method.</param>
+		/// <param name="parameters">A list of parameters that should be defined by the method.</param>
 		/// <remarks>
 		/// <para>The default implementation of the method is to return the default value for the return type.
 		/// In this case this means prbably not to do anything at all.</para>
 		/// </remarks>
-		IMethod GenerateMethod (string name, OOModifiers modifiers = OOModifiers.Public, params IType[] fields);
+		IMethod GenerateMethod (string name, OOModifiers modifiers = OOModifiers.Public, params IType[] parameters);
 
 		/// <summary>
 		/// Add a public constructor to the class that instantiates the given fields.

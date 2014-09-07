@@ -1,5 +1,5 @@
 //
-//  TypeReference.cs
+//  ITypeContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,54 +19,36 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.CodeDom;
-using System.Linq;
+using System.Diagnostics.Contracts;
 using ZincOxide.Utils.Abstract;
 using System.Collections.Generic;
-using System.Reflection;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// An already defined type in C# (example <see cref="int"/>, <see cref="DateTime"/> and <see cref="string"/>).
+	/// A contract class for a <see cref="IType"/>, an interface describing a type in the object-oriented programming
+	/// paradigm.
 	/// </summary>
-	public class TypeReference : TypeBase, ICSharpType {
+	[ContractClassFor(typeof(IType))]
+	public class TypeContract : NameShadow, IType {
 
-		#region Fields
-		private readonly Type type;
-		private readonly CodeTypeReference data;
-		#endregion
-		#region implemented abstract members of NameShadow
+		#region IName implementation
 		/// <summary>
-		/// Gets the name of this C# class.
+		/// Get the name of the type.
 		/// </summary>
-		/// <value>The name of this C# class.</value>
+		/// <value>The name of the type.</value>
 		public override string Name {
 			get {
-				return this.data.GetType ().Name;
+				Contract.Ensures (Contract.Result<string> () != null);
+				return default(string);
 			}
 		}
 		#endregion
-		#region implemented abstract members of Type
+		#region Constructors
 		/// <summary>
-		/// Get a reference to this type, used for implementation and the creation of code members.
+		/// Initializes a new instance of the <see cref="TypeContract"/> class.
 		/// </summary>
-		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
-		public CodeTypeReference Reference {
-			get {
-				return this.data;
-			}
-		}
-		#endregion
-		#region Constructor
-		/// <summary>
-		/// Initializes a new instance of the <see cref="TypeReference"/> class with a given <see cref="System.Type"/>
-		/// to which this reference should refer to.
-		/// </summary>
-		/// <param name="type">The type to which this type reference should refer.</param>
-		internal TypeReference (System.Type type) {
-			this.type = type;
-			this.data = new CodeTypeReference (type);
+		protected TypeContract () {
 		}
 		#endregion
 		#region IType implementation
@@ -81,16 +63,27 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <para>In case such method does not exists, an attempt is made to find
 		/// a method where the parameters are generalized. If this attempt fails
 		/// as well, <c>null</c> is returned.</para>
-		/// <para>Only effective types of the <see cref="ICSharpType"/> type are accepted.</para>
 		/// </remarks>
-		public override IMethod GetMethod (string name, IEnumerable<IType> parameters) {
-			MethodInfo mi = type.GetMethod (name, parameters.Effectives ().OfType<TypeReference> ().Select (x => x.type).ToArray ());
-			if (mi != null) {
-				return new MethodReference (mi);
-			} else {
-				return null;
-			}
+		public IMethod GetMethod (string name, params IType[] parameters) {
+			return default(IMethod);
+		}
+
+		/// <summary>
+		/// Obtain the method with the given <paramref name="name"/> and the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IMethod"/> instance representing the queried method, <c>null</c> if such method
+		/// does not exists.</returns>
+		/// <param name="name">The name of the requested method.</param>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested method.</param>
+		/// <remarks>
+		/// <para>In case such method does not exists, an attempt is made to find
+		/// a method where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		public IMethod GetMethod (string name, IEnumerable<IType> parameters) {
+			return default(IMethod);
 		}
 		#endregion
 	}
 }
+

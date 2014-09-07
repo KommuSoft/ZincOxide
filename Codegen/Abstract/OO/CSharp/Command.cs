@@ -1,5 +1,5 @@
 //
-//  CSharpUtils.cs
+//  Command.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,35 +19,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.CodeDom;
+using ZincOxide.Codegen.Abstract.Imperative;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// A utility class used to write C# code more effectively.
+	/// The representation of an <see cref="ICommand"/> in the C# programming language.
 	/// </summary>
-	public static class CSharpUtils {
+	public class Command : CommandBase {
 
+		#region Constructors
 		/// <summary>
-		/// Converts the given <paramref name="modifiers"/> to a <see cref="MemberAttributes"/> value
-		/// with approximately the same semantical value.
+		/// Initializes a new instance of the <see cref="Command"/> class.
 		/// </summary>
-		/// <returns>A <see cref="MemberAttributes"/> value that corresponds to the given <paramref name="modifiers"/>.</returns>
-		/// <param name="modifiers">The given modifiers to convert.</param>
-		public static MemberAttributes ToMemberAttributes (OOModifiers modifiers) {//TODO
-			MemberAttributes ma = 0x00;
-			if ((modifiers & OOModifiers.Public) != 0x00) {
-				ma |= MemberAttributes.Public;
-			}
-			if ((modifiers & OOModifiers.Override) != 0x00) {
-				ma |= MemberAttributes.Override;
-			}
-			return ma;
+		public Command () {
 		}
-
-		public static void ImplementProblemToStringMethod (IMethod im) {
-
-		}
+		#endregion
 	}
 }
 

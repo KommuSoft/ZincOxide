@@ -1,5 +1,5 @@
 //
-//  MethodBase.cs
+//  MethodContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,23 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
+using System.Diagnostics.Contracts;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="IMethod"/> interface, used for programming convenience.
+	/// A contract class that specifies the behavior of <see cref="IMethod"/> instances.
 	/// </summary>
-	public abstract class MethodBase : ProcedureMemberBase, IMethod {
+	[ContractClassFor(typeof(IMethod))]
+	public abstract class MethodContract : ProcedureMemberContract, IMethod {
 
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MethodBase"/> class.
+		/// Initializes a new instance of the <see cref="MethodContract"/> class.
 		/// </summary>
-		protected MethodBase () {
+		protected MethodContract () {
 		}
 		#endregion
 		#region IMethod implementation
@@ -44,8 +45,9 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
 		/// <param name="instance">The instance on which the command is applied.</param>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public virtual ICommand CallCommand (IExpression instance, params IExpression[] parameters) {
-			return CallCommand (instance, (IEnumerable<IExpression>)parameters);
+		public ICommand CallCommand (IExpression instance, params IExpression[] parameters) {
+			Contract.Ensures (Contract.Result<ICommand> () != null);
+			return default(ICommand);
 		}
 
 		/// <summary>
@@ -54,7 +56,10 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
 		/// <param name="instance">The instance on which the command is applied.</param>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public abstract ICommand CallCommand (IExpression instance, IEnumerable<IExpression> parameters);
+		public ICommand CallCommand (IExpression instance, IEnumerable<IExpression> parameters) {
+			Contract.Ensures (Contract.Result<ICommand> () != null);
+			return default(ICommand);
+		}
 		#endregion
 	}
 }

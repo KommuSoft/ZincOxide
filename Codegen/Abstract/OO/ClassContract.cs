@@ -20,7 +20,6 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
-using ZincOxide.Utils.Abstract;
 using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO {
@@ -29,21 +28,8 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// A contract class that specifies the contracts attached to a <see cref="IClass"/> implementation.
 	/// </summary>
 	[ContractClassFor(typeof(IClass))]
-	public abstract class ClassContract : NameShadow, IClass {
+	public abstract class ClassContract : TypeContract, IClass {
 
-		
-		#region IName implementation
-		/// <summary>
-		/// Get the name of the class.
-		/// </summary>
-		/// <value>The name of the class.</value>
-		public override string Name {
-			get {
-				Contract.Ensures (Contract.Result<string> () != null);
-				return default(string);
-			}
-		}
-		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ClassContract"/> class.
@@ -52,6 +38,36 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		}
 		#endregion
 		#region IClass implementation
+		/// <summary>
+		/// Obtain the constructor with the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IConstructor"/> instance representing the queried constructor, <c>null</c> if such constructor
+		/// does not exists.</returns>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested constructors.</param>
+		/// <remarks>
+		/// <para>In case such constructor does not exists, an attempt is made to find
+		/// a constructor where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		public IConstructor GetConstructor (params IType[] parameters) {
+			return default(IConstructor);
+		}
+
+		/// <summary>
+		/// Obtain the constructor with the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IConstructor"/> instance representing the queried constructor, <c>null</c> if such constructor
+		/// does not exists.</returns>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested constructors.</param>
+		/// <remarks>
+		/// <para>In case such constructor does not exists, an attempt is made to find
+		/// a constructor where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		public IConstructor GetConstructor (IEnumerable<IType> parameters) {
+			return default(IConstructor);
+		}
+
 		/// <summary>
 		/// Generate a field contained in this class.
 		/// </summary>

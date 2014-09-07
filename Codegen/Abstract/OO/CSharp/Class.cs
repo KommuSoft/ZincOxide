@@ -24,15 +24,13 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using ZincOxide.Codegen.Abstract.OO.CSharp;
 using ZincOxide.Exceptions;
-using ZincOxide.Utils.Abstract;
-using System;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
 	/// The representation of an <see cref="IClass"/> in C#.
 	/// </summary>
-	public class Class : Type, IClass {
+	public class Class : ClassBase, ICSharpType {
 
 		#region Fields
 		private readonly CodeTypeDeclaration data;
@@ -59,7 +57,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// Get a reference to this type, used for implementation and the creation of code members.
 		/// </summary>
 		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
-		public override CodeTypeReference Reference {
+		public CodeTypeReference Reference {
 			get {
 				return null;
 			}
@@ -78,26 +76,27 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		#endregion
 		#region IClass implementation
 		/// <summary>
+		/// Obtain the constructor with the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IConstructor"/> instance representing the queried constructor, <c>null</c> if such constructor
+		/// does not exists.</returns>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested constructors.</param>
+		/// <remarks>
+		/// <para>In case such constructor does not exists, an attempt is made to find
+		/// a constructor where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		public override IConstructor GetConstructor (IEnumerable<IType> parameters) {
+			return null;//TODO
+		}
+
+		/// <summary>
 		/// Generate an (override) method that describes how to format the output 
 		/// </summary>
 		/// <returns>The formatting method.</returns>
 		/// <param name="modifiers">The modifiers that specify how the method should be generated.</param>
-		public IMethod GenerateFormattingMethod (OOModifiers modifiers = OOModifiers.Override) {
+		public override IMethod GenerateFormattingMethod (OOModifiers modifiers = OOModifiers.Override) {
 			return this.GenerateMethod (new TypeReference (typeof(string)), FormattingMethodName, modifiers | OOModifiers.Public);//TODO: additional modifier manipulation?
-		}
-
-		/// <summary>
-		/// Add a public constructor to the class that instantiates the given fields.
-		/// </summary>
-		/// <param name="modifiers">A modifier value that specifies how the constructor should be implemented.</param>
-		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
-		/// <remarks>
-		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
-		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
-		/// <para>The constructor simply sets the fields to the given value, no consistency checks are performed.</para>
-		/// </remarks>
-		public void AddConstructor (OOModifiers modifiers = OOModifiers.Public, params IField[] fields) {
-			this.AddConstructor ((IEnumerable<IField>)fields, modifiers);
 		}
 
 		/// <summary>
@@ -106,8 +105,8 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <param name='type'>The type of the field.</param>">
 		/// <param name='name'>The name of the field to be added.</param>
 		/// <returns>A <see cref="IField"/> instance describing the generated field.</returns>
-		public IField GenerateField (IType type, string name) {
-			Type ty = type as Type;
+		public override IField GenerateField (IType type, string name) {
+			ICSharpType ty = type as ICSharpType;
 			if (ty == null) {
 				throw new ZincOxideBugException ("The type should be from the same programming language specification.");
 			}
@@ -128,8 +127,8 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <remarks>
 		/// <para>The default implementation of the method is to return the default value for the <paramref name="returnType"/>.</para>
 		/// </remarks>
-		public IMethod GenerateMethod (IType returnType, string name, OOModifiers modifiers = OOModifiers.Public, params IType[] fields) {
-			Type tt = returnType as Type;
+		public override IMethod GenerateMethod (IType returnType, string name, OOModifiers modifiers = OOModifiers.Public, params IType[] fields) {
+			ICSharpType tt = returnType as ICSharpType;
 			CodeMemberMethod cmm = new CodeMemberMethod ();
 			cmm.Name = name;
 			cmm.Attributes = CSharpUtils.ToMemberAttributes (modifiers);
@@ -146,21 +145,6 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		}
 
 		/// <summary>
-		/// Generate a method contained in this class that returns nothing, or where the return data is irrelevant.
-		/// </summary>
-		/// <returns>A <see cref="IMethod"/> that represents the generated method and can be altered.</returns>
-		/// <param name="name">The name of the method to be generated.</param>
-		/// <param name="modifiers">The modifiers that specify how the method should be generated.</param>
-		/// <param name="fields">A list of parameters that should be defined by the method.</param>
-		/// <remarks>
-		/// <para>The default implementation of the method is to return the default value for the return type.
-		/// In this case this means prbably not to do anything at all.</para>
-		/// </remarks>
-		public IMethod GenerateMethod (string name, OOModifiers modifiers = OOModifiers.Public, params IType[] fields) {
-			return GenerateMethod (null, name, modifiers, fields);
-		}
-
-		/// <summary>
 		/// Add a public constructor to the class that instantiates the given fields.
 		/// </summary>
 		/// <param name="fields">A list of fields that are all instantiated by the constructor.</param>
@@ -169,7 +153,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <para>The order of the constructor parameters is the same as the order of the given list.</para>
 		/// <para>Fields not belonging to the class, not effective of from the wrong type are ignored.</para>
 		/// </remarks>
-		public void AddConstructor (IEnumerable<IField> fields, OOModifiers modifiers = OOModifiers.Public) {
+		public override void AddConstructor (IEnumerable<IField> fields, OOModifiers modifiers = OOModifiers.Public) {
 			this.addConstructor (fields.Where (x => x != null).OfType<Field> ().Select (x => x.Data), modifiers);
 		}
 
@@ -183,8 +167,24 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <para>This method is not declarative: adding fields to the class after calling this method
 		/// will not modify the constructor.</para>
 		/// </remarks>
-		public void AddFieldConstructor (OOModifiers modifiers = OOModifiers.Public) {
+		public override void AddFieldConstructor (OOModifiers modifiers = OOModifiers.Public) {
 			this.addConstructor (this.data.Members.OfType<CodeMemberField> (), modifiers);
+		}
+
+		/// <summary>
+		/// Obtain the method with the given <paramref name="name"/> and the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IMethod"/> instance representing the queried method, <c>null</c> if such method
+		/// does not exists.</returns>
+		/// <param name="name">The name of the requested method.</param>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested method.</param>
+		/// <remarks>
+		/// <para>In case such method does not exists, an attempt is made to find
+		/// a method where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		public override IMethod GetMethod (string name, IEnumerable<IType> parameters) {
+			return null;//TODO
 		}
 		#endregion
 		#region private methods (for convenience)

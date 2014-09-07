@@ -277,7 +277,6 @@
     <Compile Include="Codegen\Abstract\OO\OOModifiers.cs" />
     <Compile Include="Codegen\Abstract\OO\IType.cs" />
     <Compile Include="Codegen\Abstract\OO\TypeBase.cs" />
-    <Compile Include="Codegen\Abstract\OO\CSharp\Type.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\TypeReference.cs" />
     <Compile Include="Codegen\Abstract\OO\IMethod.cs" />
     <Compile Include="Codegen\Abstract\OO\FieldBase.cs" />
@@ -289,6 +288,27 @@
     <Compile Include="Codegen\Concrete\OO\IOOProblemRepresentationGenerator.cs" />
     <Compile Include="Codegen\Concrete\OO\OOProblemRepresentationGenerator.cs" />
     <Compile Include="Codegen\Concrete\IProblemRepresentationGenerator.cs" />
+    <Compile Include="Codegen\Abstract\OO\IProcedureMember.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\ICSharpType.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ICommandSequence.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IIfThenElseCommand.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ICondition.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\CommandBase.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\CommandSequenceBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\TypeContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\MethodReference.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IExpression.cs" />
+    <Compile Include="Codegen\Abstract\OO\ProcedureMemberContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\ProcedureMemberBaseBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\IConstructor.cs" />
+    <Compile Include="Codegen\Abstract\OO\ConstructorBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\MethodContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\ConstructorContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Constructor.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\ConstructorReference.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Command.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\Expression.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ExpressionBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

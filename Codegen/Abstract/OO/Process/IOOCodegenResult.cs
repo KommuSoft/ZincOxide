@@ -72,5 +72,23 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// <returns>A <see cref="IType"/> that corresponds to the given float representation type.</returns>
 		/// <param name="pfr">The given float representation type.</param>
 		IType GetFloatType (ProgramFloatRepresentation pfr);
+
+		/// <summary>
+		/// Get the type that corresponds with a string.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds with the programming language's string type.</returns>
+		IType GetStringType ();
+
+		/// <summary>
+		/// Get the type that corresponds with a string builder.
+		/// </summary>
+		/// <returns>A <see cref="IType"/> that corresponds with the programming language's string builder type.</returns>
+		/// <remarks>
+		/// <para>A string builder is a class that enables fast string generation where appending
+		/// takes at most linear time in the length of the string to append and not in the length
+		/// of the resulting string.</para>
+		/// <para>A string builder should support a <c>void Append(String)</c> method.</para>
+		/// </remarks>
+		IType GetStringBuilderType ();
 	}
 }

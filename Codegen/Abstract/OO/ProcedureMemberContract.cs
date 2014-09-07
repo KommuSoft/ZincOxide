@@ -1,5 +1,5 @@
 //
-//  Method.cs
+//  ProcedureMemberContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,42 +19,39 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.CodeDom;
+using System.Diagnostics.Contracts;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// The representation of a <see cref="IMethod"/> in C#.
+	/// A contract class describing the contracts that should be respected when dealing with <see cref="IProcedureMember"/> instances.
 	/// </summary>
-	public class Method : MethodBase {
+	[ContractClassFor(typeof(IProcedureMember))]
+	public abstract class ProcedureMemberContract : NameShadow, IProcedureMember {
 
-		#region Fields
-		internal readonly CodeMemberMethod Data;
-		#endregion
-		#region implemented abstract members of NameShadow
+		#region IName implementation
 		/// <summary>
-		/// Gets the name of this instance.
+		/// Get the name of the type.
 		/// </summary>
-		/// <value>The name of this instance.</value>
+		/// <value>The name of the type.</value>
 		public override string Name {
 			get {
-				return Data.Name;
+				Contract.Ensures (Contract.Result<string> () != null);
+				return default(string);
 			}
 		}
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Method"/> class with the given data specifying the
-		/// method.
+		/// Initializes a new instance of the <see cref="ProcedureMemberContract"/> class.
 		/// </summary>
-		/// <param name="data">The given <see cref="CodeMemberMethod"/> that specifies the method.</param>
-		internal Method (CodeMemberMethod data) {
-			this.Data = data;
+		protected ProcedureMemberContract () {
 		}
 		#endregion
-		#region implemented abstract members of MethodBase
+		#region IProcedureMember implementation
 		/// <summary>
 		/// Reimplement the procedure member with the given <paramref name="commands"/>.
 		/// </summary>
@@ -64,19 +61,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <para>if the given <paramref name="commands"/> is not effective, no modifications
 		/// is done to the method.</para>
 		/// </remarks>
-		public override void Reimplement (ICommand commands) {
-			throw new NotImplementedException ();//TODO
-		}
-
-		/// <summary>
-		/// Generate a class command that can be used as part of a procedure implementation.
-		/// </summary>
-		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
-		/// <param name="instance">The instance on which the command is applied.</param>
-		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public override ICommand CallCommand (IExpression instance, IEnumerable<IExpression> parameters) {
-			throw new NotImplementedException ();
-		}
+		public abstract void Reimplement (ICommand commands);
 		#endregion
 	}
 }
