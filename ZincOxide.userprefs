@@ -4,15 +4,13 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="ZincOxide" expanded="True">
+          <Node name="ZincOxide" expanded="True" selected="True">
             <Node name="Codegen" expanded="True">
               <Node name="Abstract" expanded="True">
                 <Node name="Imperative" expanded="True" />
                 <Node name="OO" expanded="True">
                   <Node name="CSharp" expanded="True" />
-                  <Node name="Process" expanded="True">
-                    <Node name="OOCodegenResultContract.cs" selected="True" />
-                  </Node>
+                  <Node name="Process" expanded="True" />
                 </Node>
               </Node>
             </Node>

@@ -24,7 +24,7 @@
     <CustomCommands>
       <CustomCommands>
         <Command type="BeforeBuild" command="bash cc.sh" workingdir="Parser/specs/" />
-        <Command type="AfterBuild" command="cccheck --assembly=${TargetFile}" workingdir="${TargetDir}" />
+        <Command type="AfterBuild" command="cccheck --assembly=${TargetFile} 2&gt; contracts" workingdir="${TargetDir}" />
       </CustomCommands>
     </CustomCommands>
     <GenerateDocumentation>true</GenerateDocumentation>

@@ -24,6 +24,7 @@ using ZincOxide.Codegen.Abstract.OO.CSharp;
 using ZincOxide.Codegen.Abstract;
 using ZincOxide.Codegen.Abstract.OO;
 using System.Text;
+using ZincOxide.Codegen.Abstract.Imperative;
 
 namespace ZincSulphate.Codegen.Abstract.OO.CSharp {
 
@@ -39,8 +40,12 @@ namespace ZincSulphate.Codegen.Abstract.OO.CSharp {
 			Assert.IsNotNull (st);
 			IConstructor ic = cscr.GetStringBuilderType ().GetConstructor ();
 			Assert.IsNotNull (ic);
+			IExpression ice = cscr.GetStringBuilderType ().GetConstructor ().CallCommand ();
+			Assert.IsNotNull (ice);
 			IMethod im = cscr.GetStringBuilderType ().GetMethod ("Append", st);
 			Assert.IsNotNull (im);
+			ICommand imc = cscr.GetStringBuilderType ().GetMethod ("Append", st).CallCommand (null);
+			Assert.IsNotNull (imc);
 		}
 	}
 }
