@@ -329,7 +329,9 @@
     <Compile Include="Codegen\Abstract\Imperative\ReturnCommandContract.cs" />
     <Compile Include="Codegen\Abstract\Imperative\ReturnCommandBase.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\ConstructorExpression.cs" />
-    <Compile Include="Codegen\Abstract\OO\CSharp\ICSharpCommandAtom.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpTypeContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpCommandContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\ICSharpCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

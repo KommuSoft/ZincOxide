@@ -1,5 +1,5 @@
 //
-//  ICSharpCommandAtom.cs
+//  CSharpTypeContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,22 +19,37 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Diagnostics.Contracts;
 using System.CodeDom;
-using System.Collections.Generic;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// An interface specifying an atomic command in C#.
+	/// A contract class for <see cref="ICSharpType"/> instances.
 	/// </summary>
-	public interface ICSharpCommandAtom {
-
+	[ContractClassFor(typeof(ICSharpType))]
+	public abstract class CSharpTypeContract : TypeContract, ICSharpType {
+		#region ICSharpType implementation
 		/// <summary>
-		/// Enumerate one or more <see cref="CodeObject"/> instances that mimic the behavior of
-		/// this <see cref="ICSharpCommandAtom"/>.
+		/// Get a reference to this type, used for implementation and the creation of code members.
 		/// </summary>
-		/// <returns>The code.</returns>
-		IEnumerable<CodeObject> EnumerateCode ();
+		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
+		/// <remarks>
+		/// <para>The reference is guaranteed to be effective.</para>
+		/// </remarks>
+		public CodeTypeReference Reference {
+			get {
+				Contract.Ensures (Contract.Result<CodeTypeReference> () != null);
+				return default(CodeTypeReference);
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="CSharpTypeContract"/> class.
+		/// </summary>
+		protected CSharpTypeContract () {
+		}
+		#endregion
 	}
 }
-

@@ -1,5 +1,5 @@
 //
-//  Type.cs
+//  ICSharpCommandAtom.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,27 +20,27 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.CodeDom;
-using ZincOxide.Codegen.Abstract.OO.CSharp;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// The representation of a <see cref="IType"/> in C#.
+	/// An interface specifying an atomic command in C#.
 	/// </summary>
-	[ContractClass(typeof(CSharpTypeContract))]
-	public interface ICSharpType : IType {
+	[ContractClass(typeof(CSharpCommandContract))]
+	public interface ICSharpCommand {
 
 		/// <summary>
-		/// Get a reference to this type, used for implementation and the creation of code members.
+		/// Enumerate one or more <see cref="CodeObject"/> instances that mimic the behavior of
+		/// this <see cref="ICSharpCommand"/>.
 		/// </summary>
-		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
+		/// <returns>A <see cref="T:IEnumerable`1"/> of <see cref="CodeObject"/> instance mimicking
+		/// this <see cref="ICSharpCommand"/>.</returns>
 		/// <remarks>
-		/// <para>The reference is guaranteed to be effective.</para>
+		/// <para>The result is guaranteed to be effective as are all the <see cref="CodeObject"/> instances.</para>
 		/// </remarks>
-		CodeTypeReference Reference {
-			get;
-		}
+		IEnumerable<CodeObject> EnumerateCode ();
 	}
 }
 
