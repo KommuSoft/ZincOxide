@@ -332,6 +332,9 @@
     <Compile Include="Codegen\Abstract\Typed\IType.cs" />
     <Compile Include="Codegen\Abstract\Typed\TypeBase.cs" />
     <Compile Include="Codegen\Abstract\Typed\TypeContract.cs" />
+    <Compile Include="Codegen\Abstract\Typed\ITypedVariable.cs" />
+    <Compile Include="Codegen\Abstract\Typed\ITyped.cs" />
+    <Compile Include="Codegen\Abstract\Typed\TypedContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
