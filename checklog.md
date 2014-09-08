@@ -22,8 +22,8 @@ The following table shows the logbook of code cleaning for the ZincOxide project
 |:---|---|---|---|---|---|---|
 | `Codegen` | | | | 20140908 | |
 | `Codegen.Abstract` | | | | 20140908 | |
-| `Codegen.Abstract.Imperative` | 20140907 | 20140907 | 20140908 | 20140907 | |
-| `Codegen.Abstract.OO` | | | | 20140908 | |
+| `Codegen.Abstract.Imperative` | 20140907 | 20140907 | 20140908 | 20140908 | |
+| `Codegen.Abstract.OO` | | | 20140908 | 20140908 | |
 | `Codegen.Abstract.OO.CSharp` | | | | 20140908 |
 | `Codegen.Abstract.OO.Process` | | | | 20140908 | |
 | `Codegen.Abstract.Results` | | | | 20140908 | |

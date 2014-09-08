@@ -337,6 +337,8 @@
     <Compile Include="Codegen\Abstract\Result\ICodegenResult.cs" />
     <Compile Include="Codegen\Abstract\Result\ProgrammingLanguageParadigm.cs" />
     <Compile Include="Codegen\Abstract\Result\CodegeneratorContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\FieldContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\NamespaceContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

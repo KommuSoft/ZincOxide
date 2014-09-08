@@ -21,12 +21,15 @@
 using System;
 using ZincOxide.Utils.Abstract;
 using ZincOxide.Codegen.Abstract.Imperative;
+using System.Diagnostics.Contracts;
+using ZincOxide.Codegen.Abstract.OO.Process;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
 	/// An interface describing a language-invariant field: a place in a class where information is stored.
 	/// </summary>
+	[ContractClass(typeof(FieldContract))]
 	public interface IField : IName, IVariable {
 	}
 }
