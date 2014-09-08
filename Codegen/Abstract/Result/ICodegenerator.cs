@@ -1,5 +1,5 @@
 //
-//  CodegeneratorBase.cs
+//  ICodegenerator.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,32 +19,24 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Exceptions;
+using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract {
+namespace ZincOxide.Codegen.Abstract.Result {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="ICodegenerator"/> interface, used for programming convenience.
+	/// An interface describing a instance that generate or alter code.
 	/// </summary>
-	public abstract class CodegeneratorBase : ICodegenerator {
+	[ContractClass(typeof(CodegeneratorContract))]
+	public interface ICodegenerator {
 
-		#region Constructor
-		/// <summary>
-		/// Initializes a new instance of the <see cref="CodegeneratorBase"/> class, an abstract
-		/// code generator used.
-		/// </summary>
-		protected CodegeneratorBase () {
-		}
-		#endregion
-		#region ICodegenerator implementation
 		/// <summary>
 		/// Alter the given <paramref name="result"/> by generating or modifying code.
 		/// </summary>
 		/// <param name="result">The <see cref="ICodegenResult"/> instance that stores the genrated code.</param>
-		/// <exception cref="ZincOxideBugException">If the given <see cref="ICodegenResult"/> uses the wrong
-		/// programming paradigm.</exception>
-		public abstract void GenerateCode (ICodegenResult result);
-		#endregion
+		/// <remarks>
+		/// <para>One can assume the <paramref name="result"/> is always effective.</para>
+		/// </remarks>
+		void GenerateCode (ICodegenResult result);
 	}
 }
 

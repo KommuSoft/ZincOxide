@@ -23,7 +23,7 @@ using System.Diagnostics.Contracts;
 using ZincOxide.Utils.Abstract;
 using ZincOxide.Environment;
 
-namespace ZincOxide.Codegen.Abstract {
+namespace ZincOxide.Codegen.Abstract.Result {
 
 	/// <summary>
 	/// A basic implementation of the <see cref="ICodegenEnvironment"/> interface. A class

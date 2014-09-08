@@ -21,6 +21,7 @@
 using System;
 using ZincOxide.Environment;
 using ZincOxide.Codegen.Abstract.Typed;
+using ZincOxide.Codegen.Abstract.Result;
 
 namespace ZincOxide.Codegen.Abstract.OO.Process {
 

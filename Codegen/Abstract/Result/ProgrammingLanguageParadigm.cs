@@ -20,7 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Codegen.Abstract {
+namespace ZincOxide.Codegen.Abstract.Result {
 
 	/// <summary>
 	/// An enumeration listing the several programming language paradigms that can be used

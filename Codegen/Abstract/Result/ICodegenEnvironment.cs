@@ -23,7 +23,7 @@ using System.Diagnostics.Contracts;
 using Resistance.Opts;
 using ZincOxide.Environment;
 
-namespace ZincOxide.Codegen.Abstract {
+namespace ZincOxide.Codegen.Abstract.Result {
 
 	/// <summary>
 	/// An interface describing the environment in which code should be generated (like namespaces, class names, etc.).

@@ -1,5 +1,5 @@
 //
-//  OOCodegeneratorBase.cs
+//  CodegeneratorBase.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,30 +20,21 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using ZincOxide.Exceptions;
-using ZincOxide.Codegen.Abstract.Result;
 
-namespace ZincOxide.Codegen.Abstract.OO.Process {
+namespace ZincOxide.Codegen.Abstract.Result {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="IOOCodegenerator"/>, used for
-	/// programming convenience in the object-oriented programming paradigm.
+	/// A basic implementation of the <see cref="ICodegenerator"/> interface, used for programming convenience.
 	/// </summary>
-	public abstract class OOCodegeneratorBase : CodegeneratorBase, IOOCodegenerator {
+	public abstract class CodegeneratorBase : ICodegenerator {
 
-		#region Constructors
+		#region Constructor
 		/// <summary>
-		/// Initializes a new instance of the <see cref="OOCodegeneratorBase"/> class.
+		/// Initializes a new instance of the <see cref="CodegeneratorBase"/> class, an abstract
+		/// code generator used.
 		/// </summary>
-		protected OOCodegeneratorBase () {
+		protected CodegeneratorBase () {
 		}
-		#endregion
-		#region IOOCodegenerator implementation
-		/// <summary>
-		/// Generate code in the object-oriented programming paradigm using the given <see cref="IOOCodegenResult"/>
-		/// and alter it.
-		/// </summary>
-		/// <param name="result">The instance that must be modified.</param>
-		public abstract void GenerateCode (IOOCodegenResult result);
 		#endregion
 		#region ICodegenerator implementation
 		/// <summary>
@@ -52,14 +43,7 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// <param name="result">The <see cref="ICodegenResult"/> instance that stores the genrated code.</param>
 		/// <exception cref="ZincOxideBugException">If the given <see cref="ICodegenResult"/> uses the wrong
 		/// programming paradigm.</exception>
-		public override void GenerateCode (ICodegenResult result) {
-			IOOCodegenResult roo = result as IOOCodegenResult;
-			if (roo != null) {
-				GenerateCode (roo);
-			} else {
-				throw new ZincOxideBugException ("The program has mixed up the provided programming paradigms.");
-			}
-		}
+		public abstract void GenerateCode (ICodegenResult result);
 		#endregion
 	}
 }
