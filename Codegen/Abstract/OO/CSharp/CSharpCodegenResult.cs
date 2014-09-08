@@ -29,6 +29,7 @@ using ZincOxide.Environment;
 using ZincOxide.Exceptions;
 using System.Numerics;
 using System.Text;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 

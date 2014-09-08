@@ -24,6 +24,7 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using ZincOxide.Codegen.Abstract.OO.CSharp;
 using ZincOxide.Exceptions;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 

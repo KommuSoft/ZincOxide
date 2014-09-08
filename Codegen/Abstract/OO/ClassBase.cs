@@ -21,6 +21,7 @@
 using System;
 using System.Collections.Generic;
 using ZincOxide.Utils.Abstract;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 

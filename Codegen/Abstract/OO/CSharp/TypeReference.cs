@@ -24,6 +24,7 @@ using System.Linq;
 using ZincOxide.Utils.Abstract;
 using System.Collections.Generic;
 using System.Reflection;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 

@@ -275,8 +275,6 @@
     <Compile Include="Codegen\Abstract\OO\Process\OOCodegenResultContract.cs" />
     <Compile Include="Codegen\Abstract\OO\ClassBase.cs" />
     <Compile Include="Codegen\Abstract\OO\OOModifiers.cs" />
-    <Compile Include="Codegen\Abstract\OO\IType.cs" />
-    <Compile Include="Codegen\Abstract\OO\TypeBase.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\TypeReference.cs" />
     <Compile Include="Codegen\Abstract\OO\IMethod.cs" />
     <Compile Include="Codegen\Abstract\OO\FieldBase.cs" />
@@ -295,7 +293,6 @@
     <Compile Include="Codegen\Abstract\Imperative\ICondition.cs" />
     <Compile Include="Codegen\Abstract\Imperative\CommandBase.cs" />
     <Compile Include="Codegen\Abstract\Imperative\CommandSequenceBase.cs" />
-    <Compile Include="Codegen\Abstract\OO\TypeContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\MethodReference.cs" />
     <Compile Include="Codegen\Abstract\Imperative\IExpression.cs" />
     <Compile Include="Codegen\Abstract\OO\ProcedureMemberContract.cs" />
@@ -332,6 +329,9 @@
     <Compile Include="Codegen\Abstract\OO\CSharp\CSharpTypeContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\CSharpCommandContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\ICSharpCommand.cs" />
+    <Compile Include="Codegen\Abstract\Typed\IType.cs" />
+    <Compile Include="Codegen\Abstract\Typed\TypeBase.cs" />
+    <Compile Include="Codegen\Abstract\Typed\TypeContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

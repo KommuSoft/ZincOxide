@@ -21,8 +21,9 @@
 using System;
 using ZincOxide.Utils.Abstract;
 using System.Collections.Generic;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.Typed {
 
 	/// <summary>
 	/// A basic implementation of the <see cref="IType"/> interface: an interface describing a type

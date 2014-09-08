@@ -22,6 +22,7 @@ using System;
 using System.CodeDom;
 using ZincOxide.Codegen.Abstract.OO.CSharp;
 using System.Diagnostics.Contracts;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 

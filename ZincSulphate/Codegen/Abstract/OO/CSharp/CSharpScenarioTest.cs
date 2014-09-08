@@ -25,6 +25,7 @@ using ZincOxide.Codegen.Abstract;
 using ZincOxide.Codegen.Abstract.OO;
 using System.Text;
 using ZincOxide.Codegen.Abstract.Imperative;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincSulphate.Codegen.Abstract.OO.CSharp {
 
