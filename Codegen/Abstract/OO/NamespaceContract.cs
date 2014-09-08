@@ -1,5 +1,5 @@
 //
-//  IReturnCommand.cs
+//  NamespaceContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,22 +20,23 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Diagnostics.Contracts;
+using ZincOxide.Utils.Abstract;
 
-namespace ZincOxide.Codegen.Abstract.Imperative {
+namespace ZincOxide.Codegen.Abstract.OO {
 
 	/// <summary>
-	/// A special command that returns a value (the value is the result of a procedure call, or
-	/// the entire program).
+	/// A contract class for <see cref="INamespace"/> instances.
 	/// </summary>
-	[ContractClass(typeof(ReturnCommandContract))]
-	public interface IReturnCommand : ICommand {
+	[ContractClassFor(typeof(INamespace))]
+	public abstract class NamespaceContract : NameContract, INamespace {
 
+		#region Constructors
 		/// <summary>
-		/// Get the expression that will be returned.
+		/// Initializes a new instance of the <see cref="NamespaceContract"/> class.
 		/// </summary>
-		/// <value>The expression that determines the value to be returned.</value>
-		IExpression Expression {
-			get;
+		protected NamespaceContract () {
 		}
+		#endregion
 	}
 }
+

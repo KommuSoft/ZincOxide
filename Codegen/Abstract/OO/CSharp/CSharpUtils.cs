@@ -58,7 +58,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// Translate the given <paramref name="commands"/> and store them in the given <paramref name="csc"/>.
 		/// </summary>
 		/// <param name="commands">The given <see cref="ICommand"/> to translate.</param>
-		/// <param name="csc">The given <see cref="CodeStatementContainer"/> where the statements are stored.</param>
+		/// <param name="csc">The given <see cref="CodeStatementCollection"/> where the statements are stored.</param>
 		public static void TranslateCommandToStatement (ICommand commands, CodeStatementCollection csc) {
 			throw new NotImplementedException ();//TODO
 		}

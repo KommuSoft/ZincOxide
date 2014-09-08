@@ -22,9 +22,15 @@ using System;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
+	/// <summary>
+	/// An expression to a C# constructor to initialize a new instance of a class.
+	/// </summary>
 	public class ConstructorExpression {
 
 		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ConstructorExpression"/> class.
+		/// </summary>
 		public ConstructorExpression () {
 		}
 		#endregion
