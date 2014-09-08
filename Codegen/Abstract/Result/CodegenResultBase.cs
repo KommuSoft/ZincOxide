@@ -52,7 +52,7 @@ namespace ZincOxide.Codegen.Abstract.Result {
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="CodegenResult"/> class.
+		/// Initializes a new instance of the <see cref="CodegenResultBase"/> class.
 		/// </summary>
 		/// <param name='environment'>The environment that describes how the code should be written.</param>
 		/// <exception cref="ArgumentNullException">If the given environment is not effective.</exception>
