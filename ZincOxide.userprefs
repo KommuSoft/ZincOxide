@@ -2,7 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="checklog.md">
     <Files>
-      <File FileName="checklog.md" Line="19" Column="25" />
+      <File FileName="Codegen/Abstract/OO/NamespaceContract.cs" Line="32" Column="3" />
+      <File FileName="Codegen/Abstract/OO/INamespace.cs" Line="33" Column="2" />
+      <File FileName="checklog.md" Line="26" Column="39" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,11 +13,8 @@
             <Node name="Codegen" expanded="True">
               <Node name="Abstract" expanded="True">
                 <Node name="OO" expanded="True">
-                  <Node name="CSharp" expanded="True" />
+                  <Node name="Process" expanded="True" />
                 </Node>
-              </Node>
-              <Node name="Concrete" expanded="True">
-                <Node name="OO" expanded="True" />
               </Node>
             </Node>
             <Node name="checklog.md" selected="True" />
