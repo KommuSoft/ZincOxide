@@ -1,5 +1,5 @@
 //
-//  ITypedVariable.cs
+//  TypedVariableContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -25,11 +25,32 @@ using System.Diagnostics.Contracts;
 namespace ZincOxide.Codegen.Abstract.Typed {
 
 	/// <summary>
-	/// An interface describing a typed variable. A typed variable is a variable of a fixed type.
+	/// A contract class for <see cref="ITypedVariable"/> instances.
 	/// </summary>
-	[ContractClass(typeof(TypedVariableContract))]
-	public interface ITypedVariable : IVariable, ITyped {
+	[ContractClassFor(typeof(ITypedVariable))]
+	public abstract class TypedVariableContract : VariableContract, ITypedVariable {
 
+		#region ITyped implementation
+		/// <summary>
+		/// Get the type of the instance (variable, field,...).
+		/// </summary>
+		/// <value>The type of the instance (variable, field,...).</value>
+		/// <remarks>
+		/// <para>If the type is not effective, it is not relevant for the memeber (e.g. untyped variables, <c>void</c> methods).</para>
+		/// </remarks>
+		public IType Type {
+			get {
+				return default(IType);
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="TypedVariableContract"/> class.
+		/// </summary>
+		protected TypedVariableContract () {
+		}
+		#endregion
 	}
 }
 

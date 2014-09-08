@@ -335,6 +335,7 @@
     <Compile Include="Codegen\Abstract\Typed\ITypedVariable.cs" />
     <Compile Include="Codegen\Abstract\Typed\ITyped.cs" />
     <Compile Include="Codegen\Abstract\Typed\TypedContract.cs" />
+    <Compile Include="Codegen\Abstract\Typed\TypedVariableContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
