@@ -378,6 +378,7 @@
     <Folder Include="Codegen\Abstract\OO\Process\" />
     <Folder Include="Codegen\Abstract\Imperative\" />
     <Folder Include="Codegen\Abstract\Functional\" />
+    <Folder Include="Codegen\Abstract\Typed\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
