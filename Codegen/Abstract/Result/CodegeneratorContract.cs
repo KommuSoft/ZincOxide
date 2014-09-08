@@ -1,5 +1,5 @@
 //
-//  ICodegenResult.cs
+//  CodegeneratorContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -21,25 +21,33 @@
 using System;
 using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract {
+namespace ZincOxide.Codegen.Abstract.Result {
 
 	/// <summary>
-	/// An interface describing the code generator result, the result can be altered by <see cref="ICodegenerator"/> instances.
+	/// A contract class for <see cref="ICodegenerator"/> instances.
 	/// </summary>
-	[ContractClass(typeof(CodegenResultContract))]
-	public interface ICodegenResult {
+	[ContractClassFor(typeof(ICodegenerator))]
+	public abstract class CodegeneratorContract : ICodegenerator {
 
+		#region Constructors
 		/// <summary>
-		/// Get the environment that determines how the code should be written.
+		/// Initializes a new instance of the <see cref="CodegeneratorContract"/> class.
 		/// </summary>
-		/// <value>A <see cref="ICodegenEnvironment"/> instance specifying how code should be written.</value>
-		ICodegenEnvironment Environment {
-			get;
+		protected CodegeneratorContract () {
 		}
-
+		#endregion
+		#region ICodegenerator implementation
 		/// <summary>
-		/// Emit the generated code to file, the standard output or print the appropriate errors.
+		/// Alter the given <paramref name="result"/> by generating or modifying code.
 		/// </summary>
-		void Emit ();
+		/// <param name="result">The <see cref="ICodegenResult"/> instance that stores the genrated code.</param>
+		/// <remarks>
+		/// <para>One can assume the <paramref name="result"/> is always effective.</para>
+		/// </remarks>
+		public void GenerateCode (ICodegenResult result) {
+			Contract.Requires (result != null);
+		}
+		#endregion
 	}
 }
+

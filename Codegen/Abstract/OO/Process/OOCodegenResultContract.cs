@@ -22,6 +22,8 @@ using System;
 using ZincOxide.Codegen.Abstract.OO;
 using System.Diagnostics.Contracts;
 using ZincOxide.Environment;
+using ZincOxide.Codegen.Abstract.Typed;
+using ZincOxide.Codegen.Abstract.Result;
 
 namespace ZincOxide.Codegen.Abstract.OO.Process {
 
@@ -126,6 +128,8 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 			Contract.Ensures (Contract.Result<IType> () != null);
 			//Contract.Ensures (Contract.Result<IType> ().GetConstructor () != null);
 			Contract.Ensures (Contract.Result<IType> ().GetMethod ("Append", this.GetStringType ()) != null);
+			Contract.Ensures (Contract.Result<IType> ().GetMethod ("ToString") != null);
+			Contract.Ensures (Contract.Result<IType> ().GetConstructor () != null);
 			return default(IType);
 		}
 		#endregion

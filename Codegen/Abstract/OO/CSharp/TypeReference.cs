@@ -24,6 +24,7 @@ using System.Linq;
 using ZincOxide.Utils.Abstract;
 using System.Collections.Generic;
 using System.Reflection;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -69,7 +70,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 			this.data = new CodeTypeReference (type);
 		}
 		#endregion
-		#region IType implementation
+		#region implemented abstract members of TypeBase
 		/// <summary>
 		/// Obtain the method with the given <paramref name="name"/> and the given <paramref name="parameters"/> types.
 		/// </summary>
@@ -87,6 +88,26 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 			MethodInfo mi = type.GetMethod (name, parameters.Effectives ().OfType<TypeReference> ().Select (x => x.type).ToArray ());
 			if (mi != null) {
 				return new MethodReference (mi);
+			} else {
+				return null;
+			}
+		}
+
+		/// <summary>
+		/// Obtain the constructor with the given <paramref name="parameters"/> types.
+		/// </summary>
+		/// <returns>A <see cref="IConstructor"/> instance representing the queried constructor, <c>null</c> if such constructor
+		/// does not exists.</returns>
+		/// <param name="parameters">The list of the type of the parameters (or generalizations) of the requested constructors.</param>
+		/// <remarks>
+		/// <para>In case such constructor does not exists, an attempt is made to find
+		/// a constructor where the parameters are generalized. If this attempt fails
+		/// as well, <c>null</c> is returned.</para>
+		/// </remarks>
+		public override IConstructor GetConstructor (IEnumerable<IType> parameters) {
+			ConstructorInfo ci = type.GetConstructor (parameters.Effectives ().OfType<TypeReference> ().Select (x => x.type).ToArray ());
+			if (ci != null) {
+				return new ConstructorReference (ci);
 			} else {
 				return null;
 			}

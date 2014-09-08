@@ -1,5 +1,5 @@
 //
-//  Type.cs
+//  ReturnCommandContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,29 +19,34 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.CodeDom;
-using ZincOxide.Codegen.Abstract.OO.CSharp;
 using System.Diagnostics.Contracts;
-using ZincOxide.Codegen.Abstract.Typed;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// The representation of a <see cref="IType"/> in C#.
+	/// A contract class for <see cref="IReturnCommand"/> instances.
 	/// </summary>
-	[ContractClass(typeof(CSharpTypeContract))]
-	public interface ICSharpType : IType {
-
+	[ContractClassFor(typeof(IReturnCommand))]
+	public abstract class ReturnCommandContract : CommandContract, IReturnCommand {
+		#region IReturnCommand implementation
 		/// <summary>
-		/// Get a reference to this type, used for implementation and the creation of code members.
+		/// Get the expression that will be returned.
 		/// </summary>
-		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
-		/// <remarks>
-		/// <para>The reference is guaranteed to be effective.</para>
-		/// </remarks>
-		CodeTypeReference Reference {
-			get;
+		/// <value>The expression that determines the value to be returned.</value>
+		public IExpression Expression {
+			get {
+				Contract.Ensures (Contract.Result<IExpression> () != null);
+				return default(IExpression);
+			}
 		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="ReturnCommandContract"/> class.
+		/// </summary>
+		protected ReturnCommandContract () {
+			Contract.Ensures (this.Expression != null);
+		}
+		#endregion
 	}
 }
-

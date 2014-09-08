@@ -21,7 +21,7 @@
 using System;
 using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract {
+namespace ZincOxide.Codegen.Abstract.Result {
 
 	/// <summary>
 	/// An implementation of the <see cref="ICodegenResult"/> interface describing the code generator result,

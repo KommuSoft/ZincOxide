@@ -1,5 +1,5 @@
 //
-//  IOOCodegenerator.cs
+//  ITyped.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,21 +19,29 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Codegen.Abstract.Result;
+using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract.OO.Process {
+namespace ZincOxide.Codegen.Abstract.Typed {
 
 	/// <summary>
-	/// A code generator for the object-oriented programming paradigm.
+	/// An interface specifying that this instance is typed.
 	/// </summary>
-	public interface IOOCodegenerator : ICodegenerator {
+	/// <remarks>
+	/// <para>For instance a field has a certain type, a method returns a specific value, etc.</para>
+	/// </remarks>
+	[ContractClass(typeof(TypedContract))]
+	public interface ITyped {
 
 		/// <summary>
-		/// Generate code in the object-oriented programming paradigm using the given <see cref="IOOCodegenResult"/>
-		/// and alter it.
+		/// Get the type of the instance (variable, field,...).
 		/// </summary>
-		/// <param name="result">The instance that must be modified.</param>
-		void GenerateCode (IOOCodegenResult result);
+		/// <value>The type of the instance (variable, field,...).</value>
+		/// <remarks>
+		/// <para>If the type is not effective, it is not relevant for the memeber (e.g. untyped variables, <c>void</c> methods).</para>
+		/// </remarks>
+		IType Type {
+			get;
+		}
 	}
 }
 

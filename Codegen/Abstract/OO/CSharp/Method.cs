@@ -65,7 +65,11 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// is done to the method.</para>
 		/// </remarks>
 		public override void Reimplement (ICommand commands) {
-			throw new NotImplementedException ();//TODO
+			if (commands != null) {
+				CodeStatementCollection csc = this.Data.Statements;
+				csc.Clear ();
+				CSharpUtils.TranslateCommandToStatement (commands, csc);
+			}
 		}
 
 		/// <summary>

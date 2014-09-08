@@ -24,7 +24,7 @@
     <CustomCommands>
       <CustomCommands>
         <Command type="BeforeBuild" command="bash cc.sh" workingdir="Parser/specs/" />
-        <Command type="AfterBuild" command="cccheck --assembly=${TargetFile}" workingdir="${TargetDir}" />
+        <Command type="AfterBuild" command="cccheck --assembly=${TargetFile} 2&gt; contracts" workingdir="${TargetDir}" />
       </CustomCommands>
     </CustomCommands>
     <GenerateDocumentation>true</GenerateDocumentation>
@@ -258,14 +258,6 @@
     <Compile Include="Codegen\Abstract\OO\CSharp\Namespace.cs" />
     <Compile Include="Codegen\Abstract\OO\IClass.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Class.cs" />
-    <Compile Include="Codegen\Abstract\CodegenEnvironment.cs" />
-    <Compile Include="Codegen\Abstract\CodegenEnvironmentContract.cs" />
-    <Compile Include="Codegen\Abstract\CodegenResultBase.cs" />
-    <Compile Include="Codegen\Abstract\CodegenResultContract.cs" />
-    <Compile Include="Codegen\Abstract\ICodegenEnvironment.cs" />
-    <Compile Include="Codegen\Abstract\ICodegenerator.cs" />
-    <Compile Include="Codegen\Abstract\ICodegenResult.cs" />
-    <Compile Include="Codegen\Abstract\CodegeneratorBase.cs" />
     <Compile Include="Codegen\Abstract\OO\IField.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Field.cs" />
     <Compile Include="Codegen\Abstract\OO\Process\IOOCodegenerator.cs" />
@@ -275,8 +267,6 @@
     <Compile Include="Codegen\Abstract\OO\Process\OOCodegenResultContract.cs" />
     <Compile Include="Codegen\Abstract\OO\ClassBase.cs" />
     <Compile Include="Codegen\Abstract\OO\OOModifiers.cs" />
-    <Compile Include="Codegen\Abstract\OO\IType.cs" />
-    <Compile Include="Codegen\Abstract\OO\TypeBase.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\TypeReference.cs" />
     <Compile Include="Codegen\Abstract\OO\IMethod.cs" />
     <Compile Include="Codegen\Abstract\OO\FieldBase.cs" />
@@ -295,7 +285,6 @@
     <Compile Include="Codegen\Abstract\Imperative\ICondition.cs" />
     <Compile Include="Codegen\Abstract\Imperative\CommandBase.cs" />
     <Compile Include="Codegen\Abstract\Imperative\CommandSequenceBase.cs" />
-    <Compile Include="Codegen\Abstract\OO\TypeContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\MethodReference.cs" />
     <Compile Include="Codegen\Abstract\Imperative\IExpression.cs" />
     <Compile Include="Codegen\Abstract\OO\ProcedureMemberContract.cs" />
@@ -309,8 +298,6 @@
     <Compile Include="Codegen\Abstract\OO\CSharp\Command.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\Expression.cs" />
     <Compile Include="Codegen\Abstract\Imperative\ExpressionBase.cs" />
-    <Compile Include="Codegen\Abstract\CodegenResultAttribute.cs" />
-    <Compile Include="Codegen\Abstract\ProgrammingLanguageParadigm.cs" />
     <Compile Include="Codegen\Abstract\Imperative\IVariable.cs" />
     <Compile Include="Codegen\Abstract\Imperative\VariableBase.cs" />
     <Compile Include="Codegen\Abstract\Imperative\IParameter.cs" />
@@ -325,6 +312,31 @@
     <Compile Include="Codegen\Abstract\Imperative\ParameterContract.cs" />
     <Compile Include="Codegen\Abstract\Imperative\ProcedureContract.cs" />
     <Compile Include="Codegen\Abstract\Imperative\VariableContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IReturnCommand.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ReturnCommandContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ReturnCommandBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\ConstructorExpression.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpTypeContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpCommandContract.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\ICSharpCommand.cs" />
+    <Compile Include="Codegen\Abstract\Typed\IType.cs" />
+    <Compile Include="Codegen\Abstract\Typed\TypeBase.cs" />
+    <Compile Include="Codegen\Abstract\Typed\TypeContract.cs" />
+    <Compile Include="Codegen\Abstract\Typed\ITypedVariable.cs" />
+    <Compile Include="Codegen\Abstract\Typed\ITyped.cs" />
+    <Compile Include="Codegen\Abstract\Typed\TypedContract.cs" />
+    <Compile Include="Codegen\Abstract\Typed\TypedVariableContract.cs" />
+    <Compile Include="Codegen\Abstract\Result\CodegenEnvironment.cs" />
+    <Compile Include="Codegen\Abstract\Result\CodegenEnvironmentContract.cs" />
+    <Compile Include="Codegen\Abstract\Result\CodegeneratorBase.cs" />
+    <Compile Include="Codegen\Abstract\Result\CodegenResultAttribute.cs" />
+    <Compile Include="Codegen\Abstract\Result\CodegenResultBase.cs" />
+    <Compile Include="Codegen\Abstract\Result\CodegenResultContract.cs" />
+    <Compile Include="Codegen\Abstract\Result\ICodegenEnvironment.cs" />
+    <Compile Include="Codegen\Abstract\Result\ICodegenerator.cs" />
+    <Compile Include="Codegen\Abstract\Result\ICodegenResult.cs" />
+    <Compile Include="Codegen\Abstract\Result\ProgrammingLanguageParadigm.cs" />
+    <Compile Include="Codegen\Abstract\Result\CodegeneratorContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -375,6 +387,8 @@
     <Folder Include="Codegen\Abstract\OO\Process\" />
     <Folder Include="Codegen\Abstract\Imperative\" />
     <Folder Include="Codegen\Abstract\Functional\" />
+    <Folder Include="Codegen\Abstract\Typed\" />
+    <Folder Include="Codegen\Abstract\Result\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

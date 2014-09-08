@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.CodeDom;
+using ZincOxide.Codegen.Abstract.Imperative;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
@@ -45,8 +46,21 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 			return ma;
 		}
 
+		/// <summary>
+		/// Implement the <see cref="M:Object.ToString"/> method according to the Zinc specifications.
+		/// </summary>
+		/// <param name="im">The given <see cref="IMethod"/> to reimplement.</param>
 		public static void ImplementProblemToStringMethod (IMethod im) {
 
+		}
+
+		/// <summary>
+		/// Translate the given <paramref name="commands"/> and store them in the given <paramref name="csc"/>.
+		/// </summary>
+		/// <param name="commands">The given <see cref="ICommand"/> to translate.</param>
+		/// <param name="csc">The given <see cref="CodeStatementContainer"/> where the statements are stored.</param>
+		public static void TranslateCommandToStatement (ICommand commands, CodeStatementCollection csc) {
+			throw new NotImplementedException ();//TODO
 		}
 	}
 }

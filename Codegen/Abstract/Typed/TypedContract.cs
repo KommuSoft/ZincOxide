@@ -1,5 +1,5 @@
 //
-//  IOOCodegenerator.cs
+//  TypedContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,21 +19,37 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Codegen.Abstract.Result;
+using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract.OO.Process {
+namespace ZincOxide.Codegen.Abstract.Typed {
 
 	/// <summary>
-	/// A code generator for the object-oriented programming paradigm.
+	/// A contract class for <see cref="ITyped"/> instances.
 	/// </summary>
-	public interface IOOCodegenerator : ICodegenerator {
+	[ContractClassFor(typeof(ITyped))]
+	public abstract class TypedContract : ITyped {
 
+		#region ITyped implementation
 		/// <summary>
-		/// Generate code in the object-oriented programming paradigm using the given <see cref="IOOCodegenResult"/>
-		/// and alter it.
+		/// Get the type of the instance (variable, field,...).
 		/// </summary>
-		/// <param name="result">The instance that must be modified.</param>
-		void GenerateCode (IOOCodegenResult result);
+		/// <value>The type of the instance (variable, field,...).</value>
+		/// <remarks>
+		/// <para>If the type is not effective, it is not relevant for the memeber (e.g. untyped variables, <c>void</c> methods).</para>
+		/// </remarks>
+		public IType Type {
+			get {
+				return default(IType);
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="TypedContract"/> class.
+		/// </summary>
+		protected TypedContract () {
+		}
+		#endregion
 	}
 }
 

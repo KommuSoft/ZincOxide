@@ -1,5 +1,5 @@
 //
-//  IOOCodegenerator.cs
+//  IReturnCommand.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,21 +19,21 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Codegen.Abstract.Result;
 
-namespace ZincOxide.Codegen.Abstract.OO.Process {
+namespace ZincOxide.Codegen.Abstract.Imperative {
 
 	/// <summary>
-	/// A code generator for the object-oriented programming paradigm.
+	/// A special command that returns a value (the value is the result of a procedure call, or
+	/// the entire program).
 	/// </summary>
-	public interface IOOCodegenerator : ICodegenerator {
+	public interface IReturnCommand : ICommand {
 
 		/// <summary>
-		/// Generate code in the object-oriented programming paradigm using the given <see cref="IOOCodegenResult"/>
-		/// and alter it.
+		/// Get the expression that will be returned.
 		/// </summary>
-		/// <param name="result">The instance that must be modified.</param>
-		void GenerateCode (IOOCodegenResult result);
+		/// <value>The expression that determines the value to be returned.</value>
+		IExpression Expression {
+			get;
+		}
 	}
 }
-

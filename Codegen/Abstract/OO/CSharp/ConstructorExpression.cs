@@ -1,5 +1,5 @@
 //
-//  ICodegenerator.cs
+//  ConstructorCommand.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -20,18 +20,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
-namespace ZincOxide.Codegen.Abstract {
+namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
-	/// <summary>
-	/// An interface describing a instance that generate or alter code.
-	/// </summary>
-	public interface ICodegenerator {
+	public class ConstructorExpression {
 
-		/// <summary>
-		/// Alter the given <paramref name="result"/> by generating or modifying code.
-		/// </summary>
-		/// <param name="result">The <see cref="ICodegenResult"/> instance that stores the genrated code.</param>
-		void GenerateCode (ICodegenResult result);
+		#region Constructors
+		public ConstructorExpression () {
+		}
+		#endregion
 	}
 }
 

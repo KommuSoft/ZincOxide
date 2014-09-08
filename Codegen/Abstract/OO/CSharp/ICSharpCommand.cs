@@ -1,5 +1,5 @@
 //
-//  ProgrammingLanguageParadigm.cs
+//  ICSharpCommandAtom.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,28 +19,28 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.CodeDom;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract {
+namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
-	/// An enumeration listing the several programming language paradigms that can be used
-	/// to develop a program.
+	/// An interface specifying an atomic command in C#.
 	/// </summary>
-	/// <remarks>
-	/// <para>Since most programming language are multiparadigm, this enumeration can be used as <see cref="FlagsAttribute"/></para>
-	/// </remarks>
-	[Flags]
-	public enum ProgrammingLanguageParadigm : ulong {
+	[ContractClass(typeof(CSharpCommandContract))]
+	public interface ICSharpCommand {
+
 		/// <summary>
-		/// The programming language is imperative, the program is described with one or more sequences
-		/// of instructions.
+		/// Enumerate one or more <see cref="CodeObject"/> instances that mimic the behavior of
+		/// this <see cref="ICSharpCommand"/>.
 		/// </summary>
-		Imperative = 0x01,
-		/// <summary>
-		/// The programming language is object-oriented. The programming language has constructs for classes
-		/// objects as well as behavior and interactions for these objects.
-		/// </summary>
-		ObjectOriented = 0x02
+		/// <returns>A <see cref="T:IEnumerable`1"/> of <see cref="CodeObject"/> instance mimicking
+		/// this <see cref="ICSharpCommand"/>.</returns>
+		/// <remarks>
+		/// <para>The result is guaranteed to be effective as are all the <see cref="CodeObject"/> instances.</para>
+		/// </remarks>
+		IEnumerable<CodeObject> EnumerateCode ();
 	}
 }
 

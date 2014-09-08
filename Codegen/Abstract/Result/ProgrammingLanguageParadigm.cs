@@ -1,5 +1,5 @@
 //
-//  IOOCodegenerator.cs
+//  ProgrammingLanguageParadigm.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,21 +19,28 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Codegen.Abstract.Result;
 
-namespace ZincOxide.Codegen.Abstract.OO.Process {
+namespace ZincOxide.Codegen.Abstract.Result {
 
 	/// <summary>
-	/// A code generator for the object-oriented programming paradigm.
+	/// An enumeration listing the several programming language paradigms that can be used
+	/// to develop a program.
 	/// </summary>
-	public interface IOOCodegenerator : ICodegenerator {
-
+	/// <remarks>
+	/// <para>Since most programming language are multiparadigm, this enumeration can be used as <see cref="FlagsAttribute"/></para>
+	/// </remarks>
+	[Flags]
+	public enum ProgrammingLanguageParadigm : ulong {
 		/// <summary>
-		/// Generate code in the object-oriented programming paradigm using the given <see cref="IOOCodegenResult"/>
-		/// and alter it.
+		/// The programming language is imperative, the program is described with one or more sequences
+		/// of instructions.
 		/// </summary>
-		/// <param name="result">The instance that must be modified.</param>
-		void GenerateCode (IOOCodegenResult result);
+		Imperative = 0x01,
+		/// <summary>
+		/// The programming language is object-oriented. The programming language has constructs for classes
+		/// objects as well as behavior and interactions for these objects.
+		/// </summary>
+		ObjectOriented = 0x02
 	}
 }
 

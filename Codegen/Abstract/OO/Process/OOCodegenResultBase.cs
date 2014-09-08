@@ -20,6 +20,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using ZincOxide.Environment;
+using ZincOxide.Codegen.Abstract.Typed;
+using ZincOxide.Codegen.Abstract.Result;
 
 namespace ZincOxide.Codegen.Abstract.OO.Process {
 

@@ -21,6 +21,8 @@
 using System;
 using System.Diagnostics.Contracts;
 using ZincOxide.Environment;
+using ZincOxide.Codegen.Abstract.Typed;
+using ZincOxide.Codegen.Abstract.Result;
 
 namespace ZincOxide.Codegen.Abstract.OO.Process {
 
@@ -87,7 +89,7 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// <para>A string builder is a class that enables fast string generation where appending
 		/// takes at most linear time in the length of the string to append and not in the length
 		/// of the resulting string.</para>
-		/// <para>A string builder should support a <c>void Append(String)</c> method.</para>
+		/// <para>A string builder should support <c>void Append(String)</c>, <c>String ToString ()</c> and <c>new ()</c>.</para>
 		/// </remarks>
 		IType GetStringBuilderType ();
 	}

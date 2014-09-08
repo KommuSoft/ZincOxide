@@ -1,5 +1,5 @@
 //
-//  IOOCodegenerator.cs
+//  ICodegenerator.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,21 +19,24 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Codegen.Abstract.Result;
+using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract.OO.Process {
+namespace ZincOxide.Codegen.Abstract.Result {
 
 	/// <summary>
-	/// A code generator for the object-oriented programming paradigm.
+	/// An interface describing a instance that generate or alter code.
 	/// </summary>
-	public interface IOOCodegenerator : ICodegenerator {
+	[ContractClass(typeof(CodegeneratorContract))]
+	public interface ICodegenerator {
 
 		/// <summary>
-		/// Generate code in the object-oriented programming paradigm using the given <see cref="IOOCodegenResult"/>
-		/// and alter it.
+		/// Alter the given <paramref name="result"/> by generating or modifying code.
 		/// </summary>
-		/// <param name="result">The instance that must be modified.</param>
-		void GenerateCode (IOOCodegenResult result);
+		/// <param name="result">The <see cref="ICodegenResult"/> instance that stores the genrated code.</param>
+		/// <remarks>
+		/// <para>One can assume the <paramref name="result"/> is always effective.</para>
+		/// </remarks>
+		void GenerateCode (ICodegenResult result);
 	}
 }
 

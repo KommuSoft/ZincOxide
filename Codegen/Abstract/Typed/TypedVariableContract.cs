@@ -1,5 +1,5 @@
 //
-//  CodegeneratorBase.cs
+//  TypedVariableContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,31 +19,37 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Exceptions;
+using ZincOxide.Codegen.Abstract.Imperative;
+using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract {
+namespace ZincOxide.Codegen.Abstract.Typed {
 
 	/// <summary>
-	/// A basic implementation of the <see cref="ICodegenerator"/> interface, used for programming convenience.
+	/// A contract class for <see cref="ITypedVariable"/> instances.
 	/// </summary>
-	public abstract class CodegeneratorBase : ICodegenerator {
+	[ContractClassFor(typeof(ITypedVariable))]
+	public abstract class TypedVariableContract : VariableContract, ITypedVariable {
 
-		#region Constructor
+		#region ITyped implementation
 		/// <summary>
-		/// Initializes a new instance of the <see cref="CodegeneratorBase"/> class, an abstract
-		/// code generator used.
+		/// Get the type of the instance (variable, field,...).
 		/// </summary>
-		protected CodegeneratorBase () {
+		/// <value>The type of the instance (variable, field,...).</value>
+		/// <remarks>
+		/// <para>If the type is not effective, it is not relevant for the memeber (e.g. untyped variables, <c>void</c> methods).</para>
+		/// </remarks>
+		public IType Type {
+			get {
+				return default(IType);
+			}
 		}
 		#endregion
-		#region ICodegenerator implementation
+		#region Constructors
 		/// <summary>
-		/// Alter the given <paramref name="result"/> by generating or modifying code.
+		/// Initializes a new instance of the <see cref="TypedVariableContract"/> class.
 		/// </summary>
-		/// <param name="result">The <see cref="ICodegenResult"/> instance that stores the genrated code.</param>
-		/// <exception cref="ZincOxideBugException">If the given <see cref="ICodegenResult"/> uses the wrong
-		/// programming paradigm.</exception>
-		public abstract void GenerateCode (ICodegenResult result);
+		protected TypedVariableContract () {
+		}
 		#endregion
 	}
 }
