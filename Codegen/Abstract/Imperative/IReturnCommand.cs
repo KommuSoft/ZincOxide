@@ -1,5 +1,5 @@
 //
-//  CSharpScenarioTest.cs
+//  IReturnCommand.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -18,29 +18,22 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-using NUnit.Framework;
 using System;
-using ZincOxide.Codegen.Abstract.OO.CSharp;
-using ZincOxide.Codegen.Abstract;
-using ZincOxide.Codegen.Abstract.OO;
-using System.Text;
 
-namespace ZincSulphate.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Abstract.Imperative {
 
-	[TestFixture()]
-	public class CSharpScenarioTest {
+	/// <summary>
+	/// A special command that returns a value (the value is the result of a procedure call, or
+	/// the entire program).
+	/// </summary>
+	public interface IReturnCommand : ICommand {
 
-		[Test()]
-		public void TestTypeMethodExtractions () {
-			CSharpCodegenResult cscr = new CSharpCodegenResult (new CodegenEnvironment ());
-			IType sbt = cscr.GetStringBuilderType ();
-			Assert.IsNotNull (sbt);
-			IType st = cscr.GetStringType ();
-			Assert.IsNotNull (st);
-			IConstructor ic = cscr.GetStringBuilderType ().GetConstructor ();
-			Assert.IsNotNull (ic);
-			IMethod im = cscr.GetStringBuilderType ().GetMethod ("Append", st);
-			Assert.IsNotNull (im);
+		/// <summary>
+		/// Get the expression that will be returned.
+		/// </summary>
+		/// <value>The expression that determines the value to be returned.</value>
+		IExpression Expression {
+			get;
 		}
 	}
 }

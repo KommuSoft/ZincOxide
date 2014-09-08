@@ -325,6 +325,9 @@
     <Compile Include="Codegen\Abstract\Imperative\ParameterContract.cs" />
     <Compile Include="Codegen\Abstract\Imperative\ProcedureContract.cs" />
     <Compile Include="Codegen\Abstract\Imperative\VariableContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IReturnCommand.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ReturnCommandContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ReturnCommandBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
