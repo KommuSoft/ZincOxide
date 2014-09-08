@@ -12,9 +12,10 @@ Cleaning code implies:
 Namespace log
 -------------
 
-Namespace                                                                   Source   ParCheck Contract Specs    Tests
---------------------------------------------------------------------------- -------- -------- -------- -------- --------
-Codegen.Abstract.Imperative                                                 20140907 20140907 20140907 20140907 
+Namespace                                                          Source   ParCheck Contract Specs    Tests    StaticCh
+------------------------------------------------------------------ -------- -------- -------- -------- -------- --------
+Codegen.Abstract.Imperative                                        20140907 20140907 20140907 20140907 
+Codegen.Abstract.OO.CSharp                                         
 
 The following table shows the logbook of code cleaning for the ZincOxide project.
 

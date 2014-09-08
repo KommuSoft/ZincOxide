@@ -22,8 +22,10 @@ using System;
 using ZincOxide.Codegen.Abstract;
 using ZincOxide.Codegen.Abstract.OO;
 using ZincOxide.Codegen.Abstract.OO.Process;
+using ZincOxide.Codegen.Abstract.Imperative;
 
 namespace ZincOxide.Codegen.Concrete.OO {
+
 	/// <summary>
 	/// A basic implementation of the <see cref="IOOProblemRepresentationGenerator"/>. A class that generates a class for
 	/// the problem representation (not a solution).
@@ -60,7 +62,8 @@ namespace ZincOxide.Codegen.Concrete.OO {
 			IField fc = cls.GenerateField (result.GetIntegerType (), "c");
 			cls.GenerateMethod (result.GetBooleanType (), "Verify");
 			cls.AddConstructor (OOModifiers.Public, fa, fb, fc);
-			cls.GenerateFormattingMethod ();
+			IMethod im = cls.GenerateFormattingMethod ();
+			im.Reimplement (new ReturnCommandBase (null));
 		}
 		#endregion
 	}

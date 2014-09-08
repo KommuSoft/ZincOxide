@@ -328,6 +328,8 @@
     <Compile Include="Codegen\Abstract\Imperative\IReturnCommand.cs" />
     <Compile Include="Codegen\Abstract\Imperative\ReturnCommandContract.cs" />
     <Compile Include="Codegen\Abstract\Imperative\ReturnCommandBase.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\ConstructorExpression.cs" />
+    <Compile Include="Codegen\Abstract\OO\CSharp\ICSharpCommandAtom.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
