@@ -1,10 +1,14 @@
 ﻿<Properties GitUserInfo="UsingMD">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="checklog.md">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Codegen/Abstract/Imperative/AssignmentCommandBase.cs">
     <Files>
-      <File FileName="Codegen/Abstract/OO/NamespaceContract.cs" Line="32" Column="3" />
-      <File FileName="Codegen/Abstract/OO/INamespace.cs" Line="33" Column="2" />
-      <File FileName="checklog.md" Line="26" Column="39" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Command.cs" Line="39" Column="13" />
+      <File FileName="Codegen/Abstract/OO/CSharp/Expression.cs" Line="31" Column="70" />
+      <File FileName="Codegen/Abstract/OO/CSharp/CSharpCommandContract.cs" Line="50" Column="17" />
+      <File FileName="Codegen/Abstract/OO/CSharp/ICSharpCommand.cs" Line="43" Column="3" />
+      <File FileName="Codegen/Abstract/Imperative/IAssignmentCommand.cs" Line="44" Column="3" />
+      <File FileName="Codegen/Abstract/Imperative/AssignmentCommandContract.cs" Line="31" Column="39" />
+      <File FileName="Codegen/Abstract/Imperative/AssignmentCommandBase.cs" Line="30" Column="30" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,12 +16,14 @@
           <Node name="ZincOxide" expanded="True">
             <Node name="Codegen" expanded="True">
               <Node name="Abstract" expanded="True">
+                <Node name="Imperative" expanded="True">
+                  <Node name="AssignmentCommandBase.cs" selected="True" />
+                </Node>
                 <Node name="OO" expanded="True">
-                  <Node name="Process" expanded="True" />
+                  <Node name="CSharp" expanded="True" />
                 </Node>
               </Node>
             </Node>
-            <Node name="checklog.md" selected="True" />
           </Node>
           <Node name="ZincSulphate" expanded="True">
             <Node name="Codegen" expanded="True">
