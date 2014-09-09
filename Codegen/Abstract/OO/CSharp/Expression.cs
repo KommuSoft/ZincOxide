@@ -22,19 +22,38 @@ using System;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 using System.CodeDom;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 
 	/// <summary>
 	/// The representation of a <see cref="IExpression"/> in the C# programming language.
 	/// </summary>
-	public abstract class Expression  : ExpressionBase, ICSharpCommand {
+	public class Expression  : ExpressionBase, ICSharpCommand {
 
+		#region Fields
+		/// <summary>
+		/// The <see cref="CodeObject"/> value stored in this <see cref="Expression"/> representing an expression.
+		/// </summary>
+		/// <value>A <see cref="CodeObject"/> stored in this <see cref="Expression"/> representing an expression.</value>
+		internal CodeObject CodeObject {
+			get;
+			private set;
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Expression"/> class.
+		/// Initializes a new instance of the <see cref="Expression"/> class with the given <see cref="CodeObject"/>
+		/// that represents the expression.
 		/// </summary>
-		protected Expression () {
+		/// <param name="codeObject">The give <see cref="CodeObject"/> that represents the expression</param>
+		/// <exception cref="ArgumentNullException">If the given <paramref name="codeObject"/> is not effective.</exception>
+		internal Expression (CodeObject codeObject) {
+			if (codeObject == null) {
+				throw new ArgumentNullException ("codeObject");
+			}
+			Contract.EndContractBlock ();
+			this.CodeObject = codeObject;
 		}
 		#endregion
 		#region ICSharpCommand implementation
@@ -48,7 +67,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <para>The result is guaranteed to be effective as are all the <see cref="CodeObject"/> instances.</para>
 		/// </remarks>
 		public IEnumerable<CodeObject> EnumerateCode () {
-			throw new NotImplementedException ();
+			yield return this.CodeObject;
 		}
 		#endregion
 	}
