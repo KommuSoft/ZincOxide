@@ -315,7 +315,6 @@
     <Compile Include="Codegen\Abstract\Imperative\IReturnCommand.cs" />
     <Compile Include="Codegen\Abstract\Imperative\ReturnCommandContract.cs" />
     <Compile Include="Codegen\Abstract\Imperative\ReturnCommandBase.cs" />
-    <Compile Include="Codegen\Abstract\OO\CSharp\ConstructorExpression.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\CSharpTypeContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\CSharpCommandContract.cs" />
     <Compile Include="Codegen\Abstract\OO\CSharp\ICSharpCommand.cs" />
@@ -339,6 +338,9 @@
     <Compile Include="Codegen\Abstract\Result\CodegeneratorContract.cs" />
     <Compile Include="Codegen\Abstract\OO\FieldContract.cs" />
     <Compile Include="Codegen\Abstract\OO\NamespaceContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\IAssignmentCommand.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\AssignmentCommandContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\AssignmentCommandBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
