@@ -31,8 +31,9 @@ using System.Numerics;
 using System.Text;
 using ZincOxide.Codegen.Abstract.Typed;
 using ZincOxide.Codegen.Abstract.Result;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
 	/// A code generator for the C# language.

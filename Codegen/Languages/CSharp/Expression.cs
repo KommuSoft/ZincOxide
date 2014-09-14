@@ -24,7 +24,7 @@ using System.Collections.Generic;
 using System.CodeDom;
 using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
 	/// The representation of a <see cref="IExpression"/> in the C# programming language.

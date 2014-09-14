@@ -1,5 +1,5 @@
 //
-//  Type.cs
+//  ITypeMember.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,27 +19,19 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.CodeDom;
-using ZincOxide.Codegen.Abstract.OO.CSharp;
-using System.Diagnostics.Contracts;
-using ZincOxide.Codegen.Abstract.Typed;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Abstract.Typed {
 
 	/// <summary>
-	/// The representation of a <see cref="IType"/> in C#.
+	/// An interface specifying a the member of a type.
 	/// </summary>
-	[ContractClass(typeof(CSharpTypeContract))]
-	public interface ICSharpType : IType {
+	public interface ITypeMember {
 
 		/// <summary>
-		/// Get a reference to this type, used for implementation and the creation of code members.
+		/// The type that contains this <see cref="ITypeMember"/>.
 		/// </summary>
-		/// <value>A <see cref="CodeTypeReference"/> that refers to this type.</value>
-		/// <remarks>
-		/// <para>The reference is guaranteed to be effective.</para>
-		/// </remarks>
-		CodeTypeReference Reference {
+		/// <value>A <see cref="IType"/> that contains this <see cref="ITypeMember"/>.</value>
+		IType TypeContainer {
 			get;
 		}
 	}

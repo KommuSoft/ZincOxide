@@ -23,7 +23,7 @@ using System.Diagnostics.Contracts;
 using System.CodeDom;
 using ZincOxide.Codegen.Abstract.Typed;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
 	/// A contract class for <see cref="ICSharpType"/> instances.

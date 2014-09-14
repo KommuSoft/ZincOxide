@@ -21,8 +21,9 @@
 using System;
 using System.CodeDom;
 using ZincOxide.Codegen.Abstract.Imperative;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
 	/// A utility class used to write C# code more effectively.

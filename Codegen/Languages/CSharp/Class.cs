@@ -22,11 +22,11 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
-using ZincOxide.Codegen.Abstract.OO.CSharp;
 using ZincOxide.Exceptions;
 using ZincOxide.Codegen.Abstract.Typed;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
 	/// The representation of an <see cref="IClass"/> in C#.

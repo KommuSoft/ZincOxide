@@ -22,8 +22,9 @@ using System;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 using System.Reflection;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
 	/// A reference to a predefined constructor in C#.
@@ -74,6 +75,10 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// </summary>
 		/// <returns>A <see cref="IExpression"/> that represents a call to this <see cref="IConstructor"/> with the given <paramref name="parameters"/>.</returns>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
+		/// <remarks>
+		/// <para>Items in the <paramref name="parameters"/> that are not effective, or not correctly typed will
+		/// be ignored.</para>
+		/// </remarks>
 		public override IExpression CallCommand (IEnumerable<IExpression> parameters) {
 
 			throw new NotImplementedException ();//TODO

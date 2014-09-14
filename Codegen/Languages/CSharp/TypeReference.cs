@@ -25,8 +25,9 @@ using ZincOxide.Utils.Abstract;
 using System.Collections.Generic;
 using System.Reflection;
 using ZincOxide.Codegen.Abstract.Typed;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
 	/// An already defined type in C# (example <see cref="int"/>, <see cref="DateTime"/> and <see cref="string"/>).

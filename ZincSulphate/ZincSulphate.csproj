@@ -49,7 +49,7 @@
     <Compile Include="Parser\MiniZincScopeTest.cs" />
     <Compile Include="BasicTests.cs" />
     <Compile Include="MiniZinc\ZincPrintUtilsTest.cs" />
-    <Compile Include="Codegen\Abstract\OO\CSharp\CSharpScenarioTest.cs" />
+    <Compile Include="Codegen\Languages\CSharp\CSharpScenarioTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -67,7 +67,7 @@
     <Folder Include="Codegen\" />
     <Folder Include="Codegen\Abstract\" />
     <Folder Include="Codegen\Abstract\OO\" />
-    <Folder Include="Codegen\Abstract\OO\CSharp\" />
+    <Folder Include="Codegen\Languages\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

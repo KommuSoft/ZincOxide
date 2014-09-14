@@ -20,15 +20,14 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using NUnit.Framework;
 using System;
-using ZincOxide.Codegen.Abstract.OO.CSharp;
-using ZincOxide.Codegen.Abstract;
-using ZincOxide.Codegen.Abstract.OO;
 using System.Text;
 using ZincOxide.Codegen.Abstract.Imperative;
 using ZincOxide.Codegen.Abstract.Typed;
 using ZincOxide.Codegen.Abstract.Result;
+using ZincOxide.Codegen.Languages.CSharp;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincSulphate.Codegen.Abstract.OO.CSharp {
+namespace ZincSulphate.Codegen.Languages.CSharp {
 
 	[TestFixture()]
 	public class CSharpScenarioTest {

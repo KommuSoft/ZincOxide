@@ -1,5 +1,5 @@
 //
-//  MethodReference.cs
+//  Method.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,42 +19,43 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
-using System.Reflection;
+using System.CodeDom;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
-	/// An already defined method in C# (example <see cref="M:StringBuilder.Append"/>).
+	/// The representation of a <see cref="IMethod"/> in C#.
 	/// </summary>
-	public class MethodReference : MethodBase, IMethod {
+	public class Method : MethodBase {
 
 		#region Fields
-		private readonly MethodInfo data;
+		internal readonly CodeMemberMethod Data;
 		#endregion
 		#region implemented abstract members of NameShadow
 		/// <summary>
-		/// Gets the name of this method.
+		/// Gets the name of this instance.
 		/// </summary>
-		/// <value>The name of this method.</value>
+		/// <value>The name of this instance.</value>
 		public override string Name {
 			get {
-				return this.data.Name;
+				return Data.Name;
 			}
 		}
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MethodReference"/> class.
+		/// Initializes a new instance of the <see cref="Method"/> class with the given data specifying the
+		/// method.
 		/// </summary>
-		/// <param name="data">The <see cref="MethodInfo"/> that contains the specifications of the method.</param>
-		internal MethodReference (MethodInfo data) {
-			this.data = data;
+		/// <param name="data">The given <see cref="CodeMemberMethod"/> that specifies the method.</param>
+		internal Method (CodeMemberMethod data) {
+			this.Data = data;
 		}
 		#endregion
-		#region IProcedureMember implementation
+		#region implemented abstract members of MethodBase
 		/// <summary>
 		/// Reimplement the procedure member with the given <paramref name="commands"/>.
 		/// </summary>
@@ -63,9 +64,13 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <remarks>
 		/// <para>if the given <paramref name="commands"/> is not effective, no modifications
 		/// is done to the method.</para>
-		/// <para>Already defined method cannot be reimplemented. The reimplementation is ignored.</para>
 		/// </remarks>
 		public override void Reimplement (ICommand commands) {
+			if (commands != null) {
+				CodeStatementCollection csc = this.Data.Statements;
+				csc.Clear ();
+				CSharpUtils.TranslateCommandToStatement (commands, csc);
+			}
 		}
 
 		/// <summary>
@@ -75,7 +80,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <param name="instance">The instance on which the command is applied.</param>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
 		public override ICommand CallCommand (IExpression instance, IEnumerable<IExpression> parameters) {
-			throw new NotImplementedException ();//TODO
+			throw new NotImplementedException ();
 		}
 		#endregion
 	}

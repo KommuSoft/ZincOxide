@@ -1,5 +1,5 @@
 //
-//  Constructor.cs
+//  MethodReference.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,43 +19,43 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Utils.Abstract;
 using System.Reflection;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
-using System.CodeDom;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
-	/// The C# implementation of a constructor.
+	/// An already defined method in C# (example <see cref="M:StringBuilder.Append"/>).
 	/// </summary>
-	public class Constructor : ConstructorBase {
+	public class MethodReference : ZincOxide.Codegen.Abstract.OO.MethodBase, IMethod {
 
 		#region Fields
-		private readonly CodeConstructor data;
+		private readonly MethodInfo data;
 		#endregion
 		#region implemented abstract members of NameShadow
 		/// <summary>
-		/// Gets the name of this constructor.
+		/// Gets the name of this method.
 		/// </summary>
-		/// <value>The name of this constructor.</value>
+		/// <value>The name of this method.</value>
 		public override string Name {
 			get {
-				return data.Name;
+				return this.data.Name;
 			}
 		}
 		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Constructor"/> class with a given <see cref="ConstructorInfo"/>
-		/// containing the specifications of the constructor.
+		/// Initializes a new instance of the <see cref="MethodReference"/> class.
 		/// </summary>
-		/// <param name="data">A <see cref="ConstructorInfo"/> specifying the constructor.</param>
-		internal Constructor (CodeConstructor data) {
+		/// <param name="data">The <see cref="MethodInfo"/> that contains the specifications of the method.</param>
+		internal MethodReference (MethodInfo data) {
 			this.data = data;
 		}
 		#endregion
-		#region implemented abstract members of ProcedureMemberBase
+		#region IProcedureMember implementation
 		/// <summary>
 		/// Reimplement the procedure member with the given <paramref name="commands"/>.
 		/// </summary>
@@ -64,18 +64,18 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <remarks>
 		/// <para>if the given <paramref name="commands"/> is not effective, no modifications
 		/// is done to the method.</para>
+		/// <para>Already defined method cannot be reimplemented. The reimplementation is ignored.</para>
 		/// </remarks>
 		public override void Reimplement (ICommand commands) {
-			throw new NotImplementedException ();//TODO
 		}
-		#endregion
-		#region implemented abstract members of ConstructorBase
+
 		/// <summary>
-		/// Generate a command that creates a new instance of a type using this <see cref="IConstructor"/>.
+		/// Generate a class command that can be used as part of a procedure implementation.
 		/// </summary>
-		/// <returns>A <see cref="IExpression"/> that represents a call to this <see cref="IConstructor"/> with the given <paramref name="parameters"/>.</returns>
+		/// <returns>A <see cref="ICommand"/> that represents a call to this <see cref="IMethod"/> with the given <paramref name="parameters"/>.</returns>
+		/// <param name="instance">The instance on which the command is applied.</param>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
-		public override IExpression CallCommand (IEnumerable<IExpression> parameters) {
+		public override ICommand CallCommand (IExpression instance, IEnumerable<IExpression> parameters) {
 			throw new NotImplementedException ();//TODO
 		}
 		#endregion

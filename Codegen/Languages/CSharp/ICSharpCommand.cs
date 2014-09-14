@@ -1,5 +1,5 @@
 //
-//  Command.cs
+//  ICSharpCommandAtom.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,25 +19,18 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Codegen.Abstract.Imperative;
-using System.Collections.Generic;
 using System.CodeDom;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
-	/// The representation of an <see cref="ICommand"/> in the C# programming language.
+	/// An interface specifying an atomic command in C#.
 	/// </summary>
-	public class Command : CommandBase, ICSharpCommand {
+	[ContractClass(typeof(CSharpCommandContract))]
+	public interface ICSharpCommand {
 
-		#region Constructors
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Command"/> class.
-		/// </summary>
-		public Command () {
-		}
-		#endregion
-		#region ICSharpCommand implementation
 		/// <summary>
 		/// Enumerate one or more <see cref="CodeObject"/> instances that mimic the behavior of
 		/// this <see cref="ICSharpCommand"/>.
@@ -47,10 +40,7 @@ namespace ZincOxide.Codegen.Abstract.OO.CSharp {
 		/// <remarks>
 		/// <para>The result is guaranteed to be effective as are all the <see cref="CodeObject"/> instances.</para>
 		/// </remarks>
-		public IEnumerable<CodeObject> EnumerateCode () {
-			throw new NotImplementedException ();
-		}
-		#endregion
+		IEnumerable<CodeObject> EnumerateCode ();
 	}
 }
 

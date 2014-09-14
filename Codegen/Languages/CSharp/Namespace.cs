@@ -1,5 +1,5 @@
 //
-//  Field.cs
+//  Namespace.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,40 +19,40 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
 using System.CodeDom;
+using ZincOxide.Utils.Abstract;
+using System.Diagnostics.Contracts;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
-	/// The representation of an <see cref="IField"/> in C#.
+	/// The implementation of a namespace for the C# programming language.
 	/// </summary>
-	public class Field : FieldBase {
+	public class Namespace : NameShadow, INamespace {
 
-		#region implemented abstract members of NameShadow
+		#region Field
+		private readonly CodeNamespace data;
+		#endregion
+		#region IName implementation
 		/// <summary>
-		/// Gets the name of this instance.
+		/// Gets the name of this C# namespace.
 		/// </summary>
-		/// <value>The name of this instance.</value>
+		/// <value>The name of this C# namespace.</value>
 		public override string Name {
 			get {
-				return this.Data.Name;
+				return data.Name;
 			}
 		}
 		#endregion
-		#region Fields
-		/// <summary>
-		/// The data that describes the field.
-		/// </summary>
-		internal readonly CodeMemberField Data;
-		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Field"/> class with a given .
+		/// Initializes a new instance of the <see cref="Namespace"/> class: a CSharp namespace.
 		/// </summary>
-		/// <param name="data">The data that represents the class.</param>
-		internal Field (CodeMemberField data) {
-			this.Data = data;
+		internal Namespace (CodeNamespace data) {
+			Contract.Requires (data != null);
+			Contract.Ensures (this.data != null);
+			this.data = data;
 		}
 		#endregion
 	}

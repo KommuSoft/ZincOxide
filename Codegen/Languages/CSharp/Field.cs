@@ -1,5 +1,5 @@
 //
-//  ICSharpCommandAtom.cs
+//  Field.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,28 +19,43 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Utils.Abstract;
 using System.CodeDom;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
+using ZincOxide.Codegen.Abstract.OO;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
-	/// An interface specifying an atomic command in C#.
+	/// The representation of an <see cref="IField"/> in C#.
 	/// </summary>
-	[ContractClass(typeof(CSharpCommandContract))]
-	public interface ICSharpCommand {
+	public class Field : FieldBase {
 
+		#region implemented abstract members of NameShadow
 		/// <summary>
-		/// Enumerate one or more <see cref="CodeObject"/> instances that mimic the behavior of
-		/// this <see cref="ICSharpCommand"/>.
+		/// Gets the name of this instance.
 		/// </summary>
-		/// <returns>A <see cref="T:IEnumerable`1"/> of <see cref="CodeObject"/> instance mimicking
-		/// this <see cref="ICSharpCommand"/>.</returns>
-		/// <remarks>
-		/// <para>The result is guaranteed to be effective as are all the <see cref="CodeObject"/> instances.</para>
-		/// </remarks>
-		IEnumerable<CodeObject> EnumerateCode ();
+		/// <value>The name of this instance.</value>
+		public override string Name {
+			get {
+				return this.Data.Name;
+			}
+		}
+		#endregion
+		#region Fields
+		/// <summary>
+		/// The data that describes the field.
+		/// </summary>
+		internal readonly CodeMemberField Data;
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Field"/> class with a given .
+		/// </summary>
+		/// <param name="data">The data that represents the class.</param>
+		internal Field (CodeMemberField data) {
+			this.Data = data;
+		}
+		#endregion
 	}
 }
 

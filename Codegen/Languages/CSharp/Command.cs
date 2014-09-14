@@ -1,5 +1,5 @@
 //
-//  Namespace.cs
+//  Command.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,39 +19,36 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using ZincOxide.Codegen.Abstract.Imperative;
+using System.Collections.Generic;
 using System.CodeDom;
-using ZincOxide.Utils.Abstract;
-using System.Diagnostics.Contracts;
 
-namespace ZincOxide.Codegen.Abstract.OO.CSharp {
+namespace ZincOxide.Codegen.Languages.CSharp {
 
 	/// <summary>
-	/// The implementation of a namespace for the C# programming language.
+	/// The representation of an <see cref="ICommand"/> in the C# programming language.
 	/// </summary>
-	public class Namespace : NameShadow, INamespace {
+	public class Command : CommandBase, ICSharpCommand {
 
-		#region Field
-		private readonly CodeNamespace data;
-		#endregion
-		#region IName implementation
-		/// <summary>
-		/// Gets the name of this C# namespace.
-		/// </summary>
-		/// <value>The name of this C# namespace.</value>
-		public override string Name {
-			get {
-				return data.Name;
-			}
-		}
-		#endregion
 		#region Constructors
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Namespace"/> class: a CSharp namespace.
+		/// Initializes a new instance of the <see cref="Command"/> class.
 		/// </summary>
-		internal Namespace (CodeNamespace data) {
-			Contract.Requires (data != null);
-			Contract.Ensures (this.data != null);
-			this.data = data;
+		public Command () {
+		}
+		#endregion
+		#region ICSharpCommand implementation
+		/// <summary>
+		/// Enumerate one or more <see cref="CodeObject"/> instances that mimic the behavior of
+		/// this <see cref="ICSharpCommand"/>.
+		/// </summary>
+		/// <returns>A <see cref="T:IEnumerable`1"/> of <see cref="CodeObject"/> instance mimicking
+		/// this <see cref="ICSharpCommand"/>.</returns>
+		/// <remarks>
+		/// <para>The result is guaranteed to be effective as are all the <see cref="CodeObject"/> instances.</para>
+		/// </remarks>
+		public IEnumerable<CodeObject> EnumerateCode () {
+			throw new NotImplementedException ();
 		}
 		#endregion
 	}
