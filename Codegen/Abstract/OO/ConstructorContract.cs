@@ -22,6 +22,7 @@ using System;
 using System.Diagnostics.Contracts;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -31,6 +32,21 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	[ContractClassFor(typeof(IConstructor))]
 	public abstract class ConstructorContract : ProcedureMemberContract, IConstructor {
 
+		#region ITypeMember implementation
+		/// <summary>
+		/// The type that contains this <see cref="IConstructor"/>.
+		/// </summary>
+		/// <value>A <see cref="IType"/> that contains this <see cref="IConstructor"/>.</value>
+		/// <remarks>
+		/// <para>The TypeContainer of a <see cref="IConstructor"/> is always effective.</para>
+		/// </remarks>
+		public override IType TypeContainer {
+			get {
+				Contract.Ensures (Contract.Result<IType> () != null);
+				return default(IType);
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ConstructorContract"/> class.

@@ -36,8 +36,12 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 		/// The type that contains this <see cref="ITypeMember"/>.
 		/// </summary>
 		/// <value>A <see cref="IType"/> that contains this <see cref="ITypeMember"/>.</value>
+		/// <remarks>
+		/// <para>A field is guaranteed to have a containing type: the result is always effective.</para>
+		/// </remarks>
 		public IType TypeContainer {
 			get {
+				Contract.Ensures (Contract.Result<IType> () != null);
 				return default(IType);
 			}
 		}

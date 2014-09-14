@@ -114,7 +114,7 @@ namespace ZincOxide.Codegen.Languages.CSharp {
 			Contract.EndContractBlock ();
 			CodeMemberField cmf = new CodeMemberField (ty.Reference, name);
 			this.data.Members.Add (cmf);
-			return new Field (cmf);
+			return new Field (this, cmf);
 		}
 
 		/// <summary>
@@ -142,7 +142,7 @@ namespace ZincOxide.Codegen.Languages.CSharp {
 				}
 			}
 			this.data.Members.Add (cmm);
-			return new Method (cmm);
+			return new Method (this, cmm);
 		}
 
 		/// <summary>

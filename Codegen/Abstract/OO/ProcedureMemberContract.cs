@@ -50,7 +50,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// The type that contains this <see cref="ITypeMember"/>.
 		/// </summary>
 		/// <value>A <see cref="IType"/> that contains this <see cref="ITypeMember"/>.</value>
-		public IType TypeContainer {
+		public virtual IType TypeContainer {
 			get {
 				return default(IType);
 			}

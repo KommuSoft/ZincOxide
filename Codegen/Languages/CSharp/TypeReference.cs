@@ -88,7 +88,7 @@ namespace ZincOxide.Codegen.Languages.CSharp {
 		public override IMethod GetMethod (string name, IEnumerable<IType> parameters) {
 			MethodInfo mi = type.GetMethod (name, parameters.Effectives ().OfType<TypeReference> ().Select (x => x.type).ToArray ());
 			if (mi != null) {
-				return new MethodReference (mi);
+				return new MethodReference (this, mi);
 			} else {
 				return null;
 			}
@@ -108,7 +108,7 @@ namespace ZincOxide.Codegen.Languages.CSharp {
 		public override IConstructor GetConstructor (IEnumerable<IType> parameters) {
 			ConstructorInfo ci = type.GetConstructor (parameters.Effectives ().OfType<TypeReference> ().Select (x => x.type).ToArray ());
 			if (ci != null) {
-				return new ConstructorReference (ci);
+				return new ConstructorReference (this, ci);
 			} else {
 				return null;
 			}

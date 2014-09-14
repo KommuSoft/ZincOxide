@@ -24,6 +24,7 @@ using System.Reflection;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 using ZincOxide.Codegen.Abstract.OO;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Languages.CSharp {
 
@@ -51,7 +52,13 @@ namespace ZincOxide.Codegen.Languages.CSharp {
 		/// Initializes a new instance of the <see cref="MethodReference"/> class.
 		/// </summary>
 		/// <param name="data">The <see cref="MethodInfo"/> that contains the specifications of the method.</param>
-		internal MethodReference (MethodInfo data) {
+		/// <param name="typeContainer">A <see cref="ICSharpType"/> that represents the type of which this <see cref="IConstructor"/> can create instances.</param>
+		/// <exception cref="ArgumentNullException">If the given <paramref name="typeContainer"/> is not effective.</exception>
+		internal MethodReference (ICSharpType typeContainer, MethodInfo data) : base(typeContainer) {
+			if (typeContainer == null) {
+				throw new ArgumentNullException ("typeContainer");
+			}
+			Contract.EndContractBlock ();
 			this.data = data;
 		}
 		#endregion
