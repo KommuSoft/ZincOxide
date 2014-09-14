@@ -23,6 +23,7 @@ using ZincOxide.Utils.Abstract;
 using System.Diagnostics.Contracts;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -34,7 +35,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// alters the state of an object, or both.
 	/// </remarks>
 	[ContractClass(typeof(MethodContract))]
-	public interface IMethod : IProcedureMember {
+	public interface IMethod : IProcedureMember, ITypeMember {
 
 		/// <summary>
 		/// Generate a class command that can be used as part of a procedure implementation.

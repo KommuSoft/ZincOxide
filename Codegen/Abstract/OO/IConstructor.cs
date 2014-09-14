@@ -22,6 +22,7 @@ using System;
 using System.Diagnostics.Contracts;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -29,7 +30,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// A procedure that creates a new instance given a list of parameters.
 	/// </summary>
 	[ContractClass(typeof(ConstructorContract))]
-	public interface IConstructor : IProcedureMember {
+	public interface IConstructor : IProcedureMember, ITypeMember {
 
 		/// <summary>
 		/// Generate a command that creates a new instance of a type using this <see cref="IConstructor"/>.

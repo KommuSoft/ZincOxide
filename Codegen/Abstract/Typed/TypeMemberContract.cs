@@ -1,5 +1,5 @@
 //
-//  IField.cs
+//  TypeMemberContract.cs
 //
 //  Author:
 //       Willem Van Onsem <vanonsem.willem@gmail.com>
@@ -19,19 +19,34 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
-using ZincOxide.Codegen.Abstract.Imperative;
 using System.Diagnostics.Contracts;
-using ZincOxide.Codegen.Abstract.OO.Process;
-using ZincOxide.Codegen.Abstract.Typed;
 
-namespace ZincOxide.Codegen.Abstract.OO {
+namespace ZincOxide.Codegen.Abstract.Typed {
 
 	/// <summary>
-	/// An interface describing a language-invariant field: a place in a class where information is stored.
+	/// A contract class for <see cref="ITypeMember"/> instances.
 	/// </summary>
-	[ContractClass(typeof(FieldContract))]
-	public interface IField : IName, IVariable, ITypeMember {
+	[ContractClassFor(typeof(ITypeMember))]
+	public abstract class TypeMemberContract : ITypeMember {
+
+		#region ITypeMember implementation
+		/// <summary>
+		/// The type that contains this <see cref="ITypeMember"/>.
+		/// </summary>
+		/// <value>A <see cref="IType"/> that contains this <see cref="ITypeMember"/>.</value>
+		public IType TypeContainer {
+			get {
+				return default(IType);
+			}
+		}
+		#endregion
+		#region Constructors
+		/// <summary>
+		/// Initializes a new instance of the <see cref="TypeMemberContract"/> class.
+		/// </summary>
+		protected TypeMemberContract () {
+		}
+		#endregion
 	}
 }
 

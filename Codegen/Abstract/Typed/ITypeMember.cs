@@ -19,12 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Abstract.Typed {
 
 	/// <summary>
 	/// An interface specifying a the member of a type.
 	/// </summary>
+	[ContractClass(typeof(TypeMemberContract))]
 	public interface ITypeMember {
 
 		/// <summary>

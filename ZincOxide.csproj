@@ -342,6 +342,7 @@
     <Compile Include="Codegen\Languages\CSharp\MethodReference.cs" />
     <Compile Include="Codegen\Languages\CSharp\Namespace.cs" />
     <Compile Include="Codegen\Languages\CSharp\TypeReference.cs" />
+    <Compile Include="Codegen\Abstract\Typed\TypeMemberContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
