@@ -19,11 +19,12 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using ZincOxide.Utils.Abstract;
-using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using ZincOxide.Codegen.Abstract.Imperative;
 using ZincOxide.Codegen.Abstract.OO.Process;
+using ZincOxide.Codegen.Abstract.Typed;
+using ZincOxide.Utils.Abstract;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -32,7 +33,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// a set of imperative instructions that must be called when needed.
 	/// </summary>
 	[ContractClass(typeof(ProcedureMemberContract))]
-	public interface IProcedureMember : IName {
+	public interface IProcedureMember : IName, ITypeMember {
 
 		/// <summary>
 		/// Reimplement the procedure member with the given <paramref name="commands"/>.

@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using ZincOxide.Utils.Abstract;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -29,11 +30,23 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// </summary>
 	public abstract class FieldBase : NameShadow, IField {
 
+		#region ITypeMember implementation
+		/// <summary>
+		/// The type that contains this <see cref="ITypeMember"/>.
+		/// </summary>
+		/// <value>A <see cref="IType"/> that contains this <see cref="ITypeMember"/>.</value>
+		public IType TypeContainer {
+			get;
+			private set;
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="FieldBase"/> class.
 		/// </summary>
-		protected FieldBase () {
+		/// <param name="typeContainer">A <see cref="IType"/> that contains this <see cref="FieldBase"/>.</param>
+		protected FieldBase (IType typeContainer) {
+			this.TypeContainer = typeContainer;
 		}
 		#endregion
 	}

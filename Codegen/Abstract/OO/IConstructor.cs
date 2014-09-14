@@ -30,7 +30,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// A procedure that creates a new instance given a list of parameters.
 	/// </summary>
 	[ContractClass(typeof(ConstructorContract))]
-	public interface IConstructor : IProcedureMember, ITypeMember {
+	public interface IConstructor : IProcedureMember {
 
 		/// <summary>
 		/// Generate a command that creates a new instance of a type using this <see cref="IConstructor"/>.

@@ -21,6 +21,7 @@
 using System;
 using System.Diagnostics.Contracts;
 using ZincOxide.Codegen.Abstract.Imperative;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO.Process {
 
@@ -30,6 +31,17 @@ namespace ZincOxide.Codegen.Abstract.OO.Process {
 	[ContractClassFor(typeof(IField))]
 	public abstract class FieldContract : VariableContract, IField {
 
+		#region ITypeMember implementation
+		/// <summary>
+		/// The type that contains this <see cref="ITypeMember"/>.
+		/// </summary>
+		/// <value>A <see cref="IType"/> that contains this <see cref="ITypeMember"/>.</value>
+		public IType TypeContainer {
+			get {
+				return default(IType);
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="FieldContract"/> class.

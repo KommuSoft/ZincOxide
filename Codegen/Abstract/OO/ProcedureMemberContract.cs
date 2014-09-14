@@ -23,6 +23,7 @@ using System.Diagnostics.Contracts;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 using ZincOxide.Utils.Abstract;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -30,7 +31,7 @@ namespace ZincOxide.Codegen.Abstract.OO {
 	/// A contract class describing the contracts that should be respected when dealing with <see cref="IProcedureMember"/> instances.
 	/// </summary>
 	[ContractClassFor(typeof(IProcedureMember))]
-	public abstract class ProcedureMemberContract : NameShadow, IProcedureMember {
+	public abstract class ProcedureMemberContract : NameContract, IProcedureMember {
 
 		#region IName implementation
 		/// <summary>
@@ -41,6 +42,17 @@ namespace ZincOxide.Codegen.Abstract.OO {
 			get {
 				Contract.Ensures (Contract.Result<string> () != null);
 				return default(string);
+			}
+		}
+		#endregion
+		#region ITypeMember implementation
+		/// <summary>
+		/// The type that contains this <see cref="ITypeMember"/>.
+		/// </summary>
+		/// <value>A <see cref="IType"/> that contains this <see cref="ITypeMember"/>.</value>
+		public IType TypeContainer {
+			get {
+				return default(IType);
 			}
 		}
 		#endregion

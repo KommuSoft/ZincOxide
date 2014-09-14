@@ -22,18 +22,32 @@ using System;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 using ZincOxide.Utils.Abstract;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO {
+
 	/// <summary>
 	/// A basic implementation of the <see cref="IProcedureMember"/> interface.
 	/// </summary>
 	public abstract class ProcedureMemberBase : NameShadow, IProcedureMember {
 
+		#region ITypeMember implementation
+		/// <summary>
+		/// The type that contains this <see cref="ITypeMember"/>.
+		/// </summary>
+		/// <value>A <see cref="IType"/> that contains this <see cref="ITypeMember"/>.</value>
+		public IType TypeContainer {
+			get;
+			private set;
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ProcedureMemberBase"/> class.
 		/// </summary>
-		protected ProcedureMemberBase () {
+		/// <param name="typeContainer">A <see cref="IType"/> that contains this <see cref="ProcedureMemberBase"/>.</param>
+		protected ProcedureMemberBase (IType typeContainer) {
+			this.TypeContainer = typeContainer;
 		}
 		#endregion
 		#region IProcedureMember implementation

@@ -22,6 +22,7 @@ using System;
 using ZincOxide.Utils.Abstract;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
+using ZincOxide.Codegen.Abstract.Typed;
 
 namespace ZincOxide.Codegen.Abstract.OO {
 
@@ -34,7 +35,8 @@ namespace ZincOxide.Codegen.Abstract.OO {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MethodBase"/> class.
 		/// </summary>
-		protected MethodBase () {
+		/// <param name="typeContainer">A <see cref="IType"/> that contains this <see cref="MethodBase"/>.</param>
+		protected MethodBase (IType typeContainer) : base(typeContainer) {
 		}
 		#endregion
 		#region IMethod implementation

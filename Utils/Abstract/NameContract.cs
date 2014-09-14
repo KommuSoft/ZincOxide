@@ -35,7 +35,7 @@ namespace ZincOxide.Utils.Abstract {
 		/// <value>
 		/// The name of this instance.
 		/// </value>
-		public string Name {
+		public virtual string Name {
 			get {
 				return default(string);
 			}
