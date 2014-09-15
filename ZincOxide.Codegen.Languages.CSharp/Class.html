@@ -1,0 +1,879 @@
+<html>
+  <head>
+    <title>ZincOxide.Codegen.Languages.CSharp.Class</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      a { text-decoration: none }
+
+      div.SideBar {
+        padding-left: 1em;
+        padding-right: 1em;
+        right: 0;
+        float: right;
+        border: thin solid black;
+        background-color: #f2f2f2;
+      }
+    
+      .CollectionTitle { font-weight: bold }
+      .PageTitle { font-size: 150%; font-weight: bold }
+
+      .Summary { }
+      .Signature { }          
+      .Remarks { }
+      .Members { }
+      .Copyright { }
+      
+      .Section { font-size: 125%; font-weight: bold }
+      p.Summary {
+        margin-left: 1em;
+      }
+      .SectionBox { margin-left: 2em }
+      .NamespaceName { font-size: 105%; font-weight: bold }
+      .NamespaceSumary { }
+      .MemberName { font-size: 115%; font-weight: bold; margin-top: 1em }
+      .Subsection { font-size: 105%; font-weight: bold }
+      .SubsectionBox { margin-left: 2em; margin-bottom: 1em }
+
+      .CodeExampleTable { background-color: #f5f5dd; border: thin solid black; padding: .25em; }
+      
+      .TypesListing {
+        border-collapse: collapse;
+      }
+
+      td {
+        vertical-align: top;
+      }
+      th {
+        text-align: left;
+      }
+
+      .TypesListing td { 
+        margin: 0px;  
+        padding: .25em;
+        border: solid gray 1px;
+      }
+
+      .TypesListing th { 
+        margin: 0px;  
+        padding: .25em;
+        background-color: #f2f2f2;
+        border: solid gray 1px;
+      }
+
+      div.Footer {
+        border-top: 1px solid gray;
+        margin-top: 1.5em;
+        padding-top: 0.6em;
+        text-align: center;
+        color: gray;
+      }
+
+      span.NotEntered /* Documentation for this section has not yet been entered */ {
+        font-style: italic;
+        color: red;	
+      }
+
+      div.Header {
+        background: #B0C4DE;
+        border: double;
+        border-color: white;
+        border-width: 7px;
+        padding: 0.5em;
+      }
+
+      div.Header * {
+        font-size: smaller;
+      }
+
+      div.Note {
+      }
+
+      i.ParamRef {
+      }
+
+      i.subtitle {
+      }
+
+      ul.TypeMembersIndex {
+        text-align: left;
+        background: #F8F8F8;
+      }
+
+      ul.TypeMembersIndex li {
+        display: inline;
+        margin:  0.5em;
+      }
+
+      table.HeaderTable {
+      }
+
+      table.SignatureTable {
+      }
+
+      table.Documentation, table.Enumeration, table.TypeDocumentation {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table.Documentation tr th, table.TypeMembers tr th, table.Enumeration tr th, table.TypeDocumentation tr th {
+        background: whitesmoke;
+        padding: 0.8em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: bottom;
+      }
+
+      table.Documentation tr td, table.TypeMembers tr td, table.Enumeration tr td, table.TypeDocumentation tr td {
+        padding: 0.5em;
+        border: 1px solid gray;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      table.TypeMembers {
+        border: 1px solid #C0C0C0;
+        width: 100%;
+      }
+
+      table.TypeMembers tr td {
+        background: #F8F8F8;
+        border: white;
+      }
+
+      table.Documentation {
+      }
+
+      table.TypeMembers {
+      }
+
+      div.CodeExample {
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        background-color: #F8F8F8;
+      }
+
+      div.CodeExample p {
+        margin: 0.5em;
+        border-bottom: 1px solid #DDDDDD;
+      }
+
+      div.CodeExample div {
+        margin: 0.5em;
+      }
+
+      h4 {
+        margin-bottom: 0;
+      }
+
+      div.Signature {
+        border: 1px solid #C0C0C0;
+        background: #F2F2F2;
+        padding: 1em;
+      }
+    </style>
+    <script type="text/JavaScript">
+      function toggle_display (block) {
+        var w = document.getElementById (block);
+        var t = document.getElementById (block + ":toggle");
+        if (w.style.display == "none") {
+          w.style.display = "block";
+          t.innerHTML = "⊟";
+        } else {
+          w.style.display = "none";
+          t.innerHTML = "⊞";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="CollectionTitle">
+      <a href="../index.html">ZincOxide</a> : <a href="index.html">ZincOxide.Codegen.Languages.CSharp Namespace</a></div>
+    <div class="SideBar">
+      <p>
+        <a href="#T:ZincOxide.Codegen.Languages.CSharp.Class">Overview</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Codegen.Languages.CSharp.Class:Signature">Signature</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Codegen.Languages.CSharp.Class:Docs">Remarks</a>
+      </p>
+      <p>
+        <a href="#Members">Members</a>
+      </p>
+      <p>
+        <a href="#T:ZincOxide.Codegen.Languages.CSharp.Class:Members">Member Details</a>
+      </p>
+    </div>
+    <h1 class="PageTitle" id="T:ZincOxide.Codegen.Languages.CSharp.Class">Class  Class</h1>
+    <p class="Summary" id="T:ZincOxide.Codegen.Languages.CSharp.Class:Summary">
+            The representation of an <a href="../ZincOxide.Codegen.Abstract.OO/IClass.html">ZincOxide.Codegen.Abstract.OO.IClass</a> in C#.
+            </p>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:ZincOxide.Codegen.Languages.CSharp.Class:Signature">public class  <b>Class</b> : <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html">ZincOxide.Codegen.Abstract.OO.ClassBase</a>,	<a href="../ZincOxide.Codegen.Languages.CSharp/ICSharpType.html">ICSharpType</a></div>
+    </div>
+    <div class="Remarks" id="T:ZincOxide.Codegen.Languages.CSharp.Class:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:ZincOxide.Codegen.Languages.CSharp.Class:Docs:Remarks">
+        <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+      </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:ZincOxide.Codegen.Languages.CSharp.Class:Docs:Version Information">
+        <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html">ZincOxide.Codegen.Abstract.OO.ClassBase</a>.
+							</p>
+        <h2 class="Section">Public Fields</h2>
+        <div class="SectionBox" id="Public Fields">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>const </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:ZincOxide.Codegen.Languages.CSharp.Class.FormattingMethodName">FormattingMethodName</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            The name of the method that is responsible for converting an instance to a textual representation.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div>override </div></td>
+                <td>
+                  <b>
+                    <a href="#P:ZincOxide.Codegen.Languages.CSharp.Class.Name">Name</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            Gets the name of this C# class.
+            </td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div>abstract </div></td>
+                <td>
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NameShadow.html#P:ZincOxide.Utils.Abstract.NameShadow.Name">Name</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>
+                  </i>. 
+            Gets the name of this instance.
+             (<i>Inherited from <a href="../ZincOxide.Utils.Abstract/NameShadow.html">ZincOxide.Utils.Abstract.NameShadow</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:ZincOxide.Codegen.Languages.CSharp.Class.Reference">Reference</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.CodeDom.CodeTypeReference">System.CodeDom.CodeTypeReference</a>
+                  </i>. 
+            Get a reference to this type, used for implementation and the creation of code members.
+            </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Languages.CSharp.Class.AddConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IField},ZincOxide.Codegen.Abstract.OO.OOModifiers)">AddConstructor</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.OO.IField&gt;</a>, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a>)<blockquote>
+            Add a public constructor to the class that instantiates the given fields.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html#M:ZincOxide.Codegen.Abstract.OO.ClassBase.AddConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IField},ZincOxide.Codegen.Abstract.OO.OOModifiers)">AddConstructor</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.OO.IField&gt;</a>, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a>)<blockquote>
+            Add a public constructor to the class that instantiates the given fields.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html">ZincOxide.Codegen.Abstract.OO.ClassBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html#M:ZincOxide.Codegen.Abstract.OO.ClassBase.AddConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IField[])">AddConstructor</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">ZincOxide.Codegen.Abstract.OO.IField</a>[])<blockquote>
+            Add a public constructor to the class that instantiates the given fields.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html">ZincOxide.Codegen.Abstract.OO.ClassBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Languages.CSharp.Class.AddFieldConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers)">AddFieldConstructor</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a>)<blockquote>
+            Add a constructor to the class where all fields are included as parameters.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html#M:ZincOxide.Codegen.Abstract.OO.ClassBase.AddFieldConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers)">AddFieldConstructor</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a>)<blockquote>
+            Add a constructor to the class where all fields are included as parameters.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html">ZincOxide.Codegen.Abstract.OO.ClassBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NameShadow.html#M:ZincOxide.Utils.Abstract.NameShadow.EqualName(ZincOxide.Utils.Abstract.IName)">EqualName</a>
+                  </b>(<a href="../ZincOxide.Utils.Abstract/IName.html">ZincOxide.Utils.Abstract.IName</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Check if the given <a href="../ZincOxide.Utils.Abstract/IName.html">ZincOxide.Utils.Abstract.IName</a> instance has the same <a href="../ZincOxide.Utils.Abstract/NameShadow.html#P:ZincOxide.Utils.Abstract.NameShadow.Name">ZincOxide.Utils.Abstract.NameShadow.Name</a> as this instance.
+             (<i>Inherited from <a href="../ZincOxide.Utils.Abstract/NameShadow.html">ZincOxide.Utils.Abstract.NameShadow</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String)">GenerateField</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">ZincOxide.Codegen.Abstract.OO.IField</a></nobr><blockquote>
+            Generate a field stored in this class.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html#M:ZincOxide.Codegen.Abstract.OO.ClassBase.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String)">GenerateField</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">ZincOxide.Codegen.Abstract.OO.IField</a></nobr><blockquote>
+            Generate a field stored in this class.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html">ZincOxide.Codegen.Abstract.OO.ClassBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateFormattingMethod(ZincOxide.Codegen.Abstract.OO.OOModifiers)">GenerateFormattingMethod</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Generate an (override) method that describes how to format the output
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html#M:ZincOxide.Codegen.Abstract.OO.ClassBase.GenerateFormattingMethod(ZincOxide.Codegen.Abstract.OO.OOModifiers)">GenerateFormattingMethod</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Generate an (override) method that describes how to format the output
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html">ZincOxide.Codegen.Abstract.OO.ClassBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html#M:ZincOxide.Codegen.Abstract.OO.ClassBase.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[])">GenerateMethod</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Generate a method contained in this class that returns nothing, or where the return data is irrelevant.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html">ZincOxide.Codegen.Abstract.OO.ClassBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[])">GenerateMethod</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Generate a method contained in this class.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html#M:ZincOxide.Codegen.Abstract.OO.ClassBase.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[])">GenerateMethod</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Generate a method contained in this class.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/ClassBase.html">ZincOxide.Codegen.Abstract.OO.ClassBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Languages.CSharp.Class.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType})">GetConstructor</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.Typed.IType&gt;</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">ZincOxide.Codegen.Abstract.OO.IConstructor</a></nobr><blockquote>
+            Obtain the constructor with the given <i>parameters</i> types.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.Typed/TypeBase.html#M:ZincOxide.Codegen.Abstract.Typed.TypeBase.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType})">GetConstructor</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.Typed.IType&gt;</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">ZincOxide.Codegen.Abstract.OO.IConstructor</a></nobr><blockquote>
+            Obtain the constructor with the given <i>parameters</i> types.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.Typed/TypeBase.html">ZincOxide.Codegen.Abstract.Typed.TypeBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.Typed/TypeBase.html#M:ZincOxide.Codegen.Abstract.Typed.TypeBase.GetConstructor(ZincOxide.Codegen.Abstract.Typed.IType[])">GetConstructor</a>
+                  </b>(<b>params</b> <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">ZincOxide.Codegen.Abstract.OO.IConstructor</a></nobr><blockquote>
+            Obtain the constructor with the given <i>parameters</i> types.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.Typed/TypeBase.html">ZincOxide.Codegen.Abstract.Typed.TypeBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Languages.CSharp.Class.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType})">GetMethod</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.Typed.IType&gt;</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.Typed/TypeBase.html#M:ZincOxide.Codegen.Abstract.Typed.TypeBase.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType})">GetMethod</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.Typed.IType&gt;</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.Typed/TypeBase.html">ZincOxide.Codegen.Abstract.Typed.TypeBase</a>.</i>)</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.Typed/TypeBase.html#M:ZincOxide.Codegen.Abstract.Typed.TypeBase.GetMethod(System.String,ZincOxide.Codegen.Abstract.Typed.IType[])">GetMethod</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a></nobr><blockquote>
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.Typed/TypeBase.html">ZincOxide.Codegen.Abstract.Typed.TypeBase</a>.</i>)</blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Extension Methods</h2>
+        <div class="SectionBox" id="Extension Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfEffective``1(``0,System.Action{``0})">IfEffective&lt;TX&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Action`1">Action&lt;TX&gt;</a>)<blockquote>
+            Invokes the given <i>action</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, nothing is done, otherwise the action is performed.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,System.Collections.Generic.IEnumerable{``0})">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;T&gt;</a>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, the algorithm searches
+            for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0)">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <i title="The type of elements over which the function is defined.">T</i>)<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, <i>deflt</i> is returned,
+            otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.IfNull``1(``0,``0[])">IfNull&lt;T&gt;</a>
+                  </b>(<i>this</i> <i title="The type of elements over which the function is defined.">T</i>, <b>params</b> <i title="The type of elements over which the function is defined.">T</i>[])<nobr> : <i title="The type of elements over which the function is defined.">T</i></nobr><blockquote>
+            If the given <i>value</i> is not effective, the algorithm searches
+            for the first effective value in <i>deflts</i>, otherwise the <i>value</i> is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.OrFalse``2(``0,System.Predicate{``0})">OrFalse&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Predicate`1">Predicate&lt;TX&gt;</a>)<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a></nobr><blockquote>
+            Invokes the given <i>predicate</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, <tt>false</tt> is returned as well, otherwise the predicate is invoked
+            and the result is returned.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Utils.Abstract/NullSafe.html#M:ZincOxide.Utils.Abstract.NullSafe.OrNull``2(``0,System.Func{``0,``1})">OrNull&lt;TX,TResult&gt;</a>
+                  </b>(<i>this</i> <i title="The type of data that is provided.">TX</i>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Func`2">Func&lt;TX, TResult&gt;</a>)<nobr> : <i title="The type of the result of the function: the type of data that must be returned.">TResult</i></nobr><blockquote>
+            Invokes the given <i>function</i> with the given <i>data</i> safely:
+            if the given data is <tt>null</tt>, null is returned as well, otherwise the function is invoked.
+            </blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:ZincOxide.Codegen.Languages.CSharp.Class:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="M:ZincOxide.Codegen.Languages.CSharp.Class.AddConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IField},ZincOxide.Codegen.Abstract.OO.OOModifiers)">AddConstructor Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Languages.CSharp.Class.AddConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IField},ZincOxide.Codegen.Abstract.OO.OOModifiers):member">
+          <p class="Summary">
+            Add a public constructor to the class that instantiates the given fields.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>AddConstructor</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.OO.IField&gt;</a> fields, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a> modifiers)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.AddConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IField},ZincOxide.Codegen.Abstract.OO.OOModifiers):Parameters">
+            <dl>
+              <dt>
+                <i>fields</i>
+              </dt>
+              <dd>A list of fields that are all instantiated by the constructor.</dd>
+              <dt>
+                <i>modifiers</i>
+              </dt>
+              <dd>A modifier value that specifies how the constructor should be implemented.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.AddConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IField},ZincOxide.Codegen.Abstract.OO.OOModifiers):Remarks">
+            <p>The order of the constructor parameters is the same as the order of the given list.</p>
+            <p>Fields not belonging to the class, not effective of from the wrong type are ignored.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.AddConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IField},ZincOxide.Codegen.Abstract.OO.OOModifiers):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Codegen.Languages.CSharp.Class.AddFieldConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers)">AddFieldConstructor Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Languages.CSharp.Class.AddFieldConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers):member">
+          <p class="Summary">
+            Add a constructor to the class where all fields are included as parameters.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>AddFieldConstructor</b> (<a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a> modifiers)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.AddFieldConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers):Parameters">
+            <dl>
+              <dt>
+                <i>modifiers</i>
+              </dt>
+              <dd>A modifier value that specifies how the constructor should be implemented.</dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.AddFieldConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers):Remarks">
+            <p>The order is determined by the order in which fields were added to the class.</p>
+            <p>The constructor simply sets the fields to the given value, no consistency checks are performed.</p>
+            <p>This method is not declarative: adding fields to the class after calling this method
+            will not modify the constructor.</p>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.AddFieldConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:ZincOxide.Codegen.Languages.CSharp.Class.FormattingMethodName">FormattingMethodName Field</h3>
+        <blockquote id="F:ZincOxide.Codegen.Languages.CSharp.Class.FormattingMethodName:member">
+          <p class="Summary">
+            The name of the method that is responsible for converting an instance to a textual representation.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public const <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>FormattingMethodName</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:ZincOxide.Codegen.Languages.CSharp.Class.FormattingMethodName:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:ZincOxide.Codegen.Languages.CSharp.Class.FormattingMethodName:Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String)">GenerateField Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String):member">
+          <p class="Summary">
+            Generate a field stored in this class.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">ZincOxide.Codegen.Abstract.OO.IField</a> <b>GenerateField</b> (<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a> type, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String):Parameters">
+            <dl>
+              <dt>
+                <i>type</i>
+              </dt>
+              <dd>The type of the field.</dd>
+              <dt>
+                <i>name</i>
+              </dt>
+              <dd>The name of the field to be added.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">ZincOxide.Codegen.Abstract.OO.IField</a> instance describing the generated field.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateFormattingMethod(ZincOxide.Codegen.Abstract.OO.OOModifiers)">GenerateFormattingMethod Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateFormattingMethod(ZincOxide.Codegen.Abstract.OO.OOModifiers):member">
+          <p class="Summary">
+            Generate an (override) method that describes how to format the output
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> <b>GenerateFormattingMethod</b> (<a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a> modifiers)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateFormattingMethod(ZincOxide.Codegen.Abstract.OO.OOModifiers):Parameters">
+            <dl>
+              <dt>
+                <i>modifiers</i>
+              </dt>
+              <dd>The modifiers that specify how the method should be generated.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateFormattingMethod(ZincOxide.Codegen.Abstract.OO.OOModifiers):Returns">The formatting method.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateFormattingMethod(ZincOxide.Codegen.Abstract.OO.OOModifiers):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateFormattingMethod(ZincOxide.Codegen.Abstract.OO.OOModifiers):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[])">GenerateMethod Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):member">
+          <p class="Summary">
+            Generate a method contained in this class.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> <b>GenerateMethod</b> (<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a> returnType, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">ZincOxide.Codegen.Abstract.OO.OOModifiers</a> modifiers, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>[] fields)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Parameters">
+            <dl>
+              <dt>
+                <i>returnType</i>
+              </dt>
+              <dd>A <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a> that specifies the return type of the method, <tt>null</tt> if the return type is <tt>void</tt> (or irrelevant).</dd>
+              <dt>
+                <i>name</i>
+              </dt>
+              <dd>The name of the method to be generated.</dd>
+              <dt>
+                <i>modifiers</i>
+              </dt>
+              <dd>The modifiers that specify how the method should be generated.</dd>
+              <dt>
+                <i>fields</i>
+              </dt>
+              <dd>A list of parameters that should be defined by the method.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> that represents the generated method and can be altered.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Remarks">The default implementation of the method is to return the default value for the <i>returnType</i>.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType})">GetConstructor Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType}):member">
+          <p class="Summary">
+            Obtain the constructor with the given <i>parameters</i> types.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">ZincOxide.Codegen.Abstract.OO.IConstructor</a> <b>GetConstructor</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.Typed.IType&gt;</a> parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType}):Parameters">
+            <dl>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>The list of the type of the parameters (or generalizations) of the requested constructors.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType}):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">ZincOxide.Codegen.Abstract.OO.IConstructor</a> instance representing the queried constructor, <tt>null</tt> if such constructor
+            does not exists.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType}):Remarks">In case such constructor does not exists, an attempt is made to find
+            a constructor where the parameters are generalized. If this attempt fails
+            as well, <tt>null</tt> is returned.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType}):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType})">GetMethod Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType}):member">
+          <p class="Summary">
+            Obtain the method with the given <i>name</i> and the given <i>parameters</i> types.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> <b>GetMethod</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;ZincOxide.Codegen.Abstract.Typed.IType&gt;</a> parameters)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType}):Parameters">
+            <dl>
+              <dt>
+                <i>name</i>
+              </dt>
+              <dd>The name of the requested method.</dd>
+              <dt>
+                <i>parameters</i>
+              </dt>
+              <dd>The list of the type of the parameters (or generalizations) of the requested method.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType}):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> instance representing the queried method, <tt>null</tt> if such method
+            does not exists.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType}):Remarks">In case such method does not exists, an attempt is made to find
+            a method where the parameters are generalized. If this attempt fails
+            as well, <tt>null</tt> is returned.</div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Languages.CSharp.Class.GetMethod(System.String,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Typed.IType}):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ZincOxide.Codegen.Languages.CSharp.Class.Name">Name Property</h3>
+        <blockquote id="P:ZincOxide.Codegen.Languages.CSharp.Class.Name:member">
+          <p class="Summary">
+            Gets the name of this C# class.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> <b>Name</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.Codegen.Languages.CSharp.Class.Name:Value">The name of this C# class.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ZincOxide.Codegen.Languages.CSharp.Class.Name:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ZincOxide.Codegen.Languages.CSharp.Class.Name:Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:ZincOxide.Codegen.Languages.CSharp.Class.Reference">Reference Property</h3>
+        <blockquote id="P:ZincOxide.Codegen.Languages.CSharp.Class.Reference:member">
+          <p class="Summary">
+            Get a reference to this type, used for implementation and the creation of code members.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.CodeDom.CodeTypeReference">System.CodeDom.CodeTypeReference</a> <b>Reference</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:ZincOxide.Codegen.Languages.CSharp.Class.Reference:Value">A <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.CodeDom.CodeTypeReference">System.CodeDom.CodeTypeReference</a> that refers to this type.</blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:ZincOxide.Codegen.Languages.CSharp.Class.Reference:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:ZincOxide.Codegen.Languages.CSharp.Class.Reference:Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Languages.CSharp<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+    <hr size="1" />
+    <div class="Copyright">
+    </div>
+  </body>
+</html>

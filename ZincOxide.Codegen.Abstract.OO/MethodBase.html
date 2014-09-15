@@ -220,7 +220,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:ZincOxide.Codegen.Abstract.OO.MethodBase:Docs:Version Information">
-        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
@@ -239,8 +239,8 @@
                 <td>
                   <div>
                     <b>
-                      <a href="#C:ZincOxide.Codegen.Abstract.OO.MethodBase()">MethodBase</a>
-                    </b>()</div>
+                      <a href="#C:ZincOxide.Codegen.Abstract.OO.MethodBase(ZincOxide.Codegen.Abstract.Typed.IType)">MethodBase</a>
+                    </b>(<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>)</div>
                 </td>
                 <td>
             Initializes a new instance of the <a href="../ZincOxide.Codegen.Abstract.OO/MethodBase.html">ZincOxide.Codegen.Abstract.OO.MethodBase</a> class.
@@ -266,6 +266,20 @@
                   </i>. 
             Gets the name of this instance.
              (<i>Inherited from <a href="../ZincOxide.Utils.Abstract/NameShadow.html">ZincOxide.Utils.Abstract.NameShadow</a>.</i>)</td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.OO/ProcedureMemberBase.html#P:ZincOxide.Codegen.Abstract.OO.ProcedureMemberBase.TypeContainer">TypeContainer</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>
+                  </i>. 
+            The type that contains this <a href="../ZincOxide.Codegen.Abstract.Typed/ITypeMember.html">ZincOxide.Codegen.Abstract.Typed.ITypeMember</a>.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.OO/ProcedureMemberBase.html">ProcedureMemberBase</a>.</i>)</td>
               </tr>
             </table>
           </div>
@@ -408,20 +422,29 @@
     <div class="Members" id="T:ZincOxide.Codegen.Abstract.OO.MethodBase:Members">
       <h2 class="Section" id="MemberDetails">Member Details</h2>
       <div class="SectionBox" id="_MemberDetails">
-        <h3 id="C:ZincOxide.Codegen.Abstract.OO.MethodBase()">MethodBase Constructor</h3>
-        <blockquote id="C:ZincOxide.Codegen.Abstract.OO.MethodBase():member">
+        <h3 id="C:ZincOxide.Codegen.Abstract.OO.MethodBase(ZincOxide.Codegen.Abstract.Typed.IType)">MethodBase Constructor</h3>
+        <blockquote id="C:ZincOxide.Codegen.Abstract.OO.MethodBase(ZincOxide.Codegen.Abstract.Typed.IType):member">
           <p class="Summary">
             Initializes a new instance of the <a href="../ZincOxide.Codegen.Abstract.OO/MethodBase.html">ZincOxide.Codegen.Abstract.OO.MethodBase</a> class.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">protected  <b>MethodBase</b> ()</div>
+          <div class="Signature">protected  <b>MethodBase</b> (<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a> typeContainer)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:ZincOxide.Codegen.Abstract.OO.MethodBase(ZincOxide.Codegen.Abstract.Typed.IType):Parameters">
+            <dl>
+              <dt>
+                <i>typeContainer</i>
+              </dt>
+              <dd>A <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a> that contains this <a href="../ZincOxide.Codegen.Abstract.OO/MethodBase.html">ZincOxide.Codegen.Abstract.OO.MethodBase</a>.</dd>
+            </dl>
+          </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:ZincOxide.Codegen.Abstract.OO.MethodBase():Remarks">
+          <div class="SectionBox" id="C:ZincOxide.Codegen.Abstract.OO.MethodBase(ZincOxide.Codegen.Abstract.Typed.IType):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="C:ZincOxide.Codegen.Abstract.OO.MethodBase():Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+          <div class="SectionBox" id="C:ZincOxide.Codegen.Abstract.OO.MethodBase(ZincOxide.Codegen.Abstract.Typed.IType):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Imperative.IExpression})">CallCommand Method</h3>
@@ -452,7 +475,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.Imperative.IExpression}):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,ZincOxide.Codegen.Abstract.Imperative.IExpression[])">CallCommand Method</h3>
@@ -483,7 +506,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.MethodBase.CallCommand(ZincOxide.Codegen.Abstract.Imperative.IExpression,ZincOxide.Codegen.Abstract.Imperative.IExpression[]):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
       </div>

@@ -211,7 +211,7 @@
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:ZincOxide.Codegen.Abstract.OO.IClass:Signature">[System.Diagnostics.Contracts.ContractClass(typeof(ZincOxide.Codegen.Abstract.OO.ClassContract))]<br />public interface  <b>IClass</b> : <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a></div>
+      <div class="Signature" id="T:ZincOxide.Codegen.Abstract.OO.IClass:Signature">[System.Diagnostics.Contracts.ContractClass(typeof(ZincOxide.Codegen.Abstract.OO.ClassContract))]<br />public interface  <b>IClass</b> : <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a></div>
     </div>
     <div class="Remarks" id="T:ZincOxide.Codegen.Abstract.OO.IClass:Docs">
       <h2 class="Section">Remarks</h2>
@@ -220,7 +220,7 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:ZincOxide.Codegen.Abstract.OO.IClass:Docs:Version Information">
-        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <h2 class="Section">Public Methods</h2>
@@ -270,8 +270,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.OO.IType,System.String)">GenerateField</a>
-                  </b>(<a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">IField</a></nobr><blockquote>
+                    <a href="#M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String)">GenerateField</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">IField</a></nobr><blockquote>
             Generate a field contained in this class.
             </blockquote></td>
               </tr>
@@ -294,8 +294,8 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[])">GenerateMethod</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">OOModifiers</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a></nobr><blockquote>
+                    <a href="#M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[])">GenerateMethod</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">OOModifiers</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a></nobr><blockquote>
             Generate a method contained in this class that returns nothing, or where the return data is irrelevant.
             </blockquote></td>
               </tr>
@@ -306,33 +306,9 @@
                 </td>
                 <td colspan="2">
                   <b>
-                    <a href="#M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.OO.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[])">GenerateMethod</a>
-                  </b>(<a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">OOModifiers</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a></nobr><blockquote>
+                    <a href="#M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[])">GenerateMethod</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">OOModifiers</a>, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a></nobr><blockquote>
             Generate a method contained in this class.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType})">GetConstructor</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IType&gt;</a>)<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">IConstructor</a></nobr><blockquote>
-            Obtain the constructor with the given <i>parameters</i> types.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>
-                  </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(ZincOxide.Codegen.Abstract.OO.IType[])">GetConstructor</a>
-                  </b>(<b>params</b> <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a>[])<nobr> : <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">IConstructor</a></nobr><blockquote>
-            Obtain the constructor with the given <i>parameters</i> types.
             </blockquote></td>
               </tr>
             </table>
@@ -451,7 +427,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.AddConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IField},ZincOxide.Codegen.Abstract.OO.OOModifiers):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.AddConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IField[])">AddConstructor Method</h3>
@@ -482,7 +458,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.AddConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IField[]):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.AddFieldConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers)">AddFieldConstructor Method</h3>
@@ -510,18 +486,18 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.AddFieldConstructor(ZincOxide.Codegen.Abstract.OO.OOModifiers):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
-        <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.OO.IType,System.String)">GenerateField Method</h3>
-        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.OO.IType,System.String):member">
+        <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String)">GenerateField Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String):member">
           <p class="Summary">
             Generate a field contained in this class.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">IField</a> <b>GenerateField</b> (<a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a> type, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name)</div>
+          <div class="Signature">public <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">IField</a> <b>GenerateField</b> (<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a> type, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name)</div>
           <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.OO.IType,System.String):Parameters">
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String):Parameters">
             <dl>
               <dt>
                 <i>type</i>
@@ -534,14 +510,14 @@
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.OO.IType,System.String):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">ZincOxide.Codegen.Abstract.OO.IField</a> instance describing the generated field.</blockquote>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IField.html">ZincOxide.Codegen.Abstract.OO.IField</a> instance describing the generated field.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.OO.IType,System.String):Remarks">
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.OO.IType,System.String):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateField(ZincOxide.Codegen.Abstract.Typed.IType,System.String):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateFormattingMethod(ZincOxide.Codegen.Abstract.OO.OOModifiers)">GenerateFormattingMethod Method</h3>
@@ -568,18 +544,18 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateFormattingMethod(ZincOxide.Codegen.Abstract.OO.OOModifiers):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
-        <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[])">GenerateMethod Method</h3>
-        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[]):member">
+        <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[])">GenerateMethod Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):member">
           <p class="Summary">
             Generate a method contained in this class that returns nothing, or where the return data is irrelevant.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a> <b>GenerateMethod</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">OOModifiers</a> modifiers, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a>[] parameters)</div>
+          <div class="Signature">public <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a> <b>GenerateMethod</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">OOModifiers</a> modifiers, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[]):Parameters">
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Parameters">
             <dl>
               <dt>
                 <i>name</i>
@@ -596,29 +572,29 @@
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[]):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> that represents the generated method and can be altered.</blockquote>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> that represents the generated method and can be altered.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[]):Remarks">The default implementation of the method is to return the default value for the return type.
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Remarks">The default implementation of the method is to return the default value for the return type.
             In this case this means prbably not to do anything at all.</div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[]):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
-        <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.OO.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[])">GenerateMethod Method</h3>
-        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.OO.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[]):member">
+        <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[])">GenerateMethod Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):member">
           <p class="Summary">
             Generate a method contained in this class.
             </p>
           <h2>Syntax</h2>
-          <div class="Signature">public <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a> <b>GenerateMethod</b> (<a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a> returnType, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">OOModifiers</a> modifiers, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a>[] parameters)</div>
+          <div class="Signature">public <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">IMethod</a> <b>GenerateMethod</b> (<a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a> returnType, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> name, <a href="../ZincOxide.Codegen.Abstract.OO/OOModifiers.html">OOModifiers</a> modifiers, <b>params</b> <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a>[] parameters)</div>
           <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.OO.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[]):Parameters">
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Parameters">
             <dl>
               <dt>
                 <i>returnType</i>
               </dt>
-              <dd>A <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">ZincOxide.Codegen.Abstract.OO.IType</a> that specifies the return type of the method, <tt>null</tt> if the return type is <tt>void</tt> (or irrelevant).</dd>
+              <dd>A <a href="../ZincOxide.Codegen.Abstract.Typed/IType.html">ZincOxide.Codegen.Abstract.Typed.IType</a> that specifies the return type of the method, <tt>null</tt> if the return type is <tt>void</tt> (or irrelevant).</dd>
               <dt>
                 <i>name</i>
               </dt>
@@ -634,68 +610,12 @@
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.OO.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[]):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> that represents the generated method and can be altered.</blockquote>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IMethod.html">ZincOxide.Codegen.Abstract.OO.IMethod</a> that represents the generated method and can be altered.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.OO.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[]):Remarks">The default implementation of the method is to return the default value for the <i>returnType</i>.</div>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Remarks">The default implementation of the method is to return the default value for the <i>returnType</i>.</div>
           <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.OO.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.OO.IType[]):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType})">GetConstructor Method</h3>
-        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):member">
-          <p class="Summary">
-            Obtain the constructor with the given <i>parameters</i> types.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">IConstructor</a> <b>GetConstructor</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Collections.Generic.IEnumerable`1">IEnumerable&lt;IType&gt;</a> parameters)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Parameters">
-            <dl>
-              <dt>
-                <i>parameters</i>
-              </dt>
-              <dd>The list of the type of the parameters (or generalizations) of the requested constructors.</dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">ZincOxide.Codegen.Abstract.OO.IConstructor</a> instance representing the queried constructor, <tt>null</tt> if such constructor
-            does not exists.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Remarks">In case such constructor does not exists, an attempt is made to find
-            a constructor where the parameters are generalized. If this attempt fails
-            as well, <tt>null</tt> is returned.</div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(System.Collections.Generic.IEnumerable{ZincOxide.Codegen.Abstract.OO.IType}):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(ZincOxide.Codegen.Abstract.OO.IType[])">GetConstructor Method</h3>
-        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(ZincOxide.Codegen.Abstract.OO.IType[]):member">
-          <p class="Summary">
-            Obtain the constructor with the given <i>parameters</i> types.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">IConstructor</a> <b>GetConstructor</b> (<b>params</b> <a href="../ZincOxide.Codegen.Abstract.OO/IType.html">IType</a>[] parameters)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(ZincOxide.Codegen.Abstract.OO.IType[]):Parameters">
-            <dl>
-              <dt>
-                <i>parameters</i>
-              </dt>
-              <dd>The list of the type of the parameters (or generalizations) of the requested constructors.</dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(ZincOxide.Codegen.Abstract.OO.IType[]):Returns">A <a href="../ZincOxide.Codegen.Abstract.OO/IConstructor.html">ZincOxide.Codegen.Abstract.OO.IConstructor</a> instance representing the queried constructor, <tt>null</tt> if such constructor
-            does not exists.</blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(ZincOxide.Codegen.Abstract.OO.IType[]):Remarks">In case such constructor does not exists, an attempt is made to find
-            a constructor where the parameters are generalized. If this attempt fails
-            as well, <tt>null</tt> is returned.</div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GetConstructor(ZincOxide.Codegen.Abstract.OO.IType[]):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.IClass.GenerateMethod(ZincOxide.Codegen.Abstract.Typed.IType,System.String,ZincOxide.Codegen.Abstract.OO.OOModifiers,ZincOxide.Codegen.Abstract.Typed.IType[]):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
       </div>

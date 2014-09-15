@@ -212,7 +212,7 @@
             </p>
     <div>
       <h2>Syntax</h2>
-      <div class="Signature" id="T:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase:Signature">public abstract class  <b>OOCodegeneratorBase</b> : <a href="../ZincOxide.Codegen.Abstract/CodegeneratorBase.html">ZincOxide.Codegen.Abstract.CodegeneratorBase</a>,	<a href="../ZincOxide.Codegen.Abstract.OO.Process/IOOCodegenerator.html">IOOCodegenerator</a></div>
+      <div class="Signature" id="T:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase:Signature">public abstract class  <b>OOCodegeneratorBase</b> : <a href="../ZincOxide.Codegen.Abstract.Result/CodegeneratorBase.html">ZincOxide.Codegen.Abstract.Result.CodegeneratorBase</a>,	<a href="../ZincOxide.Codegen.Abstract.OO.Process/IOOCodegenerator.html">IOOCodegenerator</a></div>
     </div>
     <div class="Remarks" id="T:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase:Docs">
       <h2 class="Section">Remarks</h2>
@@ -221,12 +221,12 @@
       </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase:Docs:Version Information">
-        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.Process<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+        <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.Process<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
       <h2 class="Section" id="Members">Members</h2>
       <div class="SectionBox" id="_Members">
         <p>
 								See Also: Inherited members from
-								<a href="../ZincOxide.Codegen.Abstract/CodegeneratorBase.html">ZincOxide.Codegen.Abstract.CodegeneratorBase</a>.
+								<a href="../ZincOxide.Codegen.Abstract.Result/CodegeneratorBase.html">ZincOxide.Codegen.Abstract.Result.CodegeneratorBase</a>.
 							</p>
         <h2 class="Section">Protected Constructors</h2>
         <div class="SectionBox" id="Protected Constructors">
@@ -256,28 +256,6 @@
             <table class="TypeMembers">
               <tr valign="top">
                 <td>
-                  <div>override </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="#M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.ICodegenResult)">GenerateCode</a>
-                  </b>(<a href="../ZincOxide.Codegen.Abstract/ICodegenResult.html">ZincOxide.Codegen.Abstract.ICodegenResult</a>)<blockquote>
-            Alter the given <i>result</i> by generating or modifying code.
-            </blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <div>abstract </div>
-                </td>
-                <td colspan="2">
-                  <b>
-                    <a href="../ZincOxide.Codegen.Abstract/CodegeneratorBase.html#M:ZincOxide.Codegen.Abstract.CodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.ICodegenResult)">GenerateCode</a>
-                  </b>(<a href="../ZincOxide.Codegen.Abstract/ICodegenResult.html">ZincOxide.Codegen.Abstract.ICodegenResult</a>)<blockquote>
-            Alter the given <i>result</i> by generating or modifying code.
-             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract/CodegeneratorBase.html">ZincOxide.Codegen.Abstract.CodegeneratorBase</a>.</i>)</blockquote></td>
-              </tr>
-              <tr valign="top">
-                <td>
                   <div>abstract </div>
                 </td>
                 <td colspan="2">
@@ -287,6 +265,28 @@
             Generate code in the object-oriented programming paradigm using the given <a href="../ZincOxide.Codegen.Abstract.OO.Process/IOOCodegenResult.html">ZincOxide.Codegen.Abstract.OO.Process.IOOCodegenResult</a>
             and alter it.
             </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>override </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.Result.ICodegenResult)">GenerateCode</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Result/ICodegenResult.html">ZincOxide.Codegen.Abstract.Result.ICodegenResult</a>)<blockquote>
+            Alter the given <i>result</i> by generating or modifying code.
+            </blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="../ZincOxide.Codegen.Abstract.Result/CodegeneratorBase.html#M:ZincOxide.Codegen.Abstract.Result.CodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.Result.ICodegenResult)">GenerateCode</a>
+                  </b>(<a href="../ZincOxide.Codegen.Abstract.Result/ICodegenResult.html">ZincOxide.Codegen.Abstract.Result.ICodegenResult</a>)<blockquote>
+            Alter the given <i>result</i> by generating or modifying code.
+             (<i>Inherited from <a href="../ZincOxide.Codegen.Abstract.Result/CodegeneratorBase.html">ZincOxide.Codegen.Abstract.Result.CodegeneratorBase</a>.</i>)</blockquote></td>
               </tr>
             </table>
           </div>
@@ -389,48 +389,7 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase():Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.Process<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
-          <hr size="1" />
-        </blockquote>
-        <h3 id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.ICodegenResult)">GenerateCode Method</h3>
-        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.ICodegenResult):member">
-          <p class="Summary">
-            Alter the given <i>result</i> by generating or modifying code.
-            </p>
-          <h2>Syntax</h2>
-          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GenerateCode</b> (<a href="../ZincOxide.Codegen.Abstract/ICodegenResult.html">ZincOxide.Codegen.Abstract.ICodegenResult</a> result)</div>
-          <h4 class="Subsection">Parameters</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.ICodegenResult):Parameters">
-            <dl>
-              <dt>
-                <i>result</i>
-              </dt>
-              <dd>The <a href="../ZincOxide.Codegen.Abstract/ICodegenResult.html">ZincOxide.Codegen.Abstract.ICodegenResult</a> instance that stores the genrated code.</dd>
-            </dl>
-          </blockquote>
-          <h4 class="Subsection">Exceptions</h4>
-          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.ICodegenResult):Exceptions">
-            <table class="TypeDocumentation">
-              <tr>
-                <th>Type</th>
-                <th>Reason</th>
-              </tr>
-              <tr valign="top">
-                <td>
-                  <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a>
-                </td>
-                <td>If the given <a href="../ZincOxide.Codegen.Abstract/ICodegenResult.html">ZincOxide.Codegen.Abstract.ICodegenResult</a> uses the wrong
-            programming paradigm.</td>
-              </tr>
-            </table>
-          </blockquote>
-          <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.ICodegenResult):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
-          <h2 class="Section">Requirements</h2>
-          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.ICodegenResult):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.Process<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.Process<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
         <h3 id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.OO.Process.IOOCodegenResult)">GenerateCode Method</h3>
@@ -456,7 +415,48 @@
           </div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.OO.Process.IOOCodegenResult):Version Information">
-            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.Process<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5364.1931</div>
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.Process<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.Result.ICodegenResult)">GenerateCode Method</h3>
+        <blockquote id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.Result.ICodegenResult):member">
+          <p class="Summary">
+            Alter the given <i>result</i> by generating or modifying code.
+            </p>
+          <h2>Syntax</h2>
+          <div class="Signature">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>GenerateCode</b> (<a href="../ZincOxide.Codegen.Abstract.Result/ICodegenResult.html">ZincOxide.Codegen.Abstract.Result.ICodegenResult</a> result)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.Result.ICodegenResult):Parameters">
+            <dl>
+              <dt>
+                <i>result</i>
+              </dt>
+              <dd>The <a href="../ZincOxide.Codegen.Abstract.Result/ICodegenResult.html">ZincOxide.Codegen.Abstract.Result.ICodegenResult</a> instance that stores the genrated code.</dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Exceptions</h4>
+          <blockquote class="SubsectionBox" id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.Result.ICodegenResult):Exceptions">
+            <table class="TypeDocumentation">
+              <tr>
+                <th>Type</th>
+                <th>Reason</th>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <a href="../ZincOxide.Exceptions/ZincOxideBugException.html">ZincOxide.Exceptions.ZincOxideBugException</a>
+                </td>
+                <td>If the given <a href="../ZincOxide.Codegen.Abstract.Result/ICodegenResult.html">ZincOxide.Codegen.Abstract.Result.ICodegenResult</a> uses the wrong
+            programming paradigm.</td>
+              </tr>
+            </table>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.Result.ICodegenResult):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:ZincOxide.Codegen.Abstract.OO.Process.OOCodegeneratorBase.GenerateCode(ZincOxide.Codegen.Abstract.Result.ICodegenResult):Version Information">
+            <b>Namespace: </b>ZincOxide.Codegen.Abstract.OO.Process<br /><b>Assembly: </b>ZincOxide (in ZincOxide.dll)<br /><b>Assembly Versions: </b>0.1.5371.23466</div>
           <hr size="1" />
         </blockquote>
       </div>
