@@ -18,8 +18,7 @@
 //
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-namespace ZincOxide {
+namespace ZincOxide.Environment {
 
 	/// <summary>
 	/// An enumeration class to provide information about how floats will be represented.
@@ -30,12 +29,10 @@ namespace ZincOxide {
 		/// Floats will be represented as <see cref="Single"/>.
 		/// </summary>
 		Single = 0x0000000000000010,
-
 		/// <summary>
 		/// Floats will be represented as <see cref="Double"/>.
 		/// </summary>
 		Double = 0x0000000000000020,
-
 		/// <summary>
 		/// Floats will be represented as fractions such that operations are calculated with very high precision.
 		/// </summary>
@@ -44,7 +41,5 @@ namespace ZincOxide {
 		/// <para>Most operations will be calculated exactly. Operations like roots however are calculated approximately.</para>
 		/// </remarks>
 		Fraction = 0x0000000000000030
-
 	}
-
 }

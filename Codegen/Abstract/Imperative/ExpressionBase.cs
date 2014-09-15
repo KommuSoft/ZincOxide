@@ -27,6 +27,18 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	/// </summary>
 	public abstract class ExpressionBase : CommandBase, IExpression {
 
+		#region ICommand implementation
+		/// <summary>
+		/// Check if this <see cref="ICommand"/> is a <see cref="IExpression"/>, an expression is
+		/// a command that returns a value that can be used further in the process.
+		/// </summary>
+		/// <value><c>true</c> if this <see cref="ICommand"/> is an expression; otherwise, <c>false</c>.</value>
+		public override bool IsExpression {
+			get {
+				return true;
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ExpressionBase"/> class.

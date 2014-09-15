@@ -46,7 +46,7 @@ namespace ZincOxide.Codegen.Languages.CSharp {
 		/// Initializes a new instance of the <see cref="Expression"/> class with the given <see cref="CodeObject"/>
 		/// that represents the expression.
 		/// </summary>
-		/// <param name="codeObject">The give <see cref="CodeObject"/> that represents the expression</param>
+		/// <param name="codeObject">The give <see cref="CodeObject"/> that represents the expression.</param>
 		/// <exception cref="ArgumentNullException">If the given <paramref name="codeObject"/> is not effective.</exception>
 		internal Expression (CodeObject codeObject) {
 			if (codeObject == null) {

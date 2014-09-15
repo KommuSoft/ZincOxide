@@ -25,6 +25,7 @@ using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 using ZincOxide.Codegen.Abstract.OO;
 using System.Diagnostics.Contracts;
+using System.CodeDom;
 
 namespace ZincOxide.Codegen.Languages.CSharp {
 
@@ -83,7 +84,12 @@ namespace ZincOxide.Codegen.Languages.CSharp {
 		/// <param name="instance">The instance on which the command is applied.</param>
 		/// <param name="parameters">The given list of expressions with which the call is initialized.</param>
 		public override ICommand CallCommand (IExpression instance, IEnumerable<IExpression> parameters) {
-			throw new NotImplementedException ();//TODO
+
+			if (this.data.ReturnType != typeof(void)) {
+				return new Expression (new CodeMethodInvokeExpression (null, this.data.Name));//TODO instances, parameters
+			} else {
+				return new Expression (new CodeMethodInvokeExpression (null, this.data.Name));//TODO instances, parameters
+			}
 		}
 		#endregion
 	}

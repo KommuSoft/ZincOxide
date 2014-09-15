@@ -22,6 +22,7 @@ using System;
 using ZincOxide.Codegen.Abstract.Imperative;
 using System.Collections.Generic;
 using System.CodeDom;
+using System.Diagnostics.Contracts;
 
 namespace ZincOxide.Codegen.Languages.CSharp {
 
@@ -30,11 +31,28 @@ namespace ZincOxide.Codegen.Languages.CSharp {
 	/// </summary>
 	public class Command : CommandBase, ICSharpCommand {
 
+		#region Fields
+		/// <summary>
+		/// The <see cref="CodeObject"/> value stored in this <see cref="Expression"/> representing an expression.
+		/// </summary>
+		/// <value>A <see cref="CodeObject"/> stored in this <see cref="Expression"/> representing an expression.</value>
+		internal CodeObject CodeObject {
+			get;
+			private set;
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Command"/> class.
 		/// </summary>
-		public Command () {
+		/// <param name="codeObject">The give <see cref="CodeObject"/> that represents the command.</param>
+		/// <exception cref="ArgumentNullException">If the given <paramref name="codeObject"/> is not effective.</exception>
+		public Command (CodeObject codeObject) {
+			if (codeObject == null) {
+				throw new ArgumentNullException ("codeObject");
+			}
+			Contract.EndContractBlock ();
+			this.CodeObject = codeObject;
 		}
 		#endregion
 		#region ICSharpCommand implementation
@@ -48,7 +66,7 @@ namespace ZincOxide.Codegen.Languages.CSharp {
 		/// <para>The result is guaranteed to be effective as are all the <see cref="CodeObject"/> instances.</para>
 		/// </remarks>
 		public IEnumerable<CodeObject> EnumerateCode () {
-			throw new NotImplementedException ();
+			yield return this.CodeObject;
 		}
 		#endregion
 	}
