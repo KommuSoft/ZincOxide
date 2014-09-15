@@ -343,6 +343,8 @@
     <Compile Include="Codegen\Languages\CSharp\Namespace.cs" />
     <Compile Include="Codegen\Languages\CSharp\TypeReference.cs" />
     <Compile Include="Codegen\Abstract\Typed\TypeMemberContract.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\ILiteral.cs" />
+    <Compile Include="Codegen\Abstract\Imperative\LiteralContract.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

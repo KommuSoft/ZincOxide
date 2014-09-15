@@ -83,7 +83,7 @@ namespace ZincSulphate.Codegen.Languages.CSharp {
 		}
 
 		[Test()]
-		public void TestTypeMethodExtractions () {
+		public void TestTypeStringBuilderMethodExtractions () {
 			CSharpCodegenResult cscr = new CSharpCodegenResult (new CodegenEnvironment ());
 			IType sbt = cscr.GetStringBuilderType ();
 			Assert.IsNotNull (sbt);
@@ -101,6 +101,7 @@ namespace ZincSulphate.Codegen.Languages.CSharp {
 			Assert.IsNotNull (im);
 			imc = cscr.GetStringBuilderType ().GetMethod ("ToString").CallCommand (null);
 			Assert.IsNotNull (imc);
+			Assert.IsTrue (imc.IsExpression);
 		}
 	}
 }
