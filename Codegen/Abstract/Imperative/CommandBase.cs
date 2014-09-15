@@ -29,13 +29,25 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	/// <para>A command is a unit of computation. Commands can be grouped together or structured in
 	/// several conditional statements.</para>
 	/// </remarks>
-	public abstract class CommandBase {
+	public abstract class CommandBase : ICommand {
 
+		#region ICommand implementation
+		/// <summary>
+		/// Check if this <see cref="ICommand"/> is a <see cref="IExpression"/>, an expression is
+		/// a command that returns a value that can be used further in the process.
+		/// </summary>
+		/// <value><c>true</c> if this <see cref="ICommand"/> is an expression; otherwise, <c>false</c>.</value>
+		public virtual bool IsExpression {
+			get {
+				return false;
+			}
+		}
+		#endregion
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="CommandBase"/> class.
 		/// </summary>
-		public CommandBase () {
+		protected CommandBase () {
 		}
 		#endregion
 	}

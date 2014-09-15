@@ -25,7 +25,7 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	/// <summary>
 	/// A command that returns an expression as result of a procedure or program.
 	/// </summary>
-	public class ReturnCommandBase : IReturnCommand {
+	public class ReturnCommandBase : CommandBase, IReturnCommand {
 
 		#region IReturnCommand implementation
 		/// <summary>

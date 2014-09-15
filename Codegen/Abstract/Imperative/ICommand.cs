@@ -29,5 +29,13 @@ namespace ZincOxide.Codegen.Abstract.Imperative {
 	[ContractClass(typeof(CommandContract))]
 	public interface ICommand {
 
+		/// <summary>
+		/// Check if this <see cref="ICommand"/> is a <see cref="IExpression"/>, an expression is
+		/// a command that returns a value that can be used further in the process.
+		/// </summary>
+		/// <value><c>true</c> if this <see cref="ICommand"/> is an expression; otherwise, <c>false</c>.</value>
+		bool IsExpression {
+			get;
+		}
 	}
 }

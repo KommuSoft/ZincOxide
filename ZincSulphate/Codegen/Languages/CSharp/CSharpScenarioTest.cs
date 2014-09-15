@@ -47,6 +47,10 @@ namespace ZincSulphate.Codegen.Languages.CSharp {
 			Assert.IsNotNull (im);
 			ICommand imc = cscr.GetStringBuilderType ().GetMethod ("Append", st).CallCommand (null);
 			Assert.IsNotNull (imc);
+			im = cscr.GetStringBuilderType ().GetMethod ("ToString", st);
+			Assert.IsNotNull (im);
+			imc = cscr.GetStringBuilderType ().GetMethod ("ToString", st).CallCommand (null);
+			Assert.IsNotNull (imc);
 		}
 	}
 }

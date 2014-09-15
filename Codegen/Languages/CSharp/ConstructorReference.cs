@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using ZincOxide.Codegen.Abstract.OO;
 using System.Diagnostics.Contracts;
+using System.CodeDom;
 
 namespace ZincOxide.Codegen.Languages.CSharp {
 
@@ -87,8 +88,9 @@ namespace ZincOxide.Codegen.Languages.CSharp {
 		/// be ignored.</para>
 		/// </remarks>
 		public override IExpression CallCommand (IEnumerable<IExpression> parameters) {
-
-			throw new NotImplementedException ();//TODO
+			Contract.Requires (this.TypeContainer is ICSharpType);
+			ICSharpType icst = this.TypeContainer as ICSharpType;
+			return new Expression (new CodeObjectCreateExpression (icst.Reference));
 		}
 		#endregion
 	}
